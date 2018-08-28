@@ -6,9 +6,26 @@
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+//@import '~bootstrap/scss/bootstrap';
+
+@import 'plugins/accordion';
+@import 'plugins/gallery';
+@import 'plugins/imagepopup';
 
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+#app{
+    > .container{
+
+        .card{
+            margin: auto;
+        }
+    }
+
+    h1{
+        margin: 2rem 0 3rem 0;
+    }
 }

@@ -9,6 +9,14 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+
+/**
+* In between we import the custom javascript plugins.
+**/
+require('./plugins/accordion');   // accordion.js
+require('./plugins/gallery');     // gallery.js
+require('./plugins/imagepopup');  // imagepopup.js
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
