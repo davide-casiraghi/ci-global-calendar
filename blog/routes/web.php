@@ -12,5 +12,26 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return view('home');
 });
+
+Route::resource('posts','PostController');
+
+Route::resource('categories','CategoryController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+// TODO - Da finire
+Route::get('/blog', function () {
+    $posts = App\Post::all();
+    return view('posts.show', compact('post'));
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

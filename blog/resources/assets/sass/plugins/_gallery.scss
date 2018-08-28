@@ -1,0 +1,29 @@
+.gallery {
+	.item{
+		&.animated{
+			transition: transform 0.15s linear;
+
+			&:hover{
+				transform: scale(1.04);
+				box-shadow: 0 2px 20px 2px rgba(0,0,0,.45);
+			}
+		}
+
+		a{
+			cursor: zoom-in;
+			display: block;
+			position: relative;
+
+			i{
+				&.fa-play-circle{
+					position:absolute;
+    				top: calc(50% - 25px); /* 50% - 3/4 of icon height */
+    				left: calc(50% - 25px); /* 50% - 3/4 of icon height */
+    				color: rgba(255, 255, 255, 0.8);
+
+    				font-size: 50px;
+				}
+			}
+		}
+	}
+}
