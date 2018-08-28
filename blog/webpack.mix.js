@@ -11,5 +11,53 @@ let mix = require('laravel-mix');
  |
  */
 
+// Fix for the Jquery problem
+ mix.webpackConfig(webpack => {
+     return {
+         plugins: [
+             new webpack.ProvidePlugin({
+                 $: 'jquery',
+                 jQuery: 'jquery',
+                 'window.jQuery': 'jquery',
+             })
+         ]
+     };
+ });
+
+/* JS (generate: manifest.js, vendor.js, app.js)*/
+/*  jQuery first, then Popper.js (tooltips), then Bootstrap JS */
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+   .extract([
+        'jquery',
+        //'node_modules/jquery/dist/jquery.js',
+        'popper.js', //((positioning engine for tooltips))
+        'bootstrap',
+        'jquery-ui',
+        'jquery-ui/ui/widgets/datepicker',
+        'jquery-ui/ui/widgets/accordion' ,
+        'smartmenus',
+        /*'smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.js',*/
+        'smartmenus/dist/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.js',
+        'tooltip.js', //(tooltips)
+        'slick-carousel',
+        'gridalicious',
+        '@fancyapps/fancybox/dist/jquery.fancybox.js',
+        //'ckeditor',
+    ]);
+
+
+/* CSS - Vendor - OK*/
+mix.styles([
+   'node_modules/bootstrap/dist/css/bootstrap.css',
+   'node_modules/jquery-ui/themes/base/core.css',
+   'node_modules/jquery-ui/themes/base/accordion.css',
+   /*'node_modules/smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.css',*/
+   'node_modules/smartmenus/dist/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.css',
+   'node_modules/smartmenus/dist/css/sm-core-css.css',
+   'node_modules/slick-carousel/slick/slick.css',
+   'node_modules/slick-carousel/slick/slick-theme.css',
+   'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css',
+], 'public/css/vendor.css');
+
+/* CSS - Custom - OK */
+mix.sass('resources/assets/sass/app.scss', 'public/css');
