@@ -38,6 +38,22 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
+                    <strong>Category:</strong>
+                    <!--<select name="category_id" class="form-control">
+                        <option value="1" selected>aaa</option>
+                        <option value="2">bbb</option>
+                        <option value="3">ccc</option>
+                    </select>-->
+                    <select name="category_id" class="form-control">
+                        @foreach ($categories as $category)
+                            <option value="{{$loop->index}}">{!! $category !!}</option>
+                        @endforeach
+                    </select>
+
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
                     <strong>Body:</strong>
                     <textarea class="form-control" style="height:150px" name="body" placeholder="Detail"></textarea>
                 </div>
@@ -62,7 +78,7 @@
             </div>
 
             <input type="hidden" name="author_id" value="1">
-            <input type="hidden" name="category_id" value="3">
+            <!--<input type="hidden" name="category_id" value="3">-->
             <input type="hidden" name="meta_description" value="3">
             <input type="hidden" name="meta_keywords" value="3">
             <input type="hidden" name="seo_title" value="3">
