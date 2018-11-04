@@ -174,6 +174,28 @@
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+#app nav.navbar {
+  background-color: #B5A575;
+  padding: 0;
+}
+
+#app nav.navbar ul li.nav-item a.nav-link {
+  color: white;
+  padding: 1rem 0.5rem;
+}
+
+#app nav.navbar ul li.nav-item a.nav-link:hover {
+  background-color: #A59668;
+}
+
+#app nav.navbar ul li.nav-item a.has-submenu {
+  padding-right: 4rem;
+}
+
+#app nav.navbar button {
+  margin: .5rem;
+}
+
 #app > .container .card {
   margin: auto;
 }

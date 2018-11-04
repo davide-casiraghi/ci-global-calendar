@@ -18,6 +18,33 @@
 }
 
 #app{
+    nav{
+        &.navbar{
+            background-color: #B5A575;
+            padding: 0;
+            ul{
+                li{
+                    &.nav-item{
+                        a{
+                            &.nav-link{
+                                color: white;
+                                padding: 1rem 0.5rem;
+                                &:hover{
+                                    background-color: #A59668;
+                                }
+                            }
+                            &.has-submenu{
+                                padding-right: 4rem;
+                            }
+                        }
+                    }
+                }
+            }
+            button{
+                margin: .5rem;
+            }
+        }
+    }
     > .container{
 
         .card{
@@ -28,4 +55,5 @@
     h1{
         margin: 2rem 0 3rem 0;
     }
+
 }

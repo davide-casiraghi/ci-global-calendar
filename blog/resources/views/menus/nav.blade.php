@@ -1,9 +1,9 @@
 
 {{-- Nav bar - Bootrap 4  and https://www.smartmenus.org--}}
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+<nav class="navbar navbar-expand-lg navbar-light"> {{--navbar-dark bg-dark--}}
     <div class="container">
-        <a class="navbar-brand" href="#">Navbar</a>
+        {{--<a class="navbar-brand" href="#">Navbar</a>--}}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

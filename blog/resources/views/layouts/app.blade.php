@@ -22,11 +22,11 @@
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 
-<body id="app"> <!-- Laravel use VUE as default - https://stackoverflow.com/questions/41411344/vue-warn-cannot-find-element-app#41411385-->
+<body id="app" class="pb-5"> <!-- Laravel use VUE as default - https://stackoverflow.com/questions/41411344/vue-warn-cannot-find-element-app#41411385-->
     {{-- {!! menu('main', 'nav') !!} --}}
     @include('menus.nav', ['items' => $MyNavBar->roots()])
 
-    <div class="container">
+    <div class="container pt-5">
             @yield('content')
     </div>
 
