@@ -30,7 +30,7 @@ class GenerateMenus
 
 
             //$menu->add('Contact', 'contact');
-            $menu->add('Contact', ['action' => ['PostController@show', 'id' => 8]]);
+            $menu->add('Contact', ['action' => ['PostController@show', 'id' => 7]]);
             $menu->add('Admin', 'admin');
                 $menu->admin->add('Posts', 'posts');
                 $menu->admin->add('Categories', 'categories');

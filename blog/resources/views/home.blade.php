@@ -20,14 +20,16 @@
         <div class="row">
             <div class="col-md-12">
                 Welcome to Contact Improvisation Slovenia!<br />
-                This site aims to be a central resource for all things related to contact improvisation in Slovenia.<br />
+                This site aims to be a central resource for all things related to contact improvisation in Slovenia.<br /><br />
 
-                What you will find here:<br /><br />
+                What you will find here:<br />
 
-                A listing of the weekly jams in Slovenia.<br />
-                Links to teachers of contact improvisation in Slovenia and further resources for learning about contact improvisation.<br />
-                All events can also be found in the calendar.<br />
-                More info about this website and the people behind it.<br />
+                <ul>
+                    <li>A listing of the weekly jams in Slovenia.</li>
+                    <li>Links to teachers of contact improvisation in Slovenia and further resources for learning about contact improvisation.</li>
+                    <li>All events can also be found in the calendar.</li>
+                    <li>More info about this website and the people behind it.</li>
+                </ul>
             </div>
         </div>
 

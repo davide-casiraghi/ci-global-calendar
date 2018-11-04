@@ -7,7 +7,7 @@
             <div class="pull-left">
                 <h2>Laravel 5.6 CRUD Example from scratch</h2>
             </div>
-            <div class="pull-right">
+            <div class="pull-right mt-4 float-right">
                 <a class="btn btn-success" href="{{ route('categories.create') }}"> Create New Category</a>
             </div>
         </div>
@@ -21,16 +21,16 @@
     @endif
 
 
-    <table class="table table-bordered">
+    <table class="table table-bordered mt-4">
         <tr>
-            <th>No</th>
+            <th>ID</th>
             <th>Name</th>
             <th>Slug</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($categories as $category)
         <tr>
-            <td>{{ ++$i }}</td>
+            <td>{{ $category->id }}</td>
             <td>{{ $category->name }}</td>
             <td>{{ $category->slug }}</td>
             <td>

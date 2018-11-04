@@ -7,7 +7,7 @@
             <div class="pull-left">
                 <h2>Laravel 5.6 CRUD Example from scratch</h2>
             </div>
-            <div class="pull-right">
+            <div class="pull-right mt-4 float-right">
                 <a class="btn btn-success" href="{{ route('posts.create') }}"> Create New post</a>
             </div>
         </div>
@@ -21,16 +21,16 @@
     @endif
 
 
-    <table class="table table-bordered">
+    <table class="table table-bordered mt-4">
         <tr>
-            <th>No</th>
+            <th>ID</th>
             <th>Title</th>
             <th>Body</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($posts as $post)
         <tr>
-            <td>{{ ++$i }}</td>
+            <td>{{ $post->id }}</td>
             <td>{{ $post->title }}</td>
             <td>{{ $post->body }}</td>
             <td>
