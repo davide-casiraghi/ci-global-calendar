@@ -174,33 +174,33 @@
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-#app nav.navbar {
+body nav.navbar {
   background-color: #B5A575;
   padding: 0;
 }
 
-#app nav.navbar ul li.nav-item a.nav-link {
+body nav.navbar ul li.nav-item a.nav-link {
   color: white;
   padding: 1rem 0.5rem;
 }
 
-#app nav.navbar ul li.nav-item a.nav-link:hover {
+body nav.navbar ul li.nav-item a.nav-link:hover {
   background-color: #A59668;
 }
 
-#app nav.navbar ul li.nav-item a.has-submenu {
+body nav.navbar ul li.nav-item a.has-submenu {
   padding-right: 4rem;
 }
 
-#app nav.navbar button {
+body nav.navbar button {
   margin: .5rem;
 }
 
-#app > .container .card {
+body > .container .card {
   margin: auto;
 }
 
-#app h1 {
+body h1 {
   margin: 2rem 0 3rem 0;
 }
 

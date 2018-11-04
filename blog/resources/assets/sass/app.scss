@@ -17,7 +17,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-#app{
+body{
     nav{
         &.navbar{
             background-color: #B5A575;
@@ -49,6 +49,12 @@
 
         .card{
             margin: auto;
+        }
+        .postTitle{
+
+        }
+        .postBody{
+
         }
     }
 
