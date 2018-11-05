@@ -7,7 +7,7 @@ use App\Category;
 
 use App\Classes\AccordionClass;
 use App\Classes\GalleryClass;
-
+use App\Classes\CardClass;
 
 use Illuminate\Http\Request;
 
@@ -90,6 +90,10 @@ class PostController extends Controller
             $post->body = $accordionClass->getAccordion($post->body);
             //dump($post->body);
 
+        // Card
+            $cardClass = new CardClass();
+            $post->body = $cardClass->getCard($post->body);
+
         // Gallery
             $storagePath = storage_path('app/public');
             $publicPath = public_path();
@@ -160,6 +164,10 @@ class PostController extends Controller
             $accordionClass = new AccordionClass();
             $post->body = $accordionClass->getAccordion($post->body);
             //dump($post->body);
+
+        // Card
+            $cardClass = new CardClass();
+            $post->body = $cardClass->getCard($post->body);
 
         // Gallery
             $storagePath = storage_path('app/public');
