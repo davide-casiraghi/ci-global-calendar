@@ -9,6 +9,7 @@ use App\Classes\AccordionClass;
 use App\Classes\GalleryClass;
 use App\Classes\CardClass;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -26,6 +27,8 @@ class PostController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    // **********************************************************************
+
     /**
      * Show the form for creating a new resource.
      *
@@ -40,6 +43,8 @@ class PostController extends Controller
         //return view('posts.create')->with('categories', Category::all()->pluck('name', 'id'));
         return view('posts.create')->with('categories', $categories);
     }
+
+    // **********************************************************************
 
     /**
      * Store a newly created resource in storage.
@@ -77,6 +82,8 @@ class PostController extends Controller
                         ->with('success','Post created successfully.');
     }
 
+    // **********************************************************************
+
     /**
      * Display the specified resource.
      *
@@ -106,6 +113,8 @@ class PostController extends Controller
         return view('posts.show',compact('post'));
     }
 
+    // **********************************************************************
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -116,6 +125,8 @@ class PostController extends Controller
     {
         return view('posts.edit',compact('post'));
     }
+
+    // **********************************************************************
 
     /**
      * Update the specified resource in storage.
@@ -137,6 +148,8 @@ class PostController extends Controller
                         ->with('success','Post updated successfully');
     }
 
+    // **********************************************************************
+
     /**
      * Remove the specified resource from storage.
      *
@@ -150,6 +163,23 @@ class PostController extends Controller
                         ->with('success','Post deleted successfully');
     }
 
+    // **********************************************************************
+
+    /**
+     * Return the single post datas by post id [title, body, image]
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+     public function postdata($post_id){
+         $ret = DB::table('posts')->where('id', $post_id)->first();
+         //dump($ret); 
+
+         return $ret;
+     }
+
+
+
 
     /**
      * Return the post HTML by SLUG.
@@ -157,6 +187,7 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
+/*
     public function postdata($slug){
         $post = Post::where('slug', $slug)->first();
 
@@ -182,5 +213,6 @@ class PostController extends Controller
         //return print_r($post);
         return view('post', array('post' => $post));
     }
+    */
 
 }

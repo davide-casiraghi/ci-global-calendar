@@ -2,6 +2,10 @@
 
 namespace App\Classes;
 
+/*
+use App\Post;
+use Illuminate\Http\Request;*/
+
 class CardClass {
 
     /**
@@ -22,7 +26,7 @@ class CardClass {
              $textColSize = 12-$matches[6];
              $ret['text_col_size_class'] = "col-md-".$textColSize;
 
-             dump($ret);
+             //dump($ret);
 
          return $ret;
      }
@@ -59,9 +63,12 @@ class CardClass {
 
            $image_dir_url = "/storage/images";
 
-           $ret['post_title'] = "TiTlE";
-           $ret['post_body'] = "postBody postBody postBody postBody postBody ";
-           $ret['post_image'] = $image_dir_url."ciao.png";
+           $postData = app('App\Http\Controllers\PostController')->postdata($parameters['post_id']);
+
+           $ret['post_title'] = $postData->title;
+           $ret['post_body'] = $postData->body;
+           $ret['post_image'] = $image_dir_url.$postData->introimage_src;
+           $ret['post_image_alt'] = $image_dir_url.$postData->introimage_alt;
 
            return $ret;
        }
