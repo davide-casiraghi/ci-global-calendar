@@ -908,6 +908,10 @@ __webpack_require__(43); // accordion.js
 __webpack_require__(44); // gallery.js
 __webpack_require__(45); // imagepopup.js
 
+// File manager for intro_image button in edit.post view
+__webpack_require__(66); // lfm.js
+__webpack_require__(65); // editPostImageFilemanager.js
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -30704,6 +30708,58 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(jQuery) {jQuery(document).ready(function () {
+    jQuery('#lfm').filemanager('image');
+});
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(jQuery) {(function ($) {
+
+  $.fn.filemanager = function (type, options) {
+    type = type || 'file';
+
+    this.on('click', function (e) {
+      var route_prefix = options && options.prefix ? options.prefix : '/laravel-filemanager';
+      localStorage.setItem('target_input', $(this).data('input'));
+      localStorage.setItem('target_preview', $(this).data('preview'));
+      window.open(route_prefix + '?type=' + type, 'FileManager', 'width=900,height=600');
+      window.SetUrl = function (url, file_path) {
+        //set the value of the desired input to image url
+        var target_input = $('#' + localStorage.getItem('target_input'));
+        target_input.val(file_path).trigger('change');
+
+        //set or change the preview image src
+        var target_preview = $('#' + localStorage.getItem('target_preview'));
+        target_preview.attr('src', url).trigger('change');
+      };
+      return false;
+    });
+  };
+})(jQuery);
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })
 ],[16]);

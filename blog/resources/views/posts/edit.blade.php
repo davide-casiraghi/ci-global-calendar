@@ -2,8 +2,9 @@
 
 
 @section('javascript')
-    <script type="text/javascript" src="{{ asset('js/tinymce/tinymce.min.js') }}" ></script>
 
+    {{-- Initialize editor for the main textbox --}}
+    <script type="text/javascript" src="{{ asset('js/tinymce/tinymce.min.js') }}" ></script>
     <script type="text/javascript">
 		// https://www.tiny.cloud/docs/get-started/basic-setup/
 			var editor_config = {
@@ -47,6 +48,13 @@
 
 			tinymce.init(editor_config);
 		</script>
+
+        {{--<script src="/vendor/unisharp/laravel-filemanager/public/js/lfm.js"></script>--}}
+        {{--<script type="text/javascript" src="{{ asset('js/laravel-filemanager/lfm.js') }}" defer></script>--}}
+
+
+        {{-- Initialize Image browse for the intro image button --}}
+            {{-- resources/asset/js/plugins/editPostImageFilemanager.js --}}
 @endsection
 
 
@@ -91,6 +99,31 @@
                     <textarea class="form-control" style="height:150px" name="body" placeholder="Detail" id="bodyTextarea">{{ $post->body }}</textarea>
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                {{--<div class="form-group">
+                    <strong>Intro Image:</strong>
+                    <input type="text" name="intro_image" value="{{ $post->intro_image }}" class="form-control" placeholder="Intro Image">
+                </div>--}}
+                <div class="input-group">
+
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><strong>Intro Image</strong></span>
+                    </div>
+                    <input id="thumbnail" class="form-control" type="text" name="filepath">
+                    <span class="input-group-btn">
+                        <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                            <i class="fa fa-picture-o"></i> Choose
+                        </a>
+                    </span>
+                </div>
+                <img id="holder" style="margin-top:15px;max-height:100px;">
+            </div>
+
+
+
+
+
+
         </div>
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
