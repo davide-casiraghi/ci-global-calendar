@@ -76,6 +76,9 @@ class PostController extends Controller
         $post->status = $request->get('status');
         $post->featured = $request->get('featured');
 
+        $post->introimage_src = $request->get('introimage_src');
+        $post->introimage_alt = $request->get('introimage_alt');
+
         $post->save();
 
         return redirect()->route('posts.index')
@@ -173,11 +176,10 @@ class PostController extends Controller
      */
      public function postdata($post_id){
          $ret = DB::table('posts')->where('id', $post_id)->first();
-         //dump($ret); 
+         //dump($ret);
 
          return $ret;
      }
-
 
 
 

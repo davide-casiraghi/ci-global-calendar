@@ -1,3 +1,5 @@
 jQuery(document).ready(function () {
-    jQuery('#lfm').filemanager('image');
+    if( jQuery("#lfm").length ){
+        jQuery('#lfm').filemanager('image');
+    }
 });

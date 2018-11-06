@@ -30728,7 +30728,9 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {jQuery(document).ready(function () {
-    jQuery('#lfm').filemanager('image');
+    if (jQuery("#lfm").length) {
+        jQuery('#lfm').filemanager('image');
+    }
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
