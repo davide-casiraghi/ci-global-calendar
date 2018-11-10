@@ -90,14 +90,16 @@ class ColumnsClass {
      *  @return string $ret             the HTML to print on screen
     **/
     function prepareColumns($parameters, $postsData) {
-
           $ret = "<div class='container columns'>";
             $ret .= "<div class='row'>";
+            //dump($postsData);
               foreach ($postsData as $key => $postData) {
                   $ret .= "<div class='col'>";
-                    $ret .= "<img class='rounded-circle mb-4' src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' alt='Generic placeholder image' width='140' height='140'>";
-                    $ret .= "<h2 class='mb-4'>Heading</h2>";
-                    $ret .= "<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>";
+                    //$ret .= "<img class='rounded-circle mb-4' src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' alt='Generic placeholder image' width='140' height='140'>";
+                    $ret .= "<img class='rounded-circle mb-4' style='width:100%;' src='".$postData->introimage_src."' alt='".$postData->introimage_alt."'>";
+                    $ret .= "<h2 class='mb-4'>".$postData->title."</h2>";
+                    //$ret .= "<div>".$postData->body."</div>";
+                    $ret .= "<div>".str_limit($postData->body,100)."</div>";
                     $ret .= "<p><a class='btn btn-secondary' href='#' role='button'>View details »</a></p>";
                   $ret .= "</div>";
               }
