@@ -101,7 +101,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><strong>Intro Image</strong></span>
                     </div>
-                    <input id="thumbnail" class="form-control" type="text" name="introimage_src">
+                    <input id="thumbnail" class="form-control" type="text" name="introimage_src" value="{{ $post->introimage_src }}">
                     <span class="input-group-btn">
                         <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
                             <i class="fa fa-picture-o"></i> Choose

@@ -61,14 +61,14 @@ class CardClass {
 
        function getPostData($parameters) {
 
-           $image_dir_url = "/storage/images";
+           //$image_dir_url = "/storage/images";
 
            $postData = app('App\Http\Controllers\PostController')->postdata($parameters['post_id']);
 
            $ret['post_title'] = $postData->title;
            $ret['post_body'] = $postData->body;
-           $ret['post_image'] = $image_dir_url.$postData->introimage_src;
-           $ret['post_image_alt'] = $image_dir_url.$postData->introimage_alt;
+           $ret['post_image_src'] = $postData->introimage_src;
+           $ret['post_image_alt'] = $postData->introimage_alt;
 
            return $ret;
        }
@@ -89,53 +89,12 @@ class CardClass {
                     $ret .= "<p class='lead'>".$postData['post_body']."</p>";
                 $ret .= "</div>";
                 $ret .= "<div class='col-md-5'>";
-                    $ret .= "<img class='featurette-image img-fluid mx-auto' data-src='holder.js/500x500/auto' alt='500x500' style='width: 500px; height: 500px;' src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_166e45c36da%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_166e45c36da%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.125%22%20y%3D%22261.1%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E' data-holder-rendered='true'>";
+                    $ret .= "<img class='featurette-image img-fluid mx-auto' src='".$postData['post_image_src']."' alt='".$postData['post_image_alt']."'>";
                 $ret .= "</div>";
             $ret .= "</div>";
 
           return $ret;
       }
-
-
-    // **********************************************************************
-
-
-
-/*
-    public function getCard($postBody) {
-
-        // Load the accordion template
-            $cardTemplate = "<div class='row featurette'>";
-                $cardTemplate .= "<div class='col-md-7'>";
-                $cardTemplate .= "<h2 class='featurette-heading'>{CARD_TITLE}</h2>";
-                $cardTemplate .= "<p class='lead'>{CARD_CONTENT}</p>";
-          $cardTemplate .= "</div>";
-          $cardTemplate .= "<div class='col-md-5'>";
-            $cardTemplate .= "<img class='featurette-image img-fluid mx-auto' data-src='holder.js/500x500/auto' alt='500x500' style='width: 500px; height: 500px;' src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_166e45c36da%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_166e45c36da%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.125%22%20y%3D%22261.1%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E' data-holder-rendered='true'>";
-            $cardTemplate .= "</div>";
-        $cardTemplate .= "</div>";
-
-
-        // Do the replacement if needed
-            if (substr_count($postBody, '{slide') > 0) {
-                $regex = "#(?:<p>)?\{slide[r]?=([^}]+)\}(?:</p>)?(.*?)(?:<p>)?\{/slide[r]?\}(?:</p>)?#s";
-
-                $postBody = preg_replace(
-                    $regex,
-                    str_replace(
-                        array("{CARD_TITLE}", "{CARD_CONTENT}"),
-                        array("$1", "$2"),
-                        $cardTemplate
-                    ),
-                    $postBody
-                );
-
-            }
-
-
-        return $postBody;
-    }
-*/
 
     // **********************************************************************
 
