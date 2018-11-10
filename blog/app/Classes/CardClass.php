@@ -1,5 +1,13 @@
 <?php
 
+/*
+    Example of strings that evoke the plugin:
+    {# card post_id=[6] img_alignment=[right] img_col_size=[3] #}
+    or
+    {# card post_id=[9] img_alignment=[left] img_col_size=[3] #}
+*/
+
+
 namespace App\Classes;
 
 class CardClass {
@@ -58,8 +66,6 @@ class CardClass {
           }
           return $ret;
       }
-
-
 
       // **********************************************************************
 
