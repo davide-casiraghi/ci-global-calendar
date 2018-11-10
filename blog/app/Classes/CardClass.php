@@ -21,10 +21,24 @@ class CardClass {
              //dump($matches);
 
              $ret['post_id'] = $matches[2];
-             $ret['img_alignment'] = $matches[4];
              $ret['img_col_size_class'] = "col-md-".$matches[6];
              $textColSize = 12-$matches[6];
              $ret['text_col_size_class'] = "col-md-".$textColSize;
+
+             // Image alignment
+                 //$ret['img_alignment'] = $matches[4];
+                 $imageAlignment =  $matches[4];
+
+                 switch ($imageAlignment) {
+                     case 'left':
+                         $ret['img_col_order_class'] = "order-md-1";
+                         $ret['text_col_order_class'] = "order-md-2";
+                         break;
+                     case 'right':
+                         $ret['img_col_order_class'] = "order-md-2";
+                         $ret['text_col_order_class'] = "order-md-1";
+                         break;
+                 }
 
              //dump($ret);
 
@@ -84,11 +98,11 @@ class CardClass {
       function prepareCard($parameters, $postData) {
 
             $ret = "<div class='row featurette'>";
-                $ret .= "<div class='col-md-7 my-auto'>";
+                $ret .= "<div class='col-md-7 my-auto ".$parameters['text_col_order_class']."'>";
                     $ret .= "<h2 class='featurette-heading'>".$postData['post_title']."</h2>";
                     $ret .= "<div class='lead'>".$postData['post_body']."</div>";
                 $ret .= "</div>";
-                $ret .= "<div class='col-md-5'>";
+                $ret .= "<div class='col-md-5 ".$parameters['img_col_order_class']."'>";
                     $ret .= "<img class='featurette-image img-fluid mx-auto' src='".$postData['post_image_src']."' alt='".$postData['post_image_alt']."'>";
                 $ret .= "</div>";
             $ret .= "</div>";
