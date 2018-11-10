@@ -8,6 +8,7 @@ use App\Category;
 use App\Classes\AccordionClass;
 use App\Classes\GalleryClass;
 use App\Classes\CardClass;
+use App\Classes\ColumnsClass;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -104,6 +105,10 @@ class PostController extends Controller
             $cardClass = new CardClass();
             $post->body = $cardClass->getCard($post->body);
 
+        // Category Columns
+            $columnClass = new ColumnsClass();
+            $post->body = $columnClass->getColumns($post->body);
+
         // Gallery
             $storagePath = storage_path('app/public');
             $publicPath = public_path();
@@ -181,6 +186,21 @@ class PostController extends Controller
          return $ret;
      }
 
+     // **********************************************************************
+
+     /**
+      * Return all the posts from by category id
+      *
+      * @param  \App\Post  $post
+      * @return \Illuminate\Http\Response
+      */
+      public function postsdata($cat_id){
+          $ret = DB::table('posts')->where('category_id', $cat_id)->get();
+          
+          return $ret;
+      }
+
+      // **********************************************************************
 
 
     /**
