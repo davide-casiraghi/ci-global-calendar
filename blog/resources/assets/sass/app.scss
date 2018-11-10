@@ -8,11 +8,11 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-
 @import 'plugins/accordion';
 @import 'plugins/gallery';
 @import 'plugins/imagepopup';
 @import 'plugins/card';
+@import 'plugins/columns';
 
 .navbar-laravel {
   background-color: #fff;

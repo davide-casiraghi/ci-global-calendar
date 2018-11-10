@@ -2,10 +2,6 @@
 
 namespace App\Classes;
 
-/*
-use App\Post;
-use Illuminate\Http\Request;*/
-
 class CardClass {
 
     /**
