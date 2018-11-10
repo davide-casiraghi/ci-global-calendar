@@ -135,7 +135,7 @@
                 </div>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 pull-right my-auto">
-                <input type="text" name="introimage_alt" value="{{ $post->introimage_alt }}" class="form-control" placeholder="Alt">
+                <input type="text" name="introimage_alt" class="form-control" placeholder="Alt">
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 pull-right my-auto">
                 <img id="holder" style="width:100%;">
