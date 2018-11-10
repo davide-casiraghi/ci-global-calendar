@@ -90,17 +90,13 @@ class ColumnsClass {
      *  @return string $ret             the HTML to print on screen
     **/
     function prepareColumns($parameters, $postsData) {
-        dump($postsData);
 
-        $columnWidth = number_format(floor(12/count($postsData)));
-        $columnWidthClass = "col-lg-".$columnWidth;
-
-          $ret = "<div class='container marketing'>";
-            $ret = "<div class='row'>";
+          $ret = "<div class='container columns'>";
+            $ret .= "<div class='row'>";
               foreach ($postsData as $key => $postData) {
-                  $ret .= "<div class='".$columnWidthClass."'>";
-                    $ret .= "<img class='rounded-circle' src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' alt='Generic placeholder image' width='140' height='140'>";
-                    $ret .= "<h2>Heading</h2>";
+                  $ret .= "<div class='col'>";
+                    $ret .= "<img class='rounded-circle mb-4' src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' alt='Generic placeholder image' width='140' height='140'>";
+                    $ret .= "<h2 class='mb-4'>Heading</h2>";
                     $ret .= "<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>";
                     $ret .= "<p><a class='btn btn-secondary' href='#' role='button'>View details »</a></p>";
                   $ret .= "</div>";

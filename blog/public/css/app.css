@@ -10658,6 +10658,10 @@ a.text-dark:focus {
   font-weight: 300;
 }
 
+.columns .row .col {
+  text-align: center;
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

@@ -89,7 +89,7 @@ jQuery(document).ready(function(){
 	/* Assign class zoomable to zoomable images */
 	/********************************************/
 
-	jQuery(".postBody img, .zoomImage").not(".no_zoomImage").not(".gallery img").not(".featurette-image").each(function( index ) {
+	jQuery(".postBody img, .zoomImage").not(".no_zoomImage").not(".gallery img").not(".featurette-image").not(".columns img").each(function( index ) {
 
     // Wrap image in a container
     	if (jQuery(this).attr('alt'))
