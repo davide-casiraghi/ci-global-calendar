@@ -84,7 +84,7 @@ class CardClass {
       function prepareCard($parameters, $postData) {
 
             $ret = "<div class='row featurette'>";
-                $ret .= "<div class='col-md-7'>";
+                $ret .= "<div class='col-md-7 my-auto'>";
                     $ret .= "<h2 class='featurette-heading'>".$postData['post_title']."</h2>";
                     $ret .= "<p class='lead'>".$postData['post_body']."</p>";
                 $ret .= "</div>";

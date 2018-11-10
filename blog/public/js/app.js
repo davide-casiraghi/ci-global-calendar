@@ -883,7 +883,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(17);
-module.exports = __webpack_require__(50);
+module.exports = __webpack_require__(52);
 
 
 /***/ }),
@@ -909,8 +909,8 @@ __webpack_require__(44); // gallery.js
 __webpack_require__(45); // imagepopup.js
 
 // File manager for intro_image button in edit.post view
-__webpack_require__(66); // lfm.js
-__webpack_require__(65); // editPostImageFilemanager.js
+__webpack_require__(46); // lfm.js
+__webpack_require__(47); // editPostImageFilemanager.js
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -918,7 +918,7 @@ __webpack_require__(65); // editPostImageFilemanager.js
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(46));
+Vue.component('example-component', __webpack_require__(48));
 
 var app = new Vue({
   el: '#app'
@@ -30479,12 +30479,52 @@ jQuery(document).ready(function () {
 /* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/* WEBPACK VAR INJECTION */(function(jQuery) {(function ($) {
+
+  $.fn.filemanager = function (type, options) {
+    type = type || 'file';
+
+    this.on('click', function (e) {
+      var route_prefix = options && options.prefix ? options.prefix : '/laravel-filemanager';
+      localStorage.setItem('target_input', $(this).data('input'));
+      localStorage.setItem('target_preview', $(this).data('preview'));
+      window.open(route_prefix + '?type=' + type, 'FileManager', 'width=900,height=600');
+      window.SetUrl = function (url, file_path) {
+        //set the value of the desired input to image url
+        var target_input = $('#' + localStorage.getItem('target_input'));
+        target_input.val(file_path).trigger('change');
+
+        //set or change the preview image src
+        var target_preview = $('#' + localStorage.getItem('target_preview'));
+        target_preview.attr('src', url).trigger('change');
+      };
+      return false;
+    });
+  };
+})(jQuery);
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(jQuery) {jQuery(document).ready(function () {
+    if (jQuery("#lfm").length) {
+        jQuery('#lfm').filemanager('image');
+    }
+});
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var disposed = false
-var normalizeComponent = __webpack_require__(47)
+var normalizeComponent = __webpack_require__(49)
 /* script */
-var __vue_script__ = __webpack_require__(48)
+var __vue_script__ = __webpack_require__(50)
 /* template */
-var __vue_template__ = __webpack_require__(49)
+var __vue_template__ = __webpack_require__(51)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -30523,7 +30563,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 47 */
+/* 49 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -30632,7 +30672,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -30661,7 +30701,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -30704,64 +30744,10 @@ if (false) {
 }
 
 /***/ }),
-/* 50 */
+/* 52 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(jQuery) {jQuery(document).ready(function () {
-    if (jQuery("#lfm").length) {
-        jQuery('#lfm').filemanager('image');
-    }
-});
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 66 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(jQuery) {(function ($) {
-
-  $.fn.filemanager = function (type, options) {
-    type = type || 'file';
-
-    this.on('click', function (e) {
-      var route_prefix = options && options.prefix ? options.prefix : '/laravel-filemanager';
-      localStorage.setItem('target_input', $(this).data('input'));
-      localStorage.setItem('target_preview', $(this).data('preview'));
-      window.open(route_prefix + '?type=' + type, 'FileManager', 'width=900,height=600');
-      window.SetUrl = function (url, file_path) {
-        //set the value of the desired input to image url
-        var target_input = $('#' + localStorage.getItem('target_input'));
-        target_input.val(file_path).trigger('change');
-
-        //set or change the preview image src
-        var target_preview = $('#' + localStorage.getItem('target_preview'));
-        target_preview.attr('src', url).trigger('change');
-      };
-      return false;
-    });
-  };
-})(jQuery);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })
 ],[16]);
