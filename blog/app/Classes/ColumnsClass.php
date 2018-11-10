@@ -60,7 +60,6 @@ class ColumnsClass {
         $postsData = app('App\Http\Controllers\PostController')->postsdata($parameters['cat_id']);
         $ret = $postsData;
 
-dump($ret);
         return $ret;
     }
 
