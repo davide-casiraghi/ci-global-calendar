@@ -93,10 +93,11 @@
                     <textarea class="form-control" style="height:150px" name="body" placeholder="Detail" id="bodyTextarea">{{ $post->body }}</textarea>
                 </div>
             </div>
+        </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="row h-100 mt-3">
+            <div class="col-xs-9 col-sm-9 col-md-9 pull-left my-auto">
                 <div class="input-group">
-
                     <div class="input-group-prepend">
                         <span class="input-group-text"><strong>Intro Image</strong></span>
                     </div>
@@ -107,12 +108,13 @@
                         </a>
                     </span>
                 </div>
-                <img id="holder" style="margin-top:15px;max-height:100px;">
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 pull-right my-auto">
+                <img id="holder" style="width:100%;">
             </div>
         </div>
 
-
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
                 <a class="btn btn-primary" href="{{ route('posts.index') }}"> Back</a>
             </div>
