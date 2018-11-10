@@ -89,6 +89,16 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
+                    <strong>Category:</strong>
+                    <select name="category_id" class="form-control">
+                        @foreach ($categories as $value => $category)
+                            <option value="{{$value}}">{!! $category !!}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
                     <strong>Body:</strong>
                     <textarea class="form-control" style="height:150px" name="body" placeholder="Detail" id="bodyTextarea">{{ $post->body }}</textarea>
                 </div>

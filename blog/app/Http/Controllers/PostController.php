@@ -131,7 +131,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.edit',compact('post'));
+        $categories = Category::pluck('name', 'id');
+
+        return view('posts.edit',compact('post'))->with('categories', $categories);
     }
 
     // **********************************************************************
@@ -196,7 +198,7 @@ class PostController extends Controller
       */
       public function postsdata($cat_id){
           $ret = DB::table('posts')->where('category_id', $cat_id)->get();
-          
+
           return $ret;
       }
 

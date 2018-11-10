@@ -89,9 +89,23 @@ class ColumnsClass {
      *
      *  @return string $ret             the HTML to print on screen
     **/
-    function prepareColumns($parameters, $columnsData) {
-          $ret = "<div class='row featurette'>";
-              $ret .= "columns rendered";
+    function prepareColumns($parameters, $postsData) {
+        dump($postsData);
+
+        $columnWidth = number_format(floor(12/count($postsData)));
+        $columnWidthClass = "col-lg-".$columnWidth;
+
+          $ret = "<div class='container marketing'>";
+            $ret = "<div class='row'>";
+              foreach ($postsData as $key => $postData) {
+                  $ret .= "<div class='".$columnWidthClass."'>";
+                    $ret .= "<img class='rounded-circle' src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' alt='Generic placeholder image' width='140' height='140'>";
+                    $ret .= "<h2>Heading</h2>";
+                    $ret .= "<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>";
+                    $ret .= "<p><a class='btn btn-secondary' href='#' role='button'>View details »</a></p>";
+                  $ret .= "</div>";
+              }
+             $ret .= "</div>";
           $ret .= "</div>";
 
         return $ret;
@@ -112,7 +126,7 @@ class ColumnsClass {
             $ptn = '/{# +columns +(category_id|show_images|round_images)=\[(.*)\] +(category_id|show_images|round_images)=\[(.*)\] +(category_id|show_images|round_images)=\[(.*)\] +#}/';
 
             if(preg_match_all($ptn,$postBody,$matches)){
-                dump("eee");
+
                 // Trasform the matches array in a way that can be used
                     $matches = $this->turn_array($matches);
 
@@ -122,15 +136,15 @@ class ColumnsClass {
                             $parameters = $this->getParameters($single_category_column_matches);
 
                         // Get the post data
-                            $postData = $this->getPostsData($parameters);
+                            $postsData = $this->getPostsData($parameters);
 
-                        // Prepare Card HTML
-                            //$cardHtml = $this->prepareColumns($parameters, $columnsData);
+                        // Prepare Columns HTML
+                            $columnsHtml = $this->prepareColumns($parameters, $postsData);
 
-                            $cardHtml= "this is the gallery!!";
+                            //$columnsHtml= "this is the gallery!!";
 
                         // RENDER
-                            $postBody = str_replace($parameters['token'], $cardHtml, $postBody);
+                            $postBody = str_replace($parameters['token'], $columnsHtml, $postBody);
 
                     }
             }
