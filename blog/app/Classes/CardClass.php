@@ -86,7 +86,7 @@ class CardClass {
             $ret = "<div class='row featurette'>";
                 $ret .= "<div class='col-md-7 my-auto'>";
                     $ret .= "<h2 class='featurette-heading'>".$postData['post_title']."</h2>";
-                    $ret .= "<p class='lead'>".$postData['post_body']."</p>";
+                    $ret .= "<div class='lead'>".$postData['post_body']."</div>";
                 $ret .= "</div>";
                 $ret .= "<div class='col-md-5'>";
                     $ret .= "<img class='featurette-image img-fluid mx-auto' src='".$postData['post_image_src']."' alt='".$postData['post_image_alt']."'>";
