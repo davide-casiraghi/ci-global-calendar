@@ -18,7 +18,7 @@
 			   ],
 				theme: 'modern',
 				height: 400,
-				toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | blockquote | link image media',
+				toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | blockquote | link image media | hr',
 
 
 
