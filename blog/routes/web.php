@@ -24,7 +24,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+// Single post by slug (test)
+    Route::get('post/{slug}', 'PostController@postBySlug')->where('postBySlug', '[a-z]+');
 
 // TODO - Da finire
 Route::get('/blog', function () {

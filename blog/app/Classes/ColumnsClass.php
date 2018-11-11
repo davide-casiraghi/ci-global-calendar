@@ -100,7 +100,7 @@ class ColumnsClass {
                     $ret .= "<h2 class='mb-4'>".$postData->title."</h2>";
                     //$ret .= "<div>".$postData->body."</div>";
                     $ret .= "<div>".str_limit($postData->body,100)."</div>";
-                    $ret .= "<p><a class='btn btn-secondary' href='#' role='button'>View details »</a></p>";
+                    $ret .= "<p><a class='btn btn-secondary' href='/post/".$postData->slug."' role='button'>View details »</a></p>";
                   $ret .= "</div>";
               }
              $ret .= "</div>";

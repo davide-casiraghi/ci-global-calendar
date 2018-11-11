@@ -205,41 +205,20 @@ class PostController extends Controller
           return $ret;
       }
 
-      // **********************************************************************
-
+     // **********************************************************************
 
     /**
-     * Return the post HTML by SLUG.
+     * Return the post HTML by SLUG. (eg. http://laravelblog.fr/post/davide_spada)
      *
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-/*
-    public function postdata($slug){
+
+    public function postBySlug($slug){
         $post = Post::where('slug', $slug)->first();
-
-        // Accordion
-            $accordionClass = new AccordionClass();
-            $post->body = $accordionClass->getAccordion($post->body);
-            //dump($post->body);
-
-        // Card
-            $cardClass = new CardClass();
-            $post->body = $cardClass->getCard($post->body);
-
-        // Gallery
-            $storagePath = storage_path('app/public');
-            $publicPath = public_path();
-            //dump($storagePath,$publicPath);
-            $galleryClass = new GalleryClass();
-            //dump($post->body);
-            $post->body = $galleryClass->getGallery($post->body, $storagePath, $publicPath);
-            //dump($post->body);
-
-
-        //return print_r($post);
-        return view('post', array('post' => $post));
+        return $this->show($post);
     }
-    */
+
+    // **********************************************************************
 
 }
