@@ -19,7 +19,6 @@ class ColumnsClass {
 
          // Get activation string parameters (from article)
              $ret['token'] = $matches[0];
-             dump($matches);
 
              $ret['cat_id'] = $matches[2];
              $ret['round_images'] = $matches[4];
@@ -109,7 +108,9 @@ class ColumnsClass {
     function prepareColumns($parameters, $postsData, $categoryData) {
 
           $ret = "<div class='container columns'>";
+          if ($parameters['show_category_title'])
             $ret .= "<h2 class='mb-4' style='text-align: center;'>".$categoryData->name."</h3>";
+
             $ret .= "<div class='row'>";
             //dump($postsData);
               foreach ($postsData as $key => $postData) {
