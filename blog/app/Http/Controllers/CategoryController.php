@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+
+
+
 
 class CategoryController extends Controller
 {
@@ -96,10 +101,25 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
-    {
+    public function destroy(Category $category){
         $category->delete();
         return redirect()->route('categories.index')
                         ->with('success','Category deleted successfully');
     }
+
+    // **********************************************************************
+
+    /**
+     * Return the single category datas by cat id
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+     public function categorydata($cat_id){
+         $ret = DB::table('categories')->where('id', $cat_id)->first();
+         //dump($ret);
+
+         return $ret;
+     }
+
 }

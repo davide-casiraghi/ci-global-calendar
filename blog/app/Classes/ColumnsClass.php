@@ -19,9 +19,11 @@ class ColumnsClass {
 
          // Get activation string parameters (from article)
              $ret['token'] = $matches[0];
-             //dump($matches);
+             dump($matches);
 
              $ret['cat_id'] = $matches[2];
+             $ret['round_images'] = $matches[4];
+             $ret['show_category_title'] = $matches[6];
 
 /*
              $ret['img_col_size_class'] = "col-md-".$matches[6];
@@ -65,6 +67,21 @@ class ColumnsClass {
 
    // **********************************************************************
 
+   /**
+    *  Provide the post data array (post_title, post_body, post_image)
+    *  @param array $file_name        the file name
+    *  @return array $ret             the extension
+   **/
+
+   function getCategoryData($parameters) {
+       $categoryData = app('App\Http\Controllers\CategoryController')->categorydata($parameters['cat_id']);
+       $ret = $categoryData;
+
+       return $ret;
+   }
+
+  // **********************************************************************
+
      /**
       *  Turn array of the metches after preg_match_all function (taken from - https://secure.php.net/manual/en/function.preg-match-all.php)
       *  @param array $file_name        the file name
@@ -89,15 +106,17 @@ class ColumnsClass {
      *
      *  @return string $ret             the HTML to print on screen
     **/
-    function prepareColumns($parameters, $postsData) {
+    function prepareColumns($parameters, $postsData, $categoryData) {
+
           $ret = "<div class='container columns'>";
+            $ret .= "<h2 class='mb-4' style='text-align: center;'>".$categoryData->name."</h3>";
             $ret .= "<div class='row'>";
             //dump($postsData);
               foreach ($postsData as $key => $postData) {
                   $ret .= "<div class='col'>";
                     //$ret .= "<img class='rounded-circle mb-4' src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' alt='Generic placeholder image' width='140' height='140'>";
                     $ret .= "<img class='rounded-circle mb-4' style='width:100%;' src='".$postData->introimage_src."' alt='".$postData->introimage_alt."'>";
-                    $ret .= "<h2 class='mb-4'>".$postData->title."</h2>";
+                    $ret .= "<h3 class='mb-4'>".$postData->title."</h3>";
                     //$ret .= "<div>".$postData->body."</div>";
                     $ret .= "<div>".str_limit($postData->body,100)."</div>";
                     $ret .= "<p><a class='btn btn-secondary' href='/post/".$postData->slug."' role='button'>View details »</a></p>";
@@ -121,7 +140,7 @@ class ColumnsClass {
     public function getColumns($postBody) {
 
         // Find plugin occurrences
-            $ptn = '/{# +columns +(category_id|show_images|round_images)=\[(.*)\] +(category_id|show_images|round_images)=\[(.*)\] +(category_id|show_images|round_images)=\[(.*)\] +#}/';
+            $ptn = '/{# +columns +(category_id|show_images|round_images|show_category_title)=\[(.*)\] +(category_id|show_images|round_images|show_category_title)=\[(.*)\] +(category_id|show_images|round_images|show_category_title)=\[(.*)\] +#}/';
 
             if(preg_match_all($ptn,$postBody,$matches)){
 
@@ -133,11 +152,12 @@ class ColumnsClass {
                         // Get plugin parameters array
                             $parameters = $this->getParameters($single_category_column_matches);
 
-                        // Get the post data
+                        // Get the post and category data
                             $postsData = $this->getPostsData($parameters);
+                            $categoryData = $this->getCategoryData($parameters);
 
                         // Prepare Columns HTML
-                            $columnsHtml = $this->prepareColumns($parameters, $postsData);
+                            $columnsHtml = $this->prepareColumns($parameters, $postsData, $categoryData);
 
                             //$columnsHtml= "this is the gallery!!";
 
