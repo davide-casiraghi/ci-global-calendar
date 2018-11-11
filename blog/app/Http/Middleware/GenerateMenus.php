@@ -29,11 +29,12 @@ class GenerateMenus
             //$menu->add('About',    ['route'  => ['posts', 'id' => 1]]);
 
 
-            //$menu->add('Contact', 'contact');
             $menu->add('Contact', ['action' => ['PostController@show', 'id' => 7]]);
-            $menu->add('Admin', 'admin');
+
+            /*$menu->add('Admin', 'admin');
                 $menu->admin->add('Posts', 'posts');
-                $menu->admin->add('Categories', 'categories');
+                $menu->admin->add('Categories', 'categories');*/
+                
         });
 
         return $next($request);
