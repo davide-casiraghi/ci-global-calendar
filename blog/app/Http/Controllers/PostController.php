@@ -68,6 +68,9 @@ class PostController extends Controller
         /*$post->author_id = auth()->id();*/
         $post->author_id = 0;
         $post->slug = $request->get('slug');
+        if ($post->slug=== NULL) {
+            $post->slug = str_slug($post->title, '-');
+        }
         $post->category_id = $request->get('category_id');
 
         $post->meta_description = $request->get('meta_description');

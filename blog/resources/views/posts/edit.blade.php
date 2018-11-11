@@ -84,7 +84,13 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Title:</strong>
-                    <input type="text" name="title" value="{{ $post->title }}" class="form-control" placeholder="Name">
+                    <input type="text" name="title" value="{{ $post->title }}" class="form-control" placeholder="Title">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Slug:</strong>
+                    <input type="text" name="slug" value="{{ $post->slug }}" class="form-control" placeholder="Slug">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
