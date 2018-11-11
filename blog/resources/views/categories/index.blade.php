@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Laravel 5.6 CRUD Example from scratch</h2>
+                <h2>Categories management</h2>
             </div>
             <div class="pull-right mt-4 float-right">
                 <a class="btn btn-success" href="{{ route('categories.create') }}"> Create New Category</a>
