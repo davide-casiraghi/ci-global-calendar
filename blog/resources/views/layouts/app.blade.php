@@ -30,6 +30,8 @@
             @yield('content')
     </div>
 
+    @include('footer.footer')
+
     <!-- JS -->
         <!--<script src="/js/manifest.js"></script>
         <script src="/js/vendor.js"></script>
