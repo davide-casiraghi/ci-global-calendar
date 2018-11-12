@@ -17,14 +17,14 @@ Route::get('/', function () {
 });
 
 Route::resource('posts','PostController');
-
 Route::resource('categories','CategoryController');
+Route::resource('events','EventController');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Single post by slug 
+// Single post by slug
     Route::get('post/{slug}', 'PostController@postBySlug')->where('postBySlug', '[a-z]+');
 
 // TODO - Da finire
