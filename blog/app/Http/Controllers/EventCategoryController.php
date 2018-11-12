@@ -12,9 +12,11 @@ class EventCategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index(){
+        $eventCategories = EventCategory::latest()->paginate(5);
+
+        return view('eventCategories.index',compact('eventCategories'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -22,9 +24,8 @@ class EventCategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(){
+        return view('eventCategories.create');
     }
 
     /**
@@ -33,9 +34,16 @@ class EventCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        request()->validate([
+            'name' => 'required',
+            'slug' => 'required',
+        ]);
+
+        EventCategory::create($request->all());
+
+        return redirect()->route('eventCategories.index')
+                        ->with('success','Event category created successfully.');
     }
 
     /**
@@ -44,9 +52,8 @@ class EventCategoryController extends Controller
      * @param  \App\EventCategory  $eventCategory
      * @return \Illuminate\Http\Response
      */
-    public function show(EventCategory $eventCategory)
-    {
-        //
+    public function show(EventCategory $eventCategory){
+        return view('eventCategories.show',compact('eventCategory'));
     }
 
     /**
@@ -55,9 +62,8 @@ class EventCategoryController extends Controller
      * @param  \App\EventCategory  $eventCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(EventCategory $eventCategory)
-    {
-        //
+    public function edit(EventCategory $eventCategory){
+        return view('eventCategories.edit',compact('eventCategory'));
     }
 
     /**
@@ -69,7 +75,14 @@ class EventCategoryController extends Controller
      */
     public function update(Request $request, EventCategory $eventCategory)
     {
-        //
+        request()->validate([
+            'name' => 'required'
+        ]);
+
+        $eventCategory->update($request->all());
+
+        return redirect()->route('eventCategories.index')
+                        ->with('success','Event category updated successfully');
     }
 
     /**
@@ -80,6 +93,23 @@ class EventCategoryController extends Controller
      */
     public function destroy(EventCategory $eventCategory)
     {
-        //
+        $eventCategory->delete();
+        return redirect()->route('eventCategories.index')
+                        ->with('success','Event category deleted successfully');
     }
+
+    // **********************************************************************
+
+    /**
+     * Return the single event category datas by cat id
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+     public function eventcategorydata($cat_id){
+         $ret = DB::table('event_categories')->where('id', $cat_id)->first();
+         //dump($ret);
+
+         return $ret;
+     }
 }

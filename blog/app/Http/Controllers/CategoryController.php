@@ -41,8 +41,7 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         request()->validate([
             'name' => 'required',
             'slug' => 'required',
@@ -89,10 +88,10 @@ class CategoryController extends Controller
             'name' => 'required'
         ]);
 
-        $post->update($request->all());
+        $category->update($request->all());
 
         return redirect()->route('categories.index')
-                        ->with('success','Post updated successfully');
+                        ->with('success','Category updated successfully');
     }
 
     /**
