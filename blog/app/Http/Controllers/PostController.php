@@ -20,8 +20,8 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
+
         $posts = Post::latest()->paginate(5);
         $categories = Category::pluck('name', 'id');
 
@@ -36,13 +36,12 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(){
+
         $categories = Category::pluck('name', 'id');
         //dump($categories);
 
         //return view('posts.create');
-        //return view('posts.create')->with('categories', Category::all()->pluck('name', 'id'));
         return view('posts.create')->with('categories', $categories);
     }
 
@@ -54,8 +53,8 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
+
         request()->validate([
             'title' => 'required',
             'body' => 'required',
@@ -101,8 +100,8 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
-    {
+    public function show(Post $post){
+
         // Accordion
             $accordionClass = new AccordionClass();
             $post->body = $accordionClass->getAccordion($post->body);
@@ -142,8 +141,8 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
-    {
+    public function edit(Post $post){
+
         $categories = Category::pluck('name', 'id');
 
         return view('posts.edit',compact('post'))->with('categories', $categories);
@@ -158,8 +157,8 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
-    {
+    public function update(Request $request, Post $post){
+
         request()->validate([
             'title' => 'required',
             'body' => 'required'
@@ -179,8 +178,7 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
-    {
+    public function destroy(Post $post){
         $post->delete();
         return redirect()->route('posts.index')
                         ->with('success','Post deleted successfully');

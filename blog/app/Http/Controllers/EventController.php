@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Event;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 class EventController extends Controller
 {
     /**
@@ -12,9 +14,12 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index(){
+        $events = Event::latest()->paginate(5);
+        //$events_categories = EventsCategory::pluck('name', 'id');
+
+        return view('events.index',compact('events'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -24,7 +29,10 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        //$events = Category::pluck('name', 'id');
+        //return view('events.create')->with('events', $events);
+
+        return view('events.create');
     }
 
     /**
@@ -33,9 +41,22 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        request()->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+
+        $event = new Event();
+        $event->title = $request->get('title');
+        $event->description = $request->get('description');
+        $event->created_by = $request->get('created_by');
+        $event->organized_by = $request->get('organized_by');
+        $event->slug = $request->get('slug');
+        $event->category_id = $request->get('category_id');
+        $event->image = $request->get('image');
+        $event->status = $request->get('facebook_link');
+        $event->status = $request->get('status');
     }
 
     /**
@@ -46,7 +67,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        return view('events.show',compact('event'));
     }
 
     /**
@@ -57,7 +78,10 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        //$categories = Category::pluck('name', 'id');
+        //return view('posts.edit',compact('post'))->with('categories', $categories);
+
+        return view('events.edit',compact('event'));
     }
 
     /**
@@ -67,9 +91,16 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
-    {
-        //
+    public function update(Request $request, Event $event){
+        request()->validate([
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+
+        $event->update($request->all());
+
+        return redirect()->route('events.index')
+                        ->with('success','Event updated successfully');
     }
 
     /**
@@ -78,8 +109,9 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Event $event)
-    {
-        //
+    public function destroy(Event $event){
+        $event->delete();
+        return redirect()->route('events.index')
+                        ->with('success','Event deleted successfully');
     }
 }
