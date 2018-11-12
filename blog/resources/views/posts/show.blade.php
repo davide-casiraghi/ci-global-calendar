@@ -1,7 +1,7 @@
 @extends('posts.layout')
 
 @section('beforeContent')
-    {{ $post->before_content }}
+    {!! $post->before_content !!}
 @endsection
 
 @section('content')
@@ -25,5 +25,5 @@
 
 
 @section('afterContent')
-    {{ $post->after_content }}
+    {!! $post->after_content !!}
 @endsection
