@@ -113,11 +113,22 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
+                    <strong>Before Content:</strong>
+                    <textarea class="form-control" style="height:150px" name="body" placeholder="Before the content"></textarea>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
                     <strong>Body:</strong>
                     <textarea class="form-control" style="height:150px" name="body" placeholder="Detail" id="bodyTextarea"></textarea>
                 </div>
             </div>
-
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>After Content:</strong>
+                    <textarea class="form-control" style="height:150px" name="body" placeholder="After the content"></textarea>
+                </div>
+            </div>
         </div>
 
         <div class="row h-100 mt-3">
