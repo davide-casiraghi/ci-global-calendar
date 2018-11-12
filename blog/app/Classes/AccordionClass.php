@@ -26,7 +26,7 @@ class AccordionClass {
                     ),
                     $postBody
                 );
-                
+
             }
 
 

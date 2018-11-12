@@ -2,7 +2,7 @@
 
 /*
     Example of strings that evoke the plugin:
-    {# card post_id=[6] img_alignment=[right] img_col_size=[3] #}
+    {# card post_id=[6] img_alignment=[right] img_col_size=[3] bkg_color=[transparent|#34564] #}
     or
     {# card post_id=[9] img_alignment=[left] img_col_size=[3] #}
 */
@@ -28,6 +28,8 @@ class CardClass {
              $ret['img_col_size_class'] = "col-md-".$matches[6];
              $textColSize = 12-$matches[6];
              $ret['text_col_size_class'] = "col-md-".$textColSize;
+             $backgroundColor = $matches[8];
+             $ret['bkg_color'] = "background-color: ".$backgroundColor;
 
              // Image alignment
                  //$ret['img_alignment'] = $matches[4];
@@ -57,10 +59,8 @@ class CardClass {
       **/
 
       function turn_array($m) {
-          for ($z = 0;$z < count($m);$z++)
-          {
-              for ($x = 0;$x < count($m[$z]);$x++)
-              {
+          for ($z = 0;$z < count($m);$z++){
+              for ($x = 0;$x < count($m[$z]);$x++){
                   $ret[$x][$z] = $m[$z][$x];
               }
           }
@@ -99,7 +99,7 @@ class CardClass {
       **/
       function prepareCard($parameters, $postData) {
 
-            $ret = "<div class='row featurette'>";
+            $ret = "<div class='row featurette' style='".$parameters['bkg_color']."'>";
                 $ret .= "<div class='col-md-7 my-auto ".$parameters['text_col_order_class']."'>";
                     $ret .= "<h2 class='featurette-heading'>".$postData['post_title']."</h2>";
                     $ret .= "<div class='lead'>".$postData['post_body']."</div>";
@@ -117,7 +117,7 @@ class CardClass {
     public function getCard($postBody) {
 
         // Find plugin occurrences
-            $ptn = '/{# +card +(post_id|img_alignment|img_col_size)=\[(.*)\] +(post_id|img_alignment|img_col_size)=\[(.*)\] +(post_id|img_alignment|img_col_size)=\[(.*)\] +#}/';
+            $ptn = '/{# +card +(post_id|img_alignment|img_col_size|bkg_color)=\[(.*)\] +(post_id|img_alignment|img_col_size|bkg_color)=\[(.*)\] +(post_id|img_alignment|img_col_size|bkg_color)=\[(.*)\] +(post_id|img_alignment|img_col_size|bkg_color)=\[(.*)\] +#}/';
 
             if(preg_match_all($ptn,$postBody,$matches)){
 
