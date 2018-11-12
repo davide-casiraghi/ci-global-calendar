@@ -17,6 +17,8 @@ class ColumnsClass {
      function getParameters($matches) {
          $ret = array();
 
+         //dump($matches);
+
          // Get activation string parameters (from article)
              $ret['token'] = $matches[0];
 
@@ -141,7 +143,7 @@ class ColumnsClass {
     public function getColumns($postBody) {
 
         // Find plugin occurrences
-            $ptn = '/{# +columns +(category_id|show_images|round_images|show_category_title)=\[(.*)\] +(category_id|show_images|round_images|show_category_title)=\[(.*)\] +(category_id|show_images|round_images|show_category_title)=\[(.*)\] +#}/';
+            $ptn = '/{# +columns +(category_id|show_images|round_images|show_category_title)=\[(.*)\] +(category_id|show_images|round_images|show_category_title)=\[(.*)\] +(category_id|show_images|round_images|show_category_title)=\[(.*)\] +(category_id|show_images|round_images|show_category_title)=\[(.*)\] +#}/';
 
             if(preg_match_all($ptn,$postBody,$matches)){
 
@@ -164,7 +166,6 @@ class ColumnsClass {
 
                         // RENDER
                             $postBody = str_replace($parameters['token'], $columnsHtml, $postBody);
-
                     }
             }
             return $postBody;
