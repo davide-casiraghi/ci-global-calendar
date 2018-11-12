@@ -36,8 +36,7 @@ class EventCategoryController extends Controller
      */
     public function store(Request $request){
         request()->validate([
-            'name' => 'required',
-            'slug' => 'required',
+            'name' => 'required'
         ]);
 
         EventCategory::create($request->all());
