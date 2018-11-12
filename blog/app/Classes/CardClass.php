@@ -1,6 +1,7 @@
 <?php
 
 /*
+    This plugin show a responsive card made by text on one side and an image on the oter
     Example of strings that evoke the plugin:
     {# card post_id=[6] img_alignment=[right] img_col_size=[3] bkg_color=[transparent|#34564] #}
     or
