@@ -109,7 +109,7 @@ class ColumnsClass {
     **/
     function prepareColumns($parameters, $postsData, $categoryData) {
 
-          $ret = "<div class='container columns'>";
+          $ret = "<div class='container columns pt-5'>";
           if ($parameters['show_category_title'])
             $ret .= "<h2 class='mb-4' style='text-align: center;'>".$categoryData->name."</h3>";
 

@@ -101,11 +101,11 @@ class CardClass {
       function prepareCard($parameters, $postData) {
 
             $ret = "<div class='row featurette' style='".$parameters['bkg_color']."'>";
-                $ret .= "<div class='".$parameters['text_col_size_class']." text my-auto ".$parameters['text_col_order_class']."'>";
-                    $ret .= "<h2 class='featurette-heading'>".$postData['post_title']."</h2>";
-                    $ret .= "<div class='lead'>".$postData['post_body']."</div>";
+                $ret .= "<div class='text ".$parameters['text_col_size_class']." my-auto px-4 ".$parameters['text_col_order_class']."'>";
+                    $ret .= "<h2 class='featurette-heading mt-5'>".$postData['post_title']."</h2>";
+                    $ret .= "<div class='lead mb-4'>".$postData['post_body']."</div>";
                 $ret .= "</div>";
-                $ret .= "<div class='".$parameters['img_col_size_class']." image ".$parameters['img_col_order_class']."'>";
+                $ret .= "<div class='image ".$parameters['img_col_size_class']." ".$parameters['img_col_order_class']."'>";
                     $ret .= "<img class='featurette-image img-fluid mx-auto' src='".$postData['post_image_src']."' alt='".$postData['post_image_alt']."'>";
                 $ret .= "</div>";
             $ret .= "</div>";
