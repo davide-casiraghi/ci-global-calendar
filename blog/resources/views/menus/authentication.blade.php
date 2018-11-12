@@ -18,6 +18,7 @@
 
          <a class="dropdown-item" href="{{ route('posts.index') }}">{{ __('Posts') }}</a>
          <a class="dropdown-item" href="{{ route('categories.index') }}">{{ __('Categories') }}</a>
+         <a class="dropdown-item" href="{{ route('events.index') }}">{{ __('Events') }}</a>
 
          <a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();
