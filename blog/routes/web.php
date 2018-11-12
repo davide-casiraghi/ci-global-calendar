@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::resource('posts','PostController');
 Route::resource('categories','CategoryController');
 Route::resource('events','EventController');
+Route::resource('eventsCategories','EventCategoryController');
 
 Auth::routes();
 
