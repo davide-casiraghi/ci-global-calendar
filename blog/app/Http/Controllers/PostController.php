@@ -23,9 +23,10 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::latest()->paginate(5);
-
+        $categories = Category::pluck('name', 'id');
+        
         return view('posts.index',compact('posts'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 5)->with('categories',$categories);
     }
 
     // **********************************************************************

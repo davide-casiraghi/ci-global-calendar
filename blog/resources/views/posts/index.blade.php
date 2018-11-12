@@ -20,19 +20,18 @@
         </div>
     @endif
 
-
     <table class="table table-bordered mt-4">
         <tr>
             <th>ID</th>
             <th>Title</th>
-            <th>Body</th>
+            <th>Category</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($posts as $post)
         <tr>
             <td>{{ $post->id }}</td>
             <td>{{ $post->title }}</td>
-            <td>{{ $post->body }}</td>
+            <td>{{ $categories[$post->category_id] }}</td>
             <td>
                 <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
 
