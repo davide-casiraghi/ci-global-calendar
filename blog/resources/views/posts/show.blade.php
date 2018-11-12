@@ -1,7 +1,7 @@
 @extends('posts.layout')
 
 @section('beforeContent')
-    test before
+    {{ $post->before_content }}
 @endsection
 
 @section('content')
@@ -25,5 +25,5 @@
 
 
 @section('afterContent')
-    test after
+    {{ $post->after_content }}
 @endsection

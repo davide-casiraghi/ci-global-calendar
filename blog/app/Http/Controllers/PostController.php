@@ -24,7 +24,7 @@ class PostController extends Controller
     {
         $posts = Post::latest()->paginate(5);
         $categories = Category::pluck('name', 'id');
-        
+
         return view('posts.index',compact('posts'))
             ->with('i', (request()->input('page', 1) - 1) * 5)->with('categories',$categories);
     }
@@ -84,6 +84,9 @@ class PostController extends Controller
         $post->introimage_src = $request->get('introimage_src');
         $post->introimage_alt = $request->get('introimage_alt');
 
+        $post->before_content = $request->get('before_content');
+        $post->after_content = $request->get('after_content');
+
         $post->save();
 
         return redirect()->route('posts.index')
@@ -103,15 +106,20 @@ class PostController extends Controller
         // Accordion
             $accordionClass = new AccordionClass();
             $post->body = $accordionClass->getAccordion($post->body);
-            //dump($post->body);
+            $post->before_content = $accordionClass->getAccordion($post->before_content);
+            $post->after_content = $accordionClass->getAccordion($post->after_content);
 
         // Card
             $cardClass = new CardClass();
             $post->body = $cardClass->getCard($post->body);
+            $post->before_content = $cardClass->getCard($post->before_content);
+            $post->after_content = $cardClass->getCard($post->after_content);
 
         // Category Columns
             $columnClass = new ColumnsClass();
             $post->body = $columnClass->getColumns($post->body);
+            $post->before_content = $columnClass->getColumns($post->before_content);
+            $post->after_content = $columnClass->getColumns($post->after_content);
 
         // Gallery
             $storagePath = storage_path('app/public');
@@ -120,7 +128,8 @@ class PostController extends Controller
             $galleryClass = new GalleryClass();
             //dump($post->body);
             $post->body = $galleryClass->getGallery($post->body, $storagePath, $publicPath);
-            //dump($post->body);
+            $post->before_content = $galleryClass->getGallery($post->before_content, $storagePath, $publicPath);
+            $post->after_content = $galleryClass->getGallery($post->after_content, $storagePath, $publicPath);
 
         return view('posts.show',compact('post'));
     }
