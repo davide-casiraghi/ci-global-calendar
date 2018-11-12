@@ -10643,9 +10643,6 @@ a.text-dark:focus {
 
 .featurette .text {
   padding: 0 2rem;
-  /*@media screen and (max-width: 768px){
-            padding: 3rem 0;
-        }*/
 }
 
 .featurette .text .featurette-heading {
@@ -10669,6 +10666,12 @@ a.text-dark:focus {
 
 .featurette .image {
   padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .featurette .image img {
+    width: 100%;
+  }
 }
 
 .columns .row .col {
