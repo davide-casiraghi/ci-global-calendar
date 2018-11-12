@@ -26,8 +26,16 @@
     {{-- {!! menu('main', 'nav') !!} --}}
     @include('menus.nav', ['items' => $MyNavBar->roots()])
 
+    <div class="beforeContent">
+        @yield('beforeContent')
+    </div>
+
     <div id="app" class="container pt-5">
-            @yield('content')
+        @yield('content')
+    </div>
+
+    <div class="afterContent">
+        @yield('afterContent')
     </div>
 
     @include('footer.footer')

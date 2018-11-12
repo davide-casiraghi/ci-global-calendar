@@ -1,5 +1,8 @@
 @extends('posts.layout')
 
+@section('beforeContent')
+    test before
+@endsection
 
 @section('content')
 
@@ -18,4 +21,9 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
     </div>--}}
 
+@endsection
+
+
+@section('afterContent')
+    test after
 @endsection
