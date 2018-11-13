@@ -92,8 +92,8 @@
                 <div class="form-group">
                     <strong>Category:</strong>
                     <select name="category_id" class="form-control">
-                        @foreach ($categories as $value => $category)
-                            <option value="{{$value}}">{!! $category !!}</option>
+                        @foreach ($eventCategories as $value => $eventCategory)
+                            <option value="{{$value}}">{!! $eventCategory !!}</option>
                         @endforeach
                     </select>
                 </div>

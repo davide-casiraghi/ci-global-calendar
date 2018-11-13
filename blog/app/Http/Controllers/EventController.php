@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Event;
-use Illuminate\Http\Request;
+use App\EventCategory;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
@@ -29,10 +30,10 @@ class EventController extends Controller
      */
     public function create()
     {
-        //$events = Category::pluck('name', 'id');
-        //return view('events.create')->with('events', $events);
+        $eventCategories = EventCategory::pluck('name', 'id');
 
-        return view('events.create');
+        //return view('events.create');
+        return view('events.create')->with('eventCategories', $eventCategories);
     }
 
     /**
