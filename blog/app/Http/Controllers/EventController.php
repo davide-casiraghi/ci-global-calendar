@@ -90,7 +90,9 @@ class EventController extends Controller
         //$categories = Category::pluck('name', 'id');
         //return view('posts.edit',compact('post'))->with('categories', $categories);
 
-        return view('events.edit',compact('event'));
+        $eventCategories = EventCategory::pluck('name', 'id');
+        return view('events.edit',compact('event'))->with('eventCategories', $eventCategories);
+        //return view('events.edit',compact('event'));
     }
 
     /**
