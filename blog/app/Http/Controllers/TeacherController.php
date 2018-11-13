@@ -12,9 +12,11 @@ class TeacherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index(){
+        $teachers = Teacher::latest()->paginate(5);
+
+        return view('teachers.index',compact('teachers'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -22,9 +24,8 @@ class TeacherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(){
+        return view('teachers.create');
     }
 
     /**
@@ -33,9 +34,16 @@ class TeacherController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        request()->validate([
+            'name' => 'required',
+            'slug' => 'required',
+        ]);
+
+        Teacher::create($request->all());
+
+        return redirect()->route('teachers.index')
+                        ->with('success','Teacher created successfully.');
     }
 
     /**
@@ -44,9 +52,8 @@ class TeacherController extends Controller
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function show(Teacher $teacher)
-    {
-        //
+    public function show(Teacher $teacher){
+        return view('teachers.show',compact('teacher'));
     }
 
     /**
@@ -55,9 +62,8 @@ class TeacherController extends Controller
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function edit(Teacher $teacher)
-    {
-        //
+    public function edit(Teacher $teacher){
+        return view('teachers.edit',compact('teacher'));
     }
 
     /**
@@ -67,9 +73,15 @@ class TeacherController extends Controller
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Teacher $teacher)
-    {
-        //
+    public function update(Request $request, Teacher $teacher){
+        request()->validate([
+            'name' => 'required'
+        ]);
+
+        $teacher->update($request->all());
+
+        return redirect()->route('teachers.index')
+                        ->with('success','Teacher updated successfully');
     }
 
     /**
@@ -78,8 +90,9 @@ class TeacherController extends Controller
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Teacher $teacher)
-    {
-        //
+    public function destroy(Teacher $teacher){
+        $teacher->delete();
+        return redirect()->route('teachers.index')
+                        ->with('success','Teacher deleted successfully');
     }
 }
