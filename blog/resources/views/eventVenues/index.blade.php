@@ -8,7 +8,7 @@
                 <h2>Event venues management</h2>
             </div>
             <div class="pull-right mt-4 float-right">
-                <a class="btn btn-success" href="{{ route('eventVenues.create') }}"> Create New Category</a>
+                <a class="btn btn-success" href="{{ route('eventVenues.create') }}"> Create New Venue</a>
             </div>
         </div>
     </div>
