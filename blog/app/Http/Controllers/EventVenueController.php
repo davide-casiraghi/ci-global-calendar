@@ -39,7 +39,21 @@ class EventVenueController extends Controller
             'name' => 'required'
         ]);
 
-        EventVenue::create($request->all());
+        $eventVenue = new EventVenue();
+        $eventVenue->name = $request->get('name');
+        $eventVenue->description = $request->get('description');
+        $eventVenue->continent_id = $request->get('continent_id');
+        $eventVenue->country_id = $request->get('country_id');
+        $eventVenue->city = $request->get('city');
+        $eventVenue->address = $request->get('address');
+        $eventVenue->zip_code = $request->get('zip_code');
+        $eventVenue->facebook = $request->get('facebook');
+        $eventVenue->website = $request->get('website');
+        $eventVenue->image = $request->get('image');
+
+        $eventVenue->slug = str_slug($eventVenue->name, '-').rand(10000, 100000);
+        $eventVenue->created_by = \Auth::user()->id;
+        $eventVenue->save();
 
         return redirect()->route('eventVenues.index')
                         ->with('success','Event venue created successfully.');

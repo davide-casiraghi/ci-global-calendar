@@ -23,7 +23,7 @@
     @endif
 
 
-    <form action="{{ route('eventCategories.store') }}" method="POST">
+    <form action="{{ route('eventVenues.store') }}" method="POST">
         @csrf
 
 
@@ -43,13 +43,13 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Continent:</strong>
-                    <input type="text" name="continent" class="form-control">
+                    <input type="text" name="continent_id" class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Country:</strong>
-                    <input type="text" name="country" class="form-control">
+                    <input type="text" name="country_id" class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

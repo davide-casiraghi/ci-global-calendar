@@ -42,7 +42,6 @@ class TeacherController extends Controller
         $teacher = new Teacher();
         $teacher->name = $request->get('name');
         $teacher->bio = $request->get('bio');
-        $teacher->created_by = \Auth::user()->id;
         $teacher->country = $request->get('country');
         $teacher->year_starting_practice = $request->get('year_starting_practice');
         $teacher->year_starting_teach = $request->get('year_starting_teach');
@@ -50,6 +49,8 @@ class TeacherController extends Controller
         $teacher->image = $request->get('image');
         $teacher->website = $request->get('website');
         $teacher->facebook = $request->get('facebook');
+
+        $teacher->created_by = \Auth::user()->id;
         $teacher->slug = str_slug($teacher->name, '-').rand(10000, 100000);
 
         $teacher->save();
