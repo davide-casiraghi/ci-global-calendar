@@ -12,9 +12,11 @@ class EventVenueController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index(){
+        $eventVenues = EventVenue::latest()->paginate(5);
+
+        return view('eventVenues.index',compact('eventVenues'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -22,9 +24,8 @@ class EventVenueController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(){
+        return view('eventVenues.create');
     }
 
     /**
@@ -33,9 +34,15 @@ class EventVenueController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        request()->validate([
+            'name' => 'required'
+        ]);
+
+        EventVenue::create($request->all());
+
+        return redirect()->route('eventVenues.index')
+                        ->with('success','Event venue created successfully.');
     }
 
     /**
@@ -44,9 +51,8 @@ class EventVenueController extends Controller
      * @param  \App\EventVenue  $eventVenue
      * @return \Illuminate\Http\Response
      */
-    public function show(EventVenue $eventVenue)
-    {
-        //
+    public function show(EventVenue $eventVenue){
+        return view('eventVenues.show',compact('eventVenue'));
     }
 
     /**
@@ -55,9 +61,8 @@ class EventVenueController extends Controller
      * @param  \App\EventVenue  $eventVenue
      * @return \Illuminate\Http\Response
      */
-    public function edit(EventVenue $eventVenue)
-    {
-        //
+    public function edit(EventVenue $eventVenue){
+        return view('eventVenues.edit',compact('eventVenue'));
     }
 
     /**
@@ -67,9 +72,15 @@ class EventVenueController extends Controller
      * @param  \App\EventVenue  $eventVenue
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EventVenue $eventVenue)
-    {
-        //
+    public function update(Request $request, EventVenue $eventVenue){
+        request()->validate([
+            'name' => 'required'
+        ]);
+
+        $eventVenue->update($request->all());
+
+        return redirect()->route('eventVenues.index')
+                        ->with('success','Event venue updated successfully');
     }
 
     /**
@@ -78,8 +89,9 @@ class EventVenueController extends Controller
      * @param  \App\EventVenue  $eventVenue
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EventVenue $eventVenue)
-    {
-        //
+    public function destroy(EventVenue $eventVenue){
+        $eventVenue->delete();
+        return redirect()->route('eventVenues.index')
+                        ->with('success','Event venue deleted successfully');
     }
 }
