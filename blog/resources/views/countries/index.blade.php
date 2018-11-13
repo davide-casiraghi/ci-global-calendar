@@ -1,14 +1,14 @@
-@extends('categories.layout')
+@extends('countries.layout')
 
 
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Categories management</h2>
+                <h2>Countries management</h2>
             </div>
             <div class="pull-right mt-4 float-right">
-                <a class="btn btn-success" href="{{ route('categories.create') }}"> Create New Category</a>
+                <a class="btn btn-success" href="{{ route('countries.create') }}"> Create New Country</a>
             </div>
         </div>
     </div>
@@ -25,20 +25,22 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Slug</th>
+            <th>Code</th>
+            <th>Continent ID</th>
             <th width="280">Action</th>
         </tr>
-        @foreach ($categories as $category)
+        @foreach ($countries as $country)
         <tr>
-            <td>{{ $category->id }}</td>
-            <td>{{ $category->name }}</td>
-            <td>{{ $category->slug }}</td>
+            <td>{{ $country->id }}</td>
+            <td>{{ $country->name }}</td>
+            <td>{{ $country->code }}</td>
+            <td>{{ $country->continent_id }}</td>
             <td>
-                <form action="{{ route('categories.destroy',$category->id) }}" method="POST">
+                <form action="{{ route('countries.destroy',$country->id) }}" method="POST">
 
 
-                    <a class="btn btn-info" href="{{ route('categories.show',$category->id) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('categories.edit',$category->id) }}">Edit</a>
+                    <a class="btn btn-info" href="{{ route('countries.show',$country->id) }}">Show</a>
+                    <a class="btn btn-primary" href="{{ route('countries.edit',$country->id) }}">Edit</a>
 
 
                     @csrf
@@ -53,7 +55,7 @@
     </table>
 
 
-    {!! $categories->links() !!}
+    {!! $countries->links() !!}
 
 
 @endsection
