@@ -17,10 +17,10 @@ class EventController extends Controller
      */
     public function index(){
         $events = Event::latest()->paginate(5);
-        //$events_categories = EventsCategory::pluck('name', 'id');
+        $eventCategories = EventCategory::pluck('name', 'id');
 
         return view('events.index',compact('events'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 5)->with('eventCategories',$eventCategories);
     }
 
     /**
@@ -51,13 +51,21 @@ class EventController extends Controller
         $event = new Event();
         $event->title = $request->get('title');
         $event->description = $request->get('description');
-        $event->created_by = $request->get('created_by');
+        //$event->created_by = $request->get('created_by');
+        $event->created_by = \Auth::user()->id;
         $event->organized_by = $request->get('organized_by');
-        $event->slug = $request->get('slug');
+        //$event->slug = $request->get('slug');
+        $event->slug = str_slug($event->title, '-').rand(100000, 1000000);
+
         $event->category_id = $request->get('category_id');
         $event->image = $request->get('image');
-        $event->status = $request->get('facebook_link');
+        $event->facebook_link = $request->get('facebook_link');
         $event->status = $request->get('status');
+
+        $event->save();
+
+        return redirect()->route('events.index')
+                        ->with('success','Event created successfully.');
     }
 
     /**

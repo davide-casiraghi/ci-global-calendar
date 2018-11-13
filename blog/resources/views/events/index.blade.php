@@ -30,8 +30,8 @@
         @foreach ($events as $event)
         <tr>
             <td>{{ $event->id }}</td>
-            <td>{{ $event->description }}</td>
-            <td>{{ $category_id }}</td>
+            <td>{{ $event->title }}</td>
+            <td>{{ $eventCategories[$event->category_id] }}</td>
             <td>
                 <form action="{{ route('events.destroy',$event->id) }}" method="POST">
 
