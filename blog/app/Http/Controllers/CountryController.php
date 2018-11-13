@@ -44,7 +44,7 @@ class CountryController extends Controller
 
         $country = new Country();
         $country->name = $request->get('name');
-        $country->code = $request->get('description');
+        $country->code = $request->get('code');
         $country->continent_id = $request->get('continent_id');
 
         $country->save();
