@@ -43,13 +43,6 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Continent:</strong>
-                    <input type="text" name="continent_id" class="form-control" placeholder="Continent ID" value="{{ $country->continent_id }}">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Continent:</strong>
                     <select name="continent_id" class="form-control">
                         @foreach ($continents as $value => $continent)
                             <option value="{{$value}}" {{ $country->continent_id == $value ? 'selected' : '' }}>{!! $continent !!}</option>

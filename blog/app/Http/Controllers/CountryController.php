@@ -15,11 +15,11 @@ class CountryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $countries = Country::latest()->paginate(5);
+        $countries = Country::latest()->paginate(20);
         $continents = Continent::pluck('name', 'id');
 
         return view('countries.index',compact('countries'))
-            ->with('i', (request()->input('page', 1) - 1) * 5)->with('continents',$continents);
+            ->with('i', (request()->input('page', 1) - 1) * 20)->with('continents',$continents);
     }
 
     /**
