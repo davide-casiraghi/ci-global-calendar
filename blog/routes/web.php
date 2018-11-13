@@ -20,8 +20,10 @@ Route::resource('posts','PostController');
 Route::resource('categories','CategoryController');
 Route::resource('events','EventController');
 Route::resource('eventCategories','EventCategoryController');
+Route::resource('eventVenues','EventVenueController');
 Route::resource('teachers','TeacherController');
 Route::resource('organizers','OrganizerController');
+
 
 Auth::routes();
 
