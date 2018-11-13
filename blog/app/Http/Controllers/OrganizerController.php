@@ -13,7 +13,7 @@ class OrganizerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $organizer = Organizer::latest()->paginate(5);
+        $organizers = Organizer::latest()->paginate(5);
 
         return view('organizers.index',compact('organizers'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
