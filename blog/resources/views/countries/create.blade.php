@@ -40,10 +40,15 @@
                     <input type="text" name="code" class="form-control" placeholder="Country code">
                 </div>
             </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Continent:</strong>
-                    <input type="text" name="continent_id" class="form-control" placeholder="Continent ID">
+                    <select name="continent_id" class="form-control">
+                        @foreach ($continents as $value => $continent)
+                            <option value="{{$value}}">{!! $continent !!}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
 
