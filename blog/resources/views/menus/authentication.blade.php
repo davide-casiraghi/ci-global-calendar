@@ -23,6 +23,7 @@
          <a class="dropdown-item" href="{{ route('eventVenues.index') }}">{{ __('Venues') }}</a>
          <a class="dropdown-item" href="{{ route('teachers.index') }}">{{ __('Teachers') }}</a>
          <a class="dropdown-item" href="{{ route('organizers.index') }}">{{ __('Organizers') }}</a>
+         <a class="dropdown-item" href="{{ route('countries.index') }}">{{ __('Countries') }}</a>
 
          <a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();

@@ -25,8 +25,8 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Code</th>
-            <th>Continent ID</th>
+            <th width="140">Code</th>
+            <th width="180">Continent ID</th>
             <th width="280">Action</th>
         </tr>
         @foreach ($countries as $country)

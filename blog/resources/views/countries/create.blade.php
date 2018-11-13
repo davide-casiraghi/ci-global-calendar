@@ -37,7 +37,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Code:</strong>
-                    <input type="text" name="code" class="form-control" placeholder="Slug">
+                    <input type="text" name="code" class="form-control" placeholder="Country code">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
