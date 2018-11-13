@@ -25,7 +25,7 @@
             <th>ID</th>
             <th>Title</th>
             <th>Category</th>
-            <th width="280px">Action</th>
+            <th width="280">Action</th>
         </tr>
         @foreach ($posts as $post)
         <tr>

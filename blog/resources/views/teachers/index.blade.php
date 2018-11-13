@@ -26,7 +26,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Country</th>
-            <th width="280px">Action</th>
+            <th width="280">Action</th>
         </tr>
         @foreach ($teachers as $teacher)
         <tr>
