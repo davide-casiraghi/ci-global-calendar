@@ -13,10 +13,10 @@ class ContinentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $continents = Continent::latest()->paginate(5);
+        $continents = Continent::latest()->paginate(10);
 
         return view('continents.index',compact('continents'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     /**
