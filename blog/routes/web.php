@@ -23,6 +23,7 @@ Route::resource('eventCategories','EventCategoryController');
 Route::resource('eventVenues','EventVenueController');
 Route::resource('teachers','TeacherController');
 Route::resource('organizers','OrganizerController');
+Route::resource('continents','ContinentController');
 Route::resource('countries','CountryController');
 
 
