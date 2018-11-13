@@ -39,7 +39,7 @@ class CountryController extends Controller
         request()->validate([
             'name' => 'required',
             'code' => 'required',
-            'continent_id' => 'continent_id'
+            'continent_id' => 'required'
         ]);
 
         $country = new Country();
@@ -84,7 +84,7 @@ class CountryController extends Controller
         request()->validate([
             'name' => 'required',
             'code' => 'required',
-            'continent_id' => 'continent_id'
+            'continent_id' => 'required'
         ]);
 
         $country->update($request->all());

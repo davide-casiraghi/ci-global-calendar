@@ -43,7 +43,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Continent:</strong>
-                    <textarea class="form-control" style="height:150px" name="continent_id"></textarea>
+                    <input type="text" name="continent_id" class="form-control" placeholder="Continent ID">
                 </div>
             </div>
 
