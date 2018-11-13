@@ -21,6 +21,7 @@ Route::resource('categories','CategoryController');
 Route::resource('events','EventController');
 Route::resource('eventCategories','EventCategoryController');
 Route::resource('teachers','TeacherController');
+Route::resource('organizers','OrganizerController');
 
 Auth::routes();
 
