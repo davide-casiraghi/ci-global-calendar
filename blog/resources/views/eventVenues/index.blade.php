@@ -1,14 +1,14 @@
-@extends('eventCategories.layout')
+@extends('eventVenues.layout')
 
 
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Event categories management</h2>
+                <h2>Event venues management</h2>
             </div>
             <div class="pull-right mt-4 float-right">
-                <a class="btn btn-success" href="{{ route('eventCategories.create') }}"> Create New Category</a>
+                <a class="btn btn-success" href="{{ route('eventVenues.create') }}"> Create New Category</a>
             </div>
         </div>
     </div>
@@ -27,16 +27,16 @@
             <th>Name</th>
             <th width="280">Action</th>
         </tr>
-        @foreach ($eventCategories as $eventCategory)
+        @foreach ($eventVenues as $eventVenue)
         <tr>
-            <td>{{ $eventCategory->id }}</td>
-            <td>{{ $eventCategory->name }}</td>
+            <td>{{ $eventVenue->id }}</td>
+            <td>{{ $eventVenue->name }}</td>
             <td>
-                <form action="{{ route('eventCategories.destroy',$eventCategory->id) }}" method="POST">
+                <form action="{{ route('eventVenues.destroy',$eventVenue->id) }}" method="POST">
 
 
-                    <a class="btn btn-info" href="{{ route('eventCategories.show',$eventCategory->id) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('eventCategories.edit',$eventCategory->id) }}">Edit</a>
+                    <a class="btn btn-info" href="{{ route('eventVenues.show',$eventVenue->id) }}">Show</a>
+                    <a class="btn btn-primary" href="{{ route('eventVenues.edit',$eventVenue->id) }}">Edit</a>
 
 
                     @csrf
@@ -51,7 +51,7 @@
     </table>
 
 
-    {!! $eventCategories->links() !!}
+    {!! $eventVenues->links() !!}
 
 
 @endsection

@@ -72,8 +72,7 @@ class EventCategoryController extends Controller
      * @param  \App\EventCategory  $eventCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EventCategory $eventCategory)
-    {
+    public function update(Request $request, EventCategory $eventCategory){
         request()->validate([
             'name' => 'required'
         ]);
