@@ -34,7 +34,7 @@
             <td>{{ $country->id }}</td>
             <td>{{ $country->name }}</td>
             <td>{{ $country->code }}</td>
-            <td>{{ $country->continent_id }}</td>
+            <td>{{ $continents[$country->continent_id] }}</td>
             <td>
                 <form action="{{ route('countries.destroy',$country->id) }}" method="POST">
 
