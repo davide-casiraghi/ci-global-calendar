@@ -7,9 +7,6 @@
             <div class="pull-left">
                 <h2>Add New Category</h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('categories.index') }}"> Back</a>
-            </div>
         </div>
     </div>
 
@@ -49,8 +46,15 @@
                     <textarea class="form-control" style="height:150px" name="description" placeholder="Description"></textarea>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
+                <a class="btn btn-primary" href="{{ route('categories.index') }}"> Back</a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 pull-right">
+              <button type="submit" class="btn btn-primary float-right">Submit</button>
             </div>
         </div>
 
