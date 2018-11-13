@@ -79,7 +79,7 @@ class TeacherController extends Controller
         ]);
 
         $teacher->update($request->all());
-
+        
         return redirect()->route('teachers.index')
                         ->with('success','Teacher updated successfully');
     }
