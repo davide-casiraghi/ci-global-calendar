@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Country;
+use App\Continent;
+
 use Illuminate\Http\Request;
 
 class CountryController extends Controller
@@ -14,9 +16,10 @@ class CountryController extends Controller
      */
     public function index(){
         $countries = Country::latest()->paginate(5);
+        $continents = Continent::pluck('name', 'id');
 
         return view('countries.index',compact('countries'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 5)->with('continents',$continents);
     }
 
     /**
@@ -25,7 +28,9 @@ class CountryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        return view('countries.create');
+        $continents = Continent::pluck('name', 'id');
+
+        return view('countries.create')->with('continents',$continents);
     }
 
     /**
@@ -69,7 +74,9 @@ class CountryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Country $country){
-        return view('countries.edit',compact('country'));
+        $continents = Continent::pluck('name', 'id');
+
+        return view('countries.edit',compact('country'))->with('continents',$continents);
     }
 
     /**
