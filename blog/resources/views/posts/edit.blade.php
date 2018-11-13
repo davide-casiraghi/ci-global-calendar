@@ -98,7 +98,7 @@
                     <strong>Category:</strong>
                     <select name="category_id" class="form-control">
                         @foreach ($categories as $value => $category)
-                            <option value="{{$value}}">{!! $category !!}</option>
+                            <option value="{{$value}}" {{ $post->category_id == $value ? 'selected' : '' }}>{!! $category !!}</option>
                         @endforeach
                     </select>
                 </div>
