@@ -48,6 +48,15 @@
 			tinymce.init(editor_config);
 		</script>
 
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#teacher').change(function(){
+                    $('#multiple_teachers').val($('#teacher').val());
+                    //console.log($('#multiple_teachers').val());
+                 });
+            });
+        </script>
+
 @endsection
 
 @section('content')
@@ -113,13 +122,14 @@
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+                <div class="form-group" >
                     <strong>Teachers:</strong>
-                    <select name="teacher" class="selectpicker" multiple>
+                    <select id="teacher" class="selectpicker" multiple>
                         @foreach ($teachers as $value => $teacher)
                             <option value="{{$value}}">{!! $teacher !!}</option>
                         @endforeach
                     </select>
+                    <input type="hidden" name="multiple_teachers" id="multiple_teachers" />
                 </div>
             </div>
 

@@ -133,6 +133,9 @@ class EventController extends Controller
 
         $event->update($request->all());
 
+        $multiple_teachers= explode(',', $request->get('multiple_teachers'));
+        $event->teachers()->sync($multiple_teachers);
+
         return redirect()->route('events.index')
                         ->with('success','Event updated successfully');
     }
