@@ -112,7 +112,6 @@ class EventController extends Controller
         $teachers = Teacher::pluck('name', 'id');
 
         return view('events.edit',compact('event'))->with('eventCategories', $eventCategories)->with('teachers', $teachers);
-        //return view('events.edit',compact('event'));
     }
 
     /**
