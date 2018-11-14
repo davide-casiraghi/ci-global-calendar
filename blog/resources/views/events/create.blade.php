@@ -54,6 +54,14 @@
                     $('#multiple_teachers').val($('#teacher').val());
                     //console.log($('#multiple_teachers').val());
                  });
+                 $('#organizer').change(function(){
+                     $('#multiple_organizers').val($('#organizer').val());
+                     //console.log($('#multiple_teachers').val());
+                  });
+                  $('#venue').change(function(){
+                      $('#multiple_venues').val($('#venue').val());
+                      //console.log($('#multiple_teachers').val());
+                   });
             });
         </script>
 
@@ -141,6 +149,18 @@
                         @endforeach
                     </select>
                     <input type="hidden" name="multiple_organizers" id="multiple_organizers" />
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group" >
+                    <strong>Venues:</strong>
+                    <select id="venue" class="selectpicker" multiple>
+                        @foreach ($venues as $value => $venue)
+                            <option value="{{$value}}">{!! $venue !!}</option>
+                        @endforeach
+                    </select>
+                    <input type="hidden" name="multiple_venues" id="multiple_venues" />
                 </div>
             </div>
 
