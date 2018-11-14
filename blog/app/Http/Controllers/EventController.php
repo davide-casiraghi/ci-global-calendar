@@ -93,6 +93,12 @@ class EventController extends Controller
         $multiple_teachers= explode(',', $request->get('multiple_teachers'));
         $event->teachers()->sync($multiple_teachers);
 
+        $multiple_organizers= explode(',', $request->get('multiple_organizers'));
+        $event->organizers()->sync($multiple_organizers);
+
+        $multiple_venues= explode(',', $request->get('multiple_venues'));
+        $event->eventVenues()->sync($multiple_venues);
+
         return redirect()->route('events.index')
                         ->with('success','Event created successfully.');
     }
@@ -118,17 +124,35 @@ class EventController extends Controller
     {
         $eventCategories = EventCategory::pluck('name', 'id');
         $teachers = Teacher::pluck('name', 'id');
+        $organizers = Organizer::pluck('name', 'id');
+        $venues = EventVenue::pluck('name', 'id');
 
-        $teachersDatas = $event->teachers;
-        $teachersSelected = array();
-        foreach ($teachersDatas as $teacherDatas) {
-            array_push($teachersSelected, $teacherDatas->id);
-        }
-        $multiple_teachers = implode(',', $teachersSelected);
-        //dd($multiple_teachers);
+        // Multiple teachers
+            $teachersDatas = $event->teachers;
+            $teachersSelected = array();
+            foreach ($teachersDatas as $teacherDatas) {
+                array_push($teachersSelected, $teacherDatas->id);
+            }
+            $multiple_teachers = implode(',', $teachersSelected);
+            //dd($multiple_teachers);
 
+        // Multiple Organizers
+            $organizersDatas = $event->organizers;
+            $organizersSelected = array();
+            foreach ($organizersDatas as $organizerDatas) {
+                array_push($organizersSelected, $organizerDatas->id);
+            }
+            $multiple_organizers = implode(',', $organizersSelected);
 
-        return view('events.edit',compact('event'))->with('eventCategories', $eventCategories)->with('teachers', $teachers)->with('multiple_teachers', $multiple_teachers);
+        // Multiple Venues
+            $venuesDatas = $event->venues;
+            $venuesSelected = array();
+            foreach ($venuesDatas as $venueDatas) {
+                array_push($venuesSelected, $venueDatas->id);
+            }
+            $multiple_venues = implode(',', $venuesSelected);
+
+        return view('events.edit',compact('event'))->with('eventCategories', $eventCategories)->with('teachers', $teachers)->with('multiple_teachers', $multiple_teachers)->with('organizers', $organizers)->with('multiple_organizers', $multiple_organizers)->with('venues', $venues)->with('multiple_venues', $multiple_venues);
     }
 
     /**
@@ -148,6 +172,12 @@ class EventController extends Controller
 
         $multiple_teachers= explode(',', $request->get('multiple_teachers'));
         $event->teachers()->sync($multiple_teachers);
+
+        $multiple_organizers= explode(',', $request->get('multiple_organizers'));
+        $event->organizers()->sync($multiple_organizers);
+
+        $multiple_venues= explode(',', $request->get('multiple_venues'));
+        $event->eventVenues()->sync($multiple_venues);
 
         return redirect()->route('events.index')
                         ->with('success','Event updated successfully');
