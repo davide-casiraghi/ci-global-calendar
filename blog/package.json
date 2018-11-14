@@ -21,9 +21,12 @@
     },
     "dependencies": {
         "@fancyapps/fancybox": "^3.3.5",
+        "ajv": "^6.5.5",
+        "bootstrap-select": "^1.13.3",
         "ckeditor": "^4.10.0",
         "gridalicious": "^3.0.4",
         "gulp": "^3.9.1",
+        "imagemin": "^5.3.1",
         "jquery-ui": "^1.12.1",
         "slick-carousel": "^1.8.1",
         "smartmenus": "^1.1.0",
