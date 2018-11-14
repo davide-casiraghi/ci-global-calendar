@@ -25,7 +25,7 @@ class CountryController extends Controller
             $countries = Country::latest()->paginate(20);
 
         return view('countries.index',compact('countries'))
-            ->with('i', (request()->input('page', 1) - 1) * 20)->with('continents',$continents);
+            ->with('i', (request()->input('page', 1) - 1) * 20)->with('continents',$continents)->with('searchKeywords',$searchKeywords);
     }
 
     /**
