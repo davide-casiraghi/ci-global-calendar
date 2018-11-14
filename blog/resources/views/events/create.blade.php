@@ -122,8 +122,8 @@
                 <div class="form-group">
                     <strong>Teachers:</strong>
                     <select class="selectpicker" multiple>
-                        @foreach ($eventCategories as $value => $eventCategory)
-                            <option value="{{$value}}">{!! $eventCategory !!}</option>
+                        @foreach ($teachers as $value => $teacher)
+                            <option value="{{$value}}">{!! $teacher !!}</option>
                         @endforeach
                     </select>
                 </div>

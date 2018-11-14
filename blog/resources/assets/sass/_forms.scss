@@ -8,5 +8,22 @@ form{
                 border: 1px solid #ced4da;
             }
         }
+        &.show-tick{
+            .dropdown-menu{
+                .selected {
+                    span{
+                        &.check-mark{
+                            left: 10px;
+                            top: 10px;
+                            &:after{
+                                font-size: 0.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
     }
 }

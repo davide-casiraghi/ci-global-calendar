@@ -10481,6 +10481,15 @@ form .bootstrap-select button.dropdown-toggle {
   border: 1px solid #ced4da;
 }
 
+form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark {
+  left: 10px;
+  top: 10px;
+}
+
+form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after {
+  font-size: 0.5rem;
+}
+
 /**** JqueryUI Accordion - CSS override - plugin/contents/jw_ts ****/
 
 /****** ACCORDION ******/
