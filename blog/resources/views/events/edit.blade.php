@@ -50,10 +50,18 @@
 
         <script type="text/javascript">
             $(document).ready(function(){
-                $('#teacher').change(function(){
-                    $('#multiple_teachers').val($('#teacher').val());
-                    //console.log($('#multiple_teachers').val());
-                 });
+
+                // Select the teachers that are already selected
+                    //$('.selectpicker').selectpicker('val', [2,3]);
+                    var teachersSelected = $('#multiple_teachers').val();
+                    var teachersSelectedArray = teachersSelected.split(',');
+                    $('.selectpicker').selectpicker('val', teachersSelectedArray);
+
+                // Update the multiple variable
+                    $('#teacher').change(function(){
+                        $('#multiple_teachers').val($('#teacher').val());
+                        //console.log($('#multiple_teachers').val());
+                     });
             });
         </script>
 
@@ -129,7 +137,7 @@
                             <option value="{{$value}}">{!! $teacher !!}</option>
                         @endforeach
                     </select>
-                    <input type="hidden" name="multiple_teachers" id="multiple_teachers" />
+                    <input type="hidden" name="multiple_teachers" id="multiple_teachers" value="{{$multiple_teachers}}"/>
                 </div>
             </div>
 

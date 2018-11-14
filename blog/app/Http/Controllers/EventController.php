@@ -115,7 +115,16 @@ class EventController extends Controller
         $eventCategories = EventCategory::pluck('name', 'id');
         $teachers = Teacher::pluck('name', 'id');
 
-        return view('events.edit',compact('event'))->with('eventCategories', $eventCategories)->with('teachers', $teachers);
+        $teachersDatas = $event->teachers;
+        $teachersSelected = array();
+        foreach ($teachersDatas as $teacherDatas) {
+            array_push($teachersSelected, $teacherDatas->id);
+        }
+        $multiple_teachers = implode(',', $teachersSelected);
+        //dd($multiple_teachers);
+
+
+        return view('events.edit',compact('event'))->with('eventCategories', $eventCategories)->with('teachers', $teachers)->with('multiple_teachers', $multiple_teachers);
     }
 
     /**
