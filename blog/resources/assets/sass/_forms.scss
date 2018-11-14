@@ -1,0 +1,12 @@
+form{
+    .bootstrap-select{
+        display: block!important;
+        width: 100%!important;
+        button{
+            &.dropdown-toggle{
+                background-color: white;
+                border: 1px solid #ced4da;
+            }
+        }
+    }
+}
