@@ -26,4 +26,12 @@ class Event extends Model
         return $this->belongsToMany('App\Organizer', 'event_has_organizers', 'event_id', 'organizer_id');
     }
 
+    /**
+     * Get the organizers for the event.
+     */
+    public function eventVenues()
+    {
+        return $this->belongsToMany('App\EventVenue', 'event_has_venues', 'event_id', 'venue_id');
+    }
+
 }
