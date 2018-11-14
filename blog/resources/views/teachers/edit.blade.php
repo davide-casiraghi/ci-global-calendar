@@ -34,12 +34,6 @@
                     <input type="text" name="name" value="{{ $teacher->name }}" class="form-control" placeholder="Name">
                 </div>
             </div>
-            {{--<div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Country:</strong>
-                    <input type="text" name="country" value="{{ $teacher->country }}" class="form-control" placeholder="Country">
-                </div>
-            </div>--}}
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
