@@ -14,9 +14,15 @@ class CountryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-        $countries = Country::latest()->paginate(20);
+    public function index(Request $request){
         $continents = Continent::pluck('name', 'id');
+
+        $searchKeywords = $request->input('keywords');
+        if ($searchKeywords){
+            $countries = Country::where('name', $request->input('keywords'))->orWhere('name', 'like', '%' . $request->input('keywords') . '%')->paginate(20);
+        }
+        else
+            $countries = Country::latest()->paginate(20);
 
         return view('countries.index',compact('countries'))
             ->with('i', (request()->input('page', 1) - 1) * 20)->with('continents',$continents);
@@ -110,4 +116,23 @@ class CountryController extends Controller
         return redirect()->route('countries.index')
                         ->with('success','Country deleted successfully');
     }
+
+
+
+/*
+    public function search(Request $request){
+
+        //$countries = Country::latest()->paginate(20);
+        //$countries = Country::where('name', $request->keywords)->get();
+        //$continents = Continent::pluck('name', 'id');
+
+        //return view('countries.index',compact('countries'))
+        //    ->with('i', (request()->input('page', 1) - 1) * 20)->with('continents',$continents);
+
+        return view('countries.index',compact('countries'));
+
+    }
+*/
+
+
 }

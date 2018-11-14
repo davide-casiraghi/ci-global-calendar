@@ -27,6 +27,13 @@ Route::resource('continents','ContinentController');
 Route::resource('countries','CountryController');
 
 
+//Route::post('countries.search','CountryController');
+//Route::post('/countries/search', 'CountryController@index')->name('projects.update');
+//Route::get('/countries/search', 'CountryController@search');
+
+//Route::get('/search', 'HomeController@index')->name('home');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

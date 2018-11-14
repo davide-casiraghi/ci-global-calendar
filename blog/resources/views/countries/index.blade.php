@@ -21,7 +21,22 @@
     @endif
 
 
-    <table class="table table-bordered mt-4">
+    <form action="{{ route('countries.index') }}" method="GET">
+
+        <div class="row mt-3">
+            <div class="col-xs-10 col-sm-10 col-md-10">
+                <div class="form-group">
+                    {{-- value="{{ $country->code }}" --}}
+                    <input type="text" name="keywords" class="form-control" placeholder="Search by country name">
+                </div>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2">
+                <input type="submit" value="Search" class="btn btn-primary">
+            </div>
+        </div>
+    </form>
+
+    <table class="table table-bordered mt-2">
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -55,7 +70,7 @@
     </table>
 
 
-    {!! $countries->links() !!}
+    {{--{!! $countries->links() !!}--}}
 
 
 @endsection
