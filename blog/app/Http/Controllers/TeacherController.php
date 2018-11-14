@@ -15,10 +15,11 @@ class TeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $teachers = Teacher::latest()->paginate(5);
+        $teachers = Teacher::latest()->paginate(20);
+        $countries = Country::pluck('name', 'id');
 
         return view('teachers.index',compact('teachers'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 20)->with('countries', $countries);
     }
 
     /**

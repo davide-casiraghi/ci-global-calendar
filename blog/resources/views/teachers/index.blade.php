@@ -32,7 +32,7 @@
         <tr>
             <td>{{ $teacher->id }}</td>
             <td>{{ $teacher->name }}</td>
-            <td>{{ $teacher->country }}</td>
+            <td>{{ $countries[$teacher->country_id] }}</td>
             <td>
                 <form action="{{ route('teachers.destroy',$teacher->id) }}" method="POST">
 
