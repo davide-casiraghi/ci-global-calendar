@@ -46,6 +46,7 @@
                 <div class="form-group">
                     <strong>Country:</strong>
                     <select name="country_id" class="selectpicker" data-live-search="true">
+                        <option value="">Select Country</option>
                         @foreach ($countries as $value => $country)
                             <option value="{{$value}}">{!! $country !!}</option>
                         @endforeach
