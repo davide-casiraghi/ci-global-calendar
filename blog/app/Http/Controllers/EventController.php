@@ -19,9 +19,15 @@ class EventController extends Controller
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
 
-        if ($searchKeywords){
-            $events = Event::where('title', $request->input('keywords'))
-                            ->orWhere('title', 'like', '%' . $request->input('keywords') . '%')->paginate(20);
+        if ($searchKeywords||$searchCategory){
+            $events = DB::table('events')
+                ->when($searchKeywords, function ($query, $searchKeywords) {
+                    return $query->where('title', $searchKeywords)->orWhere('title', 'like', '%' . $searchKeywords . '%');
+                })
+                ->when($searchCategory, function ($query, $searchCategory) {
+                    return $query->where('category_id', '=', $searchCategory);
+                })
+                ->paginate(20);
         }
         else
             $events = Event::latest()->paginate(20);
