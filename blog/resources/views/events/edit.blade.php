@@ -63,7 +63,6 @@
                      });
 
                  // Select the organizers that are already selected
-                     //$('.selectpicker').selectpicker('val', [2,3]);
                      var organizersSelected = $('#multiple_organizers').val();
                      var organizersSelectedArray = organizersSelected.split(',');
                      $('.selectpicker').selectpicker('val', organizersSelectedArray);
@@ -74,7 +73,6 @@
                       });
 
                   // Select the venues that are already selected
-                      //$('.selectpicker').selectpicker('val', [2,3]);
                       var venuesSelected = $('#multiple_venues').val();
                       var venuesSelectedArray = venuesSelected.split(',');
                       $('.selectpicker').selectpicker('val', venuesSelectedArray);
