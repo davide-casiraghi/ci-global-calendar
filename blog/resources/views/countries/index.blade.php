@@ -20,7 +20,6 @@
         </div>
     @endif
 
-
     <form class="row mt-3" action="{{ route('countries.index') }}" method="GET">
         @csrf
         <div class="form-group col-lg-11 col-md-10 col-sm-10 col-xs-8">
@@ -30,7 +29,6 @@
             <input type="submit" value="Search" class="btn btn-primary float-sm-right">
         </div>
     </form>
-
 
     <table class="table table-bordered mt-2">
         <tr>
