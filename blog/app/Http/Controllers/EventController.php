@@ -138,14 +138,18 @@ class EventController extends Controller
 
         // Multiple Organizers
             $organizersDatas = $event->organizers;
+            //dump($organizersDatas);
             $organizersSelected = array();
             foreach ($organizersDatas as $organizerDatas) {
                 array_push($organizersSelected, $organizerDatas->id);
             }
             $multiple_organizers = implode(',', $organizersSelected);
 
+            //dump($event);
+
         // Multiple Venues
-            $venuesDatas = $event->venues;
+            $venuesDatas = $event->eventVenues;
+            //dd($venuesDatas);
             $venuesSelected = array();
             foreach ($venuesDatas as $venueDatas) {
                 array_push($venuesSelected, $venueDatas->id);
