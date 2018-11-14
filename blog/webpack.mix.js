@@ -42,6 +42,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
         'slick-carousel',
         'gridalicious',
         '@fancyapps/fancybox/dist/jquery.fancybox.js',
+        'bootstrap-select'
         //'ckeditor',
     ]);
 
@@ -57,6 +58,7 @@ mix.styles([
    'node_modules/slick-carousel/slick/slick.css',
    'node_modules/slick-carousel/slick/slick-theme.css',
    'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css',
+   'node_modules/bootstrap-select/dist/css/bootstrap-select.css',
 ], 'public/css/vendor.css');
 
 /* CSS - Custom - OK */

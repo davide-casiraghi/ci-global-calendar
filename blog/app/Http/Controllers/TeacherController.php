@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Teacher;
+use App\Country;
+
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
@@ -25,7 +27,8 @@ class TeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        return view('teachers.create');
+        $countries = Country::pluck('name', 'id');
+        return view('teachers.create')->with('countries', $countries);
     }
 
     /**

@@ -116,6 +116,21 @@
                     <textarea class="form-control" style="height:150px" name="description" placeholder="Event description" id="bodyTextarea"></textarea>
                 </div>
             </div>
+
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Teachers:</strong>
+                    <select class="selectpicker" multiple>
+                        @foreach ($eventCategories as $value => $eventCategory)
+                            <option value="{{$value}}">{!! $eventCategory !!}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+
+
         </div>
 
         <div class="row h-100 mt-3">
