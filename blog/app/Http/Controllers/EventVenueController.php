@@ -46,7 +46,7 @@ class EventVenueController extends Controller
         $eventVenue = new EventVenue();
         $eventVenue->name = $request->get('name');
         $eventVenue->description = $request->get('description');
-        $eventVenue->continent_id = $request->get('continent_id');
+        $eventVenue->continent_id = Country::where('id', $request->get('country_id'))->pluck('continent_id')->first();
         $eventVenue->country_id = $request->get('country_id');
         $eventVenue->city = $request->get('city');
         $eventVenue->address = $request->get('address');
