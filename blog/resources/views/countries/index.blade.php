@@ -22,18 +22,13 @@
 
 
     <form class="row mt-3" action="{{ route('countries.index') }}" method="GET">
-
-            <div class="form-group col-lg-11 col-md-10 col-sm-10 col-xs-8">
-                <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by country name">
-            </div>
-
-            <div class="col-lg-1 col-md-2 col-sm-2 col-xs-4">
-                <input type="submit" value="Search" class="btn btn-primary float-sm-right">
-            </div>
-
-
+        <div class="form-group col-lg-11 col-md-10 col-sm-10 col-xs-8">
+            <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by country name">
+        </div>
+        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-4">
+            <input type="submit" value="Search" class="btn btn-primary float-sm-right">
+        </div>
     </form>
-
 
 
     <table class="table table-bordered mt-2">
