@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Event;
 use App\EventCategory;
 use App\Teacher;
+use App\Organizer;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -49,9 +50,10 @@ class EventController extends Controller
     {
         $eventCategories = EventCategory::pluck('name', 'id');
         $teachers = Teacher::pluck('name', 'id');
+        $organizers = Organizer::pluck('name', 'id');
 
         //return view('events.create');
-        return view('events.create')->with('eventCategories', $eventCategories)->with('teachers', $teachers);
+        return view('events.create')->with('eventCategories', $eventCategories)->with('teachers', $teachers)->with('organizers', $organizers);
     }
 
     /**

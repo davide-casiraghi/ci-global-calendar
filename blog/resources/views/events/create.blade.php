@@ -132,6 +132,18 @@
                 </div>
             </div>
 
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group" >
+                    <strong>Organizers:</strong>
+                    <select id="organizer" class="selectpicker" multiple>
+                        @foreach ($organizers as $value => $organizer)
+                            <option value="{{$value}}">{!! $organizer !!}</option>
+                        @endforeach
+                    </select>
+                    <input type="hidden" name="multiple_organizers" id="multiple_organizers" />
+                </div>
+            </div>
+
         </div>
 
         <div class="row h-100 mt-3">
