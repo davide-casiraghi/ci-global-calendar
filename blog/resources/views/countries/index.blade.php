@@ -21,20 +21,20 @@
     @endif
 
 
-    <form action="{{ route('countries.index') }}" method="GET">
+    <form class="row mt-3" action="{{ route('countries.index') }}" method="GET">
 
-        <div class="row mt-3">
-            <div class="col-xs-10 col-sm-10 col-md-10">
-                <div class="form-group">
-                    {{-- value="{{ $country->code }}" --}}
-                    <input type="text" name="keywords" class="form-control" placeholder="Search by country name">
-                </div>
+            <div class="form-group col-lg-11 col-md-10 col-sm-10 col-xs-8">
+                <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by country name">
             </div>
-            <div class="col-xs-2 col-sm-2 col-md-2">
-                <input type="submit" value="Search" class="btn btn-primary">
+
+            <div class="col-lg-1 col-md-2 col-sm-2 col-xs-4">
+                <input type="submit" value="Search" class="btn btn-primary float-sm-right">
             </div>
-        </div>
+
+
     </form>
+
+
 
     <table class="table table-bordered mt-2">
         <tr>
