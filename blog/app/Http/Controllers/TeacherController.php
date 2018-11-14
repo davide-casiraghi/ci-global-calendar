@@ -79,7 +79,9 @@ class TeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Teacher $teacher){
-        return view('teachers.edit',compact('teacher'));
+        $countries = Country::pluck('name', 'id');
+
+        return view('teachers.edit',compact('teacher'))->with('countries', $countries);
     }
 
     /**

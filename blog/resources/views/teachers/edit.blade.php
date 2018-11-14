@@ -34,12 +34,25 @@
                     <input type="text" name="name" value="{{ $teacher->name }}" class="form-control" placeholder="Name">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            {{--<div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Country:</strong>
                     <input type="text" name="country" value="{{ $teacher->country }}" class="form-control" placeholder="Country">
                 </div>
+            </div>--}}
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Country:</strong>
+                    <select name="country_id" class="selectpicker" data-live-search="true">
+                        @foreach ($countries as $value => $country)
+                            <option value="{{$value}}" {{ $teacher->country_id == $value ? 'selected' : '' }}>{!! $country !!}</option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
+
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Bio:</strong>
