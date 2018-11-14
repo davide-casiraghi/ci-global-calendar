@@ -45,7 +45,7 @@ class TeacherController extends Controller
         $teacher = new Teacher();
         $teacher->name = $request->get('name');
         $teacher->bio = $request->get('bio');
-        $teacher->country = $request->get('country');
+        $teacher->country_id = $request->get('country_id');
         $teacher->year_starting_practice = $request->get('year_starting_practice');
         $teacher->year_starting_teach = $request->get('year_starting_teach');
         $teacher->significant_teachers = $request->get('significant_teachers');
