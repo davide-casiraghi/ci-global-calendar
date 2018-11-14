@@ -26,9 +26,10 @@
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <select name="category_id" class="form-control">
+                <option value="">Search by category</option>
                 @foreach ($eventCategories as $value => $eventCategory)
                     {{-- {{ $event->category_id == $value ? 'selected' : '' }} --}}
-                    <option value="{{$value}}">{!! $eventCategory !!} </option>
+                    <option value="{{$value}}" {{ $searchCategory == $value ? 'selected' : '' }} >{!! $eventCategory !!} </option>
                 @endforeach
             </select>
         </div>

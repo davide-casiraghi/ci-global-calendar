@@ -17,6 +17,7 @@ class EventController extends Controller
      */
     public function index(Request $request){
         $searchKeywords = $request->input('keywords');
+        $searchCategory = $request->input('category_id');
 
         if ($searchKeywords){
             $events = Event::where('title', $request->input('keywords'))->orWhere('title', 'like', '%' . $request->input('keywords') . '%')->paginate(20);
@@ -28,7 +29,7 @@ class EventController extends Controller
         $eventCategories = EventCategory::pluck('name', 'id');
 
         return view('events.index',compact('events'))
-            ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('searchKeywords',$searchKeywords);
+            ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory);
     }
 
     /**
