@@ -80,8 +80,9 @@ class EventController extends Controller
         $event->facebook_link = $request->get('facebook_link');
         $event->status = $request->get('status');
 
-        dump($request->get('status'));
+        //dump($request->get('status'));
         //$event->teachers()->sync([1, 2, 3]);
+        $event->teachers()->sync($request->get('teachers'));
 
         $event->save();
 

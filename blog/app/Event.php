@@ -15,7 +15,7 @@ class Event extends Model
      */
     public function teachers()
     {
-        return $this->belongsToMany('App\Teacher');
+        return $this->belongsToMany('App\Teacher', 'event_has_teachers', 'event_id', 'teacher_id');
     }
 
 }
