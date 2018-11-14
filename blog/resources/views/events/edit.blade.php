@@ -60,7 +60,6 @@
                 // Update the multiple variable
                     $('#teacher').change(function(){
                         $('#multiple_teachers').val($('#teacher').val());
-                        //console.log($('#multiple_teachers').val());
                      });
             });
         </script>
