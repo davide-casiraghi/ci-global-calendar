@@ -64,7 +64,8 @@
     </table>
 
 
-    {{--{!! $countries->links() !!}--}}
+    
+    {!! $countries->links() !!}
 
 
 @endsection
