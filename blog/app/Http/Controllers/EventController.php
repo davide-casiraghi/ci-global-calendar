@@ -15,12 +15,20 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-        $events = Event::latest()->paginate(5);
+    public function index(Request $request){
+        $searchKeywords = $request->input('keywords');
+
+        if ($searchKeywords){
+            $events = Event::where('title', $request->input('keywords'))->orWhere('title', 'like', '%' . $request->input('keywords') . '%')->paginate(20);
+        }
+        else
+            $events = Event::latest()->paginate(20);
+
+
         $eventCategories = EventCategory::pluck('name', 'id');
 
         return view('events.index',compact('events'))
-            ->with('i', (request()->input('page', 1) - 1) * 5)->with('eventCategories',$eventCategories);
+            ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('searchKeywords',$searchKeywords);
     }
 
     /**
