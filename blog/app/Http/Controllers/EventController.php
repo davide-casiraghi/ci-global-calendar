@@ -80,11 +80,17 @@ class EventController extends Controller
         $event->facebook_link = $request->get('facebook_link');
         $event->status = $request->get('status');
 
-        //dump($request->get('status'));
-        //$event->teachers()->sync([1, 2, 3]);
-        $event->teachers()->sync($request->get('teachers'));
+        dd($request->replace($request->all()));
 
         $event->save();
+
+
+        //$event->teachers()->sync($request->get('teachers'));
+        //$event->teachers()->sync([1, 2]);
+
+        $teachers = implode(', ', $request->get('tea'));
+        $event->teachers()->sync($teachers);
+
 
         return redirect()->route('events.index')
                         ->with('success','Event created successfully.');
