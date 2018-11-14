@@ -42,20 +42,8 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Continent:</strong>
-                    <input type="text" name="continent_id" class="form-control">
-                </div>
-            </div>
-            {{-- <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
                     <strong>Country:</strong>
-                    <input type="text" name="country_id" class="form-control">
-                </div>
-            </div>--}}
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Country:</strong>
-                    <select name="country_id" class="form-control">
+                    <select name="country_id" class="selectpicker" data-live-search="true">
                         <option value="">Select country</option>
                         @foreach ($countries as $value => $country)
                             <option value="{{$value}}">{!! $country !!}</option>
