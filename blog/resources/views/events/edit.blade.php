@@ -57,10 +57,32 @@
                     var teachersSelectedArray = teachersSelected.split(',');
                     $('.selectpicker').selectpicker('val', teachersSelectedArray);
 
-                // Update the multiple variable
+                // Update the multiple teachers
                     $('#teacher').change(function(){
                         $('#multiple_teachers').val($('#teacher').val());
                      });
+
+                 // Select the organizers that are already selected
+                     //$('.selectpicker').selectpicker('val', [2,3]);
+                     var organizersSelected = $('#multiple_organizers').val();
+                     var organizersSelectedArray = organizersSelected.split(',');
+                     $('.selectpicker').selectpicker('val', organizersSelectedArray);
+
+                 // Update the multiple teachers
+                     $('#organizers').change(function(){
+                         $('#multiple_organizers').val($('#organizer').val());
+                      });
+
+                  // Select the venues that are already selected
+                      //$('.selectpicker').selectpicker('val', [2,3]);
+                      var venuesSelected = $('#multiple_venues').val();
+                      var venuesSelectedArray = venuesSelected.split(',');
+                      $('.selectpicker').selectpicker('val', venuesSelectedArray);
+
+                  // Update the multiple venues
+                      $('#venues').change(function(){
+                          $('#multiple_venues').val($('#venues').val());
+                       });
             });
         </script>
 
