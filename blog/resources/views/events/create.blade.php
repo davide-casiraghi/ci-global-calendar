@@ -123,7 +123,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group" >
                     <strong>Teachers:</strong>
-                    <select name="teacher" id="teacher" class="selectpicker" multiple>
+                    <select id="teacher" class="selectpicker" multiple>
                         @foreach ($teachers as $value => $teacher)
                             <option value="{{$value}}">{!! $teacher !!}</option>
                         @endforeach
