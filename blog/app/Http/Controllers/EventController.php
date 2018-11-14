@@ -6,6 +6,7 @@ use App\Event;
 use App\EventCategory;
 use App\Teacher;
 use App\Organizer;
+use App\EventVenue;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -51,9 +52,10 @@ class EventController extends Controller
         $eventCategories = EventCategory::pluck('name', 'id');
         $teachers = Teacher::pluck('name', 'id');
         $organizers = Organizer::pluck('name', 'id');
+        $venues = EventVenue::pluck('name', 'id');
 
         //return view('events.create');
-        return view('events.create')->with('eventCategories', $eventCategories)->with('teachers', $teachers)->with('organizers', $organizers);
+        return view('events.create')->with('eventCategories', $eventCategories)->with('teachers', $teachers)->with('organizers', $organizers)->with('venues', $venues);
     }
 
     /**
