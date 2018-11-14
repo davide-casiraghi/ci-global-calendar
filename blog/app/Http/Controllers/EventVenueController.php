@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\EventVenue;
+use App\Country;
+
 use Illuminate\Http\Request;
 
 class EventVenueController extends Controller
@@ -25,7 +27,9 @@ class EventVenueController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        return view('eventVenues.create');
+        $countries = Country::pluck('name', 'id');
+
+        return view('eventVenues.create')->with('countries', $countries);
     }
 
     /**

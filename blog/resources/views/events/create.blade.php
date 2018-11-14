@@ -103,6 +103,7 @@
                 <div class="form-group">
                     <strong>Category:</strong>
                     <select name="category_id" class="form-control">
+                        <option value="">Select category</option>
                         @foreach ($eventCategories as $value => $eventCategory)
                             <option value="{{$value}}">{!! $eventCategory !!}</option>
                         @endforeach
@@ -132,6 +133,7 @@
                 <div class="form-group" >
                     <strong>Teachers:</strong>
                     <select id="teacher" class="selectpicker" multiple>
+                        <option value="">Select teacher</option>
                         @foreach ($teachers as $value => $teacher)
                             <option value="{{$value}}">{!! $teacher !!}</option>
                         @endforeach
@@ -144,6 +146,7 @@
                 <div class="form-group" >
                     <strong>Organizers:</strong>
                     <select id="organizer" class="selectpicker" multiple>
+                        <option value="">Select organizer</option>
                         @foreach ($organizers as $value => $organizer)
                             <option value="{{$value}}">{!! $organizer !!}</option>
                         @endforeach
@@ -156,6 +159,7 @@
                 <div class="form-group" >
                     <strong>Venues:</strong>
                     <select id="venue" class="selectpicker" multiple>
+                        <option value="">Select venue</option>
                         @foreach ($venues as $value => $venue)
                             <option value="{{$value}}">{!! $venue !!}</option>
                         @endforeach
