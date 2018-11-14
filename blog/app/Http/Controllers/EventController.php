@@ -80,6 +80,9 @@ class EventController extends Controller
         $event->facebook_link = $request->get('facebook_link');
         $event->status = $request->get('status');
 
+        dump($request->get('status'));
+        //$event->teachers()->sync([1, 2, 3]);
+
         $event->save();
 
         return redirect()->route('events.index')
@@ -105,11 +108,10 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //$categories = Category::pluck('name', 'id');
-        //return view('posts.edit',compact('post'))->with('categories', $categories);
-
         $eventCategories = EventCategory::pluck('name', 'id');
-        return view('events.edit',compact('event'))->with('eventCategories', $eventCategories);
+        $teachers = Teacher::pluck('name', 'id');
+
+        return view('events.edit',compact('event'))->with('eventCategories', $eventCategories)->with('teachers', $teachers);
         //return view('events.edit',compact('event'));
     }
 
