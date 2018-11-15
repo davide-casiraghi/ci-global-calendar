@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class EventVenue extends Model
 {
     protected $fillable = [
-        'name', 'slug', 'description', 'image', 'website', 'facebook', 'created_by'
+        'name', 'slug', 'description', 'image', 'website', 'facebook', 'continent_id', 'country_id', 'city', 'address', 'zip_code', 'created_by', 'created_at', 'updated_at'
     ];
 }

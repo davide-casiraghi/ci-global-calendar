@@ -80,7 +80,9 @@ class EventVenueController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(EventVenue $eventVenue){
-        return view('eventVenues.edit',compact('eventVenue'));
+        $countries = Country::pluck('name', 'id');
+        //dump($eventVenue);
+        return view('eventVenues.edit',compact('eventVenue'))->with('countries', $countries);
     }
 
     /**
