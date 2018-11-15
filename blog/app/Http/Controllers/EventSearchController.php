@@ -75,10 +75,11 @@ class EventSearchController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event){
-        //dd($event);
-        return view('events.show',compact('event'));
-        //return view('eventSearch.show',compact('event'));
+    public function show(Event $event, $id){
+
+        $event  = Event::where('id', $id)->first();
+
+        return view('eventSearch.show',compact('event'));
     }
 
     /**

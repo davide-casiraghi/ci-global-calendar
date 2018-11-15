@@ -58,7 +58,7 @@
         @foreach ($events as $event)
         <tr>
             <td>{{ $event->id }}</td>
-            <td><a href="{{ route('events.show',$event->id) }}">{{ $event->title }}</a></td>
+            <td><a href="{{ route('eventSearch.show',$event->id) }}">{{ $event->title }}</a></td>
             <td>{{ $eventCategories[$event->category_id] }}</td>
             {{--<td>{{ $countries[$event->venue] }}</td>--}}
             {{--<td>{{ $countries[$event->eventVenues] }}</td>--}}
