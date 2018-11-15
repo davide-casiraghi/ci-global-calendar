@@ -92,7 +92,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Category:</strong>
-                    <select name="category_id" class="form-control">
+                    <select name="category_id" class="selectpicker" data-live-search="true" title="Select category">
                         @foreach ($categories as $value => $category)
                             <option value="{{$value}}">{!! $category !!}</option>
                         @endforeach
