@@ -76,7 +76,9 @@ class EventSearchController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Event $event){
+        //dd($event);
         return view('events.show',compact('event'));
+        //return view('eventSearch.show',compact('event'));
     }
 
     /**

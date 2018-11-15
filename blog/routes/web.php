@@ -26,7 +26,7 @@ Route::resource('organizers','OrganizerController');
 Route::resource('continents','ContinentController');
 Route::resource('countries','CountryController');
 
-Route::resource('events','EventSearchController');
+Route::resource('eventSearch','EventSearchController');
 
 
 //Route::post('countries.search','CountryController');
