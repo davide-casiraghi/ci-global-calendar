@@ -20,13 +20,27 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-
-        $posts = Post::latest()->paginate(5);
+    public function index(Request $request){
         $categories = Category::pluck('name', 'id');
 
+        $searchKeywords = $request->input('keywords');
+        $searchCategory = $request->input('category_id');
+
+        if ($searchKeywords||$searchCategory){
+            $posts = DB::table('posts')
+                ->when($searchKeywords, function ($query, $searchKeywords) {
+                    return $query->where('title', $searchKeywords)->orWhere('title', 'like', '%' . $searchKeywords . '%');
+                })
+                ->when($searchCategory, function ($query, $searchCategory) {
+                    return $query->where('category_id', '=', $searchCategory);
+                })
+                ->paginate(20);
+        }
+        else
+            $posts = Post::latest()->paginate(20);
+
         return view('posts.index',compact('posts'))
-            ->with('i', (request()->input('page', 1) - 1) * 5)->with('categories',$categories);
+            ->with('i', (request()->input('page', 1) - 1) * 20)->with('categories',$categories)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory);
     }
 
     // **********************************************************************
