@@ -10712,7 +10712,7 @@ body nav.navbar ul li.nav-item a.nav-link:hover {
 }
 
 body nav.navbar ul li.nav-item a.has-submenu {
-  padding-right: 4rem;
+  /*padding-right: 4rem;*/
 }
 
 body nav.navbar button {
