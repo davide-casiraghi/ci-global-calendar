@@ -114,7 +114,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Before Content:</strong>
-                    <textarea class="form-control" style="height:150px" name="body" placeholder="Before the content"></textarea>
+                    <textarea class="form-control" style="height:150px" name="before_content" placeholder="Before the content"></textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -126,7 +126,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>After Content:</strong>
-                    <textarea class="form-control" style="height:150px" name="body" placeholder="After the content"></textarea>
+                    <textarea class="form-control" style="height:150px" name="after_content" placeholder="After the content"></textarea>
                 </div>
             </div>
         </div>

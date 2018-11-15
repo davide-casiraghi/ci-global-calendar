@@ -79,6 +79,7 @@ class PostController extends Controller
         $post = new Post();
         $post->title = $request->get('title');
         $post->body = $request->get('body');
+        //dd($request->get('body'));
         /*$post->author_id = auth()->id();*/
         $post->author_id = 0;
         $post->slug = $request->get('slug');
