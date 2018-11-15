@@ -151,7 +151,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group" >
                     <strong>Teachers:</strong>
-                    <select id="teacher" class="selectpicker" multiple>
+                    <select id="teacher" class="selectpicker" multiple title="Select teacher">
                         @foreach ($teachers as $value => $teacher)
                             <option value="{{$value}}">{!! $teacher !!}</option>
                         @endforeach
@@ -163,7 +163,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group" >
                     <strong>Organizers:</strong>
-                    <select id="organizer" class="selectpicker" multiple>
+                    <select id="organizer" class="selectpicker" multiple title="Select organizer">
                         @foreach ($organizers as $value => $organizer)
                             <option value="{{$value}}">{!! $organizer !!}</option>
                         @endforeach
@@ -175,7 +175,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group" >
                     <strong>Venues:</strong>
-                    <select id="venues" class="selectpicker" multiple>
+                    <select id="venues" class="selectpicker" multiple title="Select venue">
                         @foreach ($venues as $value => $venue)
                             <option value="{{$value}}">{!! $venue !!}</option>
                         @endforeach
