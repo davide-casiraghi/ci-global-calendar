@@ -19,6 +19,8 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
+        $eventCategories = EventCategory::pluck('name', 'id');
+
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
 
@@ -36,7 +38,7 @@ class EventController extends Controller
             $events = Event::latest()->paginate(20);
 
 
-        $eventCategories = EventCategory::pluck('name', 'id');
+
 
         return view('events.index',compact('events'))
             ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory);

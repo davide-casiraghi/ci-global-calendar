@@ -19,6 +19,7 @@
         </div>
     @endif
 
+    {{-- Search form --}}
     <form class="row mt-3" action="{{ route('events.index') }}" method="GET">
         @csrf
         <div class="form-group col-lg-7 col-md-6 col-sm-6 col-xs-4">
@@ -38,6 +39,7 @@
         </div>
     </form>
 
+    {{-- List of events --}}
     <table class="table table-bordered mt-4">
         <tr>
             <th>ID</th>
