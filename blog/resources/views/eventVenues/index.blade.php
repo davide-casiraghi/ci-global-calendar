@@ -27,7 +27,7 @@
             <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by venue name" value="{{ $searchKeywords }}">
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <select name="country_id" class="form-control">
+            <select name="country_id" class="selectpicker" data-live-search="true">
                 <option value="">Search by country</option>
                 @foreach ($countries as $value => $country)
                     {{-- {{ $event->category_id == $value ? 'selected' : '' }} --}}
