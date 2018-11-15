@@ -96,14 +96,20 @@ class EventController extends Controller
         //$event->teachers()->sync([1, 2]);
         //dd($request->get('multiple_teachers'));
 
-        $multiple_teachers= explode(',', $request->get('multiple_teachers'));
-        $event->teachers()->sync($multiple_teachers);
+        if ($request->get('multiple_teachers')){
+            $multiple_teachers= explode(',', $request->get('multiple_teachers'));
+            $event->teachers()->sync($multiple_teachers);
+        }
 
-        $multiple_organizers= explode(',', $request->get('multiple_organizers'));
-        $event->organizers()->sync($multiple_organizers);
+        if ($request->get('multiple_organizers')){
+            $multiple_organizers= explode(',', $request->get('multiple_organizers'));
+            $event->organizers()->sync($multiple_organizers);
+        }
 
-        $multiple_venues= explode(',', $request->get('multiple_venues'));
-        $event->eventVenues()->sync($multiple_venues);
+        if ($request->get('multiple_venues')){
+            $multiple_venues= explode(',', $request->get('multiple_venues'));
+            $event->eventVenues()->sync($multiple_venues);
+        }
 
         return redirect()->route('events.index')
                         ->with('success','Event created successfully.');
@@ -178,14 +184,20 @@ class EventController extends Controller
                         //dd($event->organized_by);
         $event->update($request->all());
 
-        $multiple_teachers= explode(',', $request->get('multiple_teachers'));
-        $event->teachers()->sync($multiple_teachers);
+        if ($request->get('multiple_teachers')){
+            $multiple_teachers= explode(',', $request->get('multiple_teachers'));
+            $event->teachers()->sync($multiple_teachers);
+        }
 
-        $multiple_organizers= explode(',', $request->get('multiple_organizers'));
-        $event->organizers()->sync($multiple_organizers);
+        if ($request->get('multiple_organizers')){
+            $multiple_organizers= explode(',', $request->get('multiple_organizers'));
+            $event->organizers()->sync($multiple_organizers);
+        }
 
-        $multiple_venues= explode(',', $request->get('multiple_venues'));
-        $event->eventVenues()->sync($multiple_venues);
+        if ($request->get('multiple_venues')){
+            $multiple_venues= explode(',', $request->get('multiple_venues'));
+            $event->eventVenues()->sync($multiple_venues);
+        }
 
         return redirect()->route('events.index')
                         ->with('success','Event updated successfully');
