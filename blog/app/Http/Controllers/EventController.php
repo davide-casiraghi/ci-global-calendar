@@ -53,8 +53,7 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(){
         $eventCategories = EventCategory::pluck('name', 'id');
         $teachers = Teacher::pluck('name', 'id');
         $organizers = Organizer::pluck('name', 'id');
@@ -71,6 +70,7 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
+
         request()->validate([
             'title' => 'required',
             'description' => 'required',
@@ -81,7 +81,7 @@ class EventController extends Controller
         $event->description = $request->get('description');
         //$event->created_by = $request->get('created_by');
         $event->created_by = \Auth::user()->id;
-        $event->organized_by = $request->get('organized_by');
+        //$event->organized_by = $request->get('organized_by');
         //$event->slug = $request->get('slug');
         $event->slug = str_slug($event->title, '-').rand(100000, 1000000);
 
@@ -115,8 +115,7 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
-    {
+    public function show(Event $event){
         return view('events.show',compact('event'));
     }
 
@@ -126,8 +125,7 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(Event $event)
-    {
+    public function edit(Event $event){
         $eventCategories = EventCategory::pluck('name', 'id');
         $teachers = Teacher::pluck('name', 'id');
         $organizers = Organizer::pluck('name', 'id');
@@ -177,7 +175,7 @@ class EventController extends Controller
             'title' => 'required',
             'description' => 'required'
         ]);
-
+                        //dd($event->organized_by);
         $event->update($request->all());
 
         $multiple_teachers= explode(',', $request->get('multiple_teachers'));
