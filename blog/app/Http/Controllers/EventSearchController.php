@@ -70,18 +70,9 @@ class EventSearchController extends Controller
                         return $query->where('category_id', '=', $searchCategory);
                     })
                     ->when($searchCountry, function ($query, $searchCountry) {
-                        return $query->join('event_has_venues', 'event.id', '=', 'event_has_venues.event_id')->where('county_id', '=', $searchCountry);
+                        return $query->where('country_id', '=', $searchCountry);
                     })
                     ->paginate(20);
-
-                    dump($events);
-
-
-                    /*
-                    joinSub($latestPosts, 'latest_posts', function ($join) {
-        $join->on('users.id', '=', 'latest_posts.user_id');
-
-                    */
         }
         else{
             //$events = Event::latest()->paginate(20);
