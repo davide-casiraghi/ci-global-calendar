@@ -47,12 +47,14 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Country</th>
             <th width="280">Action</th>
         </tr>
         @foreach ($eventVenues as $eventVenue)
         <tr>
             <td>{{ $eventVenue->id }}</td>
             <td>{{ $eventVenue->name }}</td>
+            <td>{{ $countries[$eventVenue->country_id] }}</td>
             <td>
                 <form action="{{ route('eventVenues.destroy',$eventVenue->id) }}" method="POST">
 
