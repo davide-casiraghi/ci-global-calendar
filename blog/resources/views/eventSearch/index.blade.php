@@ -7,9 +7,6 @@
             <div class="pull-left">
                 <h2>Event search interface </h2>
             </div>
-            <div class="pull-right mt-4 float-right">
-                <a class="btn btn-success" href="{{ route('events.create') }}"> Create New event</a>
-            </div>
         </div>
     </div>
 
