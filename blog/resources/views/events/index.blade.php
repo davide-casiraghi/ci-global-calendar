@@ -22,10 +22,10 @@
     {{-- Search form --}}
     <form class="row mt-3" action="{{ route('events.index') }}" method="GET">
         @csrf
-        <div class="form-group col-lg-7 col-md-6 col-sm-6 col-xs-4">
+        <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by event name" value="{{ $searchKeywords }}">
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
             <select name="category_id" class="form-control">
                 <option value="">Search by category</option>
                 @foreach ($eventCategories as $value => $eventCategory)
@@ -34,7 +34,16 @@
                 @endforeach
             </select>
         </div>
-        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-4">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <select name="country_id" class="form-control">
+                <option value="">Search by country</option>
+                @foreach ($countries as $value => $country)
+                    {{-- {{ $event->category_id == $value ? 'selected' : '' }} --}}
+                    <option value="{{$value}}" {{ $searchCountry == $value ? 'selected' : '' }} >{!! $country !!} </option>
+                @endforeach
+            </select>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
             <input type="submit" value="Search" class="btn btn-primary float-sm-right">
         </div>
     </form>

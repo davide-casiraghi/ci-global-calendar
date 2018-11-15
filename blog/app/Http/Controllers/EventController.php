@@ -7,6 +7,7 @@ use App\EventCategory;
 use App\Teacher;
 use App\Organizer;
 use App\EventVenue;
+use App\Country;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -20,11 +21,13 @@ class EventController extends Controller
      */
     public function index(Request $request){
         $eventCategories = EventCategory::pluck('name', 'id');
+        $countries = Country::pluck('name', 'id');
 
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
+        $searchCountry = $request->input('country_id');
 
-        if ($searchKeywords||$searchCategory){
+        if ($searchKeywords||$searchCategory||$searchCountry){
             $events = DB::table('events')
                 ->when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('title', $searchKeywords)->orWhere('title', 'like', '%' . $searchKeywords . '%');
@@ -32,16 +35,17 @@ class EventController extends Controller
                 ->when($searchCategory, function ($query, $searchCategory) {
                     return $query->where('category_id', '=', $searchCategory);
                 })
+                ->when($searchCountry, function ($query, $searchCountry) {
+                    return $query->where('country_id', '=', $searchCountry);
+                })
                 ->paginate(20);
         }
         else
             $events = Event::latest()->paginate(20);
 
 
-
-
         return view('events.index',compact('events'))
-            ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory);
+            ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('countries', $countries)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('searchCountry',$searchCountry);
     }
 
     /**
