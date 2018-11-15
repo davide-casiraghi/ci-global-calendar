@@ -22,10 +22,10 @@
 
     <form class="row mt-3" action="{{ route('countries.index') }}" method="GET">
         @csrf
-        <div class="form-group col-lg-11 col-md-10 col-sm-10 col-xs-8">
+        <div class="form-group col-lg-10 col-md-10 col-sm-10 col-xs-8">
             <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by country name" value="{{ $searchKeywords }}">
         </div>
-        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-4">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
             <input type="submit" value="Search" class="btn btn-primary float-sm-right">
         </div>
     </form>
@@ -35,7 +35,7 @@
             <th>ID</th>
             <th>Name</th>
             <th width="140">Code</th>
-            <th width="180">Continent ID</th>
+            <th width="180">Continent</th>
             <th width="280">Action</th>
         </tr>
         @foreach ($countries as $country)
@@ -64,7 +64,7 @@
     </table>
 
 
-    
+
     {!! $countries->links() !!}
 
 
