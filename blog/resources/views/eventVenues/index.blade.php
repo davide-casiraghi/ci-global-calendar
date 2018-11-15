@@ -41,8 +41,7 @@
     </form>
 
 
-
-    {{-- List of events --}}
+    {{-- List of venues --}}
     <table class="table table-bordered mt-4">
         <tr>
             <th>ID</th>
