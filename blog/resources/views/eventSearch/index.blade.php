@@ -17,8 +17,7 @@
     @endif
 
     {{-- Search form --}}
-    {{--
-    <form class="row mt-3" action="{{ route('events.index') }}" method="GET">
+    <form class="row mt-3" action="{{ route('eventSearch.index') }}" method="GET">
         @csrf
         <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by event name" value="{{ $searchKeywords }}">
@@ -42,7 +41,7 @@
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mt-sm-0 mt-3">
             <input type="submit" value="Search" class="btn btn-primary float-sm-right">
         </div>
-    </form> --}}
+    </form>
 
     {{-- List of events --}}
     <table class="table table-bordered mt-4">
@@ -60,9 +59,9 @@
             {{--<td>{{ $countries[$event->venue] }}</td>--}}
             {{--<td>{{ $countries[$event->eventVenues] }}</td>--}}
             <td>
-                @foreach ($event->eventVenues as $venue)
+                {{-- @foreach ($event->eventVenues as $venue)
                     <div>{{ $countries[$venue->country_id] }}</div>
-                @endforeach
+                @endforeach--}}
             </td>
         </tr>
         @endforeach

@@ -9,6 +9,7 @@ use App\Organizer;
 use App\EventVenue;
 use App\Country;
 
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -20,8 +21,30 @@ class EventSearchController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-        $eventCategories = EventCategory::pluck('name', 'id');
+        /*$eventCategories = EventCategory::pluck('name', 'id');
         $countries = Country::pluck('name', 'id');
+        $venues = EventVenue::pluck('name', 'id');*/
+
+
+        $minutes = 30;
+
+        $eventCategories = Cache::remember('categories', $minutes, function () {
+            return DB::table('event_categories')->pluck('name', 'id');
+        });
+        // $eventCategories = Cache::get('categories');
+
+        $countries = Cache::remember('countries', $minutes, function () {
+            return DB::table('countries')->pluck('name', 'id');
+        });
+        // $countries = Cache::get('countries');
+
+        $venues = Cache::remember('venues', $minutes, function () {
+            return DB::table('event_venues')->pluck('name', 'id');
+        });
+        //$venues = Cache::get('venues');
+
+
+
 
 
         $searchKeywords = $request->input('keywords');
@@ -41,13 +64,33 @@ class EventSearchController extends Controller
                 })
                 ->paginate(20);
         }
-        else
-            $events = Event::latest()->paginate(20);
+        else{
+            //$events = Event::latest()->paginate(20);
 
-            return view('eventSearch.index',compact('events'))
-                ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('countries', $countries);
-        /*return view('events.index',compact('events'))
-            ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('countries', $countries)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('searchCountry',$searchCountry);*/
+
+            /*$events = Cache::remember('events', 30, function () {
+                return DB::table('events')->latest()->paginate(20)->get();
+            });*/
+
+
+            /*$events = Cache::remember('events', 30, function() {
+                return DB::table('events')
+                    ->latest()
+                    ->paginate(20);
+            });*/
+
+            // Latest give the last $eventCategories!!!
+                // https://laravel.com/docs/5.7/cache
+                //$events = DB::table('events')->latest()->paginate(20);
+
+                $minutes = 30;
+                $events = Cache::remember('all_events', $minutes, function () {
+                    return DB::table('events')->latest()->paginate(20);
+                });
+        }
+
+        return view('eventSearch.index',compact('events'))
+            ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('countries', $countries)->with('venues', $venues)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('searchCountry',$searchCountry);
     }
 
     /**
