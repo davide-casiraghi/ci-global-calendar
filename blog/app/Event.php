@@ -29,9 +29,22 @@ class Event extends Model
     /**
      * Get the organizers for the event.
      */
-    public function eventVenues()
+    public function eventVenues($type = null)
     {
         return $this->belongsToMany('App\EventVenue', 'event_has_venues', 'event_id', 'venue_id');
+    }
+
+
+    //helper function for convenience
+    public function getVenues($type){
+        switch($type){
+            case 'id':
+                return $this->eventVenues()->wherePivot('type','id');
+            case 'name': //returns films with this person in cast
+                return $this->eventVenues()->wherePivot('type', 'name');
+            default:
+                return $this->eventVenues;
+        }
     }
 
 }

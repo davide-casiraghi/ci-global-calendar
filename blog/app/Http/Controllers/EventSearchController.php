@@ -29,22 +29,19 @@ class EventSearchController extends Controller
         $minutes = 30;
 
         $eventCategories = Cache::remember('categories', $minutes, function () {
-            return DB::table('event_categories')->pluck('name', 'id');
+            return EventCategory::pluck('name', 'id');
         });
         // $eventCategories = Cache::get('categories');
 
-        $countries = Cache::remember('countries', $minutes, function () {
-            return DB::table('countries')->pluck('name', 'id');
+        $countries = Cache::rememberForever('countries', function () {
+            return Country::pluck('name', 'id');
         });
         // $countries = Cache::get('countries');
 
         $venues = Cache::remember('venues', $minutes, function () {
-            return DB::table('event_venues')->pluck('name', 'id');
+            return EventVenue::pluck('name', 'id');
         });
         //$venues = Cache::get('venues');
-
-
-
 
 
         $searchKeywords = $request->input('keywords');
@@ -52,7 +49,8 @@ class EventSearchController extends Controller
         $searchCountry = $request->input('country_id');
 
         if ($searchKeywords||$searchCategory||$searchCountry){
-            $events = DB::table('events')
+
+            /*$events = DB::table('events')
                 ->when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('title', $searchKeywords)->orWhere('title', 'like', '%' . $searchKeywords . '%');
                 })
@@ -62,22 +60,31 @@ class EventSearchController extends Controller
                 ->when($searchCountry, function ($query, $searchCountry) {
                     return $query->where('country_id', '=', $searchCountry);
                 })
-                ->paginate(20);
+                ->paginate(20);*/
+
+                $events = Event::
+                    when($searchKeywords, function ($query, $searchKeywords) {
+                        return $query->where('title', $searchKeywords)->orWhere('title', 'like', '%' . $searchKeywords . '%');
+                    })
+                    ->when($searchCategory, function ($query, $searchCategory) {
+                        return $query->where('category_id', '=', $searchCategory);
+                    })
+                    ->when($searchCountry, function ($query, $searchCountry) {
+                        return $query->join('event_has_venues', 'event.id', '=', 'event_has_venues.event_id')->where('county_id', '=', $searchCountry);
+                    })
+                    ->paginate(20);
+
+                    dump($events);
+
+
+                    /*
+                    joinSub($latestPosts, 'latest_posts', function ($join) {
+        $join->on('users.id', '=', 'latest_posts.user_id');
+
+                    */
         }
         else{
             //$events = Event::latest()->paginate(20);
-
-
-            /*$events = Cache::remember('events', 30, function () {
-                return DB::table('events')->latest()->paginate(20)->get();
-            });*/
-
-
-            /*$events = Cache::remember('events', 30, function() {
-                return DB::table('events')
-                    ->latest()
-                    ->paginate(20);
-            });*/
 
             // Latest give the last $eventCategories!!!
                 // https://laravel.com/docs/5.7/cache
