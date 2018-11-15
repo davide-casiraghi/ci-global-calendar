@@ -23,7 +23,7 @@ class EventSearchController extends Controller
         $eventCategories = EventCategory::pluck('name', 'id');
         $countries = Country::pluck('name', 'id');
 
-        /*
+
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
         $searchCountry = $request->input('country_id');
@@ -41,7 +41,7 @@ class EventSearchController extends Controller
                 })
                 ->paginate(20);
         }
-        else*/
+        else
             $events = Event::latest()->paginate(20);
 
             return view('eventSearch.index',compact('events'))

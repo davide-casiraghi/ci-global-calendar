@@ -1,7 +1,7 @@
 @extends('eventSearch.layout')
 
 @section('content')
-aa
+
     <div class="row">
         <div class="eventTitle col-xs-12 col-sm-12 col-md-12 mb-5">
             <h2>{{ $event->title }}</h2>
