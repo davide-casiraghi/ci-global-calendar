@@ -72,15 +72,6 @@
                          $('#multiple_organizers').val($('#organizer').val());
                       });
 
-                  // Select the venues that are already selected
-                      var venuesSelected = $('#multiple_venues').val();
-                      var venuesSelectedArray = venuesSelected.split(',');
-                      $('.selectpicker').selectpicker('val', venuesSelectedArray);
-
-                  // Update the multiple venues
-                      $('#venues').change(function(){
-                          $('#multiple_venues').val($('#venues').val());
-                       });
             });
         </script>
 
@@ -175,12 +166,11 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group" >
                     <strong>Venues:</strong>
-                    <select id="venues" class="selectpicker" multiple title="Select venue">
+                    <select name="venue_id" class="selectpicker" title="Select venue" data-live-search="true">
                         @foreach ($venues as $value => $venue)
-                            <option value="{{$value}}">{!! $venue !!}</option>
+                            <option value="{{$value}}" {{ $event->venue_id == $value ? 'selected' : '' }}>{!! $venue !!}</option>
                         @endforeach
                     </select>
-                    <input type="hidden" name="multiple_venues" id="multiple_venues" value="{{$multiple_venues}}"/>
                 </div>
             </div>
 

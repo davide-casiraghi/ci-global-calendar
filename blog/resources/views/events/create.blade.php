@@ -58,10 +58,6 @@
                      $('#multiple_organizers').val($('#organizer').val());
                      //console.log($('#multiple_teachers').val());
                   });
-                  $('#venue').change(function(){
-                      $('#multiple_venues').val($('#venue').val());
-                      //console.log($('#multiple_teachers').val());
-                   });
             });
         </script>
 
@@ -156,12 +152,11 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group" >
                     <strong>Venues:</strong>
-                    <select id="venue" class="selectpicker" multiple title="Select venue">
+                    <select name="venue_id" class="selectpicker" title="Select venue" data-live-search="true">
                         @foreach ($venues as $value => $venue)
                             <option value="{{$value}}">{!! $venue !!}</option>
                         @endforeach
                     </select>
-                    <input type="hidden" name="multiple_venues" id="multiple_venues" />
                 </div>
             </div>
 

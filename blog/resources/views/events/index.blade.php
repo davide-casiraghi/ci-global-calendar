@@ -65,9 +65,10 @@
             {{--<td>{{ $countries[$event->venue] }}</td>--}}
             {{--<td>{{ $countries[$event->eventVenues] }}</td>--}}
             <td>
-                @foreach ($event->eventVenues as $venue)
+                
+                {{--@foreach ($event->eventVenues as $venue)
                     <div>{{ $countries[$venue->country_id] }}</div>
-                @endforeach
+                @endforeach--}}
             </td>
             <td>
                 <form action="{{ route('events.destroy',$event->id) }}" method="POST">

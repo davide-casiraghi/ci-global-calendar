@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     protected $fillable = [
-        'title', 'description', 'organized_by', 'category_id', 'image', 'facebook_link', 'status'
+        'title', 'description', 'organized_by', 'category_id', 'venue_id', 'image', 'facebook_link', 'status'
     ];
 
     /**
@@ -31,12 +31,12 @@ class Event extends Model
      */
     public function eventVenues($type = null)
     {
-        return $this->belongsToMany('App\EventVenue', 'event_has_venues', 'event_id', 'venue_id');
+        return $this->hasMany('App\EventVenue');
     }
 
 
     //helper function for convenience
-    public function getVenues($type){
+    /*public function getVenues($type){
         switch($type){
             case 'id':
                 return $this->eventVenues()->wherePivot('type','id');
@@ -45,6 +45,6 @@ class Event extends Model
             default:
                 return $this->eventVenues;
         }
-    }
+    }*/
 
 }

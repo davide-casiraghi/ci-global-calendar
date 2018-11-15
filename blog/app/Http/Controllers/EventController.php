@@ -86,6 +86,8 @@ class EventController extends Controller
         $event->slug = str_slug($event->title, '-').rand(100000, 1000000);
 
         $event->category_id = $request->get('category_id');
+        $event->venue_id = $request->get('venue_id');
+
         $event->image = $request->get('image');
         $event->facebook_link = $request->get('facebook_link');
         $event->status = $request->get('status');
@@ -104,11 +106,6 @@ class EventController extends Controller
         if ($request->get('multiple_organizers')){
             $multiple_organizers= explode(',', $request->get('multiple_organizers'));
             $event->organizers()->sync($multiple_organizers);
-        }
-
-        if ($request->get('multiple_venues')){
-            $multiple_venues= explode(',', $request->get('multiple_venues'));
-            $event->eventVenues()->sync($multiple_venues);
         }
 
         return redirect()->route('events.index')
@@ -157,16 +154,7 @@ class EventController extends Controller
 
             //dump($event);
 
-        // Multiple Venues
-            $venuesDatas = $event->eventVenues;
-            //dd($venuesDatas);
-            $venuesSelected = array();
-            foreach ($venuesDatas as $venueDatas) {
-                array_push($venuesSelected, $venueDatas->id);
-            }
-            $multiple_venues = implode(',', $venuesSelected);
-
-        return view('events.edit',compact('event'))->with('eventCategories', $eventCategories)->with('teachers', $teachers)->with('multiple_teachers', $multiple_teachers)->with('organizers', $organizers)->with('multiple_organizers', $multiple_organizers)->with('venues', $venues)->with('multiple_venues', $multiple_venues);
+        return view('events.edit',compact('event'))->with('eventCategories', $eventCategories)->with('teachers', $teachers)->with('multiple_teachers', $multiple_teachers)->with('organizers', $organizers)->with('multiple_organizers', $multiple_organizers)->with('venues', $venues);
     }
 
     /**
@@ -181,7 +169,7 @@ class EventController extends Controller
             'title' => 'required',
             'description' => 'required'
         ]);
-                        //dd($event->organized_by);
+
         $event->update($request->all());
 
         if ($request->get('multiple_teachers')){
@@ -192,11 +180,6 @@ class EventController extends Controller
         if ($request->get('multiple_organizers')){
             $multiple_organizers= explode(',', $request->get('multiple_organizers'));
             $event->organizers()->sync($multiple_organizers);
-        }
-
-        if ($request->get('multiple_venues')){
-            $multiple_venues= explode(',', $request->get('multiple_venues'));
-            $event->eventVenues()->sync($multiple_venues);
         }
 
         return redirect()->route('events.index')
