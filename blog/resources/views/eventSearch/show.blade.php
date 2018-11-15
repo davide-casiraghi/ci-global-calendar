@@ -1,0 +1,1 @@
+Event search show view

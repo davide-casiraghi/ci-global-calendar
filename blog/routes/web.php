@@ -26,6 +26,8 @@ Route::resource('organizers','OrganizerController');
 Route::resource('continents','ContinentController');
 Route::resource('countries','CountryController');
 
+Route::resource('events','EventSearchController');
+
 
 //Route::post('countries.search','CountryController');
 //Route::post('/countries/search', 'CountryController@index')->name('projects.update');

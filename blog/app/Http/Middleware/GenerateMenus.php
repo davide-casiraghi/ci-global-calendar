@@ -20,6 +20,9 @@ class GenerateMenus
 
 
 
+
+            $menu->add('search', ['action' => ['EventSearchController@index']]);
+
             /*$menu->add('About', 'posts/about');
                 $menu->about->add('Info', 'info');
                     $menu->info->add('Ciao', 'ciao');*/
