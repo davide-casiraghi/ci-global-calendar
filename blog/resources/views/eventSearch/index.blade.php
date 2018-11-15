@@ -54,12 +54,11 @@
             <th>Title</th>
             <th>Category</th>
             <th>Country</th>
-            <th width="280">Action</th>
         </tr>
         @foreach ($events as $event)
         <tr>
             <td>{{ $event->id }}</td>
-            <td>{{ $event->title }}</td>
+            <td><a href="{{ route('events.show',$event->id) }}">{{ $event->title }}</a></td>
             <td>{{ $eventCategories[$event->category_id] }}</td>
             {{--<td>{{ $countries[$event->venue] }}</td>--}}
             {{--<td>{{ $countries[$event->eventVenues] }}</td>--}}
@@ -68,18 +67,7 @@
                     <div>{{ $countries[$venue->country_id] }}</div>
                 @endforeach
             </td>
-            <td>
-                <form action="{{ route('events.destroy',$event->id) }}" method="POST">
 
-                    <a class="btn btn-info" href="{{ route('events.show',$event->id) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('events.edit',$event->id) }}">Edit</a>
-
-                    @csrf
-                    @method('DELETE')
-
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
         </tr>
         @endforeach
     </table>
