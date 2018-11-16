@@ -78,13 +78,13 @@ class EventSearchController extends Controller
             //$events = Event::latest()->paginate(20);
 
             // Latest give the last $eventCategories!!!
-                // https://laravel.com/docs/5.7/cache
-                //$events = DB::table('events')->latest()->paginate(20);
+                $events = DB::table('events')->latest()->paginate(20);
 
-                $minutes = 30;
+                // It works, but I don't use it now to develop
+                /*$minutes = 30;
                 $events = Cache::remember('all_events', $minutes, function () {
                     return DB::table('events')->latest()->paginate(20);
-                });
+                });*/
         }
 
         return view('eventSearch.index',compact('events'))

@@ -59,6 +59,7 @@
             {{--<td>{{ $countries[$event->venue] }}</td>--}}
             {{--<td>{{ $countries[$event->eventVenues] }}</td>--}}
             <td>
+                {{ $event->sc_country_name }}
                 {{-- @foreach ($event->eventVenues as $venue)
                     <div>{{ $countries[$venue->country_id] }}</div>
                 @endforeach--}}
