@@ -36,7 +36,7 @@ class EventController extends Controller
                     return $query->where('category_id', '=', $searchCategory);
                 })
                 ->when($searchCountry, function ($query, $searchCountry) {
-                    return $query->where('country_id', '=', $searchCountry);
+                    return $query->where('venue_id', '=', $searchCountry);
                 })
                 ->paginate(20);
         }
