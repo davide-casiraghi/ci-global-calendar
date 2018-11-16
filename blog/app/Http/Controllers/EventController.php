@@ -151,8 +151,10 @@ class EventController extends Controller
         $eventCategories = EventCategory::pluck('name', 'id');
         $teachers = Teacher::pluck('name', 'id');
         $organizers = Organizer::pluck('name', 'id');
-        $venues = EventVenue::pluck('name', 'id');
-
+        //$venues = EventVenue::pluck('name', 'id');
+        $venues = DB::table('event_venues')
+                ->select('id','name','city')->get();
+                //dd($venues);
         // GET Multiple teachers
             $teachersDatas = $event->teachers;
             $teachersSelected = array();
