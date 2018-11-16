@@ -1,5 +1,18 @@
 @extends('eventSearch.layout')
 
+@section('javascript')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Clear filters on click reset button
+                $("#resetButton").click(function(){
+                    $("input#keywords").val("");
+                    $('#category option').prop("selected", false).trigger('change');
+                    $('#country option').prop("selected", false).trigger('change');
+                    $('form#searchForm').submit();
+                });
+        });
+    </script>
+@endsection
 
 @section('content')
     <div class="row">
@@ -17,27 +30,28 @@
     @endif
 
     {{-- Search form --}}
-    <form class="row mt-3" action="{{ route('eventSearch.index') }}" method="GET">
+    <form class="row mt-3" id="searchForm" action="{{ route('eventSearch.index') }}" method="GET">
         @csrf
         <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by event name" value="{{ $searchKeywords }}">
         </div>
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-            <select name="category_id" class="selectpicker" data-live-search="true" title="Search by category">
+            <select name="category_id" id="category" class="selectpicker" data-live-search="true" title="Search by category">
                 @foreach ($eventCategories as $value => $eventCategory)
                     <option value="{{$value}}" {{ $searchCategory == $value ? 'selected' : '' }} >{!! $eventCategory !!} </option>
                 @endforeach
             </select>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 mt-sm-0 mt-3">
-            <select name="country_id" class="selectpicker" data-live-search="true" title="Search by country">
+            <select name="country_id" id="country" class="selectpicker" data-live-search="true" title="Search by country">
                 @foreach ($countries as $value => $country)
                     <option value="{{$value}}" {{ $searchCountry == $value ? 'selected' : '' }} >{!! $country !!} </option>
                 @endforeach
             </select>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mt-sm-0 mt-3">
-            <input type="submit" value="Search" class="btn btn-primary float-sm-right">
+            <a id="resetButton" class="btn btn-info" href="#">Reset</a>
+            <input type="submit" value="Search" class="btn btn-primary">
         </div>
     </form>
 
