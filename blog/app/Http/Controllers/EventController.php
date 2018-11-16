@@ -58,7 +58,9 @@ class EventController extends Controller
         $eventCategories = EventCategory::pluck('name', 'id');
         $teachers = Teacher::pluck('name', 'id');
         $organizers = Organizer::pluck('name', 'id');
-        $venues = EventVenue::pluck('name', 'id');
+        //$venues = EventVenue::pluck('name', 'id');
+        $venues = DB::table('event_venues')
+                ->select('id','name','city')->get();
 
         //return view('events.create');
         return view('events.create')->with('eventCategories', $eventCategories)->with('teachers', $teachers)->with('organizers', $organizers)->with('venues', $venues);

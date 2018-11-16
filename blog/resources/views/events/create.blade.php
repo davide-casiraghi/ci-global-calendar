@@ -154,7 +154,7 @@
                     <strong>Venues:</strong>
                     <select name="venue_id" class="selectpicker" title="Select venue" data-live-search="true">
                         @foreach ($venues as $value => $venue)
-                            <option value="{{$value}}">{!! $venue !!}</option>
+                            <option value="{{$venue->id}}">{!! $venue->name !!} - {!! $venue->city !!}</option>
                         @endforeach
                     </select>
                 </div>
