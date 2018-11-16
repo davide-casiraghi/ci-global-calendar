@@ -63,7 +63,7 @@
             <td>{{ $event->title }}</td>
             <td>{{ $eventCategories[$event->category_id] }}</td>
             <td>
-                {{ $countries[$event->venue_id] }}
+                {{ $countries[$venues[$event->venue_id]] }}
             </td>
             <td>
                 <form action="{{ route('events.destroy',$event->id) }}" method="POST">

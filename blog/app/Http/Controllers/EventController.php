@@ -22,6 +22,7 @@ class EventController extends Controller
     public function index(Request $request){
         $eventCategories = EventCategory::pluck('name', 'id');
         $countries = Country::pluck('name', 'id');
+        $venues = EventVenue::pluck( 'country_id', 'id');
 
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
@@ -36,16 +37,16 @@ class EventController extends Controller
                     return $query->where('category_id', '=', $searchCategory);
                 })
                 ->when($searchCountry, function ($query, $searchCountry) {
-                    return $query->where('venue_id', '=', $searchCountry);
+                    return $query->join('event_venues', 'events.venue_id', '=', 'event_venues.id')->where('event_venues.country_id', '=', $searchCountry);
                 })
                 ->paginate(20);
         }
         else
             $events = Event::latest()->paginate(20);
-            //dd($events);
+
 
         return view('events.index',compact('events'))
-            ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('countries', $countries)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('searchCountry',$searchCountry);
+            ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('countries', $countries)->with('venues', $venues)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('searchCountry',$searchCountry);
     }
 
     /**
@@ -169,7 +170,9 @@ class EventController extends Controller
     public function update(Request $request, Event $event){
         request()->validate([
             'title' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'category_id' => 'required',
+            'venue_id' => 'required',
         ]);
 
         $event->update($request->all());
