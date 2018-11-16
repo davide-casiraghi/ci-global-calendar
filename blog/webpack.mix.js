@@ -43,7 +43,8 @@ mix.js('resources/assets/js/app.js', 'public/js')
         'gridalicious',
         '@fancyapps/fancybox/dist/jquery.fancybox.js',
         'bootstrap-select',
-        'bootstrap-datepicker'
+        'bootstrap-datepicker',
+        'bootstrap-timepicker'
         //'ckeditor',
     ]);
 
@@ -61,6 +62,7 @@ mix.styles([
    'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css',
    'node_modules/bootstrap-select/dist/css/bootstrap-select.css',
    'node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.css',
+   'node_modules/bootstrap-timepicker/css/bootstrap-timepicker.css',
 ], 'public/css/vendor.css');
 
 /* CSS - Custom - OK */

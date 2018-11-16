@@ -50,6 +50,7 @@
 
         <script type="text/javascript">
             $(document).ready(function(){
+
                 $('#teacher').change(function(){
                     $('#multiple_teachers').val($('#teacher').val());
                     //console.log($('#multiple_teachers').val());
@@ -58,6 +59,9 @@
                      $('#multiple_organizers').val($('#organizer').val());
                      //console.log($('#multiple_teachers').val());
                   });
+
+                  // Datepicker
+                        $('#datepicker_start_date input').datepicker();
             });
         </script>
 
@@ -124,7 +128,32 @@
                     <textarea class="form-control" style="height:150px" name="description" placeholder="Event description" id="bodyTextarea"></textarea>
                 </div>
             </div>
+        </div>
 
+        <div class="row">
+
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                    <strong>Date Start:</strong>
+                    <div class="input-group input-append date" id="datepicker_start_date" data-date-format="dd-mm-yyyy">
+                        <input name="startDate" class="form-control" type="text" placeholder="Select date" value="" readonly="readonly" >
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                    <strong>Time Start:</strong>
+                    <div class="input-group input-append date" id="datepicker_start_date" data-date-format="dd-mm-yyyy">
+                        <input name="startDate" class="form-control" type="text" placeholder="Select date" value="" readonly="readonly" >
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group" >
                     <strong>Teachers:</strong>
