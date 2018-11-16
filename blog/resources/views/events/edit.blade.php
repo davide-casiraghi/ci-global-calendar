@@ -55,7 +55,7 @@
                     //$('.selectpicker').selectpicker('val', [2,3]);
                     var teachersSelected = $('#multiple_teachers').val();
                     var teachersSelectedArray = teachersSelected.split(',');
-                    $('.selectpicker').selectpicker('val', teachersSelectedArray);
+                    $('.multiselect').selectpicker('val', teachersSelectedArray);
 
                 // Update the multiple teachers
                     $('#teacher').change(function(){
@@ -65,7 +65,7 @@
                  // Select the organizers that are already selected
                      var organizersSelected = $('#multiple_organizers').val();
                      var organizersSelectedArray = organizersSelected.split(',');
-                     $('.selectpicker').selectpicker('val', organizersSelectedArray);
+                     $('.multiselect').selectpicker('val', organizersSelectedArray);
 
                  // Update the multiple teachers
                      $('#organizers').change(function(){
@@ -142,7 +142,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group" >
                     <strong>Teachers:</strong>
-                    <select id="teacher" class="selectpicker" multiple title="Select teacher">
+                    <select id="teacher" class="selectpicker multiselect" multiple title="Select teacher">
                         @foreach ($teachers as $value => $teacher)
                             <option value="{{$value}}">{!! $teacher !!}</option>
                         @endforeach
@@ -154,7 +154,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group" >
                     <strong>Organizers:</strong>
-                    <select id="organizer" class="selectpicker" multiple title="Select organizer">
+                    <select id="organizer" class="selectpicker multiselect" multiple title="Select organizer">
                         @foreach ($organizers as $value => $organizer)
                             <option value="{{$value}}">{!! $organizer !!}</option>
                         @endforeach

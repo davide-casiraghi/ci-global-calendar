@@ -71,13 +71,7 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        $countries = Country::pluck('name', 'id');
-        $teachers = Teacher::pluck('name', 'id');
-
-        $venue = DB::table('event_venues')
-                ->select('event_venues.id AS venue_id', 'event_venues.name AS venue_name', 'event_venues.country_id AS country_id', 'event_venues.continent_id', 'event_venues.city')
-                ->where('event_venues.id', '=', $request->get('venue_id'))
-                ->first();
+        $event = new Event();
 
         request()->validate([
             'title' => 'required',
@@ -86,7 +80,14 @@ class EventController extends Controller
             'venue_id' => 'required',
         ]);
 
-        $event = new Event();
+        $countries = Country::pluck('name', 'id');
+        $teachers = Teacher::pluck('name', 'id');
+
+        $venue = DB::table('event_venues')
+                ->select('event_venues.id AS venue_id', 'event_venues.name AS venue_name', 'event_venues.country_id AS country_id', 'event_venues.continent_id', 'event_venues.city')
+                ->where('event_venues.id', '=', $request->get('venue_id'))
+                ->first();
+
         $event->title = $request->get('title');
         $event->description = $request->get('description');
         $event->created_by = \Auth::user()->id;
@@ -152,7 +153,7 @@ class EventController extends Controller
         $organizers = Organizer::pluck('name', 'id');
         $venues = EventVenue::pluck('name', 'id');
 
-        // Multiple teachers
+        // GET Multiple teachers
             $teachersDatas = $event->teachers;
             $teachersSelected = array();
             foreach ($teachersDatas as $teacherDatas) {
@@ -161,7 +162,7 @@ class EventController extends Controller
             $multiple_teachers = implode(',', $teachersSelected);
             //dd($multiple_teachers);
 
-        // Multiple Organizers
+        // GET Multiple Organizers
             $organizersDatas = $event->organizers;
             //dump($organizersDatas);
             $organizersSelected = array();
@@ -190,7 +191,42 @@ class EventController extends Controller
             'venue_id' => 'required',
         ]);
 
-        $event->update($request->all());
+        /*$event->update($request->all());*/
+
+
+        $countries = Country::pluck('name', 'id');
+        $teachers = Teacher::pluck('name', 'id');
+
+        $venue = DB::table('event_venues')
+                ->select('event_venues.id AS venue_id', 'event_venues.name AS venue_name', 'event_venues.country_id AS country_id', 'event_venues.continent_id', 'event_venues.city')
+                ->where('event_venues.id', '=', $request->get('venue_id'))
+                ->first();
+
+        $event->title = $request->get('title');
+        $event->description = $request->get('description');
+        $event->created_by = \Auth::user()->id;
+        $event->slug = str_slug($event->title, '-').rand(100000, 1000000);
+        $event->category_id = $request->get('category_id');
+        $event->venue_id = $request->get('venue_id');
+        $event->image = $request->get('image');
+        $event->facebook_link = $request->get('facebook_link');
+        $event->status = $request->get('status');
+
+        // Support columns for homepage search
+            $event->sc_country_id = $venue->country_id;
+            $event->sc_country_name = $countries[$venue->country_id];
+            $event->sc_city_name = $venue->city;
+            $event->sc_venue_name = $venue->venue_name;
+            $event->sc_teachers_id = $request->get('multiple_teachers');
+            $multiple_teachers= explode(',', $request->get('multiple_teachers'));
+            foreach ($multiple_teachers as $key => $teacher_id) {
+                $event->sc_teachers_names .= $teachers[$teacher_id];
+                if ($key === key($multiple_teachers))
+                    $event->sc_teachers_names .= ", ";
+            }
+
+        $event->save();
+
 
         if ($request->get('multiple_teachers')){
             $multiple_teachers= explode(',', $request->get('multiple_teachers'));
