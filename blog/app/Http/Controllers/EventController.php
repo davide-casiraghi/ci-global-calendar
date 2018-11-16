@@ -42,7 +42,7 @@ class EventController extends Controller
         }
         else
             $events = Event::latest()->paginate(20);
-
+            //dd($events);
 
         return view('events.index',compact('events'))
             ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('countries', $countries)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('searchCountry',$searchCountry);
@@ -74,6 +74,8 @@ class EventController extends Controller
         request()->validate([
             'title' => 'required',
             'description' => 'required',
+            'category_id' => 'required',
+            'venue_id' => 'required',
         ]);
 
         $event = new Event();
