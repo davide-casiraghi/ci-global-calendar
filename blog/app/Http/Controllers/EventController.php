@@ -71,6 +71,13 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
+        $countries = Country::pluck('name', 'id');
+        $teachers = Teacher::pluck('name', 'id');
+
+        $venue = DB::table('event_venues')
+                ->select('event_venues.id AS venue_id', 'event_venues.name AS venue_name', 'event_venues.country_id AS country_id', 'event_venues.continent_id', 'event_venues.city')
+                ->where('event_venues.id', '=', $request->get('venue_id'))
+                ->first();
 
         request()->validate([
             'title' => 'required',
@@ -82,34 +89,42 @@ class EventController extends Controller
         $event = new Event();
         $event->title = $request->get('title');
         $event->description = $request->get('description');
-        //$event->created_by = $request->get('created_by');
         $event->created_by = \Auth::user()->id;
-        //$event->organized_by = $request->get('organized_by');
-        //$event->slug = $request->get('slug');
         $event->slug = str_slug($event->title, '-').rand(100000, 1000000);
-
         $event->category_id = $request->get('category_id');
         $event->venue_id = $request->get('venue_id');
-
         $event->image = $request->get('image');
         $event->facebook_link = $request->get('facebook_link');
         $event->status = $request->get('status');
 
+        // Support columns for homepage search
+            $event->sc_country_id = $venue->country_id;
+            $event->sc_country_name = $countries[$venue->country_id];
+            $event->sc_city_name = $venue->city;
+            $event->sc_venue_name = $venue->venue_name;
+            $event->sc_teachers_id = $request->get('multiple_teachers');
+            $multiple_teachers= explode(',', $request->get('multiple_teachers'));
+            foreach ($multiple_teachers as $key => $teacher_id) {
+                $event->sc_teachers_names .= $teachers[$teacher_id];
+                if ($key === key($multiple_teachers))
+                    $event->sc_teachers_names .= ", ";
+            }
+
         $event->save();
 
+        // Update multi relationships with teachers and organizers tables.
+            //$event->teachers()->sync([1, 2]);
+            //dd($request->get('multiple_teachers'));
 
-        //$event->teachers()->sync([1, 2]);
-        //dd($request->get('multiple_teachers'));
+            if ($request->get('multiple_teachers')){
+                $multiple_teachers= explode(',', $request->get('multiple_teachers'));
+                $event->teachers()->sync($multiple_teachers);
+            }
 
-        if ($request->get('multiple_teachers')){
-            $multiple_teachers= explode(',', $request->get('multiple_teachers'));
-            $event->teachers()->sync($multiple_teachers);
-        }
-
-        if ($request->get('multiple_organizers')){
-            $multiple_organizers= explode(',', $request->get('multiple_organizers'));
-            $event->organizers()->sync($multiple_organizers);
-        }
+            if ($request->get('multiple_organizers')){
+                $multiple_organizers= explode(',', $request->get('multiple_organizers'));
+                $event->organizers()->sync($multiple_organizers);
+            }
 
         return redirect()->route('events.index')
                         ->with('success','Event created successfully.');
