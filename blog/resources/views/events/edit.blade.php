@@ -55,7 +55,7 @@
                     //$('.selectpicker').selectpicker('val', [2,3]);
                     var teachersSelected = $('#multiple_teachers').val();
                     var teachersSelectedArray = teachersSelected.split(',');
-                    $('.multiselect').selectpicker('val', teachersSelectedArray);
+                    $('#teacher').selectpicker('val', teachersSelectedArray);
 
                 // Update the multiple teachers
                     $('#teacher').change(function(){
@@ -65,7 +65,7 @@
                  // Select the organizers that are already selected
                      var organizersSelected = $('#multiple_organizers').val();
                      var organizersSelectedArray = organizersSelected.split(',');
-                     $('.multiselect').selectpicker('val', organizersSelectedArray);
+                     $('#organizer').selectpicker('val', organizersSelectedArray);
 
                  // Update the multiple teachers
                      $('#organizers').change(function(){
