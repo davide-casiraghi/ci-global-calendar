@@ -22,6 +22,7 @@
     "dependencies": {
         "@fancyapps/fancybox": "^3.3.5",
         "ajv": "^6.5.5",
+        "bootstrap-datepicker": "^1.8.0",
         "bootstrap-select": "^1.13.3",
         "ckeditor": "^4.10.0",
         "gridalicious": "^3.0.4",
