@@ -43,7 +43,6 @@ class EventSearchController extends Controller
         });
         //$venues = Cache::get('venues');
 
-
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
         $searchCountry = $request->input('country_id');
@@ -70,7 +69,8 @@ class EventSearchController extends Controller
                         return $query->where('category_id', '=', $searchCategory);
                     })
                     ->when($searchCountry, function ($query, $searchCountry) {
-                        return $query->where('country_id', '=', $searchCountry);
+                        //return $query->where('country_id', '=', $searchCountry);
+                        return $query->join('event_venues', 'events.venue_id', '=', 'event_venues.id')->where('event_venues.country_id', '=', $searchCountry);
                     })
                     ->paginate(20);
         }
