@@ -111,14 +111,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Category:</strong>
-                    <select name="category_id" class="form-control">
-                        @foreach ($eventCategories as $value => $eventCategory)
-                            <option value="{{$value}}" {{ $event->category_id == $value ? 'selected' : '' }}>{!! $eventCategory !!} </option>
-                        @endforeach
-                    </select>
-                </div>
+                @include('partials.forms.select-event-category')
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
