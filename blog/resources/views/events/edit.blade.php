@@ -114,15 +114,7 @@
                 @include('partials.forms.select-event-category')
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Status:</strong>
-                    <select name="status" class="form-control">
-                        <option value="PUBLISHED" selected>Published</option>
-                        <option value="DRAFT">Draft</option>
-                        <option value="PENDING">Pending</option>
-                    </select>
-
-                </div>
+                @include('partials.forms.select-event-status')
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
