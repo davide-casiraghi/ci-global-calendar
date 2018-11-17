@@ -148,7 +148,7 @@
                     <strong>Time Start:</strong>
                     <div class="input-group bootstrap-timepicker timepicker">
                         <input id="timepicker_start" type="text" class="form-control input-small">
-                        <span class="input-group-addon"><i class="fa fa-clock"></i></span>
+                        <span class="input-group-addon"><i class="far fa-clock"></i></span>
                     </div>
                 </div>
             </div>
@@ -168,7 +168,7 @@
                     <strong>Time End:</strong>
                     <div class="input-group bootstrap-timepicker timepicker">
                         <input id="timepicker_end" type="text" class="form-control input-small">
-                        <span class="input-group-addon"><i class="fa fa-clock"></i></span>
+                        <span class="input-group-addon"><i class="far fa-clock"></i></span>
                     </div>
                 </div>
             </div>

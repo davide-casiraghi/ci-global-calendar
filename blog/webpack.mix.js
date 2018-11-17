@@ -44,7 +44,8 @@ mix.js('resources/assets/js/app.js', 'public/js')
         '@fancyapps/fancybox/dist/jquery.fancybox.js',
         'bootstrap-select',
         'bootstrap-datepicker',
-        'bootstrap-timepicker'
+        'bootstrap-timepicker',
+        'fontawesome-pro/js/fontawesome.js'
         //'ckeditor',
     ]);
 
