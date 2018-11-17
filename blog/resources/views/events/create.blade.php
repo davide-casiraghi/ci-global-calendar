@@ -139,7 +139,10 @@
                 <div class="form-group">
                     <strong>Date Start:</strong>
                     <div class="input-group input-append date" id="datepicker_start_date" data-date-format="dd-mm-yyyy">
-                        <input name="startDate" class="form-control" type="text" placeholder="Select date" value="" readonly="readonly" >
+                        <input name="startDate" class="form-control" type="text" placeholder="Select date" value="" readonly="readonly" aria-describedby="date-addon-start">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="date-addon-start"><i class="far fa-calendar"></i></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -147,8 +150,10 @@
                 <div class="form-group">
                     <strong>Time Start:</strong>
                     <div class="input-group bootstrap-timepicker timepicker">
-                        <input id="timepicker_start" type="text" class="form-control input-small">
-                        <span class="input-group-addon"><i class="far fa-clock"></i></span>
+                        <input id="timepicker_start" type="text" class="form-control input-small" aria-describedby="time-addon-start">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="time-addon-start"><i class="far fa-clock"></i></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -159,7 +164,10 @@
                 <div class="form-group">
                     <strong>Date End:</strong>
                     <div class="input-group input-append date" id="datepicker_end_date" data-date-format="dd-mm-yyyy">
-                        <input name="endDate" class="form-control" type="text" placeholder="Select date" value="" readonly="readonly" >
+                        <input name="endDate" class="form-control" type="text" placeholder="Select date" value="" readonly="readonly" aria-describedby="date-addon-end">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="date-addon-end"><i class="far fa-calendar"></i></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -167,8 +175,10 @@
                 <div class="form-group">
                     <strong>Time End:</strong>
                     <div class="input-group bootstrap-timepicker timepicker">
-                        <input id="timepicker_end" type="text" class="form-control input-small">
-                        <span class="input-group-addon"><i class="far fa-clock"></i></span>
+                        <input id="timepicker_end" type="text" class="form-control input-small" aria-describedby="time-addon">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="time-addon"><i class="far fa-clock"></i></span>
+                        </div>
                     </div>
                 </div>
             </div>
