@@ -53,18 +53,23 @@
 
                 $('#teacher').change(function(){
                     $('#multiple_teachers').val($('#teacher').val());
-                    //console.log($('#multiple_teachers').val());
                  });
                  $('#organizer').change(function(){
                      $('#multiple_organizers').val($('#organizer').val());
-                     //console.log($('#multiple_teachers').val());
                   });
 
-                  // Datepicker & Timepicker
-                        $('#datepicker_start_date input').datepicker();
-                        $('#timepicker_start').timepicker();
-                        $('#datepicker_end_date input').datepicker();
-                        $('#timepicker_end').timepicker();
+                // Datepicker & Timepicker
+                    $('#datepicker_start_date input').datepicker();
+                    $('#timepicker_start').timepicker();
+                    $('#datepicker_end_date input').datepicker();
+                    $('#timepicker_end').timepicker();
+
+                // Event Repeat
+                    $("input[name='repeatControl']").change(function(){
+                        var radioVal = $("input[name='repeatControl']:checked").val();
+                        alert(radioVal);
+                    });
+
 
             });
         </script>
@@ -180,51 +185,20 @@
 
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group">
-                    <strong>Date Start:</strong>
-                    <div class="input-group input-append date" id="datepicker_start_date" data-date-format="dd-mm-yyyy">
-                        <input name="startDate" class="form-control" type="text" placeholder="Select date" value="" readonly="readonly" aria-describedby="date-addon-start">
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="date-addon-start"><i class="far fa-calendar"></i></span>
-                        </div>
-                    </div>
-                </div>
+                @include('partials.forms.input-date-start')
             </div>
+
             <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group">
-                    <strong>Time Start:</strong>
-                    <div class="input-group bootstrap-timepicker timepicker">
-                        <input id="timepicker_start" type="text" class="form-control input-small" aria-describedby="time-addon-start">
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="time-addon-start"><i class="far fa-clock"></i></span>
-                        </div>
-                    </div>
-                </div>
+                @include('partials.forms.input-time-start')
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group">
-                    <strong>Date End:</strong>
-                    <div class="input-group input-append date" id="datepicker_end_date" data-date-format="dd-mm-yyyy">
-                        <input name="endDate" class="form-control" type="text" placeholder="Select date" value="" readonly="readonly" aria-describedby="date-addon-end">
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="date-addon-end"><i class="far fa-calendar"></i></span>
-                        </div>
-                    </div>
-                </div>
+                @include('partials.forms.input-date-end')
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group">
-                    <strong>Time End:</strong>
-                    <div class="input-group bootstrap-timepicker timepicker">
-                        <input id="timepicker_end" type="text" class="form-control input-small" aria-describedby="time-addon">
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="time-addon"><i class="far fa-clock"></i></span>
-                        </div>
-                    </div>
-                </div>
+                @include('partials.forms.input-time-end')
             </div>
         </div>
 
@@ -238,19 +212,19 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label class="btn btn-primary active">
-                        <input type="radio" name="options" id="option1" autocomplete="off" checked> No Repeat
+                        <input type="radio" name="repeatControl" value="noRepeat" id="option1" autocomplete="off" checked> No Repeat
                     </label>
                     <label class="btn btn-primary">
-                        <input type="radio" name="options" id="option2" autocomplete="off"> Weekly
+                        <input type="radio" name="repeatControl" value="repeatWeekly" id="option2" autocomplete="off"> Weekly
                     </label>
                     <label class="btn btn-primary">
-                        <input type="radio" name="options" id="option3" autocomplete="off"> Monthly
+                        <input type="radio" name="repeatControl" value="repeatMonthly" id="option3" autocomplete="off"> Monthly
                     </label>
                 </div>
             </div>
         </div>
 
-        <div class="repeatWeekly">
+        <div class="repeatWeekly" style="display:none">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <legend>Weekly</legend>
@@ -290,7 +264,7 @@
         </div>
 
 
-        <div class="repeatMonthly">
+        <div class="repeatMonthly" style="display:none">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <legend>Monthly</legend>
