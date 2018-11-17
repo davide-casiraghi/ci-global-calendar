@@ -1,8 +1,3 @@
-
-@section('javascript')
-
-@endsection
-
 <div class="form-group">
     <strong>Time End:</strong>
     <div class="input-group bootstrap-timepicker timepicker">

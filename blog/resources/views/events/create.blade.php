@@ -133,15 +133,7 @@
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group" >
-                    <strong>Teachers:</strong>
-                    <select id="teacher" class="selectpicker" multiple title="Select teacher">
-                        @foreach ($teachers as $value => $teacher)
-                            <option value="{{$value}}">{!! $teacher !!}</option>
-                        @endforeach
-                    </select>
-                    <input type="hidden" name="multiple_teachers" id="multiple_teachers" />
-                </div>
+                @include('partials.forms.select-event-teacher')
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
