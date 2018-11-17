@@ -136,6 +136,44 @@
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group" >
+                    <strong>Teachers:</strong>
+                    <select id="teacher" class="selectpicker" multiple title="Select teacher">
+                        @foreach ($teachers as $value => $teacher)
+                            <option value="{{$value}}">{!! $teacher !!}</option>
+                        @endforeach
+                    </select>
+                    <input type="hidden" name="multiple_teachers" id="multiple_teachers" />
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group" >
+                    <strong>Organizers:</strong>
+                    <select id="organizer" class="selectpicker" multiple title="Select organizer">
+                        @foreach ($organizers as $value => $organizer)
+                            <option value="{{$value}}">{!! $organizer !!}</option>
+                        @endforeach
+                    </select>
+                    <input type="hidden" name="multiple_organizers" id="multiple_organizers" />
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group" >
+                    <strong>Venues:</strong>
+                    <select name="venue_id" class="selectpicker" title="Select venue" data-live-search="true">
+                        @foreach ($venues as $value => $venue)
+                            <option value="{{$venue->id}}">{!! $venue->name !!} - {!! $venue->city !!}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
                 <legend>Start, End, Duration</legend>
             </div>
         </div>
@@ -203,62 +241,111 @@
                         <input type="radio" name="options" id="option1" autocomplete="off" checked> No Repeat
                     </label>
                     <label class="btn btn-primary">
-                        <input type="radio" name="options" id="option2" autocomplete="off"> Daily
+                        <input type="radio" name="options" id="option2" autocomplete="off"> Weekly
                     </label>
                     <label class="btn btn-primary">
-                        <input type="radio" name="options" id="option3" autocomplete="off"> Weekly
+                        <input type="radio" name="options" id="option3" autocomplete="off"> Monthly
                     </label>
-                    <label class="btn btn-primary">
-                        <input type="radio" name="options" id="option4" autocomplete="off"> Monthly
-                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="repeatWeekly">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <legend>Weekly</legend>
+                    <div class="btn-group btn-group-toggle mb-2" data-toggle="buttons">
+                        <label class="btn btn-primary active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked> Repeat count
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> Repeat until
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <strong>Repeat Count</strong>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="For how many weeks" aria-label="For how many weeks" aria-describedby="how-many-weeks">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="how-many-weeks">weeks</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <strong>Repeat Until</strong>
+                    <div class="form-group">
+                        <div class="input-group input-append date" id="datepicker_end_date" data-date-format="dd-mm-yyyy">
+                            <input name="endDate" class="form-control" type="text" placeholder="Select date" value="" readonly="readonly" aria-describedby="date-addon-end">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="date-addon-end"><i class="far fa-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="repeatMonthly">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <legend>Monthly</legend>
+                    <div class="btn-group btn-group-toggle mb-2" data-toggle="buttons">
+                        <label class="btn btn-primary active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked> By month day
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> By day
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <strong>By month day</strong>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="10,25" aria-label="For how many weeks" aria-describedby="how-many-weeks">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="how-many-weeks">comma separated list</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <strong>By day</strong><br/>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-primary active">
+                            <input type="checkbox" name="options" id="option1" autocomplete="off" checked> M
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="checkbox" name="options" id="option2" autocomplete="off"> T
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="checkbox" name="options" id="option3" autocomplete="off"> W
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="checkbox" name="options" id="option4" autocomplete="off"> T
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="checkbox" name="options" id="option5" autocomplete="off"> F
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="checkbox" name="options" id="option6" autocomplete="off"> S
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="checkbox" name="options" id="option7" autocomplete="off"> S
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
 
 
 
-
-
-
-
-
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group" >
-                    <strong>Teachers:</strong>
-                    <select id="teacher" class="selectpicker" multiple title="Select teacher">
-                        @foreach ($teachers as $value => $teacher)
-                            <option value="{{$value}}">{!! $teacher !!}</option>
-                        @endforeach
-                    </select>
-                    <input type="hidden" name="multiple_teachers" id="multiple_teachers" />
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group" >
-                    <strong>Organizers:</strong>
-                    <select id="organizer" class="selectpicker" multiple title="Select organizer">
-                        @foreach ($organizers as $value => $organizer)
-                            <option value="{{$value}}">{!! $organizer !!}</option>
-                        @endforeach
-                    </select>
-                    <input type="hidden" name="multiple_organizers" id="multiple_organizers" />
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group" >
-                    <strong>Venues:</strong>
-                    <select name="venue_id" class="selectpicker" title="Select venue" data-live-search="true">
-                        @foreach ($venues as $value => $venue)
-                            <option value="{{$venue->id}}">{!! $venue->name !!} - {!! $venue->city !!}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-
-        </div>
 
         <div class="row h-100 mt-3">
             <div class="col-xs-9 col-sm-9 col-md-9 pull-left my-auto">
