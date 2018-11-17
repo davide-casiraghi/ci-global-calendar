@@ -132,14 +132,7 @@
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group" >
-                    <strong>Venues:</strong>
-                    <select name="venue_id" class="selectpicker" title="Select venue" data-live-search="true">
-                        @foreach ($venues as $value => $venue)
-                            <option value="{{$venue->id}}">{!! $venue->name !!} - {!! $venue->city !!}</option>
-                        @endforeach
-                    </select>
-                </div>
+                @include('partials.forms.select-event-venue')
             </div>
 
         </div>
