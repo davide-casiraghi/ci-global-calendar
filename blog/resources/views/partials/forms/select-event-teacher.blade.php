@@ -5,5 +5,5 @@
             <option value="{{$value}}">{!! $teacher !!}</option>
         @endforeach
     </select>
-    <input type="hidden" name="multiple_teachers" id="multiple_teachers" @if(!empty($event->category_id))  value="{{$multiple_teachers}}" @endif/>
+    <input type="hidden" name="multiple_teachers" id="multiple_teachers" @if(!empty($multiple_teachers))  value="{{$multiple_teachers}}" @endif/>
 </div>
