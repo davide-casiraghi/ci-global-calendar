@@ -26,6 +26,7 @@
         "bootstrap-select": "^1.13.3",
         "bootstrap-timepicker": "^0.5.2",
         "ckeditor": "^4.10.0",
+        "font-awesome": "^4.7.0",
         "gridalicious": "^3.0.4",
         "gulp": "^3.9.1",
         "imagemin": "^5.3.1",

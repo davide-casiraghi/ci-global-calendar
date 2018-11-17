@@ -60,8 +60,12 @@
                      //console.log($('#multiple_teachers').val());
                   });
 
-                  // Datepicker
+                  // Datepicker & Timepicker
                         $('#datepicker_start_date input').datepicker();
+                        $('#timepicker_start').timepicker();
+                        $('#datepicker_end_date input').datepicker();
+                        $('#timepicker_end').timepicker();
+
             });
         </script>
 
@@ -131,7 +135,6 @@
         </div>
 
         <div class="row">
-
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Date Start:</strong>
@@ -143,15 +146,35 @@
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Time Start:</strong>
-                    <div class="input-group input-append date" id="datepicker_start_date" data-date-format="dd-mm-yyyy">
-                        <input name="startDate" class="form-control" type="text" placeholder="Select date" value="" readonly="readonly" >
+                    <div class="input-group bootstrap-timepicker timepicker">
+                        <input id="timepicker_start" type="text" class="form-control input-small">
+                        <span class="input-group-addon"><i class="fa fa-clock"></i></span>
                     </div>
                 </div>
             </div>
-
-
-
         </div>
+
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                    <strong>Date End:</strong>
+                    <div class="input-group input-append date" id="datepicker_end_date" data-date-format="dd-mm-yyyy">
+                        <input name="endDate" class="form-control" type="text" placeholder="Select date" value="" readonly="readonly" >
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                    <strong>Time End:</strong>
+                    <div class="input-group bootstrap-timepicker timepicker">
+                        <input id="timepicker_end" type="text" class="form-control input-small">
+                        <span class="input-group-addon"><i class="fa fa-clock"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
