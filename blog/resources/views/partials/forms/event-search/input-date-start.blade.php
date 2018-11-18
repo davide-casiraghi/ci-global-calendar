@@ -1,7 +1,11 @@
 
 @section('javascript-document-ready')
     @parent
-    $('#datepicker_start_date input').datepicker();
+    //$('#datepicker_start_date input').datepicker();
+
+    $("#datepicker_start_date input").datepicker({
+        format: 'dd/mm/yy'
+    });
 @stop
 
 <div class="form-group">
