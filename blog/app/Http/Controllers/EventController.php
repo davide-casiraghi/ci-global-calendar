@@ -106,6 +106,7 @@ class EventController extends Controller
             $event->sc_city_name = $venue->city;
             $event->sc_venue_name = $venue->venue_name;
             $event->sc_teachers_id = $request->get('multiple_teachers');
+            $event->sc_continent_id = $venue->continent_id;
 
             if($request->get('multiple_teachers')){
                 $multiple_teachers= explode(',', $request->get('multiple_teachers'));
@@ -225,6 +226,7 @@ class EventController extends Controller
             $event->sc_city_name = $venue->city;
             $event->sc_venue_name = $venue->venue_name;
             $event->sc_teachers_id = $request->get('multiple_teachers');
+            $event->sc_continent_id = $venue->continent_id;
 
             if($request->get('multiple_teachers')){
                 $multiple_teachers= explode(',', $request->get('multiple_teachers'));

@@ -87,6 +87,7 @@ class EventSearchController extends Controller
                     ->when($searchContinent, function ($query, $searchContinent) {
                         return $query->where('sc_continent_id', '=', $searchContinent);
                         //return $query->where('country_id', '=', $searchContinent);
+                    })
                     ->paginate(20);
         }
         else{
