@@ -30,20 +30,40 @@
     @endif
 
     {{-- Search form --}}
-    <form class="row mt-3" id="searchForm" action="{{ route('eventSearch.index') }}" method="GET">
+    <form id="searchForm" action="{{ route('eventSearch.index') }}" method="GET">
         @csrf
-        <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by event name" value="{{ $searchKeywords }}">
+
+        {{--<div class="row mt-3">
+            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by event name" value="{{ $searchKeywords }}">
+            </div>
+        </div>--}}
+
+        <div class="row">
+            <div class="col-md-4">
+                <p><strong>What</strong></p>
+                @include('partials.forms.event-search.select-category')
+
+                <p><strong>Who</strong></p>
+                @include('partials.forms.event-search.select-teacher')
+            </div>
+            <div class="col-md-4">
+                <p><strong>Where</strong></p>
+                @include('partials.forms.event-search.select-country')
+                <p><strong>Venue</strong></p>
+            </div>
+            <div class="col-md-4">
+                <p><strong>When</strong></p>
+                @include('partials.forms.event-search.input-date-start')
+                @include('partials.forms.event-search.input-date-end')
+            </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-            @include('partials.forms.event-search.select-category')
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 mt-sm-0 mt-3">
-            @include('partials.forms.event-search.select-country')
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mt-sm-0 mt-3">
-            <a id="resetButton" class="btn btn-info" href="#">Reset</a>
-            <input type="submit" value="Search" class="btn btn-primary">
+
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mt-sm-0 mt-3">
+                <a id="resetButton" class="btn btn-info" href="#">Reset</a>
+                <input type="submit" value="Search" class="btn btn-primary">
+            </div>
         </div>
     </form>
 
