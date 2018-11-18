@@ -2,7 +2,8 @@
     @parent
     $("input[name='repeatControl']").change(function(){
         var radioVal = $("input[name='repeatControl']:checked").val();
-        alert(radioVal);
+        $('.repeatTab').hide();
+        $('#' + radioVal).show();
     });
 @stop
 
@@ -29,7 +30,7 @@
     </div>
 </div>
 
-<div class="repeatWeekly" style="display:none">
+<div id="repeatWeekly" class="repeatTab" style="display:none">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <legend>Weekly</legend>
@@ -69,7 +70,7 @@
 </div>
 
 
-<div class="repeatMonthly" style="display:none">
+<div id="repeatMonthly" class="repeatTab" style="display:none">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <legend>Monthly</legend>
