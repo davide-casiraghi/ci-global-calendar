@@ -1,8 +1,10 @@
-@section('javascript')
+@section('javascript-document-ready')
     @parent
-    javascript-teachers
-
+    $('#teacher').change(function(){
+        $('#multiple_teachers').val($('#teacher').val());
+     });
 @stop
+
 
 <div class="form-group" >
     <strong>Teachers:</strong>

@@ -1,8 +1,10 @@
-@section('javascript')
+@section('javascript-document-ready')
     @parent
-    javascript-organiers
-
+    $('#organizer').change(function(){
+        $('#multiple_organizers').val($('#organizer').val());
+     });
 @stop
+
 
 <div class="form-group" >
     <strong>Organizers:</strong>
