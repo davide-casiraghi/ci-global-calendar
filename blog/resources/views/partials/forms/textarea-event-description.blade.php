@@ -1,5 +1,6 @@
 @section('javascript')
     @parent
+    
     <!-- Initialize editor for the main textbox -->
     <script type="text/javascript" src="{{ asset('js/tinymce/tinymce.min.js') }}" ></script>
     <script type="text/javascript">
