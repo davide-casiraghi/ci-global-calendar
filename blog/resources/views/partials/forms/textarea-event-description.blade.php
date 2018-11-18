@@ -48,5 +48,5 @@
 
 <div class="form-group">
     <strong>Description:</strong>
-    <textarea class="form-control" style="height:150px" name="description" placeholder="Event description" id="bodyTextarea"></textarea>
+    <textarea class="form-control" style="height:150px" name="description" placeholder="Event description" id="bodyTextarea">@if(!empty($event->description)){{ $event->description }} @endif</textarea>
 </div>

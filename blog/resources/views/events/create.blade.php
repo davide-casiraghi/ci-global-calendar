@@ -29,7 +29,7 @@
                 @include('partials.forms.select-event-status')
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                @include('partials.forms.textarea-event')
+                @include('partials.forms.textarea-event-description')
             </div>
         </div>
 
