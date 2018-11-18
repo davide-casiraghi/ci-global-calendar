@@ -1,8 +1,7 @@
 
-@section('javascript')
+@section('javascript-document-ready')
     @parent
-    javascript-date-start
-
+    $('#datepicker_start_date input').datepicker();
 @stop
 
 <div class="form-group">

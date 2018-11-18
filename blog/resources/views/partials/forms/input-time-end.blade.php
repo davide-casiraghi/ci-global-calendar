@@ -1,8 +1,8 @@
-@section('javascript')
+@section('javascript-document-ready')
     @parent
-    javascript-time-end
-
+    $('#timepicker_end').timepicker();
 @stop
+
 <div class="form-group">
     <strong>Time End:</strong>
     <div class="input-group bootstrap-timepicker timepicker">

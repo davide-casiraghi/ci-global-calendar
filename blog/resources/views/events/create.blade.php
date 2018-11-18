@@ -64,12 +64,7 @@
                      $('#multiple_organizers').val($('#organizer').val());
                   });
 
-                // Datepicker & Timepicker
-                    $('#datepicker_start_date input').datepicker();
-                    $('#timepicker_start').timepicker();
-                    $('#datepicker_end_date input').datepicker();
-                    $('#timepicker_end').timepicker();
-
+                    
                 // Event Repeat
                     $("input[name='repeatControl']").change(function(){
                         var radioVal = $("input[name='repeatControl']:checked").val();

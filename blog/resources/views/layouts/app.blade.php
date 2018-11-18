@@ -50,5 +50,11 @@
         <script src="{{ asset('js/app.js') }}" ></script>
 
         @yield('javascript')
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                @yield('javascript-document-ready')
+            });
+        </script>
 </body>
 </html>

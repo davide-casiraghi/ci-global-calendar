@@ -1,8 +1,6 @@
-
-@section('javascript')
+@section('javascript-document-ready')
     @parent
-    javascript-time-start
-
+    $('#timepicker_start').timepicker();
 @stop
 
 <div class="form-group">
