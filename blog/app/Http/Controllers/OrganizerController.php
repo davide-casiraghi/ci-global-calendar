@@ -46,6 +46,7 @@ class OrganizerController extends Controller
         $organizer->image = $request->get('image');
         $organizer->website = $request->get('website');
         $organizer->facebook = $request->get('facebook');
+        $organizer->email = $request->get('email');
 
         $organizer->created_by = \Auth::user()->id;
         $organizer->slug = str_slug($organizer->name, '-').rand(10000, 100000);
