@@ -49,6 +49,7 @@
             </div>
             <div class="col-md-4">
                 <p><strong>Where</strong></p>
+                @include('partials.forms.event-search.select-continent')
                 @include('partials.forms.event-search.select-country')
                 <p><strong>Venue</strong></p>
             </div>

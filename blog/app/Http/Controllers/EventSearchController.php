@@ -7,6 +7,7 @@ use App\EventCategory;
 use App\Teacher;
 use App\Organizer;
 use App\EventVenue;
+use App\Continent;
 use App\Country;
 
 use Illuminate\Support\Facades\Cache;
@@ -31,17 +32,21 @@ class EventSearchController extends Controller
         $eventCategories = Cache::remember('categories', $minutes, function () {
             return EventCategory::pluck('name', 'id');
         });
-        // $eventCategories = Cache::get('categories');
+
 
         $countries = Cache::rememberForever('countries', function () {
             return Country::pluck('name', 'id');
         });
-        // $countries = Cache::get('countries');
+
+        $continents = Cache::rememberForever('continents', function () {
+            return Continent::pluck('name', 'id');
+        });
+
 
         $venues = Cache::remember('venues', $minutes, function () {
             return EventVenue::pluck('name', 'id');
         });
-        //$venues = Cache::get('venues');
+
 
         $teachers = Cache::remember('teachers', $minutes, function () {
             return Teacher::pluck('name', 'id');
@@ -50,8 +55,9 @@ class EventSearchController extends Controller
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
         $searchCountry = $request->input('country_id');
+        $searchContinent = $request->input('country_id');
 
-        if ($searchKeywords||$searchCategory||$searchCountry){
+        if ($searchKeywords||$searchCategory||$searchCountry||$searchContinent){
 
             /*$events = DB::table('events')
                 ->when($searchKeywords, function ($query, $searchKeywords) {
@@ -92,7 +98,7 @@ class EventSearchController extends Controller
         }
 
         return view('eventSearch.index',compact('events'))
-            ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('countries', $countries)->with('venues', $venues)->with('teachers', $teachers)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('searchCountry',$searchCountry);
+            ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('continents', $continents)->with('countries', $countries)->with('venues', $venues)->with('teachers', $teachers)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('searchCountry',$searchCountry)->with('searchContinent',$searchContinent);
     }
 
     /**
