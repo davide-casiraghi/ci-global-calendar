@@ -12,9 +12,6 @@
          var organizersSelectedArray = organizersSelected.split(',');
          $('#organizer').selectpicker('val', organizersSelectedArray);
      }
-
-
-
 @stop
 
 

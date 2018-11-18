@@ -1,18 +1,18 @@
 @extends('eventSearch.layout')
 
-@section('javascript')
-    <script type="text/javascript">
-        $(document).ready(function() {
-            // Clear filters on click reset button
-                $("#resetButton").click(function(){
-                    $("input#keywords").val("");
-                    $('#category option').prop("selected", false).trigger('change');
-                    $('#country option').prop("selected", false).trigger('change');
-                    $('form#searchForm').submit();
-                });
-        });
-    </script>
-@endsection
+@section('javascript-document-ready')
+    @parent
+
+    {{-- Clear filters on click reset button --}}
+    $("#resetButton").click(function(){
+        $("input#keywords").val("");
+        $('#category option').prop("selected", false).trigger('change');
+        $('#country option').prop("selected", false).trigger('change');
+        $('form#searchForm').submit();
+    });
+
+@stop
+
 
 @section('content')
     <div class="row">
