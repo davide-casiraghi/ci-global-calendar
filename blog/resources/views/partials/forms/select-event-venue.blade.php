@@ -1,3 +1,8 @@
+@section('javascript')
+    @parent
+    javascript-venues
+
+@stop
 <div class="form-group" >
     <strong>Venues:</strong>
     <select name="venue_id" class="selectpicker" title="Select venue" data-live-search="true">

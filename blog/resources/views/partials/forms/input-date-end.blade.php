@@ -1,3 +1,9 @@
+@section('javascript')
+    @parent
+    javascript-calendar
+
+@stop
+
 <div class="form-group">
     <strong>Date End:</strong>
     <div class="input-group input-append date" id="datepicker_end_date" data-date-format="dd-mm-yyyy">

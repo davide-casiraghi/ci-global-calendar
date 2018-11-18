@@ -1,3 +1,9 @@
+@section('javascript')
+    @parent
+    javascript-status
+
+@stop
+
 <div class="form-group">
     <strong>Status:</strong>
     <select name="status" class="form-control">

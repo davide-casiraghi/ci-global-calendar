@@ -1,8 +1,15 @@
 @extends('events.layout')
 
 @section('javascript')
+    @parent
+    javascript-create-view
 
-    {{-- Initialize editor for the main textbox --}}
+@stop
+
+{{--
+@section('javascript')
+
+    <!-- Initialize editor for the main textbox -->
     <script type="text/javascript" src="{{ asset('js/tinymce/tinymce.min.js') }}" ></script>
     <script type="text/javascript">
 		// https://www.tiny.cloud/docs/get-started/basic-setup/
@@ -74,6 +81,7 @@
         </script>
 
 @endsection
+--}}
 
 @section('content')
     <div class="row">
@@ -153,7 +161,7 @@
         @include('partials.repeat-event')
 
         @include('partials.forms.image-event')
-        
+
         <div class="row mt-5">
             <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
                 <a class="btn btn-primary" href="{{ route('events.index') }}"> Back</a>

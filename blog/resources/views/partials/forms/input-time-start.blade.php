@@ -1,7 +1,9 @@
 
 @section('javascript')
+    @parent
+    javascript-time-start
 
-@endsection
+@stop
 
 <div class="form-group">
     <strong>Time Start:</strong>

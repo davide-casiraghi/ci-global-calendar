@@ -1,7 +1,9 @@
 
 @section('javascript')
+    @parent
+    javascript-date-start
 
-@endsection
+@stop
 
 <div class="form-group">
     <strong>Date Start:</strong>

@@ -1,3 +1,9 @@
+@section('javascript')
+    @parent
+    javascript-organiers
+
+@stop
+
 <div class="form-group" >
     <strong>Organizers:</strong>
     <select id="organizer" class="selectpicker multiselect" multiple title="Select organizer">

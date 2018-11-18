@@ -1,3 +1,9 @@
+@section('javascript')
+    @parent
+    javascript-teachers
+
+@stop
+
 <div class="form-group" >
     <strong>Teachers:</strong>
     <select id="teacher" class="selectpicker multiselect" multiple title="Select teacher">
