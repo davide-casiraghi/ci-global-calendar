@@ -34,6 +34,13 @@ class Event extends Model
         return $this->hasMany('App\EventVenue');
     }
 
+    /**
+     * Get the organizers for the event.
+     */
+    public function eventRepetitions($type = null)
+    {
+        return $this->hasMany('App\EventVenue');
+    }
 
     //helper function for convenience
     /*public function getVenues($type){

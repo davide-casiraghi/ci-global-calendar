@@ -74,6 +74,7 @@ class EventController extends Controller
      */
     public function store(Request $request){
         $event = new Event();
+        $eventRepetition = new EventRepetition();
 
         request()->validate([
             'title' => 'required',
@@ -116,6 +117,22 @@ class EventController extends Controller
                         $event->sc_teachers_names .= ", ";
                 }
             }
+
+            switch($request->get('repeatControl')){
+                case 'noRepeat':
+                    $eventRepetition->start_repeat = "2017-06-17 08:00:00";
+                    $eventRepetition->end_repeat = "2017-06-18 17:00:00";
+                    break;
+
+                case 'repeatWeekly';
+                    Second case...
+                    break;
+
+                case 'repeatMonthly':
+                    Second case...
+                    break;
+            }
+
 
         $event->save();
 
