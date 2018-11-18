@@ -17,7 +17,7 @@
 
 
 <div class="form-group" >
-    <select id="teacher" class="selectpicker" title="Select teacher">
+    <select id="teacher" class="selectpicker" title="Select teacher" data-live-search="true">
         @foreach ($teachers as $value => $teacher)
             <option value="{{$value}}">{!! $teacher !!}</option>
         @endforeach
