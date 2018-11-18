@@ -55,9 +55,11 @@ class EventSearchController extends Controller
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
         $searchCountry = $request->input('country_id');
-        $searchContinent = $request->input('country_id');
+        $searchContinent = $request->input('continent_id');
+        $searchTeacher = $request->input('teacher_id');
 
-        if ($searchKeywords||$searchCategory||$searchCountry||$searchContinent){
+
+        if ($searchKeywords||$searchCategory||$searchCountry||$searchContinent||$searchTeacher){
 
             /*$events = DB::table('events')
                 ->when($searchKeywords, function ($query, $searchKeywords) {
@@ -98,7 +100,7 @@ class EventSearchController extends Controller
         }
 
         return view('eventSearch.index',compact('events'))
-            ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('continents', $continents)->with('countries', $countries)->with('venues', $venues)->with('teachers', $teachers)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('searchCountry',$searchCountry)->with('searchContinent',$searchContinent);
+            ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('continents', $continents)->with('countries', $countries)->with('venues', $venues)->with('teachers', $teachers)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('searchCountry',$searchCountry)->with('searchContinent',$searchContinent)->with('searchTeacher',$searchTeacher);
     }
 
     /**
