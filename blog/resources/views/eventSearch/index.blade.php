@@ -7,7 +7,9 @@
     $("#resetButton").click(function(){
         $("input#keywords").val("");
         $('#category option').prop("selected", false).trigger('change');
+        $('#teacher option').prop("selected", false).trigger('change');
         $('#country option').prop("selected", false).trigger('change');
+        $('#continent option').prop("selected", false).trigger('change');
         $('form#searchForm').submit();
     });
 
