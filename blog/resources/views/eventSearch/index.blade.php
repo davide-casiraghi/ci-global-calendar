@@ -44,14 +44,14 @@
                 <p><strong>What</strong></p>
                 @include('partials.forms.event-search.select-category')
 
-                <p><strong>Who</strong></p>
+                <p class="mt-3"><strong>Who</strong></p>
                 @include('partials.forms.event-search.select-teacher')
             </div>
             <div class="col-md-4">
                 <p><strong>Where</strong></p>
                 @include('partials.forms.event-search.select-continent')
                 @include('partials.forms.event-search.select-country')
-                <p><strong>Venue</strong></p>
+                <p class="mt-3"><strong>Search by name of venue only</strong></p>
             </div>
             <div class="col-md-4">
                 <p><strong>When</strong></p>
@@ -61,9 +61,9 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mt-sm-0 mt-3">
-                <a id="resetButton" class="btn btn-info" href="#">Reset</a>
-                <input type="submit" value="Search" class="btn btn-primary">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-sm-10 mt-3">
+                <a id="resetButton" class="btn btn-info float-right ml-2" href="#">Reset</a>
+                <input type="submit" value="Search" class="btn btn-primary float-right">
             </div>
         </div>
     </form>

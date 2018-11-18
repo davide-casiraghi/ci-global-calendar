@@ -7,11 +7,11 @@
      });
 
      {{-- Select the teachers that are already selected --}}
-     var teachersSelected = $('#multiple_teachers').val();
+    /* var teachersSelected = $('#multiple_teachers').val();
      if (teachersSelected){
          var teachersSelectedArray = teachersSelected.split(',');
          $('#teacher').selectpicker('val', teachersSelectedArray);
-     }
+     }*/
 
 @stop
 
