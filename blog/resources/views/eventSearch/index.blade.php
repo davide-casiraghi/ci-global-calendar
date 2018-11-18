@@ -78,19 +78,21 @@
     {{-- List of events --}}
     <table class="table table-bordered mt-4">
         <tr>
-            <th>ID</th>
             <th>Title</th>
+            <th>Teachers</th>
             <th>Category</th>
-            <th>Country</th>
+            <th>Venue</th>
         </tr>
         @foreach ($events as $event)
         <tr>
-            <td>{{ $event->id }}</td>
             <td><a href="{{ route('eventSearch.show',$event->id) }}">{{ $event->title }}</a></td>
+            <td></td>
             <td>{{ $eventCategories[$event->category_id] }}</td>
             {{--<td>{{ $countries[$event->venue] }}</td>--}}
             {{--<td>{{ $countries[$event->eventVenues] }}</td>--}}
             <td>
+                {{ $event->sc_venue_name }}<br />
+                {{ $event->sc_city_name }},
                 {{ $event->sc_country_name }}
                 {{-- @foreach ($event->eventVenues as $venue)
                     <div>{{ $countries[$venue->country_id] }}</div>
