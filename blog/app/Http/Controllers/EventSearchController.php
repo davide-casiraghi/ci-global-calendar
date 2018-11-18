@@ -43,6 +43,10 @@ class EventSearchController extends Controller
         });
         //$venues = Cache::get('venues');
 
+        $teachers = Cache::remember('teachers', $minutes, function () {
+            return Teacher::pluck('name', 'id');
+        });
+
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
         $searchCountry = $request->input('country_id');
@@ -88,7 +92,7 @@ class EventSearchController extends Controller
         }
 
         return view('eventSearch.index',compact('events'))
-            ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('countries', $countries)->with('venues', $venues)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('searchCountry',$searchCountry);
+            ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('countries', $countries)->with('venues', $venues)->with('teachers', $teachers)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('searchCountry',$searchCountry);
     }
 
     /**
