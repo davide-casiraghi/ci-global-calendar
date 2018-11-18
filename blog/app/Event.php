@@ -31,7 +31,7 @@ class Event extends Model
      */
     public function eventVenues($type = null)
     {
-        return $this->hasMany('App\EventVenue');
+        return $this->belongsTo('App\EventVenue');
     }
 
     /**
@@ -39,7 +39,7 @@ class Event extends Model
      */
     public function eventRepetitions($type = null)
     {
-        return $this->hasMany('App\EventVenue');
+        return $this->hasMany('App\EventRepetition', 'event_id');
     }
 
     //helper function for convenience
