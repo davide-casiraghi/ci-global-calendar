@@ -1,40 +1,5 @@
 @extends('events.layout')
 
-{{--
-@section('javascript')
-
-
-
-        <script type="text/javascript">
-            $(document).ready(function(){
-
-                // Select the teachers that are already selected
-                    //$('.selectpicker').selectpicker('val', [2,3]);
-                    var teachersSelected = $('#multiple_teachers').val();
-                    var teachersSelectedArray = teachersSelected.split(',');
-                    $('#teacher').selectpicker('val', teachersSelectedArray);
-
-                // Update the multiple teachers
-                    $('#teacher').change(function(){
-                        $('#multiple_teachers').val($('#teacher').val());
-                     });
-
-                 // Select the organizers that are already selected
-                     var organizersSelected = $('#multiple_organizers').val();
-                     var organizersSelectedArray = organizersSelected.split(',');
-                     $('#organizer').selectpicker('val', organizersSelectedArray);
-
-                 // Update the multiple teachers
-                     $('#organizers').change(function(){
-                         $('#multiple_organizers').val($('#organizer').val());
-                      });
-
-            });
-        </script>
-
-@endsection
-
---}}
 
 @section('content')
     <div class="row">
