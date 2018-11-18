@@ -81,9 +81,12 @@ class EventSearchController extends Controller
                         return $query->where('category_id', '=', $searchCategory);
                     })
                     ->when($searchCountry, function ($query, $searchCountry) {
-                        //return $query->where('country_id', '=', $searchCountry);
-                        return $query->join('event_venues', 'events.venue_id', '=', 'event_venues.id')->where('event_venues.country_id', '=', $searchCountry);
+                        return $query->where('sc_country_id', '=', $searchCountry);
+                        //return $query->join('event_venues', 'events.venue_id', '=', 'event_venues.id')->where('event_venues.country_id', '=', $searchCountry);
                     })
+                    ->when($searchContinent, function ($query, $searchContinent) {
+                        return $query->where('sc_continent_id', '=', $searchContinent);
+                        //return $query->where('country_id', '=', $searchContinent);
                     ->paginate(20);
         }
         else{
