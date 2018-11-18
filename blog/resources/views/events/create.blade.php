@@ -1,34 +1,5 @@
 @extends('events.layout')
 
-@section('javascript')
-    @parent
-    javascript-create-view
-
-@stop
-
-{{--
-@section('javascript')
-
-
-        <script type="text/javascript">
-            $(document).ready(function(){
-
-
-
-
-
-                // Event Repeat
-                    $("input[name='repeatControl']").change(function(){
-                        var radioVal = $("input[name='repeatControl']:checked").val();
-                        alert(radioVal);
-                    });
-
-
-            });
-        </script>
-
-@endsection
---}}
 
 @section('content')
     <div class="row">

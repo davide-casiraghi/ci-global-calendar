@@ -1,3 +1,12 @@
+@section('javascript-document-ready')
+    @parent
+    $("input[name='repeatControl']").change(function(){
+        var radioVal = $("input[name='repeatControl']:checked").val();
+        alert(radioVal);
+    });
+@stop
+
+
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <legend>Repeat type</legend>
