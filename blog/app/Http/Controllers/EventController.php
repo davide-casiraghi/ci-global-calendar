@@ -360,14 +360,11 @@ class EventController extends Controller
 
                     $eventRepetition->start_repeat = $day->format("Y-m-d ").$event_time_start;
                     $eventRepetition->end_repeat = $day->format("Y-m-d ").$event_time_end;
-                    //dump($eventRepetition->start_repeat);
-                    //dump($eventRepetition->end_repeat);
                     $eventRepetition->save();
-
                 }
             }
         }
-        //dd("ciao");
+
 
     }
 
