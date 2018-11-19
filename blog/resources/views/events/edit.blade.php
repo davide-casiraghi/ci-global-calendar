@@ -75,7 +75,7 @@
 
         @include('partials.repeat-event')
 
-        @include('partials.forms.image-event')
+        {{--@include('partials.forms.image-event')--}}
 
         <div class="row mt-5">
             <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
