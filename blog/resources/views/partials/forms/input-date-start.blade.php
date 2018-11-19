@@ -6,7 +6,6 @@
         format: 'dd/mm/yyyy',
         startDate: today
     });
-
 @stop
 
 <div class="form-group">
