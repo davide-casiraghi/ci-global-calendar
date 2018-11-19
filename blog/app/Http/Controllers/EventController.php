@@ -285,7 +285,14 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Event $event){
+
+        $eventFirstRepetition = DB::table('event_repetitions')
+                //->where('active', 0)->delete();
+                ->where('event_id',$event->id)
+                ->delete();
+
         $event->delete();
+
         return redirect()->route('events.index')
                         ->with('success','Event deleted successfully');
     }
