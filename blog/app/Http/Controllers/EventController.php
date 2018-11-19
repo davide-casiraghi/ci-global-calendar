@@ -124,56 +124,7 @@ class EventController extends Controller
 
             $event->save();
 
-            $this->saveEventRepetitions();
-
-        // Saving repetitions - If it's a single event will be stored with just one repetition
-            $timeStart = date("H:i:s", strtotime($request->get('time_start')));
-            $timeEnd = date("H:i:s", strtotime($request->get('time_end')));
-
-            switch($request->get('repeatControl')){
-                case 'noRepeat':
-                    $eventRepetition = new EventRepetition();
-                    $eventRepetition->event_id = $event->id;
-
-                    $dateStart = implode("-", array_reverse(explode("/",$request->get('startDate'))));
-                    $dateEnd = implode("-", array_reverse(explode("/",$request->get('endDate'))));
-
-                    $eventRepetition->start_repeat = $dateStart." ".$timeStart;
-                    $eventRepetition->end_repeat = $dateEnd." ".$timeEnd;
-                    $eventRepetition->save();
-
-                    break;
-
-                case 'repeatWeekly':
-                    switch($request->get('repeat_week_kind')){
-                        case 'repeat_count':
-                            // Convert the start date in a format that can be used for strtotime
-                                $startDate = implode("-", array_reverse(explode("/",$request->get('startDate'))));
-                            // Calculate repeat until day
-                                $repeatUntilDate = date('d-m-Y', strtotime($startDate. ' + '.$request->get('how_many_weeks').' weeks'));
-
-                            //dd($repeatUntilDate);
-                            $this->saveWeeklyRepeatDates($event, $request->get('repeat_weekly_by_day'),$startDate,$repeatUntilDate, $timeStart, $timeEnd);
-
-                        break;
-                        case 'repeat_until':
-                        // Convert the start date in a format that can be used for strtotime
-                            $startDate = implode("-", array_reverse(explode("/",$request->get('startDate'))));
-                        // Calculate repeat until day
-                            $repeatUntilDate = implode("-", array_reverse(explode("/",$request->get('repeatUntil'))));
-
-                        //dd($repeatUntilDate);
-                        $this->saveWeeklyRepeatDates($event, $request->get('repeat_weekly_by_day'),$startDate,$repeatUntilDate, $timeStart, $timeEnd);
-                        break;
-                    }
-
-                    break;
-
-                case 'repeatMonthly':
-                    //Second case...
-                    break;
-            }
-
+            $this->saveEventRepetitions($request, $event);
 
         // Update multi relationships with teachers and organizers tables.
             //$event->teachers()->sync([1, 2]);
@@ -296,6 +247,7 @@ class EventController extends Controller
 
         $event->save();
 
+        $this->saveEventRepetitions($request, $event);
 
         if ($request->get('multiple_teachers')){
             $multiple_teachers= explode(',', $request->get('multiple_teachers'));
@@ -328,8 +280,57 @@ class EventController extends Controller
 
     // To save event repetitions for create and update methods
 
-    function saveEventRepetitions(){
-        
+    function saveEventRepetitions($request, $event){
+
+        $this->deletePreviousRepetitions($event->id);
+
+        // Saving repetitions - If it's a single event will be stored with just one repetition
+            $timeStart = date("H:i:s", strtotime($request->get('time_start')));
+            $timeEnd = date("H:i:s", strtotime($request->get('time_end')));
+
+            switch($request->get('repeatControl')){
+                case 'noRepeat':
+                    $eventRepetition = new EventRepetition();
+                    $eventRepetition->event_id = $event->id;
+
+                    $dateStart = implode("-", array_reverse(explode("/",$request->get('startDate'))));
+                    $dateEnd = implode("-", array_reverse(explode("/",$request->get('endDate'))));
+
+                    $eventRepetition->start_repeat = $dateStart." ".$timeStart;
+                    $eventRepetition->end_repeat = $dateEnd." ".$timeEnd;
+                    $eventRepetition->save();
+
+                    break;
+
+                case 'repeatWeekly':
+                    switch($request->get('repeat_week_kind')){
+                        case 'repeat_count':
+                            // Convert the start date in a format that can be used for strtotime
+                                $startDate = implode("-", array_reverse(explode("/",$request->get('startDate'))));
+                            // Calculate repeat until day
+                                $repeatUntilDate = date('d-m-Y', strtotime($startDate. ' + '.$request->get('how_many_weeks').' weeks'));
+
+                            //dd($repeatUntilDate);
+                            $this->saveWeeklyRepeatDates($event, $request->get('repeat_weekly_by_day'),$startDate,$repeatUntilDate, $timeStart, $timeEnd);
+
+                        break;
+                        case 'repeat_until':
+                        // Convert the start date in a format that can be used for strtotime
+                            $startDate = implode("-", array_reverse(explode("/",$request->get('startDate'))));
+                        // Calculate repeat until day
+                            $repeatUntilDate = implode("-", array_reverse(explode("/",$request->get('repeatUntil'))));
+
+                        //dd($repeatUntilDate);
+                        $this->saveWeeklyRepeatDates($event, $request->get('repeat_weekly_by_day'),$startDate,$repeatUntilDate, $timeStart, $timeEnd);
+                        break;
+                    }
+
+                    break;
+
+                case 'repeatMonthly':
+                    //Second case...
+                    break;
+            }
     }
 
     /***************************************************************************
@@ -386,8 +387,12 @@ class EventController extends Controller
                 }
             }
         }
+    }
 
+    /***********************************************/
 
+    function deletePreviousRepetitions($eventId){
+        DB::table('event_repetitions')->where('event_id', $eventId)->delete();
     }
 
 }
