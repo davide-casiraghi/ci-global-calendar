@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use App\EventCategory;
+use App\EventRepetition;
 use App\Teacher;
 use App\Organizer;
 use App\EventVenue;
@@ -118,14 +119,17 @@ class EventController extends Controller
                 }
             }
 
+            $event->save();
+
             switch($request->get('repeatControl')){
                 case 'noRepeat':
-                $startRepeat = "2017-06-17 08:00:00";
-                $endRepeat = "2017-06-18 17:00:00";
-                $event->eventRepetitions()->start_repeat->attach($startRepeat);
-                $event->eventRepetitions()->end_repeat->attach($endRepeat);
-                    //$eventRepetition->start_repeat = "2017-06-17 08:00:00";
-                    //$eventRepetition->end_repeat = "2017-06-18 17:00:00";
+                //$event->eventRepetitions()->associate($eventRepetition);
+
+                $eventRepetition->event_id = $event->id;
+                $eventRepetition->start_repeat = "2017-06-17 08:00:00";
+                $eventRepetition->end_repeat = "2017-06-18 17:00:00";
+                $eventRepetition->save();
+
                     break;
 
                 case 'repeatWeekly';
@@ -137,8 +141,6 @@ class EventController extends Controller
                     break;
             }
 
-
-        $event->save();
 
         // Update multi relationships with teachers and organizers tables.
             //$event->teachers()->sync([1, 2]);
