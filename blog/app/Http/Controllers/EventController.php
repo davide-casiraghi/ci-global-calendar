@@ -124,7 +124,7 @@ class EventController extends Controller
 
             $event->save();
 
-
+        // Saving repetitions - If it's a single event will be stored with just one repetition
             $timeStart = date("H:i:s", strtotime($request->get('time_start')));
             $timeEnd = date("H:i:s", strtotime($request->get('time_end')));
 
