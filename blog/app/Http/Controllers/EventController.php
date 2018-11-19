@@ -124,6 +124,8 @@ class EventController extends Controller
 
             $event->save();
 
+            $this->saveEventRepetitions();
+
         // Saving repetitions - If it's a single event will be stored with just one repetition
             $timeStart = date("H:i:s", strtotime($request->get('time_start')));
             $timeEnd = date("H:i:s", strtotime($request->get('time_end')));
@@ -321,6 +323,14 @@ class EventController extends Controller
                         ->with('success','Event deleted successfully');
     }
 
+
+    /*************************************************************/
+
+    // To save event repetitions for create and update methods
+
+    function saveEventRepetitions(){
+        
+    }
 
     /***************************************************************************
 
