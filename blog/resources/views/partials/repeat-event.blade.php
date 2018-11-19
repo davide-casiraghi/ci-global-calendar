@@ -4,7 +4,24 @@
         var radioVal = $("input[name='repeatControl']:checked").val();
         $('.repeatTab').hide();
         $('#' + radioVal).show();
+
+        if (radioVal =="repeatWeekly"){
+            var dateStart = $("input[name='startDate']").val();
+            $("input[name='endDate']").val(dateStart);
+            $("input[name='endDate']").datepicker('destroy');
+        }
+
+        if (radioVal =="noRepeat"){
+            var today = new Date();
+
+            $('#datepicker_end_date input').datepicker({
+                format: 'dd/mm/yyyy',
+                startDate: today
+            });
+        }
     });
+
+
 @stop
 
 
