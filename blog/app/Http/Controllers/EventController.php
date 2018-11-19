@@ -123,12 +123,10 @@ class EventController extends Controller
 
             switch($request->get('repeatControl')){
                 case 'noRepeat':
-                //$event->eventRepetitions()->associate($eventRepetition);
-
-                $eventRepetition->event_id = $event->id;
-                $eventRepetition->start_repeat = "2017-06-17 08:00:00";
-                $eventRepetition->end_repeat = "2017-06-18 17:00:00";
-                $eventRepetition->save();
+                    $eventRepetition->event_id = $event->id;
+                    $eventRepetition->start_repeat = "2017-06-17 08:00:00";
+                    $eventRepetition->end_repeat = "2017-06-18 17:00:00";
+                    $eventRepetition->save();
 
                     break;
 
