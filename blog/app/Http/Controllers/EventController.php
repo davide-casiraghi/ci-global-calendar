@@ -125,13 +125,24 @@ class EventController extends Controller
             $event->save();
 
 
+            $timeStart = date("H:i:s", strtotime($request->get('time_start')));
+            $timeEnd = date("H:i:s", strtotime($request->get('time_end')));
+
             switch($request->get('repeatControl')){
                 case 'noRepeat':
                     $eventRepetition = new EventRepetition();
                     $eventRepetition->event_id = $event->id;
 
-                    $eventRepetition->start_repeat = "2017-06-17 08:00:00";
-                    $eventRepetition->end_repeat = "2017-06-18 17:00:00";
+                    $dateStart = implode("-", array_reverse(explode("/",$request->get('startDate'))));
+                    $dateEnd = implode("-", array_reverse(explode("/",$request->get('endDate'))));
+
+                    dump($dateStart);
+                    dump($dateEnd);
+
+                    dd("ee");
+
+                    $eventRepetition->start_repeat = $dateStart." ".$timeStart;
+                    $eventRepetition->end_repeat = $dateEnd." ".$timeEnd;
                     $eventRepetition->save();
 
                     break;
@@ -145,7 +156,7 @@ class EventController extends Controller
                                 $repeatUntilDate = date('d-m-Y', strtotime($startDate. ' + '.$request->get('how_many_weeks').' weeks'));
 
                             //dd($repeatUntilDate);
-                            $this->saveWeeklyRepeatDates($event, $request->get('repeat_weekly_by_day'),$startDate,$repeatUntilDate, $request->get('time_start'), $request->get('time_end'));
+                            $this->saveWeeklyRepeatDates($event, $request->get('repeat_weekly_by_day'),$startDate,$repeatUntilDate, $timeStart, $timeEnd);
 
                         break;
                         case 'repeat_until':
@@ -348,8 +359,8 @@ class EventController extends Controller
         $interval = DateInterval::createFromDateString('1 day');
         $period = new DatePeriod($beginPeriod, $interval, $endPeriod);
 
-        $event_time_start = date("H:i:s", strtotime($timeStart));
-        $event_time_end = date("H:i:s", strtotime($timeEnd));
+        //$event_time_start = date("H:i:s", strtotime($timeStart));
+        //$event_time_end = date("H:i:s", strtotime($timeEnd));
 
         foreach ($period as $day) {  // Iterate for each day of the period
             foreach($weekDays as $weekDayNumber){ // Iterate for every day of the week (1:Monday, 2:Tuesday, 3:Wednesday ...)
@@ -358,8 +369,8 @@ class EventController extends Controller
                     $eventRepetition = new EventRepetition();
                     $eventRepetition->event_id = $event->id;
 
-                    $eventRepetition->start_repeat = $day->format("Y-m-d ").$event_time_start;
-                    $eventRepetition->end_repeat = $day->format("Y-m-d ").$event_time_end;
+                    $eventRepetition->start_repeat = $day->format("Y-m-d ").$timeStart;
+                    $eventRepetition->end_repeat = $day->format("Y-m-d ").$timeEnd;
                     $eventRepetition->save();
                 }
             }

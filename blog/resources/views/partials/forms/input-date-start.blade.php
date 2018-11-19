@@ -1,7 +1,5 @@
-
 @section('javascript-document-ready')
     @parent
-
     var today = new Date();
 
     $('#datepicker_start_date input').datepicker({
