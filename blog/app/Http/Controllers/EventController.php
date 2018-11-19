@@ -168,6 +168,21 @@ class EventController extends Controller
         $venues = DB::table('event_venues')
                 ->select('id','name','city')->get();
                 //dd($venues);
+
+        $eventFirstRepetition = DB::table('event_repetitions')
+                ->select('id','start_repeat','end_repeat')
+                ->where('event_id','=',$event->id)
+                ->first();
+
+                //aaaaa
+                //dd(date("d/m/Y", strtotime($eventFirstRepetition->start_repeat)));
+
+        $dateTime['dateStart'] = date("d/m/Y", strtotime($eventFirstRepetition->start_repeat));
+        $dateTime['dateEnd'] = date("d/m/Y", strtotime($eventFirstRepetition->end_repeat));
+        $dateTime['timeStart'] = date("hh:mm", strtotime($eventFirstRepetition->start_repeat));
+        $dateTime['timeEnd'] = date("hh:mm", strtotime($eventFirstRepetition->end_repeat));
+
+
         // GET Multiple teachers
             $teachersDatas = $event->teachers;
             $teachersSelected = array();
@@ -188,7 +203,7 @@ class EventController extends Controller
 
             //dump($event);
 
-        return view('events.edit',compact('event'))->with('eventCategories', $eventCategories)->with('teachers', $teachers)->with('multiple_teachers', $multiple_teachers)->with('organizers', $organizers)->with('multiple_organizers', $multiple_organizers)->with('venues', $venues);
+        return view('events.edit',compact('event'))->with('eventCategories', $eventCategories)->with('teachers', $teachers)->with('multiple_teachers', $multiple_teachers)->with('organizers', $organizers)->with('multiple_organizers', $multiple_organizers)->with('venues', $venues)->with('dateTime',$dateTime);
     }
 
     /**

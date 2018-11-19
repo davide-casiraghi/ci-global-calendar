@@ -47,6 +47,34 @@
 
         </div>
 
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <legend>Start, End, Duration</legend>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                @include('partials.forms.input-date-start')
+            </div>
+
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                @include('partials.forms.input-time-start')
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                @include('partials.forms.input-date-end')
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                @include('partials.forms.input-time-end')
+            </div>
+        </div>
+
+        @include('partials.repeat-event')
+
         @include('partials.forms.image-event')
 
         <div class="row mt-5">
