@@ -136,11 +136,6 @@ class EventController extends Controller
                     $dateStart = implode("-", array_reverse(explode("/",$request->get('startDate'))));
                     $dateEnd = implode("-", array_reverse(explode("/",$request->get('endDate'))));
 
-                    dump($dateStart);
-                    dump($dateEnd);
-
-                    dd("ee");
-
                     $eventRepetition->start_repeat = $dateStart." ".$timeStart;
                     $eventRepetition->end_repeat = $dateEnd." ".$timeEnd;
                     $eventRepetition->save();
