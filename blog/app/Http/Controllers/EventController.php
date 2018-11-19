@@ -13,6 +13,10 @@ use App\Country;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
+use DateTime;
+use DateInterval;
+use DatePeriod;
+
 class EventController extends Controller
 {
     /**
@@ -75,7 +79,6 @@ class EventController extends Controller
      */
     public function store(Request $request){
         $event = new Event();
-        $eventRepetition = new EventRepetition();
 
         request()->validate([
             'title' => 'required',
@@ -121,17 +124,35 @@ class EventController extends Controller
 
             $event->save();
 
+
             switch($request->get('repeatControl')){
                 case 'noRepeat':
+                    $eventRepetition = new EventRepetition();
                     $eventRepetition->event_id = $event->id;
+
                     $eventRepetition->start_repeat = "2017-06-17 08:00:00";
                     $eventRepetition->end_repeat = "2017-06-18 17:00:00";
                     $eventRepetition->save();
 
                     break;
 
-                case 'repeatWeekly';
-                    //Second case...
+                case 'repeatWeekly':
+                    switch($request->get('repeat_week_kind')){
+                        case 'repeat_count':
+                            // Convert the start date in a format that can be used for strtotime
+                                $startDate = implode("-", array_reverse(explode("/",$request->get('startDate'))));
+                            // Calculate repeat until day
+                                $repeatUntilDate = date('d-m-Y', strtotime($startDate. ' + '.$request->get('how_many_weeks').' weeks'));
+
+                            //dd($repeatUntilDate);
+                            $this->saveWeeklyRepeatDates($event, $request->get('repeat_weekly_by_day'),$startDate,$repeatUntilDate);
+
+                        break;
+                        case 'repeat_until':
+                            //
+                        break;
+                    }
+
                     break;
 
                 case 'repeatMonthly':
@@ -287,4 +308,67 @@ class EventController extends Controller
         return redirect()->route('events.index')
                         ->with('success','Event deleted successfully');
     }
+
+
+    /***************************************************************************
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Event  $event
+     * @return \Illuminate\Http\Response
+     */
+
+     // https://stackoverflow.com/questions/2045736/getting-all-dates-for-mondays-and-tuesdays-for-the-next-year
+     // date('w') returns a string numeral as follows:
+     //   '0' Sunday
+     //   '1' Monday
+     //   '2' Tuesday
+     //   '3' Wednesday
+     //   '4' Thursday
+     //   '5' Friday
+     //   '6' Saturday
+
+    function isWeekDay($date, $dayOfTheWeek){
+        return date('w', strtotime($date)) === $dayOfTheWeek;
+    }
+
+    /***************************************************************************
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Event  $event
+     * @return array        array with the dates
+     */
+    function saveWeeklyRepeatDates($event, $weekDays, $startDate, $repeatUntilDate){
+
+        $beginPeriod = new DateTime($startDate);
+        $endPeriod = new DateTime($repeatUntilDate);
+
+        $interval = DateInterval::createFromDateString('1 day');
+        $period = new DatePeriod($beginPeriod, $interval, $endPeriod);
+
+        foreach ($period as $day) {  // Iterate for each day of the period
+            foreach($weekDays as $weekDayNumber){ // Iterate for every day of the week (1:Monday, 2:Tuesday, 3:Wednesday ...)
+                if ($this->isWeekDay($day->format("Y-m-d"), $weekDayNumber)){
+
+                    $eventRepetition = new EventRepetition();
+                    $eventRepetition->event_id = $event->id;
+
+                    $eventRepetition->start_repeat = $day->format("Y-m-d H:i:s");
+                    $eventRepetition->end_repeat = $day->format("Y-m-d H:i:s");
+                    $eventRepetition->save();
+                    //dump($eventRepetition->start_repeat);
+                    //dump($eventRepetition->end_repeat);
+
+                    //$eventRepetition->end_repeat = date('d-m-Y', strtotime($eventRepetition->start_repeat. ' + 1 day'));
+                    //$eventRepetition->save();
+                }
+            }
+        }
+        //dd("ciao");
+
+    }
+
 }

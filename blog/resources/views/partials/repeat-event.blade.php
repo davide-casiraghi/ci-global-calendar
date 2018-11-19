@@ -47,53 +47,45 @@
             <strong>By day</strong><br/>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-primary active">
-                    <input type="checkbox" name="options" id="option1" autocomplete="off" checked> M
+                    <input type="checkbox" name="repeat_weekly_by_day[]" value="1" autocomplete="off" checked> M
                 </label>
                 <label class="btn btn-primary">
-                    <input type="checkbox" name="options" id="option2" autocomplete="off"> T
+                    <input type="checkbox" name="repeat_weekly_by_day[]" value="2" autocomplete="off"> T
                 </label>
                 <label class="btn btn-primary">
-                    <input type="checkbox" name="options" id="option3" autocomplete="off"> W
+                    <input type="checkbox" name="repeat_weekly_by_day[]" value="3" autocomplete="off"> W
                 </label>
                 <label class="btn btn-primary">
-                    <input type="checkbox" name="options" id="option4" autocomplete="off"> T
+                    <input type="checkbox" name="repeat_weekly_by_day[]" value="4" autocomplete="off"> T
                 </label>
                 <label class="btn btn-primary">
-                    <input type="checkbox" name="options" id="option5" autocomplete="off"> F
+                    <input type="checkbox" name="repeat_weekly_by_day[]" value="5" autocomplete="off"> F
                 </label>
                 <label class="btn btn-primary">
-                    <input type="checkbox" name="options" id="option6" autocomplete="off"> S
+                    <input type="checkbox" name="repeat_weekly_by_day[]" value="6" autocomplete="off"> S
                 </label>
                 <label class="btn btn-primary">
-                    <input type="checkbox" name="options" id="option7" autocomplete="off"> S
+                    <input type="checkbox" name="repeat_weekly_by_day[]" value="7" autocomplete="off"> S
                 </label>
             </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6">
-
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-6">
-        </div>
-    </div>
-
     <div class="row mt-3">
         <div class="col-xs-1 col-sm-1 col-md-1 col-xs-1 text-center align-self-center">
-            <input type="radio" name="repeat_week_kind" aria-label="Radio button for following text input">
+            <input type="radio" name="repeat_week_kind" value="repeat_count" aria-label="Radio button for following text input">
         </div>
         <div class="col-xs-5 col-sm-5 col-md-5 col-xs-5">
             <strong>Repeat Count</strong>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="For how many weeks" aria-label="For how many weeks" aria-describedby="how-many-weeks">
+                <input type="text" class="form-control" name="how_many_weeks" placeholder="For how many weeks" aria-label="For how many weeks" aria-describedby="how-many-weeks">
                 <div class="input-group-append">
                     <span class="input-group-text" id="how-many-weeks">weeks</span>
                 </div>
             </div>
         </div>
         <div class="col-xs-1 col-sm-1 col-md-1 col-xs-1 text-center align-self-center">
-            <input type="radio" name="repeat_week_kind" aria-label="Radio button for following text input">
+            <input type="radio" name="repeat_week_kind" value="repeat_until" aria-label="Radio button for following text input">
         </div>
         <div class="col-xs-5 col-sm-5 col-md-5 col-xs-1">
             <strong>Repeat Until</strong>
