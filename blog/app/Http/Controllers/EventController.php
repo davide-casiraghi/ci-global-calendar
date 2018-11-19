@@ -155,7 +155,13 @@ class EventController extends Controller
 
                         break;
                         case 'repeat_until':
-                            //
+                        // Convert the start date in a format that can be used for strtotime
+                            $startDate = implode("-", array_reverse(explode("/",$request->get('startDate'))));
+                        // Calculate repeat until day
+                            $repeatUntilDate = implode("-", array_reverse(explode("/",$request->get('repeatUntil'))));
+
+                        //dd($repeatUntilDate);
+                        $this->saveWeeklyRepeatDates($event, $request->get('repeat_weekly_by_day'),$startDate,$repeatUntilDate, $timeStart, $timeEnd);
                         break;
                     }
 
