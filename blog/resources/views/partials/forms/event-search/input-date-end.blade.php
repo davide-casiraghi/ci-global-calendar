@@ -1,8 +1,13 @@
 @section('javascript-document-ready')
     @parent
+
+    var today = new Date();
+
     $("#datepicker_end_date input").datepicker({
-        format: 'dd/mm/yy'
+        format: 'dd/mm/yy',
+        startDate: today
     });
+
 @stop
 
 <div class="form-group">

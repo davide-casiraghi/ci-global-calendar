@@ -1,7 +1,16 @@
 
 @section('javascript-document-ready')
     @parent
-    $('#datepicker_start_date input').datepicker();
+
+    //var today = new Date();
+    var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+
+    $('#datepicker_start_date input').datepicker({
+        format: 'dd/mm/yy',
+        startDate: today
+    });
+
+    $('#datepicker_start_date input').datepicker('setDate', today);
 @stop
 
 <div class="form-group">

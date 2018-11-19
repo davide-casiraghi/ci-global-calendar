@@ -29,8 +29,9 @@ class Event extends Model
     /**
      * Get the organizers for the event.
      */
-    public function eventVenues($type = null)
+    public function eventVenues()
     {
+        //return $this->hasMany('App\EventVenue');
         return $this->belongsTo('App\EventVenue');
     }
 

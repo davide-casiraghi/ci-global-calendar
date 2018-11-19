@@ -120,16 +120,20 @@ class EventController extends Controller
 
             switch($request->get('repeatControl')){
                 case 'noRepeat':
-                    $eventRepetition->start_repeat = "2017-06-17 08:00:00";
-                    $eventRepetition->end_repeat = "2017-06-18 17:00:00";
+                $startRepeat = "2017-06-17 08:00:00";
+                $endRepeat = "2017-06-18 17:00:00";
+                $event->eventRepetitions()->start_repeat->attach($startRepeat);
+                $event->eventRepetitions()->end_repeat->attach($endRepeat);
+                    //$eventRepetition->start_repeat = "2017-06-17 08:00:00";
+                    //$eventRepetition->end_repeat = "2017-06-18 17:00:00";
                     break;
 
                 case 'repeatWeekly';
-                    Second case...
+                    //Second case...
                     break;
 
                 case 'repeatMonthly':
-                    Second case...
+                    //Second case...
                     break;
             }
 
