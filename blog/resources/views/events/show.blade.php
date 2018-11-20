@@ -41,13 +41,13 @@
                 @if(!empty($event->facebook_event_link))
                     <div class="facebook">
                         <i class="fab fa-facebook-square" style="margin-right: 10px;"></i>
-                        <a href="{{ $event->facebook_event_link }}">{{ $event->facebook_event_link }}</a>
+                        <a href="{{ $event->facebook_event_link }}" target="_blank">{{ $event->facebook_event_link }}</a>
                     </div>
                 @endif
                 @if(!empty($event->website_event_link))
                     <div class="url">
                         <i class="fa fa-external-link" style="margin-right: 10px;"></i>
-                        <a href="{{ $event->website_event_link }}">{{ $event->website_event_link }}</a>
+                        <a href="{{ $event->website_event_link }}" target="_blank">{{ $event->website_event_link }}</a>
                     </div>
                 @endif
             </div>
