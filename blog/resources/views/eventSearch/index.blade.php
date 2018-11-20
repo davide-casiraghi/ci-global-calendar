@@ -77,7 +77,7 @@
     </form>
 
     {{-- List of events --}}
-    <table class="table table-bordered mt-4">
+    {{--<table class="table table-bordered mt-4">
         <tr>
             <th>Title</th>
             <th>Teachers</th>
@@ -89,20 +89,15 @@
             <td><a href="{{ route('eventSearch.show',$event->id) }}">{{ $event->title }}</a></td>
             <td>{{ $event->sc_teachers_names }}</td>
             <td>{{ $eventCategories[$event->category_id] }}</td>
-            {{--<td>{{ $countries[$event->venue] }}</td>--}}
-            {{--<td>{{ $countries[$event->eventVenues] }}</td>--}}
             <td>
                 {{ $event->sc_venue_name }}<br />
                 {{ $event->sc_city_name }},
                 {{ $event->sc_country_name }}
-                {{-- @foreach ($event->eventVenues as $venue)
-                    <div>{{ $countries[$venue->country_id] }}</div>
-                @endforeach--}}
             </td>
         </tr>
         @endforeach
     </table>
-
+--}}
 
 
 
