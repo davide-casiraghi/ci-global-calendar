@@ -67,6 +67,7 @@
             </div>
         </div>
 
+
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-sm-10 mt-3">
                 <a id="resetButton" class="btn btn-info float-right ml-2" href="#">Reset</a>
@@ -101,6 +102,45 @@
         </tr>
         @endforeach
     </table>
+
+
+
+
+    <div class="list">
+        @foreach ($events as $event)
+            <div class="row {{ $loop->index % 2 ? 'odd': 'even' }}">
+                <div class="col-md-1 date">
+                    @if (true)
+                        I have one record!
+                    @else
+                        I don't have any records!
+                    @endif
+
+                </div>
+                <div class="col-md-3 vcenter title">
+                    <a href="{{ route('eventSearch.show',$event->id) }}">{{ $event->title }}</a>
+                </div>
+                <div class="col-md-2 vcenter teachers">
+                    {{ $event->sc_teachers_names }}
+                </div>
+                <div class="col-md-2 vcenter category">
+                    {{ $eventCategories[$event->category_id] }}
+                </div>
+                <div class="col-md-3 vcenter location">
+                    {{ $event->sc_venue_name }}<br />
+                    {{ $event->sc_city_name }},
+                    {{ $event->sc_country_name }}
+                </div>
+                <div class="col-md-1 vcenter facebook">
+                    @if(!empty($event->facebook_event_link))
+                        <a href='{{ $event->facebook_event_link }}' target='_blank'><i class='fab fa-facebook-square'></i></a>
+                    @endif
+                </div>
+            </div>
+        @endforeach
+    </div>
+
+
 
 
     {!! $events->links() !!}

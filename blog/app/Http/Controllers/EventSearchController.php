@@ -59,6 +59,11 @@ class EventSearchController extends Controller
         $searchTeacher = $request->input('teacher_id');
 
 
+        $lastestEventsRepetitions = DB::table('event_repetitions')
+                                ->selectRaw('event_id, MIN(id) AS rp_id')
+                                ->groupBy('event_id')
+                                ->toSql();
+
         if ($searchKeywords||$searchCategory||$searchCountry||$searchContinent||$searchTeacher){
 
             /*$events = DB::table('events')
@@ -88,13 +93,24 @@ class EventSearchController extends Controller
                         return $query->where('sc_continent_id', '=', $searchContinent);
                         //return $query->where('country_id', '=', $searchContinent);
                     })
+                    ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) {
+                        $join->on('events.id', '=', 'event_repetitions.event_id');
+                    })
                     ->paginate(20);
+
         }
         else{
             //$events = Event::latest()->paginate(20);
 
             // Latest give the last $eventCategories!!!
-                $events = DB::table('events')->latest()->paginate(20);
+                $events = DB::table('events')
+                //->join('event_repetitions', 'events.id', '=', 'event_repetitions.event_id')
+                ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) {
+                    $join->on('events.id', '=', 'event_repetitions.event_id');
+                })
+                ->paginate(20);
+
+
 
                 // It works, but I don't use it now to develop
                 /*$minutes = 30;

@@ -102,7 +102,7 @@ class EventController extends Controller
         $event->category_id = $request->get('category_id');
         $event->venue_id = $request->get('venue_id');
         $event->image = $request->get('image');
-        $event->facebook_link = $request->get('facebook_link');
+        $event->facebook_event_link = $request->get('facebook_event_link');
         $event->status = $request->get('status');
 
         // Support columns for homepage search
