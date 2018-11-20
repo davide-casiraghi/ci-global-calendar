@@ -81,20 +81,19 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
                       'title' => 'Facebook event',
-                      'name' => 'faecbook',
+                      'name' => 'facebook_event_link',
                       'placeholder' => 'https://www.facebook.com/events/...',
-                      'value' => $event->facebook_link
+                      'value' => $event->facebook_event_link
                 ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
                       'title' => 'Event URL',
-                      'name' => 'faecbook',
-                      'placeholder' => 'https://www.facebook.com/events/...',
-                      'value' => $event->website_link
+                      'name' => 'website_event_link',
+                      'placeholder' => 'https://www...',
+                      'value' => $event->website_event_link
                 ])
             </div>
-
         </div>
 
 

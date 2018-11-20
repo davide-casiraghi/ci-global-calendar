@@ -78,6 +78,23 @@
 
         @include('partials.repeat-event')
 
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.input', [
+                      'title' => 'Facebook event',
+                      'name' => 'facebook_event_link',
+                      'placeholder' => 'https://www.facebook.com/events/...'
+                ])
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.input', [
+                      'title' => 'Event URL',
+                      'name' => 'website_event_link',
+                      'placeholder' => 'https://www...'
+                ])
+            </div>
+        </div>
+
         {{--@include('partials.forms.image-event')--}}
 
 
