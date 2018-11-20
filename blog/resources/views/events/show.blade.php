@@ -25,18 +25,24 @@
                 {{ $venue->name }}  -  {{ $venue->address }}, {{ $venue->city }}, {{ $country->name }} - <a href="#map" name="map">Show map</a>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 mt-1">
-            <i class="far fa-users mr-1" data-toggle="tooltip" data-placement="top" title="Teachers"></i>
-            @foreach ($teachers as $key => $teacher)
-                {{$teacher->name}}
-            @endforeach
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 mt-1">
-            <i class="fa fa-users mr-1" data-toggle="tooltip" data-placement="top" title="Organizers"></i>
-            @foreach ($organizers as $key => $organizer)
-                {{$organizer->name}}
-            @endforeach
-        </div>
+        
+        @if(!empty($teachers))
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-1">
+                <i class="far fa-users mr-1" data-toggle="tooltip" data-placement="top" title="Teachers"></i>
+                @foreach ($teachers as $key => $teacher)
+                    {{$teacher->name}}
+                @endforeach
+            </div>
+        @endif
+
+        @if(!empty($organizers))
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-1">
+                <i class="fa fa-users mr-1" data-toggle="tooltip" data-placement="top" title="Organizers"></i>
+                @foreach ($organizers as $key => $organizer)
+                    {{$organizer->name}}
+                @endforeach
+            </div>
+        @endif
 
         <div class="eventBody col-xs-12 col-sm-12 col-md-12 mt-5">
             {!! $event->description !!}
