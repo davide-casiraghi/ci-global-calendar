@@ -33,17 +33,25 @@
         <div class="eventBody col-xs-12 col-sm-12 col-md-12 mt-5">
             {!! $event->description !!}
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
-            <h3>Links</h3>
-            <div class="facebook">
-                <i class="fab fa-facebook-square" style="margin-right: 10px;"></i>
-                {{ $event->facebook }}
+
+
+        @if((!empty($event->facebook_event_link))||(!empty($event->website_event_link)))
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
+                <h3>Links</h3>
+                @if(!empty($event->facebook_event_link))
+                    <div class="facebook">
+                        <i class="fab fa-facebook-square" style="margin-right: 10px;"></i>
+                        <a href="{{ $event->facebook_event_link }}">{{ $event->facebook_event_link }}</a>
+                    </div>
+                @endif
+                @if(!empty($event->website_event_link))
+                    <div class="url">
+                        <i class="fa fa-external-link" style="margin-right: 10px;"></i>
+                        <a href="{{ $event->website_event_link }}">{{ $event->website_event_link }}</a>
+                    </div>
+                @endif
             </div>
-            <div class="url">
-                <i class="fa fa-external-link" style="margin-right: 10px;"></i>
-                {{ $event->website }}
-            </div>
-        </div>
+        @endif
 
         <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
             <h3>Location</h3>
