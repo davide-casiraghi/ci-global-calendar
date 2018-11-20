@@ -122,13 +122,13 @@
                         </div>
                     {{-- Many days event --}}
                     @else
-                        <div class='col text-center bg-secondary text-white px-2 mr-1' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
+                        <div class='col text-center bg-secondary text-white px-1 mr-1' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
                             <strong>
                                 @day($event->start_repeat)
                                 @month($event->start_repeat)
                             </strong>
                         </div>
-                        <div class='col text-center bg-secondary text-white px-2' data-toggle="tooltip" data-placement="top" title="@date($event->end_repeat)">
+                        <div class='col text-center bg-secondary text-white px-1' data-toggle="tooltip" data-placement="top" title="@date($event->end_repeat)">
                             <strong>
                                 @day($event->end_repeat)
                                 @month($event->end_repeat)
