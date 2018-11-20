@@ -13,10 +13,10 @@
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12 mb-1">
-            <i class="far fa-clock"></i>
-            <div class="date">
+            <i class="far fa-clock float-left"></i>
+            <div class="date float-left">
                 <div class="bigdate">21 Nov 2018 -&nbsp;22 Nov 2018</div>
-                <div class="smalldate">From 21 Nov 2018&nbsp;at&nbsp;12:30am to&nbsp;22 Nov 2018 at&nbsp;02:30am</div>
+                <small class="smalldate text-black-50">From 21 Nov 2018&nbsp;at&nbsp;12:30am to&nbsp;22 Nov 2018 at&nbsp;02:30am</small>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 mb-1">
