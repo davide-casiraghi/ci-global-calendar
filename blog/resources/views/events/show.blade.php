@@ -57,13 +57,21 @@
             <h3>Location</h3>
             <p>{{ $venue->name }}</p>
             <p>{{ $venue->address }}</p>
+            <p>{{ $venue->city }}</p>
             <p>{{ $venue->zip_code }}</p>
             <p>{{ $country->name }}</p>
         </div>
 
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
 
-
-
+            @include('partials.gmap', [
+                  'venue_name' => $venue->name,
+                  'venue_address' => $venue->address,
+                  'venue_city' => $venue->city,
+                  'venue_country' => $country->name,
+                  'venue_zip_code' => $venue->zip_code
+            ])
+        </div>
 
     </div>
 
