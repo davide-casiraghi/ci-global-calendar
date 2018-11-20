@@ -109,17 +109,33 @@
     <div class="list">
         @foreach ($events as $event)
             <div class="row {{ $loop->index % 2 ? 'odd': 'even' }}">
-                <div class="col-md-1 date">
-                    @if (@date($event->start_repeat)==@date($event->end_repeat))
-                        @day($event->start_repeat)<br />
-                        @month($event->start_repeat)
-                    @else
-                        @day($event->start_repeat)<br />
-                        @month($event->start_repeat)
-                        @day($event->end_repeat)<br />
-                        @month($event->end_repeat)
-                    @endif
+                <div class="col-md-1 date px-0">
+                    <div class="row text-uppercase">
 
+                    {{-- One day event --}}
+                    @if (@date($event->start_repeat)==@date($event->end_repeat))
+                        <div class='col text-center bg-secondary text-white px-2' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
+                            <strong>
+                                @day($event->start_repeat)<br />
+                                @month($event->start_repeat)
+                            </strong>
+                        </div>
+                    {{-- Many days event --}}
+                    @else
+                        <div class='col text-center bg-secondary text-white px-2 mr-1' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
+                            <strong>
+                                @day($event->start_repeat)<br />
+                                @month($event->start_repeat)
+                            </strong>
+                        </div>
+                        <div class='col text-center bg-secondary text-white px-2' data-toggle="tooltip" data-placement="top" title="@date($event->end_repeat)">
+                            <strong>
+                                @day($event->end_repeat)<br />
+                                @month($event->end_repeat)
+                            </strong>
+                        </div>
+                    @endif
+                    </div>
                 </div>
                 <div class="col-md-3 vcenter title">
                     <a href="{{ route('eventSearch.show',$event->id) }}">{{ $event->title }}</a>
