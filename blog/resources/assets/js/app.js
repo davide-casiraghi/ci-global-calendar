@@ -21,6 +21,12 @@ require('./plugins/imagepopup');  // imagepopup.js
 require('./plugins/laravel-filemanager/lfm');  // lfm.js
 require('./plugins/laravel-filemanager/editPostImageFilemanager');  // editPostImageFilemanager.js
 
+
+// Load Bootrap tooltip everywhere in the website
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

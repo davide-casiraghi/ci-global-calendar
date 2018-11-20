@@ -890,7 +890,7 @@ module.exports = __webpack_require__(52);
 /* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
+/* WEBPACK VAR INJECTION */(function($) {
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -912,6 +912,12 @@ __webpack_require__(45); // imagepopup.js
 __webpack_require__(46); // lfm.js
 __webpack_require__(47); // editPostImageFilemanager.js
 
+
+// Load Bootrap tooltip everywhere in the website
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -923,6 +929,7 @@ Vue.component('example-component', __webpack_require__(48));
 var app = new Vue({
   el: '#app'
 });
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 18 */

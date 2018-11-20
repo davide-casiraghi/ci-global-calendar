@@ -8,31 +8,31 @@
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12 mt-1">
-            <i class="fa fa-tag mr-2" tooltip="Category"></i>
+            <i class="fa fa-tag mr-2" data-toggle="tooltip" data-placement="top" title="Category"></i>
             {{ $category->name }}
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12 mt-1" style="display: table;">
-            <i class="far fa-clock" style="display: table-cell; vertical-align: middle; width: 28px;"></i>
-            <div class="date">
+            <i class="far fa-clock" data-toggle="tooltip" data-placement="top" title="Date & Time" style="display: table-cell; vertical-align: middle; width: 20px; text-align: center;"></i>
+            <div class="date ml-2">
                 <div class="bigdate">21 Nov 2018 -&nbsp;22 Nov 2018</div>
                 <small class="smalldate text-black-50">From 21 Nov 2018&nbsp;at&nbsp;12:30am to&nbsp;22 Nov 2018 at&nbsp;02:30am</small>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 mt-1" style="display: table;">
-            <i class="far fa-map-marker-alt mr-2" style="display: table-cell; vertical-align: middle; width: 28px;"></i>
-            <div class="venue">
+            <i class="far fa-map-marker-alt" style="display: table-cell; vertical-align: middle; width: 20px; text-align: center;" data-toggle="tooltip" data-placement="top" title="Venue"></i>
+            <div class="venue ml-2">
                 {{ $venue->name }}  -  {{ $venue->address }}, {{ $venue->city }}, {{ $country->name }} - <a href="#map" name="map">Show map</a>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 mt-1">
-            <i class="far fa-users mr-1" tooltip="Teachers"></i>
+            <i class="far fa-users mr-1" data-toggle="tooltip" data-placement="top" title="Teachers"></i>
             @foreach ($teachers as $key => $teacher)
                 {{$teacher->name}}
             @endforeach
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 mt-1">
-            <i class="fa fa-users mr-1" tooltip="Organizers"></i>
+            <i class="fa fa-users mr-1" data-toggle="tooltip" data-placement="top" title="Organizers"></i>
             @foreach ($organizers as $key => $organizer)
                 {{$organizer->name}}
             @endforeach
