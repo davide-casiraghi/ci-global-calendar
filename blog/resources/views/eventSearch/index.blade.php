@@ -110,10 +110,14 @@
         @foreach ($events as $event)
             <div class="row {{ $loop->index % 2 ? 'odd': 'even' }}">
                 <div class="col-md-1 date">
-                    @if (true)
-                        I have one record!
+                    @if (@date($event->start_repeat)==@date($event->end_repeat))
+                        @day($event->start_repeat)<br />
+                        @month($event->start_repeat)
                     @else
-                        I don't have any records!
+                        @day($event->start_repeat)<br />
+                        @month($event->start_repeat)
+                        @day($event->end_repeat)<br />
+                        @month($event->end_repeat)
                     @endif
 
                 </div>

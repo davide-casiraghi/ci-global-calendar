@@ -59,8 +59,9 @@ class EventSearchController extends Controller
         $searchTeacher = $request->input('teacher_id');
 
 
+        // Sub-Query Joins - https://laravel.com/docs/5.7/queries
         $lastestEventsRepetitions = DB::table('event_repetitions')
-                                ->selectRaw('event_id, MIN(id) AS rp_id')
+                                ->selectRaw('event_id, MIN(id) AS rp_id, start_repeat, end_repeat')
                                 ->groupBy('event_id')
                                 ->toSql();
 
@@ -109,7 +110,6 @@ class EventSearchController extends Controller
                     $join->on('events.id', '=', 'event_repetitions.event_id');
                 })
                 ->paginate(20);
-
 
 
                 // It works, but I don't use it now to develop
