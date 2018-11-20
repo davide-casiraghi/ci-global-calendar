@@ -55,11 +55,11 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
             <h3>Location</h3>
-            <p>{{ $venue->name }}</p>
-            <p>{{ $venue->address }}</p>
-            <p>{{ $venue->city }}</p>
-            <p>{{ $venue->zip_code }}</p>
-            <p>{{ $country->name }}</p>
+            {{ $venue->name }}<br />
+            {{ $venue->address }}<br />
+            {{ $venue->city }}<br />
+            {{ $venue->zip_code }}<br />
+            {{ $country->name }}<br />
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
