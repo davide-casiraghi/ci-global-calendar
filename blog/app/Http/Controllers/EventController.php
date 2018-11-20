@@ -151,7 +151,36 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Event $event){
-        return view('events.show',compact('event'));
+
+        $category = EventCategory::find($event->category_id);
+        $teachers = $event->teachers()->get();
+        $organizers = $event->organizers()->get();
+
+        $venue = DB::table('event_venues')
+                ->select('id','name','city','address','zip_code','country_id')
+                ->where('id',$event->venue_id)
+                ->first();
+
+                
+
+        $country = DB::table('countries')
+                ->select('id','name','continent_id')
+                ->where('id',$venue->country_id)
+                ->first();
+
+        $continent = DB::table('continents')
+                ->select('id','name')
+                ->where('id',$country->continent_id)
+                ->first();
+
+        //Country::find($event->id);
+
+
+
+        //dd($continent);
+
+
+        return view('events.show',compact('event'))->with('category', $category)->with('teachers', $teachers)->with('organizers', $organizers)->with('venue', $venue)->with('country', $country)->with('continent', $continent);
     }
 
     /**
@@ -166,7 +195,7 @@ class EventController extends Controller
         $organizers = Organizer::pluck('name', 'id');
         //$venues = EventVenue::pluck('name', 'id');
         $venues = DB::table('event_venues')
-                ->select('id','name','city')->get();
+                ->select('id','name','address','city')->get();
                 //dd($venues);
 
         $eventFirstRepetition = DB::table('event_repetitions')

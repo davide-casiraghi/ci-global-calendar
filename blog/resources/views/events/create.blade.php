@@ -17,10 +17,13 @@
 
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Title:</strong>
-                    <input type="text" name="title" class="form-control" placeholder="Event title">
-                </div>
+
+                @include('partials.forms.input', [
+                      'title' => 'Title',
+                      'name' => 'title',
+                      'placeholder' => 'Event title'
+                ])
+
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.select-event-category')
@@ -76,6 +79,11 @@
         @include('partials.repeat-event')
 
         {{--@include('partials.forms.image-event')--}}
+
+
+
+
+
 
         <div class="row mt-5">
             <div class="col-xs-6 col-sm-6 col-md-6 pull-left">

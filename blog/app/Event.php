@@ -29,11 +29,11 @@ class Event extends Model
     /**
      * Get the organizers for the event.
      */
-    public function eventVenues()
+    /*public function eventVenues()
     {
         //return $this->hasMany('App\EventVenue');
-        return $this->belongsTo('App\EventVenue');
-    }
+        return $this->hasOne('App\EventVenue');
+    }*/
 
     /**
      * Get the organizers for the event.
