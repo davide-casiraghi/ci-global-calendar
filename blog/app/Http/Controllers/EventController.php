@@ -161,8 +161,6 @@ class EventController extends Controller
                 ->where('id',$event->venue_id)
                 ->first();
 
-
-
         $country = DB::table('countries')
                 ->select('id','name','continent_id')
                 ->where('id',$venue->country_id)

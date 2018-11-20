@@ -87,7 +87,12 @@ class EventVenueController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(EventVenue $eventVenue){
-        return view('eventVenues.show',compact('eventVenue'));
+        $country = DB::table('countries')
+                ->select('id','name','continent_id')
+                ->where('id',$eventVenue->country_id)
+                ->first();
+
+        return view('eventVenues.show',compact('eventVenue'))->with('country', $country);
     }
 
     /**
