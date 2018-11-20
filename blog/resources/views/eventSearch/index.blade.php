@@ -108,15 +108,15 @@
 
     <div class="list">
         @foreach ($events as $event)
-            <div class="row {{ $loop->index % 2 ? 'odd': 'even' }}">
-                <div class="col-md-1 date px-0">
+            <div class="row p-1 {{ $loop->index % 2 ? '': 'bg-white' }}">
+                <div class="col-lg-1 date px-0">
                     <div class="row text-uppercase">
 
                     {{-- One day event --}}
                     @if (@date($event->start_repeat)==@date($event->end_repeat))
                         <div class='col text-center bg-secondary text-white px-2' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
                             <strong>
-                                @day($event->start_repeat)<br />
+                                @day($event->start_repeat)
                                 @month($event->start_repeat)
                             </strong>
                         </div>
@@ -124,13 +124,13 @@
                     @else
                         <div class='col text-center bg-secondary text-white px-2 mr-1' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
                             <strong>
-                                @day($event->start_repeat)<br />
+                                @day($event->start_repeat)
                                 @month($event->start_repeat)
                             </strong>
                         </div>
                         <div class='col text-center bg-secondary text-white px-2' data-toggle="tooltip" data-placement="top" title="@date($event->end_repeat)">
                             <strong>
-                                @day($event->end_repeat)<br />
+                                @day($event->end_repeat)
                                 @month($event->end_repeat)
                             </strong>
                         </div>
