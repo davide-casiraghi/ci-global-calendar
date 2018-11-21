@@ -1,5 +1,17 @@
 {{--<hr class="mt-5">--}}
-<footer class="container">
-    <p class="float-right"><a href="#">Back to top</a></p>
-    <p>© 2017-2018 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+<footer class="bg-dark">
+    <div class="container">
+        <nav class="row py-2">
+            <div class="col-xs-12 col-sm-6 col-sm-pull-6 text-center text-md-left">
+                <div class="text text-white">© 2017, made with <i class="fas fa-heart"></i> by Round Robin Team</div>
+
+
+            </div>
+            <div class="col-xs-12 col-sm-6 col-sm-push-6 text-center text-md-right" >
+                <a href="#" class="mr-2 text-white"><i class="fa fa-globe"></i> CI - Global Archive</a>
+                <a href="#" class="text-white"><i class="fa fa-heart"></i> Donate </a>
+                {{--<p class="float-right"><a href="#">Back to top</a></p>--}}
+            </div>
+        </nav>
+    </div>
 </footer>

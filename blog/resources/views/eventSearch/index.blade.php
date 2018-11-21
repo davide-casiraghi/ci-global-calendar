@@ -22,12 +22,12 @@
 
         <div class="row eventFormTitle">
             <div class="col-lg-12 text-center">
-                <h1>Contact Improvisation</h1>
-                <h2 style="color: rgb(240, 142, 13);">- Global calendar -</h2>
-                <p class="subtitle">
+                <h1 class="text-white mb-3">Contact Improvisation</h1>
+                <h4 class="text-secondary text-uppercase">- Global calendar -</h4>
+                <p class="subtitle text-white">
                     Find information about Contact Improvisation events worldwide (classes, jams, workshops, festivals and more)<br>WE ARE UNDER CONSTRUCTION, calendar is still in beta testing phase, we plan to fully operate starting from January 2019 on
                 </p>
-                <p class="searchHere">
+                <p class="searchHere text-white mt-5">
                     Search here with one criteria or more
                 </p>
             </div>
