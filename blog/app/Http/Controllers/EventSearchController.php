@@ -9,6 +9,7 @@ use App\Organizer;
 use App\EventVenue;
 use App\Continent;
 use App\Country;
+use App\BackgroundImage;
 
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -26,8 +27,9 @@ class EventSearchController extends Controller
         $countries = Country::pluck('name', 'id');
         $venues = EventVenue::pluck('name', 'id');*/
 
-
         $minutes = 30;
+
+        $backgroundImages = BackgroundImage::all();
 
         $eventCategories = Cache::remember('categories', $minutes, function () {
             return EventCategory::pluck('name', 'id');
@@ -120,7 +122,18 @@ class EventSearchController extends Controller
         }
 
         return view('eventSearch.index',compact('events'))
-            ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('continents', $continents)->with('countries', $countries)->with('venues', $venues)->with('teachers', $teachers)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('searchCountry',$searchCountry)->with('searchContinent',$searchContinent)->with('searchTeacher',$searchTeacher);
+            ->with('i', (request()->input('page', 1) - 1) * 20)
+            ->with('eventCategories',$eventCategories)
+            ->with('continents', $continents)
+            ->with('countries', $countries)
+            ->with('venues', $venues)
+            ->with('teachers', $teachers)
+            ->with('searchKeywords',$searchKeywords)
+            ->with('searchCategory',$searchCategory)
+            ->with('searchCountry',$searchCountry)
+            ->with('searchContinent',$searchContinent)
+            ->with('searchTeacher',$searchTeacher)
+            ->with('backgroundImages',$backgroundImages);
     }
 
     /**
