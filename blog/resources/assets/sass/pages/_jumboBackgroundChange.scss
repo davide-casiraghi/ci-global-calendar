@@ -1,3 +1,16 @@
+body  {
+    nav{
+        &.navbar{
+            z-index: 2;
+        }
+    }
+
+    footer{
+        z-index: 2;
+        position: relative;
+    }
+}
+
 .contactEvents{
     &.jumbotron{
         min-height: 100%;
@@ -10,30 +23,45 @@
         margin-bottom: 0!important;
     }
 
-    form{
-        &.searchForm{
+    .contents{
+        position: relative;
+        z-index: 2;    
 
+        form{
+            &.searchForm{
+
+            }
         }
-    }
-    .eventList{
-        .date{
-            .row{
-                .dateBox{
-                    @media screen and (min-width: 992px){
-                        min-height: 45px;
-                    }
-                    strong{
-                        margin: auto;
+        .eventList{
+            .date{
+                .row{
+                    .dateBox{
+                        @media screen and (min-width: 992px){
+                            min-height: 45px;
+                        }
+                        strong{
+                            margin: auto;
+                        }
                     }
                 }
             }
         }
-    }
 
-    .vcenter {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-align: center;
-        align-items: center;
+        .vcenter {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+    }
+    .bg-overlay{
+        background: #282c37;
+        opacity: .6;
+        width: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 1;
     }
 }

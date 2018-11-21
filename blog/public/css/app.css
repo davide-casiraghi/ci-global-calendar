@@ -17144,6 +17144,15 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after 
   font-size: 0.5rem;
 }
 
+body nav.navbar {
+  z-index: 2;
+}
+
+body footer {
+  z-index: 2;
+  position: relative;
+}
+
 .contactEvents.jumbotron {
   min-height: 100%;
   background-color: gray;
@@ -17156,23 +17165,39 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after 
   margin-bottom: 0 !important;
 }
 
+.contactEvents .contents {
+  position: relative;
+  z-index: 2;
+}
+
 @media screen and (min-width: 992px) {
-  .contactEvents .eventList .date .row .dateBox {
+  .contactEvents .contents .eventList .date .row .dateBox {
     min-height: 45px;
   }
 }
 
-.contactEvents .eventList .date .row .dateBox strong {
+.contactEvents .contents .eventList .date .row .dateBox strong {
   margin: auto;
 }
 
-.contactEvents .vcenter {
+.contactEvents .contents .vcenter {
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
   -ms-flex-align: center;
   -webkit-box-align: center;
           align-items: center;
+}
+
+.contactEvents .bg-overlay {
+  background: #282c37;
+  opacity: .6;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 1;
 }
 
 /**** JqueryUI Accordion - CSS override - plugin/contents/jw_ts ****/
