@@ -17156,8 +17156,10 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after 
   margin-bottom: 0 !important;
 }
 
-.contactEvents .eventList .date .row .dateBox {
-  min-height: 45px;
+@media screen and (min-width: 992px) {
+  .contactEvents .eventList .date .row .dateBox {
+    min-height: 45px;
+  }
 }
 
 .contactEvents .eventList .date .row .dateBox strong {

@@ -19,7 +19,9 @@
         .date{
             .row{
                 .dateBox{
-                    min-height: 45px;
+                    @media screen and (min-width: 992px){
+                        min-height: 45px;
+                    }
                     strong{
                         margin: auto;
                     }
