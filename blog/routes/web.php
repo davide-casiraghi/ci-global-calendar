@@ -18,10 +18,6 @@
 
 Route::get('/', 'EventSearchController@index');
 
-
-
-
-
 Route::resource('posts','PostController');
 Route::resource('categories','CategoryController');
 Route::resource('events','EventController');
