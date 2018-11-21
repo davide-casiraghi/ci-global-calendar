@@ -42,12 +42,14 @@
         </div>
 
         <div class="row mt-2">
-            <div class="form-group">
-                <strong>Orientation:</strong>
-                <select name="orientation" class="selectpicker" title="Select orientation">
-                        <option value="0">Horizontal</option>
-                        <option value="1">Vertical</option>
-                </select>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Orientation:</strong>
+                    <select name="orientation" class="selectpicker" title="Select orientation">
+                            <option value="0">Horizontal</option>
+                            <option value="1">Vertical</option>
+                    </select>
+                </div>
             </div>
         </div>
 
