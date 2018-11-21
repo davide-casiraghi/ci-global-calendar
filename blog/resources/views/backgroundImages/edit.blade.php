@@ -43,6 +43,19 @@
                 ])
             </div>
         </div>
+
+        <div class="row mt-2">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Orientation:</strong>
+                    <select name="orientation" class="selectpicker" title="Select orientation">
+                            <option value="0" @if(!empty($backgroundImage->orientation)) {{  $backgroundImage->orientation == $value ? 'selected' : '' }}@endif>Horizontal</option>
+                            <option value="1" @if(!empty($backgroundImage->orientation)) {{  $backgroundImage->orientation == $value ? 'selected' : '' }}@endif>Vertical</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
                 <a class="btn btn-primary" href="{{ route('backgroundImages.index') }}"> Back</a>

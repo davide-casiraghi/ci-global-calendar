@@ -24,7 +24,8 @@
         <tr>
             <th>Title</th>
             <th>Credits</th>
-            <th>Image</th>
+            <th width="160">Image</th>
+            <th width="100">Orientation</th>
             <th width="230">Action</th>
         </tr>
         @foreach ($backgroundImages as $backgroundImage)
@@ -32,6 +33,7 @@
             <td>{{ $backgroundImage->title }}</td>
             <td>{{ $backgroundImage->credits }}</td>
             <td><img src="{{ $backgroundImage->image_src }}" width="150" class="mx-auto d-block"></td>
+            <td>{{  $backgroundImage->orientation == 0 ? 'Horizontal' : '' }}</td>
             <td>
                 <form action="{{ route('backgroundImages.destroy',$backgroundImage->id) }}" method="POST">
 

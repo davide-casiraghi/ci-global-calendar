@@ -39,8 +39,20 @@
                       'placeholder' => 'Who took the photo?'
                 ])
             </div>
-
         </div>
+
+        <div class="row mt-2">
+            <div class="form-group">
+                <strong>Orientation:</strong>
+                <select name="orientation" class="selectpicker" title="Select orientation">
+                        <option value="0">Horizontal</option>
+                        <option value="1">Vertical</option>
+                </select>
+            </div>
+        </div>
+
+
+
 
         <div class="row mt-5">
             <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
