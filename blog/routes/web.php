@@ -27,6 +27,7 @@ Route::resource('continents','ContinentController');
 Route::resource('countries','CountryController');
 
 Route::resource('eventSearch','EventSearchController');
+Route::resource('backgroundImages','BackgroundImageController');
 
 
 //Route::post('countries.search','CountryController');

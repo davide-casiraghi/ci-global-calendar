@@ -25,6 +25,7 @@
          <a class="dropdown-item" href="{{ route('organizers.index') }}">{{ __('Organizers') }}</a>
          <a class="dropdown-item" href="{{ route('countries.index') }}">{{ __('Countries') }}</a>
          <a class="dropdown-item" href="{{ route('continents.index') }}">{{ __('Continents') }}</a>
+         <a class="dropdown-item" href="{{ route('backgroundImages.index') }}">{{ __('Background images') }}</a>
 
          <a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();
