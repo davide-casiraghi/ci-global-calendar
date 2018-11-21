@@ -1,0 +1,19 @@
+.contactEvents{
+    &.jumbotron{
+        min-height: 100%;
+        background-color: gray;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: 50%;
+        background-size: cover;
+        transition: background-image .5s ease-in-out;
+        margin-bottom: 0!important;
+    }
+
+    .vcenter {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+}

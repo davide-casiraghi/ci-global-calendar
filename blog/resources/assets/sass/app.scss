@@ -13,12 +13,15 @@
 
 @import 'forms';
 
+// Pages
+    @import 'pages/jumboBackgroundChange';
 
-@import 'plugins/accordion';
-@import 'plugins/gallery';
-@import 'plugins/imagepopup';
-@import 'plugins/card';
-@import 'plugins/columns';
+// Plugins
+    @import 'plugins/accordion';
+    @import 'plugins/gallery';
+    @import 'plugins/imagepopup';
+    @import 'plugins/card';
+    @import 'plugins/columns';
 
 .navbar-laravel {
   background-color: #fff;

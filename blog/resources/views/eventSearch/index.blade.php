@@ -1,4 +1,5 @@
-@extends('eventSearch.layout')
+{{-- @extends('layouts.app') --}}
+@extends('layouts.hpEventSearch')
 
 @section('javascript-document-ready')
     @parent
@@ -15,152 +16,159 @@
 
 @stop
 
+@section('beforeContent')
+    {{--@include('partials.jumboBackgroundChange')--}}
+    <div class="contactEvents jumbotron" style="background-image: url(&quot;http://www.globalcicalendar.com/components/com_contactevents/assets/images/image_5.jpg&quot;);">
 
-@section('content')
-    <div class="row eventFormTitle">
-        <div class="col-lg-12 text-center">
-            <h1>Contact Improvisation</h1>
-            <h2 style="color: rgb(240, 142, 13);">- Global calendar -</h2>
-            <p class="subtitle">
-                Find information about Contact Improvisation events worldwide (classes, jams, workshops, festivals and more)<br>WE ARE UNDER CONSTRUCTION, calendar is still in beta testing phase, we plan to fully operate starting from January 2019 on
-            </p>
-            <p class="searchHere">
-                Search here with one criteria or more
-            </p>
-        </div>
-    </div>
-
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success mt-4">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-
-    {{-- Search form --}}
-    <form id="searchForm" action="{{ route('eventSearch.index') }}" method="GET">
-        @csrf
-
-        {{--<div class="row mt-3">
-            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by event name" value="{{ $searchKeywords }}">
-            </div>
-        </div>--}}
-
-        <div class="row">
-            <div class="col-md-4">
-                <p><strong>What</strong></p>
-                @include('partials.forms.event-search.select-category')
-
-                <p class="mt-3"><strong>Who</strong></p>
-                @include('partials.forms.event-search.select-teacher')
-            </div>
-            <div class="col-md-4">
-                <p><strong>Where</strong></p>
-                @include('partials.forms.event-search.select-continent')
-                @include('partials.forms.event-search.select-country')
-                <p class="mt-3"><strong>Search by name of venue only</strong></p>
-            </div>
-            <div class="col-md-4">
-                <p><strong>When</strong></p>
-                @include('partials.forms.event-search.input-date-start')
-                @include('partials.forms.event-search.input-date-end')
+        <div class="row eventFormTitle">
+            <div class="col-lg-12 text-center">
+                <h1>Contact Improvisation</h1>
+                <h2 style="color: rgb(240, 142, 13);">- Global calendar -</h2>
+                <p class="subtitle">
+                    Find information about Contact Improvisation events worldwide (classes, jams, workshops, festivals and more)<br>WE ARE UNDER CONSTRUCTION, calendar is still in beta testing phase, we plan to fully operate starting from January 2019 on
+                </p>
+                <p class="searchHere">
+                    Search here with one criteria or more
+                </p>
             </div>
         </div>
 
-
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-sm-10 mt-3">
-                <a id="resetButton" class="btn btn-info float-right ml-2" href="#">Reset</a>
-                <input type="submit" value="Search" class="btn btn-primary float-right">
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success mt-4">
+                <p>{{ $message }}</p>
             </div>
-        </div>
-    </form>
+        @endif
 
-    {{-- List of events --}}
-    {{--<table class="table table-bordered mt-4">
-        <tr>
-            <th>Title</th>
-            <th>Teachers</th>
-            <th>Category</th>
-            <th>Venue</th>
-        </tr>
-        @foreach ($events as $event)
-        <tr>
-            <td><a href="{{ route('eventSearch.show',$event->id) }}">{{ $event->title }}</a></td>
-            <td>{{ $event->sc_teachers_names }}</td>
-            <td>{{ $eventCategories[$event->category_id] }}</td>
-            <td>
-                {{ $event->sc_venue_name }}<br />
-                {{ $event->sc_city_name }},
-                {{ $event->sc_country_name }}
-            </td>
-        </tr>
-        @endforeach
-    </table>
---}}
+        {{-- Search form --}}
+        <form id="searchForm" action="{{ route('eventSearch.index') }}" method="GET">
+            @csrf
 
-
-
-    <div class="list">
-        @foreach ($events as $event)
-            <div class="row p-1 {{ $loop->index % 2 ? '': 'bg-white' }}">
-                <div class="col-lg-1 date px-0">
-                    <div class="row text-uppercase">
-
-                    {{-- One day event --}}
-                    @if (@date($event->start_repeat)==@date($event->end_repeat))
-                        <div class='col text-center bg-secondary text-white px-2' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
-                            <strong>
-                                @day($event->start_repeat)
-                                @month($event->start_repeat)
-                            </strong>
-                        </div>
-                    {{-- Many days event --}}
-                    @else
-                        <div class='col text-center bg-secondary text-white px-1 mr-1' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
-                            <strong>
-                                @day($event->start_repeat)
-                                @month($event->start_repeat)
-                            </strong>
-                        </div>
-                        <div class='col text-center bg-secondary text-white px-1' data-toggle="tooltip" data-placement="top" title="@date($event->end_repeat)">
-                            <strong>
-                                @day($event->end_repeat)
-                                @month($event->end_repeat)
-                            </strong>
-                        </div>
-                    @endif
-                    </div>
+            {{--<div class="row mt-3">
+                <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by event name" value="{{ $searchKeywords }}">
                 </div>
-                <div class="col-md-3 vcenter title">
-                    <a href="{{ route('eventSearch.show',$event->id) }}">{{ $event->title }}</a>
+            </div>--}}
+
+            <div class="row">
+                <div class="col-md-4">
+                    <p><strong>What</strong></p>
+                    @include('partials.forms.event-search.select-category')
+
+                    <p class="mt-3"><strong>Who</strong></p>
+                    @include('partials.forms.event-search.select-teacher')
                 </div>
-                <div class="col-md-2 vcenter teachers">
-                    {{ $event->sc_teachers_names }}
+                <div class="col-md-4">
+                    <p><strong>Where</strong></p>
+                    @include('partials.forms.event-search.select-continent')
+                    @include('partials.forms.event-search.select-country')
+                    <p class="mt-3"><strong>Search by name of venue only</strong></p>
                 </div>
-                <div class="col-md-2 vcenter category">
-                    {{ $eventCategories[$event->category_id] }}
+                <div class="col-md-4">
+                    <p><strong>When</strong></p>
+                    @include('partials.forms.event-search.input-date-start')
+                    @include('partials.forms.event-search.input-date-end')
                 </div>
-                <div class="col-md-3 vcenter location">
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-sm-10 mt-3">
+                    <a id="resetButton" class="btn btn-info float-right ml-2" href="#">Reset</a>
+                    <input type="submit" value="Search" class="btn btn-primary float-right">
+                </div>
+            </div>
+        </form>
+
+        {{-- List of events --}}
+        {{--<table class="table table-bordered mt-4">
+            <tr>
+                <th>Title</th>
+                <th>Teachers</th>
+                <th>Category</th>
+                <th>Venue</th>
+            </tr>
+            @foreach ($events as $event)
+            <tr>
+                <td><a href="{{ route('eventSearch.show',$event->id) }}">{{ $event->title }}</a></td>
+                <td>{{ $event->sc_teachers_names }}</td>
+                <td>{{ $eventCategories[$event->category_id] }}</td>
+                <td>
                     {{ $event->sc_venue_name }}<br />
                     {{ $event->sc_city_name }},
                     {{ $event->sc_country_name }}
+                </td>
+            </tr>
+            @endforeach
+        </table>
+    --}}
+
+
+
+        <div class="list mt-5">
+            @foreach ($events as $event)
+                <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
+                    <div class="col-lg-1 date px-0">
+                        <div class="row text-uppercase">
+
+                        {{-- One day event --}}
+                        @if (@date($event->start_repeat)==@date($event->end_repeat))
+                            <div class='col text-center bg-secondary text-white px-2' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
+                                <strong>
+                                    @day($event->start_repeat)
+                                    @month($event->start_repeat)
+                                </strong>
+                            </div>
+                        {{-- Many days event --}}
+                        @else
+                            <div class='col text-center bg-secondary text-white px-1 mr-1' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
+                                <strong>
+                                    @day($event->start_repeat)
+                                    @month($event->start_repeat)
+                                </strong>
+                            </div>
+                            <div class='col text-center bg-secondary text-white px-1' data-toggle="tooltip" data-placement="top" title="@date($event->end_repeat)">
+                                <strong>
+                                    @day($event->end_repeat)
+                                    @month($event->end_repeat)
+                                </strong>
+                            </div>
+                        @endif
+                        </div>
+                    </div>
+                    <div class="col-md-3 vcenter title">
+                        <a href="{{ route('eventSearch.show',$event->id) }}">{{ $event->title }}</a>
+                    </div>
+                    <div class="col-md-2 vcenter teachers">
+                        {{ $event->sc_teachers_names }}
+                    </div>
+                    <div class="col-md-2 vcenter category">
+                        {{ $eventCategories[$event->category_id] }}
+                    </div>
+                    <div class="col-md-3 vcenter location">
+                        {{ $event->sc_venue_name }}<br />
+                        {{ $event->sc_city_name }},
+                        {{ $event->sc_country_name }}
+                    </div>
+                    <div class="col-md-1 vcenter facebook">
+                        @if(!empty($event->facebook_event_link))
+                            <a href='{{ $event->facebook_event_link }}' target='_blank'><i class='fab fa-facebook-square'></i></a>
+                        @endif
+                    </div>
                 </div>
-                <div class="col-md-1 vcenter facebook">
-                    @if(!empty($event->facebook_event_link))
-                        <a href='{{ $event->facebook_event_link }}' target='_blank'><i class='fab fa-facebook-square'></i></a>
-                    @endif
-                </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
+
+
+
+
+        {!! $events->links() !!}
+
     </div>
 
+@endsection
 
-
-
-    {!! $events->links() !!}
-
-
-
+{{--
+@section('content')
 
 @endsection
+--}}
