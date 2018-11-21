@@ -17144,8 +17144,8 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after 
   font-size: 0.5rem;
 }
 
-body nav.navbar {
-  z-index: 2;
+nav.navbar {
+  z-index: 4;
 }
 
 body footer {
@@ -17199,6 +17199,13 @@ body footer {
   -webkit-transition: background-image .5s ease-in-out;
   transition: background-image .5s ease-in-out;
   margin-bottom: 0 !important;
+}
+
+.contactEvents .credits {
+  z-index: 1;
+  position: absolute;
+  top: 4rem;
+  right: 1rem;
 }
 
 .contactEvents .bg-overlay {

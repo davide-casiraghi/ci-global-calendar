@@ -49,8 +49,8 @@
                 <div class="form-group">
                     <strong>Orientation:</strong>
                     <select name="orientation" class="selectpicker" title="Select orientation">
-                            <option value="0" @if(!empty($backgroundImage->orientation)) {{  $backgroundImage->orientation == $value ? 'selected' : '' }}@endif>Horizontal</option>
-                            <option value="1" @if(!empty($backgroundImage->orientation)) {{  $backgroundImage->orientation == $value ? 'selected' : '' }}@endif>Vertical</option>
+                            <option value="0" @if(!$backgroundImage->orientation) {{  $backgroundImage->orientation == 0 ? 'selected' : '' }}@endif>Horizontal</option>
+                            <option value="1" @if($backgroundImage->orientation) {{  $backgroundImage->orientation == 1 ? 'selected' : '' }}@endif>Vertical</option>
                     </select>
                 </div>
             </div>

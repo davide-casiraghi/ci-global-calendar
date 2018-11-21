@@ -30,7 +30,7 @@ class EventSearchController extends Controller
         $minutes = 30;
 
         $backgroundImages = BackgroundImage::all();
-
+    
         $eventCategories = Cache::remember('categories', $minutes, function () {
             return EventCategory::pluck('name', 'id');
         });

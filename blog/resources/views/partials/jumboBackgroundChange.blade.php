@@ -18,58 +18,55 @@
     // Change background
         $(function() {
 
-            var element = $('.contactEvents .background');
+            var elementBackground = $('.contactEvents .background');
+            var elementCredits = $('.contactEvents .credits');
 
             // Create background array
                 var backgrounds = new Array();
+                var credits = new Array();
                 var base_url = window.location.origin;
 
                 // Image path is different for desktop and mobile devices (for mobile vertical and smaller images are provided)
                     if ((mobilecheck())&&( window.orientation == 0)){
-                        // Mobile and vertical - 305x550
-                            $i = 0;
                             @foreach ($backgroundImages as $key_1 => $backgroundImage)
                                 @if($backgroundImage->orientation == 1)
-                                    $i++;
-                                    backgrounds[{{$i}}] = 'url('+'{{$backgroundImage->image_src}}'+')';
+                                    backgrounds.push('url('+'{{$backgroundImage->image_src}}'+')');
+                                    credits.push('{{$backgroundImage->credits}}');
                                 @endif
                             @endforeach
                     }
                     else{
                         // Desktop - 1100x733 65% quality
-                            $i = 0;
                             @foreach ($backgroundImages as $key => $backgroundImage)
                                 @if($backgroundImage->orientation == 0)
-                                    $i++;
-                                    backgrounds[{{$i}}] = 'url('+'{{$backgroundImage->image_src}}'+')';
+                                    backgrounds.push('url('+'{{$backgroundImage->image_src}}'+')');
+                                    credits.push('{{$backgroundImage->credits}}');
                                 @endif
                             @endforeach
                     }
 
-
-                /*for(var i=0; i<images.length; i++){
-                    backgrounds[i] = 'url('+base_url + image_path + images[i]+')';
-                }*/
-
             // Function to change background
                 var current = 0;
                 function nextBackground() {
-                    element.css(
+                    elementBackground.css(
                         'background-image',
                         backgrounds[current = ++current % backgrounds.length]
                     );
+                    elementCredits.html(credits[current = ++current % credits.length]);
 
                     setTimeout(nextBackground, 10000);
+                    setTimeout(elementCredits, 10000);
                 }
 
                 setTimeout(nextBackground, 10000);
+                setTimeout(elementCredits, 10000);
 
-                element.css('background-image', backgrounds[0]);
+                elementBackground.css('background-image', backgrounds[0]);
 
 
         });
     </script>
 
 @stop
-
+<div class="credits">eeee</div>
 <div class="background"></div>

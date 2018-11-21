@@ -1,9 +1,4 @@
 body  {
-    nav{
-        &.navbar{
-            z-index: 2;
-        }
-    }
 
     footer{
         z-index: 2;
@@ -66,6 +61,12 @@ body  {
         background-size: cover;
         transition: background-image .5s ease-in-out;
         margin-bottom: 0!important;
+    }
+    .credits{
+        z-index: 1;
+        position: absolute;
+        top: 4rem;
+        right: 1rem;
     }
     .bg-overlay{
         background: #282c37;
