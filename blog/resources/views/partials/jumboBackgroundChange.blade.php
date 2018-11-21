@@ -27,17 +27,21 @@
                 // Image path is different for desktop and mobile devices (for mobile vertical and smaller images are provided)
                     if ((mobilecheck())&&( window.orientation == 0)){
                         // Mobile and vertical - 305x550
+                            $i = 0;
                             @foreach ($backgroundImages as $key_1 => $backgroundImage)
                                 @if($backgroundImage->orientation == 1)
-                                    backgrounds[{{$key_1}}] = 'url('+'{{$backgroundImage->image_src}}'+')';
+                                    $i++;
+                                    backgrounds[{{$i}}] = 'url('+'{{$backgroundImage->image_src}}'+')';
                                 @endif
                             @endforeach
                     }
                     else{
                         // Desktop - 1100x733 65% quality
+                            $i = 0;
                             @foreach ($backgroundImages as $key => $backgroundImage)
                                 @if($backgroundImage->orientation == 0)
-                                    backgrounds[{{$loop->index}}] = 'url('+'{{$backgroundImage->image_src}}'+')';
+                                    $i++;
+                                    backgrounds[{{$i}}] = 'url('+'{{$backgroundImage->image_src}}'+')';
                                 @endif
                             @endforeach
                     }
