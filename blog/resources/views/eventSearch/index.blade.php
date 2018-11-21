@@ -52,20 +52,20 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        <p><strong>What</strong></p>
+                        <p><strong class="text-white">What</strong></p>
                         @include('partials.forms.event-search.select-category')
 
-                        <p class="mt-3"><strong>Who</strong></p>
+                        <p class="mt-3"><strong class="text-white">Who</strong></p>
                         @include('partials.forms.event-search.select-teacher')
                     </div>
                     <div class="col-md-4">
-                        <p><strong>Where</strong></p>
+                        <p><strong class="text-white">Where</strong></p>
                         @include('partials.forms.event-search.select-continent')
                         @include('partials.forms.event-search.select-country')
-                        <p class="mt-3"><strong>Search by name of venue only</strong></p>
+                        <p class="mt-3"><strong class="text-white">Search by name of venue only</strong></p>
                     </div>
                     <div class="col-md-4">
-                        <p><strong>When</strong></p>
+                        <p><strong class="text-white">When</strong></p>
                         @include('partials.forms.event-search.input-date-start')
                         @include('partials.forms.event-search.input-date-end')
                     </div>
