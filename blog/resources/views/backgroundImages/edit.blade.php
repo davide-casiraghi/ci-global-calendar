@@ -30,6 +30,7 @@
         @include('partials.forms.image-event', [
             'title' => 'Background image',
             'db_column_name' => 'image_src',
+            'folder' => 'backgroundImages',
             'image' => $backgroundImage->image_src
         ])
 
