@@ -12,20 +12,15 @@ body  {
 }
 
 .contactEvents{
+
     &.jumbotron{
-        min-height: 100%;
-        background-color: gray;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: 50%;
-        background-size: cover;
-        transition: background-image .5s ease-in-out;
-        margin-bottom: 0!important;
+        padding: 0;
+        margin: 0;
     }
 
-    .contents{
+    .container{
         position: relative;
-        z-index: 2;    
+        z-index: 2;
 
         form{
             &.searchForm{
@@ -53,6 +48,24 @@ body  {
             -ms-flex-align: center;
             align-items: center;
         }
+    }
+    .background{
+        background: #282c37;
+        width: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 0;
+
+        min-height: 100%;
+        background-color: gray;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: 50%;
+        background-size: cover;
+        transition: background-image .5s ease-in-out;
+        margin-bottom: 0!important;
     }
     .bg-overlay{
         background: #282c37;
