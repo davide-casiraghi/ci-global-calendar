@@ -33,7 +33,7 @@
             <td>{{ $backgroundImage->title }}</td>
             <td>{{ $backgroundImage->credits }}</td>
             <td><img src="{{ $backgroundImage->image_src }}" width="150" class="mx-auto d-block"></td>
-            <td>{{  $backgroundImage->orientation == 0 ? 'Horizontal' : '' }}</td>
+            <td>{{  $backgroundImage->orientation == 0 ? 'Horizontal' : 'Vertical' }}</td>
             <td>
                 <form action="{{ route('backgroundImages.destroy',$backgroundImage->id) }}" method="POST">
 

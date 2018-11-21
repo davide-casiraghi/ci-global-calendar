@@ -12,6 +12,6 @@ class BackgroundImage extends Model
     * @var array
     */
    protected $fillable = [
-       'title', 'image_src', 'credits'
+       'title', 'image_src', 'credits', 'orientation'
    ];
 }

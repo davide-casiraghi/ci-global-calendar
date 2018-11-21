@@ -41,6 +41,7 @@ class BackgroundImageController extends Controller
         request()->validate([
             'title' => 'required',
             'image_src' => 'required',
+            'orientation' => 'required',
         ]);
 
 
@@ -85,6 +86,7 @@ class BackgroundImageController extends Controller
         request()->validate([
             'title' => 'required',
             'image_src' => 'required',
+            'orientation' => 'required',
         ]);
 
         $backgroundImage->update($request->all());
