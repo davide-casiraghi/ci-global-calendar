@@ -31,7 +31,7 @@
         <tr>
             <td>{{ $backgroundImage->title }}</td>
             <td>{{ $backgroundImage->credits }}</td>
-            <td><img src="@if(!empty($backgroundImage->folder)) {{ $backgroundImage->folder }} @endif/{{ $backgroundImage->image_src }}" width="150" class="mx-auto d-block"></td>
+            <td><img src="{{ $backgroundImage->image_src }}" width="150" class="mx-auto d-block"></td>
             <td>
                 <form action="{{ route('backgroundImages.destroy',$backgroundImage->id) }}" method="POST">
 

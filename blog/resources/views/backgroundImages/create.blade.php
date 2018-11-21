@@ -28,8 +28,7 @@
 
         @include('partials.forms.image-event', [
               'title' => 'Background image',
-              'db_column_name' => 'image_src',
-              'folder' => 'backgroundImages'
+              'db_column_name' => 'image_src'
         ])
 
         <div class="row mt-2">
