@@ -139,19 +139,24 @@
                         <a href="{{ route('eventSearch.show',$event->id) }}">{{ $event->title }}</a>
                     </div>
                     <div class="col-md-2 vcenter teachers">
+                        @if(!empty($event->sc_teachers_names))
+                        <i data-toggle="tooltip" data-placement="top" title="Teachers" class="far fa-users mr-2"></i>
                         {{ $event->sc_teachers_names }}
+                        @endif
                     </div>
                     <div class="col-md-2 vcenter category">
+                        <i data-toggle="tooltip" data-placement="top" title="Category" class="fa fa-tag mr-2"></i>
                         {{ $eventCategories[$event->category_id] }}
                     </div>
                     <div class="col-md-3 vcenter location">
+                        <i data-toggle="tooltip" data-placement="top" title="Venue" class="far fa-map-marker-alt mr-2" style="display: table-cell; vertical-align: middle; width: 20px; text-align: center;"></i>
                         {{ $event->sc_venue_name }}<br />
                         {{ $event->sc_city_name }},
                         {{ $event->sc_country_name }}
                     </div>
                     <div class="col-md-1 vcenter facebook">
                         @if(!empty($event->facebook_event_link))
-                            <a href='{{ $event->facebook_event_link }}' target='_blank'><i class='fab fa-facebook-square'></i></a>
+                            <a href='{{ $event->facebook_event_link }}' target='_blank'><i class='fab fa-facebook-square' data-toggle="tooltip" data-placement="top" title="Facebook event"></i></a>
                         @endif
                     </div>
                 </div>
