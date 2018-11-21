@@ -17156,6 +17156,14 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after 
   margin-bottom: 0 !important;
 }
 
+.contactEvents .eventList .date .row .dateBox {
+  min-height: 45px;
+}
+
+.contactEvents .eventList .date .row .dateBox strong {
+  margin: auto;
+}
+
 .contactEvents .vcenter {
   display: -ms-flexbox;
   display: -webkit-box;

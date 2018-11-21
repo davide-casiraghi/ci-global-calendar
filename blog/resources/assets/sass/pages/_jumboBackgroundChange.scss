@@ -10,6 +10,24 @@
         margin-bottom: 0!important;
     }
 
+    form{
+        &.searchForm{
+
+        }
+    }
+    .eventList{
+        .date{
+            .row{
+                .dateBox{
+                    min-height: 45px;
+                    strong{
+                        margin: auto;
+                    }
+                }
+            }
+        }
+    }
+
     .vcenter {
         display: -ms-flexbox;
         display: flex;

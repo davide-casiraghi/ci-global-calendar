@@ -104,15 +104,15 @@
 
 
 
-        <div class="list mt-5">
+        <div class="eventList mt-5">
             @foreach ($events as $event)
                 <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
-                    <div class="col-lg-1 date px-0">
+                    <div class="col-lg-1 date">
                         <div class="row text-uppercase">
 
                         {{-- One day event --}}
                         @if (@date($event->start_repeat)==@date($event->end_repeat))
-                            <div class='col text-center bg-secondary text-white px-2' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
+                            <div class='dateBox col bg-secondary text-white px-2 vcenter' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
                                 <strong>
                                     @day($event->start_repeat)
                                     @month($event->start_repeat)
