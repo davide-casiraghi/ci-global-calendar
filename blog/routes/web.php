@@ -11,10 +11,16 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     //return view('welcome');
     return view('home');
-});
+});*/
+
+Route::get('/', 'EventSearchController@index');
+
+
+
+
 
 Route::resource('posts','PostController');
 Route::resource('categories','CategoryController');
