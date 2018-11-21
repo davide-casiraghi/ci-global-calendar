@@ -20,8 +20,6 @@
 
             var element = $('.contactEvents .background');
 
-            element.addClass("ciao");
-
             // Create background array
                 var backgrounds = new Array();
                 var base_url = window.location.origin;
@@ -70,6 +68,4 @@
 
 @stop
 
-<div class="background" style="background-image: url(&quot;http://www.globalcicalendar.com/components/com_contactevents/assets/images/image_5.jpg&quot;);">
-    eee
-</div>
+<div class="background"></div>
