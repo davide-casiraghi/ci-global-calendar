@@ -82,7 +82,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('users.show',compact('user'));
+        $countries = Country::pluck('name', 'id');
+        return view('users.show',compact('user'))->with('countries', $countries);
     }
 
     /**
