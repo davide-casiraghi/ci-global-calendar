@@ -3,6 +3,13 @@
 @section('content')
 
     <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            @include('partials.forms.event.button-report-misuse')
+        </div>
+    </div>
+
+
+    <div class="row">
         <div class="eventTitle col-xs-12 col-sm-12 col-md-12 mb-3">
             <h2>{{ $event->title }}</h2>
         </div>
@@ -25,7 +32,7 @@
                 {{ $venue->name }}  -  {{ $venue->address }}, {{ $venue->city }}, {{ $country->name }} - <a href="#map" name="map">Show map</a>
             </div>
         </div>
-        
+
         @if(!empty($teachers))
             <div class="col-xs-12 col-sm-12 col-md-12 mt-1">
                 <i class="far fa-users mr-1" data-toggle="tooltip" data-placement="top" title="Teachers"></i>
