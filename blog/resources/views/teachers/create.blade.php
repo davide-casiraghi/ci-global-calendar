@@ -10,29 +10,18 @@
         </div>
     </div>
 
-
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
+    @include('partials.forms.error-management')
 
     <form action="{{ route('teachers.store') }}" method="POST">
         @csrf
 
-
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="name" class="form-control" placeholder="Name">
-                </div>
+                @include('partials.forms.input', [
+                      'title' => 'Name',
+                      'name' => 'name',
+                      'placeholder' => 'Teacher name'
+                ])
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -53,28 +42,32 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Year of starting to practice:</strong>
-                    <input type="text" name="year_starting_practice" class="form-control" placeholder="AAAA">
-                </div>
+                @include('partials.forms.input', [
+                      'title' => 'Year of starting to practice:',
+                      'name' => 'year_starting_practice',
+                      'placeholder' => 'AAAA'
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Year of starting to teach:</strong>
-                    <input type="text" name="year_starting_teach" class="form-control" placeholder="AAAA">
-                </div>
+                @include('partials.forms.input', [
+                      'title' => 'Year of starting to teach:',
+                      'name' => 'year_starting_teach',
+                      'placeholder' => 'AAAA'
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Facebook profile:</strong>
-                    <input type="text" name="facebook" class="form-control" placeholder="https://...">
-                </div>
+                @include('partials.forms.input', [
+                      'title' => 'Facebook profile',
+                      'name' => 'facebook',
+                      'placeholder' => 'https://...'
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Website:</strong>
-                    <input type="text" name="website" class="form-control" placeholder="https://...">
-                </div>
+                @include('partials.forms.input', [
+                      'title' => 'Website',
+                      'name' => 'website',
+                      'placeholder' => 'https://...'
+                ])
             </div>
 
         </div>

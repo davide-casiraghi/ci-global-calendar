@@ -47,6 +47,7 @@ class UserController extends Controller
     public function create()
     {
         $countries = Country::pluck('name', 'id');
+
         return view('users.create')->with('countries', $countries);
     }
 

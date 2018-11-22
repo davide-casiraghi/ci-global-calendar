@@ -1,6 +1,6 @@
 @section('javascript')
     @parent
-    javascript-category
+    
 
 @stop
 

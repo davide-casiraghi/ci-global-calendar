@@ -1,6 +1,6 @@
 @section('javascript')
     @parent
-    javascript-venues
+
 
 @stop
 <div class="form-group" >
