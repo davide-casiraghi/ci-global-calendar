@@ -115,9 +115,9 @@
 
                             {{-- One day event --}}
                             @if (@date($event->start_repeat)==@date($event->end_repeat))
-                                <div class='dateBox col bg-secondary text-white px-2 vcenter' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
+                                <div class='dateBox col text-center bg-secondary text-white px-2 vcenter' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
                                     <strong>
-                                        @day($event->start_repeat)
+                                        @day($event->start_repeat)<br class="d-none d-lg-block"/>
                                         @month($event->start_repeat)
                                     </strong>
                                 </div>
@@ -125,13 +125,13 @@
                             @else
                                 <div class='col text-center bg-secondary text-white px-1 mr-1' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
                                     <strong>
-                                        @day($event->start_repeat)
+                                        @day($event->start_repeat)<br class="d-none d-lg-block"/>
                                         @month($event->start_repeat)
                                     </strong>
                                 </div>
                                 <div class='col text-center bg-secondary text-white px-1' data-toggle="tooltip" data-placement="top" title="@date($event->end_repeat)">
                                     <strong>
-                                        @day($event->end_repeat)
+                                        @day($event->end_repeat)<br class="d-none d-lg-block"/>
                                         @month($event->end_repeat)
                                     </strong>
                                 </div>
@@ -141,7 +141,7 @@
                         <div class="col-md-3 py-3 py-md-0 vcenter title">
                             <a href="{{ route('eventSearch.show',$event->id) }}">{{ $event->title }}</a>
                         </div>
-                        <div class="col-md-2 vcenter teachers">
+                        <div class="col-md-3 vcenter teachers">
                             @if(!empty($event->sc_teachers_names))
                             <i data-toggle="tooltip" data-placement="top" title="Teachers" class="far fa-users mr-2"></i>
                             {{ $event->sc_teachers_names }}
@@ -157,11 +157,11 @@
                             {{ $event->sc_city_name }},
                             {{ $event->sc_country_name }}
                         </div>
-                        <div class="col-md-1 vcenter facebook mt-2 mt-md-0">
+                        {{--<div class="col-md-1 vcenter facebook mt-2 mt-md-0">
                             @if(!empty($event->facebook_event_link))
                                 <a href='{{ $event->facebook_event_link }}' target='_blank'><i class='fab fa-facebook-square' data-toggle="tooltip" data-placement="top" title="Facebook event"></i></a>
                             @endif
-                        </div>
+                        </div>--}}
                     </div>
                 @endforeach
             </div>
