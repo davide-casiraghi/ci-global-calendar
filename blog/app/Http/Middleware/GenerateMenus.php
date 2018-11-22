@@ -1,5 +1,10 @@
 <?php
 
+/*
+    https://github.com/spatie/laravel-menu
+    https://docs.spatie.be/menu/v2/introduction
+*/
+
 namespace App\Http\Middleware;
 
 use Closure;
