@@ -19,7 +19,7 @@
         $(function() {
 
             var elementBackground = $('.contactEvents .background');
-            var elementCredits = $('.contactEvents .credits');
+            var elementCredits = $('.contactEvents .credits .name');
 
             // Create background array
                 var backgrounds = new Array();
@@ -62,11 +62,17 @@
                 setTimeout(elementCredits, 10000);
 
                 elementBackground.css('background-image', backgrounds[0]);
-
+                elementCredits.html(credits[0]);
 
         });
     </script>
 
 @stop
-<div class="credits">eeee</div>
+<small class="credits">
+    Photo credits:
+    <div class="name">
+
+    </div>
+
+</small>
 <div class="background"></div>

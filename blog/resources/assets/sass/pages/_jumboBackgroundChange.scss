@@ -17,6 +17,15 @@ body  {
         position: relative;
         z-index: 2;
 
+        .intro{
+            h1{
+                margin-top: 5rem;
+            }
+            h4{
+                color: #bbbbbb;
+            }
+        }
+
         form{
             &.searchForm{
 
@@ -63,10 +72,15 @@ body  {
         margin-bottom: 0!important;
     }
     .credits{
-        z-index: 1;
+        z-index: 2;
         position: absolute;
         top: 4rem;
         right: 1rem;
+        color: #bbbbbb;
+
+        .name{
+            display:inline;
+        }
     }
     .bg-overlay{
         background: #282c37;
