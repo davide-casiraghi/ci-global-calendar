@@ -33,6 +33,10 @@
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.password')
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Group:</strong>
                     <select name="group" class="selectpicker" title="Select user role">

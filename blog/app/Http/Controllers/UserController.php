@@ -6,6 +6,7 @@ use App\User;
 use App\Country;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -60,12 +61,15 @@ class UserController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'name' => 'required'
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
         ]);
 
         $user = new User();
         $user->name = $request->get('name');
         $user->email = $request->get('email');
+        $user->password = Hash::make($request->get('password'));
         $user->role = $request->get('role');
         $user->country_id = $request->get('country_id');
         $user->description = $request->get('bio');
@@ -110,11 +114,22 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+
         request()->validate([
-            'name' => 'required'
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255'
         ]);
 
-        $user->update($request->all());
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        if ($request->get('password'))
+            $user->password = Hash::make($request->get('password'));
+        $user->group = $request->get('group');
+        $user->country_id = $request->get('country_id');
+        $user->description = $request->get('bio');
+
+        //$user->update();
+        $user->save();
 
         return redirect()->route('users.index')
                         ->with('success','User updated successfully');
