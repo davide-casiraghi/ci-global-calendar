@@ -46,7 +46,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $countries = Country::pluck('name', 'id');
+        return view('users.create')->with('countries', $countries);
     }
 
     /**
@@ -57,7 +58,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'name' => 'required'
+        ]);
+
+        $user = new User();
+        $user->name = $request->get('name');
+        $user->country_id = $request->get('country_id');
+        $user->description = $request->get('bio');
+
+        $user->save();
+
+        return redirect()->route('users.index')
+                        ->with('success','Teacher created successfully.');
     }
 
     /**
@@ -68,7 +81,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('users.show',compact('user'));
     }
 
     /**
@@ -79,7 +92,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $countries = Country::pluck('name', 'id');
+
+        return view('users.edit',compact('user'))->with('countries', $countries);
     }
 
     /**
@@ -91,7 +106,14 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        request()->validate([
+            'name' => 'required'
+        ]);
+
+        $user->update($request->all());
+
+        return redirect()->route('users.index')
+                        ->with('success','User updated successfully');
     }
 
     /**
@@ -102,6 +124,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect()->route('users.index')
+                        ->with('success','User deleted successfully');
     }
 }
