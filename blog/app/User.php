@@ -28,16 +28,6 @@ class User extends Authenticatable
     ];
 
 
-    /*
-        To recognize admin - https://laracasts.com/discuss/channels/laravel/user-admin-authentication
-    */
-    protected $casts = [
-        'group' => 'int',
-    ];
-
-    public function isAdmin()
-    {
-        return $this->group;
-    }
+    
 
 }
