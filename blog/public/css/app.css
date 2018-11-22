@@ -10471,6 +10471,31 @@ a.text-dark:focus {
   }
 }
 
+.postBody h3 {
+  margin: 3rem 0 2rem 0;
+}
+
+.postBody > ul,
+.postBody > ol {
+  margin-top: 2rem;
+}
+
+.postBody > ul li,
+.postBody > ol li {
+  margin-bottom: 0.3rem;
+}
+
+.postBody > ul li ul,
+.postBody > ol li ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.postBody > ul li ul li,
+.postBody > ol li ul li {
+  margin-bottom: 0.3rem;
+}
+
 /*!
  * Font Awesome Pro 5.3.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license (Commercial License)

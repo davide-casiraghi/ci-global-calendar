@@ -22,7 +22,7 @@
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 
-<body class="pb-5"> <!-- Laravel use VUE as default - https://stackoverflow.com/questions/41411344/vue-warn-cannot-find-element-app#41411385-->
+<body> <!-- Laravel use VUE as default - https://stackoverflow.com/questions/41411344/vue-warn-cannot-find-element-app#41411385-->
     {{-- {!! menu('main', 'nav') !!} --}}
     @include('menus.nav', ['items' => $MyNavBar->roots()])
 
@@ -34,11 +34,9 @@
         @yield('content')
     </div>
 
-    <div class="afterContent">
+    <div class="afterContent mb-5">
         @yield('afterContent')
     </div>
-
-    <hr class="mt-5">
 
     @include('footer.footer')
 
