@@ -65,6 +65,8 @@ class UserController extends Controller
 
         $user = new User();
         $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->role = $request->get('role');
         $user->country_id = $request->get('country_id');
         $user->description = $request->get('bio');
 

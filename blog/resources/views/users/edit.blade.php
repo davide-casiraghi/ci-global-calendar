@@ -25,6 +25,14 @@
                       'value' => $user->name
                 ])
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.input', [
+                      'title' => 'Email',
+                      'name' => 'email',
+                      'placeholder' => 'Email',
+                      'value' => $user->email
+                ])
+            </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
