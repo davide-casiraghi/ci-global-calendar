@@ -448,7 +448,7 @@ class EventController extends Controller
     /***************************************************************************/
 
     public function reportMisuse(){
-        dd("ciao");
+         Mail::to($request->user())->send(new OrderShipped($order));
     }
 
 }
