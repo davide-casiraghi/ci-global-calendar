@@ -439,10 +439,16 @@ class EventController extends Controller
         }
     }
 
-    /***********************************************/
+    /***************************************************************************/
 
     function deletePreviousRepetitions($eventId){
         DB::table('event_repetitions')->where('event_id', $eventId)->delete();
+    }
+
+    /***************************************************************************/
+
+    public function reportMisuse(){
+        dd("ciao");
     }
 
 }
