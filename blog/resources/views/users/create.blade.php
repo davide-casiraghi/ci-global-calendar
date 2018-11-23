@@ -41,7 +41,8 @@
                     <strong>Group:</strong>
                     <select name="group" class="selectpicker" title="Select user role">
                         <option value="">Author</option>
-                        <option value="1">Administrator</option>
+                        <option value="1">Super Administrator</option>
+                        <option value="2">Administrator</option>
                     </select>
                 </div>
             </div>

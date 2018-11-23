@@ -43,7 +43,8 @@
                     <strong>Group:</strong>
                     <select name="group" class="selectpicker" title="Select user role">
                         <option value="" @if(empty($user->group)) {{'selected'}} @endif >Author</option>
-                        <option value="1" @if(!empty($user->group)) {{  $user->group == '1' ? 'selected' : '' }} @endif>Administrator</option>
+                        <option value="1" @if(!empty($user->group)) {{  $user->group == '1' ? 'selected' : '' }} @endif>Super Administrator</option>
+                        <option value="2" @if(!empty($user->group)) {{  $user->group == '2' ? 'selected' : '' }} @endif>Administrator</option>
                     </select>
                 </div>
             </div>
