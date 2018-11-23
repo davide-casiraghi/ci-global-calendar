@@ -479,7 +479,7 @@ class EventController extends Controller
          //Mail::to($request->user())->send(new ReportMisuse($report));
          Mail::to("davide.casiraghi@gmail.com")->send(new ReportMisuse($report));
 
-         return redirect()->route('emails.report-thankyou');
+         return redirect()->route('events.misuse-thankyou');
 
     }
 

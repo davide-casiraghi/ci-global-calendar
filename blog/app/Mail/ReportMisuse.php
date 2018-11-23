@@ -55,7 +55,7 @@ class ReportMisuse extends Mailable
                 ->subject($this->report['subject'])
                 ->view('emails.report-misuse')
                 ->with([
-                    'orderName' => $this->report['reason'],
+                    'reason' => $this->report['reason'],
                     'message' => $this->report['message'],
                 ]);
      }
