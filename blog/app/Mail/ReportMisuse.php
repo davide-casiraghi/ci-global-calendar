@@ -19,8 +19,6 @@ class ReportMisuse extends Mailable
     protected $report;
 
 
-
-
     /**
      * Create a new message instance.
      *
@@ -40,7 +38,7 @@ class ReportMisuse extends Mailable
      {
          // Configure email parameters in .env file
 
-         //dd($this->report['reason']);
+
          /*return $this->from($this->report->senderEmail, $this->report->senderName)
                     ->subject($this->report->subject)
                     ->to($this->report->emailTo)
@@ -55,8 +53,10 @@ class ReportMisuse extends Mailable
                 ->subject($this->report['subject'])
                 ->view('emails.report-misuse')
                 ->with([
+                    'event_title' => $this->report['event_title'],
+                    'event_id' => $this->report['event_id'],
                     'reason' => $this->report['reason'],
-                    'message' => $this->report['message'],
+                    'msg' => $this->report['message']
                 ]);
      }
 }

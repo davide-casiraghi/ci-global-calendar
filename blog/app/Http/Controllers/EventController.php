@@ -458,8 +458,9 @@ class EventController extends Controller
         $report['subject'] = "Report misuse form";
         $report['emailTo'] = "davide.casiraghi@gmail.com";
 
-
         $report['message'] = $request->message;
+        $report['event_title'] = $request->event_title;
+        $report['event_id'] = $request->event_id;
 
         switch ($request->reason) {
             case '1':

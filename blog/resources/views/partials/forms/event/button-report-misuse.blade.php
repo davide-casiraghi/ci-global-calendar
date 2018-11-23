@@ -31,14 +31,16 @@
                                'placeholder' => 'Include all the details you can'
                          ])
 
-                        {{--<div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
-                        </div>--}}
+                         @include('partials.forms.input-hidden', [
+                               'name' => 'event_title',
+                               'value' => $event->title
+                         ])
+
+                         @include('partials.forms.input-hidden', [
+                               'name' => 'event_id',
+                               'value' => $event->id
+                         ])
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
