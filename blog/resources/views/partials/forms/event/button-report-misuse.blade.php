@@ -14,7 +14,7 @@
             <form action="{{ route('events.misuse') }}" method="POST">
                 <div class="modal-body">
                          @csrf
-                         <p>You are about to report a violation of the calendar <a href="#" target="_blank">terms of use</a><br></p>
+                         <p>You are about to report a violation of the calendar <a href="/post/terms_of_use" target="_blank">terms of use</a><br></p>
                          <div class="form-group">
                              <strong>Reason:</strong>
                              <select name="reason" class="selectpicker" title="Select one option">
