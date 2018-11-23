@@ -19,7 +19,7 @@
 
       {{-- Right Nav --}}
       <ul class="navbar-nav navbar-right">
-          @include('menus.authentication')
+          @include('menus.nav-right-items')
       </ul>
       {{-- end - Right Nav --}}
 

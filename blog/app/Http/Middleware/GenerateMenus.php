@@ -30,7 +30,7 @@ class GenerateMenus
 
         if ($user){
             if($user->isSuperAdmin()){
-                dd("ciao admin");
+                //dd("ciao admin");
             }
         }
 
