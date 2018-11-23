@@ -16,25 +16,12 @@
 
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-         <a class="dropdown-item" href="{{ route('users.index') }}">{{ __('Users') }}</a>
-         <a class="dropdown-item" href="{{ route('posts.index') }}">{{ __('Posts') }}</a>
-         <a class="dropdown-item" href="{{ route('categories.index') }}">{{ __('Categories') }}</a>
-         <a class="dropdown-item" href="{{ route('events.index') }}">{{ __('Events') }}</a>
-         <a class="dropdown-item" href="{{ route('eventCategories.index') }}">{{ __('Event Categories') }}</a>
-         <a class="dropdown-item" href="{{ route('eventVenues.index') }}">{{ __('Venues') }}</a>
-         <a class="dropdown-item" href="{{ route('teachers.index') }}">{{ __('Teachers') }}</a>
-         <a class="dropdown-item" href="{{ route('organizers.index') }}">{{ __('Organizers') }}</a>
-         <a class="dropdown-item" href="{{ route('countries.index') }}">{{ __('Countries') }}</a>
-         <a class="dropdown-item" href="{{ route('continents.index') }}">{{ __('Continents') }}</a>
-         <a class="dropdown-item" href="{{ route('backgroundImages.index') }}">{{ __('Background images') }}</a>
-
+        {{-- <a class="dropdown-item" href="{{ route('users.index') }}">{{ __('Users') }}</a> --}}
          <a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
              {{ __('Logout') }}
          </a>
-
-
 
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               @csrf

@@ -50,21 +50,29 @@ class GenerateMenus
         });
 
         \Menu::make('MyNavBarRight', function ($menu) {
+            $user = Auth::user();
 
-            $menu->add('Manager', ['link' => ['#']]);
-                $menu->manager->add('Users', ['action' => ['UserController@index']]);
-                $menu->manager->add('Posts', ['action' => ['PostController@index']]);
-                $menu->manager->add('Categories', ['action' => ['CategoryController@index']]);
-                $menu->manager->add('Events', ['action' => ['EventController@index']]);
-                $menu->manager->add('Event Categories', ['action' => ['EventCategoryController@index']]);
-                $menu->manager->add('Venues', ['action' => ['EventVenueController@index']]);
-                $menu->manager->add('Teachers', ['action' => ['TeacherController@index']]);
-                $menu->manager->add('Organizers', ['action' => ['OrganizerController@index']]);
+            if ($user){
+                $menu->add('Manager', ['link' => ['#']]);
+                    $menu->manager->add('Users', ['action' => ['UserController@index']]);
+                    $menu->manager->add('Posts', ['action' => ['PostController@index']]);
+                    $menu->manager->add('Categories', ['action' => ['CategoryController@index']]);
+                    $menu->manager->add('Events', ['action' => ['EventController@index']]);
+                    $menu->manager->add('Event Categories', ['action' => ['EventCategoryController@index']]);
+                    $menu->manager->add('Venues', ['action' => ['EventVenueController@index']]);
+                    $menu->manager->add('Teachers', ['action' => ['TeacherController@index']]);
+                    $menu->manager->add('Organizers', ['action' => ['OrganizerController@index']]);
 
-            $menu->add('Settings', ['link' => ['#']]);
-                $menu->settings->add('Countries', ['action' => ['CountryController@index']]);
-                $menu->settings->add('Continents', ['action' => ['ContinentController@index']]);
-                $menu->settings->add('Background images', ['action' => ['BackgroundImageController@index']]);
+                $menu->add('Settings', ['link' => ['#']]);
+                    $menu->settings->add('Countries', ['action' => ['CountryController@index']]);
+                    $menu->settings->add('Continents', ['action' => ['ContinentController@index']]);
+                    $menu->settings->add('Background images', ['action' => ['BackgroundImageController@index']]);
+            }
+            else{
+                // https://stackoverflow.com/questions/39196968/laravel-5-3-new-authroutes
+                // $menu->add('Login', ['action' => ['Auth\LoginController@login']]);
+            }
+
 
         });
 

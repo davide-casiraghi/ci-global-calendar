@@ -19,8 +19,8 @@
 
       {{-- Right Nav --}}
       <ul class="navbar-nav navbar-right">
-          {{--@include('menus.nav-right-items')--}}
           @include('menus.nav-items', ['items' => $MyNavBarRight->roots()])
+          @include('menus.nav-right-items')
       </ul>
       {{-- end - Right Nav --}}
 
