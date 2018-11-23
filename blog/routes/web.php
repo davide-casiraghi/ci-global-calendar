@@ -58,6 +58,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/misuse', 'EventController@reportMisuse')->name("events.misuse");
+Route::get('/misuse/thankyou', 'EventController@reportMisuseThankyou')->name("events.misuse-thankyou");
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
 '\vendor\uniSharp\LaravelFilemanager\Lfm::routes()';

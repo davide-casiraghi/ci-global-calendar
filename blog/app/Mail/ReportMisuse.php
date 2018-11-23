@@ -12,13 +12,23 @@ class ReportMisuse extends Mailable
     use Queueable, SerializesModels;
 
     /**
+     * The report instance.
+     *
+     * @var Report
+     */
+    protected $report;
+
+
+
+
+    /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($report)
     {
-        //
+         $this->report = $report;
     }
 
     /**
@@ -28,10 +38,25 @@ class ReportMisuse extends Mailable
      */
      public function build()
      {
-         return $this->from($this->event->senderEmail, $this->event->senderName)->subject($this->event->subject)->to($this->event->email)->markdown('emails.emailToEnrollee')->with([
-                 'message' => $this->event->message,
-                 'sender' => $this->event->senderName,
-                 'subject' => $this->event->subject,
-             ]);
+         // Configure email parameters in .env file
+
+         //dd($this->report['reason']);
+         /*return $this->from($this->report->senderEmail, $this->report->senderName)
+                    ->subject($this->report->subject)
+                    ->to($this->report->emailTo)
+                    ->markdown('emails.emailToEnrollee')
+                    ->with([
+                         'message' => $this->report->message."<br />".$this->report->message,
+                         'sender' => $this->report->senderName,
+                         'subject' => $this->report->subject,
+             ]);*/
+         return $this
+                ->to($this->report['emailTo'])
+                ->subject($this->report['subject'])
+                ->view('emails.report-misuse')
+                ->with([
+                    'orderName' => $this->report['reason'],
+                    'message' => $this->report['message'],
+                ]);
      }
 }

@@ -10,6 +10,9 @@ use App\Organizer;
 use App\EventVenue;
 use App\Country;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ReportMisuse;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -447,8 +450,49 @@ class EventController extends Controller
 
     /***************************************************************************/
 
-    public function reportMisuse(){
-         Mail::to($request->user())->send(new OrderShipped($order));
+    public function reportMisuse(Request $request){
+        $report = array();
+
+        $report['senderEmail'] = "noreply@globalcicalendar.com";
+        $report['senderName'] = "Anonymus User";
+        $report['subject'] = "Report misuse form";
+        $report['emailTo'] = "davide.casiraghi@gmail.com";
+
+
+        $report['message'] = $request->message;
+
+        switch ($request->reason) {
+            case '1':
+                $report['reason'] = "Not about Contact Improvisation";
+                break;
+            case '2':
+                $report['reason'] = "Contains wrong informations";
+                break;
+            case '3':
+                $report['reason'] = "It is not translated in english";
+                break;
+            case '4':
+                $report['reason'] = "Other (specify in the message)";
+                break;
+        }
+
+         //Mail::to($request->user())->send(new ReportMisuse($report));
+         Mail::to("davide.casiraghi@gmail.com")->send(new ReportMisuse($report));
+
+         return redirect()->route('emails.report-thankyou');
+
+    }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Event  $event
+     * @return \Illuminate\Http\Response
+     */
+    public function reportMisuseThankyou(){
+
+        return view('emails.report-thankyou');
     }
 
 }
