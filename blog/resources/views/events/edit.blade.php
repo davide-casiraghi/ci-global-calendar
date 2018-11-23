@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-10 margin-tb">
+        <div class="col-sm-10 margin-tb">
             <div class="pull-left">
                 <h2>Edit event</h2>
             </div>
         </div>
-        <div class="col-md-2 text-right">
+        <div class="col-sm-2 text-right">
             <form action="{{ route('events.destroy',$event->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
