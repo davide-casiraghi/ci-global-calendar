@@ -6,7 +6,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Report misuse</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -14,14 +14,31 @@
             <form action="{{ route('events.misuse') }}" method="POST">
                 <div class="modal-body">
                          @csrf
-                        <div class="form-group">
+                         <p>You are about to report a violation of the calendar <a href="#" target="_blank">terms of use</a><br></p>
+                         <div class="form-group">
+                             <strong>Reason:</strong>
+                             <select name="reason" class="selectpicker" title="Select one option">
+                                 <option value="1">Not about Contact Improvisation</option>
+                                 <option value="2">Contains wrong informations</option>
+                                 <option value="3">It is not translated in english</option>
+                                 <option value="4">Other (specify in the message)</option>
+                             </select>
+                         </div>
+
+                         @include('partials.forms.textarea-plain', [
+                               'title' => 'Message (optional)',
+                               'name' => 'message',
+                               'placeholder' => 'Include all the details you can'
+                         ])
+
+                        {{--<div class="form-group">
                             <label for="recipient-name" class="col-form-label">Recipient:</label>
                             <input type="text" class="form-control" id="recipient-name">
                         </div>
                         <div class="form-group">
                             <label for="message-text" class="col-form-label">Message:</label>
                             <textarea class="form-control" id="message-text"></textarea>
-                        </div>
+                        </div>--}}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
