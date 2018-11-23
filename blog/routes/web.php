@@ -16,21 +16,22 @@
     return view('home');
 });*/
 
-Route::get('/', 'EventSearchController@index');
+/* Homepage - Event Search*/
+    Route::get('/', 'EventSearchController@index');
 
-Route::resource('users','UserController');
-Route::resource('posts','PostController');
-Route::resource('categories','CategoryController');
-Route::resource('events','EventController');
-Route::resource('eventCategories','EventCategoryController');
-Route::resource('eventVenues','EventVenueController');
-Route::resource('teachers','TeacherController');
-Route::resource('organizers','OrganizerController');
-Route::resource('continents','ContinentController');
-Route::resource('countries','CountryController');
-
-Route::resource('eventSearch','EventSearchController');
-Route::resource('backgroundImages','BackgroundImageController');
+/* Resource Controllers */
+    Route::resource('users','UserController');
+    Route::resource('posts','PostController');
+    Route::resource('categories','CategoryController');
+    Route::resource('events','EventController');
+    Route::resource('eventCategories','EventCategoryController');
+    Route::resource('eventVenues','EventVenueController');
+    Route::resource('teachers','TeacherController');
+    Route::resource('organizers','OrganizerController');
+    Route::resource('continents','ContinentController');
+    Route::resource('countries','CountryController');
+    Route::resource('eventSearch','EventSearchController');
+    Route::resource('backgroundImages','BackgroundImageController');
 
 
 //Route::post('countries.search','CountryController');
@@ -39,8 +40,6 @@ Route::resource('backgroundImages','BackgroundImageController');
 
 //Route::get('/search', 'HomeController@index')->name('home');
 
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -53,12 +52,15 @@ Route::get('/blog', function () {
     return view('posts.show', compact('post'));
 });
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/misuse', 'EventController@reportMisuse')->name("events.misuse");
-Route::get('/misuse/thankyou', 'EventController@reportMisuseThankyou')->name("events.misuse-thankyou");
+
+/* Authentication */
+    Auth::routes();
+
+/* Report misuse*/
+    Route::post('/misuse', 'EventController@reportMisuse')->name("events.misuse");
+    Route::get('/misuse/thankyou', 'EventController@reportMisuseThankyou')->name("events.misuse-thankyou");
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
 '\vendor\uniSharp\LaravelFilemanager\Lfm::routes()';
