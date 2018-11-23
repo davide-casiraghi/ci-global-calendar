@@ -11,11 +11,6 @@
 |
 */
 
-/*Route::get('/', function () {
-    //return view('welcome');
-    return view('home');
-});*/
-
 /* Homepage - Event Search*/
     Route::get('/', 'EventSearchController@index');
 
@@ -33,27 +28,8 @@
     Route::resource('eventSearch','EventSearchController');
     Route::resource('backgroundImages','BackgroundImageController');
 
-
-//Route::post('countries.search','CountryController');
-//Route::post('/countries/search', 'CountryController@index')->name('projects.update');
-//Route::get('/countries/search', 'CountryController@search');
-
-//Route::get('/search', 'HomeController@index')->name('home');
-
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 // Single post by slug
     Route::get('post/{slug}', 'PostController@postBySlug')->where('postBySlug', '[a-z]+');
-
-// TODO - Da finire
-Route::get('/blog', function () {
-    $posts = App\Post::all();
-    return view('posts.show', compact('post'));
-});
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 
 /* Authentication */
     Auth::routes();
@@ -62,6 +38,22 @@ Route::get('/home', 'HomeController@index')->name('home');
     Route::post('/misuse', 'EventController@reportMisuse')->name("events.misuse");
     Route::get('/misuse/thankyou', 'EventController@reportMisuseThankyou')->name("events.misuse-thankyou");
 
-Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
-'\vendor\uniSharp\LaravelFilemanager\Lfm::routes()';
+/*  Editor Filemanager */
+    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    '\vendor\uniSharp\LaravelFilemanager\Lfm::routes()';
+
+/* Tests / Temporary */
+    //Route::get('/home', 'HomeController@index')->name('home');
+
+    //Route::post('countries.search','CountryController');
+    //Route::post('/countries/search', 'CountryController@index')->name('projects.update');
+    //Route::get('/countries/search', 'CountryController@search');
+
+    //Route::get('/search', 'HomeController@index')->name('home');
+
+    /*Route::get('/', function () {
+        //return view('welcome');
+        return view('home');
+    });*/
+
 });
