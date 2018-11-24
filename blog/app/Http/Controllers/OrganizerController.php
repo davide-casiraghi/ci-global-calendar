@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Organizer;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class OrganizerController extends Controller
@@ -15,10 +16,18 @@ class OrganizerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $organizers = Organizer::latest()->paginate(5);
+        // Show just to the owner - Get created_by value if the user is not an admin or super admin
+        $user = Auth::user();
+        $createdBy = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
+
+        $organizers = Organizer::latest()
+            ->when($createdBy, function ($query, $createdBy) {
+                return $query->where('created_by', $createdBy);
+            })
+            ->paginate(20);
 
         return view('organizers.index',compact('organizers'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 20);
     }
 
     /**

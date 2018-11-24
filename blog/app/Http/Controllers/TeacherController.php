@@ -6,6 +6,7 @@ use App\Teacher;
 use App\Country;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
@@ -21,8 +22,15 @@ class TeacherController extends Controller
         $searchKeywords = $request->input('keywords');
         $searchCountry = $request->input('country_id');
 
+        // Show just to the owner - Get created_by value if the user is not an admin or super admin
+        $user = Auth::user();
+        $createdBy = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
+
         if ($searchKeywords||$searchCountry){
             $teachers = DB::table('teachers')
+                ->when($createdBy, function ($query, $createdBy) {
+                    return $query->where('created_by', $createdBy);
+                })
                 ->when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%' . $searchKeywords . '%');
                 })
@@ -32,7 +40,11 @@ class TeacherController extends Controller
                 ->paginate(20);
         }
         else
-            $teachers = Teacher::latest()->paginate(20);
+            $teachers = Teacher::latest()
+            ->when($createdBy, function ($query, $createdBy) {
+                return $query->where('created_by', $createdBy);
+            })
+            ->paginate(20);
 
         return view('teachers.index',compact('teachers'))
             ->with('i', (request()->input('page', 1) - 1) * 20)->with('countries', $countries)->with('searchKeywords',$searchKeywords)->with('searchCountry',$searchCountry);
