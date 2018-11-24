@@ -6,6 +6,7 @@ use App\EventVenue;
 use App\Country;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class EventVenueController extends Controller
@@ -21,8 +22,15 @@ class EventVenueController extends Controller
         $searchKeywords = $request->input('keywords');
         $searchCountry = $request->input('country_id');
 
+        // Show just to the owner - Get created_by value if the user is not an admin or super admin
+        $user = Auth::user();
+        $createdBy = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
+
         if ($searchKeywords||$searchCountry){
             $eventVenues = DB::table('event_venues')
+                ->when($createdBy, function ($query, $createdBy) {
+                    return $query->where('created_by', $createdBy);
+                })
                 ->when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%' . $searchKeywords . '%');
                 })
@@ -32,7 +40,11 @@ class EventVenueController extends Controller
                 ->paginate(20);
         }
         else
-            $eventVenues = EventVenue::latest()->paginate(20);
+            $eventVenues = EventVenue::latest()
+                ->when($createdBy, function ($query, $createdBy) {
+                    return $query->where('created_by', $createdBy);
+                })
+                ->paginate(20);
 
         return view('eventVenues.index',compact('eventVenues'))
             ->with('i', (request()->input('page', 1) - 1) * 20)->with('countries', $countries)->with('searchKeywords',$searchKeywords)->with('searchCountry',$searchCountry);
