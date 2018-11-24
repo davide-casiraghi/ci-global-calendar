@@ -1,4 +1,4 @@
 <div class="form-group">
-    <strong>Password:</strong>
-    <input type="password" name="password" class="form-control">
+    <strong>{{ $title }}:</strong>
+    <input type="password" name="{{ $name }}" class="form-control">
 </div>

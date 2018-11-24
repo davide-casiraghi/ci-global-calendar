@@ -33,7 +33,17 @@
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                @include('partials.forms.password')
+                @include('partials.forms.password', [
+                      'title' => 'Password',
+                      'name' => 'password'
+                ])
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.password', [
+                      'title' => 'Confirm Password',
+                      'name' => 'password_confirmation'
+                ])
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
