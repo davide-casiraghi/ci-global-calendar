@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\ReportMisuse;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use DateTime;
@@ -36,8 +37,15 @@ class EventController extends Controller
         $searchCategory = $request->input('category_id');
         $searchCountry = $request->input('country_id');
 
+        // Show just to the owner - Get created_by value if the user is not an admin or super admin
+        $user = Auth::user();
+        $createdBy = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
+
         if ($searchKeywords||$searchCategory||$searchCountry){
             $events = DB::table('events')
+                ->when(isset($createdBy), function ($query, $createdBy) {
+                    return $query->where('created_by', $createdBy);
+                })
                 ->when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('title', $searchKeywords)->orWhere('title', 'like', '%' . $searchKeywords . '%');
                 })
@@ -50,8 +58,10 @@ class EventController extends Controller
                 ->paginate(20);
         }
         else
-            $events = Event::latest()->paginate(20);
-
+            $events = Event::latest()
+                ->when($createdBy, function ($query, $createdBy) {
+                    return $query->where('created_by', $createdBy);
+                })->paginate(20);
 
         return view('events.index',compact('events'))
             ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('countries', $countries)->with('venues', $venues)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('searchCountry',$searchCountry);
