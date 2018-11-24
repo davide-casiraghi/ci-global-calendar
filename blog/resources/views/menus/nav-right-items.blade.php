@@ -3,18 +3,19 @@
     @parent
 
     {{-- Prevent click on the first level element of right menu --}}
-    
+
 @stop
 
 
 {{--  Authentication Links --}}
 @guest
     <li class="nav-item">
+        <a class="nav-link" href="{{ route('register') }}"><i class="fa fa-user-plus"></i> {{ __('Create account') }}</a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="{{ route('login') }}"><i class="fa fa-sign-in "></i> {{ __('Login') }}</a>
     </li>
-    {{-- <li class="nav-item">
-        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-    </li>--}}
+
 
 @else
     <li class="nav-item dropdown">
