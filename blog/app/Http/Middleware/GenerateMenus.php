@@ -129,7 +129,7 @@ class GenerateMenus
                     $profile->add('Post Categories', ['action' => ['CategoryController@index']]);
                         $profile->link->builder->items[9]->title = '<i class="far fa-tags"></i> '.__('menu.posts_categories');
                         $profile->add('Event Categories', ['action' => ['EventCategoryController@index']]);
-                        $profile->link->builder->items[10]->title = '<i class="fas fa-tags"></i> '.__('event_categories.posts');
+                        $profile->link->builder->items[10]->title = '<i class="fas fa-tags"></i> '.__('menu.event_categories');
                         $profile->add('Continents', ['action' => ['ContinentController@index']]);
                         $profile->link->builder->items[11]->title = '<i class="fas fa-globe-americas"></i> '.__('menu.continents');
                         $profile->add('Countries', ['action' => ['CountryController@index']]);
