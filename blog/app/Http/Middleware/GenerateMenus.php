@@ -47,7 +47,6 @@ class GenerateMenus
 
             if ($user){
 
-
                 $menu->add('Manager')->link->href('#');
                     $menu->manager->prepend('<i class="fa fas fa-edit"></i> ');
                     $menu->manager->add('Events', ['action' => ['EventController@index']]);
@@ -68,15 +67,15 @@ class GenerateMenus
                             $menu->users->prepend('<i class="fas fa-user-alt"></i> ');
                         $menu->adminTools->add('Posts', ['action' => ['PostController@index']]);
                             $menu->posts->prepend('<i class="far fa-file-alt"></i> ');
-                        $menu->adminTools->add('Event Categories', ['action' => ['EventCategoryController@index']]);
-                            $menu->eventCategories->prepend('<i class="fas fa-tags"></i> ');
                 }
 
                 if($user->isSuperAdmin()){
                     $menu->add('Settings')->link->href('#');
                         $menu->settings->prepend('<i class="far fa-cogs"></i> ');
-                        $menu->manager->add('Post Categories', ['action' => ['CategoryController@index']]);
+                        $menu->settings->add('Post Categories', ['action' => ['CategoryController@index']]);
                             $menu->postCategories->prepend('<i class="far fa-tags"></i> ');
+                        $menu->settings->add('Event Categories', ['action' => ['EventCategoryController@index']]);
+                            $menu->eventCategories->prepend('<i class="fas fa-tags"></i> ');
                         $menu->settings->add('Continents', ['action' => ['ContinentController@index']]);
                             $menu->continents->prepend('<i class="fas fa-globe-americas"></i> ');
                         $menu->settings->add('Countries', ['action' => ['CountryController@index']]);
