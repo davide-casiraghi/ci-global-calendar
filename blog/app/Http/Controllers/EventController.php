@@ -163,7 +163,7 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event){
+    public function show(Event $event, Request $request){
 
         $category = EventCategory::find($event->category_id);
         $teachers = $event->teachers()->get();
@@ -184,14 +184,14 @@ class EventController extends Controller
                 ->where('id',$country->continent_id)
                 ->first();
 
-        //Country::find($event->id);
-
-
-
-        //dd($continent);
-
-
-        return view('events.show',compact('event'))->with('category', $category)->with('teachers', $teachers)->with('organizers', $organizers)->with('venue', $venue)->with('country', $country)->with('continent', $continent);
+        $datesTimes = DB::table('event_repetitions')
+                ->select('start_repeat','end_repeat')
+                ->where('event_id',$event->id)
+                ->when($request->rp_id, function ($query, $rp_id) {
+                    return $query->where('id', $rp_id);
+                })
+                ->first();
+        return view('events.show',compact('event'))->with('category', $category)->with('teachers', $teachers)->with('organizers', $organizers)->with('venue', $venue)->with('country', $country)->with('continent', $continent)->with('datesTimes', $datesTimes);
     }
 
     /**

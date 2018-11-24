@@ -139,7 +139,8 @@
                             </div>
                         </div>
                         <div class="col-md-3 py-3 py-md-0 vcenter title">
-                            <a href="{{ route('events.show',$event->id) }}">{{ $event->title }}</a>
+                            {{--<a href="{{ route('events.show',$event->id) }}">{{ $event->title }}</a>--}}
+                            <a href="{!! route('events.show', ['id'=>$event->id, 'rp_id'=>$event->rp_id])  !!}">{{ $event->title }}</a>
                         </div>
                         <div class="col-md-3 vcenter teachers">
                             @if(!empty($event->sc_teachers_names))

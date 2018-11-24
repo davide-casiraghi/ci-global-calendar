@@ -30,7 +30,7 @@ class EventSearchController extends Controller
         $minutes = 30;
 
         $backgroundImages = BackgroundImage::all();
-    
+
         $eventCategories = Cache::remember('categories', $minutes, function () {
             return EventCategory::pluck('name', 'id');
         });
@@ -112,7 +112,6 @@ class EventSearchController extends Controller
                     $join->on('events.id', '=', 'event_repetitions.event_id');
                 })
                 ->paginate(20);
-
 
                 // It works, but I don't use it now to develop
                 /*$minutes = 30;

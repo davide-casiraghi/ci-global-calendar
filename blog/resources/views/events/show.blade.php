@@ -22,8 +22,8 @@
         <div class="col-xs-12 col-sm-12 col-md-12 mt-1" style="display: table;">
             <i class="far fa-clock" data-toggle="tooltip" data-placement="top" title="Date & Time" style="display: table-cell; vertical-align: middle; width: 20px; text-align: center;"></i>
             <div class="date ml-2">
-                <div class="bigdate">21 Nov 2018 -&nbsp;22 Nov 2018</div>
-                <small class="smalldate text-black-50">From 21 Nov 2018&nbsp;at&nbsp;12:30am to&nbsp;22 Nov 2018 at&nbsp;02:30am</small>
+                <div class="bigdate">@date_monthname($datesTimes->start_repeat) -&nbsp;@date_monthname($datesTimes->end_repeat)</div>
+                <small class="smalldate text-black-50">From @date_monthname($datesTimes->start_repeat)&nbsp;at&nbsp;@time_am_pm($datesTimes->start_repeat) to&nbsp;@date_monthname($datesTimes->end_repeat) at&nbsp;@time_am_pm($datesTimes->end_repeat)</small>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 mt-1" style="display: table;">
