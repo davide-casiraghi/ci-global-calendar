@@ -1,4 +1,12 @@
 
+@section('javascript-document-ready')
+    @parent
+
+    {{-- Prevent click on the first level element of right menu --}}
+    
+@stop
+
+
 {{--  Authentication Links --}}
 @guest
     <li class="nav-item">

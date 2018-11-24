@@ -46,31 +46,37 @@ class GenerateMenus
             $user = Auth::user();
 
             if ($user){
-                if($user->isSuperAdmin()||$user->isAdmin()){
-                    $menu->add('Manager', ['link' => ['#']]);
-                        $menu->manager->prepend('<i class="fa fas fa-edit"></i> ');
-                        $menu->manager->add('Users', ['action' => ['UserController@index']]);
-                            $menu->users->prepend('<i class="fas fa-user-alt"></i> ');
-                        $menu->manager->add('Posts', ['action' => ['PostController@index']]);
-                            $menu->posts->prepend('<i class="far fa-file-alt"></i> ');
-                        $menu->manager->add('Post Categories', ['action' => ['CategoryController@index']]);
-                            $menu->postCategories->prepend('<i class="far fa-tags"></i> ');
-                        $menu->manager->add('Events', ['action' => ['EventController@index']]);
-                            $menu->events->prepend('<i class="far fa-calendar-alt"></i> ');
-                        $menu->manager->add('Event Categories', ['action' => ['EventCategoryController@index']]);
-                            $menu->eventCategories->prepend('<i class="fas fa-tags"></i> ');
-                        $menu->manager->add('Venues', ['action' => ['EventVenueController@index']]);
-                            $menu->venues->prepend('<i class="far fa-map-marker-alt"></i> ');
-                        $menu->manager->add('Teachers', ['action' => ['TeacherController@index']]);
-                            $menu->teachers->prepend('<i class="far fa-users"></i> ');
-                        $menu->manager->add('Organizers', ['action' => ['OrganizerController@index']]);
-                            $menu->organizers->prepend('<i class="fas fa-users"></i> ');
 
+
+                $menu->add('Manager')->link->href('#');
+                    $menu->manager->prepend('<i class="fa fas fa-edit"></i> ');
+                    $menu->manager->add('Events', ['action' => ['EventController@index']]);
+                        $menu->events->prepend('<i class="far fa-calendar-alt"></i> ');
+                    $menu->manager->add('Venues', ['action' => ['EventVenueController@index']]);
+                        $menu->venues->prepend('<i class="far fa-map-marker-alt"></i> ');
+                    $menu->manager->add('Teachers', ['action' => ['TeacherController@index']]);
+                        $menu->teachers->prepend('<i class="far fa-users"></i> ');
+                    $menu->manager->add('Organizers', ['action' => ['OrganizerController@index']]);
+                        $menu->organizers->prepend('<i class="fas fa-users"></i> ');
+
+
+
+                if($user->isSuperAdmin()||$user->isAdmin()){
+                    $menu->add('Admin tools')->link->href('#');
+                        $menu->adminTools->prepend('<i class="far fa-cog"></i> ');
+                        $menu->adminTools->add('Users', ['action' => ['UserController@index']]);
+                            $menu->users->prepend('<i class="fas fa-user-alt"></i> ');
+                        $menu->adminTools->add('Posts', ['action' => ['PostController@index']]);
+                            $menu->posts->prepend('<i class="far fa-file-alt"></i> ');
+                        $menu->adminTools->add('Event Categories', ['action' => ['EventCategoryController@index']]);
+                            $menu->eventCategories->prepend('<i class="fas fa-tags"></i> ');
                 }
 
                 if($user->isSuperAdmin()){
-                    $menu->add('Settings', ['link' => ['#'],'inactive']);
-                        $menu->settings->prepend('<i class="far fa-cog"></i> ');
+                    $menu->add('Settings')->link->href('#');
+                        $menu->settings->prepend('<i class="far fa-cogs"></i> ');
+                        $menu->manager->add('Post Categories', ['action' => ['CategoryController@index']]);
+                            $menu->postCategories->prepend('<i class="far fa-tags"></i> ');
                         $menu->settings->add('Continents', ['action' => ['ContinentController@index']]);
                             $menu->continents->prepend('<i class="fas fa-globe-americas"></i> ');
                         $menu->settings->add('Countries', ['action' => ['CountryController@index']]);
