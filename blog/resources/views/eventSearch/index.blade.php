@@ -145,18 +145,22 @@
                         <div class="col-md-3 vcenter teachers">
                             @if(!empty($event->sc_teachers_names))
                             <i data-toggle="tooltip" data-placement="top" title="Teachers" class="far fa-users mr-2"></i>
-                            {{ $event->sc_teachers_names }}
+                            <div class="names">
+                                {{ $event->sc_teachers_names }}
+                            </div>
                             @endif
                         </div>
                         <div class="col-md-2 vcenter category mt-2 mt-md-0">
                             <i data-toggle="tooltip" data-placement="top" title="Category" class="fa fa-tag mr-2"></i>
                             {{ $eventCategories[$event->category_id] }}
                         </div>
-                        <div class="col-md-3 vcenter location mt-2 mt-md-0">
+                        <div class="col-md-4 col-lg-3 vcenter location mt-2 mt-md-0">
                             <i data-toggle="tooltip" data-placement="top" title="Venue" class="far fa-map-marker-alt mr-2" style="display: table-cell; vertical-align: middle; width: 20px; text-align: center;"></i>
-                            {{ $event->sc_venue_name }}<br />
-                            {{ $event->sc_city_name }},
-                            {{ $event->sc_country_name }}
+                            <div class="details">
+                                {{ $event->sc_venue_name }}<br />
+                                {{ $event->sc_city_name }},
+                                {{ $event->sc_country_name }}
+                            </div>
                         </div>
                         {{--<div class="col-md-1 vcenter facebook mt-2 mt-md-0">
                             @if(!empty($event->facebook_event_link))

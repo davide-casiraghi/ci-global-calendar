@@ -17223,6 +17223,16 @@ footer {
   margin: auto;
 }
 
+.contactEvents .container .eventList .title a {
+  line-height: 1.2rem;
+}
+
+.contactEvents .container .eventList .location .details,
+.contactEvents .container .eventList .teachers .names {
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+}
+
 .contactEvents .container .vcenter {
   display: -ms-flexbox;
   display: -webkit-box;
