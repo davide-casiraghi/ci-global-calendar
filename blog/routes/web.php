@@ -11,32 +11,52 @@
 |
 */
 
-/* Homepage - Event Search*/
-    Route::get('/', 'EventSearchController@index');
+Route::group(
+[
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+],
+function()
+{
+	/** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
 
-/* Resource Controllers */
-    Route::resource('users','UserController');
-    Route::resource('posts','PostController');
-    Route::resource('categories','CategoryController');
-    Route::resource('events','EventController');
-    Route::resource('eventCategories','EventCategoryController');
-    Route::resource('eventVenues','EventVenueController');
-    Route::resource('teachers','TeacherController');
-    Route::resource('organizers','OrganizerController');
-    Route::resource('continents','ContinentController');
-    Route::resource('countries','CountryController');
-    Route::resource('eventSearch','EventSearchController');
-    Route::resource('backgroundImages','BackgroundImageController');
+    /* Homepage - Event Search*/
+        Route::get('/', 'EventSearchController@index');
 
-// Single post by slug
-    Route::get('post/{slug}', 'PostController@postBySlug')->where('postBySlug', '[a-z]+');
+    /* Resource Controllers */
+        Route::resource('users','UserController');
+        Route::resource('posts','PostController');
+        Route::resource('categories','CategoryController');
+        Route::resource('events','EventController');
+        Route::resource('eventCategories','EventCategoryController');
+        Route::resource('eventVenues','EventVenueController');
+        Route::resource('teachers','TeacherController');
+        Route::resource('organizers','OrganizerController');
+        Route::resource('continents','ContinentController');
+        Route::resource('countries','CountryController');
+        Route::resource('eventSearch','EventSearchController');
+        Route::resource('backgroundImages','BackgroundImageController');
 
-/* Authentication */
-    Auth::routes();
+    // Single post by slug
+        Route::get('post/{slug}', 'PostController@postBySlug')->where('postBySlug', '[a-z]+');
 
-/* Report misuse*/
-    Route::post('/misuse', 'EventController@reportMisuse')->name("events.misuse");
-    Route::get('/misuse/thankyou', 'EventController@reportMisuseThankyou')->name("events.misuse-thankyou");
+    /* Authentication */
+        Auth::routes();
+
+    /* Report misuse*/
+        Route::post('/misuse', 'EventController@reportMisuse')->name("events.misuse");
+        Route::get('/misuse/thankyou', 'EventController@reportMisuseThankyou')->name("events.misuse-thankyou");
+
+
+});
+
+/** OTHER PAGES THAT SHOULD NOT BE LOCALIZED **/
+
+
+
+
+
+
 
 /*  Editor Filemanager */
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
