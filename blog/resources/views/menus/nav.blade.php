@@ -7,6 +7,9 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="navbar-brand d-block d-md-none">
+            @include('partials.language-selector')
+        </div>
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
 

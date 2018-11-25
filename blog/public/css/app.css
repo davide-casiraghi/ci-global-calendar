@@ -17178,6 +17178,11 @@ nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item ul.dropdown-menu li a.dr
   text-align: center;
 }
 
+.languages .dropdown-menu-right .dropdown-item {
+  padding: 0.5rem 1.5rem !important;
+  border-bottom: 1px #ddd solid;
+}
+
 footer {
   z-index: 2;
   position: relative;
