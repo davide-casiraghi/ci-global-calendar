@@ -17183,6 +17183,10 @@ nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item ul.dropdown-menu li a.dr
   border-bottom: 1px #ddd solid;
 }
 
+footer #dropdownMenuLink img {
+  margin-bottom: 4px;
+}
+
 footer {
   z-index: 2;
   position: relative;
