@@ -25,13 +25,14 @@
         <div class="container">
             <div class="row intro">
                 <div class="col-lg-12 text-center">
-                    <h1 class="text-white mb-3">Contact Improvisation</h1>
-                    <h4 class="text-uppercase"><strong>- Global calendar -</strong></h4>
+                    <h1 class="text-white mb-3">@lang('homepage-serach.contact_improvisation')</h1>
+                    <h4 class="text-uppercase"><strong>- @lang('homepage-serach.global_calendar') -</strong></h4>
                     <p class="subtitle text-white">
-                        Find information about Contact Improvisation events worldwide (classes, jams, workshops, festivals and more)<br>WE ARE UNDER CONSTRUCTION, calendar is still in beta testing phase, we plan to fully operate starting from January 2019 on
+                        @lang('homepage-serach.find_information')<br />
+                        @lang('homepage-serach.under_costruction')
                     </p>
                     <p class="searchHere text-white mt-5">
-                        Search here with one criteria or more
+                        @lang('homepage-serach.criteria')
                     </p>
                 </div>
             </div>
@@ -54,20 +55,20 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        <p><strong class="text-white">What</strong></p>
+                        <p><strong class="text-white">@lang('homepage-serach.what')</strong></p>
                         @include('partials.forms.event-search.select-category')
 
-                        <p class="mt-3"><strong class="text-white">Who</strong></p>
+                        <p class="mt-3"><strong class="text-white">@lang('homepage-serach.who')</strong></p>
                         @include('partials.forms.event-search.select-teacher')
                     </div>
                     <div class="col-md-4">
-                        <p><strong class="text-white">Where</strong></p>
+                        <p><strong class="text-white">@lang('homepage-serach.where')</strong></p>
                         @include('partials.forms.event-search.select-continent')
                         @include('partials.forms.event-search.select-country')
-                        <p class="mt-3"><strong class="text-white">Search by name of venue only</strong></p>
+                        <p class="mt-3"><strong class="text-white">@lang('homepage-serach.search_by_venue')</strong></p>
                     </div>
                     <div class="col-md-4">
-                        <p><strong class="text-white">When</strong></p>
+                        <p><strong class="text-white">@lang('homepage-serach.when')</strong></p>
                         @include('partials.forms.event-search.input-date-start')
                         @include('partials.forms.event-search.input-date-end')
                     </div>
@@ -76,8 +77,8 @@
 
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-sm-10 mt-3">
-                        <a id="resetButton" class="btn btn-info float-right ml-2" href="#">Reset</a>
-                        <input type="submit" value="Search" class="btn btn-primary float-right">
+                        <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
+                        <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right">
                     </div>
                 </div>
             </form>

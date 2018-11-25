@@ -2,16 +2,16 @@
 
 return [
     'home' => 'Home',
-    'about' => 'About',
+    'about' => 'A Propos',
     'terms_of_use' => 'Terms of use',
-    'get_involved' => 'Get Involved',
-    'how_to' => 'How to',
+    'get_involved' => 'Mitmachen',
+    'how_to' => 'Wie füge ich Inhalte hinzu',
     'manager' => 'Manager',
-    'new_event' => 'New event',
-    'my_events' => 'My Events',
-    'my_organizers' => 'My Organizers',
-    'my_teachers' => 'My Teachers',
-    'my_venues' => 'My Venues',
+    'new_event' => 'Neuer Event',
+    'my_events' => 'Meine Events',
+    'my_organizers' => 'Organisator*innen',
+    'my_teachers' => 'Meine Lehrer*innen',
+    'my_venues' => 'Meine Veranstaltungsorte',
     'my_profile' => 'My Profile',
     'admin_tools' => 'Admin Tools',
     'users' => 'Users',
@@ -22,8 +22,8 @@ return [
     'continents' => 'Continents',
     'countries' => 'Countries',
     'background_images' => 'Background images',
-    'create_account' => 'Create Account',
+    'create_account' => 'Account erstellen',
     'login' => 'Login',
     'logout' => 'Logout',
-    'donate' => 'Donate'
+    'donate' => 'Spende'
 ];
