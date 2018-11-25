@@ -17178,6 +17178,15 @@ nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item ul.dropdown-menu li a.dr
   text-align: center;
 }
 
+.languages > a {
+  color: white;
+}
+
+.languages > a:hover {
+  text-decoration: none;
+  color: white;
+}
+
 .languages .dropdown-menu-right .dropdown-item {
   padding: 0.5rem 1.5rem !important;
   border-bottom: 1px #ddd solid;
