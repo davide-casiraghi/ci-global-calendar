@@ -1,17 +1,17 @@
 <?php
 
 return [
-    'home' => 'Home',
-    'about' => 'About',
+    'home' => 'Início',
+    'about' => 'Sobre',
     'terms_of_use' => 'Terms of use',
-    'get_involved' => 'Get Involved',
-    'how_to' => 'How to insert contents',
+    'get_involved' => 'Participe',
+    'how_to' => 'Como inserir conteúdos',
     'manager' => 'Manager',
-    'new_event' => 'New event',
-    'my_events' => 'My Events',
-    'my_organizers' => 'My Organizers',
-    'my_teachers' => 'My Teachers',
-    'my_venues' => 'My Venues',
+    'new_event' => 'Novo Evento',
+    'my_events' => 'Meus eventos',
+    'my_organizers' => 'Meus organizadores',
+    'my_teachers' => 'Meus professores',
+    'my_venues' => 'Meus Locais',
     'my_profile' => 'My Profile',
     'admin_tools' => 'Admin Tools',
     'users' => 'Users',
@@ -22,8 +22,8 @@ return [
     'continents' => 'Continents',
     'countries' => 'Countries',
     'background_images' => 'Background images',
-    'create_account' => 'Create Account',
+    'create_account' => 'Crie uma conta',
     'login' => 'Login',
-    'logout' => 'Logout',
-    'donate' => 'Donate'
+    'logout' => 'Sair',
+    'donate' => 'Contribuir'
 ];

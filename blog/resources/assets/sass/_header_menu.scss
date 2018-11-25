@@ -1,5 +1,30 @@
 nav{
     &.navbar{
         z-index: 4;
+
+        #navbarNavDropdown{
+            ul{
+                &.navbar-nav{
+                    li{
+                        &.nav-item{
+                            ul{
+                                &.dropdown-menu{
+                                    li{
+                                        a{
+                                            &.dropdown-item{
+                                                i{
+                                                    width: 1.3rem;
+                                                    text-align: center;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

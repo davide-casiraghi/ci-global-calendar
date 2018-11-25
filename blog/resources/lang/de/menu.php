@@ -5,7 +5,7 @@ return [
     'about' => 'About',
     'terms_of_use' => 'Terms of use',
     'get_involved' => 'Get Involved',
-    'how_to' => 'How to insert contents',
+    'how_to' => 'How to',
     'manager' => 'Manager',
     'new_event' => 'New event',
     'my_events' => 'My Events',
