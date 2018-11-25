@@ -48,16 +48,18 @@
                 ])
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Group:</strong>
-                    <select name="group" class="selectpicker" title="Select user group">
-                        <option value="" @if(empty($user->group)) {{'selected'}} @endif >Author</option>
-                        <option value="1" @if(!empty($user->group)) {{  $user->group == '1' ? 'selected' : '' }} @endif>Super Administrator</option>
-                        <option value="2" @if(!empty($user->group)) {{  $user->group == '2' ? 'selected' : '' }} @endif>Administrator</option>
-                    </select>
+            @if( $user_group == 1 || $user_group == 2)
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Group:</strong>
+                        <select name="group" class="selectpicker" title="Select user group">
+                            <option value="" @if(empty($user->group)) {{'selected'}} @endif >Author</option>
+                            <option value="1" @if(!empty($user->group)) {{  $user->group == '1' ? 'selected' : '' }} @endif>Super Administrator</option>
+                            <option value="2" @if(!empty($user->group)) {{  $user->group == '2' ? 'selected' : '' }} @endif>Administrator</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
+            @endif
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.select-country', [

@@ -10,7 +10,6 @@
 
 namespace App\Http\Middleware;
 
-//use App\User;
 use Illuminate\Support\Facades\Auth;
 
 

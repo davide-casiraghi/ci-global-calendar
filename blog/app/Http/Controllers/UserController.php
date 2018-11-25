@@ -7,6 +7,7 @@ use App\Country;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -103,7 +104,11 @@ class UserController extends Controller
     {
         $countries = Country::pluck('name', 'id');
 
-        return view('users.edit',compact('user'))->with('countries', $countries);
+        // We check the user group to hide the group selection dropdown when the user is a guest
+            $user = Auth::user();
+            $user_group = ($user) ? $user->group : null;
+
+        return view('users.edit',compact('user'))->with('countries', $countries)->with('user_group', $user_group);
     }
 
     /**
