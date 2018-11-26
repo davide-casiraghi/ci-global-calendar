@@ -64,9 +64,14 @@
 
     @include('partials.forms.error-management')
 
-    <form action="{{ route('postTranslations.update') }}" method="POST">
+    <form action="{{ route('postTranslations.update',$postId) }}" method="POST">
         @csrf
         @method('PUT')
+
+        @include('partials.forms.input-hidden', [
+              'name' => 'post_translation_id',
+              'value' => $postTranslation->id
+        ])
 
         @include('partials.forms.input-hidden', [
               'name' => 'post_id',
@@ -76,6 +81,7 @@
               'name' => 'language_code',
               'value' => $languageCode
         ])
+
 
 
          <div class="row">

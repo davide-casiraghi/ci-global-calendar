@@ -75,4 +75,34 @@ class PostTranslationController extends Controller
                         ->with('success','Translation created successfully.');
     }
 
+    // **********************************************************************
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\PostTranslation  $postTranslation
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request){
+        request()->validate([
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+        $postTranslation = PostTranslation::where ('id', $request->get('post_translation_id'));
+
+        $pt['title'] = $request->get('title');
+        $pt['body'] = $request->get('body');
+        $pt['slug'] = str_slug($postTranslation->title, '-');
+
+        $pt['before_content'] = $request->get('before_content');
+        $pt['after_content'] = $request->get('after_content');
+
+        $postTranslation->update($pt);
+
+        return redirect()->route('posts.index')
+                        ->with('success','Post updated successfully');
+    }
+
 }

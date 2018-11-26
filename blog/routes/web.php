@@ -30,7 +30,7 @@ function()
         Route::get('/postTranslations/{postId}/{languageCode}/create', 'PostTranslationController@create');
         Route::get('/postTranslations/{postId}/{languageCode}/edit', 'PostTranslationController@edit');
         Route::post('/postTranslations/store', 'PostTranslationController@store')->name('postTranslations.store');
-        Route::post('/postTranslations/update', 'PostTranslationController@update')->name('postTranslations.update');
+        Route::put('/postTranslations/update', 'PostTranslationController@update')->name('postTranslations.update');
 
         Route::resource('categories','CategoryController');
         Route::resource('events','EventController');
