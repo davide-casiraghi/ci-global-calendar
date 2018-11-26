@@ -66,7 +66,6 @@ class PostTranslationController extends Controller
         $postTranslation->after_content = $request->get('after_content');
 
         $postTranslation->save();
-        
 
         return redirect()->route('posts.index')
                         ->with('success','Translation created successfully.');
