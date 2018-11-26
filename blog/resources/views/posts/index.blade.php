@@ -7,9 +7,6 @@
     $("#resetButton").click(function(){
         $("input#keywords").val("");
         $('#category option').prop("selected", false).trigger('change');
-        $('#teacher option').prop("selected", false).trigger('change');
-        $('#country option').prop("selected", false).trigger('change');
-        $('#continent option').prop("selected", false).trigger('change');
         $('form#searchForm').submit();
     });
 
@@ -34,7 +31,7 @@
     @endif
 
     {{-- Search form --}}
-    <form class="row mt-3" action="{{ route('posts.index') }}" method="GET">
+    <form id="searchForm" class="row mt-3" action="{{ route('posts.index') }}" method="GET">
         @csrf
         <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by post name" value="{{ $searchKeywords }}">
