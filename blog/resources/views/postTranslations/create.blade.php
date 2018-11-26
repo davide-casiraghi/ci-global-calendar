@@ -66,6 +66,15 @@
         <form action="{{ route('postTranslations.store') }}" method="POST">
         @csrf
 
+            @include('partials.forms.input-hidden', [
+                  'name' => 'post_id',
+                  'value' => $postId
+            ])
+            @include('partials.forms.input-hidden', [
+                  'name' => 'language_code',
+                  'value' => $languageCode
+            ])
+
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">

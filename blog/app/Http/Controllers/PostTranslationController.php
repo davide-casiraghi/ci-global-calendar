@@ -47,7 +47,7 @@ class PostTranslationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        dd($request);
+        //dd($request);
         request()->validate([
             'title' => 'required',
             'body' => 'required',
