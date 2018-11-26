@@ -55,7 +55,7 @@
             <td>{{ $categories[$post->category_id] }}</td>
             <td style="line-height: 2rem;">
                 @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
-                    <a href="{{ route('posts.edit',$post->id) }}" class="bg-secondary text-white p-1 mb-1">{{$key}}</a>
+                    <a href="postTranslations/{{ $post->id }}/edit" class="bg-secondary text-white p-1 mb-1">{{$key}}</a>
                 @endforeach
             </td>
             <td>

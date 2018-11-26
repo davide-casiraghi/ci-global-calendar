@@ -26,6 +26,8 @@ function()
     /* Resource Controllers */
         Route::resource('users','UserController');
         Route::resource('posts','PostController');
+        //Route::resource('postTranslations','PostTranslationController');
+        Route::get('/postTranslations/{postId}/edit', 'PostTranslationController@edit');
         Route::resource('categories','CategoryController');
         Route::resource('events','EventController');
         Route::resource('eventCategories','EventCategoryController');
