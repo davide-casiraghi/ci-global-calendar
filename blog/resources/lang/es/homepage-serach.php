@@ -16,5 +16,8 @@ return [
     'search_by_venue' => 'Busce por nombre del lugar',
     'select_a_continent' => 'Elige un continente',
     'select_a_country' => 'Elige un país',
-    'select_a_city' => 'Elige una ciudad
+    'select_a_city' => 'Elige una ciudad',
+    'all_kind_of_events' => 'Todo tipo de eventos',
+    'teacher_name' => 'Nombre del/la Profesor/a',
+    'photo_credits' => ''
 ];

@@ -28,7 +28,7 @@ class GenerateMenus
     {
 
         \Menu::make('MyNavBar', function($menu) {
-            $profile = $menu->add('Home')->prepend('<i class="fa fa-home"></i> ');
+            $profile = $menu->add(__('menu.home'))->prepend('<i class="fa fa-home"></i> ');
             $profile = $menu->add(__('menu.about'), ['action' => ['PostController@show', 'id' => 8]]);
                 $profile->prepend('<i class="fa fa fa-info-circle"></i> ');
                 $profile->add('Terms of use', ['action' => ['PostController@show', 'id' => 19]]);

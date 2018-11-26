@@ -18,7 +18,7 @@
 
 <div class="form-group" >
     <strong>Teachers:</strong>
-    <select id="teacher" class="selectpicker multiselect" multiple title="Select teacher">
+    <select id="teacher" class="selectpicker multiselect" multiple title="@lang('homepage-serach.teacher_name')">
         @foreach ($teachers as $value => $teacher)
             <option value="{{$value}}">{!! $teacher !!}</option>
         @endforeach

@@ -7,7 +7,7 @@
             </div>
             <div class="col-xs-12 col-sm-5 col-sm-push-5 text-center text-md-right" >
                 <a href="#" class="mr-2 text-white"><i class="fa fa-globe"></i> CI - Global Archive</a>
-                <a href="#" class="text-white"><i class="fa fa-heart"></i> Donate </a>
+                <a href="#" class="text-white"><i class="fa fa-heart"></i> @lang('menu.donate') </a>
                 {{--<p class="float-right"><a href="#">Back to top</a></p>--}}
             </div>
             <div class="col-xs-12 col-sm-1 col-sm-push-1 text-center text-md-right d-none d-md-block">

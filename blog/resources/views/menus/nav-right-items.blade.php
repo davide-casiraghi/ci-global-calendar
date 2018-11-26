@@ -10,10 +10,10 @@
 {{--  Authentication Links --}}
 @guest
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('register') }}"><i class="fa fa-user-plus"></i> {{ __('Create account') }}</a>
+        <a class="nav-link" href="{{ route('register') }}"><i class="fa fa-user-plus"></i> @lang('menu.create_account')</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('login') }}"><i class="fa fa-sign-in "></i> {{ __('Login') }}</a>
+        <a class="nav-link" href="{{ route('login') }}"><i class="fa fa-sign-in "></i> @lang('menu.login')</a>
     </li>
 
 
@@ -29,7 +29,7 @@
          <a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
-             <i class="fa fa-sign-out "></i> {{ __('Logout') }}
+             <i class="fa fa-sign-out "></i> @lang('menu.logout')
          </a>
 
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

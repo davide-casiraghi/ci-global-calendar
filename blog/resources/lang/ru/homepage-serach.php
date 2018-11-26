@@ -17,5 +17,8 @@ return [
     'search_by_venue' => 'Поиск только по месту проведения',
     'select_a_continent' => 'Выбрать континент',
     'select_a_country' => 'Выбрать страну',
-    'select_a_city' => 'Выбрать город'
+    'select_a_city' => 'Выбрать город',
+    'all_kind_of_events' => 'All kind of events',
+    'teacher_name' => 'Teacher name',
+    'photo_credits' => ''
 ];

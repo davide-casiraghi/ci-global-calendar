@@ -17,5 +17,8 @@ return [
     'search_by_venue' => 'Search by name of venue only',
     'select_a_continent' => 'Select a continent',
     'select_a_country' => 'Select a country',
-    'select_a_city' => 'Select a city'
+    'select_a_city' => 'Select a city',
+    'all_kind_of_events' => 'All kind of events',
+    'teacher_name' => 'Teacher name',
+    'photo_credits' => ''
 ];
