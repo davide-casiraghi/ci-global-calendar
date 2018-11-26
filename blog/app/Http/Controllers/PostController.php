@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 class PostController extends Controller
 {
     /**
@@ -27,8 +29,13 @@ class PostController extends Controller
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
 
-        //dd(App::getLocale());
-        dd(Post::translated()->get());
+        // Get current locale
+            //dd(App::getLocale());
+
+        // Returns all countries having translations
+            //dd(Post::translated()->get());
+
+            dd( LaravelLocalization::getSupportedLocales() );
 
 
 
