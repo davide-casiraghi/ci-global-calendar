@@ -7,7 +7,7 @@ use Dimsav\Translatable\Translatable;
 
 class Post extends Model
 {
-    use Translatable;
+    //use Translatable;
 
     public $translatedAttributes = ['title','body','slug','before_content','after_content'];
     protected $fillable = [

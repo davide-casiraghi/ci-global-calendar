@@ -27,7 +27,9 @@ class PostController extends Controller
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
 
-        dd(App::getLocale());
+        //dd(App::getLocale());
+        dd(Post::translated()->get());
+
 
 
         if ($searchKeywords||$searchCategory){
