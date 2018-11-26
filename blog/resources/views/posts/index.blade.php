@@ -45,6 +45,7 @@
             <th>ID</th>
             <th>Title</th>
             <th>Category</th>
+            <th width="160">Translations</th>
             <th width="280">Action</th>
         </tr>
         @foreach ($posts as $post)
@@ -52,6 +53,11 @@
             <td>{{ $post->id }}</td>
             <td>{{ $post->title }}</td>
             <td>{{ $categories[$post->category_id] }}</td>
+            <td style="line-height: 2rem;">
+                @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
+                    <a href="#" class="bg-secondary text-white p-1 mb-1">{{$key}}</a>
+                @endforeach
+            </td>
             <td>
                 <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
 

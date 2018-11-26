@@ -34,8 +34,9 @@ class PostController extends Controller
 
         // Returns all countries having translations
             //dd(Post::translated()->get());
-
-            dd( LaravelLocalization::getSupportedLocales() );
+        // Countries available for translations
+        $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
+        //dd( LaravelLocalization::getSupportedLocales() );
 
 
 
@@ -53,7 +54,7 @@ class PostController extends Controller
             $posts = Post::latest()->paginate(20);
 
         return view('posts.index',compact('posts'))
-            ->with('i', (request()->input('page', 1) - 1) * 20)->with('categories',$categories)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory);
+            ->with('i', (request()->input('page', 1) - 1) * 20)->with('categories',$categories)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('countriesAvailableForTranslations',$countriesAvailableForTranslations);
     }
 
     // **********************************************************************
