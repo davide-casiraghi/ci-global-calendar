@@ -53,21 +53,20 @@ class PostTranslationController extends Controller
             'body' => 'required',
         ]);
 
-        /*Post::create($request->all());*/
-
         $postTranslation = new PostTranslation();
+
+        $postTranslation->post_id = $request->get('post_id');
+        $postTranslation->locale = $request->get('language_code');
+
         $postTranslation->title = $request->get('title');
         $postTranslation->body = $request->get('body');
-
-        $postTranslation->slug = $request->get('slug');
-        if ($postTranslation->slug=== NULL) {
-            $postTranslation->slug = str_slug($postTranslation->title, '-');
-        }
+        $postTranslation->slug = str_slug($postTranslation->title, '-');
 
         $postTranslation->before_content = $request->get('before_content');
         $postTranslation->after_content = $request->get('after_content');
 
         $postTranslation->save();
+        
 
         return redirect()->route('posts.index')
                         ->with('success','Translation created successfully.');
