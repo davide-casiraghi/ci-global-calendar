@@ -13,5 +13,8 @@ return [
     'start_on' => 'Commence le (à partir de)',
     'end_on' => 'Termine le (au plus tard)',
     'specify_one_or_both' => 'Vous pouvez spécifier un ou deux champs de recherche ou laisser le champ vierge',
-    'search_by_venue' => 'Rechercher selon le nom du lieu'
+    'search_by_venue' => 'Rechercher selon le nom du lieu',
+    'select_a_continent' => 'Sélectionner un continent',
+    'select_a_country' => 'Sélectionner un pays',
+    'select_a_city' => 'Sélectionner une ville'
 ];

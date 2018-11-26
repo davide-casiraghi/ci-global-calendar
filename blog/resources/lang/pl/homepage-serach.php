@@ -14,5 +14,8 @@ return [
     'start_on' => 'Rozpoczyna się (lub po)',
     'end_on' => 'Kończy się (lub wcześniej)',
     'specify_one_or_both' => 'Nie możesz określić żadnego, jednego lub obu pól wyszukiwania',
-    'search_by_venue' => 'Search by name of venue only'
+    'search_by_venue' => 'Search by name of venue only',
+    'select_a_continent' => 'Wybierz kontynent',
+    'select_a_country' => 'Wybierz kraj',
+    'select_a_city' => 'Wybierz miasto'
 ];

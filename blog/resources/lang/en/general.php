@@ -1,15 +1,13 @@
+
 <?php
 
 return [
-    'search' => 'Поиск',
-    'reset' => 'Перезагрузка',
-    'category' => 'Категория',
-    'organizers' => 'Организаторы',
-    'teachers' => 'Учителя',
-    'venue' => 'Место',
-    'select_a_continent' => 'Выбрать континент',
-    'select_a_country' => 'Выбрать страну',
-    'select_a_city' => 'Выбрать город',
+    'search' => 'Search',
+    'reset' => 'Reset',
+    'category' => 'Category',
+    'organizers' => 'Organizers',
+    'teachers' => 'Teachers',
+    'venue' => 'Venue',
     'from' => 'From',
     'to' => 'To',
     'by' => 'By',
