@@ -1,5 +1,19 @@
 @extends('posts.layout')
 
+@section('javascript-document-ready')
+    @parent
+
+    {{-- Clear filters on click reset button --}}
+    $("#resetButton").click(function(){
+        $("input#keywords").val("");
+        $('#category option').prop("selected", false).trigger('change');
+        $('#teacher option').prop("selected", false).trigger('change');
+        $('#country option').prop("selected", false).trigger('change');
+        $('#continent option').prop("selected", false).trigger('change');
+        $('form#searchForm').submit();
+    });
+
+@stop
 
 @section('content')
     <div class="row">
@@ -22,10 +36,10 @@
     {{-- Search form --}}
     <form class="row mt-3" action="{{ route('posts.index') }}" method="GET">
         @csrf
-        <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by post name" value="{{ $searchKeywords }}">
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
             <select name="category_id" class="form-control">
                 <option value="">Search by category</option>
                 @foreach ($categories as $value => $category)
@@ -34,8 +48,9 @@
                 @endforeach
             </select>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mt-sm-0 mt-3">
-            <input type="submit" value="Search" class="btn btn-primary float-sm-right">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 mt-sm-0 mt-3">
+            <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
+            <input type="submit" value="Search" class="btn btn-primary float-right">
         </div>
     </form>
 
