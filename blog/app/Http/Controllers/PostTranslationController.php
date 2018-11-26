@@ -33,8 +33,8 @@ class PostTranslationController extends Controller
      * @param  \App\PostTranslation  $postTranslation
      * @return \Illuminate\Http\Response
      */
-    public function edit($postId){
-        dd($postId);
+    public function edit($postId, $languageCode){
+        dd($postId.$languageCode);
         return view('postTranslations.edit',compact('postTranslation'));
     }
 
