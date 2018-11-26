@@ -41,8 +41,8 @@ class PostController extends Controller
 
 
         if ($searchKeywords||$searchCategory){
-            $posts = DB::table('posts')
-                ->when($searchKeywords, function ($query, $searchKeywords) {
+            $posts = Post::
+                when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('title', $searchKeywords)->orWhere('title', 'like', '%' . $searchKeywords . '%');
                 })
                 ->when($searchCategory, function ($query, $searchCategory) {
