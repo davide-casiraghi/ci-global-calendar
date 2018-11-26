@@ -11,6 +11,7 @@ use App\Classes\CardClass;
 use App\Classes\ColumnsClass;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -25,6 +26,9 @@ class PostController extends Controller
 
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
+
+        dd(App::getLocale());
+
 
         if ($searchKeywords||$searchCategory){
             $posts = DB::table('posts')
