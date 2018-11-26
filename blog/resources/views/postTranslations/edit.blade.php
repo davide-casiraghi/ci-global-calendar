@@ -1,4 +1,4 @@
-@extends('posts.layout')
+@extends('postTranslations.layout')
 
 
 @section('javascript')
@@ -64,7 +64,7 @@
 
     @include('partials.forms.error-management')
 
-    <form action="{{ route('posts.update',$post->id) }}" method="POST">
+    <form action="{{ route('postTranslations.update',$post->id) }}" method="POST">
         @csrf
         @method('PUT')
 
@@ -79,16 +79,6 @@
                 <div class="form-group">
                     <strong>Slug:</strong>
                     <input type="text" name="slug" value="{{ $post->slug }}" class="form-control" placeholder="Slug">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Category:</strong>
-                    <select name="category_id" class="selectpicker" data-live-search="true" title="Select category">
-                        @foreach ($categories as $value => $category)
-                            <option value="{{$value}}" {{ $post->category_id == $value ? 'selected' : '' }}>{!! $category !!}</option>
-                        @endforeach
-                    </select>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -110,30 +100,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="row h-100 mt-3">
-            <div class="col-xs-6 col-sm-6 col-md-6 pull-left my-auto">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><strong>Intro Image</strong></span>
-                    </div>
-                    <input id="thumbnail" class="form-control" type="text" name="introimage_src" value="{{ $post->introimage_src }}">
-                    <span class="input-group-btn">
-                        <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                            <i class="fa fa-picture-o"></i> Choose
-                        </a>
-                    </span>
-                </div>
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 pull-right my-auto">
-                <input type="text" name="introimage_alt" value="{{ $post->introimage_alt }}" class="form-control" placeholder="Alt">
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 pull-right my-auto">
-                <img id="holder" src="{{ $post->introimage_src }}" style="width:100%;">
-            </div>
-        </div>
-
-
 
         <div class="row mt-5">
             <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
