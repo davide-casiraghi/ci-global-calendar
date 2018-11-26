@@ -55,7 +55,8 @@
             <td>{{ $categories[$post->category_id] }}</td>
             <td style="line-height: 2rem;">
                 @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
-                    <a href="postTranslations/{{ $post->id }}/pl/edit" class="bg-secondary text-white p-1 mb-1">{{$key}}</a>
+                    {{-- <a href="postTranslations/{{ $post->id }}/pl/edit" class="bg-secondary text-white p-1 mb-1">{{$key}}</a> --}}
+                    <a href="postTranslations/{{ $post->id }}/{{ $key }}/create" class="bg-secondary text-white p-1 mb-1">{{$key}}</a>
                 @endforeach
             </td>
             <td>

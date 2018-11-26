@@ -27,7 +27,10 @@ function()
         Route::resource('users','UserController');
         Route::resource('posts','PostController');
         //Route::resource('postTranslations','PostTranslationController');
+        Route::get('/postTranslations/{postId}/{languageCode}/create', 'PostTranslationController@create');
         Route::get('/postTranslations/{postId}/{languageCode}/edit', 'PostTranslationController@edit');
+        Route::post('/postTranslations/store', 'PostTranslationController@store')->name('postTranslations.store');
+
         Route::resource('categories','CategoryController');
         Route::resource('events','EventController');
         Route::resource('eventCategories','EventCategoryController');

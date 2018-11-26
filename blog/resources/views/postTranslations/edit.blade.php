@@ -57,7 +57,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit post</h2>
+                <h2>Edit post translation</h2>
             </div>
         </div>
     </div>

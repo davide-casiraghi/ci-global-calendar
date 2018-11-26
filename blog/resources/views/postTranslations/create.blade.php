@@ -62,7 +62,8 @@
 
     @include('partials.forms.error-management')
 
-    <form action="{{ route('postTranslations.store') }}" method="POST">
+    {{--<form action="/postTranslations/{{ $postId }}/{{ $languageCode }}/store" method="POST">--}}
+        <form action="{{ route('postTranslations.store') }}" method="POST">
         @csrf
 
          <div class="row">
