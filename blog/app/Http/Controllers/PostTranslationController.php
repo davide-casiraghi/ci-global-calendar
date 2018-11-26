@@ -34,8 +34,12 @@ class PostTranslationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($postId, $languageCode){
-        //dd($postId.$languageCode);
-        return view('postTranslations.edit',compact('postTranslation'));
+
+        $postTranslation = PostTranslation::where('post_id', $postId)
+                        ->where('locale', $languageCode)
+                        ->first();
+
+        return view('postTranslations.edit',compact('postTranslation'))->with('postId',$postId)->with('languageCode',$languageCode);
     }
 
     // **********************************************************************

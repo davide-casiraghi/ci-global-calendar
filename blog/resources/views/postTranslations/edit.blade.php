@@ -64,39 +64,43 @@
 
     @include('partials.forms.error-management')
 
-    <form action="{{ route('postTranslations.update',$post->id) }}" method="POST">
+    <form action="{{ route('postTranslations.update') }}" method="POST">
         @csrf
         @method('PUT')
+
+        @include('partials.forms.input-hidden', [
+              'name' => 'post_id',
+              'value' => $postId
+        ])
+        @include('partials.forms.input-hidden', [
+              'name' => 'language_code',
+              'value' => $languageCode
+        ])
+
 
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Title:</strong>
-                    <input type="text" name="title" value="{{ $post->title }}" class="form-control" placeholder="Title">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Slug:</strong>
-                    <input type="text" name="slug" value="{{ $post->slug }}" class="form-control" placeholder="Slug">
+                    <input type="text" name="title" value="{{ $postTranslation->title }}" class="form-control" placeholder="Title">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Before Content:</strong>
-                    <textarea class="form-control" style="height:150px" name="before_content" placeholder="Before the content">{{ $post->before_content }}</textarea>
+                    <textarea class="form-control" style="height:150px" name="before_content" placeholder="Before the content">{{ $postTranslation->before_content }}</textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Body:</strong>
-                    <textarea class="form-control" style="height:150px" name="body" placeholder="Detail" id="bodyTextarea">{{ $post->body }}</textarea>
+                    <textarea class="form-control" style="height:150px" name="body" placeholder="Detail" id="bodyTextarea">{{ $postTranslation->body }}</textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>After Content:</strong>
-                    <textarea class="form-control" style="height:150px" name="after_content" placeholder="After the content">{{ $post->after_content }}</textarea>
+                    <textarea class="form-control" style="height:150px" name="after_content" placeholder="After the content">{{ $postTranslation->after_content }}</textarea>
                 </div>
             </div>
         </div>
