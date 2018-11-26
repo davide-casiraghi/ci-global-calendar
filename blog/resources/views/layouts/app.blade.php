@@ -34,7 +34,7 @@
         @yield('content')
     </div>
 
-    <div class="afterContent mb-5">
+    <div class="afterContent">
         @yield('afterContent')
     </div>
 
