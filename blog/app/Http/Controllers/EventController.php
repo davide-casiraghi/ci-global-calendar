@@ -585,6 +585,21 @@ class EventController extends Controller
         return $event;
     }
 
+    // **********************************************************************
+
+
+    public function calculateMonthlySelectOptions(){
+
+        $monthlySelectOptions = array();
+
+        array_push($monthlySelectOptions, "aaa");
+        array_push($monthlySelectOptions, "bbb");
+        array_push($monthlySelectOptions, "ccc");
+        array_push($monthlySelectOptions, "ddd");
+
+        return $monthlySelectOptions;
+    }
+
 
 
 }
