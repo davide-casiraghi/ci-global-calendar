@@ -152,7 +152,7 @@ class EventController extends Controller
                     foreach ($repeat_weekly_on_day as $key => $weeek_day) {
                         $event->repeat_weekly_on .= $weeek_day;
                         if ($i != $len - 1)  // not last
-                            $event->repeat_weekly_on .= ", ";
+                            $event->repeat_weekly_on .= ",";
                         $i++;
                     }
                 }

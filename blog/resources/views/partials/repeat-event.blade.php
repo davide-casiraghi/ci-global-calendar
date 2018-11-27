@@ -2,7 +2,7 @@
     @parent
     $("input[name='repeat_type']").change(function(){
 
-        // Show and hide the repeat options
+        {{-- Show and hide the repeat options --}}
             var radioVal = $("input[name='repeat_type']:checked").val();
             switch(radioVal) {
                 case '1':  // No Repeat
@@ -20,14 +20,14 @@
                 break;
             }
 
-        // Set date end to the same day of start if is a repeat event (this is to avoid mistakes of the users that set date end to the end of repetition)
+        {{-- Set date end to the same day of start if is a repeat event (this is to avoid mistakes of the users that set date end to the end of repetition) --}}
             if (radioVal =="2" || radioVal =="3"){
                 var dateStart = $("input[name='startDate']").val();
                 $("input[name='endDate']").val(dateStart);
                 $("input[name='endDate']").datepicker('destroy');
             }
 
-        // Re-create the datepicker_end_date that has been destroyed in case of repetition
+        {{-- Re-create the datepicker_end_date that has been destroyed in case of repetition --}}
             if (radioVal =="1"){
                 var today = new Date();
 
@@ -36,6 +36,18 @@
                     startDate: today
                 });
             }
+
+        {{-- Select the week days saved when the edit view is open  --}}
+
+            var weekDaysSelected = $('#repeat_weekly_on').val();
+            if (weekDaysSelected){
+                var weekDaysSelectedArray = weekDaysSelected.split(',');
+                for (i = 0; i < weekDaysSelectedArray.length; ++i) {
+                    $('#onWeekly label#day_'+ weekDaysSelectedArray[i]).addClass('active');
+                    $('#onWeekly label#day_'+ weekDaysSelectedArray[i]+' input' ).attr('checked', true);
+                }
+            }
+
 
 
 
@@ -102,28 +114,29 @@
         <div id="onWeekly" class="onFrequency col-xs-12 col-sm-6 col-lg-4" style="display:none">
             <strong>On:</strong><br/>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-primary active">
-                    <input type="checkbox" name="repeat_weekly_on_day[]" value="1" autocomplete="off" checked> M
+                <label class="btn btn-primary" id="day_1" >
+                    <input type="checkbox" name="repeat_weekly_on_day[]" value="1" autocomplete="off"> M
                 </label>
-                <label class="btn btn-primary">
+                <label class="btn btn-primary" id="day_2">
                     <input type="checkbox" name="repeat_weekly_on_day[]" value="2" autocomplete="off"> T
                 </label>
-                <label class="btn btn-primary">
+                <label class="btn btn-primary" id="day_3">
                     <input type="checkbox" name="repeat_weekly_on_day[]" value="3" autocomplete="off"> W
                 </label>
-                <label class="btn btn-primary">
+                <label class="btn btn-primary" id="day_4">
                     <input type="checkbox" name="repeat_weekly_on_day[]" value="4" autocomplete="off"> T
                 </label>
-                <label class="btn btn-primary">
+                <label class="btn btn-primary" id="day_5">
                     <input type="checkbox" name="repeat_weekly_on_day[]" value="5" autocomplete="off"> F
                 </label>
-                <label class="btn btn-primary">
+                <label class="btn btn-primary" id="day_6">
                     <input type="checkbox" name="repeat_weekly_on_day[]" value="6" autocomplete="off"> S
                 </label>
-                <label class="btn btn-primary">
+                <label class="btn btn-primary" id="day_7">
                     <input type="checkbox" name="repeat_weekly_on_day[]" value="7" autocomplete="off"> S
                 </label>
             </div>
+            <input type="hidden" name="repeat_weekly_on" id="repeat_weekly_on" @if(!empty($event->repeat_weekly_on))  value="{{$event->repeat_weekly_on}}" @endif/>
         </div>
 
         <div id="onMonthly" class="onFrequency col-xs-12 col-sm-6 col-lg-4" style="display:none">
