@@ -20,6 +20,8 @@
         <link href="{{ asset('css/vendor.css') }}" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+
+        @yield('css')
 </head>
 
 <body class=""> <!-- Laravel use VUE as default - https://stackoverflow.com/questions/41411344/vue-warn-cannot-find-element-app#41411385-->
