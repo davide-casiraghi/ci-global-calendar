@@ -1,17 +1,12 @@
 {{--
-    Cookie Policy - https://cookieconsent.insites.com/download/
-	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
---}}
 
-@section('css')
-    @parent
-    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
-@stop
+    Cookie Consent - https://cookieconsent.insites.com/
+
+--}}
 
 @section('javascript')
     @parent
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>-->
 	<script>
 		window.addEventListener("load", function(){
 		window.cookieconsent.initialise({

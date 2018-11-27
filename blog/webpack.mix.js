@@ -45,8 +45,8 @@ mix.js('resources/assets/js/app.js', 'public/js')
         'bootstrap-select',
         'bootstrap-datepicker',
         'bootstrap-timepicker',
-        'fontawesome-pro/js/fontawesome.js'
-        //'ckeditor',
+        'fontawesome-pro/js/fontawesome.js',
+        'cookieconsent'
     ]);
 
 
@@ -64,6 +64,7 @@ mix.styles([
    'node_modules/bootstrap-select/dist/css/bootstrap-select.css',
    'node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.css',
    'node_modules/bootstrap-timepicker/css/bootstrap-timepicker.css',
+   'node_modules/cookieconsent/build/cookieconsent.min.css',
 ], 'public/css/vendor.css');
 
 /* CSS - Custom - OK */

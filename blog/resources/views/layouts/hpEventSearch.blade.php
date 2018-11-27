@@ -33,6 +33,7 @@
     </div>
 
     @include('footer.footer')
+    @include('partials.cookie-consent')
 
     <!-- JS -->
         <!--<script src="/js/manifest.js"></script>
