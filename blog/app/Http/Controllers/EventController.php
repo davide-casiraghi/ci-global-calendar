@@ -146,10 +146,12 @@ class EventController extends Controller
             // Weekely
                 if($request->get('repeat_weekly_on_day')){
                     $repeat_weekly_on_day = $request->get('repeat_weekly_on_day');
+                    $i = 0; $len = count($repeat_weekly_on_day); // to put "," to all items except the last
                     foreach ($repeat_weekly_on_day as $key => $weeek_day) {
                         $event->repeat_weekly_on .= $weeek_day;
-                        if ($key === key($repeat_weekly_on_day))
+                        if ($i != $len - 1)  // not last
                             $event->repeat_weekly_on .= ", ";
+                        $i++;
                     }
                 }
 
