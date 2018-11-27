@@ -32,6 +32,10 @@
                 @include('partials.forms.select-event-status')
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.alert', [
+                	'text' => 'Please insert an english translation of your event below, even short.',
+                	'style' => 'alert-warning',
+                ])
                 @include('partials.forms.textarea-event-description')
             </div>
         </div>
