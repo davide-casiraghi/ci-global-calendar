@@ -1,5 +1,6 @@
 @section('javascript-document-ready')
     @parent
+
     $("input[name='repeat_type']").change(function(){
 
         {{-- Show and hide the repeat options --}}
@@ -89,14 +90,14 @@
 <div class="row mb-3 repeatController">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-primary active">
-                <input type="radio" name="repeat_type" value="1" checked> No repeat
+            <label class="btn btn-primary {{ $event->repeat_type == 1 ? 'active' : '' }}">
+                <input type="radio" name="repeat_type" value="1" {{ $event->repeat_type == 1 ? 'checked' : '' }}> No repeat
             </label>
-            <label class="btn btn-primary">
-                <input type="radio" name="repeat_type" value="2"> Weekly
+            <label class="btn btn-primary {{ $event->repeat_type == 2 ? 'active' : '' }}">
+                <input type="radio" name="repeat_type" value="2" {{ $event->repeat_type == 2 ? 'checked' : '' }}> Weekly
             </label>
-            <label class="btn btn-primary">
-                <input type="radio" name="repeat_type" value="3"> Monthly
+            <label class="btn btn-primary {{ $event->repeat_type == 3 ? 'active' : '' }}">
+                <input type="radio" name="repeat_type" value="3" {{ $event->repeat_type == 3 ? 'checked' : '' }}> Monthly
             </label>
         </div>
     </div>
@@ -159,7 +160,7 @@
                   'title' => 'Repeat Until',
                   'name' => 'repeat_until',
                   'placeholder' => 'Select date',
-                  'value' => $dateTime['repeatUntil'] 
+                  'value' => $dateTime['repeatUntil']
             ])
 
         </div>

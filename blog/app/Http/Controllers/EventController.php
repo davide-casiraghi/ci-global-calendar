@@ -254,8 +254,6 @@ class EventController extends Controller
             }
             $multiple_organizers = implode(',', $organizersSelected);
 
-            //dump($event);
-
         return view('events.edit',compact('event'))
                     ->with('eventCategories', $eventCategories)
                     ->with('teachers', $teachers)

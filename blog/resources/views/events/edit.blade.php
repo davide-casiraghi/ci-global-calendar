@@ -81,7 +81,12 @@
             </div>
         </div>
 
-        @include('partials.repeat-event')
+        {{--@include('partials.repeat-event')--}}
+
+
+        @include('partials.repeat-event', [
+              'event' => $event
+        ])
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
