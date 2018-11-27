@@ -1,7 +1,7 @@
 @section('javascript-document-ready')
     @parent
 
-    {{-- Select the week days saved when the edit view is open  --}}
+    {{-- SET the week days saved - when the edit view is open  --}}
         var weekDaysSelected = $('#repeat_weekly_on').val();
         if (weekDaysSelected){
             var weekDaysSelectedArray = weekDaysSelected.split(',');
@@ -11,67 +11,26 @@
             }
         }
 
-
-    setRepeatValues();
-
-    $("input[name='repeat_type']").change(function(){
-
+    {{-- SET the repeat values, show and hide the repeat options - when the edit view is open --}}
         setRepeatValues();
 
+    {{-- SET the repeat values, show and hide the repeat options - when repeat type is changed --}}
+        $("input[name='repeat_type']").change(function(){
 
-        //repeatDetails
-        /*
-        $('.repeatTab').hide();
-        $('#' + radioVal).show();
+            setRepeatValues();
 
-        if (radioVal =="repeatWeekly"){
-            var dateStart = $("input[name='startDate']").val();
-            $("input[name='endDate']").val(dateStart);
-            $("input[name='endDate']").datepicker('destroy');
-        }
+            //repeatDetails
+            /*
+            $('.repeatTab').hide();
+            $('#' + radioVal).show();
 
-        if (radioVal =="noRepeat"){
-            var today = new Date();
-
-            $('#datepicker_end_date input').datepicker({
-                format: 'dd/mm/yyyy',
-                startDate: today
-            });
-        }
-        */
-
-
-    });
-
-    function setRepeatValues(radioVal) {
-
-        {{-- Show and hide the repeat options --}}
-            var radioVal = $("input[name='repeat_type']:checked").val();
-            switch(radioVal) {
-                case '1':  // No Repeat
-                    $('.repeatDetails').hide();
-                break;
-                case '2':  // Repeat Weekly
-                    $('.repeatDetails').show();
-                    $('.onFrequency').hide();
-                    $('#onWeekly').show();
-                break;
-                case '3':  // Repeat Monthly
-                    $('.repeatDetails').show();
-                    $('.onFrequency').hide();
-                    $('#onMonthly').show();
-                break;
-            }
-
-        {{-- Set date end to the same day of start if is a repeat event (this is to avoid mistakes of the users that set date end to the end of repetition) --}}
-            if (radioVal =="2" || radioVal =="3"){
+            if (radioVal =="repeatWeekly"){
                 var dateStart = $("input[name='startDate']").val();
                 $("input[name='endDate']").val(dateStart);
                 $("input[name='endDate']").datepicker('destroy');
             }
 
-        {{-- Re-create the datepicker_end_date that has been destroyed in case of repetition --}}
-            if (radioVal =="1"){
+            if (radioVal =="noRepeat"){
                 var today = new Date();
 
                 $('#datepicker_end_date input').datepicker({
@@ -79,7 +38,45 @@
                     startDate: today
                 });
             }
-    }
+            */
+        });
+
+    {{-- Show and hide the repeat options --}}
+        function setRepeatValues(radioVal) {
+                var radioVal = $("input[name='repeat_type']:checked").val();
+                switch(radioVal) {
+                    case '1':  // No Repeat
+                        $('.repeatDetails').hide();
+                    break;
+                    case '2':  // Repeat Weekly
+                        $('.repeatDetails').show();
+                        $('.onFrequency').hide();
+                        $('#onWeekly').show();
+                    break;
+                    case '3':  // Repeat Monthly
+                        $('.repeatDetails').show();
+                        $('.onFrequency').hide();
+                        $('#onMonthly').show();
+                    break;
+                }
+
+            {{-- Set date end to the same day of start if is a repeat event (this is to avoid mistakes of the users that set date end to the end of repetition) --}}
+                if (radioVal =="2" || radioVal =="3"){
+                    var dateStart = $("input[name='startDate']").val();
+                    $("input[name='endDate']").val(dateStart);
+                    $("input[name='endDate']").datepicker('destroy');
+                }
+
+            {{-- Re-create the datepicker_end_date that has been destroyed in case of repetition --}}
+                if (radioVal =="1"){
+                    var today = new Date();
+
+                    $('#datepicker_end_date input').datepicker({
+                        format: 'dd/mm/yyyy',
+                        startDate: today
+                    });
+                }
+        }
 
 
 @stop
