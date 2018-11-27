@@ -1,7 +1,49 @@
 @section('javascript-document-ready')
     @parent
 
+    {{-- Select the week days saved when the edit view is open  --}}
+        var weekDaysSelected = $('#repeat_weekly_on').val();
+        if (weekDaysSelected){
+            var weekDaysSelectedArray = weekDaysSelected.split(',');
+            for (i = 0; i < weekDaysSelectedArray.length; ++i) {
+                $('#onWeekly label#day_'+ weekDaysSelectedArray[i]).addClass('active');
+                $('#onWeekly label#day_'+ weekDaysSelectedArray[i]+' input' ).attr('checked', true);
+            }
+        }
+
+
+    setRepeatValues();
+
     $("input[name='repeat_type']").change(function(){
+
+        setRepeatValues();
+
+
+        //repeatDetails
+        /*
+        $('.repeatTab').hide();
+        $('#' + radioVal).show();
+
+        if (radioVal =="repeatWeekly"){
+            var dateStart = $("input[name='startDate']").val();
+            $("input[name='endDate']").val(dateStart);
+            $("input[name='endDate']").datepicker('destroy');
+        }
+
+        if (radioVal =="noRepeat"){
+            var today = new Date();
+
+            $('#datepicker_end_date input').datepicker({
+                format: 'dd/mm/yyyy',
+                startDate: today
+            });
+        }
+        */
+
+
+    });
+
+    function setRepeatValues(radioVal) {
 
         {{-- Show and hide the repeat options --}}
             var radioVal = $("input[name='repeat_type']:checked").val();
@@ -37,45 +79,7 @@
                     startDate: today
                 });
             }
-
-        {{-- Select the week days saved when the edit view is open  --}}
-
-            var weekDaysSelected = $('#repeat_weekly_on').val();
-            if (weekDaysSelected){
-                var weekDaysSelectedArray = weekDaysSelected.split(',');
-                for (i = 0; i < weekDaysSelectedArray.length; ++i) {
-                    $('#onWeekly label#day_'+ weekDaysSelectedArray[i]).addClass('active');
-                    $('#onWeekly label#day_'+ weekDaysSelectedArray[i]+' input' ).attr('checked', true);
-                }
-            }
-
-
-
-
-
-        //repeatDetails
-        /*
-        $('.repeatTab').hide();
-        $('#' + radioVal).show();
-
-        if (radioVal =="repeatWeekly"){
-            var dateStart = $("input[name='startDate']").val();
-            $("input[name='endDate']").val(dateStart);
-            $("input[name='endDate']").datepicker('destroy');
-        }
-
-        if (radioVal =="noRepeat"){
-            var today = new Date();
-
-            $('#datepicker_end_date input').datepicker({
-                format: 'dd/mm/yyyy',
-                startDate: today
-            });
-        }
-        */
-
-
-    });
+    }
 
 
 @stop
