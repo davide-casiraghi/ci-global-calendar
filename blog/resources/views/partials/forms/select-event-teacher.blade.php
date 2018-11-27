@@ -6,7 +6,7 @@
         $('#multiple_teachers').val($('#teacher').val());
      });
 
-     {{-- Select the teachers that are already selected --}}
+     {{-- Select the teachers saved when the edit view is open  --}}
      var teachersSelected = $('#multiple_teachers').val();
      if (teachersSelected){
          var teachersSelectedArray = teachersSelected.split(',');

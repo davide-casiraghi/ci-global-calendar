@@ -159,7 +159,7 @@ class EventController extends Controller
 
             // Monthly
 
-            /*$event->repeat_weekly_on = $request->get('repeat_type');
+/*
             $event->repeat_type = $request->get('repeat_monthly_on');*/
 
             $event->save();
