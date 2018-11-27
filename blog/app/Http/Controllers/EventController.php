@@ -67,6 +67,7 @@ class EventController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('countries', $countries)->with('venues', $venues)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('searchCountry',$searchCountry);
     }
 
+    /***************************************************************************/
     /**
      * Show the form for creating a new resource.
      *
@@ -91,6 +92,7 @@ class EventController extends Controller
         ->with('dateTime',$dateTime);
     }
 
+    /***************************************************************************/
     /**
      * Store a newly created resource in storage.
      *
@@ -145,7 +147,7 @@ class EventController extends Controller
                 }
             }
 
-        // Event repeat details (repeat until field and multiple days)
+        // Set the Event attributes about repeating (repeat until field and multiple days)
             $event = $this->setEventRepeatFields($request, $event);
 
         // Save event and repetitions
@@ -166,6 +168,7 @@ class EventController extends Controller
                         ->with('success','Event created successfully.');
     }
 
+    /***************************************************************************/
     /**
      * Display the specified resource.
      *
@@ -203,6 +206,7 @@ class EventController extends Controller
         return view('events.show',compact('event'))->with('category', $category)->with('teachers', $teachers)->with('organizers', $organizers)->with('venue', $venue)->with('country', $country)->with('continent', $continent)->with('datesTimes', $datesTimes);
     }
 
+    /***************************************************************************/
     /**
      * Show the form for editing the specified resource.
      *
@@ -262,6 +266,7 @@ class EventController extends Controller
                     ->with('dateTime',$dateTime);
     }
 
+    /***************************************************************************/
     /**
      * Update the specified resource in storage.
      *
@@ -316,8 +321,7 @@ class EventController extends Controller
                 }
             }
 
-
-        // Event repeat details (repeat until field and multiple days)
+        // Set the Event attributes about repeating (repeat until field and multiple days)
             $event = $this->setEventRepeatFields($request, $event);
 
         // Save event and repetitions
@@ -338,6 +342,7 @@ class EventController extends Controller
                         ->with('success','Event updated successfully');
     }
 
+    /***************************************************************************/
     /**
      * Remove the specified resource from storage.
      *
@@ -357,10 +362,14 @@ class EventController extends Controller
                         ->with('success','Event deleted successfully');
     }
 
-
-    /*************************************************************/
-
-    // To save event repetitions for create and update methods
+    /***************************************************************************/
+    /**
+     * To save event repetitions for create and update methods
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Event  $event
+     * @return none
+     */
 
     function saveEventRepetitions($request, $event){
 
@@ -422,36 +431,31 @@ class EventController extends Controller
             }
     }
 
-    /***************************************************************************
-
+    /***************************************************************************/
     /**
-     * Remove the specified resource from storage.
+     * Check the date and return true if the weekday is the one specified in $dayOfTheWeek. eg. if $dayOfTheWeek = 3, is true if the date is a Wednesday
+     * https://stackoverflow.com/questions/2045736/getting-all-dates-for-mondays-and-tuesdays-for-the-next-year
      *
      * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
+     * @param  date  $date
+     * @param  int $dayOfTheWeek [1..7]
+     * @return none
      */
-
-     // https://stackoverflow.com/questions/2045736/getting-all-dates-for-mondays-and-tuesdays-for-the-next-year
-     // date('w') returns a string numeral as follows:
-     //   '0' Sunday
-     //   '1' Monday
-     //   '2' Tuesday
-     //   '3' Wednesday
-     //   '4' Thursday
-     //   '5' Friday
-     //   '6' Saturday
-
     function isWeekDay($date, $dayOfTheWeek){
         return date('w', strtotime($date)) === $dayOfTheWeek;
     }
 
-    /***************************************************************************
-
+    /***************************************************************************/
     /**
-     * Remove the specified resource from storage.
+     * Delete all the previous repetitions from the event_repetitions table
      *
      * @param  \App\Event  $event
-     * @return array        array with the dates
+     * @param  string  $weekDays - $request->get('repeat_weekly_on_day')
+     * @param  string $startDate
+     * @param  string $repeatUntilDate
+     * @param  string  $timeStart
+     * @param  string  $timeEnd
+     * @return none
      */
     function saveWeeklyRepeatDates($event, $weekDays, $startDate, $repeatUntilDate, $timeStart, $timeEnd){
 
@@ -479,13 +483,24 @@ class EventController extends Controller
     }
 
     /***************************************************************************/
-
+    /**
+     * Delete all the previous repetitions from the event_repetitions table
+     *
+     * @param  $eventId - Event id
+     * @return none
+     */
     function deletePreviousRepetitions($eventId){
         DB::table('event_repetitions')->where('event_id', $eventId)->delete();
     }
 
-    /***************************************************************************/
+    // **********************************************************************
 
+    /**
+     * Send the Misuse mail
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return redirect to route
+     */
     public function reportMisuse(Request $request){
         $report = array();
 
@@ -520,29 +535,38 @@ class EventController extends Controller
 
     }
 
+    // **********************************************************************
 
     /**
-     * Display the specified resource.
+     * Display the thank you view after the misuse report mail is sent (called by /misuse/thankyou route)
      *
      * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function reportMisuseThankyou(){
 
         return view('emails.report-thankyou');
     }
 
+    // **********************************************************************
 
-    /*************************/
-
+    /**
+     * Set the Event attributes about repeating before store or update (repeat until field and multiple days)
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Event  $event
+     * @return \App\Event  $event
+     */
     public function setEventRepeatFields($request, $event){
-        $event->repeat_type = $request->get('repeat_type');
-        if($request->get('repeat_until')){
-            $dateRepeatUntil = implode("-", array_reverse(explode("/",$request->get('repeat_until'))));
-            $event->repeat_until = $dateRepeatUntil." 00:00:00";
-        }
 
-        // Weekely - save multiple week days
+        // Set Repeat Until
+            $event->repeat_type = $request->get('repeat_type');
+            if($request->get('repeat_until')){
+                $dateRepeatUntil = implode("-", array_reverse(explode("/",$request->get('repeat_until'))));
+                $event->repeat_until = $dateRepeatUntil." 00:00:00";
+            }
+
+        // Weekely - Set multiple week days
             if($request->get('repeat_weekly_on_day')){
                 $repeat_weekly_on_day = $request->get('repeat_weekly_on_day');
                 //dd($repeat_weekly_on_day);
