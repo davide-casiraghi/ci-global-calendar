@@ -145,7 +145,7 @@ class EventController extends Controller
                 }
             }
 
-        // Event repeat details
+        // Event repeat details (repeat until field and multiple days)
             $event = $this->setEventRepeatFields($request, $event);
 
         // Save event and repetitions
@@ -157,7 +157,6 @@ class EventController extends Controller
                 $multiple_teachers= explode(',', $request->get('multiple_teachers'));
                 $event->teachers()->sync($multiple_teachers);
             }
-
             if ($request->get('multiple_organizers')){
                 $multiple_organizers= explode(',', $request->get('multiple_organizers'));
                 $event->organizers()->sync($multiple_organizers);
@@ -280,7 +279,6 @@ class EventController extends Controller
 
         /*$event->update($request->all());*/
 
-
         $countries = Country::pluck('name', 'id');
         $teachers = Teacher::pluck('name', 'id');
 
@@ -318,19 +316,23 @@ class EventController extends Controller
                 }
             }
 
-        $event->save();
 
-        $this->saveEventRepetitions($request, $event);
+        // Event repeat details (repeat until field and multiple days)
+            $event = $this->setEventRepeatFields($request, $event);
 
-        if ($request->get('multiple_teachers')){
-            $multiple_teachers= explode(',', $request->get('multiple_teachers'));
-            $event->teachers()->sync($multiple_teachers);
-        }
+        // Save event and repetitions
+            $event->save();
+            $this->saveEventRepetitions($request, $event);
 
-        if ($request->get('multiple_organizers')){
-            $multiple_organizers= explode(',', $request->get('multiple_organizers'));
-            $event->organizers()->sync($multiple_organizers);
-        }
+        // Update multi relationships with teachers and organizers tables.
+            if ($request->get('multiple_teachers')){
+                $multiple_teachers= explode(',', $request->get('multiple_teachers'));
+                $event->teachers()->sync($multiple_teachers);
+            }
+            if ($request->get('multiple_organizers')){
+                $multiple_organizers= explode(',', $request->get('multiple_organizers'));
+                $event->organizers()->sync($multiple_organizers);
+            }
 
         return redirect()->route('events.index')
                         ->with('success','Event updated successfully');
@@ -543,7 +545,9 @@ class EventController extends Controller
         // Weekely - save multiple week days
             if($request->get('repeat_weekly_on_day')){
                 $repeat_weekly_on_day = $request->get('repeat_weekly_on_day');
+                //dd($repeat_weekly_on_day);
                 $i = 0; $len = count($repeat_weekly_on_day); // to put "," to all items except the last
+                $event->repeat_weekly_on = "";
                 foreach ($repeat_weekly_on_day as $key => $weeek_day) {
                     $event->repeat_weekly_on .= $weeek_day;
                     if ($i != $len - 1)  // not last
