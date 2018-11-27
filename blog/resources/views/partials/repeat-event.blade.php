@@ -142,20 +142,15 @@
         </div>
 
         <div id="onMonthly" class="onFrequency col-xs-12 col-sm-6 col-lg-4" style="display:none">
-            <strong>On:</strong><br/>
-            aaaa
+            <strong>On2:</strong><br/>
+            <select name="category_id" id="category" class="selectpicker" title="aaa">
+                <option value="1" >1</option>
+                <option value="2" >2</option>
+                <option value="3" >3</option>
+            </select>
         </div>
 
         <div class="col-xs-12 col-sm-6 col-lg-8 mt-2 mt-sm-0">
-            {{-- <strong>Repeat Until</strong>
-            <div class="form-group">
-                <div class="input-group input-append date" id="datepicker_repeat_until" data-date-format="dd-mm-yyyy">
-                    <input name="repeatUntil" class="form-control" type="text" placeholder="Select date" value="" readonly="readonly" aria-describedby="date-addon-end">
-                    <div class="input-group-append">
-                        <span class="input-group-text" id="date-addon-end"><i class="far fa-calendar"></i></span>
-                    </div>
-                </div>
-            </div>--}}
 
             @include('partials.forms.input-date', [
                   'title' => 'Repeat Until',
@@ -165,22 +160,5 @@
             ])
 
         </div>
-    </div>
-</div>
-
-
-<div id="repeatMonthly" class="repeatTab" style="display:none">
-    <div class="row">
-        <div class="col-12">
-            <legend>Monthly</legend>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-12 col-sm-6 col-lg-4">
-            <strong>On:</strong><br/>
-
-        </div>
-
     </div>
 </div>
