@@ -248,7 +248,7 @@ class EventController extends Controller
         $dateTime['dateEnd'] = date("d/m/Y", strtotime($eventFirstRepetition->end_repeat));
         $dateTime['timeStart'] = date("g:i A", strtotime($eventFirstRepetition->start_repeat));
         $dateTime['timeEnd'] = date("g:i A", strtotime($eventFirstRepetition->end_repeat));
-
+        $dateTime['repeatUntil'] = date("d/m/Y", strtotime($event->repeat_until));
 
         // GET Multiple teachers
             $teachersDatas = $event->teachers;
@@ -270,7 +270,14 @@ class EventController extends Controller
 
             //dump($event);
 
-        return view('events.edit',compact('event'))->with('eventCategories', $eventCategories)->with('teachers', $teachers)->with('multiple_teachers', $multiple_teachers)->with('organizers', $organizers)->with('multiple_organizers', $multiple_organizers)->with('venues', $venues)->with('dateTime',$dateTime);
+        return view('events.edit',compact('event'))
+                    ->with('eventCategories', $eventCategories)
+                    ->with('teachers', $teachers)
+                    ->with('multiple_teachers', $multiple_teachers)
+                    ->with('organizers', $organizers)
+                    ->with('multiple_organizers', $multiple_organizers)
+                    ->with('venues', $venues)
+                    ->with('dateTime',$dateTime);
     }
 
     /**

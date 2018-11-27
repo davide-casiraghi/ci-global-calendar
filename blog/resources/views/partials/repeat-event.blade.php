@@ -158,8 +158,8 @@
             @include('partials.forms.input-date', [
                   'title' => 'Repeat Until',
                   'name' => 'repeat_until',
-                  'placeholder' => 'Select date'//,
-                  //'value' => $event->repeat_until
+                  'placeholder' => 'Select date',
+                  'value' => $dateTime['repeatUntil']
             ])
 
         </div>
