@@ -76,7 +76,66 @@
                         startDate: today
                     });
                 }
+
+
+
+                if (radioVal =="3"){
+                    getMonthlySelectOptions();
+                }
         }
+
+        function getMonthlySelectOptions(){
+
+            var request = $.ajax({
+                url: "/event/monthSelectOptions",
+                data: {
+                    day: $('#datepicker_start_date input').val()
+                },
+                success: function( data ) {
+                    console.log(data);
+                    $('#on_monthly_kind').selectpicker('val', data);
+
+
+
+                    /*$syndicationTime = jQuery("#syndicationTime td",data).html();
+                    $syndicationLast = jQuery("#syndicationLast",data).html();
+                    $syndicationPercentChange = jQuery("#syndicationPercentChange",data ).html();
+                    $positivoNegativo = jQuery("#syndicationPercentChange",data ).attr("style");
+                    $borsaImage = jQuery("#borsaImgCached",data ).html();
+                    jQuery("#syndicationTime").html($syndicationTime);
+                    jQuery("#syndicationLast").html($syndicationLast);
+                    jQuery("#syndicationPercentChange").html($syndicationPercentChange );
+                    jQuery("#syndicationPercentChange").attr("style",$positivoNegativo);
+                    jQuery("#imgBorsa").html($borsaImage);*/
+                }
+            });
+
+        }
+
+                /*
+                    test =
+                    $("#result").html(ajax_load);
+
+                    $.ajax({
+                    url:  '/event/monthSelectOptions',
+                    type: 'GET',
+                    dataType: 'html',
+                    data: {
+                        key: $(button).siblings('[name="id"]').attr("id"),
+                        idclient: $(button).siblings('[name="ClientId"]').attr("id"),
+                    },
+                    success: function(result) {
+                        //jQuery("#syndicationTime").html($syndicationTime);
+
+                    }
+                });
+                */
+
+
+
+
+
+
 
 
 @stop
@@ -143,7 +202,7 @@
 
         <div id="onMonthly" class="onFrequency col-xs-12 col-sm-6 col-lg-4" style="display:none">
             <strong>On2:</strong><br/>
-            <select name="category_id" id="category" class="selectpicker" title="aaa">
+            <select name="on_monthly_kind" id="on_monthly_kind" class="selectpicker" title="aaa">
                 <option value="1" >1</option>
                 <option value="2" >2</option>
                 <option value="3" >3</option>

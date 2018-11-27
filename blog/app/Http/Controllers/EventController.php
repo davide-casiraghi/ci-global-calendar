@@ -588,18 +588,67 @@ class EventController extends Controller
     // **********************************************************************
 
 
-    public function calculateMonthlySelectOptions(){
+    public function calculateMonthlySelectOptions(Request $request){
+        // https://www.theindychannel.com/calendar
 
         $monthlySelectOptions = array();
 
-        array_push($monthlySelectOptions, "aaa");
-        array_push($monthlySelectOptions, "bbb");
-        array_push($monthlySelectOptions, "ccc");
-        array_push($monthlySelectOptions, "ddd");
+        // same day number - eg. "the 28th day of the month"
+            $dateArray = explode("/",$request->day);
+            $dayNumber = $dateArray[0];
+            switch ($dayNumber) {
+                case  1:
+                    $ordinalIndicator = "st";
+                    break;
+                case  2:
+                    $ordinalIndicator = "nd";
+                    break;
+                case  3:
+                    $ordinalIndicator = "nd";
+                    break;
+                default:
+                    $ordinalIndicator = "th";
+                    break;
+            }
+
+            array_push($monthlySelectOptions, "the ".$dayNumber.$ordinalIndicator." day of the month");
+
+        // Same weekday/week of the month - eg. the "1st Monday"
+
+            // Our YYYY-MM-DD date string
+                $date = implode("-", array_reverse(explode("/",$request->day)));
+
+            // Convert the date string into a unix timestamp.
+                $unixTimestamp = strtotime($date);
+
+            // Get the day of the week using PHP's date function.
+                $dayOfWeek = date("l", $unixTimestamp);
+                $weekOfTheMonth = $this->weekOfMonth($unixTimestamp);
+
+            array_push($monthlySelectOptions, "the ".$weekOfTheMonth." ".$dayOfWeek." of the month");
+
+
+        // ?
+
+        // n day before the end of the month - the 4th to last day
+
+        // last
+
+
+
+        //$monthlySelectOptions = $request->day;
 
         return $monthlySelectOptions;
     }
 
+    // get number of week for month
+    // https://stackoverflow.com/questions/5853380/php-get-number-of-week-for-month
+    function weekOfMonth($when = null) {
+        if ($when === null) $when = time();
+        $week = strftime('%U', $when); // weeks start on Sunday
+        $firstWeekOfMonth = strftime('%U', strtotime(date('Y-m-01', $when)));
+        return 1 + ($week < $firstWeekOfMonth ? $week : $week - $firstWeekOfMonth);
+    }
 
 
 }
