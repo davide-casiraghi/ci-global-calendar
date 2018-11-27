@@ -14,7 +14,10 @@ class AddRepeatTypeEventsTable extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->integer('repeat_type')->default(0);
+            $table->integer('repeat_type');
+            $table->dateTime('repeat_until');
+            $table->string('weekly_on');
+            $table->string('monthly_on');
         });
     }
 
@@ -27,6 +30,9 @@ class AddRepeatTypeEventsTable extends Migration
     {
         Schema::table('events', function (Blueprint $table) {
             $table->dropColumn('repeat_type');
+            $table->dropColumn('repeat_until');
+            $table->dropColumn('weekly_on');
+            $table->dropColumn('monthly_on');
         });
     }
 }

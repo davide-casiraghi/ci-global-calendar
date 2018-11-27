@@ -1,7 +1,47 @@
 @section('javascript-document-ready')
     @parent
     $("input[name='repeatControl']").change(function(){
-        var radioVal = $("input[name='repeatControl']:checked").val();
+
+        // Show and hide the repeat options
+            var radioVal = $("input[name='repeatControl']:checked").val();
+            switch(radioVal) {
+                case '1':  // No Repeat
+                    $('.repeatDetails').hide();
+                break;
+                case '2':  // Repeat Weekly
+                    $('.repeatDetails').show();
+                    $('.onFrequency').hide();
+                    $('#onWeekly').show();
+                break;
+                case '3':  // Repeat Monthly
+                    $('.repeatDetails').show();
+                    $('.onFrequency').hide();
+                    $('#onMonthly').show();
+                break;
+            }
+
+        // Set date end to the same day of start if is a repeat event (this is to avoid mistakes of the users that set date end to the end of repetition)
+            if (radioVal =="2" || radioVal =="3"){
+                var dateStart = $("input[name='startDate']").val();
+                $("input[name='endDate']").val(dateStart);
+                $("input[name='endDate']").datepicker('destroy');
+            }
+
+        // Re-create the datepicker_end_date that has been destroyed in case of repetition
+            if (radioVal =="1"){
+                var today = new Date();
+
+                $('#datepicker_end_date input').datepicker({
+                    format: 'dd/mm/yyyy',
+                    startDate: today
+                });
+            }
+
+
+
+
+        //repeatDetails
+        /*
         $('.repeatTab').hide();
         $('#' + radioVal).show();
 
@@ -19,6 +59,9 @@
                 startDate: today
             });
         }
+        */
+
+
     });
 
 
@@ -31,37 +74,33 @@
     </div>
 </div>
 
-<div class="row mb-3">
+<div class="row mb-3 repeatController">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-primary active">
-                <input type="radio" name="repeatControl" value="noRepeat" id="option1" autocomplete="off" checked> None
+                <input type="radio" name="repeatControl" value="1"> No repeat
             </label>
             <label class="btn btn-primary">
-                <input type="radio" name="repeatControl" value="repeatWeekly" id="option2" autocomplete="off"> Weekly
+                <input type="radio" name="repeatControl" value="2"> Weekly
             </label>
             <label class="btn btn-primary">
-                <input type="radio" name="repeatControl" value="repeatMonthly" id="option3" autocomplete="off"> Monthly
+                <input type="radio" name="repeatControl" value="3"> Monthly
             </label>
         </div>
     </div>
 </div>
 
-<div id="repeatWeekly" class="repeatTab" style="display:none">
+<div class="repeatDetails" style="display:none">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <legend>Weekly</legend>
-            {{--<div class="btn-group btn-group-toggle mb-2" data-toggle="buttons">
-                <label class="btn btn-primary active">
-                    <input type="radio" name="options" id="option1" autocomplete="off" checked> Repeat count
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="options" id="option2" autocomplete="off"> Repeat until
-                </label>
-            </div>--}}
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-6">
-            <strong>By day</strong><br/>
+    </div>
+
+    <div class="row">
+
+        <div id="onWeekly" class="onFrequency col-xs-12 col-sm-6 col-lg-4" style="display:none">
+            <strong>On:</strong><br/>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-primary active">
                     <input type="checkbox" name="repeat_weekly_by_day[]" value="1" autocomplete="off" checked> M
@@ -86,34 +125,30 @@
                 </label>
             </div>
         </div>
-    </div>
 
-    <div class="row mt-3">
-        <div class="col-xs-1 col-sm-1 col-md-1 col-xs-1 text-center align-self-center">
-            <input type="radio" name="repeat_week_kind" value="repeat_count" aria-label="Radio button for following text input">
+        <div id="onMonthly" class="onFrequency col-xs-12 col-sm-6 col-lg-4" style="display:none">
+            <strong>On:</strong><br/>
+            aaaa
         </div>
-        <div class="col-xs-5 col-sm-5 col-md-5 col-xs-5">
-            <strong>Repeat Count</strong>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" name="how_many_weeks" placeholder="For how many weeks" aria-label="For how many weeks" aria-describedby="how-many-weeks">
-                <div class="input-group-append">
-                    <span class="input-group-text" id="how-many-weeks">weeks</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-1 col-sm-1 col-md-1 col-xs-1 text-center align-self-center">
-            <input type="radio" name="repeat_week_kind" value="repeat_until" aria-label="Radio button for following text input">
-        </div>
-        <div class="col-xs-5 col-sm-5 col-md-5 col-xs-1">
-            <strong>Repeat Until</strong>
+
+        <div class="col-xs-12 col-sm-6 col-lg-8 mt-2 mt-sm-0">
+            {{-- <strong>Repeat Until</strong>
             <div class="form-group">
-                <div class="input-group input-append date" id="datepicker_end_date" data-date-format="dd-mm-yyyy">
+                <div class="input-group input-append date" id="datepicker_repeat_until" data-date-format="dd-mm-yyyy">
                     <input name="repeatUntil" class="form-control" type="text" placeholder="Select date" value="" readonly="readonly" aria-describedby="date-addon-end">
                     <div class="input-group-append">
                         <span class="input-group-text" id="date-addon-end"><i class="far fa-calendar"></i></span>
                     </div>
                 </div>
-            </div>
+            </div>--}}
+
+            @include('partials.forms.input-date', [
+                  'title' => 'Repeat Until',
+                  'name' => 'repeatUntil',
+                  'placeholder' => 'Select date'//,
+                  //'value' => $event->repeat_until
+            ])
+
         </div>
     </div>
 </div>
@@ -121,54 +156,16 @@
 
 <div id="repeatMonthly" class="repeatTab" style="display:none">
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-12">
             <legend>Monthly</legend>
-            <div class="btn-group btn-group-toggle mb-2" data-toggle="buttons">
-                <label class="btn btn-primary active">
-                    <input type="radio" name="options" id="option1" autocomplete="off" checked> By month day
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="options" id="option2" autocomplete="off"> By day
-                </label>
-            </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6">
-            <strong>By month day</strong>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="10,25" aria-label="For how many weeks" aria-describedby="how-many-weeks">
-                <div class="input-group-append">
-                    <span class="input-group-text" id="how-many-weeks">comma separated list</span>
-                </div>
-            </div>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+            <strong>On:</strong><br/>
+
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-6">
-            <strong>By day</strong><br/>
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-primary active">
-                    <input type="checkbox" name="options" id="option1" autocomplete="off" checked> M
-                </label>
-                <label class="btn btn-primary">
-                    <input type="checkbox" name="options" id="option2" autocomplete="off"> T
-                </label>
-                <label class="btn btn-primary">
-                    <input type="checkbox" name="options" id="option3" autocomplete="off"> W
-                </label>
-                <label class="btn btn-primary">
-                    <input type="checkbox" name="options" id="option4" autocomplete="off"> T
-                </label>
-                <label class="btn btn-primary">
-                    <input type="checkbox" name="options" id="option5" autocomplete="off"> F
-                </label>
-                <label class="btn btn-primary">
-                    <input type="checkbox" name="options" id="option6" autocomplete="off"> S
-                </label>
-                <label class="btn btn-primary">
-                    <input type="checkbox" name="options" id="option7" autocomplete="off"> S
-                </label>
-            </div>
-        </div>
+
     </div>
 </div>
