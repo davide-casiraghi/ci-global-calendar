@@ -103,25 +103,25 @@
             <strong>On:</strong><br/>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-primary active">
-                    <input type="checkbox" name="repeat_weekly_by_day[]" value="1" autocomplete="off" checked> M
+                    <input type="checkbox" name="repeat_weekly_on_day[]" value="1" autocomplete="off" checked> M
                 </label>
                 <label class="btn btn-primary">
-                    <input type="checkbox" name="repeat_weekly_by_day[]" value="2" autocomplete="off"> T
+                    <input type="checkbox" name="repeat_weekly_on_day[]" value="2" autocomplete="off"> T
                 </label>
                 <label class="btn btn-primary">
-                    <input type="checkbox" name="repeat_weekly_by_day[]" value="3" autocomplete="off"> W
+                    <input type="checkbox" name="repeat_weekly_on_day[]" value="3" autocomplete="off"> W
                 </label>
                 <label class="btn btn-primary">
-                    <input type="checkbox" name="repeat_weekly_by_day[]" value="4" autocomplete="off"> T
+                    <input type="checkbox" name="repeat_weekly_on_day[]" value="4" autocomplete="off"> T
                 </label>
                 <label class="btn btn-primary">
-                    <input type="checkbox" name="repeat_weekly_by_day[]" value="5" autocomplete="off"> F
+                    <input type="checkbox" name="repeat_weekly_on_day[]" value="5" autocomplete="off"> F
                 </label>
                 <label class="btn btn-primary">
-                    <input type="checkbox" name="repeat_weekly_by_day[]" value="6" autocomplete="off"> S
+                    <input type="checkbox" name="repeat_weekly_on_day[]" value="6" autocomplete="off"> S
                 </label>
                 <label class="btn btn-primary">
-                    <input type="checkbox" name="repeat_weekly_by_day[]" value="7" autocomplete="off"> S
+                    <input type="checkbox" name="repeat_weekly_on_day[]" value="7" autocomplete="off"> S
                 </label>
             </div>
         </div>

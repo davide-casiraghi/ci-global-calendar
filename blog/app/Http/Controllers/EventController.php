@@ -142,17 +142,18 @@ class EventController extends Controller
                 $dateRepeatUntil = implode("-", array_reverse(explode("/",$request->get('repeat_until'))));
                 $event->repeat_until = $dateRepeatUntil." 00:00:00";
             }
-            // Weekely by day
-                if($request->get('repeat_weekly_by_day')){
-                    $repeat_weekly_by_day = $request->get('repeat_weekly_by_day');
-                    foreach ($repeat_weekly_by_day as $key => $weeek_day) {
+
+            // Weekely
+                if($request->get('repeat_weekly_on_day')){
+                    $repeat_weekly_on_day = $request->get('repeat_weekly_on_day');
+                    foreach ($repeat_weekly_on_day as $key => $weeek_day) {
                         $event->repeat_weekly_on .= $weeek_day;
-                        if ($key === key($repeat_weekly_by_day))
+                        if ($key === key($repeat_weekly_on_day))
                             $event->repeat_weekly_on .= ", ";
                     }
                 }
 
-
+            // Monthly
 
             /*$event->repeat_weekly_on = $request->get('repeat_type');
             $event->repeat_type = $request->get('repeat_monthly_on');*/
@@ -395,7 +396,7 @@ class EventController extends Controller
                                 $repeatUntilDate = date('d-m-Y', strtotime($startDate. ' + '.$request->get('how_many_weeks').' weeks'));
 
                             //dd($repeatUntilDate);
-                            $this->saveWeeklyRepeatDates($event, $request->get('repeat_weekly_by_day'),$startDate,$repeatUntilDate, $timeStart, $timeEnd);
+                            $this->saveWeeklyRepeatDates($event, $request->get('repeat_weekly_on_day'),$startDate,$repeatUntilDate, $timeStart, $timeEnd);
 
                         break;
                         case 'repeat_until':
@@ -405,7 +406,7 @@ class EventController extends Controller
                             $repeatUntilDate = implode("-", array_reverse(explode("/",$request->get('repeatUntil'))));
 
                         //dd($repeatUntilDate);
-                        $this->saveWeeklyRepeatDates($event, $request->get('repeat_weekly_by_day'),$startDate,$repeatUntilDate, $timeStart, $timeEnd);
+                        $this->saveWeeklyRepeatDates($event, $request->get('repeat_weekly_on_day'),$startDate,$repeatUntilDate, $timeStart, $timeEnd);
                         break;
                     }*/
 
@@ -415,7 +416,7 @@ class EventController extends Controller
                     // Calculate repeat until day
                         $repeatUntilDate = implode("-", array_reverse(explode("/",$request->get('repeat_until'))));
 
-                        $this->saveWeeklyRepeatDates($event, $request->get('repeat_weekly_by_day'),$startDate,$repeatUntilDate, $timeStart, $timeEnd);
+                        $this->saveWeeklyRepeatDates($event, $request->get('repeat_weekly_on_day'),$startDate,$repeatUntilDate, $timeStart, $timeEnd);
 
                     break;
 
