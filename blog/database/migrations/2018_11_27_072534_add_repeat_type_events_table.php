@@ -14,7 +14,7 @@ class AddRepeatTypeEventsTable extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            //
+            $table->integer('repeat_type')->default(0);
         });
     }
 
@@ -26,7 +26,7 @@ class AddRepeatTypeEventsTable extends Migration
     public function down()
     {
         Schema::table('events', function (Blueprint $table) {
-            //
+            $table->dropColumn('repeat_type');
         });
     }
 }

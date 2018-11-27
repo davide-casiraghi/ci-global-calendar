@@ -35,7 +35,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-primary active">
-                <input type="radio" name="repeatControl" value="noRepeat" id="option1" autocomplete="off" checked> No Repeat
+                <input type="radio" name="repeatControl" value="noRepeat" id="option1" autocomplete="off" checked> None
             </label>
             <label class="btn btn-primary">
                 <input type="radio" name="repeatControl" value="repeatWeekly" id="option2" autocomplete="off"> Weekly
