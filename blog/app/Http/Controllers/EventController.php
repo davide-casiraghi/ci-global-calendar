@@ -126,14 +126,36 @@ class EventController extends Controller
             $event->sc_teachers_id = $request->get('multiple_teachers');
             $event->sc_continent_id = $venue->continent_id;
 
+        // Multiple teachers
             if($request->get('multiple_teachers')){
-                $multiple_teachers= explode(',', $request->get('multiple_teachers'));
+                $multiple_teachers = explode(',', $request->get('multiple_teachers'));
                 foreach ($multiple_teachers as $key => $teacher_id) {
                     $event->sc_teachers_names .= $teachers[$teacher_id];
                     if ($key === key($multiple_teachers))
                         $event->sc_teachers_names .= ", ";
                 }
             }
+
+        // Event repeat details
+            $event->repeat_type = $request->get('repeat_type');
+            if($request->get('repeat_until')){
+                $dateRepeatUntil = implode("-", array_reverse(explode("/",$request->get('repeat_until'))));
+                $event->repeat_until = $dateRepeatUntil." 00:00:00";
+            }
+            // Weekely by day
+                if($request->get('repeat_weekly_by_day')){
+                    $repeat_weekly_by_day = $request->get('repeat_weekly_by_day');
+                    foreach ($repeat_weekly_by_day as $key => $weeek_day) {
+                        $event->repeat_weekly_on .= $weeek_day;
+                        if ($key === key($repeat_weekly_by_day))
+                            $event->repeat_weekly_on .= ", ";
+                    }
+                }
+
+
+
+            /*$event->repeat_weekly_on = $request->get('repeat_type');
+            $event->repeat_type = $request->get('repeat_monthly_on');*/
 
             $event->save();
 
@@ -350,9 +372,8 @@ class EventController extends Controller
         // Saving repetitions - If it's a single event will be stored with just one repetition
             $timeStart = date("H:i:s", strtotime($request->get('time_start')));
             $timeEnd = date("H:i:s", strtotime($request->get('time_end')));
-
-            switch($request->get('repeatControl')){
-                case 'noRepeat':
+            switch($request->get('repeat_type')){
+                case '1':  // noRepeat
                     $eventRepetition = new EventRepetition();
                     $eventRepetition->event_id = $event->id;
 
@@ -365,7 +386,7 @@ class EventController extends Controller
 
                     break;
 
-                case 'repeatWeekly':
+                case '2':   // repeatWeekly
                     /*switch($request->get('repeat_week_kind')){
                         case 'repeat_count':
                             // Convert the start date in a format that can be used for strtotime
@@ -392,13 +413,13 @@ class EventController extends Controller
                         $startDate = implode("-", array_reverse(explode("/",$request->get('startDate'))));
 
                     // Calculate repeat until day
-                        $repeatUntilDate = implode("-", array_reverse(explode("/",$request->get('repeatUntil'))));
+                        $repeatUntilDate = implode("-", array_reverse(explode("/",$request->get('repeat_until'))));
 
                         $this->saveWeeklyRepeatDates($event, $request->get('repeat_weekly_by_day'),$startDate,$repeatUntilDate, $timeStart, $timeEnd);
 
                     break;
 
-                case 'repeatMonthly':
+                case '3':  //repeatMonthly
                     //Second case...
                     break;
             }

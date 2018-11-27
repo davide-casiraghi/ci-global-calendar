@@ -1,10 +1,10 @@
 @section('javascript-document-ready')
     @parent
-    var today = new Date();
+    // var today = new Date();
 
     $('#{{ $name }} input').datepicker({
         format: 'dd/mm/yyyy',
-        startDate: today
+        // startDate: today
     });
 @stop
 

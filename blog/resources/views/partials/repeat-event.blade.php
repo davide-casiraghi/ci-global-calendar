@@ -1,9 +1,9 @@
 @section('javascript-document-ready')
     @parent
-    $("input[name='repeatControl']").change(function(){
+    $("input[name='repeat_type']").change(function(){
 
         // Show and hide the repeat options
-            var radioVal = $("input[name='repeatControl']:checked").val();
+            var radioVal = $("input[name='repeat_type']:checked").val();
             switch(radioVal) {
                 case '1':  // No Repeat
                     $('.repeatDetails').hide();
@@ -78,13 +78,13 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-primary active">
-                <input type="radio" name="repeatControl" value="1"> No repeat
+                <input type="radio" name="repeat_type" value="1" checked> No repeat
             </label>
             <label class="btn btn-primary">
-                <input type="radio" name="repeatControl" value="2"> Weekly
+                <input type="radio" name="repeat_type" value="2"> Weekly
             </label>
             <label class="btn btn-primary">
-                <input type="radio" name="repeatControl" value="3"> Monthly
+                <input type="radio" name="repeat_type" value="3"> Monthly
             </label>
         </div>
     </div>
@@ -144,7 +144,7 @@
 
             @include('partials.forms.input-date', [
                   'title' => 'Repeat Until',
-                  'name' => 'repeatUntil',
+                  'name' => 'repeat_until',
                   'placeholder' => 'Select date'//,
                   //'value' => $event->repeat_until
             ])
