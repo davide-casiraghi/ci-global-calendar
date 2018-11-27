@@ -129,10 +129,12 @@ class EventController extends Controller
         // Multiple teachers
             if($request->get('multiple_teachers')){
                 $multiple_teachers = explode(',', $request->get('multiple_teachers'));
+                $i = 0; $len = count($multiple_teachers); // to put "," to all items except the last
                 foreach ($multiple_teachers as $key => $teacher_id) {
                     $event->sc_teachers_names .= $teachers[$teacher_id];
-                    if ($key === key($multiple_teachers))
+                    if ($i != $len - 1)  // not last
                         $event->sc_teachers_names .= ", ";
+                    $i++;
                 }
             }
 
@@ -143,7 +145,7 @@ class EventController extends Controller
                 $event->repeat_until = $dateRepeatUntil." 00:00:00";
             }
 
-            // Weekely
+            // Weekely - save multiple week days
                 if($request->get('repeat_weekly_on_day')){
                     $repeat_weekly_on_day = $request->get('repeat_weekly_on_day');
                     $i = 0; $len = count($repeat_weekly_on_day); // to put "," to all items except the last
