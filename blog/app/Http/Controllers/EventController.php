@@ -80,8 +80,15 @@ class EventController extends Controller
         $venues = DB::table('event_venues')
                 ->select('id','name','city')->get();
 
+        $dateTime['repeatUntil'] = null;
+
         //return view('events.create');
-        return view('events.create')->with('eventCategories', $eventCategories)->with('teachers', $teachers)->with('organizers', $organizers)->with('venues', $venues);
+        return view('events.create')
+        ->with('eventCategories', $eventCategories)
+        ->with('teachers', $teachers)
+        ->with('organizers', $organizers)
+        ->with('venues', $venues)
+        ->with('dateTime',$dateTime);
     }
 
     /**
@@ -139,37 +146,13 @@ class EventController extends Controller
             }
 
         // Event repeat details
-            $event->repeat_type = $request->get('repeat_type');
-            if($request->get('repeat_until')){
-                $dateRepeatUntil = implode("-", array_reverse(explode("/",$request->get('repeat_until'))));
-                $event->repeat_until = $dateRepeatUntil." 00:00:00";
-            }
+            $event = $this->setEventRepeatFields($request, $event);
 
-            // Weekely - save multiple week days
-                if($request->get('repeat_weekly_on_day')){
-                    $repeat_weekly_on_day = $request->get('repeat_weekly_on_day');
-                    $i = 0; $len = count($repeat_weekly_on_day); // to put "," to all items except the last
-                    foreach ($repeat_weekly_on_day as $key => $weeek_day) {
-                        $event->repeat_weekly_on .= $weeek_day;
-                        if ($i != $len - 1)  // not last
-                            $event->repeat_weekly_on .= ",";
-                        $i++;
-                    }
-                }
-
-            // Monthly
-
-/*
-            $event->repeat_type = $request->get('repeat_monthly_on');*/
-
+        // Save event and repetitions
             $event->save();
-
             $this->saveEventRepetitions($request, $event);
 
         // Update multi relationships with teachers and organizers tables.
-            //$event->teachers()->sync([1, 2]);
-            //dd($request->get('multiple_teachers'));
-
             if ($request->get('multiple_teachers')){
                 $multiple_teachers= explode(',', $request->get('multiple_teachers'));
                 $event->teachers()->sync($multiple_teachers);
@@ -546,5 +529,36 @@ class EventController extends Controller
 
         return view('emails.report-thankyou');
     }
+
+
+    /*************************/
+
+    public function setEventRepeatFields($request, $event){
+        $event->repeat_type = $request->get('repeat_type');
+        if($request->get('repeat_until')){
+            $dateRepeatUntil = implode("-", array_reverse(explode("/",$request->get('repeat_until'))));
+            $event->repeat_until = $dateRepeatUntil." 00:00:00";
+        }
+
+        // Weekely - save multiple week days
+            if($request->get('repeat_weekly_on_day')){
+                $repeat_weekly_on_day = $request->get('repeat_weekly_on_day');
+                $i = 0; $len = count($repeat_weekly_on_day); // to put "," to all items except the last
+                foreach ($repeat_weekly_on_day as $key => $weeek_day) {
+                    $event->repeat_weekly_on .= $weeek_day;
+                    if ($i != $len - 1)  // not last
+                        $event->repeat_weekly_on .= ",";
+                    $i++;
+                }
+            }
+
+        // Monthly
+
+    /* $event->repeat_type = $request->get('repeat_monthly_on');*/
+
+        return $event;
+    }
+
+
 
 }

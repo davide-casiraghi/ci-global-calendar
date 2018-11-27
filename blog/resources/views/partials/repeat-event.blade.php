@@ -159,7 +159,7 @@
                   'title' => 'Repeat Until',
                   'name' => 'repeat_until',
                   'placeholder' => 'Select date',
-                  'value' => $dateTime['repeatUntil']
+                  'value' => $dateTime['repeatUntil'] 
             ])
 
         </div>
