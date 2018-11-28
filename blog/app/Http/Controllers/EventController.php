@@ -634,11 +634,13 @@ class EventController extends Controller
 
         // last
 
+            $onMonthlyKindSelect = "<select name='on_monthly_kind' id='on_monthly_kind' class='selectpicker' title='Select repeat monthly kind'>";
+                foreach ($monthlySelectOptions as $key => $monthlySelectOption) {
+                    $onMonthlyKindSelect .= "<option value='".$key."'>".$monthlySelectOption."</option>";
+                }
+            $onMonthlyKindSelect .= "</select>";
 
-
-        //$monthlySelectOptions = $request->day;
-
-        return $monthlySelectOptions;
+        return $onMonthlyKindSelect;
     }
 
     // get number of week for month
