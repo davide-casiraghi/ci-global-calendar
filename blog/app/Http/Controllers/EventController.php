@@ -596,7 +596,10 @@ class EventController extends Controller
         // same day number - eg. "the 28th day of the month"
             $dateArray = explode("/",$request->day);
             $dayNumber = $dateArray[0];
-            switch ($dayNumber) {
+
+
+            $ordinalIndicator = $this->getOrdinalIndicator($dayNumber);
+            /*switch ($dayNumber) {
                 case  1:
                     $ordinalIndicator = "st";
                     break;
@@ -609,9 +612,14 @@ class EventController extends Controller
                 default:
                     $ordinalIndicator = "th";
                     break;
-            }
+            }*/
 
-            array_push($monthlySelectOptions, "the ".$dayNumber.$ordinalIndicator." day of the month");
+            //array_push($monthlySelectOptions, "the ".$dayNumber.$ordinalIndicator." day of the month");
+            array_push($monthlySelectOptions, array(
+                "value" => $dayNumber."|0",
+                "text" => "the ".$dayNumber.$ordinalIndicator." day of the month"
+            ));
+
 
         // Same weekday/week of the month - eg. the "1st Monday"
 
@@ -622,21 +630,26 @@ class EventController extends Controller
                 $unixTimestamp = strtotime($date);
 
             // Get the day of the week using PHP's date function.
-                $dayOfWeek = date("l", $unixTimestamp);
+                $dayOfWeek = date("l", $unixTimestamp); // Monday | Tuesday | Wednesday | ..
                 $weekOfTheMonth = $this->weekOfMonth($unixTimestamp);
 
-            array_push($monthlySelectOptions, "the ".$weekOfTheMonth." ".$dayOfWeek." of the month");
-
+            //array_push($monthlySelectOptions, "the ".$weekOfTheMonth." ".$dayOfWeek." of the month");
+            array_push($monthlySelectOptions, array(
+                "value" => $dayNumber."|0",
+                "text" => "the ".$weekOfTheMonth." ".$dayOfWeek." of the month"
+            ));
 
         // ?
 
         // n day before the end of the month - the 4th to last day
 
-        // last
+        // the 2nd to last Sunday
 
+
+        // RENDER the html to return
             $onMonthlyKindSelect = "<select name='on_monthly_kind' id='on_monthly_kind' class='selectpicker' title='Select repeat monthly kind'>";
                 foreach ($monthlySelectOptions as $key => $monthlySelectOption) {
-                    $onMonthlyKindSelect .= "<option value='".$key."'>".$monthlySelectOption."</option>";
+                    $onMonthlyKindSelect .= "<option value='".$monthlySelectOption['value']."'>".$monthlySelectOption['text']."</option>";
                 }
             $onMonthlyKindSelect .= "</select>";
 
@@ -652,5 +665,31 @@ class EventController extends Controller
         return 1 + ($week < $firstWeekOfMonth ? $week : $week - $firstWeekOfMonth);
     }
 
+
+    // **********************************************************************
+
+    /**
+     * return the ordinal indicator (st, nd, rd, th) (for the day of the mont)
+     *
+     * @param  int $number
+     * @return string $ret -  st, nd, rd, th
+     */
+    public function getOrdinalIndicator($number){
+        switch ($number) {
+            case  1:
+                $ret = "st";
+                break;
+            case  2:
+                $ret = "nd";
+                break;
+            case  3:
+                $ret = "nd";
+                break;
+            default:
+                $ret = "th";
+                break;
+        }
+        return $ret;
+    }
 
 }
