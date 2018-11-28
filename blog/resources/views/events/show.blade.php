@@ -57,9 +57,6 @@
         </div>
 
 
-
-
-
         <div class="eventBody col-xs-12 col-sm-12 col-md-12 mt-5">
             {!! $event->description !!}
         </div>
