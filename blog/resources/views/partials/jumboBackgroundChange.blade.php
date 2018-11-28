@@ -52,7 +52,7 @@
                         'background-image',
                         backgrounds[current = ++current % backgrounds.length]
                     );
-                    elementCredits.html(credits[current = ++current % credits.length]);
+                    elementCredits.html(credits[current]);
 
                     setTimeout(nextBackground, 10000);
                     setTimeout(elementCredits, 10000);
