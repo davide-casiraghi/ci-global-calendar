@@ -1,6 +1,8 @@
 @section('javascript-document-ready')
     @parent
 
+    {{-- ON LOAD --}}
+
     {{-- SET the week days saved - when the edit view is open  --}}
         var weekDaysSelected = $('#repeat_weekly_on').val();
         if (weekDaysSelected){
@@ -14,32 +16,20 @@
     {{-- SET the repeat values, show and hide the repeat options - when the edit view is open --}}
         setRepeatValues();
 
+    {{-- ON CHANGE --}}
+
     {{-- SET the repeat values, show and hide the repeat options - when repeat type is changed --}}
         $("input[name='repeat_type']").change(function(){
-
             setRepeatValues();
-
-            //repeatDetails
-            /*
-            $('.repeatTab').hide();
-            $('#' + radioVal).show();
-
-            if (radioVal =="repeatWeekly"){
-                var dateStart = $("input[name='startDate']").val();
-                $("input[name='endDate']").val(dateStart);
-                $("input[name='endDate']").datepicker('destroy');
-            }
-
-            if (radioVal =="noRepeat"){
-                var today = new Date();
-
-                $('#datepicker_end_date input').datepicker({
-                    format: 'dd/mm/yyyy',
-                    startDate: today
-                });
-            }
-            */
         });
+
+    {{-- UPDATE monthly select options every time the start date is changed --}}
+        $("input[name='startDate']").change(function(){
+            updateMonthlySelectOptions();
+        });
+
+
+    {{-- FUNCTIONS --}}
 
     {{-- Show and hide the repeat options --}}
         function setRepeatValues(radioVal) {
@@ -77,14 +67,13 @@
                     });
                 }
 
-
-
                 if (radioVal =="3"){
-                    getMonthlySelectOptions();
+                    updateMonthlySelectOptions();
                 }
         }
 
-        function getMonthlySelectOptions(){
+    {{-- UPDATE the select month options --}}
+        function updateMonthlySelectOptions(){
 
             var request = $.ajax({
                 url: "/event/monthSelectOptions",
@@ -99,31 +88,17 @@
 
         }
 
-                /*
-                    test =
-                    $("#result").html(ajax_load);
+            /*
 
-                    $.ajax({
-                    url:  '/event/monthSelectOptions',
-                    type: 'GET',
-                    dataType: 'html',
-                    data: {
-                        key: $(button).siblings('[name="id"]').attr("id"),
-                        idclient: $(button).siblings('[name="ClientId"]').attr("id"),
-                    },
-                    success: function(result) {
-                        //jQuery("#syndicationTime").html($syndicationTime);
+            if (radioVal =="noRepeat"){
+                var today = new Date();
 
-                    }
+                $('#datepicker_end_date input').datepicker({
+                    format: 'dd/mm/yyyy',
+                    startDate: today
                 });
-                */
-
-
-
-
-
-
-
+            }
+            */
 
 @stop
 
