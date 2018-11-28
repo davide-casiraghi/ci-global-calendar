@@ -680,8 +680,8 @@ class EventController extends Controller
      */
     function weekOfMonth($when = null) {
         if ($when === null) $when = time();
-        $week = strftime('%U', $when); // weeks start on Sunday
-        $firstWeekOfMonth = strftime('%U', strtotime(date('Y-m-01', $when)));
+        $week = strftime('%V', $when); // weeks start on Monday
+        $firstWeekOfMonth = strftime('%V', strtotime(date('Y-m-01', $when)));
         return 1 + ($week < $firstWeekOfMonth ? $week : $week - $firstWeekOfMonth);
     }
 
@@ -689,15 +689,19 @@ class EventController extends Controller
 
     /**
      * GET number of week for month - https://stackoverflow.com/questions/5853380/php-get-number-of-week-for-month
+     * Week of the month = Week of the year - Week of the year of first day of month + 1
      *
      * @param  string $when - unix timestramp of the date specified
      * @return int the number of the week in the month of the day specified
      */
     function weekOfMonthFromTheEnd($when = null) {
         if ($when === null) $when = time();
-        $week = strftime('%U', $when); // weeks start on Sunday
-        $firstWeekOfMonth = strftime('%U', strtotime(date('Y-m-01', $when)));
-        return 1 + ($week < $firstWeekOfMonth ? $week : $week - $firstWeekOfMonth);
+        $week = strftime('%V', $when); // weeks start on Monday
+        $lastWeekOfMonth = strftime('%V', strtotime(date('Y-m-t', $when)));  // t returns the number of days in the month of a given date
+
+        //return 1 + ($week < $lastWeekOfMonth ? $week : $week - $lastWeekOfMonth);
+
+        return $lastWeekOfMonth;
     }
 
     // **********************************************************************
