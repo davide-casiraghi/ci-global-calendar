@@ -14,9 +14,6 @@
         $('form#searchForm').submit();
     });
 
-    {{-- BACKGROUND IMAGES --}}
-
-
 @stop
 
 @section('beforeContent')
