@@ -25,5 +25,6 @@ return [
     'create_account' => 'Create Account',
     'login' => 'Login',
     'logout' => 'Logout',
-    'donate' => 'Donate'
+    'donate' => 'Donate',
+    'teachers_directory' => 'Teachers directory'
 ];

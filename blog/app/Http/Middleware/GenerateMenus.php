@@ -83,6 +83,8 @@ class GenerateMenus
                                 $profile->link->builder->items[13]->title = '<i class="far fa-globe-americas"></i> '.__('menu.countries');
                             $profile->add('Background images', ['action' => ['BackgroundImageController@index']]);
                                 $profile->link->builder->items[14]->title = '<i class="far fa-images"></i> '.__('menu.background_images');
+                                $profile->add('Teachers directory', ['action' => ['TeacherController@index']]);
+                                    $profile->link->builder->items[15]->title = '<i class="far fa-users"></i> '.__('menu.teachers_directory');
                         }
                 }
             }
