@@ -51,6 +51,15 @@
             </div>
         @endif
 
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-1">
+            <i class="far fa-folders mr-1" data-toggle="tooltip" data-placement="top" title="Repetitions"></i>
+            The event happens every Thursday until 10/6/2018
+        </div>
+
+
+
+
+
         <div class="eventBody col-xs-12 col-sm-12 col-md-12 mt-5">
             {!! $event->description !!}
         </div>
