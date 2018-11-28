@@ -598,6 +598,8 @@ class EventController extends Controller
     public function calculateMonthlySelectOptions(Request $request){
 
         $monthlySelectOptions = array();
+        $date = implode("-", array_reverse(explode("/",$request->day)));  // Our YYYY-MM-DD date string
+        $unixTimestamp = strtotime($date);  // Convert the date string into a unix timestamp.
 
         // same day number - eg. "the 28th day of the month"
             $dateArray = explode("/",$request->day);
@@ -612,18 +614,11 @@ class EventController extends Controller
 
         // Same weekday/week of the month - eg. the "1st Monday"
 
-            // Our YYYY-MM-DD date string
-                $date = implode("-", array_reverse(explode("/",$request->day)));
-
-            // Convert the date string into a unix timestamp.
-                $unixTimestamp = strtotime($date);
-
             // Get the day of the week using PHP's date function.
                 $dayOfWeekString = date("l", $unixTimestamp); // Monday | Tuesday | Wednesday | ..
                 $dayOfWeekValue = date("N", $unixTimestamp); // 1 (for Monday) through 7 (for Sunday)
                 $weekOfTheMonth = $this->weekOfMonth($unixTimestamp); // 1 | 2 | 3 | 4 | 5
                 $ordinalIndicator = $this->getOrdinalIndicator($weekOfTheMonth);
-
 
             array_push($monthlySelectOptions, array(
                 "value" => "1|".$weekOfTheMonth."|".$dayOfWeekValue,
@@ -632,26 +627,41 @@ class EventController extends Controller
 
         // ?
 
-        // ?
+        // Same day of the month (from the end) - the 3rd to last day
+        // Get the date parameters
+            $dayOfWeekString = date("l", $unixTimestamp);  // Monday | Tuesday | Wednesday | ..
+            $dayOfMonthFromTheEnd = $this->dayOfMonthFromTheEnd($unixTimestamp); // 1 | 2 | 3 | 4 | 5
+            $ordinalIndicator = $this->getOrdinalIndicator($dayOfMonthFromTheEnd);
 
+            if ($dayOfMonthFromTheEnd == 1){
+                $dayText = "last";
+            }
+            else{
+                $dayText = $dayOfMonthFromTheEnd.$ordinalIndicator." to last";
+            }
+
+        array_push($monthlySelectOptions, array(
+            "value" => "2|".$dayOfMonthFromTheEnd."|".$dayOfWeekValue,
+            "text" => "the ".$dayText." day of the month"
+        ));
 
         // Same weekday/week of the month (from the end) - the last Friday - the 2nd to last Friday
 
-            // Our YYYY-MM-DD date string
-                $date = implode("-", array_reverse(explode("/",$request->day)));
-
-            // Convert the date string into a unix timestamp.
-                $unixTimestamp = strtotime($date);
-
-            // Get the day of the week using PHP's date function.
-                $dayOfWeekString = date("l", $unixTimestamp); // Monday | Tuesday | Wednesday | ..
-                $dayOfWeekValue = date("N", $unixTimestamp); // 1 (for Monday) through 7 (for Sunday)
+            // Get the date parameters
+                $dayOfWeekString = date("l", $unixTimestamp);  // Monday | Tuesday | Wednesday | ..
                 $weekOfMonthFromTheEnd = $this->weekOfMonthFromTheEnd($unixTimestamp); // 1 | 2 | 3 | 4 | 5
                 $ordinalIndicator = $this->getOrdinalIndicator($weekOfMonthFromTheEnd);
 
+                if ($weekOfMonthFromTheEnd == 1){
+                    $weekText = "last";
+                }
+                else{
+                    $weekText = $weekOfMonthFromTheEnd.$ordinalIndicator;
+                }
+
             array_push($monthlySelectOptions, array(
-                "value" => "2|".$weekOfMonthFromTheEnd."|".$dayOfWeekValue,
-                "text" => "the ".$weekOfMonthFromTheEnd.$ordinalIndicator." ".$dayOfWeekString." of the month"
+                "value" => "3|".$weekOfMonthFromTheEnd."|".$dayOfWeekValue,
+                "text" => "the ".$weekText." to last ".$dayOfWeekString." of the month"
             ));
 
 
@@ -680,8 +690,8 @@ class EventController extends Controller
      */
     function weekOfMonth($when = null) {
         if ($when === null) $when = time();
-        $week = strftime('%V', $when); // weeks start on Monday
-        $firstWeekOfMonth = strftime('%V', strtotime(date('Y-m-01', $when)));
+        $week = strftime('%U', $when); // weeks start on Monday
+        $firstWeekOfMonth = strftime('%U', strtotime(date('Y-m-01', $when)));
         return 1 + ($week < $firstWeekOfMonth ? $week : $week - $firstWeekOfMonth);
     }
 
@@ -695,13 +705,48 @@ class EventController extends Controller
      * @return int the number of the week in the month of the day specified
      */
     function weekOfMonthFromTheEnd($when = null) {
-        if ($when === null) $when = time();
-        $week = strftime('%V', $when); // weeks start on Monday
-        $lastWeekOfMonth = strftime('%V', strtotime(date('Y-m-t', $when)));  // t returns the number of days in the month of a given date
+        $numberOfDayOfTheMonth = strftime('%e', $when); // Day of the month 1-31
+        $lastDayOfMonth = strftime('%e', strtotime(date('Y-m-t', $when))); // the last day of the month of the specified date
+        $dayDifference = $lastDayOfMonth - $numberOfDayOfTheMonth;
 
-        //return 1 + ($week < $lastWeekOfMonth ? $week : $week - $lastWeekOfMonth);
+        switch (true) {
+            case ($dayDifference < 7):
+                $weekFromTheEnd = 1;
+                break;
 
-        return $lastWeekOfMonth;
+            case ($dayDifference < 14):
+                $weekFromTheEnd = 2;
+                break;
+
+            case ($dayDifference < 21):
+                $weekFromTheEnd = 3;
+                break;
+
+            case ($dayDifference < 28):
+                $weekFromTheEnd = 4;
+                break;
+
+            default:
+                $weekFromTheEnd = 5;
+                break;
+        }
+        return $weekFromTheEnd;
+    }
+
+    // **********************************************************************
+    /**
+     * GET number of week for month - https://stackoverflow.com/questions/5853380/php-get-number-of-week-for-month
+     * Week of the month = Week of the year - Week of the year of first day of month + 1
+     *
+     * @param  string $when - unix timestramp of the date specified
+     * @return int the number of the week in the month of the day specified
+     */
+    function dayOfMonthFromTheEnd($when = null) {
+        $numberOfDayOfTheMonth = strftime('%e', $when); // Day of the month 1-31
+        $lastDayOfMonth = strftime('%e', strtotime(date('Y-m-t', $when))); // the last day of the month of the specified date
+        $dayDifference = $lastDayOfMonth - $numberOfDayOfTheMonth;
+
+        return $dayDifference;
     }
 
     // **********************************************************************
