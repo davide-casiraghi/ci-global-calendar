@@ -623,11 +623,12 @@ class EventController extends Controller
                 $dayOfWeekString = date("l", $unixTimestamp); // Monday | Tuesday | Wednesday | ..
                 $dayOfWeekValue = date("N", $unixTimestamp); // 1 (for Monday) through 7 (for Sunday)
                 $weekOfTheMonth = $this->weekOfMonth($unixTimestamp); // 1 | 2 | 3 | 4 | 5
+                $ordinalIndicator = $this->getOrdinalIndicator($weekOfTheMonth);
 
             //array_push($monthlySelectOptions, "the ".$weekOfTheMonth." ".$dayOfWeek." of the month");
             array_push($monthlySelectOptions, array(
                 "value" => "1|".$weekOfTheMonth."|".$dayOfWeekValue,
-                "text" => "the ".$weekOfTheMonth." ".$dayOfWeekString." of the month"
+                "text" => "the ".$weekOfTheMonth.$ordinalIndicator." ".$dayOfWeekString." of the month"
             ));
 
         // ?
