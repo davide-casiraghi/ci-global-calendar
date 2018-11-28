@@ -600,6 +600,7 @@ class EventController extends Controller
         $monthlySelectOptions = array();
         $date = implode("-", array_reverse(explode("/",$request->day)));  // Our YYYY-MM-DD date string
         $unixTimestamp = strtotime($date);  // Convert the date string into a unix timestamp.
+        $dayOfWeekString = date("l", $unixTimestamp); // Monday | Tuesday | Wednesday | ..
 
         // same day number - eg. "the 28th day of the month"
             $dateArray = explode("/",$request->day);
@@ -615,7 +616,7 @@ class EventController extends Controller
         // Same weekday/week of the month - eg. the "1st Monday"
 
             // Get the day of the week using PHP's date function.
-                $dayOfWeekString = date("l", $unixTimestamp); // Monday | Tuesday | Wednesday | ..
+
                 $dayOfWeekValue = date("N", $unixTimestamp); // 1 (for Monday) through 7 (for Sunday)
                 $weekOfTheMonth = $this->weekOfMonth($unixTimestamp); // 1 | 2 | 3 | 4 | 5
                 $ordinalIndicator = $this->getOrdinalIndicator($weekOfTheMonth);
@@ -629,19 +630,20 @@ class EventController extends Controller
 
         // Same day of the month (from the end) - the 3rd to last day
         // Get the date parameters
-            $dayOfWeekString = date("l", $unixTimestamp);  // Monday | Tuesday | Wednesday | ..
             $dayOfMonthFromTheEnd = $this->dayOfMonthFromTheEnd($unixTimestamp); // 1 | 2 | 3 | 4 | 5
             $ordinalIndicator = $this->getOrdinalIndicator($dayOfMonthFromTheEnd);
 
             if ($dayOfMonthFromTheEnd == 1){
                 $dayText = "last";
+                $dayValue = 0;
             }
             else{
                 $dayText = $dayOfMonthFromTheEnd.$ordinalIndicator." to last";
+                $dayValue = $dayOfMonthFromTheEnd-1;
             }
 
         array_push($monthlySelectOptions, array(
-            "value" => "2|".$dayOfMonthFromTheEnd."|".$dayOfWeekValue,
+            "value" => "2|".$dayValue,
             "text" => "the ".$dayText." day of the month"
         ));
 
@@ -653,15 +655,15 @@ class EventController extends Controller
                 $ordinalIndicator = $this->getOrdinalIndicator($weekOfMonthFromTheEnd);
 
                 if ($weekOfMonthFromTheEnd == 1){
-                    $weekText = "last";
+                    $weekText = "last ";
                 }
                 else{
-                    $weekText = $weekOfMonthFromTheEnd.$ordinalIndicator;
+                    $weekText = $weekOfMonthFromTheEnd.$ordinalIndicator." to last ";
                 }
 
             array_push($monthlySelectOptions, array(
                 "value" => "3|".$weekOfMonthFromTheEnd."|".$dayOfWeekValue,
-                "text" => "the ".$weekText." to last ".$dayOfWeekString." of the month"
+                "text" => "the ".$weekText.$dayOfWeekString." of the month"
             ));
 
 
