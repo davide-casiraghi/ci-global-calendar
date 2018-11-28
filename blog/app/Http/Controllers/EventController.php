@@ -656,8 +656,15 @@ class EventController extends Controller
         return $onMonthlyKindSelect;
     }
 
-    // get number of week for month
-    // https://stackoverflow.com/questions/5853380/php-get-number-of-week-for-month
+    // **********************************************************************
+
+    /**
+     * GET number of week for month - https://stackoverflow.com/questions/5853380/php-get-number-of-week-for-month
+     *
+     * @param  string $when - unix timestramp of the date specified
+     * @return int the number of the week in the month of the day specified
+     */
+
     function weekOfMonth($when = null) {
         if ($when === null) $when = time();
         $week = strftime('%U', $when); // weeks start on Sunday
@@ -669,12 +676,12 @@ class EventController extends Controller
     // **********************************************************************
 
     /**
-     * return the ordinal indicator (st, nd, rd, th) (for the day of the mont)
+     * GET the ordinal indicator - for the day of the month
      *
      * @param  int $number
-     * @return string $ret -  st, nd, rd, th
+     * @return string $ret - the ordinal indicator (st, nd, rd, th)
      */
-    public function getOrdinalIndicator($number){
+    function getOrdinalIndicator($number){
         switch ($number) {
             case  1:
                 $ret = "st";
