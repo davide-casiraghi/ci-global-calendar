@@ -730,11 +730,10 @@ class EventController extends Controller
 
     // **********************************************************************
     /**
-     * GET number of week for month - https://stackoverflow.com/questions/5853380/php-get-number-of-week-for-month
-     * Week of the month = Week of the year - Week of the year of first day of month + 1
+     * GET number of day of the month from end
      *
      * @param  string $when - unix timestramp of the date specified
-     * @return int the number of the week in the month of the day specified
+     * @return int the number of day of the month from end
      */
     function dayOfMonthFromTheEnd($when = null) {
         $numberOfDayOfTheMonth = strftime('%e', $when); // Day of the month 1-31
