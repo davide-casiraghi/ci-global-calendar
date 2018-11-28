@@ -626,10 +626,7 @@ class EventController extends Controller
                 "text" => "the ".$weekOfTheMonth.$ordinalIndicator." ".$dayOfWeekString." of the month"
             ));
 
-        // ?
-
-        // Same day of the month (from the end) - the 3rd to last day
-        // Get the date parameters
+        // Same day of the month (from the end) - the 3rd to last day (0 if last day, 1 if 2nd to last day, , 2 if 3rd to last day)
             $dayOfMonthFromTheEnd = $this->dayOfMonthFromTheEnd($unixTimestamp); // 1 | 2 | 3 | 4 | 5
             $ordinalIndicator = $this->getOrdinalIndicator($dayOfMonthFromTheEnd);
 
@@ -647,7 +644,7 @@ class EventController extends Controller
             "text" => "the ".$dayText." day of the month"
         ));
 
-        // Same weekday/week of the month (from the end) - the last Friday - the 2nd to last Friday
+        // Same weekday/week of the month (from the end) - the last Friday - (0 if last Friday, 1 if the 2nd to last Friday, 2 if the 3nd to last Friday) 
 
             // Get the date parameters
                 $dayOfWeekString = date("l", $unixTimestamp);  // Monday | Tuesday | Wednesday | ..
@@ -656,13 +653,15 @@ class EventController extends Controller
 
                 if ($weekOfMonthFromTheEnd == 1){
                     $weekText = "last ";
+                    $weekValue = 0;
                 }
                 else{
                     $weekText = $weekOfMonthFromTheEnd.$ordinalIndicator." to last ";
+                    $weekValue = $weekOfMonthFromTheEnd-1;
                 }
 
             array_push($monthlySelectOptions, array(
-                "value" => "3|".$weekOfMonthFromTheEnd."|".$dayOfWeekValue,
+                "value" => "3|".$weekValue."|".$dayOfWeekValue,
                 "text" => "the ".$weekText.$dayOfWeekString." of the month"
             ));
 
