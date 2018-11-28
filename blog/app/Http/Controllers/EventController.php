@@ -602,7 +602,6 @@ class EventController extends Controller
         // same day number - eg. "the 28th day of the month"
             $dateArray = explode("/",$request->day);
             $dayNumber = $dateArray[0];
-
             $ordinalIndicator = $this->getOrdinalIndicator($dayNumber);
 
             array_push($monthlySelectOptions, array(
@@ -625,13 +624,36 @@ class EventController extends Controller
                 $weekOfTheMonth = $this->weekOfMonth($unixTimestamp); // 1 | 2 | 3 | 4 | 5
                 $ordinalIndicator = $this->getOrdinalIndicator($weekOfTheMonth);
 
-            //array_push($monthlySelectOptions, "the ".$weekOfTheMonth." ".$dayOfWeek." of the month");
+
             array_push($monthlySelectOptions, array(
                 "value" => "1|".$weekOfTheMonth."|".$dayOfWeekValue,
                 "text" => "the ".$weekOfTheMonth.$ordinalIndicator." ".$dayOfWeekString." of the month"
             ));
 
         // ?
+
+        // ?
+
+
+        // Same weekday/week of the month (from the end) - the last Friday - the 2nd to last Friday
+
+            // Our YYYY-MM-DD date string
+                $date = implode("-", array_reverse(explode("/",$request->day)));
+
+            // Convert the date string into a unix timestamp.
+                $unixTimestamp = strtotime($date);
+
+            // Get the day of the week using PHP's date function.
+                $dayOfWeekString = date("l", $unixTimestamp); // Monday | Tuesday | Wednesday | ..
+                $dayOfWeekValue = date("N", $unixTimestamp); // 1 (for Monday) through 7 (for Sunday)
+                $weekOfMonthFromTheEnd = $this->weekOfMonthFromTheEnd($unixTimestamp); // 1 | 2 | 3 | 4 | 5
+                $ordinalIndicator = $this->getOrdinalIndicator($weekOfMonthFromTheEnd);
+
+            array_push($monthlySelectOptions, array(
+                "value" => "2|".$weekOfMonthFromTheEnd."|".$dayOfWeekValue,
+                "text" => "the ".$weekOfMonthFromTheEnd.$ordinalIndicator." ".$dayOfWeekString." of the month"
+            ));
+
 
         // n day before the end of the month - the 4th to last day
 
@@ -663,6 +685,20 @@ class EventController extends Controller
         return 1 + ($week < $firstWeekOfMonth ? $week : $week - $firstWeekOfMonth);
     }
 
+    // **********************************************************************
+
+    /**
+     * GET number of week for month - https://stackoverflow.com/questions/5853380/php-get-number-of-week-for-month
+     *
+     * @param  string $when - unix timestramp of the date specified
+     * @return int the number of the week in the month of the day specified
+     */
+    function weekOfMonthFromTheEnd($when = null) {
+        if ($when === null) $when = time();
+        $week = strftime('%U', $when); // weeks start on Sunday
+        $firstWeekOfMonth = strftime('%U', strtotime(date('Y-m-01', $when)));
+        return 1 + ($week < $firstWeekOfMonth ? $week : $week - $firstWeekOfMonth);
+    }
 
     // **********************************************************************
 
