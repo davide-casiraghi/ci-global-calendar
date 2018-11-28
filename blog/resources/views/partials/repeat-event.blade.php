@@ -94,31 +94,6 @@
                 success: function( data ) {
 
                     $("#on_monthly_kind").html(data).selectpicker('refresh');
-
-                    /*
-                    console.log(data);
-                    alert("tty");
-                    //$('#on_monthly_kind').addClass("rrt");
-                    $('#on_monthly_kind').selectpicker('val', ['Mustard','Relish']);
-                    //$('#on_monthly_kind').selectpicker('val', data);
-
-
-                    $('#on_monthly_kind').selectpicker('val', 'Mustard');
-                    $('#on_monthly_kind').selectpicker('refresh');
-
-                    */
-
-
-                    /*$syndicationTime = jQuery("#syndicationTime td",data).html();
-                    $syndicationLast = jQuery("#syndicationLast",data).html();
-                    $syndicationPercentChange = jQuery("#syndicationPercentChange",data ).html();
-                    $positivoNegativo = jQuery("#syndicationPercentChange",data ).attr("style");
-                    $borsaImage = jQuery("#borsaImgCached",data ).html();
-                    jQuery("#syndicationTime").html($syndicationTime);
-                    jQuery("#syndicationLast").html($syndicationLast);
-                    jQuery("#syndicationPercentChange").html($syndicationPercentChange );
-                    jQuery("#syndicationPercentChange").attr("style",$positivoNegativo);
-                    jQuery("#imgBorsa").html($borsaImage);*/
                 }
             });
 
@@ -213,11 +188,9 @@
         </div>
 
         <div id="onMonthly" class="onFrequency col-xs-12 col-sm-6 col-lg-4" style="display:none">
-            <strong>On2:</strong><br/>
+            <strong>On:</strong><br/>
             <select name="on_monthly_kind" id="on_monthly_kind" class="selectpicker" title="Select repeat monthly kind">
                 <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
             </select>
         </div>
 
