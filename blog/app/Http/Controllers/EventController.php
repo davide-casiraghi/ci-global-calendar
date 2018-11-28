@@ -173,6 +173,7 @@ class EventController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Event  $event
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function show(Event $event, Request $request){
@@ -587,9 +588,14 @@ class EventController extends Controller
 
     // **********************************************************************
 
-
+    /**
+     * Generate the HTML of the monthly select dropdown - inspired by - https://www.theindychannel.com/calendar
+     * - Called by the event repeat view -
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return string the HTML - returned to the AJAX call
+     */
     public function calculateMonthlySelectOptions(Request $request){
-        // https://www.theindychannel.com/calendar
 
         $monthlySelectOptions = array();
 
@@ -598,8 +604,7 @@ class EventController extends Controller
             $dayNumber = $dateArray[0];
 
             $ordinalIndicator = $this->getOrdinalIndicator($dayNumber);
-            
-            //array_push($monthlySelectOptions, "the ".$dayNumber.$ordinalIndicator." day of the month");
+
             array_push($monthlySelectOptions, array(
                 "value" => "0|".$dayNumber,
                 "text" => "the ".$dayNumber.$ordinalIndicator." day of the month"
@@ -632,7 +637,7 @@ class EventController extends Controller
         // the 2nd to last Sunday
 
 
-        // RENDER the html to return
+        // GENERATE the HTML to return
             $onMonthlyKindSelect = "<select name='on_monthly_kind' id='on_monthly_kind' class='selectpicker' title='Select repeat monthly kind'>";
                 foreach ($monthlySelectOptions as $key => $monthlySelectOption) {
                     $onMonthlyKindSelect .= "<option value='".$monthlySelectOption['value']."'>".$monthlySelectOption['text']."</option>";
@@ -650,7 +655,6 @@ class EventController extends Controller
      * @param  string $when - unix timestramp of the date specified
      * @return int the number of the week in the month of the day specified
      */
-
     function weekOfMonth($when = null) {
         if ($when === null) $when = time();
         $week = strftime('%U', $when); // weeks start on Sunday
