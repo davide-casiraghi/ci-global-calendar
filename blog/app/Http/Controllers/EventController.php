@@ -403,7 +403,28 @@ class EventController extends Controller
                     break;
 
                 case '3':  //repeatMonthly
-                    //Second case...
+                    // Same of repeatWeekly
+                        $startDate = implode("-", array_reverse(explode("/",$request->get('startDate'))));
+                        $repeatUntilDate = implode("-", array_reverse(explode("/",$request->get('repeat_until'))));
+
+                    // Get the array with month repeat details
+                        $monthRepeatDatas = explode("|",$request->get('on_monthly_kind'));
+
+                        switch ($monthRepeatDatas[0]) {
+                            case '0':  // Same day number - eg. "the 28th day of the month"
+                                // code...
+                                break;
+                            case '1':  // Same weekday/week of the month - eg. the "1st Monday"
+                                // code...
+                                break;
+                            case '2':  // Same day of the month (from the end) - the 3rd to last day (0 if last day, 1 if 2nd to last day, , 2 if 3rd to last day)
+                                // code...
+                                break;
+                            case '3':  // Same weekday/week of the month (from the end) - the last Friday - (0 if last Friday, 1 if the 2nd to last Friday, 2 if the 3nd to last Friday)
+                                // code...
+                                break;
+                        }
+                        
                     break;
             }
     }
@@ -580,7 +601,7 @@ class EventController extends Controller
         $unixTimestamp = strtotime($date);  // Convert the date string into a unix timestamp.
         $dayOfWeekString = date("l", $unixTimestamp); // Monday | Tuesday | Wednesday | ..
 
-        // same day number - eg. "the 28th day of the month"
+        // Same day number - eg. "the 28th day of the month"
             $dateArray = explode("/",$request->day);
             $dayNumber = $dateArray[0];
             $ordinalIndicator = $this->getOrdinalIndicator($dayNumber);
