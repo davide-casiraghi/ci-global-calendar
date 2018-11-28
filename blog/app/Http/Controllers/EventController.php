@@ -597,26 +597,11 @@ class EventController extends Controller
             $dateArray = explode("/",$request->day);
             $dayNumber = $dateArray[0];
 
-
             $ordinalIndicator = $this->getOrdinalIndicator($dayNumber);
-            /*switch ($dayNumber) {
-                case  1:
-                    $ordinalIndicator = "st";
-                    break;
-                case  2:
-                    $ordinalIndicator = "nd";
-                    break;
-                case  3:
-                    $ordinalIndicator = "nd";
-                    break;
-                default:
-                    $ordinalIndicator = "th";
-                    break;
-            }*/
-
+            
             //array_push($monthlySelectOptions, "the ".$dayNumber.$ordinalIndicator." day of the month");
             array_push($monthlySelectOptions, array(
-                "value" => $dayNumber."|0",
+                "value" => "0|".$dayNumber,
                 "text" => "the ".$dayNumber.$ordinalIndicator." day of the month"
             ));
 
@@ -630,13 +615,14 @@ class EventController extends Controller
                 $unixTimestamp = strtotime($date);
 
             // Get the day of the week using PHP's date function.
-                $dayOfWeek = date("l", $unixTimestamp); // Monday | Tuesday | Wednesday | ..
-                $weekOfTheMonth = $this->weekOfMonth($unixTimestamp);
+                $dayOfWeekString = date("l", $unixTimestamp); // Monday | Tuesday | Wednesday | ..
+                $dayOfWeekValue = date("N", $unixTimestamp); // 1 (for Monday) through 7 (for Sunday)
+                $weekOfTheMonth = $this->weekOfMonth($unixTimestamp); // 1 | 2 | 3 | 4 | 5
 
             //array_push($monthlySelectOptions, "the ".$weekOfTheMonth." ".$dayOfWeek." of the month");
             array_push($monthlySelectOptions, array(
-                "value" => $dayNumber."|0",
-                "text" => "the ".$weekOfTheMonth." ".$dayOfWeek." of the month"
+                "value" => "1|".$weekOfTheMonth."|".$dayOfWeekValue,
+                "text" => "the ".$weekOfTheMonth." ".$dayOfWeekString." of the month"
             ));
 
         // ?
