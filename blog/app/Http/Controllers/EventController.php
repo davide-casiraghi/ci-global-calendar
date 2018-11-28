@@ -644,10 +644,9 @@ class EventController extends Controller
             "text" => "the ".$dayText." day of the month"
         ));
 
-        // Same weekday/week of the month (from the end) - the last Friday - (0 if last Friday, 1 if the 2nd to last Friday, 2 if the 3nd to last Friday) 
+        // Same weekday/week of the month (from the end) - the last Friday - (0 if last Friday, 1 if the 2nd to last Friday, 2 if the 3nd to last Friday)
 
             // Get the date parameters
-                $dayOfWeekString = date("l", $unixTimestamp);  // Monday | Tuesday | Wednesday | ..
                 $weekOfMonthFromTheEnd = $this->weekOfMonthFromTheEnd($unixTimestamp); // 1 | 2 | 3 | 4 | 5
                 $ordinalIndicator = $this->getOrdinalIndicator($weekOfMonthFromTheEnd);
 
@@ -664,11 +663,6 @@ class EventController extends Controller
                 "value" => "3|".$weekValue."|".$dayOfWeekValue,
                 "text" => "the ".$weekText.$dayOfWeekString." of the month"
             ));
-
-
-        // n day before the end of the month - the 4th to last day
-
-        // the 2nd to last Sunday
 
 
         // GENERATE the HTML to return
