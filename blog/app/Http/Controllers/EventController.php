@@ -693,7 +693,7 @@ class EventController extends Controller
     // **********************************************************************
 
     /**
-     * GET number of week for month - https://stackoverflow.com/questions/5853380/php-get-number-of-week-for-month
+     * GET number of week from the end of the month - https://stackoverflow.com/questions/5853380/php-get-number-of-week-for-month
      * Week of the month = Week of the year - Week of the year of first day of month + 1
      *
      * @param  string $when - unix timestramp of the date specified
@@ -730,7 +730,7 @@ class EventController extends Controller
 
     // **********************************************************************
     /**
-     * GET number of day from the month end
+     * GET number of day from the end of the month
      *
      * @param  string $when - unix timestramp of the date specified
      * @return int the number of day of the month from end
