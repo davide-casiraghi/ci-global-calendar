@@ -730,7 +730,7 @@ class EventController extends Controller
 
     // **********************************************************************
     /**
-     * GET number of day of the month from end
+     * GET number of day from the month end
      *
      * @param  string $when - unix timestramp of the date specified
      * @return int the number of day of the month from end
