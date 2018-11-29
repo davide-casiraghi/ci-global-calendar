@@ -467,7 +467,7 @@ class EventController extends Controller
      *                      0|28 the 28th day of the month
      *                      1|2|2 the 2nd Tuesday of the month
      *                      2|17 the 18th to last day of the month
-     *                      3|2|4 the 3nd to last Thursday of the month
+     *                      3|1|3 the 2nd to last Wednesday of the month
      * @param  string  $startDate (Y-m-d)
      * @param  string  $repeatUntilDate (Y-m-d)
      * @param  string  $timeStart (H:i:s)
@@ -491,10 +491,10 @@ class EventController extends Controller
                 }
                 break;
             case '1':  // Same weekday/week of the month - eg. the "1st Monday"
+                $numberOfTheWeek = $numberOfTheWeekArray[$monthRepeatDatas[1]-1]; //eg. first | second | third | fourth | fifth
+                $weekday = $weekdayArray[$monthRepeatDatas[2]-1]; // eg. monday | tuesday | wednesday
+
                 while($month < $end) {
-                    //dd($monthRepeatDatas);
-                    $numberOfTheWeek = $numberOfTheWeekArray[$monthRepeatDatas[1]-1]; //eg. first | second | third | fourth | fifth
-                    $weekday = $weekdayArray[$monthRepeatDatas[2]-1]; // eg. monday | tuesday | wednesday
                     $monthString = date('Y-m', $month);  //eg. 2015-12
 
                     // The day to pick
@@ -514,8 +514,28 @@ class EventController extends Controller
                 }
                 break;
             case '3':  // Same weekday/week of the month (from the end) - the last Friday - (0 if last Friday, 1 if the 2nd to last Friday, 2 if the 3nd to last Friday)
-                dd("date 3");
-                // code...
+                $numberOfTheWeekFromTheEnd = $monthRepeatDatas[1]; //eg. 0(last) | 1 | 2 | 3 | 4
+                $weekday = $weekdayArray[$monthRepeatDatas[2]-1]; // eg. monday | tuesday | wednesday
+                while($month < $end) {
+                    $monthString = date('Y-m', $month);  //eg. 2015-12
+                    $timestamp = strtotime(date("Y-m-d", strtotime("last ".$weekday." of ".$monthString))); // get the last weekday of a month eg. strtotime("last wednesday 2015-12")
+                    //dd(date("Y-m-d", strtotime("last ".$weekday." of ".$monthString)));
+                    switch ($numberOfTheWeekFromTheEnd) {
+                        case '0':
+                            $day = date('Y-m-d', $timestamp);
+                            break;
+                        case '1':
+                            $day = date('Y-m-d', strtotime('-1 week', $timestamp));
+                                        dd($day);
+                            break;
+                        default:
+                            $day = date('Y-m-d', strtotime('-'.$numberOfTheWeekFromTheEnd.' weeks', $timestamp));
+                            break;
+                    }
+
+                    $this->saveEventRepetitionOnDB($event->id, $day, $day, $timeStart, $timeEnd);
+                    $month = strtotime("+1 month", $month);
+                }
                 break;
         }
 
@@ -817,7 +837,7 @@ class EventController extends Controller
                 $ret = "nd";
                 break;
             case  3:
-                $ret = "nd";
+                $ret = "rd";
                 break;
             default:
                 $ret = "th";
