@@ -208,16 +208,17 @@ class EventController extends Controller
 
         // Repetition text to show
             $repeatUntil = new DateTime($event->repeat_until);
-
+            $repetitionFrequency = $this->decodeOnMonthlyKind($event->on_monthly_kind);
+            
             switch ($event->repeat_type) {
                 case '1': // noRepeat
                     $repetition_text = null;
                     break;
                 case '2': // repeatWeekly
-                    $repetition_text = "The event happens weekly every xxx until ".$repeatUntil->format("d/m/Y");
+                    $repetition_text = "The event happens ".$repetitionFrequency." until ".$repeatUntil->format("d/m/Y");
                     break;
                 case '3': //repeatMonthly
-                    $repetition_text = "The event happens monthly every xxx until ".$repeatUntil->format("d/m/Y");
+                    $repetition_text = "The event happens ".$repetitionFrequency." until ".$repeatUntil->format("d/m/Y");
                     break;
             }
 
@@ -692,9 +693,10 @@ class EventController extends Controller
 
     /**
      * Generate the HTML of the monthly select dropdown - inspired by - https://www.theindychannel.com/calendar
-     * - Called by the event repeat view -
+     * - Called by the AJAX in the event repeat view -
+     * - The HTML contain a <select></select> with four <options></options>
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request  - Just the day
      * @return string the HTML - returned to the AJAX call
      */
     public function calculateMonthlySelectOptions(Request $request){
@@ -884,5 +886,65 @@ class EventController extends Controller
         }
         return $ret;
     }
+
+    // **********************************************************************
+
+    /**
+     * Decode the event on_monthly_kind field - used in event.show
+     *
+     * @param  string $number
+     * @return string $ret - the ordinal indicator (st, nd, rd, th)
+     */
+
+    function decodeOnMonthlyKind($onMonthlyKindCode){
+        $onMonthlyKindCodeArray = explode("|",$onMonthlyKindCode);
+        $weekDays = array("", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
+
+        //dd($onMonthlyKindCodeArray);
+        switch ($onMonthlyKindCodeArray[0]) {
+            case '0':  // 0|7 eg. the 7th day of the month
+                $dayNumber = $onMonthlyKindCodeArray[1];
+                $ordinalIndicator = $this->getOrdinalIndicator($dayNumber);
+
+                $dayNumberOrdinal = $dayNumber.$ordinalIndicator;
+                $format = "the %s day of the month";
+                $ret = sprintf($format, $dayNumberOrdinal);
+                break;
+            case '1':  // 1|2|4 eg. the 2nd Thursday of the month
+                $dayNumber = $onMonthlyKindCodeArray[1];
+                $ordinalIndicator = $this->getOrdinalIndicator($dayNumber);
+
+                $dayNumberOrdinal = $dayNumber.$ordinalIndicator;
+                $weekDay = $weekDays[$onMonthlyKindCodeArray[2]]; // Monday, Tuesday, Wednesday
+                $format = "the %s %s of the month";
+                $ret = sprintf($format, $dayNumberOrdinal, $weekDay);
+                break;
+            case '2': // 2|20 eg. the 21th to last day of the month
+                $dayNumber = $onMonthlyKindCodeArray[1]+1;
+                $ordinalIndicator = $this->getOrdinalIndicator($dayNumber);
+
+                $dayNumberOrdinal = $dayNumber.$ordinalIndicator;
+                $format = "the %s to last day of the month";
+                $ret = sprintf($format, $dayNumberOrdinal);
+                break;
+            case '3': // 3|3|4 eg. the 4th to last Thursday of the month
+                $dayNumber = $onMonthlyKindCodeArray[1]+1;
+                $ordinalIndicator = $this->getOrdinalIndicator($dayNumber);
+
+                $dayNumberOrdinal = $dayNumber.$ordinalIndicator;
+                $weekDay = $weekDays[$onMonthlyKindCodeArray[2]]; // Monday, Tuesday, Wednesday
+                $format = "the %s to last %s of the month";
+                $ret = sprintf($format, $dayNumberOrdinal, $weekDay);
+                break;
+        }
+
+        return $ret;
+
+    }
+
+
+
+
+
 
 }
