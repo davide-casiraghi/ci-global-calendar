@@ -682,7 +682,7 @@ class EventController extends Controller
 
         // Same day number - eg. "the 28th day of the month"
             $dateArray = explode("/",$request->day);
-            $dayNumber = $dateArray[0];
+            $dayNumber = ltrim($dateArray[0], '0'); // remove the 0 in front of a day number eg. 02/10/2018
             $ordinalIndicator = $this->getOrdinalIndicator($dayNumber);
 
             array_push($monthlySelectOptions, array(
@@ -692,6 +692,7 @@ class EventController extends Controller
 
         // Same weekday/week of the month - eg. the "1st Monday" 1|1|1 (first week, monday)
             $dayOfWeekValue = date("N", $unixTimestamp); // 1 (for Monday) through 7 (for Sunday)
+            // CHECK THIS -- aaaaaaaaa - $weekOfTheMonth
             $weekOfTheMonth = $this->weekOfMonth($unixTimestamp); // 1 | 2 | 3 | 4 | 5
             $ordinalIndicator = $this->getOrdinalIndicator($weekOfTheMonth); //st, nd, rd, th
 
