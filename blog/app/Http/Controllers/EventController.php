@@ -693,7 +693,8 @@ class EventController extends Controller
         // Same weekday/week of the month - eg. the "1st Monday" 1|1|1 (first week, monday)
             $dayOfWeekValue = date("N", $unixTimestamp); // 1 (for Monday) through 7 (for Sunday)
             // CHECK THIS -- aaaaaaaaa - $weekOfTheMonth
-            $weekOfTheMonth = $this->weekOfMonth($unixTimestamp); // 1 | 2 | 3 | 4 | 5
+            $weekOfTheMonth = $this->weekdayNumberOfMonth($date, $dayOfWeekValue); // 1 | 2 | 3 | 4 | 5
+            echo($weekOfTheMonth); //aaaaaa remove this!
             $ordinalIndicator = $this->getOrdinalIndicator($weekOfTheMonth); //st, nd, rd, th
 
             array_push($monthlySelectOptions, array(
@@ -752,6 +753,9 @@ class EventController extends Controller
 
     // **********************************************************************
 
+
+    // TO DEPRECATE !!
+
     /**
      * GET number of week for month - https://stackoverflow.com/questions/5853380/php-get-number-of-week-for-month
      *
@@ -763,6 +767,39 @@ class EventController extends Controller
         $week = strftime('%U', $when); // weeks start on Monday
         $firstWeekOfMonth = strftime('%U', strtotime(date('Y-m-01', $when)));
         return 1 + ($week < $firstWeekOfMonth ? $week : $week - $firstWeekOfMonth);
+    }
+
+    // **********************************************************************
+
+    /**
+     * GET number of the specified weekday in this month (1 for the first)
+     *
+     * @param  string $dateTimestamp - unix timestramp of the date specified
+     * @param  string $dayOfWeekValue -  1 (for Monday) through 7 (for Sunday)
+     * @return int the number of the week in the month of the weekday specified
+     */
+    function weekdayNumberOfMonth($dateTimestamp, $dayOfWeekValue) {
+
+        $cut        = substr($dateTimestamp, 0, 8);
+        $daylen     = 86400;
+        $timestamp  = strtotime($dateTimestamp);
+        $first      = strtotime($cut . "01");
+        $elapsed    = (($timestamp - $first) / $daylen)+1;
+        $i          = 1;
+        $weeks      = 0;
+        for($i==1; $i<=$elapsed; $i++){
+            $dayfind        = $cut . (strlen($i) < 2 ? '0' . $i : $i);
+            $daytimestamp   = strtotime($dayfind);
+            $day            = strtolower(date("N", $daytimestamp));
+            if($day == strtolower($dayOfWeekValue)){
+                $weeks++;
+            }
+        }
+        if($weeks==0){
+            $weeks++;
+        }
+
+        return $weeks;
     }
 
     // **********************************************************************
