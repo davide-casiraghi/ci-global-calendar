@@ -126,6 +126,7 @@ class EventController extends Controller
         $event->image = $request->get('image');
         $event->facebook_event_link = $request->get('facebook_event_link');
         $event->status = $request->get('status');
+        $event->on_monthly_kind = $request->get('on_monthly_kind');
 
         // Support columns for homepage search
             $event->sc_country_id = $venue->country_id;
@@ -301,6 +302,7 @@ class EventController extends Controller
         $event->facebook_event_link = $request->get('facebook_event_link');
         $event->website_event_link = $request->get('website_event_link');
         $event->status = $request->get('status');
+        $event->on_monthly_kind = $request->get('on_monthly_kind'); 
 
         // Support columns for homepage search
             $event->sc_country_id = $venue->country_id;
@@ -485,7 +487,7 @@ class EventController extends Controller
                 break;
             case '1':  // Same weekday/week of the month - eg. the "1st Monday"
                 while($month < $end) {
-                    dd($event);
+                    dd($event);  // MI MANCA on_monthly_kind !!!!! aaaaaaaaaa
                     $monthString = date('Y-m', $month);  //eg. 2015-12
                     dump($monthString);
                     $day = date('Y-m-d', strtotime("first wednesday ".$monthString));  // get the first weekday of a month eg. strtotime("first wednesday 2015-12")
