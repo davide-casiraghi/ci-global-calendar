@@ -93,9 +93,8 @@
                     <strong>Status:</strong>
 
                     <select name="status" class="form-control">
-                        <option value="PUBLISHED" selected>Published</option>
-                        <option value="DRAFT">Draft</option>
-                        <option value="PENDING">Pending</option>
+                        <option value="2" selected>Published</option>
+                        <option value="1">Unpublished</option>
                     </select>
 
                 </div>
