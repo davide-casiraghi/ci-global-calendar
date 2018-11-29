@@ -21,7 +21,7 @@ function()
 	/** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
 
     /* Homepage - Event Search*/
-        Route::get('/', 'EventSearchController@index');
+        Route::get('/', 'EventSearchController@index')->name('home');
 
     /* Resource Controllers */
         Route::resource('users','UserController');
