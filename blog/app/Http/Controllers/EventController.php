@@ -463,6 +463,8 @@ class EventController extends Controller
      *
      * @param  \App\Event  $event
      * @param  array   $monthRepeatDatas - explode of $request->get('on_monthly_kind')
+     *                      0|28 the 28th day of the month
+     *                      1|2|2 the 2nd Tuesday of the month
      * @param  string  $startDate (Y-m-d)
      * @param  string  $repeatUntilDate (Y-m-d)
      * @param  string  $timeStart (H:i:s)
@@ -474,6 +476,9 @@ class EventController extends Controller
         $start = $month = strtotime($startDate);
         $end = strtotime($repeatUntilDate);
 
+        $numberOfTheWeekArray = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth'];
+        $weekdayArray = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+
         switch ($monthRepeatDatas[0]) {
             case '0':  // Same day number - eg. "the 28th day of the month"
                 while($month < $end) {
@@ -484,19 +489,20 @@ class EventController extends Controller
                 break;
             case '1':  // Same weekday/week of the month - eg. the "1st Monday"
                 while($month < $end) {
-                    dd($monthRepeatDatas[1]);  // MI MANCA on_monthly_kind !!!!! aaaaaaaaaa
 
 
-
+                    //dd($monthRepeatDatas);
+                    $numberOfTheWeek = $numberOfTheWeekArray[$monthRepeatDatas[1]-1]; //eg. first | second | third | fourth | fifth
+                    $weekday = $weekdayArray[$monthRepeatDatas[2]-1]; // eg. monday | tuesday | wednesday
                     $monthString = date('Y-m', $month);  //eg. 2015-12
 
-                    dump($monthString);
-                    $day = date('Y-m-d', strtotime("first wednesday ".$monthString));  // get the first weekday of a month eg. strtotime("first wednesday 2015-12")
-                    dump($day);
+                    // The day to pick
+                        //dd($numberOfTheWeek." ".$weekday." ".$monthString);
+                    $day = date('Y-m-d', strtotime($numberOfTheWeek." ".$weekday." ".$monthString));  // get the first weekday of a month eg. strtotime("first wednesday 2015-12")
+                    dd($day);
                     $this->saveEventRepetitionOnDB($event->id, $day, $day, $timeStart, $timeEnd);
                     $month = strtotime("+1 month", $month);
                 }
-                dd("ciao");
                 break;
             case '2':  // Same day of the month (from the end) - the 3rd to last day (0 if last day, 1 if 2nd to last day, , 2 if 3rd to last day)
                 dd("date 2");
