@@ -472,27 +472,27 @@ class EventController extends Controller
      */
     function saveMonthlyRepeatDates($event, $monthRepeatDatas, $startDate, $repeatUntilDate, $timeStart, $timeEnd){
 
-        dd($startDate." ".$repeatUntilDate);
-
-        $startMonth = $month = strtotime('2009-02-01');
-        $endMonth = strtotime('2011-01-01');
+        $start = $month = strtotime($startDate);
+        $end = strtotime($repeatUntilDate);
 
         switch ($monthRepeatDatas[0]) {
             case '0':  // Same day number - eg. "the 28th day of the month"
-                while($month < $endMonth) {
+                while($month < $end) {
                     $day = date('Y-m-d', $month);
-                    $month = strtotime("+1 month", $month);
                     $this->saveEventRepetitionOnDB($event->id, $day, $day, $timeStart, $timeEnd);
+                    $month = strtotime("+1 month", $month);
                 }
                 break;
             case '1':  // Same weekday/week of the month - eg. the "1st Monday"
-                while($month < $endMonth) {
-                    //$day = date('Y-m-d', $month);
-                    $day = date('Y-m-d', strtotime("first wednesday 2015-12"));
-                    //$day = date('Y-m-d', strtotime("first wednesday ".$month));
-                    $month = strtotime("+1 month", $month);
+                while($month < $end) {
+                    $monthString = date('Y-m', $month);  //eg. 2015-12
+                    dump($monthString);
+                    $day = date('Y-m-d', strtotime("first wednesday ".$monthString));  // get the first weekday of a month eg. strtotime("first wednesday 2015-12")
+                    dump($day);
                     $this->saveEventRepetitionOnDB($event->id, $day, $day, $timeStart, $timeEnd);
+                    $month = strtotime("+1 month", $month);
                 }
+                dd("ciao");
                 break;
             case '2':  // Same day of the month (from the end) - the 3rd to last day (0 if last day, 1 if 2nd to last day, , 2 if 3rd to last day)
                 dd("date 2");
