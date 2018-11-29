@@ -485,6 +485,7 @@ class EventController extends Controller
                 break;
             case '1':  // Same weekday/week of the month - eg. the "1st Monday"
                 while($month < $end) {
+                    dd($event);
                     $monthString = date('Y-m', $month);  //eg. 2015-12
                     dump($monthString);
                     $day = date('Y-m-d', strtotime("first wednesday ".$monthString));  // get the first weekday of a month eg. strtotime("first wednesday 2015-12")
