@@ -14,9 +14,13 @@ class AdministratorMailFormController extends Controller
      */
     public function contactAdmin()
     {
-        dd("ciao");
+        //dd("ciao");
+
+        return view('administratorMailForms.contactForm');
 
         /*$backgroundImages = BackgroundImage::latest()->paginate(5);
+
+
 
         return view('backgroundImages.index',compact('backgroundImages'))
             ->with('i', (request()->input('page', 1) - 1) * 5);*/
