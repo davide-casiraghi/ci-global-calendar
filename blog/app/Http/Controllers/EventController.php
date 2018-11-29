@@ -460,11 +460,14 @@ class EventController extends Controller
     /***************************************************************************/
     /**
      * Save all the weekly repetitions inthe event_repetitions table
+     * useful: http://thisinterestsme.com/php-get-first-monday-of-month/
      *
      * @param  \App\Event  $event
      * @param  array   $monthRepeatDatas - explode of $request->get('on_monthly_kind')
      *                      0|28 the 28th day of the month
      *                      1|2|2 the 2nd Tuesday of the month
+     *                      2|17 the 18th to last day of the month
+     *                      3|2|4 the 3nd to last Thursday of the month
      * @param  string  $startDate (Y-m-d)
      * @param  string  $repeatUntilDate (Y-m-d)
      * @param  string  $timeStart (H:i:s)
@@ -489,8 +492,6 @@ class EventController extends Controller
                 break;
             case '1':  // Same weekday/week of the month - eg. the "1st Monday"
                 while($month < $end) {
-
-
                     //dd($monthRepeatDatas);
                     $numberOfTheWeek = $numberOfTheWeekArray[$monthRepeatDatas[1]-1]; //eg. first | second | third | fourth | fifth
                     $weekday = $weekdayArray[$monthRepeatDatas[2]-1]; // eg. monday | tuesday | wednesday
@@ -499,14 +500,18 @@ class EventController extends Controller
                     // The day to pick
                         //dd($numberOfTheWeek." ".$weekday." ".$monthString);
                     $day = date('Y-m-d', strtotime($numberOfTheWeek." ".$weekday." ".$monthString));  // get the first weekday of a month eg. strtotime("first wednesday 2015-12")
-                    dd($day);
+                    //dd($day);
                     $this->saveEventRepetitionOnDB($event->id, $day, $day, $timeStart, $timeEnd);
                     $month = strtotime("+1 month", $month);
                 }
                 break;
-            case '2':  // Same day of the month (from the end) - the 3rd to last day (0 if last day, 1 if 2nd to last day, , 2 if 3rd to last day)
-                dd("date 2");
-                // code...
+            case '2':  // Same day of the month (from the end) - the 3rd to last day (0 if last day, 1 if 2nd to last day, 2 if 3rd to last day)
+                while($month < $end) {
+                    $monthString = date('Y-m', $month);  //eg. 2015-12
+                    $day = date('Y-m-d', strtotime("last day of ".$monthString));  // get the last day of a month eg. strtotime("last day of 2015-12")
+                    $this->saveEventRepetitionOnDB($event->id, $day, $day, $timeStart, $timeEnd);
+                    $month = strtotime("+1 month", $month);
+                }
                 break;
             case '3':  // Same weekday/week of the month (from the end) - the last Friday - (0 if last Friday, 1 if the 2nd to last Friday, 2 if the 3nd to last Friday)
                 dd("date 3");
