@@ -229,9 +229,6 @@ class EventController extends Controller
                 ->where('event_id','=',$event->id)
                 ->first();
 
-                //aaaaa
-                //dd(date("d/m/Y", strtotime($eventFirstRepetition->start_repeat)));
-
         $dateTime['dateStart'] = date("d/m/Y", strtotime($eventFirstRepetition->start_repeat));
         $dateTime['dateEnd'] = date("d/m/Y", strtotime($eventFirstRepetition->end_repeat));
         $dateTime['timeStart'] = date("g:i A", strtotime($eventFirstRepetition->start_repeat));
@@ -302,7 +299,7 @@ class EventController extends Controller
         $event->facebook_event_link = $request->get('facebook_event_link');
         $event->website_event_link = $request->get('website_event_link');
         $event->status = $request->get('status');
-        $event->on_monthly_kind = $request->get('on_monthly_kind'); 
+        $event->on_monthly_kind = $request->get('on_monthly_kind');
 
         // Support columns for homepage search
             $event->sc_country_id = $venue->country_id;
@@ -487,8 +484,12 @@ class EventController extends Controller
                 break;
             case '1':  // Same weekday/week of the month - eg. the "1st Monday"
                 while($month < $end) {
-                    dd($event);  // MI MANCA on_monthly_kind !!!!! aaaaaaaaaa
+                    dd($monthRepeatDatas[1]);  // MI MANCA on_monthly_kind !!!!! aaaaaaaaaa
+
+
+
                     $monthString = date('Y-m', $month);  //eg. 2015-12
+
                     dump($monthString);
                     $day = date('Y-m-d', strtotime("first wednesday ".$monthString));  // get the first weekday of a month eg. strtotime("first wednesday 2015-12")
                     dump($day);
@@ -661,14 +662,10 @@ class EventController extends Controller
                 "text" => "the ".$dayNumber.$ordinalIndicator." day of the month"
             ));
 
-
-        // Same weekday/week of the month - eg. the "1st Monday"
-
-            // Get the day of the week using PHP's date function.
-
-                $dayOfWeekValue = date("N", $unixTimestamp); // 1 (for Monday) through 7 (for Sunday)
-                $weekOfTheMonth = $this->weekOfMonth($unixTimestamp); // 1 | 2 | 3 | 4 | 5
-                $ordinalIndicator = $this->getOrdinalIndicator($weekOfTheMonth);
+        // Same weekday/week of the month - eg. the "1st Monday" 1|1|1 (first week, monday)
+            $dayOfWeekValue = date("N", $unixTimestamp); // 1 (for Monday) through 7 (for Sunday)
+            $weekOfTheMonth = $this->weekOfMonth($unixTimestamp); // 1 | 2 | 3 | 4 | 5
+            $ordinalIndicator = $this->getOrdinalIndicator($weekOfTheMonth); //st, nd, rd, th
 
             array_push($monthlySelectOptions, array(
                 "value" => "1|".$weekOfTheMonth."|".$dayOfWeekValue,
