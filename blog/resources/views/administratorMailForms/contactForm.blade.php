@@ -33,10 +33,20 @@
 
        <div class="col-xs-12 col-sm-12 col-md-12">
            @include('partials.forms.textarea-plain', [
-                 'title' => 'Description',
-                 'name' => 'description',
+                 'title' => 'Message',
+                 'name' => 'message',
                  'placeholder' => 'Your message'
            ])
+       </div>
+
+   </div>
+
+   <div class="row mt-5">
+       <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
+           <a class="btn btn-primary" href="{{ route('posts.index') }}"> Back</a>
+       </div>
+       <div class="col-xs-6 col-sm-6 col-md-6 pull-right">
+         <button type="submit" class="btn btn-primary float-right">Send</button>
        </div>
    </div>
 
