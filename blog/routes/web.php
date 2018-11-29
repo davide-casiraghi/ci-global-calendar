@@ -60,7 +60,8 @@ function()
 
     /* Contact form to write to the administrator */
         Route::get('/contactTheAdministrator', 'AdministratorMailFormController@contactAdmin')->name("forms.contact-admin");
-
+        Route::post('/contactTheAdministrator/send', 'AdministratorMailFormController@contactAdminSend')->name("forms.contact-admin-send");
+        Route::get('/contactTheAdministrator/thankyou', 'EventController@contactAdminThankyou')->name("forms.contact-admin-thankyou");
 
 });
 

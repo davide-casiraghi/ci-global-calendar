@@ -1,4 +1,4 @@
-@extends('backgroundImages.layout')
+@extends('administratorMailForms.layout')
 
 @section('content')
 
@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <form action="{{ route('posts.store') }}" method="POST">
+    <form action="{{ route('forms.contact-admin-send') }}" method="POST">
         @csrf
 
         <div class="row">
