@@ -526,7 +526,6 @@ class EventController extends Controller
                             break;
                         case '1':
                             $day = date('Y-m-d', strtotime('-1 week', $timestamp));
-                                        dd($day);
                             break;
                         default:
                             $day = date('Y-m-d', strtotime('-'.$numberOfTheWeekFromTheEnd.' weeks', $timestamp));
