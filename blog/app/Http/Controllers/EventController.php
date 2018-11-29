@@ -500,7 +500,6 @@ class EventController extends Controller
                     // The day to pick
                         //dd($numberOfTheWeek." ".$weekday." ".$monthString);
                     $day = date('Y-m-d', strtotime($numberOfTheWeek." ".$weekday." ".$monthString));  // get the first weekday of a month eg. strtotime("first wednesday 2015-12")
-                    //dd($day);
                     $this->saveEventRepetitionOnDB($event->id, $day, $day, $timeStart, $timeEnd);
                     $month = strtotime("+1 month", $month);
                 }
@@ -537,7 +536,6 @@ class EventController extends Controller
                 }
                 break;
         }
-
     }
 
     /***************************************************************************/
