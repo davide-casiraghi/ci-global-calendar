@@ -44,7 +44,7 @@ class ContactForm extends Mailable
                 ->subject($this->report['subject'])
                 ->view('emails.report-misuse')
                 ->with([
-                    'name' => $this->report['event_title'],
+                    'name' => $this->report['user_name'],
                     'msg' => $this->report['message']
                 ]);
      }

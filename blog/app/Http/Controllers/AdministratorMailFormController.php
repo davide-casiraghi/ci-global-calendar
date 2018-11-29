@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactForm;
+
 use Illuminate\Http\Request;
 
 class AdministratorMailFormController extends Controller
@@ -30,7 +33,7 @@ class AdministratorMailFormController extends Controller
 
         $report['senderEmail'] = "noreply@globalcicalendar.com";
         $report['senderName'] = "Anonymus User";
-        $report['subject'] = "Report misuse form";
+        $report['subject'] = "Message from the contact form";
         $report['emailTo'] = "davide.casiraghi@gmail.com";
 
         $report['name'] = $request->name;
@@ -54,7 +57,7 @@ class AdministratorMailFormController extends Controller
       */
      public function contactAdminThankyou(){
 
-         return view('emails.report-thankyou');
+         return view('emails.contactform-thankyou');
      }
 
 
