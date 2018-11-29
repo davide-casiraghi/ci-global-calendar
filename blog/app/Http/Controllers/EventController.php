@@ -205,7 +205,31 @@ class EventController extends Controller
                     return $query->where('id', $rp_id);
                 })
                 ->first();
-        return view('events.show',compact('event'))->with('category', $category)->with('teachers', $teachers)->with('organizers', $organizers)->with('venue', $venue)->with('country', $country)->with('continent', $continent)->with('datesTimes', $datesTimes);
+
+        // Repetition text to show
+            $repeatUntil = new DateTime($event->repeat_until);
+
+            switch ($event->repeat_type) {
+                case '1': // noRepeat
+                    $repetition_text = null;
+                    break;
+                case '2': // repeatWeekly
+                    $repetition_text = "The event happens weekly every xxx until ".$repeatUntil->format("d/m/Y");
+                    break;
+                case '3': //repeatMonthly
+                    $repetition_text = "The event happens monthly every xxx until ".$repeatUntil->format("d/m/Y");
+                    break;
+            }
+
+        return view('events.show',compact('event'))
+                ->with('category', $category)
+                ->with('teachers', $teachers)
+                ->with('organizers', $organizers)
+                ->with('venue', $venue)
+                ->with('country', $country)
+                ->with('continent', $continent)
+                ->with('datesTimes', $datesTimes)
+                ->with('repetition_text', $repetition_text);
     }
 
     /***************************************************************************/

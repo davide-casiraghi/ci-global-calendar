@@ -53,7 +53,8 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12 mt-1">
             <i class="far fa-folders mr-1" data-toggle="tooltip" data-placement="top" title="Repetitions"></i>
-            The event happens every Thursday until 10/6/2018
+            {{-- The event happens every Thursday until 10/6/2018--}}
+            {{$repetition_text}}
         </div>
 
 
