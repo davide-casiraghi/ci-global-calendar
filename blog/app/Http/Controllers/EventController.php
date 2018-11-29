@@ -449,19 +449,10 @@ class EventController extends Controller
         $interval = DateInterval::createFromDateString('1 day');
         $period = new DatePeriod($beginPeriod, $interval, $endPeriod);
 
-        //$event_time_start = date("H:i:s", strtotime($timeStart));
-        //$event_time_end = date("H:i:s", strtotime($timeEnd));
-
         foreach ($period as $day) {  // Iterate for each day of the period
             foreach($weekDays as $weekDayNumber){ // Iterate for every day of the week (1:Monday, 2:Tuesday, 3:Wednesday ...)
                 if ($this->isWeekDay($day->format("Y-m-d"), $weekDayNumber)){
-
-                    $eventRepetition = new EventRepetition();
-                    $eventRepetition->event_id = $event->id;
-
-                    $eventRepetition->start_repeat = $day->format("Y-m-d ").$timeStart;
-                    $eventRepetition->end_repeat = $day->format("Y-m-d ").$timeEnd;
-                    $eventRepetition->save();
+                    $this->saveEventRepetitionOnDB($event->id, $day->format("Y-m-d"), $day->format("Y-m-d"), $timeStart, $timeEnd);
                 }
             }
         }
@@ -481,24 +472,57 @@ class EventController extends Controller
      */
     function saveMonthlyRepeatDates($event, $monthRepeatDatas, $startDate, $repeatUntilDate, $timeStart, $timeEnd){
 
+        $startMonth = $month = strtotime('2009-02-01');
+        $endMonth = strtotime('2011-01-01');
+
         switch ($monthRepeatDatas[0]) {
             case '0':  // Same day number - eg. "the 28th day of the month"
 
+                while($month < $endMonth) {
+                 //echo date('F Y', $month), PHP_EOL;
+                 dump(date('Y-m-d', $month), PHP_EOL);
+                 $month = strtotime("+1 month", $month);
+                }
+                dd("date 0");
                 break;
             case '1':  // Same weekday/week of the month - eg. the "1st Monday"
-                // code...
+                dd("date 1");
+                while($month < $endMonth) {
+                 echo date('F Y', $month), PHP_EOL;
+                 $month = strtotime("+1 month", $month);
+                }
                 break;
             case '2':  // Same day of the month (from the end) - the 3rd to last day (0 if last day, 1 if 2nd to last day, , 2 if 3rd to last day)
+                dd("date 2");
                 // code...
                 break;
             case '3':  // Same weekday/week of the month (from the end) - the last Friday - (0 if last Friday, 1 if the 2nd to last Friday, 2 if the 3nd to last Friday)
+                dd("date 3");
                 // code...
                 break;
         }
 
     }
 
+    /***************************************************************************/
+    /**
+     * Save event repetition in the DB
+     *
+     * @param  $eventId - Event id  (event associated to this repetition)
+     * @param  $dateStart - in the format Y-m-d
+     * @param  $dateEnd - in the format Y-m-d
+     * @param  $timeStart - in the format H:i:s
+     * @param  $timeEnd - in the format H:i:s
+     * @return none
+     */
+    function saveEventRepetitionOnDB($eventId, $dateStart, $dateEnd, $timeStart, $timeEnd){
+        $eventRepetition = new EventRepetition();
+        $eventRepetition->event_id = $eventId;
 
+        $eventRepetition->start_repeat = $dateStart." ".$timeStart;
+        $eventRepetition->end_repeat = $dateEnd." ".$timeEnd;
+        $eventRepetition->save();
+    }
 
 
     /***************************************************************************/
