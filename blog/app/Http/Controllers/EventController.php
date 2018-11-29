@@ -692,9 +692,7 @@ class EventController extends Controller
 
         // Same weekday/week of the month - eg. the "1st Monday" 1|1|1 (first week, monday)
             $dayOfWeekValue = date("N", $unixTimestamp); // 1 (for Monday) through 7 (for Sunday)
-            // CHECK THIS -- aaaaaaaaa - $weekOfTheMonth
             $weekOfTheMonth = $this->weekdayNumberOfMonth($date, $dayOfWeekValue); // 1 | 2 | 3 | 4 | 5
-            echo($weekOfTheMonth); //aaaaaa remove this!
             $ordinalIndicator = $this->getOrdinalIndicator($weekOfTheMonth); //st, nd, rd, th
 
             array_push($monthlySelectOptions, array(
@@ -749,24 +747,6 @@ class EventController extends Controller
             $onMonthlyKindSelect .= "</select>";
 
         return $onMonthlyKindSelect;
-    }
-
-    // **********************************************************************
-
-
-    // TO DEPRECATE !!
-
-    /**
-     * GET number of week for month - https://stackoverflow.com/questions/5853380/php-get-number-of-week-for-month
-     *
-     * @param  string $when - unix timestramp of the date specified
-     * @return int the number of the week in the month of the day specified
-     */
-    function weekOfMonth($when = null) {
-        if ($when === null) $when = time();
-        $week = strftime('%U', $when); // weeks start on Monday
-        $firstWeekOfMonth = strftime('%U', strtotime(date('Y-m-01', $when)));
-        return 1 + ($week < $firstWeekOfMonth ? $week : $week - $firstWeekOfMonth);
     }
 
     // **********************************************************************
