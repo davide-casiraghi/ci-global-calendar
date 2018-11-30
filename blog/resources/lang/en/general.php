@@ -15,6 +15,7 @@ return [
     'by' => 'By',
     'links' => 'Links',
     'description' => 'Description',
-    'country' => 'Country'
-
+    'country' => 'Country',
+    'privacy_policy' => 'For more information, please consult the Privacy Policy',
+    'accept_terms_of_use' => 'I declare that I have read and accept the Terms and Conditions of Use'
 ];
