@@ -94,7 +94,7 @@
                             </div>
                         </div>
 
-                        {{-- ACCEPT  --}}
+                        {{-- ACCEPT TERMS --}}
                         <div class="form-group row">
                             <div class="col-md-4">
 
@@ -106,6 +106,20 @@
                                 ])
                             </div>
                         </div>
+
+                        {{-- INFORMATION ABOUT ADMIN APPROVAL --}}
+                        <div class="form-group row">
+                            <div class="col-md-4">
+
+                            </div>
+                            <div class="col-md-6">
+                                @include('partials.forms.alert', [
+                                	'text' => __('general.admin_account_approval'),
+                                	'style' => 'alert-warning',
+                                ])
+                            </div>
+                        </div>
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
