@@ -72,7 +72,6 @@ class RegisterController extends Controller
         ]);
     }
 
-
     /**
      * Show the application registration form.
      *
@@ -80,7 +79,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        $countries=Country::all();
+        $countries = Country::pluck('name', 'id');
         return view('auth.register', compact('countries'));
     }
 

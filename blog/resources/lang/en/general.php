@@ -14,6 +14,7 @@ return [
     'to' => 'To',
     'by' => 'By',
     'links' => 'Links',
-    'description' => 'Description'
+    'description' => 'Description',
+    'country' => 'Country'
 
 ];
