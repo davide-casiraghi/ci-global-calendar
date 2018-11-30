@@ -26,7 +26,6 @@
 
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                {{--@include('partials.forms.select-event-category')--}}
                 @include('partials.forms.select', [
                       'title' => 'Category',
                       'name' => 'category_id',
@@ -35,7 +34,7 @@
                 ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                @include('partials.forms.select-event-status')
+                @include('partials.forms.event.select-event-status')
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.alert', [
@@ -48,15 +47,15 @@
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                @include('partials.forms.select-event-teacher')
+                @include('partials.forms.event.select-event-teacher')
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                @include('partials.forms.select-event-organizer')
+                @include('partials.forms.event.select-event-organizer')
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                @include('partials.forms.select-event-venue')
+                @include('partials.forms.event.select-event-venue')
             </div>
 
         </div>

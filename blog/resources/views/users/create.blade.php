@@ -68,7 +68,12 @@
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                @include('partials.forms.select-country')
+                @include('partials.forms.select', [
+                      'title' => 'Country',
+                      'name' => 'country_id',
+                      'placeholder' => 'Select country',
+                      'records' => $countries
+                ])
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">

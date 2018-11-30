@@ -74,8 +74,12 @@
             @endif
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                @include('partials.forms.select-country', [
-                      'value' => $user->country_id
+                @include('partials.forms.select', [
+                      'title' => 'Country',
+                      'name' => 'country_id',
+                      'placeholder' => 'Select country',
+                      'records' => $countries,
+                      'seleted' => $user->country_id
                 ])
             </div>
 
