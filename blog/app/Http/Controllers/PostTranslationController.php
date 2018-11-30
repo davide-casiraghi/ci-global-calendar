@@ -94,7 +94,7 @@ class PostTranslationController extends Controller
 
         $pt['title'] = $request->get('title');
         $pt['body'] = $request->get('body');
-        $pt['slug'] = str_slug($postTranslation->title, '-');
+        $pt['slug'] = str_slug($request->get('title'), '-');
 
         $pt['before_content'] = $request->get('before_content');
         $pt['after_content'] = $request->get('after_content');
