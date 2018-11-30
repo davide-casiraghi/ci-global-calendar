@@ -43,16 +43,28 @@ function()
         Route::resource('eventSearch','EventSearchController');
         Route::resource('backgroundImages','BackgroundImageController');
 
-
     // To populate the event repeat by month options
         Route::get('/event/monthSelectOptions', 'EventController@calculateMonthlySelectOptions');
-
 
     // Single post by slug
         Route::get('post/{slug}', 'PostController@postBySlug')->where('postBySlug', '[a-z]+');
 
     /* Authentication */
-        Auth::routes();
+        //Auth::routes();
+        // Authentication Routes... https://stackoverflow.com/questions/42336115/how-can-i-pass-variable-to-register-view
+            Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+            Route::post('login', 'Auth\LoginController@login');
+            Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+        // Registration Routes...
+            Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+            Route::post('register', 'Auth\RegisterController@register');
+
+        // Password Reset Routes...
+            Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+            Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+            Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+            Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
     /* Report misuse*/
         Route::post('/misuse', 'EventController@reportMisuse')->name("events.misuse");

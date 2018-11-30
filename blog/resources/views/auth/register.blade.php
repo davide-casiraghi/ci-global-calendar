@@ -66,7 +66,18 @@
                         </div>
 
                         {{-- COUNTRY --}}
+                        <div class="form-group row">
+                            <label for="description" class="col-md-4 col-form-label text-md-right">@lang('general.description')</label>
 
+                            <div class="col-md-6">
+                                @include('partials.forms.select', [
+                                      'title' => 'Country',
+                                      'name' => 'country_id',
+                                      'placeholder' => 'Select country',
+                                      'records' => $countries
+                                ])
+                            </div>
+                        </div>
 
 
                         {{-- DESCRIPTION --}}
