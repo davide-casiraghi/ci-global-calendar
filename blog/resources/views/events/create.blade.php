@@ -41,7 +41,11 @@
                 	'text' => 'Please insert also an english translation of your event below the description, even short.',
                 	'style' => 'alert-warning',
                 ])
-                @include('partials.forms.textarea-event-description')
+                @include('partials.forms.textarea', [
+                      'title' => 'Description',
+                      'name' => 'description',
+                      'placeholder' => 'Event description',
+                ])
             </div>
         </div>
 

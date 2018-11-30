@@ -44,7 +44,12 @@
                 @include('partials.forms.event.select-event-status')
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                @include('partials.forms.textarea-event-description')
+                @include('partials.forms.textarea', [
+                      'title' => 'Description',
+                      'name' => 'description',
+                      'placeholder' => 'Event description',
+                      'value' => $event->description
+                ])
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
