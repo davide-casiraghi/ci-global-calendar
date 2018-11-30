@@ -17185,13 +17185,21 @@ footer {
   }
 }
 
+.postTitle h2 {
+  font-weight: bold;
+}
+
+.postBody {
+  line-height: 1.875rem;
+}
+
 .postBody h3 {
-  margin: 3rem 0 2rem 0;
+  margin: 2rem 0 2rem 0;
 }
 
 .postBody > ul,
 .postBody > ol {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .postBody > ul li,

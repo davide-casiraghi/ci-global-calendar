@@ -1,14 +1,15 @@
 .postTitle{
     h2{
-
+        font-weight: bold;
     }
 }
 .postBody{
+    line-height: 1.875rem;
     h3{
-        margin: 3rem 0 2rem 0;
+        margin: 2rem 0 2rem 0;
     }
     > ul, > ol{
-        margin-top: 2rem;
+        margin-top: 1rem;
         li{
             margin-bottom: 0.3rem;
             ul{

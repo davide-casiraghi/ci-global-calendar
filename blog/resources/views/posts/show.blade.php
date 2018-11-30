@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="row">
-        <div class="postTitle col-xs-12 col-sm-12 col-md-12 mb-5">
+        <div class="postTitle col-xs-12 col-sm-12 col-md-12 mb-4 mt-5">
             <h2>{{ $post->title }}</h2>
         </div>
         <div class="postBody col-xs-12 col-sm-12 col-md-12">
