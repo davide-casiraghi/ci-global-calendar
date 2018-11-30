@@ -48,7 +48,7 @@
                 ])
             </div>
 
-            @if( $user_group == 1 || $user_group == 2)
+            @if( $logged_user_group == 1 || $logged_user_group == 2)
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Group:</strong>

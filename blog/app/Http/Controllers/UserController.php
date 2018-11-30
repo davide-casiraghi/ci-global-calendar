@@ -105,10 +105,12 @@ class UserController extends Controller
         $countries = Country::pluck('name', 'id');
 
         // We check the user group to hide the group selection dropdown when the user is a guest
-            $user = Auth::user();
-            $user_group = ($user) ? $user->group : null;
+            $logged_user = Auth::user();
+            $logged_user_group = ($logged_user) ? $logged_user->group : null;
 
-        return view('users.edit',compact('user'))->with('countries', $countries)->with('user_group', $user_group);
+        return view('users.edit',compact('user'))
+                ->with('countries', $countries)
+                ->with('logged_user_group', $logged_user_group);
     }
 
     /**
