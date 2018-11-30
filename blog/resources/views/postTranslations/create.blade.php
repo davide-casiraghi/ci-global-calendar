@@ -60,7 +60,9 @@
         </div>
     </div>
 
-    @include('partials.forms.error-management')
+    @include('partials.forms.error-management', [
+          'style' => 'alert-danger',
+    ])
 
     {{--<form action="/postTranslations/{{ $postId }}/{{ $languageCode }}/store" method="POST">--}}
         <form action="{{ route('postTranslations.store') }}" method="POST">

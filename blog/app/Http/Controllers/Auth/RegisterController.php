@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use App\Notifications\UserRegisteredSuccessfully;
+use Illuminate\Http\Request;
+
 class RegisterController extends Controller
 {
     /*
@@ -78,7 +81,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * Show the application registration form.
+     * Show the application registration form. - OVERRIDE to default function
      *
      * @return \Illuminate\Http\Response
      */
@@ -87,5 +90,33 @@ class RegisterController extends Controller
         $countries = Country::pluck('name', 'id');
         return view('auth.register', compact('countries'));
     }
+
+
+    /**
+     * Register new account. - OVERRIDE to default function
+     *
+     * @param Request $request
+     * @return User
+     */
+    protected function register(Request $request)
+    {
+        /** @var User $user */
+        $validatedData = $request->validate([
+            'name'     => 'required|string|max:255',
+            'email'    => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+        try {
+            $validatedData['password']        = bcrypt(array_get($validatedData, 'password'));
+            $validatedData['activation_code'] = str_random(30).time();
+            $user                             = app(User::class)->create($validatedData);
+        } catch (\Exception $exception) {
+            logger()->error($exception);
+            return redirect()->back()->with('message', 'Unable to create new user.');
+        }
+        $user->notify(new UserRegisteredSuccessfully($user));
+        return redirect()->back()->with('message', 'You have successfully registered to the CI Global Calendar. You will get a confirmation email when your account will be approved by the administrator. Thank you for registering!');
+    }
+
 
 }

@@ -62,7 +62,9 @@
         </div>
     </div>
 
-    @include('partials.forms.error-management')
+    @include('partials.forms.error-management', [
+          'style' => 'alert-danger',
+    ])
 
     <form action="{{ route('posts.update',$post->id) }}" method="POST">
         @csrf

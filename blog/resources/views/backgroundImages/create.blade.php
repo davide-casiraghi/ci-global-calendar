@@ -9,7 +9,9 @@
         </div>
     </div>
 
-    @include('partials.forms.error-management')
+    @include('partials.forms.error-management', [
+          'style' => 'alert-danger',
+    ])
 
     <form action="{{ route('backgroundImages.store') }}" method="POST">
         @csrf
