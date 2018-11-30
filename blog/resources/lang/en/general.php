@@ -13,6 +13,7 @@ return [
     'from' => 'From',
     'to' => 'To',
     'by' => 'By',
-    'links' => 'Links'
+    'links' => 'Links',
+    'description' => 'Description'
 
 ];

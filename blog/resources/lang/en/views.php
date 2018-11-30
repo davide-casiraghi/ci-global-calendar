@@ -4,7 +4,6 @@ return [
     'title' => 'Title',
     'category' => 'Category',
     'status' => 'Status',
-    'description' => 'Description',
     'teachers' => 'Teachers',
     'organizers' => 'Organizers',
     'venues' => 'Venues',

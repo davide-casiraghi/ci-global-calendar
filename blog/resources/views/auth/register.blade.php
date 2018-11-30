@@ -5,12 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">@lang('menu.create_account')</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
                         @csrf
 
+                        {{--  NAME --}}
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
@@ -25,6 +26,7 @@
                             </div>
                         </div>
 
+                        {{-- MAIL --}}
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -39,6 +41,7 @@
                             </div>
                         </div>
 
+                        {{--  PASSWORD --}}
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
@@ -53,11 +56,30 @@
                             </div>
                         </div>
 
+                        {{-- confirm PASSWORD --}}
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+
+                        {{-- COUNTRY --}}
+
+
+
+                        {{-- DESCRIPTION --}}
+                        <div class="form-group row">
+                            <label for="description" class="col-md-4 col-form-label text-md-right">@lang('general.description')</label>
+
+                            <div class="col-md-6">
+                                @include('partials.forms.textarea-plain', [
+                                      'title' => '',
+                                      'name' => 'description',
+                                      'placeholder' => 'To be approved as an editor of the CI Global Calendar, please describe your role in the Contact Improvisation community. (this is needed to prevent spam contents in the website)',
+                                      'height' => '11rem'
+                                ])
                             </div>
                         </div>
 
