@@ -1,8 +1,4 @@
-@section('javascript')
-    @parent
-    
 
-@stop
 
 <div class="form-group">
     <strong>Category:</strong>
