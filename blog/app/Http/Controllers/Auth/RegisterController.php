@@ -124,7 +124,7 @@ class RegisterController extends Controller
             return redirect()->back()->with('message', 'Unable to create new user.');
         }
         $user->notify(new UserRegisteredSuccessfully($user));
-        return redirect()->back()->with('message', 'You have successfully registered to the CI Global Calendar. You will get a confirmation email when your account will be approved by the administrator. Thank you for registering!');
+        return redirect()->back()->with('message', __('auth.successfully_registered'));
     }
 
 

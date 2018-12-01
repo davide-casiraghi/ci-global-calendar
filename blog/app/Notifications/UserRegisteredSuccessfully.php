@@ -69,7 +69,6 @@ class UserRegisteredSuccessfully extends Notification
                     ->line(sprintf('Name: %s', $user->name))
                     ->line(sprintf('Email %s', $user->email))
                     ->line(sprintf('Description %s', $user->description))
-                    //->line('You have successfully registered to the CI Global Calendar. You will get a confirmation email when your account will be approved by the administrator.')
                     ->action('Click Here', route('activate.user', $user->activation_code))
                     ->line('Thank you for registering!');
     }

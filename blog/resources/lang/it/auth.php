@@ -15,5 +15,5 @@ return [
 
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'successfully_registered' => 'You have successfully registered to the CI Global Calendar. You will get a confirmation email when your account will be approved by the administrator. Thank you for registering!',
+    'successfully_registered' => "Ti sei registrato con successo nel CI Global Calendar. Riceverai un'email di conferma quando il tuo account verrà approvato dall'amministratore. Grazie per la registrazione!",
 ];
