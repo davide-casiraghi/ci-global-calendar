@@ -14,13 +14,19 @@
      }
 @stop
 
-
-<div class="form-group" >
-    <strong>Organizers:</strong>
-    <select id="organizer" class="selectpicker multiselect" multiple title="Select organizer">
-        @foreach ($organizers as $value => $organizer)
-            <option value="{{$value}}">{!! $organizer !!}</option>
-        @endforeach
-    </select>
-    <input type="hidden" name="multiple_organizers" id="multiple_organizers" @if(!empty($multiple_organizers)) value="{{$multiple_organizers}}" @endif/>
+<div class="row">
+    <div class="col-12 col-sm-6 col-md-6">
+        <div class="form-group" >
+            <strong>Organizers:</strong>
+            <select id="organizer" class="selectpicker multiselect" multiple title="Select organizer">
+                @foreach ($organizers as $value => $organizer)
+                    <option value="{{$value}}">{!! $organizer !!}</option>
+                @endforeach
+            </select>
+            <input type="hidden" name="multiple_organizers" id="multiple_organizers" @if(!empty($multiple_organizers)) value="{{$multiple_organizers}}" @endif/>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-6">
+        <button type="button" data-toggle="modal" class="btn btn-primary mb-3 mb-sm-0 mt-sm-4" data-remote="{{ route('organizers.modal') }}" data-target=".modalFrame">Add new organizer</button>
+    </div>
 </div>

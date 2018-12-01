@@ -129,7 +129,6 @@ class TeacherController extends Controller
                         ->with('success','Teacher deleted successfully');
     }
 
-
     /**
      * Save the teacher datas on DB
      *

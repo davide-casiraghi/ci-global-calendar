@@ -50,17 +50,7 @@ class OrganizerController extends Controller
             'name' => 'required'
         ]);
 
-        $organizer = new Organizer();
-        $organizer->name = $request->get('name');
-        $organizer->image = $request->get('image');
-        $organizer->website = $request->get('website');
-        $organizer->facebook = $request->get('facebook');
-        $organizer->email = $request->get('email');
-
-        $organizer->created_by = \Auth::user()->id;
-        $organizer->slug = str_slug($organizer->name, '-').rand(10000, 100000);
-
-        $organizer->save();
+        $this->save($request);
 
         return redirect()->route('organizers.index')
                         ->with('success','Organizer created successfully.');
@@ -115,4 +105,53 @@ class OrganizerController extends Controller
         return redirect()->route('organizers.index')
                         ->with('success','Organizer deleted successfully');
     }
+
+
+    /**
+     * Save the organier datas on DB
+     *
+     * @param  \App\Teacher  $teacher
+     * @return \Illuminate\Http\Response
+     */
+     public function save($request){
+         $organizer = new Organizer();
+         $organizer->name = $request->get('name');
+         $organizer->image = $request->get('image');
+         $organizer->website = $request->get('website');
+         $organizer->facebook = $request->get('facebook');
+         $organizer->email = $request->get('email');
+
+         $organizer->created_by = \Auth::user()->id;
+         $organizer->slug = str_slug($organizer->name, '-').rand(10000, 100000);
+
+         $organizer->save();
+     }
+    /**
+     * Open a modal in the event view when create organizer is clicked
+     *
+     * @param  \App\Teacher  $teacher
+     * @return \Illuminate\Http\Response
+     */
+    public function modal(){
+        return view('organizers.modal');
+    }
+
+    /**
+     * Store a newly created organizer from the modal in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeFromModal(Request $request){
+        request()->validate([
+            'name' => 'required'
+        ]);
+
+        $this->save($request);
+
+        return redirect()->back()->with('message', 'Organizer created');
+        //return redirect()->back()->with('message', __('auth.successfully_registered'));
+        //return true;
+    }
+
 }

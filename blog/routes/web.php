@@ -36,13 +36,15 @@ function()
         Route::resource('events','EventController');
         Route::resource('eventCategories','EventCategoryController');
         Route::resource('eventVenues','EventVenueController');
+
         Route::resource('teachers','TeacherController');
             Route::get('/create-teacher/modal/', 'TeacherController@modal')->name('teachers.modal');
             Route::post('/create-teacher/modal/', 'TeacherController@storeFromModal')->name('teachers.storeFromModal');
 
-
-
         Route::resource('organizers','OrganizerController');
+            Route::get('/create-organizer/modal/', 'OrganizerController@modal')->name('organizers.modal');
+            Route::post('/create-organizer/modal/', 'OrganizerController@storeFromModal')->name('organizers.storeFromModal');
+
         Route::resource('continents','ContinentController');
         Route::resource('countries','CountryController');
         Route::resource('eventSearch','EventSearchController');
