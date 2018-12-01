@@ -71,21 +71,7 @@ class TeacherController extends Controller
             'name' => 'required'
         ]);
 
-        $teacher = new Teacher();
-        $teacher->name = $request->get('name');
-        $teacher->bio = $request->get('bio');
-        $teacher->country_id = $request->get('country_id');
-        $teacher->year_starting_practice = $request->get('year_starting_practice');
-        $teacher->year_starting_teach = $request->get('year_starting_teach');
-        $teacher->significant_teachers = $request->get('significant_teachers');
-        $teacher->image = $request->get('image');
-        $teacher->website = $request->get('website');
-        $teacher->facebook = $request->get('facebook');
-
-        $teacher->created_by = \Auth::user()->id;
-        $teacher->slug = str_slug($teacher->name, '-').rand(10000, 100000);
-
-        $teacher->save();
+        $this->save($request);
 
         return redirect()->route('teachers.index')
                         ->with('success','Teacher created successfully.');
@@ -142,6 +128,32 @@ class TeacherController extends Controller
         return redirect()->route('teachers.index')
                         ->with('success','Teacher deleted successfully');
     }
+
+
+    /**
+     * Save the teacher datas on DB
+     *
+     * @param  \App\Teacher  $teacher
+     * @return \Illuminate\Http\Response
+     */
+     public function save($request){
+         $teacher = new Teacher();
+
+         $teacher->name = $request->get('name');
+         $teacher->bio = $request->get('bio');
+         $teacher->country_id = $request->get('country_id');
+         $teacher->year_starting_practice = $request->get('year_starting_practice');
+         $teacher->year_starting_teach = $request->get('year_starting_teach');
+         $teacher->significant_teachers = $request->get('significant_teachers');
+         $teacher->image = $request->get('image');
+         $teacher->website = $request->get('website');
+         $teacher->facebook = $request->get('facebook');
+
+         $teacher->created_by = \Auth::user()->id;
+         $teacher->slug = str_slug($teacher->name, '-').rand(10000, 100000);
+
+         $teacher->save();
+     }
 
     /**
      * Open a modal in the event view when create teachers is clicked
