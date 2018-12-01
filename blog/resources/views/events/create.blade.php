@@ -52,15 +52,20 @@
         </div>
 
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12 col-sm-6 col-md-6">
                 @include('partials.forms.event.select-event-teacher')
             </div>
+            <div class="col-12 col-sm-6 col-md-6">
+                <button type="submit" class="btn btn-primary mb-3 mb-sm-0 mt-sm-4">Add new teacher</button>
+            </div>
+        </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="row">
+            <div class="col-12">
                 @include('partials.forms.event.select-event-organizer')
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.event.select-event-venue')
             </div>
 
