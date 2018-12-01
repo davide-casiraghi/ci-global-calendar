@@ -179,9 +179,6 @@ class TeacherController extends Controller
 
         $this->save($request);
 
-        /*return redirect()->route('teachers.index')
-                        ->with('success','Teacher created successfully.');*/
-
         return redirect()->back()->with('message', 'Teacher created');
         //return redirect()->back()->with('message', __('auth.successfully_registered'));
         //return true;

@@ -53,8 +53,6 @@
 
         @include('partials.forms.event.select-event-teacher')
 
-        
-
         <div class="row">
             <div class="col-12">
                 @include('partials.forms.event.select-event-organizer')
