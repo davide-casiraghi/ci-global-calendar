@@ -1,13 +1,10 @@
 
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<head>
     {{--<title>App Name - @yield('title')</title>--}}
 
     {{--<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">--}}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -22,10 +19,10 @@
 </head>
 
  <!-- Laravel use VUE as default - https://stackoverflow.com/questions/41411344/vue-warn-cannot-find-element-app#41411385-->
-    {{-- {!! menu('main', 'nav') !!} --}}
+    {!! menu('main', 'nav') !!}
 
 <body>
-
+--}}
     <div class="container pt-5">
         @yield('content')
     </div>
@@ -43,5 +40,3 @@
                 @yield('javascript-document-ready')
             });
         </script>
-</body>
-</html>
