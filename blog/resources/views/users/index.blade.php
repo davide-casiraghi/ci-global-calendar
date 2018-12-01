@@ -47,6 +47,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Country</th>
+            <th width="100">Status</th>
             <th width="280">Action</th>
         </tr>
         @foreach ($users as $user)
@@ -54,6 +55,7 @@
             <td>{{ $user->id }}</td>
             <td>{{ $user->name }}</td>
             <td>@if(!empty($user->country_id)){{ $countries[$user->country_id] }}@endif</td>
+            <td class="text-center align-middle">@if(!empty($user->status)){!! '<i class="fas fa-dot-circle" style="color:green;"></i>' !!}@else{!!'<i class="fas fa-dot-circle" style="color:red;"></i>'!!}@endif</td>
             <td>
                 <form action="{{ route('users.destroy',$user->id) }}" method="POST">
 
