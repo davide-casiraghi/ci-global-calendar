@@ -69,7 +69,7 @@ class UserRegisteredSuccessfully extends Notification
                     ->line(sprintf('Name: %s', $user->name))
                     ->line(sprintf('Email: %s', $user->email))
                     ->line(sprintf('Description: %s', $user->description))
-                    ->action('Activate user', route('activate.user', $user->activation_code))
+                    ->action('Activate user', route('activate.user', $user->activation_code));
     }
 
     /**
