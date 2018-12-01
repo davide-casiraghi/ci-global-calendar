@@ -45,14 +45,14 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
-                      'title' => 'Year of starting to practice:',
+                      'title' => 'Year of starting to practice',
                       'name' => 'year_starting_practice',
                       'placeholder' => 'AAAA'
                 ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
-                      'title' => 'Year of starting to teach:',
+                      'title' => 'Year of starting to teach',
                       'name' => 'year_starting_teach',
                       'placeholder' => 'AAAA'
                 ])
