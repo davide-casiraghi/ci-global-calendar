@@ -5,6 +5,7 @@
 namespace App\Notifications;
 
 use App\User;
+use App\Country;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
@@ -50,18 +51,26 @@ class UserRegisteredSuccessfully extends Notification
      */
     public function toMail($notifiable)
     {
+        $countries = Country::pluck('name', 'id');
+
         /** @var User $user */
         $user = $this->user;
-        
+        //$country = $countries[$user->country_id];
+
         return (new MailMessage)
                     /*->line('The introduction to the notification.')
                     ->action('Notification Action', url('/'))
                     ->line('Thank you for using our application!');*/
                     ->from(env('ADMIN_MAIL'))
-                    ->subject('Successfully created new account')
-                    ->greeting(sprintf('Hello %s', $user->name))
-                    ->line('You have successfully registered to the CI Global Calendar. You will get a confirmation email when your account will be approved by the administrator.')
-                    //->action('Click Here', route('activate.user', $user->activation_code))
+                    ->subject('New user registration')
+                    //->greeting(sprintf('Hello %s', $user->name))
+                    ->greeting('Hello administrator')
+                    ->line('A new user has registered on the CI Global calendar website.')
+                    ->line(sprintf('Name: %s', $user->name))
+                    ->line(sprintf('Email %s', $user->email))
+                    ->line(sprintf('Description %s', $user->description))
+                    //->line('You have successfully registered to the CI Global Calendar. You will get a confirmation email when your account will be approved by the administrator.')
+                    ->action('Click Here', route('activate.user', $user->activation_code))
                     ->line('Thank you for registering!');
     }
 

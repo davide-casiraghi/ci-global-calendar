@@ -66,6 +66,9 @@ function()
             Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
             Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
+        // Activate User
+            Route::get('/verify-user/{code}', 'Auth\RegisterController@activateUser')->name('activate.user');
+
     /* Report misuse*/
         Route::post('/misuse', 'EventController@reportMisuse')->name("events.misuse");
         Route::get('/misuse/thankyou', 'EventController@reportMisuseThankyou')->name("events.misuse-thankyou");
