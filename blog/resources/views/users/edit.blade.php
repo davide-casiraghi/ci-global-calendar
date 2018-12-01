@@ -67,9 +67,9 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Status:</strong>
-                        <select name="enabled" class="selectpicker" title="">
-                            <option value="0" @if(empty($user->enabled)) {{ 'selected' }} @endif>Disabled</option>
-                            <option value="1" @if(!empty($user->enabled)) {{ 'selected' }} @endif>Enabled</option>
+                        <select name="status" class="selectpicker" title="">
+                            <option value="0" @if(empty($user->status)) {{ 'selected' }} @endif>Disabled</option>
+                            <option value="1" @if(!empty($user->status)) {{ 'selected' }} @endif>Enabled</option>
                         </select>
                     </div>
                 </div>

@@ -62,7 +62,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Status:</strong>
-                    <select name="enabled" class="selectpicker" title="">
+                    <select name="status" class="selectpicker" title="">
                         <option value="0">Disabled</option>
                         <option value="1" selected>Enabled</option>
                     </select>

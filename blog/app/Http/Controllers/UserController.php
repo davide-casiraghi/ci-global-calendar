@@ -73,6 +73,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->get('password'));
 
         $user->group = $request->get('group');
+        $user->status = $request->get('status');
         $user->country_id = $request->get('country_id');
         $user->description = $request->get('bio');
 
@@ -132,7 +133,9 @@ class UserController extends Controller
         $user->email = $request->get('email');
         if ($request->get('password'))
             $user->password = Hash::make($request->get('password'));
+
         $user->group = $request->get('group');
+        $user->status = $request->get('status');
         $user->country_id = $request->get('country_id');
         $user->description = $request->get('bio');
 
