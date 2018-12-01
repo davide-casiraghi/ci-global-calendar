@@ -43,32 +43,40 @@
                     <textarea class="form-control" style="height:150px" name="bio" placeholder="Bio"></textarea>
                 </div>
             </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
                       'title' => 'Year of starting to practice',
                       'name' => 'year_starting_practice',
-                      'placeholder' => 'AAAA'
+                      'placeholder' => 'AAAA',
+                      'value' => '',
                 ])
             </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
                       'title' => 'Year of starting to teach',
                       'name' => 'year_starting_teach',
-                      'placeholder' => 'AAAA'
+                      'placeholder' => 'AAAA',
+                      'value' => '',
                 ])
             </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
                       'title' => 'Facebook profile',
                       'name' => 'facebook',
-                      'placeholder' => 'https://...'
+                      'placeholder' => 'https://...',
+                      'value' => '',
                 ])
             </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
                       'title' => 'Website',
                       'name' => 'website',
-                      'placeholder' => 'https://...'
+                      'placeholder' => 'https://...',
+                      'value' => '',
                 ])
             </div>
 
