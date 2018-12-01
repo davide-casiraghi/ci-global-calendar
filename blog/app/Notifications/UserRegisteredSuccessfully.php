@@ -55,19 +55,15 @@ class UserRegisteredSuccessfully extends Notification
 
         /** @var User $user */
         $user = $this->user;
-        //$country = $countries[$user->country_id];
-
+        
         return (new MailMessage)
-                    /*->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');*/
                     ->from(env('ADMIN_MAIL'))
                     ->subject('New user registration')
-                    //->greeting(sprintf('Hello %s', $user->name))
                     ->greeting('Hello administrator')
                     ->line('A new user has registered on the CI Global calendar website.')
                     ->line(sprintf('Name: %s', $user->name))
                     ->line(sprintf('Email: %s', $user->email))
+                    ->line(sprintf('Country: %s', $countries[$user->country_id]))
                     ->line(sprintf('Description: %s', $user->description))
                     ->action('Activate user', route('activate.user', $user->activation_code));
     }
