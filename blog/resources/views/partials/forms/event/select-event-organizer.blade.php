@@ -18,7 +18,7 @@
     <div class="col-12 col-sm-6 col-md-6">
         <div class="form-group" >
             <strong>Organizers:</strong>
-            <select id="organizer" class="selectpicker multiselect" multiple title="Select organizer">
+            <select id="organizer" class="selectpicker multiselect" multiple data-live-search="true" title="Select organizer">
                 @foreach ($organizers as $value => $organizer)
                     <option value="{{$value}}">{!! $organizer !!}</option>
                 @endforeach
