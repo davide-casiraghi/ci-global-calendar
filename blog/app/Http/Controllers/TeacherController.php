@@ -165,4 +165,25 @@ class TeacherController extends Controller
         $countries = Country::pluck('name', 'id');
         return view('teachers.modal')->with('countries', $countries);
     }
+
+    /**
+     * Store a newly created teacher from the modal in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeFromModal(Request $request){
+        request()->validate([
+            'name' => 'required'
+        ]);
+
+        $this->save($request);
+
+        /*return redirect()->route('teachers.index')
+                        ->with('success','Teacher created successfully.');*/
+
+        return redirect()->back()->with('message', 'Teacher created');
+        //return redirect()->back()->with('message', __('auth.successfully_registered'));
+        //return true;
+    }
 }

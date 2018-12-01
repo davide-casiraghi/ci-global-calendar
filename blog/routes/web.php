@@ -38,6 +38,9 @@ function()
         Route::resource('eventVenues','EventVenueController');
         Route::resource('teachers','TeacherController');
             Route::get('/create-teacher/modal/', 'TeacherController@modal')->name('teachers.modal');
+            Route::post('/create-teacher/modal/', 'TeacherController@storeFromModal')->name('teachers.storeFromModal');
+
+
 
         Route::resource('organizers','OrganizerController');
         Route::resource('continents','ContinentController');
