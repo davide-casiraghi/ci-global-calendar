@@ -55,14 +55,7 @@
 
         @include('partials.forms.event.select-event-organizer')
 
-        <div class="row">
-            
-
-            <div class="col-12">
-                @include('partials.forms.event.select-event-venue')
-            </div>
-
-        </div>
+        @include('partials.forms.event.select-event-venue')
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
