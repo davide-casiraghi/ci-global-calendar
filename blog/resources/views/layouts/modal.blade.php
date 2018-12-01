@@ -9,4 +9,7 @@
     $(document).ready(function(){
         @yield('javascript-document-ready')
     });
+
+    $('.selectpicker').selectpicker();
+
 </script>
