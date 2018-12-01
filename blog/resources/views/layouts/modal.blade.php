@@ -4,7 +4,6 @@
     @yield('content')
 </div>
 
-@yield('javascript')
 
 <script type="text/javascript">
     $(document).ready(function(){
