@@ -15,6 +15,8 @@
         </div>
     </div>
     <div class="col-12 col-sm-6 col-md-6">
-        <button type="button" data-toggle="modal" class="btn btn-primary mb-3 mb-sm-0 mt-sm-4" data-remote="{{ route('venues.modal') }}" data-target=".modalFrame">Add new venue</button>
+        <button type="button" data-toggle="modal" class="btn btn-primary mb-3 mb-sm-0 mt-sm-4" data-remote="{{ route('eventVenues.modal') }}" data-target=".modalFrame">Add new venue</button>
     </div>
 </div>
+
+@include('partials.forms.modal-frame')

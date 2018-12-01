@@ -72,21 +72,7 @@ class EventVenueController extends Controller
             'name' => 'required'
         ]);
 
-        $eventVenue = new EventVenue();
-        $eventVenue->name = $request->get('name');
-        $eventVenue->description = $request->get('description');
-        $eventVenue->continent_id = Country::where('id', $request->get('country_id'))->pluck('continent_id')->first();
-        $eventVenue->country_id = $request->get('country_id');
-        $eventVenue->city = $request->get('city');
-        $eventVenue->address = $request->get('address');
-        $eventVenue->zip_code = $request->get('zip_code');
-        $eventVenue->facebook = $request->get('facebook');
-        $eventVenue->website = $request->get('website');
-        $eventVenue->image = $request->get('image');
-
-        $eventVenue->slug = str_slug($eventVenue->name, '-').rand(10000, 100000);
-        $eventVenue->created_by = \Auth::user()->id;
-        $eventVenue->save();
+        $this->save($request);
 
         return redirect()->route('eventVenues.index')
                         ->with('success','Event venue created successfully.');
@@ -148,4 +134,59 @@ class EventVenueController extends Controller
         return redirect()->route('eventVenues.index')
                         ->with('success','Event venue deleted successfully');
     }
+
+    /**
+     * Save the teacher datas on DB
+     *
+     * @param  \App\Teacher  $teacher
+     * @return \Illuminate\Http\Response
+     */
+     public function save($request){
+         $eventVenue = new EventVenue();
+         $eventVenue->name = $request->get('name');
+         $eventVenue->description = $request->get('description');
+         $eventVenue->continent_id = Country::where('id', $request->get('country_id'))->pluck('continent_id')->first();
+         $eventVenue->country_id = $request->get('country_id');
+         $eventVenue->city = $request->get('city');
+         $eventVenue->address = $request->get('address');
+         $eventVenue->zip_code = $request->get('zip_code');
+         $eventVenue->facebook = $request->get('facebook');
+         $eventVenue->website = $request->get('website');
+         $eventVenue->image = $request->get('image');
+
+         $eventVenue->slug = str_slug($eventVenue->name, '-').rand(10000, 100000);
+         $eventVenue->created_by = \Auth::user()->id;
+         $eventVenue->save();
+     }
+
+    /**
+     * Open a modal in the event view when create teachers is clicked
+     *
+     * @param  \App\Teacher  $teacher
+     * @return \Illuminate\Http\Response
+     */
+    public function modal(){
+        $countries = Country::pluck('name', 'id');
+        return view('eventVenues.modal')->with('countries', $countries);
+    }
+
+    /**
+     * Store a newly created teacher from the modal in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeFromModal(Request $request){
+        request()->validate([
+            'name' => 'required'
+        ]);
+
+        $this->save($request);
+
+        return redirect()->back()->with('message', 'Venue created');
+        //return redirect()->back()->with('message', __('auth.successfully_registered'));
+        //return true;
+    }
+
+
 }
