@@ -1,6 +1,6 @@
 
 
-<div class="container pt-5">
+<div class="container pt-5 pb-3">
     @yield('content')
 </div>
 
