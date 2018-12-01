@@ -13,15 +13,8 @@
          $('#teacher').selectpicker('val', teachersSelectedArray);
      }
 
-     /*$('body').on('click', '[data-toggle="modal"]', function(){
-        $($(this).data("target")+' .modal-body').load($(this).data("remote"));
-    });*/
+    {{-- Load the modal to create a new teacher --}}
     $('#myModel').on('show.bs.modal', function (e) {
-        console.log(e);
-        console.log(e.relatedTarget);
-
-        console.log($(e.relatedTarget).attr('data-remote'));
-
         $(this).find('.modal-content').load($(e.relatedTarget).attr('data-remote'));
     });
 
