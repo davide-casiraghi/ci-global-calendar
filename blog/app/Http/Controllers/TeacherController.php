@@ -142,4 +142,15 @@ class TeacherController extends Controller
         return redirect()->route('teachers.index')
                         ->with('success','Teacher deleted successfully');
     }
+
+    /**
+     * Open a modal in the event view when create teachers is clicked
+     *
+     * @param  \App\Teacher  $teacher
+     * @return \Illuminate\Http\Response
+     */
+    public function modal(){
+        $countries = Country::pluck('name', 'id');
+        return view('teachers.modal')->with('countries', $countries);
+    }
 }

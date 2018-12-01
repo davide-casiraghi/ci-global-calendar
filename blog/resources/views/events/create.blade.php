@@ -51,14 +51,9 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12 col-sm-6 col-md-6">
-                @include('partials.forms.event.select-event-teacher')
-            </div>
-            <div class="col-12 col-sm-6 col-md-6">
-                <button type="submit" class="btn btn-primary mb-3 mb-sm-0 mt-sm-4">Add new teacher</button>
-            </div>
-        </div>
+        @include('partials.forms.event.select-event-teacher')
+
+        
 
         <div class="row">
             <div class="col-12">
