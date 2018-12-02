@@ -111,6 +111,7 @@ class EventSearchController extends Controller
                                 return $query->where('event_repetitions.end_repeat', '<=', $searchEndDate);
                             });
                     })
+                    ->orderBy('event_repetitions.start_repeat', 'asc')
                     ->paginate(20);
                     //dd(DB::getQueryLog());
         }
