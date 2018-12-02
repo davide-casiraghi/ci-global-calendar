@@ -75,7 +75,6 @@
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                                <p style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; color: #74787E; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">Regards,<br>Laravel</p>
                                                 <table style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; border-top: 1px solid #EDEFF2; margin-top: 25px; padding-top: 25px;" class="subcopy" cellpadding="0" cellspacing="0" width="100%">
                                                     <tbody>
                                                         <tr>
