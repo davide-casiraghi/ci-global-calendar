@@ -102,9 +102,6 @@ class EventSearchController extends Controller
                     ->when($searchVenue, function ($query, $searchVenue) {
                         return $query->where('title', $searchVenue)->orWhere('sc_venue_name', 'like', '%' . $searchVenue . '%');
                     })
-                    /*->when($searchStartDate, function ($query, $searchStartDate) {
-                        return $query->where('sc_continent_id', '>', $searchStartDate);
-                    })*/
                     ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) use ($searchStartDate,$searchEndDate) {
                         $join->on('events.id', '=', 'event_repetitions.event_id')
                             ->when($searchStartDate, function ($query, $searchStartDate) {
