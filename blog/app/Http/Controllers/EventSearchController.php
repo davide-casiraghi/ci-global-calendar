@@ -58,6 +58,8 @@ class EventSearchController extends Controller
         $searchContinent = $request->input('continent_id');
         $searchTeacher = $request->input('teacher_id');
         $searchVenue = $request->input('venue_name');
+        $searchStartDate = $request->input('startDate');
+        $searchEndDate = $request->input('endDate');
 
         // Sub-Query Joins - https://laravel.com/docs/5.7/queries
         $lastestEventsRepetitions = DB::table('event_repetitions')
