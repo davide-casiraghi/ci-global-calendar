@@ -77,6 +77,9 @@ class EventSearchController extends Controller
                     /*->when($searchTeacher, function ($query, $searchTeacher) {
                         return $query->where('category_id', '=', $searchCategory);
                     })*/
+                    ->when($searchTeacher, function ($query, $searchTeacher) {
+                        return $query->whereRaw('json_contains(sc_teachers_id, \'["' . $searchTeacher . '"]\')');
+                    })
                     ->when($searchCountry, function ($query, $searchCountry) {
                         return $query->where('sc_country_id', '=', $searchCountry);
                     })
