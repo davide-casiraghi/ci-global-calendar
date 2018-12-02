@@ -8,7 +8,7 @@
                     $("input#keywords").val("");
                     $('#category option').prop("selected", false).trigger('change');
                     $('#country option').prop("selected", false).trigger('change');
-                    $('form#searchForm').submit();
+                    $('form.searchForm').submit();
                 });
         });
     </script>
@@ -33,7 +33,7 @@
     @endif
 
     {{-- Search form --}}
-    <form class="row mt-3" id="searchForm" action="{{ route('events.index') }}" method="GET">
+    <form class="row mt-3 searchForm" action="{{ route('events.index') }}" method="GET">
         @csrf
         <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by event name" value="{{ $searchKeywords }}">

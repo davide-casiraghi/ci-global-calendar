@@ -21,7 +21,13 @@
 
         form{
             &.searchForm{
-
+                .date{
+                    .input-group-append{
+                        .input-group-text{
+                            font-size: 0.88rem;
+                        }
+                    }
+                }
             }
         }
         .eventList{

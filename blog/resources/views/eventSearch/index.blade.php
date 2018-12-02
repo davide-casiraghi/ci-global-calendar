@@ -11,8 +11,8 @@
         $('#teacher option').prop("selected", false).trigger('change');
         $('#country option').prop("selected", false).trigger('change');
         $('#continent option').prop("selected", false).trigger('change');
-        $("input[name='venue_name']").val("");  
-        $('form#searchForm').submit();
+        $("input[name='venue_name']").val("");
+        $('form.searchForm').submit();
     });
 
 @stop
@@ -52,7 +52,7 @@
             @endif
 
             {{-- Search form --}}
-            <form id="searchForm" action="{{ route('eventSearch.index') }}" method="GET">
+            <form class="searchForm" action="{{ route('eventSearch.index') }}" method="GET">
                 @csrf
 
                 {{--<div class="row mt-3">

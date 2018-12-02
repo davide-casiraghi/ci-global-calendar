@@ -17240,6 +17240,10 @@ footer {
   color: #bbbbbb;
 }
 
+.contactEvents .container form.searchForm .date .input-group-append .input-group-text {
+  font-size: 0.88rem;
+}
+
 .contactEvents .container .eventList {
   margin-bottom: 4rem;
 }
