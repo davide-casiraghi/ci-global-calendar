@@ -58,17 +58,31 @@ class EventSearchController extends Controller
         $searchContinent = $request->input('continent_id');
         $searchTeacher = $request->input('teacher_id');
         $searchVenue = $request->input('venue_name');
-        $searchStartDate = $request->input('startDate');
-        $searchEndDate = $request->input('endDate');
-
+        //dd($request->input('startDate')." ".$request->input('endDate'));
+        if($request->input('startDate')){
+            list($tid,$tim,$tiy) = explode("/",$request->input('startDate'));
+            $searchStartDate = "$tiy-$tim-$tid";
+        }
+        else{
+            $searchStartDate = null;
+        }
+        //dd($request->input('endDate'));
+        if($request->input('endDate')){
+            list($tid,$tim,$tiy) = explode("/",$request->input('endDate'));
+            $searchEndDate = "$tiy-$tim-$tid";
+        }
+        else{
+            $searchEndDate = null;
+        }
+        //dd($searchStartDate." ".$searchEndDate);
         // Sub-Query Joins - https://laravel.com/docs/5.7/queries
         $lastestEventsRepetitions = DB::table('event_repetitions')
                                 ->selectRaw('event_id, MIN(id) AS rp_id, start_repeat, end_repeat')
                                 ->groupBy('event_id')
                                 ->toSql();
 
-        if ($searchKeywords||$searchCategory||$searchCountry||$searchContinent||$searchTeacher||$searchVenue){
-
+        if ($searchKeywords||$searchCategory||$searchCountry||$searchContinent||$searchTeacher||$searchVenue||$searchEndDate){
+            DB::enableQueryLog();
                 $events = Event::
                     when($searchKeywords, function ($query, $searchKeywords) {
                         return $query->where('title', $searchKeywords)->orWhere('title', 'like', '%' . $searchKeywords . '%');
@@ -91,11 +105,17 @@ class EventSearchController extends Controller
                     /*->when($searchStartDate, function ($query, $searchStartDate) {
                         return $query->where('sc_continent_id', '>', $searchStartDate);
                     })*/
-                    ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) {
-                        $join->on('events.id', '=', 'event_repetitions.event_id');
+                    ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) use ($searchStartDate,$searchEndDate) {
+                        $join->on('events.id', '=', 'event_repetitions.event_id')
+                            ->when($searchStartDate, function ($query, $searchStartDate) {
+                                return $query->where('event_repetitions.start_repeat', '>=',$searchStartDate);
+                            })
+                            ->when($searchEndDate, function ($query, $searchEndDate) {
+                                return $query->where('event_repetitions.end_repeat', '<=', $searchEndDate);
+                            });
                     })
                     ->paginate(20);
-
+                    //dd(DB::getQueryLog());
         }
         else{
             //$events = Event::latest()->paginate(20);
@@ -128,8 +148,8 @@ class EventSearchController extends Controller
             ->with('searchContinent',$searchContinent)
             ->with('searchTeacher',$searchTeacher)
             ->with('searchVenue',$searchVenue)
-            ->with('searchStartDate',$searchStartDate)
-            ->with('searchEndDate',$searchEndDate)
+            ->with('searchStartDate',$request->input('startDate'))
+            ->with('searchEndDate',$request->input('endDate'))
             ->with('backgroundImages',$backgroundImages);
     }
 

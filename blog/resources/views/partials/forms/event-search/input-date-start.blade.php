@@ -5,7 +5,7 @@
     var today = new Date();
 
     $(".datepicker_start_date input").datepicker({
-        format: 'dd/mm/yy',
+        format: 'dd/mm/yyyy',
         startDate: today
     });
 
