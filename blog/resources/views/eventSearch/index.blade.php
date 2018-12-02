@@ -11,6 +11,7 @@
         $('#teacher option').prop("selected", false).trigger('change');
         $('#country option').prop("selected", false).trigger('change');
         $('#continent option').prop("selected", false).trigger('change');
+        $("input[name='venue_name']").val("");  
         $('form#searchForm').submit();
     });
 
