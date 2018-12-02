@@ -35,15 +35,13 @@ class EventSearchController extends Controller
             return EventCategory::pluck('name', 'id');
         });
 
-
-        $countries = Cache::rememberForever('countries', function () {
+        $countries = Cache::remember('countries', $minutes, function () {
             return Country::pluck('name', 'id');
         });
 
         $continents = Cache::rememberForever('continents', function () {
             return Continent::pluck('name', 'id');
         });
-
 
         $venues = Cache::remember('venues', $minutes, function () {
             return EventVenue::pluck('name', 'id');
@@ -68,18 +66,6 @@ class EventSearchController extends Controller
                                 ->toSql();
 
         if ($searchKeywords||$searchCategory||$searchCountry||$searchContinent||$searchTeacher||$searchVenue){
-
-            /*$events = DB::table('events')
-                ->when($searchKeywords, function ($query, $searchKeywords) {
-                    return $query->where('title', $searchKeywords)->orWhere('title', 'like', '%' . $searchKeywords . '%');
-                })
-                ->when($searchCategory, function ($query, $searchCategory) {
-                    return $query->where('category_id', '=', $searchCategory);
-                })
-                ->when($searchCountry, function ($query, $searchCountry) {
-                    return $query->where('country_id', '=', $searchCountry);
-                })
-                ->paginate(20);*/
 
                 $events = Event::
                     when($searchKeywords, function ($query, $searchKeywords) {
