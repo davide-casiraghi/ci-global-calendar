@@ -17,6 +17,15 @@
 @stop
 
 @section('beforeContent')
+
+    {{-- This is to show the user activation message in homepage to the Admin, when click on the user activation link --}}
+        @if(session()->has('message'))
+            <div class="alert alert-success" style="z-index:3;">
+                {{ session()->get('message') }}
+            </div>
+        @endif
+
+    {{-- The event search interface in Homepage --}}
     <div class="contactEvents jumbotron">
         @include('partials.jumboBackgroundChange')
         <div class="container">
