@@ -67,7 +67,7 @@ class EventSearchController extends Controller
                                 ->groupBy('event_id')
                                 ->toSql();
 
-        if ($searchKeywords||$searchCategory||$searchCountry||$searchContinent||$searchTeacher){
+        if ($searchKeywords||$searchCategory||$searchCountry||$searchContinent||$searchTeacher||$searchVenue){
 
             /*$events = DB::table('events')
                 ->when($searchKeywords, function ($query, $searchKeywords) {
@@ -95,6 +95,9 @@ class EventSearchController extends Controller
                     ->when($searchContinent, function ($query, $searchContinent) {
                         return $query->where('sc_continent_id', '=', $searchContinent);
                         //return $query->where('country_id', '=', $searchContinent);
+                    })
+                    ->when($searchVenue, function ($query, $searchVenue) {
+                        return $query->where('title', $searchVenue)->orWhere('sc_venue_name', 'like', '%' . $searchVenue . '%');
                     })
                     ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) {
                         $join->on('events.id', '=', 'event_repetitions.event_id');
