@@ -58,7 +58,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'description' => 'required|string',
-            'accept_terms' =>'accepted'
+            'accept_terms' => 'accepted'
         ]);
     }
 
@@ -76,7 +76,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'country_id' => $data['country_id'],
             'description' => $data['description'],
-            'accept_terms' =>'accepted'
+            'accept_terms' => 'accepted'
         ]);
     }
 
@@ -111,10 +111,6 @@ class RegisterController extends Controller
             $validatedData['activation_code'] = str_random(30).time();
             $validatedData['country_id'] = $request->country_id;
             $validatedData['description'] = $request->description;
-            //$validatedData['accept_terms'] = $request->accept_terms;
-
-            //$accept = ($request->accept_terms = "on") ? 1 : 0;
-            //dd($accept);
             $validatedData['accept_terms'] = ($request->accept_terms = "on") ? 1 : 0;
 
             // Create user
@@ -140,7 +136,7 @@ class RegisterController extends Controller
             if (!$user) {
                 return "The code does not exist for any user in our system.";
             }
-            $user->status          = 1;
+            $user->status = 1;
             $user->activation_code = null;
             $user->save();
             auth()->login($user);
@@ -150,7 +146,5 @@ class RegisterController extends Controller
         }
         return redirect()->to('/');
     }
-
-
 
 }
