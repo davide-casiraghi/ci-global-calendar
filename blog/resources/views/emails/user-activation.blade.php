@@ -30,6 +30,6 @@ border-box; border-radius: 3px; box-shadow: 0 2px 3px rgba(0, 0, 0,
 10px solid #3097D1; border-left: 18px solid #3097D1;"
     target="_blank"
     class="button button-blue"
-    href="http://laravelblog.fr/it/verify-user/6BHoDeO3Xr1YSVvNqR0y5fvYl0MrI01543664039">
+    href="{{env('APP_URL')}}verify-user/{{$activation_code}}">
     Activate user
 </a>

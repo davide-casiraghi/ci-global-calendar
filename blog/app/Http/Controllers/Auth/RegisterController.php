@@ -13,6 +13,9 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Notifications\UserRegisteredSuccessfully;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserActivation;
+
 class RegisterController extends Controller
 {
     /*
@@ -91,7 +94,6 @@ class RegisterController extends Controller
         return view('auth.register', compact('countries'));
     }
 
-
     /**
      * Register new account. - OVERRIDE to default function
      *
@@ -107,7 +109,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ]);
         try {
-            $validatedData['password']        = bcrypt(array_get($validatedData, 'password'));
+            $validatedData['password'] = bcrypt(array_get($validatedData, 'password'));
             $validatedData['activation_code'] = str_random(30).time();
             $validatedData['country_id'] = $request->country_id;
             $validatedData['description'] = $request->description;
@@ -119,7 +121,23 @@ class RegisterController extends Controller
             logger()->error($exception);
             return redirect()->back()->with('message', 'Unable to create new user.');
         }
-        $user->notify(new UserRegisteredSuccessfully($user));
+        // this was the bugged version that send the activation button link to the user
+            //$user->notify(new UserRegisteredSuccessfully($user));
+
+            $countries = Country::pluck('name', 'id');
+
+            $mailDatas['subject'] = "New user registration";
+
+            $mailDatas['name'] = $request->name;
+            $mailDatas['email'] = $request->email;
+            $mailDatas['country'] = $countries[$request->country_id];
+            $mailDatas['description'] = $request->description;
+            $mailDatas['activation_code'] = $validatedData['activation_code'];
+
+
+            Mail::to(env('ADMIN_MAIL'))->send(new UserActivation($mailDatas));
+            // aaaaaaa - here send the email
+
         return redirect()->back()->with('message', __('auth.successfully_registered'));
     }
 
@@ -146,5 +164,34 @@ class RegisterController extends Controller
         }
         return redirect()->to('/');
     }
+
+    // **********************************************************************
+
+    /**
+     * Send the User activation mail to the Admin
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return redirect to route
+     */
+    public function userActivationMailSend(Request $request){
+        $report = array();
+
+        $report['senderEmail'] = "noreply@globalcicalendar.com";
+        $report['senderName'] = "Anonymus User";
+        $report['subject'] = "New user registration";
+        $report['emailTo'] = env('ADMIN_MAIL');
+
+        $report['name'] = $request->name;
+        $report['email'] = $request->email;
+        $report['message'] = $request->message;
+
+         //Mail::to($request->user())->send(new ReportMisuse($report));
+         //Mail::to($report['emailTo'])->send(new ContactForm($report));
+         Mail::to($report['emailTo'])->send(new UserActivation($report));
+
+         return redirect()->route('forms.contact-admin-thankyou');
+
+     }
+
 
 }

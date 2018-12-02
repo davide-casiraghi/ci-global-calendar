@@ -77,6 +77,7 @@ function()
             Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
         // Activate User
+            Route::post('/user-activation/send', 'Auth\RegisterController@userActivationMailSend')->name("user-activation-send");
             Route::get('/verify-user/{code}', 'Auth\RegisterController@activateUser')->name('activate.user');
 
     /* Report misuse*/

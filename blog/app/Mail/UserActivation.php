@@ -16,7 +16,7 @@ class UserActivation extends Mailable
      *
      * @var Report
      */
-    protected $report;
+    protected $mailDatas;
 
 
     /**
@@ -24,9 +24,9 @@ class UserActivation extends Mailable
      *
      * @return void
      */
-    public function __construct($report)
+    public function __construct($mailDatas)
     {
-         $this->report = $report;
+         $this->mailDatas = $mailDatas;
     }
 
     /**
@@ -39,13 +39,16 @@ class UserActivation extends Mailable
          // Configure email parameters in .env file
 
          return $this
-                ->to($this->report['emailTo'])
-                ->from($this->report['email'])
-                ->subject($this->report['subject'])
-                ->view('emails.contactform')
+                ->to(env('ADMIN_MAIL'))
+                ->from($this->mailDatas['email'])
+                ->subject($this->mailDatas['subject'])
+                ->view('emails.user-activation')
                 ->with([
-                    'name' => $this->report['name'],
-                    'msg' => $this->report['message']
+                    'name' => $this->mailDatas['name'],
+                    'email' => $this->mailDatas['email'],
+                    'country' => $this->mailDatas['country'],
+                    'description' => $this->mailDatas['description'],
+                    'activation_code' => $this->mailDatas['activation_code']
                 ]);
      }
 }
