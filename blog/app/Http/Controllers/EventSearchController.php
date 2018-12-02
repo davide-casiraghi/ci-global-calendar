@@ -81,7 +81,7 @@ class EventSearchController extends Controller
                                 ->groupBy('event_id')
                                 ->toSql();
 
-        if ($searchKeywords||$searchCategory||$searchCountry||$searchContinent||$searchTeacher||$searchVenue||$searchEndDate){
+        if ($searchKeywords||$searchCategory||$searchCountry||$searchContinent||$searchTeacher||$searchVenue||$searchStartDate||$searchEndDate){
             DB::enableQueryLog();
                 $events = Event::
                     when($searchKeywords, function ($query, $searchKeywords) {
