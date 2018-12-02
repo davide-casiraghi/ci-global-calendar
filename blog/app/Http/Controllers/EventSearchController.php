@@ -128,6 +128,8 @@ class EventSearchController extends Controller
             ->with('searchContinent',$searchContinent)
             ->with('searchTeacher',$searchTeacher)
             ->with('searchVenue',$searchVenue)
+            ->with('searchStartDate',$searchStartDate)
+            ->with('searchEndDate',$searchEndDate)
             ->with('backgroundImages',$backgroundImages);
     }
 
