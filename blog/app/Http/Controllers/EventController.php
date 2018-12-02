@@ -209,7 +209,7 @@ class EventController extends Controller
         // Repetition text to show
             $repeatUntil = new DateTime($event->repeat_until);
             $repetitionFrequency = $this->decodeOnMonthlyKind($event->on_monthly_kind);
-            
+
             switch ($event->repeat_type) {
                 case '1': // noRepeat
                     $repetition_text = null;
@@ -609,7 +609,7 @@ class EventController extends Controller
         $report['senderEmail'] = "noreply@globalcicalendar.com";
         $report['senderName'] = "Anonymus User";
         $report['subject'] = "Report misuse form";
-        $report['emailTo'] = "davide.casiraghi@gmail.com";
+        $report['emailTo'] = env('ADMIN_MAIL');
 
         $report['message'] = $request->message;
         $report['event_title'] = $request->event_title;

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ContactForm;
+use App\Mail\UserActivation;
 
 use Illuminate\Http\Request;
 
-class AdministratorMailFormController extends Controller
+class UserActivationMailControllerController extends Controller
 {
 
     /**
@@ -15,25 +15,25 @@ class AdministratorMailFormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function contactAdmin()
+    /*public function contactAdmin()
     {
         return view('administratorMailForms.contactForm');
-    }
+    }*/
 
     // **********************************************************************
 
     /**
-     * Send the Contact Admin mail
+     * Send the User activation mail to the Admin
      *
      * @param  \Illuminate\Http\Request  $request
      * @return redirect to route
      */
-    public function contactAdminSend(Request $request){
+    public function userActivationMailSend(Request $request){
         $report = array();
 
         $report['senderEmail'] = "noreply@globalcicalendar.com";
         $report['senderName'] = "Anonymus User";
-        $report['subject'] = "Message from the contact form";
+        $report['subject'] = "New user registration";
         $report['emailTo'] = env('ADMIN_MAIL');
 
         $report['name'] = $request->name;
@@ -41,8 +41,9 @@ class AdministratorMailFormController extends Controller
         $report['message'] = $request->message;
 
          //Mail::to($request->user())->send(new ReportMisuse($report));
-         Mail::to("davide.casiraghi@gmail.com")->send(new ContactForm($report));
-
+         //Mail::to($report['emailTo'])->send(new ContactForm($report));
+         Mail::to($report['emailTo'])->send(new UserActivation($report));
+         
          return redirect()->route('forms.contact-admin-thankyou');
 
      }
