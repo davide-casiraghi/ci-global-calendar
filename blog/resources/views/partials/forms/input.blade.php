@@ -1,5 +1,5 @@
 <div class="form-group">
-    <label for="{{ $name }}">{{ $title }}:</label>
+    @if(!empty($title))<label for="{{ $name }}">{{ $title }}:</label>@endif
 
     <input type="text" name="{{ $name }}" class="form-control{{ $errors->has($name) ? ' is-invalid' : '' }}"
         @if(!empty($placeholder)) placeholder="{{ $placeholder }}" @endif

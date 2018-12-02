@@ -59,7 +59,7 @@ class EventSearchController extends Controller
         $searchCountry = $request->input('country_id');
         $searchContinent = $request->input('continent_id');
         $searchTeacher = $request->input('teacher_id');
-
+        $searchVenue = $request->input('venue_name');
 
         // Sub-Query Joins - https://laravel.com/docs/5.7/queries
         $lastestEventsRepetitions = DB::table('event_repetitions')
@@ -132,6 +132,7 @@ class EventSearchController extends Controller
             ->with('searchCountry',$searchCountry)
             ->with('searchContinent',$searchContinent)
             ->with('searchTeacher',$searchTeacher)
+            ->with('searchVenue',$searchVenue)
             ->with('backgroundImages',$backgroundImages);
     }
 

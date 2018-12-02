@@ -73,6 +73,12 @@
                         @include('partials.forms.event-search.select-continent')
                         @include('partials.forms.event-search.select-country')
                         <p class="mt-3"><strong class="text-white">@lang('homepage-serach.search_by_venue')</strong></p>
+                        @include('partials.forms.input', [
+                              'title' => '',
+                              'name' => 'venue_name',
+                              'placeholder' => 'Venue name',
+                              'value' => $searchVenue
+                        ])
                     </div>
                     <div class="col-md-4">
                         <p><strong class="text-white">@lang('homepage-serach.when')</strong></p>
