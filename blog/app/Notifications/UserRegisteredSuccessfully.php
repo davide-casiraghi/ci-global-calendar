@@ -55,7 +55,7 @@ class UserRegisteredSuccessfully extends Notification
 
         /** @var User $user */
         $user = $this->user;
-        
+
         return (new MailMessage)
                     ->from(env('ADMIN_MAIL'))
                     ->subject('New user registration')
