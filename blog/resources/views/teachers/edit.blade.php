@@ -37,41 +37,57 @@
                 </div>
             </div>
 
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.textarea', [
+                      'title' => 'Bio',
+                      'name' => 'bio',
+                      'placeholder' => 'Teacher Bio',
+                      'value' => $teacher->bio
+                ])
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.input', [
+                      'title' => 'Year of starting to practice',
+                      'name' => 'year_starting_practice',
+                      'placeholder' => 'AAAA',
+                      'value' => $teacher->year_starting_practice,
+                ])
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.input', [
+                      'title' => 'Year of starting to teach',
+                      'name' => 'year_starting_teach',
+                      'placeholder' => 'AAAA',
+                      'value' => $teacher->year_starting_teach,
+                ])
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.input', [
+                      'title' => 'Facebook profile',
+                      'name' => 'facebook',
+                      'placeholder' => 'https://...',
+                      'value' => $teacher->facebook ,
+                ])
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.input', [
+                      'title' => 'Website',
+                      'name' => 'website',
+                      'placeholder' => 'https://...',
+                      'value' => $teacher->website ,
+                ])
+            </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Bio:</strong>
-                    <textarea class="form-control" style="height:150px" name="bio" placeholder="Bio">{{ $teacher->bio }}</textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Year of starting to practice:</strong>
-                    <input type="text" name="year_starting_practice" class="form-control" placeholder="AAAA" value="{{ $teacher->year_starting_practice }}">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Year of starting to teach:</strong>
-                    <input type="text" name="year_starting_teach" class="form-control" placeholder="AAAA" value="{{ $teacher->year_starting_teach }}">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Facebook profile:</strong>
-                    <input type="text" name="facebook" value="{{ $teacher->facebook }}" class="form-control" placeholder="https://...">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Website:</strong>
-                    <input type="text" name="website" value="{{ $teacher->website }}" class="form-control" placeholder="https://...">
-                </div>
+                @include('partials.forms.upload-image', [
+                      'title' => 'Upload profile picture',
+                      'name' => 'profile_picture'
+                ])
             </div>
 
         </div>
 
-        <div class="row h-100 mt-3">
+        {{--<div class="row h-100 mt-3">
             <div class="col-xs-9 col-sm-9 col-md-9 pull-left my-auto">
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -88,7 +104,7 @@
             <div class="col-xs-3 col-sm-3 col-md-3 pull-right my-auto">
                 <img id="holder" style="width:100%;" src="{{ $teacher->image }}">
             </div>
-        </div>
+        </div>--}}
 
         <div class="row mt-5">
             <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
