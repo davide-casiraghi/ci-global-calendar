@@ -80,9 +80,16 @@
                 ])
             </div>
 
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.upload-image', [
+                      'title' => 'Upload profile picture',
+                      'name' => 'profile_picture'
+                ])
+            </div>
+
         </div>
 
-        <div class="row h-100 mt-3">
+        {{--<div class="row h-100 mt-3">
             <div class="col-xs-9 col-sm-9 col-md-9 pull-left my-auto">
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -99,7 +106,7 @@
             <div class="col-xs-3 col-sm-3 col-md-3 pull-right my-auto">
                 <img id="holder" style="width:100%;">
             </div>
-        </div>
+        </div>--}}
 
         <div class="row mt-5">
             <div class="col-xs-6 col-sm-6 col-md-6 pull-left">

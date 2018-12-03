@@ -1,3 +1,15 @@
+@section('javascript-document-ready')
+    @parent
+    $('.custom-file-input').on('change',function(){
+        {{-- get the file name --}}
+            var filePath = $(this).val();
+            var fileName = filePath.replace(/^.*[\\\/]/, '')
+        {{-- replace the "Choose a file" label --}}
+            $(this).next('.custom-file-label').html(fileName);
+    })
+@stop
+
+
 @if(!empty($title))<label for="{{ $name }}">{{ $title }}:</label>@endif
 <div class="form-group">
     <div class="custom-file">
