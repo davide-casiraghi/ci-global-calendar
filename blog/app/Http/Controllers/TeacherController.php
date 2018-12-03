@@ -144,10 +144,13 @@ class TeacherController extends Controller
          $teacher->year_starting_practice = $request->get('year_starting_practice');
          $teacher->year_starting_teach = $request->get('year_starting_teach');
          $teacher->significant_teachers = $request->get('significant_teachers');
-            // Image file is uploaded to /storage/app/images/teachers_profile/
-         $profilePictureFile = $request->file('profile_picture');
-         $teacher->profile_picture = $profilePictureFile->store('images/teachers_profile');
 
+         // Teacher profile picture upload
+             $profilePictureFile = $request->file('profile_picture');
+             $imageName = $profilePictureFile->hashName();
+             $path = $profilePictureFile->store('public/images/teachers_profile');
+             $teacher->profile_picture = $imageName;
+            
          $teacher->website = $request->get('website');
          $teacher->facebook = $request->get('facebook');
 

@@ -81,7 +81,7 @@
             @include('partials.forms.upload-image', [
                   'title' => 'Upload profile picture',
                   'name' => 'profile_picture',
-                   'value' => $teacher->profile_picture ,
+                  'value' => $teacher->profile_picture ,
             ])
 
         </div>
