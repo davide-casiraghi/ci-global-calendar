@@ -906,8 +906,6 @@ class EventController extends Controller
                     $event->organizers()->sync($multiple_organizers);
                 }
 
-
-        return $event;
     }
 
 
