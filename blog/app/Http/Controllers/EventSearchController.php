@@ -124,6 +124,7 @@ class EventSearchController extends Controller
                 ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) {
                     $join->on('events.id', '=', 'event_repetitions.event_id');
                 })
+                ->orderBy('event_repetitions.start_repeat', 'asc')
                 ->paginate(20);
 
                 // It works, but I don't use it now to develop
