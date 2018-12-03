@@ -153,17 +153,18 @@ class EventController extends Controller
                 ->first();
 
         // Repetition text to show
-            $repeatUntil = new DateTime($event->repeat_until);
-            $repetitionFrequency = $this->decodeOnMonthlyKind($event->on_monthly_kind);
-
             switch ($event->repeat_type) {
                 case '1': // noRepeat
                     $repetition_text = null;
                     break;
-                case '2': // repeatWeekly
-                    $repetition_text = "The event happens ".$repetitionFrequency." until ".$repeatUntil->format("d/m/Y");
+                case '2': // repeatWeekly // aaaaaaaaa
+                    $repeatUntil = new DateTime($event->repeat_until);
+                    $repetitionFrequency = $this->decodeRepeatWeeklyOn($event->repeat_weekly_on);
+                    $repetition_text = "The event happens every ".$repetitionFrequency." until ".$repeatUntil->format("d/m/Y");
                     break;
                 case '3': //repeatMonthly
+                    $repeatUntil = new DateTime($event->repeat_until);
+                    $repetitionFrequency = $this->decodeOnMonthlyKind($event->on_monthly_kind);
                     $repetition_text = "The event happens ".$repetitionFrequency." until ".$repeatUntil->format("d/m/Y");
                     break;
             }
@@ -783,10 +784,25 @@ class EventController extends Controller
     // **********************************************************************
 
     /**
+     * Decode the event repeat_weekly_on field - used in event.show
+     *
+     * @param  string $number
+     * @return string $ret - a string like "Monday"
+     */
+
+    function decodeRepeatWeeklyOn($repeatWeeklyOn){
+        $weekdayArray = ['','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        $ret = $weekdayArray[$repeatWeeklyOn];
+        return $ret;
+    }
+
+    // **********************************************************************
+
+    /**
      * Decode the event on_monthly_kind field - used in event.show
      *
      * @param  string $number
-     * @return string $ret - the ordinal indicator (st, nd, rd, th)
+     * @return string $ret - a string like "the 4th to last Thursday of the month"
      */
 
     function decodeOnMonthlyKind($onMonthlyKindCode){
