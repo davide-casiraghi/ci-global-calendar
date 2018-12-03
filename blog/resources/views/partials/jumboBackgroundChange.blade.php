@@ -18,8 +18,8 @@
     // Change background
         $(function() {
 
-            var elementBackground = $('.contactEvents .background');
-            var elementCredits = $('.contactEvents .credits .name');
+            var elementBackground = $('.eventSearch .background');
+            var elementCredits = $('.eventSearch .credits .name');
 
             // Create background array
                 var backgrounds = new Array();

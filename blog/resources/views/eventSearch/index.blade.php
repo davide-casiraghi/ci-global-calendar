@@ -29,7 +29,7 @@
         @endif
 
     {{-- The event search interface in Homepage --}}
-    <div class="contactEvents jumbotron">
+    <div class="eventSearch jumbotron">
         @include('partials.jumboBackgroundChange')
         <div class="container">
             <div class="row intro">
