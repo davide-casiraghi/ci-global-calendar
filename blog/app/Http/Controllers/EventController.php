@@ -157,7 +157,7 @@ class EventController extends Controller
                 case '1': // noRepeat
                     $repetition_text = null;
                     break;
-                case '2': // repeatWeekly // aaaaaaaaa
+                case '2': // repeatWeekly 
                     $repeatUntil = new DateTime($event->repeat_until);
                     $repetitionFrequency = $this->decodeRepeatWeeklyOn($event->repeat_weekly_on);
                     $repetition_text = "The event happens every ".$repetitionFrequency." until ".$repeatUntil->format("d/m/Y");
