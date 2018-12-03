@@ -168,7 +168,7 @@ class EventController extends Controller
                     $repetition_text = "The event happens ".$repetitionFrequency." until ".$repeatUntil->format("d/m/Y");
                     break;
             }
-
+                
             // True if the repetition start and end on the same day
                 $sameDateStartEnd = ((date('Y-m-d', strtotime($datesTimes->start_repeat))) == (date('Y-m-d', strtotime($datesTimes->end_repeat)))) ? 1 : 0;
 
