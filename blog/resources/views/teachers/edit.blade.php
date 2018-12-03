@@ -78,12 +78,11 @@
                 ])
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                @include('partials.forms.upload-image', [
-                      'title' => 'Upload profile picture',
-                      'name' => 'profile_picture'
-                ])
-            </div>
+            @include('partials.forms.upload-image', [
+                  'title' => 'Upload profile picture',
+                  'name' => 'profile_picture',
+                   'value' => $teacher->profile_picture ,
+            ])
 
         </div>
 
