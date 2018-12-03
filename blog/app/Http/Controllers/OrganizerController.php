@@ -50,7 +50,7 @@ class OrganizerController extends Controller
             'name' => 'required'
         ]);
 
-        $this->prepareRecordToSave($request);
+        $this->saveOnDb($request);
 
         return redirect()->route('organizers.index')
                         ->with('success','Organizer created successfully.');
@@ -108,12 +108,12 @@ class OrganizerController extends Controller
 
 
     /**
-     * Save the organier datas on DB
+     * Save the record on DB
      *
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-     public function prepareRecordToSave($request){
+     public function saveOnDb($request){
          $organizer = new Organizer();
          $organizer->name = $request->get('name');
          $organizer->image = $request->get('image');
@@ -137,7 +137,7 @@ class OrganizerController extends Controller
     }
 
     /**
-     * Store a newly created organizer from the modal in storage.
+     * Store a newly created organizer from the create event view modal in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -147,7 +147,7 @@ class OrganizerController extends Controller
             'name' => 'required'
         ]);
 
-        $this->prepareRecordToSave($request);
+        $this->saveOnDb($request);
 
         return redirect()->back()->with('message', 'Organizer created');
         //return redirect()->back()->with('message', __('auth.successfully_registered'));

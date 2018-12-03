@@ -71,7 +71,7 @@ class TeacherController extends Controller
             'name' => 'required'
         ]);
 
-        $this->prepareRecordToSave($request);
+        $this->saveOnDb($request);
 
         return redirect()->route('teachers.index')
                         ->with('success','Teacher created successfully.');
@@ -130,12 +130,12 @@ class TeacherController extends Controller
     }
 
     /**
-     * Save the teacher datas on DB
+     * Save the record on DB
      *
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-     public function prepareRecordToSave($request){
+     public function saveOnDb($request){
          $teacher = new Teacher();
 
          $teacher->name = $request->get('name');
@@ -176,7 +176,7 @@ class TeacherController extends Controller
             'name' => 'required'
         ]);
 
-        $this->prepareRecordToSave($request);
+        $this->saveOnDb($request);
 
         return redirect()->back()->with('message', 'Teacher created');
         //return redirect()->back()->with('message', __('auth.successfully_registered'));
