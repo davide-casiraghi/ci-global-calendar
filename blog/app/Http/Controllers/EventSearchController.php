@@ -58,7 +58,7 @@ class EventSearchController extends Controller
         $searchContinent = $request->input('continent_id');
         $searchTeacher = $request->input('teacher_id');
         $searchVenue = $request->input('venue_name');
-        //dd($request->input('startDate')." ".$request->input('endDate'));
+
         if($request->input('startDate')){
             list($tid,$tim,$tiy) = explode("/",$request->input('startDate'));
             $searchStartDate = "$tiy-$tim-$tid";
