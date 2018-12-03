@@ -166,7 +166,7 @@ class TeacherController extends Controller
     }
 
     /**
-     * Store a newly created teacher from the modal in storage.
+     * Store a newly created teacher from the create event view modal in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response

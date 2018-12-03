@@ -109,61 +109,7 @@ class EventController extends Controller
             'venue_id' => 'required',
         ]);
 
-        $countries = Country::pluck('name', 'id');
-        $teachers = Teacher::pluck('name', 'id');
-
-        $venue = DB::table('event_venues')
-                ->select('event_venues.id AS venue_id', 'event_venues.name AS venue_name', 'event_venues.country_id AS country_id', 'event_venues.continent_id', 'event_venues.city')
-                ->where('event_venues.id', '=', $request->get('venue_id'))
-                ->first();
-
-        $event->title = $request->get('title');
-        $event->description = $request->get('description');
-        $event->created_by = \Auth::user()->id;
-        $event->slug = str_slug($event->title, '-').rand(100000, 1000000);
-        $event->category_id = $request->get('category_id');
-        $event->venue_id = $request->get('venue_id');
-        $event->image = $request->get('image');
-        $event->facebook_event_link = $request->get('facebook_event_link');
-        $event->status = $request->get('status');
-        $event->on_monthly_kind = $request->get('on_monthly_kind');
-
-        // Support columns for homepage search
-            $event->sc_country_id = $venue->country_id;
-            $event->sc_country_name = $countries[$venue->country_id];
-            $event->sc_city_name = $venue->city;
-            $event->sc_venue_name = $venue->venue_name;
-            $event->sc_teachers_id = json_encode(explode(",",$request->get('multiple_teachers')));
-            $event->sc_continent_id = $venue->continent_id;
-
-        // Multiple teachers
-            if($request->get('multiple_teachers')){
-                $multiple_teachers = explode(',', $request->get('multiple_teachers'));
-                $i = 0; $len = count($multiple_teachers); // to put "," to all items except the last
-                foreach ($multiple_teachers as $key => $teacher_id) {
-                    $event->sc_teachers_names .= $teachers[$teacher_id];
-                    if ($i != $len - 1)  // not last
-                        $event->sc_teachers_names .= ", ";
-                    $i++;
-                }
-            }
-
-        // Set the Event attributes about repeating (repeat until field and multiple days)
-            $event = $this->setEventRepeatFields($request, $event);
-
-        // Save event and repetitions
-            $event->save();
-            $this->saveEventRepetitions($request, $event);
-
-        // Update multi relationships with teachers and organizers tables.
-            if ($request->get('multiple_teachers')){
-                $multiple_teachers= explode(',', $request->get('multiple_teachers'));
-                $event->teachers()->sync($multiple_teachers);
-            }
-            if ($request->get('multiple_organizers')){
-                $multiple_organizers= explode(',', $request->get('multiple_organizers'));
-                $event->organizers()->sync($multiple_organizers);
-            }
+        $this->saveOnDb($request, $event);
 
         return redirect()->route('events.index')
                         ->with('success','Event created successfully.');
@@ -306,60 +252,7 @@ class EventController extends Controller
 
         /*$event->update($request->all());*/
 
-        $countries = Country::pluck('name', 'id');
-        $teachers = Teacher::pluck('name', 'id');
-
-        $venue = DB::table('event_venues')
-                ->select('event_venues.id AS venue_id', 'event_venues.name AS venue_name', 'event_venues.country_id AS country_id', 'event_venues.continent_id', 'event_venues.city')
-                ->where('event_venues.id', '=', $request->get('venue_id'))
-                ->first();
-
-        $event->title = $request->get('title');
-        $event->description = $request->get('description');
-        $event->created_by = \Auth::user()->id;
-        $event->slug = str_slug($event->title, '-').rand(100000, 1000000);
-        $event->category_id = $request->get('category_id');
-        $event->venue_id = $request->get('venue_id');
-        $event->image = $request->get('image');
-        $event->facebook_event_link = $request->get('facebook_event_link');
-        $event->website_event_link = $request->get('website_event_link');
-        $event->status = $request->get('status');
-        $event->on_monthly_kind = $request->get('on_monthly_kind');
-
-        // Support columns for homepage search
-            $event->sc_country_id = $venue->country_id;
-            $event->sc_country_name = $countries[$venue->country_id];
-            $event->sc_city_name = $venue->city;
-            $event->sc_venue_name = $venue->venue_name;
-            $event->sc_teachers_id = json_encode(explode(",",$request->get('multiple_teachers')));
-            $event->sc_continent_id = $venue->continent_id;
-
-            if($request->get('multiple_teachers')){
-                $multiple_teachers= explode(',', $request->get('multiple_teachers'));
-                $event->sc_teachers_names = "";
-                foreach ($multiple_teachers as $key => $teacher_id) {
-                    $event->sc_teachers_names .= $teachers[$teacher_id];
-                    if ($key === key($multiple_teachers))
-                        $event->sc_teachers_names .= ", ";
-                }
-            }
-
-        // Set the Event attributes about repeating (repeat until field and multiple days)
-            $event = $this->setEventRepeatFields($request, $event);
-
-        // Save event and repetitions
-            $event->save();
-            $this->saveEventRepetitions($request, $event);
-
-        // Update multi relationships with teachers and organizers tables.
-            if ($request->get('multiple_teachers')){
-                $multiple_teachers= explode(',', $request->get('multiple_teachers'));
-                $event->teachers()->sync($multiple_teachers);
-            }
-            if ($request->get('multiple_organizers')){
-                $multiple_organizers= explode(',', $request->get('multiple_organizers'));
-                $event->organizers()->sync($multiple_organizers);
-            }
+        $this->saveOnDb($request, $event);
 
         return redirect()->route('events.index')
                         ->with('success','Event updated successfully');
@@ -944,7 +837,78 @@ class EventController extends Controller
 
 
 
+    // **********************************************************************
 
+    /**
+     * Save/Update the record on DB
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return string $ret - the ordinal indicator (st, nd, rd, th)
+     */
+
+    function saveOnDb($request, $event){
+
+        $countries = Country::pluck('name', 'id');
+        $teachers = Teacher::pluck('name', 'id');
+
+        $venue = DB::table('event_venues')
+                ->select('event_venues.id AS venue_id', 'event_venues.name AS venue_name', 'event_venues.country_id AS country_id', 'event_venues.continent_id', 'event_venues.city')
+                ->where('event_venues.id', '=', $request->get('venue_id'))
+                ->first();
+
+        $event->title = $request->get('title');
+        $event->description = $request->get('description');
+        $event->created_by = \Auth::user()->id;
+        $event->slug = str_slug($event->title, '-').rand(100000, 1000000);
+        $event->category_id = $request->get('category_id');
+        $event->venue_id = $request->get('venue_id');
+        $event->image = $request->get('image');
+        $event->website_event_link = $request->get('website_event_link');
+        $event->facebook_event_link = $request->get('facebook_event_link');
+        $event->status = $request->get('status');
+        $event->on_monthly_kind = $request->get('on_monthly_kind');
+
+        // Support columns for homepage search
+            $event->sc_country_id = $venue->country_id;
+            $event->sc_country_name = $countries[$venue->country_id];
+            $event->sc_city_name = $venue->city;
+            $event->sc_venue_name = $venue->venue_name;
+            $event->sc_teachers_id = json_encode(explode(",",$request->get('multiple_teachers')));
+            $event->sc_continent_id = $venue->continent_id;
+
+            // Multiple teachers
+                if($request->get('multiple_teachers')){
+                    $multiple_teachers = explode(',', $request->get('multiple_teachers'));
+                    $i = 0; $len = count($multiple_teachers); // to put "," to all items except the last
+                    $event->sc_teachers_names = "";
+                    foreach ($multiple_teachers as $key => $teacher_id) {
+                        $event->sc_teachers_names .= $teachers[$teacher_id];
+                        if ($i != $len - 1)  // not last
+                            $event->sc_teachers_names .= ", ";
+                        $i++;
+                    }
+                }
+
+            // Set the Event attributes about repeating (repeat until field and multiple days)
+                $event = $this->setEventRepeatFields($request, $event);
+
+            // Save event and repetitions
+                $event->save();
+                $this->saveEventRepetitions($request, $event);
+
+            // Update multi relationships with teachers and organizers tables.
+                if ($request->get('multiple_teachers')){
+                    $multiple_teachers= explode(',', $request->get('multiple_teachers'));
+                    $event->teachers()->sync($multiple_teachers);
+                }
+                if ($request->get('multiple_organizers')){
+                    $multiple_organizers= explode(',', $request->get('multiple_organizers'));
+                    $event->organizers()->sync($multiple_organizers);
+                }
+
+
+        return $event;
+    }
 
 
 }
