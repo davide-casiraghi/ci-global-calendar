@@ -157,7 +157,7 @@ class EventController extends Controller
                 case '1': // noRepeat
                     $repetition_text = null;
                     break;
-                case '2': // repeatWeekly 
+                case '2': // repeatWeekly
                     $repeatUntil = new DateTime($event->repeat_until);
                     $repetitionFrequency = $this->decodeRepeatWeeklyOn($event->repeat_weekly_on);
                     $repetition_text = "The event happens every ".$repetitionFrequency." until ".$repeatUntil->format("d/m/Y");
@@ -169,6 +169,9 @@ class EventController extends Controller
                     break;
             }
 
+            // True if the repetition start and end on the same day
+                $sameDateStartEnd = ((date('Y-m-d', strtotime($datesTimes->start_repeat))) == (date('Y-m-d', strtotime($datesTimes->end_repeat)))) ? 1 : 0;
+
         return view('events.show',compact('event'))
                 ->with('category', $category)
                 ->with('teachers', $teachers)
@@ -177,7 +180,8 @@ class EventController extends Controller
                 ->with('country', $country)
                 ->with('continent', $continent)
                 ->with('datesTimes', $datesTimes)
-                ->with('repetition_text', $repetition_text);
+                ->with('repetition_text', $repetition_text)
+                ->with('sameDateStartEnd', $sameDateStartEnd);
     }
 
     /***************************************************************************/
