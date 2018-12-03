@@ -50,7 +50,7 @@ class OrganizerController extends Controller
             'name' => 'required'
         ]);
 
-        $this->save($request);
+        $this->prepareRecordToSave($request);
 
         return redirect()->route('organizers.index')
                         ->with('success','Organizer created successfully.');
@@ -113,7 +113,7 @@ class OrganizerController extends Controller
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-     public function save($request){
+     public function prepareRecordToSave($request){
          $organizer = new Organizer();
          $organizer->name = $request->get('name');
          $organizer->image = $request->get('image');
@@ -147,7 +147,7 @@ class OrganizerController extends Controller
             'name' => 'required'
         ]);
 
-        $this->save($request);
+        $this->prepareRecordToSave($request);
 
         return redirect()->back()->with('message', 'Organizer created');
         //return redirect()->back()->with('message', __('auth.successfully_registered'));

@@ -72,7 +72,7 @@ class EventVenueController extends Controller
             'name' => 'required'
         ]);
 
-        $this->save($request);
+        $this->prepareRecordToSave($request);
 
         return redirect()->route('eventVenues.index')
                         ->with('success','Event venue created successfully.');
@@ -141,7 +141,7 @@ class EventVenueController extends Controller
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-     public function save($request){
+     public function prepareRecordToSave($request){
          $eventVenue = new EventVenue();
          $eventVenue->name = $request->get('name');
          $eventVenue->description = $request->get('description');
@@ -181,7 +181,7 @@ class EventVenueController extends Controller
             'name' => 'required'
         ]);
 
-        $this->save($request);
+        $this->prepareRecordToSave($request);
 
         return redirect()->back()->with('message', 'Venue created');
         //return redirect()->back()->with('message', __('auth.successfully_registered'));
