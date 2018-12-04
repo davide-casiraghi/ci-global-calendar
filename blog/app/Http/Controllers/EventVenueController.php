@@ -58,10 +58,12 @@ class EventVenueController extends Controller
      */
     public function create(){
         $authorUserId = $this->getLoggedAuthorId();
+        $users = User::pluck('name', 'id');
         $countries = Country::pluck('name', 'id');
 
         return view('eventVenues.create')
             ->with('countries', $countries)
+            ->with('users', $users)
             ->with('authorUserId',$authorUserId);
     }
 
@@ -105,10 +107,12 @@ class EventVenueController extends Controller
      */
     public function edit(EventVenue $eventVenue){
         $authorUserId = $this->getLoggedAuthorId();
+        $users = User::pluck('name', 'id');
         $countries = Country::pluck('name', 'id');
 
         return view('eventVenues.edit',compact('eventVenue'))
             ->with('countries', $countries)
+            ->with('users', $users)
             ->with('authorUserId',$authorUserId);
     }
 
