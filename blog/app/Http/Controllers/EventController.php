@@ -37,14 +37,15 @@ class EventController extends Controller
         $searchCategory = $request->input('category_id');
         $searchCountry = $request->input('country_id');
 
-        // Show just to the owner - Get created_by value if the user is not an admin or super admin
-        $user = Auth::user();
-        $createdBy = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
+        // Get the current logged user id to show only the events owned by the user 
+        // If the user is an admin or super admin the query will show all the events
+            $user = Auth::user();
+            $userId = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
 
         if ($searchKeywords||$searchCategory||$searchCountry){
             $events = DB::table('events')
-                ->when(isset($createdBy), function ($query, $createdBy) {
-                    return $query->where('created_by', $createdBy);
+                ->when(isset($userId), function ($query, $userId) {
+                    return $query->where('created_by', $userId);
                 })
                 ->when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('title', $searchKeywords)->orWhere('title', 'like', '%' . $searchKeywords . '%');
@@ -168,7 +169,7 @@ class EventController extends Controller
                     $repetition_text = "The event happens ".$repetitionFrequency." until ".$repeatUntil->format("d/m/Y");
                     break;
             }
-                
+
             // True if the repetition start and end on the same day
                 $sameDateStartEnd = ((date('Y-m-d', strtotime($datesTimes->start_repeat))) == (date('Y-m-d', strtotime($datesTimes->end_repeat)))) ? 1 : 0;
 
