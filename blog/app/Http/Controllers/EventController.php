@@ -38,13 +38,11 @@ class EventController extends Controller
         $searchCategory = $request->input('category_id');
         $searchCountry = $request->input('country_id');
 
-        // Get the current logged user id to show only the events owned by the user
-        // If the user is an admin or super admin the query will show all the events
-            $user = Auth::user();
-            $authorUserId = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
+        $authorUserId = getLoggedAuthorId();
 
         if ($searchKeywords||$searchCategory||$searchCountry){
             $events = DB::table('events')
+                // Show only the events owned by the user, if the user is an admin or super admin show all the events
                 ->when(isset($authorUserId), function ($query, $authorUserId) {
                     return $query->where('created_by', $authorUserId);
                 })
@@ -865,8 +863,6 @@ class EventController extends Controller
 
     }
 
-
-
     // **********************************************************************
 
     /**
@@ -935,7 +931,20 @@ class EventController extends Controller
                     $multiple_organizers= explode(',', $request->get('multiple_organizers'));
                     $event->organizers()->sync($multiple_organizers);
                 }
+    }
 
+    // **********************************************************************
+
+    /**
+     * Get the current logged user id
+     *
+     * @param  none
+     * @return boolean $ret - the current logged user id, if admin or super admin 0
+     */
+    function getLoggedAuthorId(){
+        $user = Auth::user();
+        $ret = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
+        return $ret;
     }
 
 
