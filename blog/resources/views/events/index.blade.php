@@ -1,17 +1,13 @@
 @extends('events.layout')
 
-@section('javascript')
-    <script type="text/javascript">
-        $(document).ready(function() {
-            // Clear filters on click reset button
-                $("#resetButton").click(function(){
-                    $("input#keywords").val("");
-                    $('#category option').prop("selected", false).trigger('change');
-                    $('#country option').prop("selected", false).trigger('change');
-                    $('form.searchForm').submit();
-                });
+@section('javascript-document-ready')
+    {{--  Clear filters on click reset button --}}
+        $("#resetButton").click(function(){
+            $("input#keywords").val("");
+            $('#category option').prop("selected", false).trigger('change');
+            $('#country option').prop("selected", false).trigger('change');
+            $('form.searchForm').submit();
         });
-    </script>
 @endsection
 
 @section('content')
