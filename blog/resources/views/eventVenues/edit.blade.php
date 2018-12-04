@@ -40,10 +40,36 @@
             @endif
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Description:</strong>
-                    <textarea class="form-control" style="height:150px" name="description" placeholder="Detail" id="bodyTextarea">{{ $eventVenue->description }}</textarea>
-                </div>
+                @include('partials.forms.textarea', [
+                      'title' => 'Description',
+                      'name' => 'description',
+                      'placeholder' => 'Event description',
+                      'value' => $eventVenue->description
+                ])
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.input', [
+                    'title' => 'Street',
+                    'name' => 'address',
+                    'placeholder' => '',
+                    'value' => $eventVenue->address
+                ])
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.input', [
+                    'title' => 'City',
+                    'name' => 'city',
+                    'placeholder' => '',
+                    'value' => $eventVenue->city
+                ])
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.input', [
+                    'title' => 'State/Province',
+                    'name' => 'state_province',
+                    'placeholder' => '',
+                    'value' => $eventVenue->state_province
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
@@ -56,34 +82,28 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>City:</strong>
-                    <input type="text" name="city" value="{{ $eventVenue->city }}"class="form-control">
-                </div>
+                @include('partials.forms.input', [
+                    'title' => 'Zip code',
+                    'name' => 'zip_code',
+                    'placeholder' => '',
+                    'value' => $eventVenue->zip_code
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Address:</strong>
-                    <input type="text" name="address" value="{{ $eventVenue->address }}" class="form-control">
-                </div>
+                @include('partials.forms.input', [
+                    'title' => 'Facebook profile',
+                    'name' => 'facebook',
+                    'placeholder' => 'https://...',
+                    'value' => $eventVenue->facebook
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Zip code:</strong>
-                    <input type="text" name="zip_code" value="{{ $eventVenue->zip_code }}"class="form-control">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Facebook profile:</strong>
-                    <input type="text" name="facebook" value="{{ $eventVenue->facebook }}" class="form-control" placeholder="https://...">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Website:</strong>
-                    <input type="text" name="website" value="{{ $eventVenue->website }}" class="form-control" placeholder="https://...">
-                </div>
+                @include('partials.forms.input', [
+                    'title' => 'Website',
+                    'name' => 'website',
+                    'placeholder' => 'https://...',
+                    'value' => $eventVenue->website
+                ])
             </div>
 
         </div>

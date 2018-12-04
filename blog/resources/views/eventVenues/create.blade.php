@@ -11,7 +11,7 @@
     </div>
 
     @include('partials.forms.error-management', [
-          'style' => 'alert-danger',
+        'style' => 'alert-danger',
     ])
 
     <form action="{{ route('eventVenues.store') }}" method="POST">
@@ -21,9 +21,9 @@
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
-                      'title' => 'Name',
-                      'name' => 'name',
-                      'placeholder' => 'Name'
+                    'title' => 'Name',
+                    'name' => 'name',
+                    'placeholder' => 'Name'
                 ])
             </div>
 
@@ -31,19 +31,41 @@
             @if(empty($authorUserId))
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     @include('partials.forms.select', [
-                          'title' => 'Created by',
-                          'name' => 'created_by',
-                          'placeholder' => 'Select owner',
-                          'records' => $users
+                        'title' => 'Created by',
+                        'name' => 'created_by',
+                        'placeholder' => 'Select owner',
+                        'records' => $users
                     ])
                 </div>
             @endif
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Description:</strong>
-                    <textarea class="form-control" style="height:150px" name="description" placeholder="Detail" id="bodyTextarea"></textarea>
-                </div>
+                @include('partials.forms.textarea', [
+                    'title' => 'Description',
+                    'name' => 'description',
+                    'placeholder' => 'Event description'
+                ])
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.input', [
+                    'title' => 'Street',
+                    'name' => 'address',
+                    'placeholder' => ''
+                ])
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.input', [
+                    'title' => 'City',
+                    'name' => 'city',
+                    'placeholder' => ''
+                ])
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.input', [
+                    'title' => 'State/Province',
+                    'name' => 'state_province',
+                    'placeholder' => ''
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
@@ -55,41 +77,28 @@
                     </select>
                 </div>
             </div>
-
-
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
-                      'title' => 'City',
-                      'name' => 'city',
-                      'placeholder' => ''
+                    'title' => 'Zip code',
+                    'name' => 'zip_code',
+                    'placeholder' => '',
+                    'value' => ''
                 ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
-                      'title' => 'Address',
-                      'name' => 'address',
-                      'placeholder' => ''
+                    'title' => 'Facebook profile',
+                    'name' => 'facebook',
+                    'placeholder' => 'https://...',
+                    'value' => ''
                 ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
-                      'title' => 'Zip code',
-                      'name' => 'zip_code',
-                      'placeholder' => ''
-                ])
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                @include('partials.forms.input', [
-                      'title' => 'Facebook profile',
-                      'name' => 'facebook',
-                      'placeholder' => 'https://...'
-                ])
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                @include('partials.forms.input', [
-                      'title' => 'Website',
-                      'name' => 'website',
-                      'placeholder' => 'https://...'
+                    'title' => 'Website',
+                    'name' => 'website',
+                    'placeholder' => 'https://...',
+                    'value' => ''
                 ])
             </div>
 
