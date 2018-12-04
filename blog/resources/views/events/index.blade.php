@@ -45,7 +45,6 @@
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 mt-sm-0 mt-3">
             <select name="country_id" id="country" class="selectpicker" data-live-search="true" title="Search by country">
                 @foreach ($countries as $value => $country)
-                    {{-- {{ $event->category_id == $value ? 'selected' : '' }} --}}
                     <option value="{{$value}}" {{ $searchCountry == $value ? 'selected' : '' }} >{!! $country !!} </option>
                 @endforeach
             </select>

@@ -20,10 +20,12 @@
 
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="name" value="{{ $teacher->name }}" class="form-control" placeholder="Name">
-                </div>
+                @include('partials.forms.input', [
+                    'title' => 'Name',
+                    'name' => 'name',
+                    'placeholder' => 'Name',
+                    'value' => $teacher->name
+                ])
             </div>
 
             {{-- Show the created by field just to the admin and super admin --}}
@@ -40,14 +42,13 @@
             @endif
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Country:</strong>
-                    <select name="country_id" class="selectpicker" data-live-search="true" title="Select country">
-                        @foreach ($countries as $value => $country)
-                            <option value="{{$value}}" {{ $teacher->country_id == $value ? 'selected' : '' }}>{!! $country !!}</option>
-                        @endforeach
-                    </select>
-                </div>
+                @include('partials.forms.select', [
+                      'title' => 'Country',
+                      'name' => 'country_id',
+                      'placeholder' => 'Select country',
+                      'records' => $countries,
+                      'seleted' => $teacher->country_id
+                ])
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -96,27 +97,7 @@
                   'name' => 'profile_picture',
                   'value' => $teacher->profile_picture ,
             ])
-
         </div>
-
-        {{--<div class="row h-100 mt-3">
-            <div class="col-xs-9 col-sm-9 col-md-9 pull-left my-auto">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><strong>Photo</strong></span>
-                    </div>
-                    <input id="thumbnail" class="form-control" type="text" name="image" value="{{ $teacher->image }}">
-                    <span class="input-group-btn">
-                        <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                            <i class="fa fa-picture-o"></i> Choose
-                        </a>
-                    </span>
-                </div>
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 pull-right my-auto">
-                <img id="holder" style="width:100%;" src="{{ $teacher->image }}">
-            </div>
-        </div>--}}
 
         <div class="row mt-5">
             <div class="col-xs-6 col-sm-6 col-md-6 pull-left">

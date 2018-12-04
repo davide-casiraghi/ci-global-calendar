@@ -20,10 +20,12 @@
 
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="name" value="{{ $organizer->name }}" class="form-control" placeholder="Name">
-                </div>
+                @include('partials.forms.input', [
+                    'title' => 'Name',
+                    'name' => 'name',
+                    'placeholder' => 'Name',
+                    'value' => $organizer->name
+                ])
             </div>
 
             {{-- Show the created by field just to the admin and super admin --}}
@@ -40,22 +42,28 @@
             @endif
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Email:</strong>
-                    <input type="text" name="email" value="{{ $organizer->email }}" class="form-control">
-                </div>
+                @include('partials.forms.input', [
+                    'title' => 'Email',
+                    'name' => 'email',
+                    'placeholder' => 'Name',
+                    'value' => $organizer->email
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Facebook profile:</strong>
-                    <input type="text" name="facebook" value="{{ $organizer->facebook }}" class="form-control" placeholder="https://...">
-                </div>
+                @include('partials.forms.input', [
+                    'title' => 'Facebook profile',
+                    'name' => 'facebook',
+                    'placeholder' => 'https://...',
+                    'value' => $organizer->facebook
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Website:</strong>
-                    <input type="text" name="website" value="{{ $organizer->website }}" class="form-control" placeholder="https://...">
-                </div>
+                @include('partials.forms.input', [
+                    'title' => 'Website',
+                    'name' => 'website',
+                    'placeholder' => 'https://...',
+                    'value' => $organizer->website
+                ])
             </div>
 
         </div>

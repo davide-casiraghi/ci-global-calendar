@@ -20,31 +20,33 @@
 
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="name" value="{{ $eventVenue->name }}" class="form-control" placeholder="Name">
-                </div>
+                @include('partials.forms.input', [
+                    'title' => 'Name',
+                    'name' => 'name',
+                    'placeholder' => 'Name',
+                    'value' => $eventVenue->name
+                ])
             </div>
 
             {{-- Show the created by field just to the admin and super admin --}}
             @if(empty($authorUserId))
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     @include('partials.forms.select', [
-                          'title' => 'Created by',
-                          'name' => 'created_by',
-                          'placeholder' => 'Select owner',
-                          'records' => $users,
-                          'seleted' => $eventVenue->created_by
+                        'title' => 'Created by',
+                        'name' => 'created_by',
+                        'placeholder' => 'Select owner',
+                        'records' => $users,
+                        'seleted' => $eventVenue->created_by
                     ])
                 </div>
             @endif
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.textarea', [
-                      'title' => 'Description',
-                      'name' => 'description',
-                      'placeholder' => 'Event description',
-                      'value' => $eventVenue->description
+                    'title' => 'Description',
+                    'name' => 'description',
+                    'placeholder' => 'Event description',
+                    'value' => $eventVenue->description
                 ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -72,14 +74,13 @@
                 ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Country:</strong>
-                    <select name="country_id" class="selectpicker" data-live-search="true" title="Select country">
-                        @foreach ($countries as $value => $country)
-                            <option value="{{$value}}" {{ $eventVenue->country_id == $value ? 'selected' : '' }}>{!! $country !!}</option>
-                        @endforeach
-                    </select>
-                </div>
+                @include('partials.forms.select', [
+                      'title' => 'Country',
+                      'name' => 'country_id',
+                      'placeholder' => 'Select country',
+                      'records' => $countries,
+                      'seleted' => $eventVenue->country_id
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [

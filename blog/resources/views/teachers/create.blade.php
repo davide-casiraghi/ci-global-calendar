@@ -39,14 +39,12 @@
             @endif
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Country:</strong>
-                    <select name="country_id" class="selectpicker" data-live-search="true" title="Select country">
-                        @foreach ($countries as $value => $country)
-                            <option value="{{$value}}">{!! $country !!}</option>
-                        @endforeach
-                    </select>
-                </div>
+                @include('partials.forms.select', [
+                      'title' => 'Country',
+                      'name' => 'country_id',
+                      'placeholder' => 'Select country',
+                      'records' => $countries,
+                ])
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -92,34 +90,12 @@
                 ])
             </div>
 
-
             @include('partials.forms.upload-image', [
                   'title' => 'Upload profile picture',
                   'name' => 'profile_picture',
                   'value' => ''
             ])
-
-
         </div>
-
-        {{--<div class="row h-100 mt-3">
-            <div class="col-xs-9 col-sm-9 col-md-9 pull-left my-auto">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><strong>Photo</strong></span>
-                    </div>
-                    <input id="thumbnail" class="form-control" type="text" name="image">
-                    <span class="input-group-btn">
-                        <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                            <i class="fa fa-picture-o"></i> Choose
-                        </a>
-                    </span>
-                </div>
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 pull-right my-auto">
-                <img id="holder" style="width:100%;">
-            </div>
-        </div>--}}
 
         <div class="row mt-5">
             <div class="col-xs-6 col-sm-6 col-md-6 pull-left">

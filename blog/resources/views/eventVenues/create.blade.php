@@ -68,14 +68,12 @@
                 ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Country:</strong>
-                    <select name="country_id" class="selectpicker" data-live-search="true" title="Select country">
-                        @foreach ($countries as $value => $country)
-                            <option value="{{$value}}">{!! $country !!}</option>
-                        @endforeach
-                    </select>
-                </div>
+                @include('partials.forms.select', [
+                      'title' => 'Country',
+                      'name' => 'country_id',
+                      'placeholder' => 'Select country',
+                      'records' => $countries,
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
@@ -102,7 +100,7 @@
                 ])
             </div>
         </div>
-        
+
         <div class="row mt-5">
             <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
                 <a class="btn btn-primary" href="{{ route('eventVenues.index') }}"> Back</a>

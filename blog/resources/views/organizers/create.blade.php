@@ -20,10 +20,11 @@
 
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="name" class="form-control" placeholder="Name">
-                </div>
+                @include('partials.forms.input', [
+                    'title' => 'Name',
+                    'name' => 'name',
+                    'placeholder' => 'Name'
+                ])
             </div>
 
             {{-- Show the created by field just to the admin and super admin --}}
@@ -37,24 +38,27 @@
                     ])
                 </div>
             @endif
-            
+
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Email:</strong>
-                    <input type="text" name="email" class="form-control">
-                </div>
+                @include('partials.forms.input', [
+                    'title' => 'Email',
+                    'name' => 'email',
+                    'placeholder' => 'Name'
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Facebook profile:</strong>
-                    <input type="text" name="facebook" class="form-control" placeholder="https://...">
-                </div>
+                @include('partials.forms.input', [
+                    'title' => 'Facebook profile',
+                    'name' => 'facebook',
+                    'placeholder' => 'https://...'
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Website:</strong>
-                    <input type="text" name="website" class="form-control" placeholder="https://...">
-                </div>
+                @include('partials.forms.input', [
+                    'title' => 'Website',
+                    'name' => 'website',
+                    'placeholder' => 'https://...'
+                ])
             </div>
 
         </div>
