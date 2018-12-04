@@ -30,6 +30,8 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
+        $authorUserId = $this->getLoggedAuthorId();
+
         $eventCategories = EventCategory::pluck('name', 'id');
         $countries = Country::pluck('name', 'id');
         $venues = EventVenue::pluck( 'country_id', 'id');
@@ -37,8 +39,6 @@ class EventController extends Controller
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
         $searchCountry = $request->input('country_id');
-
-        $authorUserId = $this->getLoggedAuthorId();
 
         if ($searchKeywords||$searchCategory||$searchCountry){
             $events = DB::table('events')
@@ -80,7 +80,10 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
+        $authorUserId = $this->getLoggedAuthorId();
+
         $eventCategories = EventCategory::pluck('name', 'id');
+        $users = User::pluck('name', 'id');
         $teachers = Teacher::pluck('name', 'id');
         $organizers = Organizer::pluck('name', 'id');
         //$venues = EventVenue::pluck('name', 'id');
@@ -92,10 +95,12 @@ class EventController extends Controller
         //return view('events.create');
         return view('events.create')
         ->with('eventCategories', $eventCategories)
+        ->with('users', $users)
         ->with('teachers', $teachers)
         ->with('organizers', $organizers)
         ->with('venues', $venues)
-        ->with('dateTime',$dateTime);
+        ->with('dateTime',$dateTime)
+        ->with('authorUserId',$authorUserId);
     }
 
     /***************************************************************************/
@@ -199,6 +204,7 @@ class EventController extends Controller
      */
     public function edit(Event $event){
         $authorUserId = $this->getLoggedAuthorId();
+
         $eventCategories = EventCategory::pluck('name', 'id');
         $users = User::pluck('name', 'id');
         $teachers = Teacher::pluck('name', 'id');
