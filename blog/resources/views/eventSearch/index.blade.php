@@ -72,7 +72,10 @@
                         @include('partials.forms.event-search.select-teacher')
                     </div>
                     <div class="col-md-4">
-                        <p><strong class="text-white">@lang('homepage-serach.where')</strong></p>
+                        <p class="text-white">
+                            <strong>@lang('homepage-serach.where')</strong>
+                            {{--<i class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="@lang('homepage-serach.where_tooltip')"></i>--}}
+                        </p>
                         @include('partials.forms.event-search.select-continent')
                         @include('partials.forms.event-search.select-country')
                         <p class="mt-3"><strong class="text-white">@lang('homepage-serach.search_by_venue')</strong></p>
@@ -84,7 +87,10 @@
                         ])
                     </div>
                     <div class="col-md-4">
-                        <p><strong class="text-white">@lang('homepage-serach.when')</strong></p>
+                        <p class="text-white">
+                            <strong>@lang('homepage-serach.when')</strong>
+                            <i class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="@lang('homepage-serach.when_tooltip')"></i>
+                        </p>
                         @include('partials.forms.event-search.input-date-start')
                         @include('partials.forms.event-search.input-date-end')
                     </div>
