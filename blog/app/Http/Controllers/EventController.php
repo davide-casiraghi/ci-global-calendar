@@ -38,7 +38,7 @@ class EventController extends Controller
         $searchCategory = $request->input('category_id');
         $searchCountry = $request->input('country_id');
 
-        $authorUserId = getLoggedAuthorId();
+        $authorUserId = $this->getLoggedAuthorId();
 
         if ($searchKeywords||$searchCategory||$searchCountry){
             $events = DB::table('events')
@@ -198,14 +198,13 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Event $event){
+        $authorUserId = $this->getLoggedAuthorId();
         $eventCategories = EventCategory::pluck('name', 'id');
         $users = User::pluck('name', 'id');
         $teachers = Teacher::pluck('name', 'id');
         $organizers = Organizer::pluck('name', 'id');
-        //$venues = EventVenue::pluck('name', 'id');
         $venues = DB::table('event_venues')
                 ->select('id','name','address','city')->get();
-                //dd($venues);
 
         $eventFirstRepetition = DB::table('event_repetitions')
                 ->select('id','start_repeat','end_repeat')
@@ -225,11 +224,9 @@ class EventController extends Controller
                 array_push($teachersSelected, $teacherDatas->id);
             }
             $multiple_teachers = implode(',', $teachersSelected);
-            //dd($multiple_teachers);
 
         // GET Multiple Organizers
             $organizersDatas = $event->organizers;
-            //dump($organizersDatas);
             $organizersSelected = array();
             foreach ($organizersDatas as $organizerDatas) {
                 array_push($organizersSelected, $organizerDatas->id);
@@ -244,7 +241,8 @@ class EventController extends Controller
                     ->with('organizers', $organizers)
                     ->with('multiple_organizers', $multiple_organizers)
                     ->with('venues', $venues)
-                    ->with('dateTime',$dateTime);
+                    ->with('dateTime',$dateTime)
+                    ->with('authorUserId',$authorUserId);
     }
 
     /***************************************************************************/
