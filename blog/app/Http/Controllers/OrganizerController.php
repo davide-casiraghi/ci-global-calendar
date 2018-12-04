@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Organizer;
+use App\User;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -36,7 +37,12 @@ class OrganizerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        return view('organizers.create');
+        $users = User::pluck('name', 'id');
+        $authorUserId = $this->getLoggedAuthorId();
+
+        return view('organizers.create')
+            ->with('users', $users)
+            ->with('authorUserId',$authorUserId);
     }
 
     /**
@@ -73,7 +79,12 @@ class OrganizerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Organizer $organizer){
-        return view('organizers.edit',compact('organizer'));
+        $authorUserId = $this->getLoggedAuthorId();
+        $users = User::pluck('name', 'id');
+
+        return view('organizers.edit',compact('organizer'))
+            ->with('users', $users)
+            ->with('authorUserId',$authorUserId);
     }
 
     /**
@@ -153,5 +164,21 @@ class OrganizerController extends Controller
         //return redirect()->back()->with('message', __('auth.successfully_registered'));
         //return true;
     }
+
+    // **********************************************************************
+
+    /**
+     * Get the current logged user id
+     *
+     * @param  none
+     * @return boolean $ret - the current logged user id, if admin or super admin 0
+     */
+    function getLoggedAuthorId(){
+        $user = Auth::user();
+        $ret = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
+        return $ret;
+    }
+
+
 
 }

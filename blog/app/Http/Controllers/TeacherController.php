@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Teacher;
 use App\Country;
+use App\User;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -57,7 +58,13 @@ class TeacherController extends Controller
      */
     public function create(){
         $countries = Country::pluck('name', 'id');
-        return view('teachers.create')->with('countries', $countries);
+        $users = User::pluck('name', 'id');
+        $authorUserId = $this->getLoggedAuthorId();
+
+        return view('teachers.create')
+            ->with('countries', $countries)
+            ->with('users', $users)
+            ->with('authorUserId',$authorUserId);
     }
 
     /**
@@ -94,9 +101,14 @@ class TeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Teacher $teacher){
+        $authorUserId = $this->getLoggedAuthorId();
+        $users = User::pluck('name', 'id');
         $countries = Country::pluck('name', 'id');
 
-        return view('teachers.edit',compact('teacher'))->with('countries', $countries);
+        return view('teachers.edit',compact('teacher'))
+            ->with('countries', $countries)
+            ->with('users', $users)
+            ->with('authorUserId',$authorUserId);
     }
 
     /**
@@ -150,7 +162,7 @@ class TeacherController extends Controller
              $imageName = $profilePictureFile->hashName();
              $path = $profilePictureFile->store('public/images/teachers_profile');
              $teacher->profile_picture = $imageName;
-            
+
          $teacher->website = $request->get('website');
          $teacher->facebook = $request->get('facebook');
 
@@ -187,5 +199,19 @@ class TeacherController extends Controller
         return redirect()->back()->with('message', 'Teacher created');
         //return redirect()->back()->with('message', __('auth.successfully_registered'));
         //return true;
+    }
+
+    // **********************************************************************
+
+    /**
+     * Get the current logged user id
+     *
+     * @param  none
+     * @return boolean $ret - the current logged user id, if admin or super admin 0
+     */
+    function getLoggedAuthorId(){
+        $user = Auth::user();
+        $ret = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
+        return $ret;
     }
 }

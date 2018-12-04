@@ -94,13 +94,13 @@ class EventController extends Controller
 
         //return view('events.create');
         return view('events.create')
-        ->with('eventCategories', $eventCategories)
-        ->with('users', $users)
-        ->with('teachers', $teachers)
-        ->with('organizers', $organizers)
-        ->with('venues', $venues)
-        ->with('dateTime',$dateTime)
-        ->with('authorUserId',$authorUserId);
+            ->with('eventCategories', $eventCategories)
+            ->with('users', $users)
+            ->with('teachers', $teachers)
+            ->with('organizers', $organizers)
+            ->with('venues', $venues)
+            ->with('dateTime',$dateTime)
+            ->with('authorUserId',$authorUserId);
     }
 
     /***************************************************************************/

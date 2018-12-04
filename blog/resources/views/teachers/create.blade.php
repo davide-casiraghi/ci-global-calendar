@@ -26,6 +26,18 @@
                 ])
             </div>
 
+            {{-- Show the created by field just to the admin and super admin --}}
+            @if(empty($authorUserId))
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    @include('partials.forms.select', [
+                          'title' => 'Created by',
+                          'name' => 'created_by',
+                          'placeholder' => 'Select owner',
+                          'records' => $users
+                    ])
+                </div>
+            @endif
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Country:</strong>
