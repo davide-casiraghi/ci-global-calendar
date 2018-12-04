@@ -43,6 +43,15 @@
                 ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.select', [
+                      'title' => 'Created by',
+                      'name' => 'created_by',
+                      'placeholder' => 'Select owner',
+                      'records' => $users,
+                      'seleted' => $event->created_by
+                ])
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.event.select-event-status')
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

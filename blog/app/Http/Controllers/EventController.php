@@ -9,6 +9,7 @@ use App\Teacher;
 use App\Organizer;
 use App\EventVenue;
 use App\Country;
+use App\User;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ReportMisuse;
@@ -65,7 +66,13 @@ class EventController extends Controller
                 })->paginate(20);
 
         return view('events.index',compact('events'))
-            ->with('i', (request()->input('page', 1) - 1) * 20)->with('eventCategories',$eventCategories)->with('countries', $countries)->with('venues', $venues)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('searchCountry',$searchCountry);
+            ->with('i', (request()->input('page', 1) - 1) * 20)
+            ->with('eventCategories',$eventCategories)
+            ->with('countries', $countries)
+            ->with('venues', $venues)
+            ->with('searchKeywords',$searchKeywords)
+            ->with('searchCategory',$searchCategory)
+            ->with('searchCountry',$searchCountry);
     }
 
     /***************************************************************************/
@@ -194,6 +201,7 @@ class EventController extends Controller
      */
     public function edit(Event $event){
         $eventCategories = EventCategory::pluck('name', 'id');
+        $users = User::pluck('name', 'id');
         $teachers = Teacher::pluck('name', 'id');
         $organizers = Organizer::pluck('name', 'id');
         //$venues = EventVenue::pluck('name', 'id');
@@ -232,6 +240,7 @@ class EventController extends Controller
 
         return view('events.edit',compact('event'))
                     ->with('eventCategories', $eventCategories)
+                    ->with('users', $users)
                     ->with('teachers', $teachers)
                     ->with('multiple_teachers', $multiple_teachers)
                     ->with('organizers', $organizers)
