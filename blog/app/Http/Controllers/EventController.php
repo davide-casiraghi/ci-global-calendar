@@ -37,15 +37,15 @@ class EventController extends Controller
         $searchCategory = $request->input('category_id');
         $searchCountry = $request->input('country_id');
 
-        // Get the current logged user id to show only the events owned by the user 
+        // Get the current logged user id to show only the events owned by the user
         // If the user is an admin or super admin the query will show all the events
             $user = Auth::user();
-            $userId = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
+            $authorUserId = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
 
         if ($searchKeywords||$searchCategory||$searchCountry){
             $events = DB::table('events')
-                ->when(isset($userId), function ($query, $userId) {
-                    return $query->where('created_by', $userId);
+                ->when(isset($authorUserId), function ($query, $authorUserId) {
+                    return $query->where('created_by', $authorUserId);
                 })
                 ->when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('title', $searchKeywords)->orWhere('title', 'like', '%' . $searchKeywords . '%');
@@ -60,8 +60,8 @@ class EventController extends Controller
         }
         else
             $events = Event::latest()
-                ->when($createdBy, function ($query, $createdBy) {
-                    return $query->where('created_by', $createdBy);
+                ->when($authorUserId, function ($query, $authorUserId) {
+                    return $query->where('created_by', $authorUserId);
                 })->paginate(20);
 
         return view('events.index',compact('events'))
