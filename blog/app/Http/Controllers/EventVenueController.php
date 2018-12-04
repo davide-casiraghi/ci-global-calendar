@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\EventVenue;
 use App\Country;
+use App\User;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -56,9 +57,12 @@ class EventVenueController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
+        $authorUserId = $this->getLoggedAuthorId();
         $countries = Country::pluck('name', 'id');
 
-        return view('eventVenues.create')->with('countries', $countries);
+        return view('eventVenues.create')
+            ->with('countries', $countries)
+            ->with('authorUserId',$authorUserId);
     }
 
     /**
@@ -100,9 +104,12 @@ class EventVenueController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(EventVenue $eventVenue){
+        $authorUserId = $this->getLoggedAuthorId();
         $countries = Country::pluck('name', 'id');
-        //dump($eventVenue);
-        return view('eventVenues.edit',compact('eventVenue'))->with('countries', $countries);
+
+        return view('eventVenues.edit',compact('eventVenue'))
+            ->with('countries', $countries)
+            ->with('authorUserId',$authorUserId);
     }
 
     /**
@@ -186,6 +193,20 @@ class EventVenueController extends Controller
         return redirect()->back()->with('message', 'Venue created');
         //return redirect()->back()->with('message', __('auth.successfully_registered'));
         //return true;
+    }
+
+    // **********************************************************************
+
+    /**
+     * Get the current logged user id
+     *
+     * @param  none
+     * @return boolean $ret - the current logged user id, if admin or super admin 0
+     */
+    function getLoggedAuthorId(){
+        $user = Auth::user();
+        $ret = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
+        return $ret;
     }
 
 
