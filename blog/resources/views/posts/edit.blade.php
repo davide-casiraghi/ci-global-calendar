@@ -72,10 +72,12 @@
 
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Title:</strong>
-                    <input type="text" name="title" value="{{ $post->title }}" class="form-control" placeholder="Title">
-                </div>
+                @include('partials.forms.input', [
+                      'title' => 'Title',
+                      'name' => 'title',
+                      'placeholder' => 'Event title',
+                      'value' => $post->title
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
@@ -100,10 +102,12 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Body:</strong>
-                    <textarea class="form-control" style="height:150px" name="body" placeholder="Detail" id="bodyTextarea">{{ $post->body }}</textarea>
-                </div>
+                @include('partials.forms.textarea-post', [
+                      'title' => 'Text',
+                      'name' => 'body',
+                      'placeholder' => 'Post text',
+                      'value' => $post->body
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">

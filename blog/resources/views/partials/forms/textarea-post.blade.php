@@ -17,12 +17,11 @@
 				theme: 'modern',
 				height: 400,
 				{{-- toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | blockquote | link image media  | hr', --}}
-                toolbar: 'bold | bullist  link ',
+                toolbar: 'bold italic | styleselect | bullist numlist | link image | hr',
                 menubar: false,
                 path_absolute : "/",
 				relative_urls: false,
-                {{-- do not delete the commented lines of tinymce! .. this is a file browser that can be useful for articles --}}
-			    {{--file_browser_callback : function(field_name, url, type, win) {
+                file_browser_callback : function(field_name, url, type, win) {
 			      var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
 			      var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
 
@@ -41,7 +40,7 @@
 			        resizable : "yes",
 			        close_previous : "no"
 			      });
-              } --}}
+              }
 			};
 
 			tinymce.init(editor_config);
