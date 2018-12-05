@@ -79,9 +79,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.event.select-event-venue')
             </div>
-
         </div>
-
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -108,9 +106,6 @@
             </div>
         </div>
 
-        {{--@include('partials.repeat-event')--}}
-
-
         @include('partials.repeat-event', [
               'event' => $event
         ])
@@ -134,11 +129,6 @@
             </div>
         </div>
 
-
-        {{--
-            @include('partials.forms.image-event')
-        --}}
-
         <div class="row mt-5">
             <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
                 <a class="btn btn-primary" href="{{ route('events.index') }}"> Back</a>
@@ -147,11 +137,6 @@
               <button type="submit" class="btn btn-primary float-right">Submit</button>
             </div>
         </div>
-
-
-        <!--<input type="hidden" name="author_id" value="1">
-        <input type="hidden" name="image" value="3">-->
-
 
     </form>
 
