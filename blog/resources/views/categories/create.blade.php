@@ -17,27 +17,21 @@
     <form action="{{ route('categories.store') }}" method="POST">
         @csrf
 
-
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="name" class="form-control" placeholder="Name">
-                </div>
+                @include('partials.forms.input', [
+                      'title' => 'Name',
+                      'name' => 'name',
+                      'placeholder' => 'Category name'
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Slug:</strong>
-                    <input type="text" name="slug" class="form-control" placeholder="Slug">
-                </div>
+                @include('partials.forms.textarea', [
+                      'title' => 'Description',
+                      'name' => 'description',
+                      'placeholder' => 'Description'
+                ])
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Description:</strong>
-                    <textarea class="form-control" style="height:150px" name="description" placeholder="Description"></textarea>
-                </div>
-            </div>
-
         </div>
 
         <div class="row mt-5">
@@ -48,7 +42,6 @@
               <button type="submit" class="btn btn-primary float-right">Submit</button>
             </div>
         </div>
-
 
     </form>
 

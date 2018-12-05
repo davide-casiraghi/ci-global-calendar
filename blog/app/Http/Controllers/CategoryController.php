@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 
-
-
 class CategoryController extends Controller
 {
     /**
@@ -42,12 +40,14 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
+        $category = new Category();
+
         request()->validate([
-            'name' => 'required',
-            'slug' => 'required',
+            'name' => 'required'
         ]);
 
-        Category::create($request->all());
+        //Category::create($request->all());
+        $this->saveOnDb($request, $category);
 
         return redirect()->route('categories.index')
                         ->with('success','Category created successfully.');
@@ -86,7 +86,8 @@ class CategoryController extends Controller
             'name' => 'required'
         ]);
 
-        $category->update($request->all());
+        //$category->update($request->all());
+        $this->saveOnDb($request, $category);
 
         return redirect()->route('categories.index')
                         ->with('success','Category updated successfully');
@@ -114,9 +115,25 @@ class CategoryController extends Controller
      */
      public function categorydata($cat_id){
          $ret = DB::table('categories')->where('id', $cat_id)->first();
-         //dump($ret);
 
          return $ret;
+     }
+
+     // **********************************************************************
+
+     /**
+      * Save/Update the record on DB
+      *
+      * @param  \Illuminate\Http\Request  $request
+      * @return string $ret - the ordinal indicator (st, nd, rd, th)
+      */
+
+     function saveOnDb($request, $category){
+         $category->name = $request->get('name');
+         $category->description = $request->get('description');
+         $category->slug = str_slug($category->name, '-');
+
+         $category->save();
      }
 
 }

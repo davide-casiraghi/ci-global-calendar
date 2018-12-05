@@ -19,16 +19,20 @@
 
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="name" value="{{ $category->name }}" class="form-control" placeholder="Name">
-                </div>
+                @include('partials.forms.input', [
+                      'title' => 'Name',
+                      'name' => 'name',
+                      'placeholder' => 'Category name',
+                      'value' => $category->name
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Detail:</strong>
-                    <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail">{{ $category->detail }}</textarea>
-                </div>
+                @include('partials.forms.textarea', [
+                      'title' => 'Description',
+                      'name' => 'description',
+                      'placeholder' => 'Description',
+                      'value' => $category->description
+                ])
             </div>
         </div>
         <div class="row">
