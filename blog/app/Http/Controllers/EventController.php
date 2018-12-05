@@ -918,6 +918,9 @@ class EventController extends Controller
                         $i++;
                     }
                 }
+                else{
+                    $event->sc_teachers_names = "";
+                }
 
             // Set the Event attributes about repeating (repeat until field and multiple days)
                 $event = $this->setEventRepeatFields($request, $event);
@@ -930,6 +933,9 @@ class EventController extends Controller
                 if ($request->get('multiple_teachers')){
                     $multiple_teachers= explode(',', $request->get('multiple_teachers'));
                     $event->teachers()->sync($multiple_teachers);
+                }
+                else{
+                    $event->teachers()->sync([]);
                 }
                 if ($request->get('multiple_organizers')){
                     $multiple_organizers= explode(',', $request->get('multiple_organizers'));
