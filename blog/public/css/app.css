@@ -17145,10 +17145,6 @@ body nav.navbar ul li.nav-item a.nav-link:hover {
   background-color: #A59668;
 }
 
-body nav.navbar ul li.nav-item a.has-submenu {
-  /*padding-right: 4rem;*/
-}
-
 body nav.navbar button {
   margin: .5rem;
 }
@@ -17223,6 +17219,28 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark {
 
 form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after {
   font-size: 0.5rem;
+}
+
+.bootstrap-timepicker-widget table tr td input {
+  width: 45px;
+}
+
+.bootstrap-timepicker-widget table tr td a span.glyphicon-chevron-down {
+  position: relative;
+}
+
+.bootstrap-timepicker-widget table tr td a span.glyphicon-chevron-down:before {
+  content: "\F13A";
+  font-family: 'Font Awesome 5 Pro';
+}
+
+.bootstrap-timepicker-widget table tr td a span.glyphicon-chevron-up {
+  position: relative;
+}
+
+.bootstrap-timepicker-widget table tr td a span.glyphicon-chevron-up:before {
+  content: "\F139";
+  font-family: 'Font Awesome 5 Pro';
 }
 
 .postTitle h2 {
