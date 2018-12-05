@@ -906,7 +906,7 @@ class EventController extends Controller
             $event->sc_teachers_id = json_encode(explode(",",$request->get('multiple_teachers')));
             $event->sc_continent_id = $venue->continent_id;
 
-            // Multiple teachers
+            // Multiple teachers (we need this to show them in HP with less use of resources)
                 if($request->get('multiple_teachers')){
                     $multiple_teachers = explode(',', $request->get('multiple_teachers'));
                     $i = 0; $len = count($multiple_teachers); // to put "," to all items except the last
@@ -940,6 +940,9 @@ class EventController extends Controller
                 if ($request->get('multiple_organizers')){
                     $multiple_organizers= explode(',', $request->get('multiple_organizers'));
                     $event->organizers()->sync($multiple_organizers);
+                }
+                else{
+                    $event->organizers()->sync([]);
                 }
     }
 
