@@ -45,16 +45,16 @@
                 @include('partials.forms.input', [
                     'title' => 'Email',
                     'name' => 'email',
-                    'placeholder' => 'Name',
+                    'placeholder' => 'email',
                     'value' => $organizer->email
                 ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
-                    'title' => 'Facebook profile',
-                    'name' => 'facebook',
-                    'placeholder' => 'https://...',
-                    'value' => $organizer->facebook
+                    'title' => 'Phone',
+                    'name' => 'phone',
+                    'placeholder' => 'Phone',
+                    'value' => $organizer->phone
                 ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -65,25 +65,13 @@
                     'value' => $organizer->website
                 ])
             </div>
-
-        </div>
-
-        <div class="row h-100 mt-3">
-            <div class="col-xs-9 col-sm-9 col-md-9 pull-left my-auto">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><strong>Image</strong></span>
-                    </div>
-                    <input id="thumbnail" class="form-control" type="text" name="image" value="{{ $organizer->image }}">
-                    <span class="input-group-btn">
-                        <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                            <i class="fa fa-picture-o"></i> Choose
-                        </a>
-                    </span>
-                </div>
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 pull-right my-auto">
-                <img id="holder" style="width:100%;" src="{{ $organizer->image }}">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.textarea', [
+                      'title' => 'Description (optional)',
+                      'name' => 'description',
+                      'placeholder' => 'Organizer description',
+                      'value' => $organizer->description
+                ])
             </div>
         </div>
 

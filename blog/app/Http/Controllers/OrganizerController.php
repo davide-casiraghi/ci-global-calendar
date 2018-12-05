@@ -127,10 +127,10 @@ class OrganizerController extends Controller
      public function saveOnDb($request){
          $organizer = new Organizer();
          $organizer->name = $request->get('name');
-         $organizer->image = $request->get('image');
+         $organizer->description = $request->get('description');
          $organizer->website = $request->get('website');
-         $organizer->facebook = $request->get('facebook');
          $organizer->email = $request->get('email');
+         $organizer->phone = $request->get('phone');
 
          $organizer->created_by = \Auth::user()->id;
          $organizer->slug = str_slug($organizer->name, '-').rand(10000, 100000);

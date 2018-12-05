@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Organizer extends Model
 {
     protected $fillable = [
-        'name', 'image', 'website', 'facebook', 'created_by', 'slug', 'email'
+        'name', 'description', 'website', 'created_by', 'slug', 'email', 'phone'
     ];
 }

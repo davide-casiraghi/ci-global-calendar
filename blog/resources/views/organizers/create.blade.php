@@ -17,7 +17,6 @@
     <form action="{{ route('organizers.store') }}" method="POST">
         @csrf
 
-
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
@@ -48,9 +47,9 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
-                    'title' => 'Facebook profile',
-                    'name' => 'facebook',
-                    'placeholder' => 'https://...'
+                    'title' => 'Phone',
+                    'name' => 'phone',
+                    'placeholder' => ''
                 ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -60,25 +59,12 @@
                     'placeholder' => 'https://...'
                 ])
             </div>
-
-        </div>
-
-        <div class="row h-100 mt-3">
-            <div class="col-xs-9 col-sm-9 col-md-9 pull-left my-auto">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><strong>Image</strong></span>
-                    </div>
-                    <input id="thumbnail" class="form-control" type="text" name="image">
-                    <span class="input-group-btn">
-                        <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                            <i class="fa fa-picture-o"></i> Choose
-                        </a>
-                    </span>
-                </div>
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 pull-right my-auto">
-                <img id="holder" style="width:100%;">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                @include('partials.forms.textarea', [
+                      'title' => 'Description (optional)',
+                      'name' => 'description',
+                      'placeholder' => 'Organizer description'
+                ])
             </div>
         </div>
 
