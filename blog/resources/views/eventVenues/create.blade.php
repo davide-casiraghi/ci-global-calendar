@@ -40,13 +40,6 @@
             @endif
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                @include('partials.forms.textarea', [
-                    'title' => 'Description',
-                    'name' => 'description',
-                    'placeholder' => 'Event description'
-                ])
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
                     'title' => 'Street',
                     'name' => 'address',
@@ -85,18 +78,17 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
-                    'title' => 'Facebook profile',
-                    'name' => 'facebook',
+                    'title' => 'Website',
+                    'name' => 'website',
                     'placeholder' => 'https://...',
                     'value' => ''
                 ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                @include('partials.forms.input', [
-                    'title' => 'Website',
-                    'name' => 'website',
-                    'placeholder' => 'https://...',
-                    'value' => ''
+                @include('partials.forms.textarea', [
+                    'title' => 'Description',
+                    'name' => 'description',
+                    'placeholder' => 'Event description'
                 ])
             </div>
         </div>
