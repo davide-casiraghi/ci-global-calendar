@@ -2,21 +2,22 @@
 // Fonts
 // @import url('https://fonts.googleapis.com/css?family=Nunito');
 
-// Variables
-@import 'variables';
+// Initialize
+@import 'initialize/variables';
+@import 'initialize/fonts';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-@import 'core';
-@import 'fonts';
+// Base
+@import 'base/core';
+@import 'base/header_menu';
+@import 'base/language_menu';
+@import 'base/footer';
+@import 'base/forms';
 
 
-@import 'forms';
 
-@import 'header_menu';
-@import 'language_menu';
-@import 'footer';
 
 @import 'post';
 
@@ -29,58 +30,3 @@
     @import 'plugins/imagepopup';
     @import 'plugins/card';
     @import 'plugins/columns';
-
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
-
-body{
-    nav{
-        &.navbar{
-            background-color: #B5A575;
-            padding: 0;
-            ul{
-                li{
-                    &.nav-item{
-                        a{
-                            &.nav-link{
-                                color: white;
-                                padding: 1rem 0.5rem;
-                                &:hover{
-                                    background-color: #A59668;
-                                }
-                            }
-                            &.has-submenu{
-                                /*padding-right: 4rem;*/
-                            }
-                        }
-                    }
-                }
-            }
-            button{
-                margin: .5rem;
-            }
-        }
-    }
-    > .container{
-
-        .card{
-            margin: auto;
-        }
-        .postTitle{
-
-        }
-        .postBody{
-
-        }
-    }
-
-    h1{
-        margin: 2rem 0 3rem 0;
-    }
-    hr{
-        margin: 5rem 0;
-    }
-
-}

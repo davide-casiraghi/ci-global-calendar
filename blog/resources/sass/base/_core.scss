@@ -1,0 +1,54 @@
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+body{
+    nav{
+        &.navbar{
+            background-color: #B5A575;
+            padding: 0;
+            ul{
+                li{
+                    &.nav-item{
+                        a{
+                            &.nav-link{
+                                color: white;
+                                padding: 1rem 0.5rem;
+                                &:hover{
+                                    background-color: #A59668;
+                                }
+                            }
+                            &.has-submenu{
+                                /*padding-right: 4rem;*/
+                            }
+                        }
+                    }
+                }
+            }
+            button{
+                margin: .5rem;
+            }
+        }
+    }
+    > .container{
+
+        .card{
+            margin: auto;
+        }
+        .postTitle{
+
+        }
+        .postBody{
+
+        }
+    }
+
+    h1{
+        margin: 2rem 0 3rem 0;
+    }
+    hr{
+        margin: 5rem 0;
+    }
+
+}
