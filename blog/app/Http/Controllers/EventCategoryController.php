@@ -41,8 +41,6 @@ class EventCategoryController extends Controller
             'name' => 'required'
         ]);
 
-        //EventCategory::create($request->all());
-
         $this->saveOnDb($request, $eventCategory);
 
         return redirect()->route('eventCategories.index')
@@ -82,7 +80,6 @@ class EventCategoryController extends Controller
             'name' => 'required'
         ]);
 
-        //$eventCategory->update($request->all());
         $this->saveOnDb($request, $eventCategory);
 
         return redirect()->route('eventCategories.index')
@@ -98,6 +95,7 @@ class EventCategoryController extends Controller
     public function destroy(EventCategory $eventCategory)
     {
         $eventCategory->delete();
+
         return redirect()->route('eventCategories.index')
                         ->with('success','Event category deleted successfully');
     }
