@@ -127,7 +127,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
-                      'title' => 'Facebook event',
+                      'title' => 'Facebook event link',
                       'name' => 'facebook_event_link',
                       'placeholder' => 'https://www.facebook.com/events/...',
                       'value' => $event->facebook_event_link
@@ -135,7 +135,7 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 @include('partials.forms.input', [
-                      'title' => 'Event URL',
+                      'title' => 'Website Link',
                       'name' => 'website_event_link',
                       'placeholder' => 'https://www...',
                       'value' => $event->website_event_link
