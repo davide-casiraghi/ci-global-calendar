@@ -74,7 +74,7 @@
                     <div class="col-md-4">
                         <p class="text-white">
                             <strong>@lang('homepage-serach.where')</strong>
-                            {{--<i class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="@lang('homepage-serach.where_tooltip')"></i>--}}
+                            <i class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="@lang('homepage-serach.where_tooltip')"></i>
                         </p>
                         @include('partials.forms.event-search.select-continent')
                         @include('partials.forms.event-search.select-country')

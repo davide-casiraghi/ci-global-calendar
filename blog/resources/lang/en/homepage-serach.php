@@ -10,7 +10,7 @@ return [
     'when' => 'When',
     'when_tooltip' => 'You can specify just one or both date fields',
     'where' => 'Where',
-    'where_tooltip' => 'Just the countries and cities with available events are shown below',
+    'where_tooltip' => 'Just the countries with available events are shown below',
     'who' => 'Who',
     'results_found' => 'results found',
     'start_on' => 'Starts on (or after)',

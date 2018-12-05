@@ -36,8 +36,17 @@ class EventSearchController extends Controller
         });
 
         $countries = Cache::remember('countries', $minutes, function () {
-            return Country::pluck('name', 'id');
+            return DB::table('countries')
+                ->join('event_venues', 'countries.id', '=', 'event_venues.country_id')
+                ->join('events', 'event_venues.id', '=', 'events.venue_id')
+                ->pluck('countries.name', 'countries.id');
         });
+
+        /*$countries = DB::table('countries')
+                ->join('event_venues', 'countries.id', '=', 'event_venues.country_id')
+                ->join('events', 'event_venues.id', '=', 'events.venue_id')
+                ->pluck('countries.name', 'countries.id');*/
+
 
         $continents = Cache::rememberForever('continents', function () {
             return Continent::pluck('name', 'id');
@@ -46,7 +55,6 @@ class EventSearchController extends Controller
         $venues = Cache::remember('venues', $minutes, function () {
             return EventVenue::pluck('name', 'id');
         });
-
 
         $teachers = Cache::remember('teachers', $minutes, function () {
             return Teacher::pluck('name', 'id');
