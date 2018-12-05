@@ -19,14 +19,14 @@
             {{ $category->name }}
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12 mt-1" style="display: table;">
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-2" style="display: table;">
             <i class="far fa-clock" data-toggle="tooltip" data-placement="top" title="Date & Time" style="display: table-cell; vertical-align: middle; width: 20px; text-align: center;"></i>
             <div class="date ml-2">
                 <div class="bigdate">@date_monthname($datesTimes->start_repeat) @if(!$sameDateStartEnd)-&nbsp;@date_monthname($datesTimes->end_repeat)@endif</div>
                 <small class="smalldate text-black-50">From @date_monthname($datesTimes->start_repeat)&nbsp;at&nbsp;@time_am_pm($datesTimes->start_repeat) to @if(!$sameDateStartEnd)@date_monthname($datesTimes->end_repeat) at @endif @time_am_pm($datesTimes->end_repeat)</small>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 mt-1" style="display: table;">
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-2" style="display: table;">
             <i class="far fa-map-marker-alt" style="display: table-cell; vertical-align: middle; width: 20px; text-align: center;" data-toggle="tooltip" data-placement="top" title="Venue"></i>
             <div class="venue ml-2">
                 {{ $venue->name }}  -  {{ $venue->address }}, {{ $venue->city }}, {{ $country->name }} - <a href="#map" name="map">Show map</a>
@@ -34,7 +34,7 @@
         </div>
 
         @if(count($teachers))
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-1">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
                 <i class="far fa-users mr-1" data-toggle="tooltip" data-placement="top" title="Teachers"></i>
                 @foreach ($teachers as $key => $teacher)
                     {{$teacher->name}}@if(!$loop->last),@endif
@@ -43,7 +43,7 @@
         @endif
 
         @if(count($organizers))
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-1">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
                 <i class="fa fa-users mr-1" data-toggle="tooltip" data-placement="top" title="Organizers"></i>
                 @foreach ($organizers as $key => $organizer)
                     {{$organizer->name}}
@@ -52,7 +52,7 @@
         @endif
 
         @if(!empty($repetition_text))
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-1">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
                 <i class="far fa-folders mr-1" data-toggle="tooltip" data-placement="top" title="Repetitions"></i>
                 {{-- The event happens every Thursday until 10/6/2018--}}
                 {{$repetition_text}}
