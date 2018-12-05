@@ -81,7 +81,13 @@
             </div>
 
             <div class="col-xs-6 col-sm-6 col-md-6">
-                @include('partials.forms.input-time-start')
+                {{--@include('partials.forms.input-time-start')--}}
+                @include('partials.forms.input-time', [
+                      'title' => 'Time Start',
+                      'name' => 'time_start',
+                      'placeholder' => 'select time',
+                      'value' => '6:00 PM'
+                ])
             </div>
         </div>
 
@@ -90,7 +96,13 @@
                 @include('partials.forms.input-date-end')
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
-                @include('partials.forms.input-time-end')
+                {{-- @include('partials.forms.input-time-end')--}}
+                @include('partials.forms.input-time', [
+                      'title' => 'Time End',
+                      'name' => 'time_end',
+                      'placeholder' => 'select time',
+                      'value' => '8:00 PM'
+                ])
             </div>
         </div>
 
