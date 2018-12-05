@@ -159,9 +159,9 @@ class EventVenueController extends Controller
          $eventVenue->continent_id = Country::where('id', $request->get('country_id'))->pluck('continent_id')->first();
          $eventVenue->country_id = $request->get('country_id');
          $eventVenue->city = $request->get('city');
+         $eventVenue->state_province = $request->get('state_province');
          $eventVenue->address = $request->get('address');
          $eventVenue->zip_code = $request->get('zip_code');
-         $eventVenue->facebook = $request->get('facebook');
          $eventVenue->website = $request->get('website');
 
          $eventVenue->slug = str_slug($eventVenue->name, '-').rand(10000, 100000);
