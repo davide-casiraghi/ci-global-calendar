@@ -22,26 +22,29 @@
 
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="name" value="{{ $country->name }}" class="form-control" placeholder="Name">
-                </div>
+                @include('partials.forms.input', [
+                      'title' => 'Name',
+                      'name' => 'name',
+                      'placeholder' => 'Name',
+                      'value' => $country->name
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Code:</strong>
-                    <input type="text" name="code" value="{{ $country->code }}" class="form-control" placeholder="Slug">
-                </div>
+                @include('partials.forms.input', [
+                      'title' => 'Code',
+                      'name' => 'code',
+                      'placeholder' => 'Country code',
+                      'value' => $country->code
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Continent:</strong>
-                    <select name="continent_id" class="selectpicker" title="Select continent">
-                        @foreach ($continents as $value => $continent)
-                            <option value="{{$value}}" {{ $country->continent_id == $value ? 'selected' : '' }}>{!! $continent !!}</option>
-                        @endforeach
-                    </select>
-                </div>
+                @include('partials.forms.select', [
+                      'title' => 'Continent',
+                      'name' => 'continent_id',
+                      'placeholder' => 'Select continent',
+                      'records' => $continents,
+                      'seleted' => $country->continent_id
+                ])
             </div>
         </div>
 
