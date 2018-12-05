@@ -35,11 +35,15 @@ class EventCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
+        $eventCategory = new EventCategory();
+
         request()->validate([
             'name' => 'required'
         ]);
 
-        EventCategory::create($request->all());
+        //EventCategory::create($request->all());
+
+        $this->saveOnDb($request, $eventCategory);
 
         return redirect()->route('eventCategories.index')
                         ->with('success','Event category created successfully.');
@@ -62,6 +66,7 @@ class EventCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(EventCategory $eventCategory){
+
         return view('eventCategories.edit',compact('eventCategory'));
     }
 
@@ -77,7 +82,8 @@ class EventCategoryController extends Controller
             'name' => 'required'
         ]);
 
-        $eventCategory->update($request->all());
+        //$eventCategory->update($request->all());
+        $this->saveOnDb($request, $eventCategory);
 
         return redirect()->route('eventCategories.index')
                         ->with('success','Event category updated successfully');
@@ -109,5 +115,21 @@ class EventCategoryController extends Controller
          //dump($ret);
 
          return $ret;
+     }
+
+     // **********************************************************************
+
+     /**
+      * Save/Update the record on DB
+      *
+      * @param  \Illuminate\Http\Request  $request
+      * @return string $ret - the ordinal indicator (st, nd, rd, th)
+      */
+
+     function saveOnDb($request, $eventCategory){
+         $eventCategory->name = $request->get('name');
+         $eventCategory->slug = str_slug($eventCategory->name, '-');
+
+         $eventCategory->save();
      }
 }
