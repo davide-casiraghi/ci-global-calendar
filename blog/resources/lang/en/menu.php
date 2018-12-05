@@ -7,7 +7,7 @@ return [
     'get_involved' => 'Get Involved',
     'how_to' => 'How to insert contents',
     'manager' => 'Manager',
-    'new_event' => 'New event',
+    'new_event' => 'New Event',
     'my_events' => 'My Events',
     'my_organizers' => 'My Organizers',
     'my_teachers' => 'My Teachers',
