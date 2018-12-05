@@ -20,16 +20,18 @@
 
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="name" class="form-control" placeholder="Name">
-                </div>
+                @include('partials.forms.input', [
+                      'title' => 'Name',
+                      'name' => 'name',
+                      'placeholder' => 'Continent Name'
+                ])
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Code:</strong>
-                    <input type="text" name="code" class="form-control" placeholder="Continent code">
-                </div>
+                @include('partials.forms.input', [
+                      'title' => 'Code',
+                      'name' => 'code',
+                      'placeholder' => 'Continent code'
+                ])
             </div>
 
         </div>
