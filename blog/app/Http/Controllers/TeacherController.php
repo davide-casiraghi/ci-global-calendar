@@ -94,7 +94,12 @@ class TeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Teacher $teacher){
-        return view('teachers.show',compact('teacher'));
+        $country = Country::select('name')
+        ->where('id', $teacher->country_id)
+        ->first();
+
+        return view('teachers.show',compact('teacher'))
+            ->with('country', $country);
     }
 
     /**
