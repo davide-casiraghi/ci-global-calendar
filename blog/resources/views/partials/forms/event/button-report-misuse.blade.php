@@ -1,12 +1,12 @@
 <p class="text-right mb-4">
-    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Report misuse</button>
+    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#reportMisuseModal" data-whatever="@getbootstrap">Report misuse</button>
 </p>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="reportMisuseModal" tabindex="-1" role="dialog" aria-labelledby="reportMisuseModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Report misuse</h5>
+                <h5 class="modal-title" id="reportMisuseModalLabel">Report misuse</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>

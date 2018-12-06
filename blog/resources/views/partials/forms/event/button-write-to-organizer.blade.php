@@ -1,12 +1,12 @@
 <p class="my-3">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Write to the organizer</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#writeToOrganizerModal" data-whatever="@getbootstrap">Write to the organizer</button>
 </p>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="writeToOrganizerModal" tabindex="-1" role="dialog" aria-labelledby="writeToOrganizerModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Write to the organizer</h5>
+                <h5 class="modal-title" id="writeToOrganizerModalLabel">Write to the organizer</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
