@@ -23,10 +23,10 @@
     {{-- Search form --}}
     <form class="row mt-3" action="{{ route('eventVenues.index') }}" method="GET">
         @csrf
-        <div class="form-group col-lg-7 col-md-6 col-sm-6 col-xs-4">
+        <div class="form-group col-12 col-sm-12 col-md-6 col-lg-5 mb-2">
             <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by venue name" value="{{ $searchKeywords }}">
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-2">
             <select name="country_id" class="selectpicker" data-live-search="true">
                 <option value="">Search by country</option>
                 @foreach ($countries as $value => $country)
@@ -35,9 +35,9 @@
                 @endforeach
             </select>
         </div>
-        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-4 mt-sm-0 mt-3">
-            <a id="resetButton" class="btn btn-info" href="#">Reset</a>
-            <input type="submit" value="Search" class="btn btn-primary float-sm-right">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-3 mt-3 mt-lg-0">
+            <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
+            <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right">
         </div>
     </form>
 
