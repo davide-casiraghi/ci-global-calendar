@@ -84,6 +84,10 @@ function()
         Route::post('/misuse', 'EventController@reportMisuse')->name("events.misuse");
         Route::get('/misuse/thankyou', 'EventController@reportMisuseThankyou')->name("events.misuse-thankyou");
 
+    /* Mail to the event organizer */
+        Route::post('/mailToOrganizer', 'EventController@mailToOrganizer')->name("events.organizer-message");
+        Route::get('/mailToOrganizer/sent', 'EventController@mailToOrganizerSent')->name("events.organizer-message-sent");
+
     /* Contact form to write to the administrator */
         Route::get('/contactTheAdministrator', 'AdministratorMailFormController@contactAdmin')->name("forms.contact-admin");
         Route::post('/contactTheAdministrator/send', 'AdministratorMailFormController@contactAdminSend')->name("forms.contact-admin-send");
