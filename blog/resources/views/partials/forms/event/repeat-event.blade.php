@@ -174,6 +174,7 @@
                   'title' => 'Repeat Until',
                   'name' => 'repeat_until',
                   'placeholder' => 'Select date',
+                  'endDate' => '+1y',
                   'value' => $dateTime['repeatUntil']
             ])
 
