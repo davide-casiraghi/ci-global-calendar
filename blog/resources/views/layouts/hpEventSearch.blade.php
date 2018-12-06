@@ -10,13 +10,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
+    {{-- CSRF Token --}}
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- CSS-->
-        <!--<link rel="stylesheet" type="text/css" href="/css/vendor.css">
-        <link rel="stylesheet" type="text/css" href="/css/app.css">
-        <link rel="stylesheet" type="text/css" href="/css/custom.css">-->
+    {{-- CSS --}}
         <link href="{{ asset('css/vendor.css') }}" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
@@ -24,7 +21,7 @@
         @yield('css')
 </head>
 
-<body class=""> <!-- Laravel use VUE as default - https://stackoverflow.com/questions/41411344/vue-warn-cannot-find-element-app#41411385-->
+<body class=""> {{-- Laravel use VUE as default - https://stackoverflow.com/questions/41411344/vue-warn-cannot-find-element-app#41411385 --}}
     {{-- {!! menu('main', 'nav') !!} --}}
     @include('menus.nav', ['items' => $MyNavBar->roots()])
 
@@ -35,11 +32,7 @@
     @include('footer.footer')
     @include('partials.cookie-consent')
 
-    <!-- JS -->
-        <!--<script src="/js/manifest.js"></script>
-        <script src="/js/vendor.js"></script>
-        <script src="/js/app.js"></script>-->
-
+    {{-- JS --}}
         <script src="{{ asset('js/manifest.js') }}" ></script>
         <script src="{{ asset('js/vendor.js') }}" ></script>
         <script src="{{ asset('js/app.js') }}" ></script>
