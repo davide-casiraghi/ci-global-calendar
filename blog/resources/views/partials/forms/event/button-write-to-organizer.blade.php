@@ -14,21 +14,16 @@
             <form action="{{ route('events.misuse') }}" method="POST">
                 <div class="modal-body">
                          @csrf
-                         <p>You are about to report a violation of the calendar <a href="/post/terms_of_use" target="_blank">terms of use</a><br></p>
-                         <div class="form-group">
-                             <strong>Reason:</strong>
-                             <select name="reason" class="selectpicker" title="Select one option">
-                                 <option value="1">Not about Contact Improvisation</option>
-                                 <option value="2">Contains wrong informations</option>
-                                 <option value="3">It is not translated in english</option>
-                                 <option value="4">Other (specify in the message)</option>
-                             </select>
-                         </div>
+                         <p>You are sending an email to the organizer of this event</a><br></p>
+                         @include('partials.forms.input', [
+                               'title' => 'Your email',
+                               'name' => 'user_email',
+                         ])
 
                          @include('partials.forms.textarea-plain', [
-                               'title' => 'Message (optional)',
+                               'title' => 'Message',
                                'name' => 'message',
-                               'placeholder' => 'Include all the details you can'
+                               'placeholder' => 'the text of your message'
                          ])
 
                          @include('partials.forms.input-hidden', [
