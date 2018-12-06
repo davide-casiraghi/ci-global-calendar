@@ -175,7 +175,9 @@
                   'name' => 'repeat_until',
                   'placeholder' => 'Select date',
                   'endDate' => '+1y',
-                  'value' => $dateTime['repeatUntil']
+                  'value' => $dateTime['repeatUntil'],
+                  'tooltipFontAwesomeClass' => 'fa fa-info-circle',
+                  'tooltipText' => "It's possible to set maximimum one year of repetition from today"
             ])
 
         </div>

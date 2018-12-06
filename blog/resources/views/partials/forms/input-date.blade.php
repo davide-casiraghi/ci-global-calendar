@@ -10,6 +10,12 @@
 
 <div class="form-group">
     <strong>{{ $title }}: </strong>
+
+    {{-- Tooltip --}}
+    @if(!empty($tooltipFontAwesomeClass) && !empty($tooltipText))
+        <i data-toggle="tooltip" data-placement="top" title="" class="{{$tooltipFontAwesomeClass}}" data-original-title="{{$tooltipText}}"></i>
+    @endif
+
     <div class="input-group input-append date" id="{{ $name }}" data-date-format="dd-mm-yyyy">
         <input
             name="{{ $name }}"
