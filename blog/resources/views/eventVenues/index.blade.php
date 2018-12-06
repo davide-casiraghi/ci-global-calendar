@@ -1,5 +1,13 @@
 @extends('eventVenues.layout')
 
+@section('javascript-document-ready')
+    {{--  Clear filters on click reset button --}}
+        $("#resetButton").click(function(){
+            $("input[name=keywords]").val("");
+            $("select[name=country_id] option").prop("selected", false).trigger('change');
+            $('form.searchForm').submit();
+        });
+@endsection
 
 @section('content')
     <div class="row">
@@ -21,10 +29,10 @@
 
 
     {{-- Search form --}}
-    <form class="row mt-3" action="{{ route('eventVenues.index') }}" method="GET">
+    <form class="row searchForm mt-3" action="{{ route('eventVenues.index') }}" method="GET">
         @csrf
         <div class="form-group col-12 col-sm-12 col-md-6 col-lg-5 mb-2">
-            <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by venue name" value="{{ $searchKeywords }}">
+            <input type="text" name="keywords" class="form-control" placeholder="Search by venue name" value="{{ $searchKeywords }}">
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-2">
             <select name="country_id" class="selectpicker" data-live-search="true">

@@ -29,7 +29,7 @@
     @endif
 
     {{-- Search form --}}
-    <form class="row mt-3 searchForm" action="{{ route('events.index') }}" method="GET">
+    <form class="row searchForm mt-3" action="{{ route('events.index') }}" method="GET">
         @csrf
         <div class="form-group col-12 col-sm-12 col-md-4 col-lg-3 mb-2">
             <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by event name" value="{{ $searchKeywords }}">
