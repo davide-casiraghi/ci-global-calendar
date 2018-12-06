@@ -120,7 +120,7 @@
             </div>
         </div>
 
-        @include('partials.repeat-event', [
+        @include('partials.forms.event.repeat-event', [
               'event' => $event
         ])
 
