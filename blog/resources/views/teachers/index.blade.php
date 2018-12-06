@@ -53,7 +53,7 @@
         <tr>
             <td>{{ $teacher->id }}</td>
             <td>{{ $teacher->name }}</td>
-            <td>{{ $countries[$teacher->country_id] }}</td>
+            <td>@if($teacher->country_id){{ $countries[$teacher->country_id] }}@endif</td>
             <td>
                 <form action="{{ route('teachers.destroy',$teacher->id) }}" method="POST">
 
