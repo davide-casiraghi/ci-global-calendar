@@ -17249,144 +17249,6 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after 
   font-size: 0.5rem;
 }
 
-.postTitle h2 {
-  font-weight: bold;
-}
-
-.postBody {
-  line-height: 1.875rem;
-}
-
-.postBody h3 {
-  margin: 2rem 0 2rem 0;
-}
-
-.postBody > ul,
-.postBody > ol {
-  margin-top: 1rem;
-}
-
-.postBody > ul li,
-.postBody > ol li {
-  margin-bottom: 0.3rem;
-}
-
-.postBody > ul li ul,
-.postBody > ol li ul {
-  margin-top: 0.5rem;
-  margin-bottom: 0.8rem;
-}
-
-.postBody > ul li ul li,
-.postBody > ol li ul li {
-  margin-bottom: 0.3rem;
-}
-
-.afterContent {
-  margin-bottom: 5rem;
-}
-
-.eventSearch.jumbotron {
-  padding: 0;
-  margin: 0;
-}
-
-.eventSearch .container {
-  position: relative;
-  z-index: 2;
-}
-
-.eventSearch .container .intro h1 {
-  margin-top: 5rem;
-}
-
-.eventSearch .container .intro h4 {
-  color: #bbbbbb;
-}
-
-.eventSearch .container form.searchForm .date .input-group-append .input-group-text {
-  font-size: 0.88rem;
-}
-
-.eventSearch .container .eventList {
-  margin-bottom: 4rem;
-}
-
-.eventSearch .container .eventList .date {
-  font-size: 0.8rem;
-}
-
-@media screen and (min-width: 992px) {
-  .eventSearch .container .eventList .date .row .dateBox {
-    min-height: 45px;
-  }
-}
-
-.eventSearch .container .eventList .date .row .dateBox strong {
-  margin: auto;
-}
-
-.eventSearch .container .eventList .title a {
-  line-height: 1.2rem;
-}
-
-.eventSearch .container .eventList .location .details,
-.eventSearch .container .eventList .teachers .names {
-  font-size: 0.9rem;
-  line-height: 1.2rem;
-}
-
-.eventSearch .container .vcenter {
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: flex;
-  -ms-flex-align: center;
-  -webkit-box-align: center;
-          align-items: center;
-}
-
-.eventSearch .background {
-  background: #282c37;
-  width: 100%;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100%;
-  z-index: 0;
-  min-height: 100%;
-  background-color: gray;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50%;
-  background-size: cover;
-  -webkit-transition: background-image .5s ease-in-out;
-  transition: background-image .5s ease-in-out;
-  margin-bottom: 0 !important;
-}
-
-.eventSearch .credits {
-  z-index: 2;
-  position: absolute;
-  top: 4rem;
-  right: 1rem;
-  color: #bbbbbb;
-}
-
-.eventSearch .credits .name {
-  display: inline;
-}
-
-.eventSearch .bg-overlay {
-  background: #282c37;
-  opacity: .6;
-  width: 100%;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100%;
-  z-index: 1;
-}
-
 /**** JqueryUI Accordion - CSS override - plugin/contents/jw_ts ****/
 
 /****** ACCORDION ******/
@@ -17586,5 +17448,143 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after 
 
 .columns .row .col {
   text-align: center;
+}
+
+.eventSearch.jumbotron {
+  padding: 0;
+  margin: 0;
+}
+
+.eventSearch .container {
+  position: relative;
+  z-index: 2;
+}
+
+.eventSearch .container .intro h1 {
+  margin-top: 5rem;
+}
+
+.eventSearch .container .intro h4 {
+  color: #bbbbbb;
+}
+
+.eventSearch .container form.searchForm .date .input-group-append .input-group-text {
+  font-size: 0.88rem;
+}
+
+.eventSearch .container .eventList {
+  margin-bottom: 4rem;
+}
+
+.eventSearch .container .eventList .date {
+  font-size: 0.8rem;
+}
+
+@media screen and (min-width: 992px) {
+  .eventSearch .container .eventList .date .row .dateBox {
+    min-height: 45px;
+  }
+}
+
+.eventSearch .container .eventList .date .row .dateBox strong {
+  margin: auto;
+}
+
+.eventSearch .container .eventList .title a {
+  line-height: 1.2rem;
+}
+
+.eventSearch .container .eventList .location .details,
+.eventSearch .container .eventList .teachers .names {
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+}
+
+.eventSearch .container .vcenter {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.eventSearch .background {
+  background: #282c37;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 0;
+  min-height: 100%;
+  background-color: gray;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50%;
+  background-size: cover;
+  -webkit-transition: background-image .5s ease-in-out;
+  transition: background-image .5s ease-in-out;
+  margin-bottom: 0 !important;
+}
+
+.eventSearch .credits {
+  z-index: 2;
+  position: absolute;
+  top: 4rem;
+  right: 1rem;
+  color: #bbbbbb;
+}
+
+.eventSearch .credits .name {
+  display: inline;
+}
+
+.eventSearch .bg-overlay {
+  background: #282c37;
+  opacity: .6;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 1;
+}
+
+.postTitle h2 {
+  font-weight: bold;
+}
+
+.postBody {
+  line-height: 1.875rem;
+}
+
+.postBody h3 {
+  margin: 2rem 0 2rem 0;
+}
+
+.postBody > ul,
+.postBody > ol {
+  margin-top: 1rem;
+}
+
+.postBody > ul li,
+.postBody > ol li {
+  margin-bottom: 0.3rem;
+}
+
+.postBody > ul li ul,
+.postBody > ol li ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.postBody > ul li ul li,
+.postBody > ol li ul li {
+  margin-bottom: 0.3rem;
+}
+
+.afterContent {
+  margin-bottom: 5rem;
 }
 

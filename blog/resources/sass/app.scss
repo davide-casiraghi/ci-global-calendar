@@ -3,28 +3,20 @@
 // @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Initialize
-@import 'initialize/variables';
-@import 'initialize/fonts';
-@import 'initialize/date';
-@import 'initialize/time';
+    @import 'initialize/variables';
+    @import 'initialize/fonts';
+    @import 'initialize/date';
+    @import 'initialize/time';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+    @import '~bootstrap/scss/bootstrap';
 
 // Base
-@import 'base/core';
-@import 'base/header_menu';
-@import 'base/language_menu';
-@import 'base/footer';
-@import 'base/forms';
-
-
-
-
-@import 'post';
-
-// Pages
-    @import 'pages/eventSearch';
+    @import 'base/core';
+    @import 'base/header_menu';
+    @import 'base/language_menu';
+    @import 'base/footer';
+    @import 'base/forms';
 
 // Plugins
     @import 'plugins/accordion';
@@ -32,3 +24,7 @@
     @import 'plugins/imagepopup';
     @import 'plugins/card';
     @import 'plugins/columns';
+
+// Pages
+    @import 'pages/eventSearch';
+    @import 'pages/post';
