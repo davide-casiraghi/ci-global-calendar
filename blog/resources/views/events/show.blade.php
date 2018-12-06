@@ -51,19 +51,22 @@
         @endif
 
         @if(!empty($repetition_text))
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
+            <div class="col-12 col-sm-12 col-md-12 mt-2">
                 <i class="far fa-folders mr-1" data-toggle="tooltip" data-placement="top" title="Repetitions"></i>
                 {{-- The event happens every Thursday until 10/6/2018--}}
                 {{$repetition_text}}
             </div>
         @endif
 
-        <div class="eventBody col-xs-12 col-sm-12 col-md-12 mt-5">
+        <div class="col-12">
+            <hr>
+        </div>
+
+        <div class="eventBody col-12 col-sm-12 col-md-12 mt-2">
             {!! $event->description !!}
         </div>
 
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-12 col-sm-12 col-md-12">
             @include('partials.forms.event.button-write-to-organizer')
         </div>
 

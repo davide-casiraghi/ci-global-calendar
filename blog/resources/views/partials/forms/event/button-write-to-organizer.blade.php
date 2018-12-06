@@ -16,6 +16,11 @@
                          @csrf
                          <p>You are sending an email to the organizer of this event</a><br></p>
                          @include('partials.forms.input', [
+                               'title' => 'Your name',
+                               'name' => 'user_name',
+                         ])
+
+                         @include('partials.forms.input', [
                                'title' => 'Your email',
                                'name' => 'user_email',
                          ])

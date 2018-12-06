@@ -556,9 +556,11 @@ class EventController extends Controller
     public function mailToOrganizer(Request $request){
         $message = array();
 
-        $message['senderEmail'] = "noreply@globalcicalendar.com";
-        $message['senderName'] = "Anonymus User";
-        $message['subject'] = "Report misuse form";
+        dd($request->event_title);
+
+        $message['senderEmail'] = $request->user_email;
+        $message['senderName'] = $request->user_name;
+        $message['subject'] = "Request about your event: ".$request->event_title;
         $message['emailTo'] = env('ADMIN_MAIL');
 
         $message['message'] = $request->message;
@@ -566,7 +568,7 @@ class EventController extends Controller
         $message['event_id'] = $request->event_id;
 
          //Mail::to($request->user())->send(new ReportMisuse($report));
-         Mail::to("davide.casiraghi@gmail.com")->send(new ReportMisuse($report));
+         Mail::to($request->user_email)->send(new ReportMisuse($report));
 
          return redirect()->route('events.organizer-message-sent');
 
