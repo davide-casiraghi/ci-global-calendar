@@ -6652,6 +6652,34 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Brands';
 }
 
+.datepicker td,
+.datepicker th {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.bootstrap-timepicker-widget table tr td input {
+  width: 45px;
+}
+
+.bootstrap-timepicker-widget table tr td a span.glyphicon-chevron-down {
+  position: relative;
+}
+
+.bootstrap-timepicker-widget table tr td a span.glyphicon-chevron-down:before {
+  content: "\F13A";
+  font-family: 'Font Awesome 5 Pro';
+}
+
+.bootstrap-timepicker-widget table tr td a span.glyphicon-chevron-up {
+  position: relative;
+}
+
+.bootstrap-timepicker-widget table tr td a span.glyphicon-chevron-up:before {
+  content: "\F139";
+  font-family: 'Font Awesome 5 Pro';
+}
+
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -17219,28 +17247,6 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark {
 
 form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after {
   font-size: 0.5rem;
-}
-
-.bootstrap-timepicker-widget table tr td input {
-  width: 45px;
-}
-
-.bootstrap-timepicker-widget table tr td a span.glyphicon-chevron-down {
-  position: relative;
-}
-
-.bootstrap-timepicker-widget table tr td a span.glyphicon-chevron-down:before {
-  content: "\F13A";
-  font-family: 'Font Awesome 5 Pro';
-}
-
-.bootstrap-timepicker-widget table tr td a span.glyphicon-chevron-up {
-  position: relative;
-}
-
-.bootstrap-timepicker-widget table tr td a span.glyphicon-chevron-up:before {
-  content: "\F139";
-  font-family: 'Font Awesome 5 Pro';
 }
 
 .postTitle h2 {

@@ -5,6 +5,8 @@
 // Initialize
 @import 'initialize/variables';
 @import 'initialize/fonts';
+@import 'initialize/date';
+@import 'initialize/time';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
@@ -18,7 +20,7 @@
 
 
 
-@import 'time';
+
 @import 'post';
 
 // Pages
