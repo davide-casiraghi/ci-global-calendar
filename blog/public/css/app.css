@@ -6680,6 +6680,12 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Pro';
 }
 
+ul.pagination {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -17508,12 +17514,6 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after 
   -ms-flex-align: center;
   -webkit-box-align: center;
           align-items: center;
-}
-
-.eventSearch .container .pagination {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 .eventSearch .background {
