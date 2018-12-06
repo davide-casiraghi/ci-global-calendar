@@ -130,7 +130,7 @@
 
 
 
-            <div class="eventList mt-5">
+            <div class="eventList mt-5 mb-3">
                 @foreach ($events as $event)
                     <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
                         <div class="col-lg-1 date">
@@ -197,7 +197,7 @@
             </div>
 
             {!! $events->links() !!}
-
+    
         </div>
         <div class="bg-overlay"></div>
 

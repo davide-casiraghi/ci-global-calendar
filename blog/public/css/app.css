@@ -17453,6 +17453,7 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after 
 .eventSearch.jumbotron {
   padding: 0;
   margin: 0;
+  margin-bottom: 4rem;
 }
 
 .eventSearch .container {
@@ -17473,7 +17474,7 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after 
 }
 
 .eventSearch .container .eventList {
-  margin-bottom: 4rem;
+  /*margin-bottom: 4rem;*/
 }
 
 .eventSearch .container .eventList .date {
@@ -17507,6 +17508,12 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after 
   -ms-flex-align: center;
   -webkit-box-align: center;
           align-items: center;
+}
+
+.eventSearch .container .pagination {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .eventSearch .background {
