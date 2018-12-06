@@ -95,13 +95,8 @@ function()
 
 });
 
+
 /** OTHER PAGES THAT SHOULD NOT BE LOCALIZED **/
-
-
-
-
-
-
 
 /*  Editor Filemanager */
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
