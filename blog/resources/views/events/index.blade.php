@@ -3,9 +3,9 @@
 @section('javascript-document-ready')
     {{--  Clear filters on click reset button --}}
         $("#resetButton").click(function(){
-            $("input#keywords").val("");
-            $('#category option').prop("selected", false).trigger('change');
-            $('#country option').prop("selected", false).trigger('change');
+            $("input[name=keywords]").val("");
+            $("select[name=category_id] option").prop("selected", false).trigger('change');
+            $("select[name=country_id] option").prop("selected", false).trigger('change');
             $('form.searchForm').submit();
         });
 @endsection
@@ -32,10 +32,10 @@
     <form class="row searchForm mt-3" action="{{ route('events.index') }}" method="GET">
         @csrf
         <div class="form-group col-12 col-sm-12 col-md-4 col-lg-3 mb-2">
-            <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by event name" value="{{ $searchKeywords }}">
+            <input type="text" name="keywords" class="form-control" placeholder="Search by event name" value="{{ $searchKeywords }}">
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-2">
-            <select name="category_id" id="category" class="selectpicker" data-live-search="true" title="Search by category">
+            <select name="category_id" class="selectpicker" data-live-search="true" title="Search by category">
                 @foreach ($eventCategories as $value => $eventCategory)
                     {{-- {{ $event->category_id == $value ? 'selected' : '' }} --}}
                     <option value="{{$value}}" {{ $searchCategory == $value ? 'selected' : '' }} >{!! $eventCategory !!} </option>
@@ -43,7 +43,7 @@
             </select>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <select name="country_id" id="country" class="selectpicker" data-live-search="true" title="Search by country">
+            <select name="country_id" class="selectpicker" data-live-search="true" title="Search by country">
                 @foreach ($countries as $value => $country)
                     <option value="{{$value}}" {{ $searchCountry == $value ? 'selected' : '' }} >{!! $country !!} </option>
                 @endforeach
