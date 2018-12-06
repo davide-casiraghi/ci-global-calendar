@@ -556,7 +556,8 @@ class EventController extends Controller
     public function mailToOrganizer(Request $request){
         $message = array();
 
-        dd($request->event_title);
+        //$organizersEmails = $this->getOrganizersEmails($request->event_id);
+        dd($request->organizers);
 
         $message['senderEmail'] = $request->user_email;
         $message['senderName'] = $request->user_name;
@@ -987,5 +988,25 @@ class EventController extends Controller
         return $ret;
     }
 
+    // **********************************************************************
+
+    /**
+     * Get organizers emails
+     *
+     * @param  none
+     * @return array $ret - the array with the organizers emails
+     */
+    function getOrganizersEmails($eventId){
+
+
+
+        /*$eventFirstRepetition = DB::table('organizers')
+                ->select('email')
+                ->where('event_id','=',$event->id)
+                ->first();*/
+
+        $ret = "ciao";
+        return $ret;
+    }
 
 }
