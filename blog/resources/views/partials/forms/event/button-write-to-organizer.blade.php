@@ -1,4 +1,4 @@
-<p class="my-3">
+<p class="text-right my-3">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#writeToOrganizerModal" data-whatever="@getbootstrap">Write to the organizer</button>
 </p>
 
