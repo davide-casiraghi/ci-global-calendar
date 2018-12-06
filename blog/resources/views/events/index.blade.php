@@ -31,10 +31,10 @@
     {{-- Search form --}}
     <form class="row mt-3 searchForm" action="{{ route('events.index') }}" method="GET">
         @csrf
-        <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group col-12 col-sm-12 col-md-4 col-lg-3 mb-2">
             <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by event name" value="{{ $searchKeywords }}">
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-2">
             <select name="category_id" id="category" class="selectpicker" data-live-search="true" title="Search by category">
                 @foreach ($eventCategories as $value => $eventCategory)
                     {{-- {{ $event->category_id == $value ? 'selected' : '' }} --}}
@@ -42,16 +42,16 @@
                 @endforeach
             </select>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 mt-sm-0 mt-3">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <select name="country_id" id="country" class="selectpicker" data-live-search="true" title="Search by country">
                 @foreach ($countries as $value => $country)
                     <option value="{{$value}}" {{ $searchCountry == $value ? 'selected' : '' }} >{!! $country !!} </option>
                 @endforeach
             </select>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mt-sm-0 mt-3">
-            <a id="resetButton" class="btn btn-info" href="#">Reset</a>
-            <input type="submit" value="Search" class="btn btn-primary">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-3 mt-3 mt-sm-2 mt-lg-0">
+            <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
+            <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right">
         </div>
     </form>
 

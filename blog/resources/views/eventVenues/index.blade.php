@@ -36,6 +36,7 @@
             </select>
         </div>
         <div class="col-lg-1 col-md-2 col-sm-2 col-xs-4 mt-sm-0 mt-3">
+            <a id="resetButton" class="btn btn-info" href="#">Reset</a>
             <input type="submit" value="Search" class="btn btn-primary float-sm-right">
         </div>
     </form>
