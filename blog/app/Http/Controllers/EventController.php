@@ -30,7 +30,7 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-        $authorUserId = ($this->getLoggedAuthorId()) ? $this->getLoggedAuthorId() : null; // if is 0 (administrator) it's setted to null to avoid include it in the query 
+        $authorUserId = ($this->getLoggedAuthorId()) ? $this->getLoggedAuthorId() : null; // if is 0 (administrator) it's setted to null to avoid include it in the query
         $eventCategories = EventCategory::pluck('name', 'id');
         $countries = Country::pluck('name', 'id');
         $venues = EventVenue::pluck( 'country_id', 'id');
@@ -91,7 +91,6 @@ class EventController extends Controller
 
         $dateTime['repeatUntil'] = null;
 
-        //return view('events.create');
         return view('events.create')
             ->with('eventCategories', $eventCategories)
             ->with('users', $users)
@@ -543,6 +542,33 @@ class EventController extends Controller
          Mail::to("davide.casiraghi@gmail.com")->send(new ReportMisuse($report));
 
          return redirect()->route('events.misuse-thankyou');
+
+    }
+
+    // **********************************************************************
+
+    /**
+     * Send the mail to the Organizer (from the event modal in the event show view)
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return redirect to route
+     */
+    public function mailToOrganizer(Request $request){
+        $message = array();
+
+        $message['senderEmail'] = "noreply@globalcicalendar.com";
+        $message['senderName'] = "Anonymus User";
+        $message['subject'] = "Report misuse form";
+        $message['emailTo'] = env('ADMIN_MAIL');
+
+        $message['message'] = $request->message;
+        $message['event_title'] = $request->event_title;
+        $message['event_id'] = $request->event_id;
+
+         //Mail::to($request->user())->send(new ReportMisuse($report));
+         Mail::to("davide.casiraghi@gmail.com")->send(new ReportMisuse($report));
+
+         return redirect()->route('events.organizer-message-sent');
 
     }
 

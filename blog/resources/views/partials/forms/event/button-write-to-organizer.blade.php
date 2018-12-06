@@ -11,7 +11,7 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('events.misuse') }}" method="POST">
+            <form action="{{ route('events.organizer-message') }}" method="POST">
                 <div class="modal-body">
                          @csrf
                          <p>You are sending an email to the organizer of this event</a><br></p>
