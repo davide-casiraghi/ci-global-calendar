@@ -63,7 +63,7 @@
         </div>
 
 
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 text-right">
             @include('partials.forms.event.button-write-to-organizer')
         </div>
 
