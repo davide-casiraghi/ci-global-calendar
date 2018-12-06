@@ -1,5 +1,12 @@
 @extends('organizers.layout')
 
+@section('javascript-document-ready')
+    {{--  Clear filters on click reset button --}}
+        $("#resetButton").click(function(){
+            $("input[name=keywords]").val("");
+            $('form.searchForm').submit();
+        });
+@endsection
 
 @section('content')
     <div class="row">
@@ -19,6 +26,18 @@
             <p>{{ $message }}</p>
         </div>
     @endif
+
+    {{-- Search form --}}
+    <form class="row searchForm mt-3" action="{{ route('organizers.index') }}" method="GET">
+        @csrf
+        <div class="form-group col-12 col-sm-12 col-md-8 col-lg-9 mb-2">
+            <input type="text" name="keywords" class="form-control" placeholder="Search by organizer name" value="{{ $searchKeywords }}">
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-3 mt-3 mt-md-0">
+            <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
+            <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right">
+        </div>
+    </form>
 
 
     <table class="table table-bordered mt-4">

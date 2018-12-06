@@ -66,14 +66,11 @@
             <td>
                 <form action="{{ route('eventVenues.destroy',$eventVenue->id) }}" method="POST">
 
-
                     <a class="btn btn-info" href="{{ route('eventVenues.show',$eventVenue->id) }}">Show</a>
                     <a class="btn btn-primary" href="{{ route('eventVenues.edit',$eventVenue->id) }}">Edit</a>
 
-
                     @csrf
                     @method('DELETE')
-
 
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
