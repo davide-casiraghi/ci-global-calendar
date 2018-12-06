@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddSlugToEventCategoriesTable extends Migration
+class FixTeachersColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddSlugToEventCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::table('event_categories', function (Blueprint $table) {
-            $table->string('slug');
+        Schema::table('teachers', function (Blueprint $table) {
+            $table->integer('country_id')->nullable()->change();
         });
     }
 
@@ -25,8 +25,8 @@ class AddSlugToEventCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::table('event_categories', function (Blueprint $table) {
-            $table->dropColumn('slug');
+        Schema::table('teachers', function (Blueprint $table) {
+            //
         });
     }
 }

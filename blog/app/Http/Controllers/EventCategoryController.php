@@ -13,10 +13,10 @@ class EventCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $eventCategories = EventCategory::latest()->paginate(5);
+        $eventCategories = EventCategory::latest()->paginate(20);
 
         return view('eventCategories.index',compact('eventCategories'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 20);
     }
 
     /**
