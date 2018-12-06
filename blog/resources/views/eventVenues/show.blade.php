@@ -3,20 +3,24 @@
 @section('content')
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 mb-4">
             <h2>{{ $eventVenue->name }}</h2>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
-            {{ $eventVenue->address }}<br />
-            {{ $eventVenue->city }}<br />
-            {{ $country->name }}<br />
-            {{ $eventVenue->zip_code }}
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            @if(!empty($eventVenue->address)) {{ $eventVenue->address }}<br /> @endif
+            @if(!empty($eventVenue->city)) {{ $eventVenue->city }}<br /> @endif
+            @if(!empty($eventVenue->state_province)) {{ $eventVenue->state_province }}<br /> @endif
+            @if(!empty($country->name)) {{ $country->name }}<br /> @endif
+            @if(!empty($eventVenue->zip_code)) {{ $eventVenue->zip_code }} @endif
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
-            {!! $eventVenue->description !!}
-        </div>
+        @if(!empty($eventVenue->description))
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
+                <h3>Description</h3>
+                {!! $eventVenue->description !!}
+            </div>
+        @endif
 
         @if(!empty($eventVenue->website))
             <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
@@ -25,15 +29,9 @@
             </div>
         @endif
 
-        @if(!empty($eventVenue->facebook))
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
-                <strong>Facebook</strong><br />
-                <a href="{{ $eventVenue->facebook }}" target="_blank">{{ $eventVenue->facebook }}</a>
-            </div>
-        @endif
-
 
         <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
+            <h3 class="mb-3">Map</h3>
             @include('partials.gmap', [
                   'venue_name' => $eventVenue->name,
                   'venue_address' => $eventVenue->address,
