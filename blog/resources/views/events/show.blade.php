@@ -8,7 +8,6 @@
         </div>
     </div>
 
-
     <div class="row">
         <div class="eventTitle col-xs-12 col-sm-12 col-md-12 mb-3">
             <h2>{{ $event->title }}</h2>
@@ -61,6 +60,11 @@
 
         <div class="eventBody col-xs-12 col-sm-12 col-md-12 mt-5">
             {!! $event->description !!}
+        </div>
+
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            @include('partials.forms.event.button-write-to-organizer')
         </div>
 
 

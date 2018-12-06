@@ -6,6 +6,7 @@
         format: 'dd/mm/yyyy',
         daysOfWeekHighlighted: "6,0",
         weekStart: 1,
+        todayHighlight: true,
         startDate: today
     });
 @stop
