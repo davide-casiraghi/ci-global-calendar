@@ -4,6 +4,8 @@
 
     $('#datepicker_end_date input').datepicker({
         format: 'dd/mm/yyyy',
+        daysOfWeekHighlighted: "6,0",
+        weekStart: 1,
         startDate: today
     });
 @stop

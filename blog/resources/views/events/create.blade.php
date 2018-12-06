@@ -1,5 +1,20 @@
 @extends('events.layout')
 
+@section('javascript-document-ready')
+    @parent
+    $("input[name='startDate']").change(function(){
+
+        //var startDate = $("input[name='startDate']").val();
+        //alert(startDate);
+        // $("input[name='endDate']")
+        //$("#endDate").datepicker('update', '2019-03-05');
+        //$("#endDate").datepicker('setDate', '2019-03-05');
+        //$("input[name='endDate']").val(startDate);
+
+        //$("#datepicker_end_date").datepicker('update', new Date(2019, 3, 4));
+        //$("#datepicker_end_date").datepicker("setDate", new Date(2019, 3, 4));
+    });
+@stop
 
 @section('content')
     <div class="row">
@@ -77,11 +92,15 @@
 
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6">
-                @include('partials.forms.input-date-start')
+                @include('partials.forms.input-date', [
+                      'title' => 'Date Start',
+                      'name' => 'startDate',
+                      'placeholder' => 'Select date',
+                      'value' => '',
+                ])
             </div>
 
             <div class="col-xs-6 col-sm-6 col-md-6">
-                {{--@include('partials.forms.input-time-start')--}}
                 @include('partials.forms.input-time', [
                       'title' => 'Time Start',
                       'name' => 'time_start',
@@ -93,10 +112,14 @@
 
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6">
-                @include('partials.forms.input-date-end')
+                @include('partials.forms.input-date', [
+                      'title' => 'Date End',
+                      'name' => 'endDate',
+                      'placeholder' => 'Select date',
+                      'value' => '',
+                ])
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
-                {{-- @include('partials.forms.input-time-end')--}}
                 @include('partials.forms.input-time', [
                       'title' => 'Time End',
                       'name' => 'time_end',

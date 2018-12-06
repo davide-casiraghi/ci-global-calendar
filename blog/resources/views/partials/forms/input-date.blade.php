@@ -1,10 +1,12 @@
 @section('javascript-document-ready')
     @parent
-    // var today = new Date();
+    var today = new Date();
 
     $('#{{ $name }} input').datepicker({
         format: 'dd/mm/yyyy',
-        // startDate: today
+        daysOfWeekHighlighted: "6,0",
+        weekStart: 1,
+        startDate: today
     });
 @stop
 

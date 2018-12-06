@@ -90,12 +90,15 @@
 
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6">
-                @include('partials.forms.input-date-start')
+                @include('partials.forms.input-date', [
+                      'title' => 'Date Start',
+                      'name' => 'startDate',
+                      'placeholder' => 'Select date',
+                      'value' => $dateTime['dateStart'],
+                ])
             </div>
 
             <div class="col-xs-6 col-sm-6 col-md-6">
-                {{--@include('partials.forms.input-time-start')--}}
-
                 @include('partials.forms.input-time', [
                       'title' => 'Time Start',
                       'name' => 'time_start',
@@ -107,10 +110,14 @@
 
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6">
-                @include('partials.forms.input-date-end')
+                @include('partials.forms.input-date', [
+                      'title' => 'Date End',
+                      'name' => 'endDate',
+                      'placeholder' => 'Select date',
+                      'value' => $dateTime['dateEnd'],
+                ])
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
-                {{--@include('partials.forms.input-time-end')--}}
                 @include('partials.forms.input-time', [
                       'title' => 'Time End',
                       'name' => 'time_end',
