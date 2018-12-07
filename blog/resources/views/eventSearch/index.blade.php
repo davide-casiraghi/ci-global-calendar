@@ -96,40 +96,16 @@
                     </div>
                 </div>
 
-
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-sm-10 mt-3">
                         <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
                         <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right">
                     </div>
                 </div>
+                
             </form>
 
             {{-- List of events --}}
-            {{--<table class="table table-bordered mt-4">
-                <tr>
-                    <th>Title</th>
-                    <th>Teachers</th>
-                    <th>Category</th>
-                    <th>Venue</th>
-                </tr>
-                @foreach ($events as $event)
-                <tr>
-                    <td><a href="{{ route('eventSearch.show',$event->id) }}">{{ $event->title }}</a></td>
-                    <td>{{ $event->sc_teachers_names }}</td>
-                    <td>{{ $eventCategories[$event->category_id] }}</td>
-                    <td>
-                        {{ $event->sc_venue_name }}<br />
-                        {{ $event->sc_city_name }},
-                        {{ $event->sc_country_name }}
-                    </td>
-                </tr>
-                @endforeach
-            </table>
-        --}}
-
-
-
             <div class="eventList mt-5 mb-3">
                 @foreach ($events as $event)
                     <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
