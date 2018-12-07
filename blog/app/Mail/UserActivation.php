@@ -38,11 +38,10 @@ class UserActivation extends Mailable
      {
          // Configure email parameters in .env file
 
-         return $this
+         return $this->markdown('emails.user-activation')
                 ->to(env('ADMIN_MAIL'))
                 ->from($this->mailDatas['email'])
                 ->subject($this->mailDatas['subject'])
-                ->view('emails.user-activation')
                 ->with([
                     'name' => $this->mailDatas['name'],
                     'email' => $this->mailDatas['email'],
