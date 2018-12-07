@@ -123,13 +123,7 @@ class EventSearchController extends Controller
                         return $query->where('title', $searchVenue)->orWhere('sc_venue_name', 'like', '%' . $searchVenue . '%');
                     })
                     ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) use ($searchStartDate,$searchEndDate) {
-                        $join->on('events.id', '=', 'event_repetitions.event_id')
-                            ->when($searchStartDate, function ($query, $searchStartDate) {
-                                return $query->where('event_repetitions.start_repeat', '>=',$searchStartDate);
-                            })
-                            ->when($searchEndDate, function ($query, $searchEndDate) {
-                                return $query->where('event_repetitions.end_repeat', '<=', $searchEndDate);
-                            });
+                        $join->on('events.id', '=', 'event_repetitions.event_id');
                     })
                     ->orderBy('event_repetitions.start_repeat', 'asc')
                     ->paginate(20);
