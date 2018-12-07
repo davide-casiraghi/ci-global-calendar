@@ -13,6 +13,7 @@ use App\User;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ReportMisuse;
+use App\Mail\ContactOrganizer;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -554,25 +555,39 @@ class EventController extends Controller
      * @return redirect to route
      */
     public function mailToOrganizer(Request $request){
+        $eventOrganizers = Event::find($request->event_id)->organizers;
+
         $message = array();
-
-        //$organizersEmails = $this->getOrganizersEmails($request->event_id);
-        dd($request->organizers);
-
         $message['senderEmail'] = $request->user_email;
         $message['senderName'] = $request->user_name;
         $message['subject'] = "Request about your event: ".$request->event_title;
-        $message['emailTo'] = env('ADMIN_MAIL');
+        //$message['emailTo'] = $organizersEmails;
 
         $message['message'] = $request->message;
         $message['event_title'] = $request->event_title;
         $message['event_id'] = $request->event_id;
 
          //Mail::to($request->user())->send(new ReportMisuse($report));
-         Mail::to($request->user_email)->send(new ReportMisuse($report));
+         // aaaaaaaa
+         foreach ($eventOrganizers as $eventOrganizer){
+            Mail::to($eventOrganizer->email)->send(new ContactOrganizer($message));
+        };
 
          return redirect()->route('events.organizer-message-sent');
 
+    }
+
+    // **********************************************************************
+
+    /**
+     * Display the thank you view after the mail to the organizer is sent (called by /mailToOrganizer/sent route)
+     *
+     * @param  \App\Event  $event
+     * @return view
+     */
+    public function mailToOrganizerSent(){
+
+        return view('emails.organizer-message-sent');
     }
 
     // **********************************************************************
@@ -988,6 +1003,7 @@ class EventController extends Controller
         return $ret;
     }
 
+
     // **********************************************************************
 
     /**
@@ -996,17 +1012,16 @@ class EventController extends Controller
      * @param  none
      * @return array $ret - the array with the organizers emails
      */
-    function getOrganizersEmails($eventId){
+    /*function getOrganizersEmails($eventId){
+        $eventOrganizers = Event::find($eventId)->organizers;
+        $ret = "";
 
+        foreach ($eventOrganizers as $key => $eventOrganizer) {
+            $ret .= $eventOrganizer->email;
+            $ret .= ", ";
+        }
 
-
-        /*$eventFirstRepetition = DB::table('organizers')
-                ->select('email')
-                ->where('event_id','=',$event->id)
-                ->first();*/
-
-        $ret = "ciao";
         return $ret;
-    }
+    }*/
 
 }
