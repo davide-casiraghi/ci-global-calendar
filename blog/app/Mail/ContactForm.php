@@ -40,7 +40,8 @@ class ContactForm extends Mailable
 
          return $this->markdown('emails.contact.administrator')
                 ->to($this->report['emailTo'])
-                ->from($this->report['email'])
+                ->from($this->report['email'], $this->report['name'])
+                ->replyTo($this->report['email'], $this->report['name'])
                 ->subject($this->report['subject'])
                 ->with([
                     'sender_name' => $this->report['name'],
