@@ -159,7 +159,7 @@ class TeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function saveOnDb($request, $teacher){
-
+        
          $teacher->name = $request->get('name');
          $teacher->bio = $request->get('bio');
          $teacher->country_id = $request->get('country_id');
@@ -171,6 +171,7 @@ class TeacherController extends Controller
          if ($request->file('profile_picture')){
              $profilePictureFile = $request->file('profile_picture');
              $imageName = $profilePictureFile->hashName();
+             dd($imageName);
              $path = $profilePictureFile->store('public/images/teachers_profile');
              $teacher->profile_picture = $imageName;
         }
