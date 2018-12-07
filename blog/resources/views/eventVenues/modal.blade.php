@@ -17,19 +17,19 @@
         @csrf
 
         <div class="row">
-           <div class="col-xs-12 col-sm-12 col-md-12">
+           <div class="col-12">
                <div class="form-group">
                    <strong>Name:</strong>
                    <input type="text" name="name" class="form-control" placeholder="Name">
                </div>
            </div>
-           <div class="col-xs-12 col-sm-12 col-md-12">
+           <div class="col-12">
                <div class="form-group">
                    <strong>Description:</strong>
                    <textarea class="form-control" style="height:150px" name="description" placeholder="Detail" id="bodyTextarea"></textarea>
                </div>
            </div>
-           <div class="col-xs-12 col-sm-12 col-md-12">
+           <div class="col-12">
                <div class="form-group">
                    <strong>Country:</strong>
                    <select name="country_id" class="selectpicker" data-live-search="true" title="Select country">
@@ -41,31 +41,31 @@
            </div>
 
 
-           <div class="col-xs-12 col-sm-12 col-md-12">
+           <div class="col-12">
                <div class="form-group">
                    <strong>City:</strong>
                    <input type="text" name="city" class="form-control">
                </div>
            </div>
-           <div class="col-xs-12 col-sm-12 col-md-12">
+           <div class="col-12">
                <div class="form-group">
                    <strong>Address:</strong>
                    <input type="text" name="address" class="form-control">
                </div>
            </div>
-           <div class="col-xs-12 col-sm-12 col-md-12">
+           <div class="col-12">
                <div class="form-group">
                    <strong>Zip code:</strong>
                    <input type="text" name="zip_code" class="form-control">
                </div>
            </div>
-           <div class="col-xs-12 col-sm-12 col-md-12">
+           <div class="col-12">
                <div class="form-group">
                    <strong>Facebook profile:</strong>
                    <input type="text" name="facebook" class="form-control" placeholder="https://...">
                </div>
            </div>
-           <div class="col-xs-12 col-sm-12 col-md-12">
+           <div class="col-12">
                <div class="form-group">
                    <strong>Website:</strong>
                    <input type="text" name="website" class="form-control" placeholder="https://...">
@@ -94,10 +94,10 @@
        </div>
 
        <div class="row mt-5">
-           <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
+           <div class="col-6 pull-left">
                <a class="btn btn-primary" href="{{ route('eventVenues.index') }}"> Back</a>
            </div>
-           <div class="col-xs-6 col-sm-6 col-md-6 pull-right">
+           <div class="col-6 pull-right">
              <button type="submit" class="btn btn-primary float-right">Submit</button>
            </div>
        </div>

@@ -68,7 +68,7 @@
         @csrf
 
          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => 'Title',
                       'name' => 'title',
@@ -76,13 +76,13 @@
                       'value' => ''
                 ])
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 <div class="form-group">
                     <strong>Slug:</strong>
                     <input type="text" name="slug" class="form-control" placeholder="Slug">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 <div class="form-group">
                     <strong>Category:</strong>
                     <select name="category_id" class="selectpicker" data-live-search="true" title="Select category">
@@ -92,7 +92,7 @@
                     </select>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 <div class="form-group">
                     <strong>Status:</strong>
                     <select name="status" class="form-control">
@@ -102,13 +102,13 @@
 
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 <div class="form-group">
                     <strong>Before Content:</strong>
                     <textarea class="form-control" style="height:150px" name="before_content" placeholder="Before the content"></textarea>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.textarea-post', [
                       'title' => 'Text',
                       'name' => 'body',
@@ -116,7 +116,7 @@
                       'value' => ''
                 ])
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 <div class="form-group">
                     <strong>After Content:</strong>
                     <textarea class="form-control" style="height:150px" name="after_content" placeholder="After the content"></textarea>
@@ -125,7 +125,7 @@
         </div>
 
         <div class="row h-100 mt-3">
-            <div class="col-xs-6 col-sm-6 col-md-6 pull-left my-auto">
+            <div class="col-6 pull-left my-auto">
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><strong>Intro Image</strong></span>
@@ -147,10 +147,10 @@
         </div>
 
         <div class="row mt-5">
-            <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
+            <div class="col-6 pull-left">
                 <a class="btn btn-primary" href="{{ route('posts.index') }}"> Back</a>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 pull-right">
+            <div class="col-6 pull-right">
               <button type="submit" class="btn btn-primary float-right">Submit</button>
             </div>
         </div>

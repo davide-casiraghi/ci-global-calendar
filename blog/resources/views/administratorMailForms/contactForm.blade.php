@@ -14,11 +14,11 @@
         @csrf
 
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-3 mb-5">
+            <div class="col-12 mt-3 mb-5">
                 Please write your text in english.
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                @include('partials.forms.input', [
                      'title' => 'Name',
                      'name' => 'name',
@@ -26,7 +26,7 @@
                ])
             </div>
 
-           <div class="col-xs-12 col-sm-12 col-md-12">
+           <div class="col-12">
                @include('partials.forms.input', [
                      'title' => 'Email',
                      'name' => 'email',
@@ -34,7 +34,7 @@
                ])
            </div>
 
-           <div class="col-xs-12 col-sm-12 col-md-12">
+           <div class="col-12">
                @include('partials.forms.textarea-plain', [
                      'title' => 'Message',
                      'name' => 'message',
@@ -45,10 +45,10 @@
        </div>
 
        <div class="row mt-5">
-           <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
+           <div class="col-6 pull-left">
                <a class="btn btn-primary" href="{{ route('home') }}"> Back</a>
            </div>
-           <div class="col-xs-6 col-sm-6 col-md-6 pull-right">
+           <div class="col-6 pull-right">
              <button type="submit" class="btn btn-primary float-right">Send</button>
            </div>
        </div>

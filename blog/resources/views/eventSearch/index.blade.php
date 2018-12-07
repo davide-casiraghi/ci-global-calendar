@@ -32,7 +32,7 @@
         @include('partials.jumboBackgroundChange')
         <div class="container">
             <div class="row intro">
-                <div class="col-lg-12 text-center">
+                <div class="col-12 text-center">
 
                     <h1 class="text-white mb-3">@lang('homepage-serach.contact_improvisation')</h1>
                     <h4 class="text-uppercase"><strong>- @lang('homepage-serach.global_calendar') -</strong></h4>

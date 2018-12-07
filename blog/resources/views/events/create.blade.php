@@ -27,7 +27,7 @@
         @csrf
 
          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => 'Title',
                       'name' => 'title',
@@ -37,7 +37,7 @@
 
             {{-- Show the created by field just to the admin and super admin --}}
             @if(empty($authorUserId))
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-12">
                     @include('partials.forms.select', [
                           'title' => 'Created by',
                           'name' => 'created_by',
@@ -47,7 +47,7 @@
                 </div>
             @endif
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.select', [
                       'title' => 'Category',
                       'name' => 'category_id',
@@ -56,10 +56,10 @@
                 ])
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.event.select-event-status')
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.alert', [
                 	'text' => 'Please insert also an english translation of your event below the description, even short.',
                 	'style' => 'alert-warning',
@@ -79,13 +79,13 @@
         @include('partials.forms.event.select-event-venue')
 
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 <legend>Start, End, Duration</legend>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="col-6">
                 @include('partials.forms.input-date', [
                       'title' => 'Date Start',
                       'name' => 'startDate',
@@ -94,7 +94,7 @@
                 ])
             </div>
 
-            <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="col-6">
                 @include('partials.forms.input-time', [
                       'title' => 'Time Start',
                       'name' => 'time_start',
@@ -105,7 +105,7 @@
         </div>
 
         <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="col-6">
                 @include('partials.forms.input-date', [
                       'title' => 'Date End',
                       'name' => 'endDate',
@@ -113,7 +113,7 @@
                       'value' => '',
                 ])
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="col-6">
                 @include('partials.forms.input-time', [
                       'title' => 'Time End',
                       'name' => 'time_end',
@@ -126,14 +126,14 @@
         @include('partials.forms.event.repeat-event')
 
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => 'Facebook event link',
                       'name' => 'facebook_event_link',
                       'placeholder' => 'https://www.facebook.com/events/...'
                 ])
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => 'Website Link',
                       'name' => 'website_event_link',

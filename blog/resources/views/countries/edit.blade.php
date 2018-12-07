@@ -21,7 +21,7 @@
         @method('PUT')
 
          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => 'Name',
                       'name' => 'name',
@@ -29,7 +29,7 @@
                       'value' => $country->name
                 ])
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => 'Code',
                       'name' => 'code',
@@ -37,7 +37,7 @@
                       'value' => $country->code
                 ])
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.select', [
                       'title' => 'Continent',
                       'name' => 'continent_id',
@@ -49,10 +49,10 @@
         </div>
 
         <div class="row mt-5">
-            <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
+            <div class="col-6 pull-left">
                 <a class="btn btn-primary" href="{{ route('countries.index') }}"> Back</a>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 pull-right">
+            <div class="col-6 pull-right">
               <button type="submit" class="btn btn-primary float-right">Submit</button>
             </div>
         </div>

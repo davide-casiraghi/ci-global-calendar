@@ -78,25 +78,25 @@
             ])
 
          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 <div class="form-group">
                     <strong>Title:</strong>
                     <input type="text" name="title" class="form-control" placeholder="Name">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 <div class="form-group">
                     <strong>Before Content:</strong>
                     <textarea class="form-control" style="height:150px" name="before_content" placeholder="Before the content"></textarea>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 <div class="form-group">
                     <strong>Body:</strong>
                     <textarea class="form-control" style="height:150px" name="body" placeholder="Detail" id="bodyTextarea"></textarea>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 <div class="form-group">
                     <strong>After Content:</strong>
                     <textarea class="form-control" style="height:150px" name="after_content" placeholder="After the content"></textarea>
@@ -105,10 +105,10 @@
         </div>
 
         <div class="row mt-5">
-            <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
+            <div class="col-6 pull-left">
                 <a class="btn btn-primary" href="{{ route('posts.index') }}"> Back</a>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 pull-right">
+            <div class="col-6 pull-right">
               <button type="submit" class="btn btn-primary float-right">Submit</button>
             </div>
         </div>

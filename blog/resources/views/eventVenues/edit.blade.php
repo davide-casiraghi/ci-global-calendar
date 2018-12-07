@@ -19,7 +19,7 @@
         @method('PUT')
 
          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                     'title' => 'Name',
                     'name' => 'name',
@@ -30,7 +30,7 @@
 
             {{-- Show the created by field just to the admin and super admin --}}
             @if(empty($authorUserId))
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-12">
                     @include('partials.forms.select', [
                         'title' => 'Created by',
                         'name' => 'created_by',
@@ -41,7 +41,7 @@
                 </div>
             @endif
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                     'title' => 'Street',
                     'name' => 'address',
@@ -49,7 +49,7 @@
                     'value' => $eventVenue->address
                 ])
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                     'title' => 'City',
                     'name' => 'city',
@@ -57,7 +57,7 @@
                     'value' => $eventVenue->city
                 ])
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                     'title' => 'State/Province',
                     'name' => 'state_province',
@@ -65,7 +65,7 @@
                     'value' => $eventVenue->state_province
                 ])
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.select', [
                       'title' => 'Country',
                       'name' => 'country_id',
@@ -74,7 +74,7 @@
                       'seleted' => $eventVenue->country_id
                 ])
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                     'title' => 'Zip code',
                     'name' => 'zip_code',
@@ -82,7 +82,7 @@
                     'value' => $eventVenue->zip_code
                 ])
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                     'title' => 'Website',
                     'name' => 'website',
@@ -90,7 +90,7 @@
                     'value' => $eventVenue->website
                 ])
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.textarea', [
                     'title' => 'Description',
                     'name' => 'description',
@@ -101,10 +101,10 @@
         </div>
 
         <div class="row mt-5">
-            <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
+            <div class="col-6 pull-left">
                 <a class="btn btn-primary" href="{{ route('eventVenues.index') }}"> Back</a>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 pull-right">
+            <div class="col-6 pull-right">
               <button type="submit" class="btn btn-primary float-right">Submit</button>
             </div>
         </div>

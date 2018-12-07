@@ -12,13 +12,13 @@
 
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-12">
             <div class="form-group">
                 <strong>Name:</strong>
                 {{ $continent->name }}
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-12">
             <div class="form-group">
                 <strong>Code:</strong>
                 {{ $continent->code }}

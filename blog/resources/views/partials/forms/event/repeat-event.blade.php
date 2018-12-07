@@ -103,13 +103,13 @@
 
 
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="col-12">
         <legend>Repeat type</legend>
     </div>
 </div>
 
 <div class="row mb-3 repeatController">
-    <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="col-12">
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-primary @if(!empty($event->repeat_type)) {{ $event->repeat_type == 1 ? 'active' : '' }} @else {{'active'}} @endif ">
                 <input type="radio" name="repeat_type" value="1" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 1 ? 'checked' : '' }} @else {{'checked'}} @endif> No repeat
@@ -126,7 +126,7 @@
 
 <div class="repeatDetails" style="display:none">
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-12">
             <legend>Weekly</legend>
         </div>
     </div>

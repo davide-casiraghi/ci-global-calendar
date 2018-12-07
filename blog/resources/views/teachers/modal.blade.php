@@ -17,7 +17,7 @@
         @csrf
 
          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => 'Name',
                       'name' => 'name',
@@ -25,7 +25,7 @@
                 ])
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 <div class="form-group">
                     <strong>Country:</strong>
                     <select name="country_id" class="selectpicker" data-live-search="true" title="Select country">
@@ -36,13 +36,13 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 <div class="form-group">
                     <strong>Bio:</strong>
                     <textarea class="form-control" style="height:150px" name="bio" placeholder="Bio"></textarea>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => 'Year of starting to practice',
                       'name' => 'year_starting_practice',
@@ -50,7 +50,7 @@
                       'value' => ''
                 ])
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => 'Year of starting to teach',
                       'name' => 'year_starting_teach',
@@ -58,7 +58,7 @@
                       'value' => ''
                 ])
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => 'Facebook profile',
                       'name' => 'facebook',
@@ -66,7 +66,7 @@
                       'value' => ''
                 ])
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => 'Website',
                       'name' => 'website',
@@ -97,10 +97,10 @@
         </div>
 
         <div class="row mt-5">
-            <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
+            <div class="col-6 pull-left">
                 <a class="btn btn-primary" href="{{ route('teachers.index') }}"> Back</a>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 pull-right">
+            <div class="col-6 pull-right">
               <button type="submit" class="btn btn-primary float-right">Submit</button>
             </div>
         </div>
