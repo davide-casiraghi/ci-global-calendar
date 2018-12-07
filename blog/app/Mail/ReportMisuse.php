@@ -38,20 +38,11 @@ class ReportMisuse extends Mailable
      {
          // Configure email parameters in .env file
 
-
-         /*return $this->from($this->report->senderEmail, $this->report->senderName)
-                    ->subject($this->report->subject)
-                    ->to($this->report->emailTo)
-                    ->markdown('emails.emailToEnrollee')
-                    ->with([
-                         'message' => $this->report->message."<br />".$this->report->message,
-                         'sender' => $this->report->senderName,
-                         'subject' => $this->report->subject,
-             ]);*/
-         return $this
+         return $this->markdown('emails.report-misuse')
                 ->to($this->report['emailTo'])
+                ->from('noreply@globalcalendar.com', 'Global CI Calendar')
+                ->replyTo('noreply@globalcalendar.com', 'Global CI Calendar')
                 ->subject($this->report['subject'])
-                ->view('emails.report-misuse')
                 ->with([
                     'event_title' => $this->report['event_title'],
                     'event_id' => $this->report['event_id'],
