@@ -84,10 +84,22 @@ class EventSearchController extends Controller
         }
         //dd($searchStartDate." ".$searchEndDate);
         // Sub-Query Joins - https://laravel.com/docs/5.7/queries
-        $lastestEventsRepetitions = DB::table('event_repetitions')
+        /*$lastestEventsRepetitions = DB::table('event_repetitions')
                                 ->selectRaw('event_id, MIN(id) AS rp_id, start_repeat, end_repeat')
                                 ->groupBy('event_id')
-                                ->toSql();
+                                ->toSql();*/
+                                
+        $lastestEventsRepetitions = DB::table('event_repetitions')
+                                ->selectRaw('event_id, MIN(id) AS rp_id, start_repeat, end_repeat')
+                                ->when($searchStartDate, function ($query, $searchStartDate) {
+                                    return $query->where('event_repetitions.start_repeat', '>=',$searchStartDate);
+                                })
+                                ->when($searchEndDate, function ($query, $searchEndDate) {
+                                    return $query->where('event_repetitions.end_repeat', '<=', $searchEndDate);
+                                })
+                                ->groupBy('event_id');
+                                
+        //dd($lastestEventsRepetitions);
 
         if ($searchKeywords||$searchCategory||$searchCountry||$searchContinent||$searchTeacher||$searchVenue||$searchStartDate||$searchEndDate){
             DB::enableQueryLog();
@@ -121,7 +133,7 @@ class EventSearchController extends Controller
                     })
                     ->orderBy('event_repetitions.start_repeat', 'asc')
                     ->paginate(20);
-                    dd(DB::getQueryLog());
+                    //dd(DB::getQueryLog());
         }
         else{
             //$events = Event::latest()->paginate(20);
