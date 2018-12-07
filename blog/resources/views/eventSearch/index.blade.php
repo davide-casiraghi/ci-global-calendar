@@ -106,7 +106,13 @@
             </form>
 
             {{-- List of events --}}
-            <div class="eventList mt-5 mb-3">
+            <div class="row mt-5">
+                <div class="col-9"></div>
+                <div class="col-3 bg-light text-right py-1">
+                    <small>{{$events->total()}} Results found</small>
+                </div>
+            </div>
+            <div class="eventList mb-3">
                 @foreach ($events as $event)
                     <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
                         <div class="col-lg-1 date">
@@ -173,7 +179,7 @@
             </div>
 
             {!! $events->links() !!}
-    
+            
         </div>
         <div class="bg-overlay"></div>
 
