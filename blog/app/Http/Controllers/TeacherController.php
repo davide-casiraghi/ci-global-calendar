@@ -77,11 +77,13 @@ class TeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
+        $teacher = new Teacher();
+        
         request()->validate([
             'name' => 'required'
         ]);
 
-        $this->saveOnDb($request);
+        $this->saveOnDb($request, $teacher);
 
         return redirect()->route('teachers.index')
                         ->with('success','Teacher created successfully.');
@@ -132,7 +134,7 @@ class TeacherController extends Controller
         ]);
 
         //$teacher->update($request->all());
-        $this->saveOnDb($request);
+        $this->saveOnDb($request, $teacher);
 
         return redirect()->route('teachers.index')
                         ->with('success','Teacher updated successfully');
@@ -156,8 +158,7 @@ class TeacherController extends Controller
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-     public function saveOnDb($request){
-         $teacher = new Teacher();
+     public function saveOnDb($request, $teacher){
 
          $teacher->name = $request->get('name');
          $teacher->bio = $request->get('bio');
@@ -172,7 +173,6 @@ class TeacherController extends Controller
              $imageName = $profilePictureFile->hashName();
              $path = $profilePictureFile->store('public/images/teachers_profile');
              $teacher->profile_picture = $imageName;
-             dd($imageName);
         }
 
          $teacher->website = $request->get('website');
@@ -202,11 +202,13 @@ class TeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function storeFromModal(Request $request){
+        $teacher = new Teacher();
+        
         request()->validate([
             'name' => 'required'
         ]);
 
-        $this->saveOnDb($request);
+        $this->saveOnDb($request, $teacher);
 
         return redirect()->back()->with('message', 'Teacher created');
         //return redirect()->back()->with('message', __('auth.successfully_registered'));

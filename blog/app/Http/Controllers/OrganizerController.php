@@ -72,12 +72,14 @@ class OrganizerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
+        $organizer = new Organizer();
+        
         request()->validate([
             'name' => 'required',
             'email' => 'required'
         ]);
 
-        $this->saveOnDb($request);
+        $this->saveOnDb($request, $organizer);
 
         return redirect()->route('organizers.index')
                         ->with('success','Organizer created successfully.');
@@ -121,7 +123,8 @@ class OrganizerController extends Controller
             'email' => 'required'
         ]);
 
-        $organizer->update($request->all());
+        //$organizer->update($request->all());
+        $this->saveOnDb($request, $organizer);
 
         return redirect()->route('organizers.index')
                         ->with('success','Organizer updated successfully');
@@ -146,8 +149,8 @@ class OrganizerController extends Controller
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-     public function saveOnDb($request){
-         $organizer = new Organizer();
+     public function saveOnDb($request, $organizer){
+         
          $organizer->name = $request->get('name');
          $organizer->description = $request->get('description');
          $organizer->website = $request->get('website');
@@ -176,11 +179,12 @@ class OrganizerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function storeFromModal(Request $request){
+        $organizer = new Organizer();
         request()->validate([
             'name' => 'required'
         ]);
 
-        $this->saveOnDb($request);
+        $this->saveOnDb($request, $organizer);
 
         return redirect()->back()->with('message', 'Organizer created');
         //return redirect()->back()->with('message', __('auth.successfully_registered'));
