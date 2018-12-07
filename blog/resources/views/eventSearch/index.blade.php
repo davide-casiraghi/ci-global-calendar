@@ -4,20 +4,6 @@
 @section('javascript-document-ready')
     @parent
 
-    {{-- Clear filters on click reset button --}}
-    $("#resetButton").click(function(){
-        $("input#keywords").val("");
-        $("select[name=category_id] option").prop("selected", false).trigger('change');
-        $("select[name=teacher_id] option").prop("selected", false).trigger('change');
-        $("select[name=country_id] option").prop("selected", false).trigger('change');
-        $("select[name=continent_id] option").prop("selected", false).trigger('change');
-        $("input[name='venue_name']").val("");
-        $("input[name='startDate']").val("");
-        $("input[name='endDate']").val("");
-        $('form.searchForm').submit();
-    });
-    
-    
     {{--  Smooth Scroll on search - when we have anchor on the url --}}
         if ( window.location.hash ) scroll(0,0); {{-- to top right away --}}
         setTimeout( function() { scroll(0,0); }, 1); {{-- void some browsers issue --}}
@@ -113,7 +99,7 @@
 
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-sm-10 mt-3">
-                        <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
+                        <a id="resetButton" class="btn btn-info float-right ml-2" href="{{ URL::route('home') }}">@lang('general.reset')</a>
                         <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right">
                     </div>
                 </div>
