@@ -52,7 +52,8 @@
                     <p>{{ $message }}</p>
                 </div>
             @endif
-
+             
+            
             {{-- Search form --}}
             <form class="searchForm" action="{{ route('eventSearch.index') }}" method="GET">
                 @csrf
@@ -105,81 +106,82 @@
                 
             </form>
 
-            {{-- List of events --}}
-            <div class="row mt-5">
-                <div class="col-7 col-md-9"></div>
-                <div class="col-5 col-md-3 bg-light text-right py-1">
-                    <small>{{$events->total()}} Results found</small>
-                </div>
-            </div>
-            <div class="eventList mb-3">
-                @foreach ($events as $event)
-                    <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
-                        <div class="col-lg-1 date">
-                            <div class="row text-uppercase">
-
-                            {{-- One day event --}}
-                            @if (@date($event->start_repeat)==@date($event->end_repeat))
-                                <div class='dateBox col text-center bg-secondary text-white px-2 vcenter' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
-                                    <strong>
-                                        @day($event->start_repeat)<br class="d-none d-lg-block"/>
-                                        @month($event->start_repeat)
-                                    </strong>
-                                </div>
-                            {{-- Many days event --}}
-                            @else
-                                <div class='col text-center bg-secondary text-white px-1 mr-1' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
-                                    <strong>
-                                        @day($event->start_repeat)<br class="d-none d-lg-block"/>
-                                        @month($event->start_repeat)
-                                    </strong>
-                                </div>
-                                <div class='col text-center bg-secondary text-white px-1' data-toggle="tooltip" data-placement="top" title="@date($event->end_repeat)">
-                                    <strong>
-                                        @day($event->end_repeat)<br class="d-none d-lg-block"/>
-                                        @month($event->end_repeat)
-                                    </strong>
-                                </div>
-                            @endif
-                            </div>
-                        </div>
-                        <div class="col-md-3 py-3 py-md-0 vcenter title">
-                            {{--<a href="{{ route('events.show',$event->id) }}">{{ $event->title }}</a>--}}
-                            <a href="{!! route('events.show', ['id'=>$event->id, 'rp_id'=>$event->rp_id])  !!}">
-                                {{ str_limit($event->title, $limit = 50, $end = '...') }}
-                            </a>
-                        </div>
-                        <div class="col-md-3 vcenter teachers">
-                            @if(!empty($event->sc_teachers_names))
-                            <i data-toggle="tooltip" data-placement="top" title="Teachers" class="far fa-users mr-2"></i>
-                            <div class="names">
-                                {{ $event->sc_teachers_names }}
-                            </div>
-                            @endif
-                        </div>
-                        <div class="col-md-2 vcenter category mt-2 mt-md-0">
-                            <i data-toggle="tooltip" data-placement="top" title="Category" class="fa fa-tag mr-2"></i>
-                            {{ $eventCategories[$event->category_id] }}
-                        </div>
-                        <div class="col-md-4 col-lg-3 vcenter location mt-2 mt-md-0">
-                            <i data-toggle="tooltip" data-placement="top" title="Venue" class="far fa-map-marker-alt mr-2" style="display: table-cell; vertical-align: middle; width: 20px; text-align: center;"></i>
-                            <div class="details">
-                                {{ $event->sc_venue_name }}<br />
-                                {{ $event->sc_city_name }},
-                                {{ $event->sc_country_name }}
-                            </div>
-                        </div>
-                        {{--<div class="col-md-1 vcenter facebook mt-2 mt-md-0">
-                            @if(!empty($event->facebook_event_link))
-                                <a href='{{ $event->facebook_event_link }}' target='_blank'><i class='fab fa-facebook-square' data-toggle="tooltip" data-placement="top" title="Facebook event"></i></a>
-                            @endif
-                        </div>--}}
+            @if (Route::is('eventSearch.index'))  {{-- Show search results just when search button is pressed --}}
+                {{-- List of events --}}
+                <div class="row mt-5">
+                    <div class="col-7 col-md-9"></div>
+                    <div class="col-5 col-md-3 bg-light text-right py-1">
+                        <small>{{$events->total()}} Results found</small>
                     </div>
-                @endforeach
-            </div>
+                </div>
+                <div class="eventList mb-3">
+                    @foreach ($events as $event)
+                        <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
+                            <div class="col-lg-1 date">
+                                <div class="row text-uppercase">
 
-            {!! $events->links() !!}
-            
+                                {{-- One day event --}}
+                                @if (@date($event->start_repeat)==@date($event->end_repeat))
+                                    <div class='dateBox col text-center bg-secondary text-white px-2 vcenter' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
+                                        <strong>
+                                            @day($event->start_repeat)<br class="d-none d-lg-block"/>
+                                            @month($event->start_repeat)
+                                        </strong>
+                                    </div>
+                                {{-- Many days event --}}
+                                @else
+                                    <div class='col text-center bg-secondary text-white px-1 mr-1' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
+                                        <strong>
+                                            @day($event->start_repeat)<br class="d-none d-lg-block"/>
+                                            @month($event->start_repeat)
+                                        </strong>
+                                    </div>
+                                    <div class='col text-center bg-secondary text-white px-1' data-toggle="tooltip" data-placement="top" title="@date($event->end_repeat)">
+                                        <strong>
+                                            @day($event->end_repeat)<br class="d-none d-lg-block"/>
+                                            @month($event->end_repeat)
+                                        </strong>
+                                    </div>
+                                @endif
+                                </div>
+                            </div>
+                            <div class="col-md-3 py-3 py-md-0 vcenter title">
+                                {{--<a href="{{ route('events.show',$event->id) }}">{{ $event->title }}</a>--}}
+                                <a href="{!! route('events.show', ['id'=>$event->id, 'rp_id'=>$event->rp_id])  !!}">
+                                    {{ str_limit($event->title, $limit = 50, $end = '...') }}
+                                </a>
+                            </div>
+                            <div class="col-md-3 vcenter teachers">
+                                @if(!empty($event->sc_teachers_names))
+                                <i data-toggle="tooltip" data-placement="top" title="Teachers" class="far fa-users mr-2"></i>
+                                <div class="names">
+                                    {{ $event->sc_teachers_names }}
+                                </div>
+                                @endif
+                            </div>
+                            <div class="col-md-2 vcenter category mt-2 mt-md-0">
+                                <i data-toggle="tooltip" data-placement="top" title="Category" class="fa fa-tag mr-2"></i>
+                                {{ $eventCategories[$event->category_id] }}
+                            </div>
+                            <div class="col-md-4 col-lg-3 vcenter location mt-2 mt-md-0">
+                                <i data-toggle="tooltip" data-placement="top" title="Venue" class="far fa-map-marker-alt mr-2" style="display: table-cell; vertical-align: middle; width: 20px; text-align: center;"></i>
+                                <div class="details">
+                                    {{ $event->sc_venue_name }}<br />
+                                    {{ $event->sc_city_name }},
+                                    {{ $event->sc_country_name }}
+                                </div>
+                            </div>
+                            {{--<div class="col-md-1 vcenter facebook mt-2 mt-md-0">
+                                @if(!empty($event->facebook_event_link))
+                                    <a href='{{ $event->facebook_event_link }}' target='_blank'><i class='fab fa-facebook-square' data-toggle="tooltip" data-placement="top" title="Facebook event"></i></a>
+                                @endif
+                            </div>--}}
+                        </div>
+                    @endforeach
+                </div>
+
+                {!! $events->links() !!}
+            @endif   
         </div>
         <div class="bg-overlay"></div>
 
