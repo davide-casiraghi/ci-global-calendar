@@ -97,7 +97,7 @@ class TeacherController extends Controller
         $country = Country::select('name')
         ->where('id', $teacher->country_id)
         ->first();
-
+        dd($teacher);
         return view('teachers.show',compact('teacher'))
             ->with('country', $country);
     }

@@ -13,7 +13,7 @@
     @if(!empty($title))<label for="{{ $name }}">{{ $title }}:</label>@endif
     <div class="form-group">
         <div class="custom-file">
-            <input type="file" name="{{ $name }}" class="custom-file-input">
+            <input type="file" name="{{ $name }}" @if(!empty($value)) value="{{ $value }}" @endif class="custom-file-input">
             <label class="custom-file-label" for="{{ $name }}">Choose file</label>
         </div>
     </div>

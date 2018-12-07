@@ -10,7 +10,7 @@
         @if(!empty($teacher->bio))
             <div class="teacherBio col-12">
                 <h3>Bio</h3>
-                <img class="teacherPhoto ml-3" src="{{ $teacher->profile_picture }}" style="width:200px; float:right;">
+                <img class="teacherPhoto ml-3" src="/storage/images/teachers_profile/{{ $teacher->profile_picture }}" style="width:200px; float:right;">
                 {!! $teacher->bio !!}
             </div>
         @endif
