@@ -55,7 +55,8 @@
              
             
             {{-- Search form --}}
-            <form class="searchForm" action="{{ route('eventSearch.index') }}" method="GET">
+            {{--<form class="searchForm" action="{{ route('eventSearch.index') }}" method="GET">--}}
+            <form class="searchForm" action="/eventSearch#dataarea" method="GET">
                 @csrf
 
                 {{--<div class="row mt-3">
@@ -108,6 +109,7 @@
 
             @if (Route::is('eventSearch.index'))  {{-- Show search results just when search button is pressed --}}
                 {{-- List of events --}}
+                <a id="dataarea"></a>
                 <div class="row mt-5">
                     <div class="col-7 col-md-9"></div>
                     <div class="col-5 col-md-3 bg-light text-right py-1">
