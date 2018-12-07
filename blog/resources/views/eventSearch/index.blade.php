@@ -121,13 +121,13 @@
 
             @if (Route::is('eventSearch.index'))  {{-- Show search results just when search button is pressed --}}
                 {{-- List of events --}}
+                <a id="dataarea"></a> {{-- Anchor to scroll on search --}}
                 <div class="row mt-5">
                     <div class="col-7 col-md-9"></div>
                     <div class="col-5 col-md-3 bg-light text-right py-1">
                         <small>{{$events->total()}} Results found</small>
                     </div>
                 </div>
-                <a id="dataarea"></a>
                 <div class="eventList mb-3">
                     @foreach ($events as $event)
                         <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
