@@ -36,6 +36,9 @@ class ContactOrganizer extends Mailable
     public function build()
     {
         return $this->markdown('emails.contact.organizer')
+            ->from($this->message['senderEmail'], $this->message['senderName'])
+            ->replyTo($this->message['senderEmail'], $this->message['senderName'])
+            ->subject($this->message['subject'])
             ->with([
                 'event_title' => $this->message['event_title'],
                 'event_id' => $this->message['event_id'],

@@ -560,7 +560,7 @@ class EventController extends Controller
         $message = array();
         $message['senderEmail'] = $request->user_email;
         $message['senderName'] = $request->user_name;
-        $message['subject'] = "Request about your event: ".$request->event_title;
+        $message['subject'] = "Request from the Global CI Calendar";
         //$message['emailTo'] = $organizersEmails;
 
         $message['message'] = $request->message;
