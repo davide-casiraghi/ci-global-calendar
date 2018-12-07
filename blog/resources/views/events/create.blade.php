@@ -2,6 +2,7 @@
 
 @section('javascript-document-ready')
     @parent
+    {{-- End date update after start date has changed, and doesn't allow to select a date before the start --}}
     $("input[name='startDate']").change(function(){
         var startDate = $("input[name='startDate']").val();
         $("input[name='endDate']").datepicker("setDate", startDate);
