@@ -57,7 +57,7 @@ class AdministratorMailFormController extends Controller
       */
      public function contactAdminThankyou(){
 
-         return view('emails.contactform-thankyou');
+         return view('emails.contact.administrator-sent');
      }
 
 

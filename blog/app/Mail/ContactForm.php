@@ -42,7 +42,7 @@ class ContactForm extends Mailable
                 ->to($this->report['emailTo'])
                 ->from($this->report['email'])
                 ->subject($this->report['subject'])
-                ->view('emails.contactform')
+                ->view('emails.contact.administrator')
                 ->with([
                     'name' => $this->report['name'],
                     'msg' => $this->report['message']
