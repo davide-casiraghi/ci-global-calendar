@@ -40,7 +40,8 @@ class UserActivation extends Mailable
 
          return $this->markdown('emails.user-activation')
                 ->to(env('ADMIN_MAIL'))
-                ->from($this->mailDatas['email'])
+                ->from('noreply@globalcalendar.com', 'Global CI Calendar')
+                ->replyTo('noreply@globalcalendar.com', 'Global CI Calendar')
                 ->subject($this->mailDatas['subject'])
                 ->with([
                     'name' => $this->mailDatas['name'],

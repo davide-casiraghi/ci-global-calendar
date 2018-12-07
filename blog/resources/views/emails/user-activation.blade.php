@@ -23,10 +23,10 @@ Activate user
 Write to {{$name}}
 @endcomponent
 
-
-If you’re having trouble clicking the "Activate user" button, copy and paste the URL below into your web browser:  
-{{config('app.url').'verify-user/'.$activation_code}}
-
 Thanks,<br>
-{{ config('app.name') }}
+{{ config('app.name') }}  
+
+<sub><sup>If you’re having trouble clicking the "Activate user" button, copy and paste the URL below into your web browser:  
+{{config('app.url').'verify-user/'.$activation_code}}</sup></sub>
+
 @endcomponent
