@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ContactForm;
+use App\Mail\ContactAdministrator;
 
 use Illuminate\Http\Request;
 
@@ -41,7 +41,7 @@ class AdministratorMailFormController extends Controller
         $report['message'] = $request->message;
 
          //Mail::to($request->user())->send(new ReportMisuse($report));
-         Mail::to("davide.casiraghi@gmail.com")->send(new ContactForm($report));
+         Mail::to("davide.casiraghi@gmail.com")->send(new ContactAdministrator($report));
 
          return redirect()->route('forms.contact-admin-thankyou');
 
