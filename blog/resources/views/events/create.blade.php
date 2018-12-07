@@ -5,6 +5,7 @@
     $("input[name='startDate']").change(function(){
         var startDate = $("input[name='startDate']").val();
         $("input[name='endDate']").datepicker("setDate", startDate);
+        $("input[name='endDate']").datepicker('setStartDate', startDate);
     });
 @stop
 
