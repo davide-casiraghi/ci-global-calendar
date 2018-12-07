@@ -143,10 +143,10 @@
         </div>
 
         <div class="row mt-5">
-            <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
+            <div class="col-6 col-sm-6 col-md-6 pull-left">
                 <a class="btn btn-primary" href="{{ route('events.index') }}"> Back</a>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 pull-right">
+            <div class="col-6 col-sm-6 col-md-6 pull-right">
               <button type="submit" class="btn btn-primary float-right">Submit</button>
             </div>
         </div>
