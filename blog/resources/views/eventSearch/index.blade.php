@@ -7,10 +7,10 @@
     {{-- Clear filters on click reset button --}}
     $("#resetButton").click(function(){
         $("input#keywords").val("");
-        $('#category option').prop("selected", false).trigger('change');
-        $('#teacher option').prop("selected", false).trigger('change');
-        $('#country option').prop("selected", false).trigger('change');
-        $('#continent option').prop("selected", false).trigger('change');
+        $("select[name=category_id] option").prop("selected", false).trigger('change');
+        $("select[name=teacher_id] option").prop("selected", false).trigger('change');
+        $("select[name=country_id] option").prop("selected", false).trigger('change');
+        $("select[name=continent_id] option").prop("selected", false).trigger('change');
         $("input[name='venue_name']").val("");
         $("input[name='startDate']").val("");
         $("input[name='endDate']").val("");
