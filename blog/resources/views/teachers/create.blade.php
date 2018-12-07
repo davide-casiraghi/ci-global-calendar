@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-12 margin-tb">
+        <div class="col-12 margin-tb">
             <div class="pull-left">
                 <h2>Add New Teacher</h2>
             </div>
@@ -18,7 +18,7 @@
         @csrf
 
          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => 'Name',
                       'name' => 'name',
@@ -28,7 +28,7 @@
 
             {{-- Show the created by field just to the admin and super admin --}}
             @if(empty($authorUserId))
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-12">
                     @include('partials.forms.select', [
                           'title' => 'Created by',
                           'name' => 'created_by',
@@ -38,7 +38,7 @@
                 </div>
             @endif
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.select', [
                       'title' => 'Country',
                       'name' => 'country_id',
@@ -47,14 +47,14 @@
                 ])
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 <div class="form-group">
                     <strong>Bio:</strong>
                     <textarea class="form-control" style="height:150px" name="bio" placeholder="Bio"></textarea>
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => 'Year of starting to practice',
                       'name' => 'year_starting_practice',
@@ -63,7 +63,7 @@
                 ])
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => 'Year of starting to teach',
                       'name' => 'year_starting_teach',
@@ -72,7 +72,7 @@
                 ])
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => 'Facebook profile',
                       'name' => 'facebook',
@@ -81,7 +81,7 @@
                 ])
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => 'Website',
                       'name' => 'website',
@@ -98,10 +98,10 @@
         </div>
 
         <div class="row mt-5">
-            <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
+            <div class="col-6 pull-left">
                 <a class="btn btn-primary" href="{{ route('teachers.index') }}"> Back</a>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 pull-right">
+            <div class="col-6 pull-right">
               <button type="submit" class="btn btn-primary float-right">Submit</button>
             </div>
         </div>
