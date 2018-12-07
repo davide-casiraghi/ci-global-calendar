@@ -16,7 +16,6 @@
     {{-- CSS --}}
         <link href="{{ asset('css/vendor.css') }}" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
         @yield('css')
 </head>

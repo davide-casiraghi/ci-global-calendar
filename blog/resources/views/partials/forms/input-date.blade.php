@@ -19,16 +19,16 @@
         <i data-toggle="tooltip" data-placement="top" title="" class="{{$tooltipFontAwesomeClass}}" data-original-title="{{$tooltipText}}"></i>
     @endif
 
-    <div class="input-group input-append date" id="{{ $name }}" data-date-format="dd-mm-yyyy">
+    <div class="input-group input-append date" id="{{ $name }}">
         <input
             name="{{ $name }}"
-            class="form-control"
-            type="text"
+            class="form-control" 
+            type="text" 
+            data-date-format="dd/mm/yyyy" 
             @if(!empty($value)) value="{{ $value }}" @endif
-            placeholder="{{ $placeholder }}"
+            placeholder="{{ $placeholder }}" 
             @if(!empty($endDate)) data-date-end-date="{{ $endDate }}" @endif
-            readonly="readonly"
-            aria-describedby="date-addon-start"
+            readonly="readonly" 
         >
         <div class="input-group-append">
             <span class="input-group-text" id="date-addon-start"><i class="far fa-calendar-alt"></i></span>

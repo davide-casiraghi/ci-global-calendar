@@ -3,16 +3,8 @@
 @section('javascript-document-ready')
     @parent
     $("input[name='startDate']").change(function(){
-
-        //var startDate = $("input[name='startDate']").val();
-        //alert(startDate);
-        // $("input[name='endDate']")
-        //$("#endDate").datepicker('update', '2019-03-05');
-        //$("#endDate").datepicker('setDate', '2019-03-05');
-        //$("input[name='endDate']").val(startDate);
-
-        //$("#datepicker_end_date").datepicker('update', new Date(2019, 3, 4));
-        //$("#datepicker_end_date").datepicker("setDate", new Date(2019, 3, 4));
+        var startDate = $("input[name='startDate']").val();
+        $("input[name='endDate']").datepicker("setDate", startDate);
     });
 @stop
 
