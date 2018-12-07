@@ -102,7 +102,7 @@ class EventSearchController extends Controller
         //dd($lastestEventsRepetitions);
 
         if ($searchKeywords||$searchCategory||$searchCountry||$searchContinent||$searchTeacher||$searchVenue||$searchStartDate||$searchEndDate){
-            DB::enableQueryLog();
+            //DB::enableQueryLog();
                 $events = Event::
                     when($searchKeywords, function ($query, $searchKeywords) {
                         return $query->where('title', $searchKeywords)->orWhere('title', 'like', '%' . $searchKeywords . '%');
