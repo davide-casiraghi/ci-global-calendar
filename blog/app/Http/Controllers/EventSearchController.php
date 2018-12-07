@@ -121,7 +121,7 @@ class EventSearchController extends Controller
                     })
                     ->orderBy('event_repetitions.start_repeat', 'asc')
                     ->paginate(20);
-                    //dd(DB::getQueryLog());
+                    dd(DB::getQueryLog());
         }
         else{
             //$events = Event::latest()->paginate(20);
