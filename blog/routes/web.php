@@ -51,7 +51,7 @@ function()
         Route::resource('continents','ContinentController');
         Route::resource('countries','CountryController');
         Route::resource('eventSearch','EventSearchController');
-            Route::get('/eventSearch#dataarea', 'OrganizerController@index');
+            Route::get('/eventSearch#dataarea', 'EventSearchController@index');
         Route::resource('backgroundImages','BackgroundImageController');
 
     // To populate the event repeat by month options
