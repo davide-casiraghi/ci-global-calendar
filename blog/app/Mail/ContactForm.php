@@ -38,13 +38,13 @@ class ContactForm extends Mailable
      {
          // Configure email parameters in .env file
 
-         return $this
+         return $this->markdown('emails.contact.administrator')
                 ->to($this->report['emailTo'])
                 ->from($this->report['email'])
                 ->subject($this->report['subject'])
-                ->view('emails.contact.administrator')
                 ->with([
-                    'name' => $this->report['name'],
+                    'sender_name' => $this->report['name'],
+                    'sender_email' => $this->report['email'],
                     'msg' => $this->report['message']
                 ]);
      }
