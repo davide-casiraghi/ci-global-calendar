@@ -89,9 +89,9 @@ function()
         Route::get('/mailToOrganizer/sent', 'EventController@mailToOrganizerSent')->name("events.organizer-sent");
 
     /* Contact form to write to the administrator */
-        Route::get('/contactTheAdministrator', 'AdministratorMailFormController@contactAdmin')->name("forms.contact-admin");
-        Route::post('/contactTheAdministrator/send', 'AdministratorMailFormController@contactAdminSend')->name("forms.contact-admin-send");
-        Route::get('/contactTheAdministrator/thankyou', 'AdministratorMailFormController@contactAdminThankyou')->name("forms.contact-admin-thankyou");
+        Route::get('/contactTheAdministrator', 'ContactAdministratorController@contactAdmin')->name("forms.contact-admin");
+        Route::post('/contactTheAdministrator/send', 'ContactAdministratorController@contactAdminSend')->name("forms.contact-admin-send");
+        Route::get('/contactTheAdministrator/thankyou', 'ContactAdministratorController@contactAdminThankyou')->name("forms.contact-admin-thankyou");
 
 });
 

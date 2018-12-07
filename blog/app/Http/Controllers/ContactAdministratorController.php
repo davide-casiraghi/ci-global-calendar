@@ -7,7 +7,7 @@ use App\Mail\ContactAdministrator;
 
 use Illuminate\Http\Request;
 
-class AdministratorMailFormController extends Controller
+class ContactAdministratorController extends Controller
 {
 
     /**
