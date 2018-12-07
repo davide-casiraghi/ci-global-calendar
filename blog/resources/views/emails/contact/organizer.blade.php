@@ -7,7 +7,6 @@ You have received a message from **{{$sender_name}}** about your event **{{$even
 {{$msg}}
 
 
-
 @component('mail::button', ['url' => 'mailto:'.$sender_email])
 Reply to {{$sender_name}}
 @endcomponent

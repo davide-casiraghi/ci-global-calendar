@@ -86,7 +86,7 @@ function()
 
     /* Mail to the event organizer */
         Route::post('/mailToOrganizer', 'EventController@mailToOrganizer')->name("events.organizer-message");
-        Route::get('/mailToOrganizer/sent', 'EventController@mailToOrganizerSent')->name("events.organizer-message-sent");
+        Route::get('/mailToOrganizer/sent', 'EventController@mailToOrganizerSent')->name("events.organizer-sent");
 
     /* Contact form to write to the administrator */
         Route::get('/contactTheAdministrator', 'AdministratorMailFormController@contactAdmin')->name("forms.contact-admin");

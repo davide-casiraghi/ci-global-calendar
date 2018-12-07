@@ -573,7 +573,7 @@ class EventController extends Controller
             Mail::to($eventOrganizer->email)->send(new ContactOrganizer($message));
         };
 
-         return redirect()->route('events.organizer-message-sent');
+         return redirect()->route('events.organizer-sent');
 
     }
 
@@ -587,7 +587,7 @@ class EventController extends Controller
      */
     public function mailToOrganizerSent(){
 
-        return view('emails.organizer-message-sent');
+        return view('emails.contact.organizer-sent');
     }
 
     // **********************************************************************
