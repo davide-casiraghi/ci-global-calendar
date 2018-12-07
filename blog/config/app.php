@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'CI Global Calendar'),
+    'name' => env('APP_NAME', 'laravel'),
 
     /*
     |--------------------------------------------------------------------------

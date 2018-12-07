@@ -1,7 +1,9 @@
 @component('mail::message')
-# Introduction {{$sender_name}}
 
-{{$event_title}}
+# Message from the Global CI Calendar
+
+You have received a message from **{{$sender_name}}** about your event **{{$event_title}}**
+
 {{$msg}}
 
 
