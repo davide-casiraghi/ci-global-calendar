@@ -26,7 +26,8 @@
             {{-- smooth scroll to the anchor id --}}
             $('html, body').animate({
                 scrollTop: $(window.location.hash).offset().top + 'px'
-            }, 1000, 'swing');
+            }, 1300, 'swing');
+            
         }
 
 @stop
