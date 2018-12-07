@@ -97,7 +97,7 @@ class TeacherController extends Controller
         $country = Country::select('name')
         ->where('id', $teacher->country_id)
         ->first();
-        dd($teacher);
+        
         return view('teachers.show',compact('teacher'))
             ->with('country', $country);
     }
@@ -131,7 +131,8 @@ class TeacherController extends Controller
             'name' => 'required'
         ]);
 
-        $teacher->update($request->all());
+        //$teacher->update($request->all());
+        $this->saveOnDb($request);
 
         return redirect()->route('teachers.index')
                         ->with('success','Teacher updated successfully');
@@ -171,6 +172,7 @@ class TeacherController extends Controller
              $imageName = $profilePictureFile->hashName();
              $path = $profilePictureFile->store('public/images/teachers_profile');
              $teacher->profile_picture = $imageName;
+             dd($imageName);
         }
 
          $teacher->website = $request->get('website');
