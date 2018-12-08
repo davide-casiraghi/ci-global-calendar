@@ -29,6 +29,7 @@ return [
     'create_new_venue' => 'Crea nuova location',
     'create_new_teacher' => 'Crea nuovo insegnante',
     'create_new_organizer' => 'Crea nuovo organizzatore',
+    'create_new_user' => 'Crea nuovo utente',
     'year_of_starting_to_practice' => 'Year of starting to practice',
     'year_of_starting_to_teach' => 'Year of starting to teach',
     'significant_teachers' => 'Significant teachers',
@@ -36,11 +37,13 @@ return [
     'search_by_venue_name' => 'Cerca nome location',
     'search_by_teacher_name' => 'Cerca nome insegnante',
     'search_by_organizer_name' => 'Cerca nome organizzatore',
+    'search_by_user_name' => 'Cerca nome utente',
     'filter_by_category' => 'Filtra per categoria',
     'filter_by_country' => 'Filtra per stato',
     'events_management' => 'Gestione eventi',
     'events_venue_management' => 'Gestione location',
     'teachers_management' => 'Gestione insegnanti',
     'organizers_management' => 'Gestione organizzatori',
+    'users_management' => 'Gestione utenti',
 
 ];

@@ -29,6 +29,7 @@ return [
     'create_new_venue' => 'Create new venue',
     'create_new_teacher' => 'Create new teacher',
     'create_new_organizer' => 'Create new organizer',
+    'create_new_user' => 'Create new user',
     'year_of_starting_to_practice' => 'Year of starting to practice',
     'year_of_starting_to_teach' => 'Year of starting to teach',
     'significant_teachers' => 'Significant teachers',
@@ -42,5 +43,6 @@ return [
     'events_venue_management' => 'Venues management',
     'teachers_management' => 'Teachers management',
     'organizers_management' => 'Organizers management',
+    'users_management' => 'Users management',
 
 ];

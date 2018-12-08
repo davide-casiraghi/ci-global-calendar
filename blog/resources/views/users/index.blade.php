@@ -13,10 +13,10 @@
     <div class="row">
         <div class="col-12 margin-tb">
             <div class="pull-left">
-                <h2>Users management</h2>
+                <h2>@lang('views.users_management')</h2>
             </div>
             <div class="pull-right mt-4 float-right">
-                <a class="btn btn-success" href="{{ route('users.create') }}"> Create New User</a>
+                <a class="btn btn-success" href="{{ route('users.create') }}">@lang('views.create_new_user')</a>
             </div>
         </div>
     </div>
@@ -32,11 +32,11 @@
     <form class="row mt-3" action="{{ route('users.index') }}" method="GET">
         @csrf
         <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6">
-            <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by user name" value="{{ $searchKeywords }}">
+            <input type="text" name="keywords" id="keywords" class="form-control" placeholder="@lang('views.search_by_user_name')" value="{{ $searchKeywords }}">
         </div>
         <div class="col-12 col-sm-6 col-md-6 col-lg-3">
             <select name="country_id" class="selectpicker" data-live-search="true">
-                <option value="">Search by country</option>
+                <option value="">@lang('views.filter_by_country')</option>
                 @foreach ($countries as $value => $country)
                     {{-- {{ $event->category_id == $value ? 'selected' : '' }} --}}
                     <option value="{{$value}}" {{ $searchCountry == $value ? 'selected' : '' }} >{!! $country !!} </option>
