@@ -58,5 +58,6 @@ return [
     'continents_management' => 'Continents management',
     'countries_management' => 'Countries management',
     'background_image_management' => 'Background image management',
-
+    'horizontal' => 'Horizontal',
+    'vertical' => 'Vertical',
 ];

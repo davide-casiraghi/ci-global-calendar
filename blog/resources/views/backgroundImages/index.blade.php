@@ -67,7 +67,7 @@
                     <img src="{{ $backgroundImage->image_src }}" width="150" class="mx-auto d-block">
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3 py-3 code">
-                    {{  $backgroundImage->orientation == 1 ? 'Horizontal' : 'Vertical' }}
+                    @if ($backgroundImage->orientation == 1) @lang('views.horizontal') @else @lang('views.vertical') @endif
                 </div>
                 
                 <div class="col-12 pb-2 action">

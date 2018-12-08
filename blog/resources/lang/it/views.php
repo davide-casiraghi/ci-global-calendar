@@ -59,5 +59,7 @@ return [
     'continents_management' => 'Gestione continenti',
     'countries_management' => 'Gestione stati',
     'background_image_management' => 'Gestione immagini di sfondo',
+    'horizontal' => 'Orizzontale',
+    'vertical' => 'Verticale',
 
 ];
