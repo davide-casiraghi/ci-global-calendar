@@ -68,19 +68,11 @@
                       'value' => $event->description
                 ])
             </div>
-
-            <div class="col-12">
-                @include('partials.forms.event.select-event-teacher')
-            </div>
-
-            <div class="col-12">
-                @include('partials.forms.event.select-event-organizer')
-            </div>
-
-            <div class="col-12">
-                @include('partials.forms.event.select-event-venue')
-            </div>
         </div>
+        
+        @include('partials.forms.event.select-event-teacher')
+        @include('partials.forms.event.select-event-organizer')
+        @include('partials.forms.event.select-event-venue')
 
         <div class="row">
             <div class="col-12">

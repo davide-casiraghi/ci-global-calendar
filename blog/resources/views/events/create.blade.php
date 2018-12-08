@@ -73,9 +73,7 @@
         </div>
 
         @include('partials.forms.event.select-event-teacher')
-
         @include('partials.forms.event.select-event-organizer')
-
         @include('partials.forms.event.select-event-venue')
 
         <div class="row">
