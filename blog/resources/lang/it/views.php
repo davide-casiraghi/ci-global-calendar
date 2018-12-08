@@ -43,7 +43,7 @@ return [
     'filter_by_category' => 'Filtra per categoria',
     'filter_by_country' => 'Filtra per stato',
     'post_management' => 'Gestione post',
-    'category_management' => 'Gestione categorie post',
+    'category_management' => 'Gestione categorie articoli',
     'events_management' => 'Gestione eventi',
     'events_category_management' => 'Gestione categorie eventi',
     'events_venue_management' => 'Gestione location',
