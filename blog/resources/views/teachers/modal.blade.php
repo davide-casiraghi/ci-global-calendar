@@ -18,7 +18,7 @@
           'style' => 'alert-danger',
     ])
 
-    <form action="{{ route('teachers.storeFromModal') }}" method="POST">
+    <form action="{{ route('teachers.storeFromModal') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
          <div class="row">

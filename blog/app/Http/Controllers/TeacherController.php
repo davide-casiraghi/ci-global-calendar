@@ -171,7 +171,6 @@ class TeacherController extends Controller
          if ($request->file('profile_picture')){
              $profilePictureFile = $request->file('profile_picture');
              $imageName = $profilePictureFile->hashName();
-             //dd($imageName);
              $path = $profilePictureFile->store('public/images/teachers_profile');
              $teacher->profile_picture = $imageName;
         }
