@@ -44,6 +44,13 @@
                    'placeholder' => 'https://...'
                ])
            </div>
+           <div class="col-12">
+               @include('partials.forms.textarea', [
+                     'title' => 'Description (optional)',
+                     'name' => 'description',
+                     'placeholder' => 'Organizer description'
+               ])
+           </div>
        </div>
 
         <div class="row mt-5">
