@@ -25,18 +25,6 @@
                 ])
             </div>
             
-            {{-- Show the created by field just to the admin and super admin --}}
-            @if(empty($authorUserId))
-                <div class="col-12">
-                    @include('partials.forms.select', [
-                        'title' => 'Created by',
-                        'name' => 'created_by',
-                        'placeholder' => 'Select owner',
-                        'records' => $users
-                    ])
-                </div>
-            @endif
-            
             <div class="col-12">
                 @include('partials.forms.input', [
                     'title' => 'Street',

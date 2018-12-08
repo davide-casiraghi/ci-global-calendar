@@ -24,6 +24,7 @@
                    'placeholder' => 'Name'
                ])
            </div>
+           
            <div class="col-12">
                @include('partials.forms.input', [
                    'title' => 'Email',
