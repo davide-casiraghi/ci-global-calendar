@@ -54,7 +54,7 @@
     </form>
 
     {{-- List of events --}}
-    <table class="table table-bordered mt-4">
+    {{-- <table class="table table-bordered mt-4">
         <tr>
             <th>ID</th>
             <th>Title</th>
@@ -84,7 +84,38 @@
             </td>
         </tr>
         @endforeach
-    </table>
+    </table>--}}
+    
+    
+    <div class="eventList my-4">
+        @foreach ($events as $event)
+            <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
+                <div class="col-12 col-md-6 col-lg-8 py-2 title">
+                    <a href="{{ route('events.edit',$event->id) }}">{{ $event->title }}</a>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2 pb-2 py-md-2 category">
+                    <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-2" data-original-title="Category"></i>
+                    {{ $eventCategories[$event->category_id] }}
+                </div>
+                <div class="col-6 col-md-3 col-lg-2 pb-2 py-md-2 country">
+                    <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-2" data-original-title="Country"></i>
+                    {{ $countries[$venues[$event->venue_id]] }}
+                </div>
+                <div class="col-12 pb-2 action">
+                    <form action="{{ route('events.destroy',$event->id) }}" method="POST">
+
+                        <a class="btn btn-info mr-2" href="{{ route('events.show',$event->id) }}">View</a>
+                        <a class="btn btn-primary" href="{{ route('events.edit',$event->id) }}">Edit</a>
+
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn btn-danger float-right">Delete</button>
+                    </form>
+                </div>
+            </div>
+        @endforeach
+    </div>
 
 
     {!! $events->links() !!}
