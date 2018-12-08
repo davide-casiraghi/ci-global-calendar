@@ -17,6 +17,7 @@
         </div>
     @endif
 
+    {{-- Search form --}}
     <form class="row mt-3" action="{{ route('countries.index') }}" method="GET">
         @csrf
         <div class="form-group col-12 col-md-8 col-lg-9">

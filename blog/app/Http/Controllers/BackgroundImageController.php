@@ -12,12 +12,23 @@ class BackgroundImageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $backgroundImages = BackgroundImage::latest()->paginate(5);
+        $searchKeywords = $request->input('keywords');
+        
+        if ($searchKeywords){
+            $backgroundImages = DB::table('background_images')
+            ->when($searchKeywords, function ($query, $searchKeywords) {
+                return $query->where('credits', $searchKeywords)->orWhere('credits', 'like', '%' . $searchKeywords . '%');
+            });
+        }
+        else{
+            $backgroundImages = BackgroundImage::latest()->paginate(20);
+        }
 
         return view('backgroundImages.index',compact('backgroundImages'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 20)
+            ->with('searchKeywords',$searchKeywords);
     }
 
     /**
