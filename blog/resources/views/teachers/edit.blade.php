@@ -14,7 +14,7 @@
           'style' => 'alert-danger',
     ])
 
-    <form action="{{ route('teachers.update',$teacher->id) }}" method="POST">
+    <form action="{{ route('teachers.update',$teacher->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
