@@ -49,14 +49,14 @@
     <div class="venuesList my-4">
         @foreach ($eventVenues as $eventVenue)
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
-                <div class="col-12 col-md-6 col-lg-8 py-2 title">
+                <div class="col-12 col-md-6 col-lg-8 py-3 title">
                     <a href="{{ route('eventVenues.edit',$eventVenue->id) }}">{{ $eventVenue->name }}</a>
                 </div>
-                <div class="col-6 col-md-3 col-lg-2 pb-2 py-md-2 country">
+                <div class="col-6 col-md-3 col-lg-2 pb-3 py-md-3 country">
                     <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-2" data-original-title="@lang('general.country')"></i>
                     {{ $countries[$eventVenue->country_id] }}
                 </div>
-                <div class="col-6 col-md-3 col-lg-2 pb-2 py-md-2 city">
+                <div class="col-6 col-md-3 col-lg-2 pb-3 py-md-3 city">
                     <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-city mr-2" data-original-title="@lang('general.city')"></i>
                     aaaa
                 </div>
