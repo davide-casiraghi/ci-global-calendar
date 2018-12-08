@@ -15,6 +15,7 @@ class AddOrientationToBackgroundImages extends Migration
     {
         Schema::table('background_images', function (Blueprint $table) {
             $table->boolean('orientation');
+            $table->dropColumn('folder');
         });
     }
 
@@ -27,6 +28,7 @@ class AddOrientationToBackgroundImages extends Migration
     {
         Schema::table('background_images', function (Blueprint $table) {
             $table->dropColumn('orientation');
+            $table->string('folder')->nullable();
         });
     }
 }
