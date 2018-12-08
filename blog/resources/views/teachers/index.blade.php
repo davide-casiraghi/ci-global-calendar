@@ -3,15 +3,14 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Teachers management</h2>
-            </div>
-            <div class="pull-right mt-4 float-right">
-                <a class="btn btn-success" href="{{ route('teachers.create') }}"> Create New Teacher</a>
-            </div>
+        <div class="col-12">
+            <h2>Teachers management</h2>
+        </div>
+        <div class="col-12 mt-4 mt-sm-0 text-right">
+            <a class="btn btn-success" href="{{ route('teachers.create') }}"> Create New Teacher</a>
         </div>
     </div>
+    
 
 
     @if ($message = Session::get('success'))
