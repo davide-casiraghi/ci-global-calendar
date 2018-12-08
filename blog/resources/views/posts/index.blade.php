@@ -88,46 +88,6 @@
     </div>
 
 
-    {{-- List of posts --}}
-    {{--<table class="table table-bordered mt-4">
-        <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Category</th>
-            <th width="160">Translations</th>
-            <th width="280">Action</th>
-        </tr>
-        @foreach ($posts as $post)
-        <tr>
-            <td>{{ $post->id }}</td>
-            <td>{{ $post->title }}</td>
-            <td>{{ $categories[$post->category_id] }}</td>
-            <td style="line-height: 2rem;">
-                @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
-                    @if($post->hasTranslation($key))
-                        <a href="postTranslations/{{ $post->id }}/{{ $key }}/edit" class="bg-success text-white p-1 mb-1">{{$key}}</a>
-                    @else
-                        <a href="postTranslations/{{ $post->id }}/{{ $key }}/create" class="bg-secondary text-white p-1 mb-1">{{$key}}</a>
-                    @endif
-                @endforeach
-            </td>
-            <td>
-                <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
-
-                    <a class="btn btn-info" href="{{ route('posts.show',$post->id) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a>
-
-                    @csrf
-                    @method('DELETE')
-
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </table>--}}
-
-
     {!! $posts->links() !!}
 
 
