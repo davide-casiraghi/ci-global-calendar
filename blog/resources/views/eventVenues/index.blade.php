@@ -12,10 +12,10 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <h2>Event venues management</h2>
+            <h2>@lang('views.events_venue_management')</h2>
         </div>
         <div class="col-12 mt-4 mt-sm-0 text-right">
-            <a class="btn btn-success" href="{{ route('eventVenues.create') }}">Create New Venue</a>
+            <a class="btn btn-success" href="{{ route('eventVenues.create') }}">@lang('views.create_new_venue')</a>
         </div>
     </div>
 
@@ -30,13 +30,11 @@
     <form class="row searchForm mt-3" action="{{ route('eventVenues.index') }}" method="GET">
         @csrf
         <div class="form-group col-12 col-sm-12 col-md-6 col-lg-5 mb-2">
-            <input type="text" name="keywords" class="form-control" placeholder="Search by venue name" value="{{ $searchKeywords }}">
+            <input type="text" name="keywords" class="form-control" placeholder="@lang('views.search_by_venue_name')" value="{{ $searchKeywords }}">
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-2">
-            <select name="country_id" class="selectpicker" data-live-search="true">
-                <option value="">Search by country</option>
+            <select name="country_id" class="selectpicker" data-live-search="true" title="@lang('views.filter_by_country')">
                 @foreach ($countries as $value => $country)
-                    {{-- {{ $event->category_id == $value ? 'selected' : '' }} --}}
                     <option value="{{$value}}" {{ $searchCountry == $value ? 'selected' : '' }} >{!! $country !!} </option>
                 @endforeach
             </select>
@@ -55,11 +53,11 @@
                     <a href="{{ route('eventVenues.edit',$eventVenue->id) }}">{{ $eventVenue->name }}</a>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2 pb-2 py-md-2 country">
-                    <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-2" data-original-title="@lang('general.category')"></i>
+                    <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-2" data-original-title="@lang('general.country')"></i>
                     {{ $countries[$eventVenue->country_id] }}
                 </div>
                 <div class="col-6 col-md-3 col-lg-2 pb-2 py-md-2 city">
-                    <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-city mr-2" data-original-title="@lang('general.country')"></i>
+                    <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-city mr-2" data-original-title="@lang('general.city')"></i>
                     aaaa
                 </div>
                 <div class="col-12 pb-2 action">
