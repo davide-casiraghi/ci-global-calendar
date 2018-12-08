@@ -35,10 +35,12 @@ return [
     'search_by_event_name' => 'Cerca nome evento',
     'search_by_venue_name' => 'Cerca nome location',
     'search_by_teacher_name' => 'Cerca nome insegnante',
+    'search_by_organizer_name' => 'Cerca nome organizzatore',
     'filter_by_category' => 'Filtra per categoria',
     'filter_by_country' => 'Filtra per stato',
     'events_management' => 'Gestione eventi',
     'events_venue_management' => 'Gestione location',
     'teachers_management' => 'Gestione insegnanti',
+    'organizers_management' => 'Gestione organizzatori',
 
 ];

@@ -11,10 +11,10 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <h2>Organizers management</h2>
+            <h2>@lang('views.organizers_management')</h2>
         </div>
         <div class="col-12 mt-4 mt-sm-0 text-right">
-            <a class="btn btn-success" href="{{ route('organizers.create') }}"> Create New Organizer</a>
+            <a class="btn btn-success" href="{{ route('organizers.create') }}">@lang('views.create_new_organizer')</a>
         </div>
     </div>
 
@@ -28,7 +28,7 @@
     <form class="row searchForm mt-3" action="{{ route('organizers.index') }}" method="GET">
         @csrf
         <div class="form-group col-12 col-sm-12 col-md-8 col-lg-9 mb-2">
-            <input type="text" name="keywords" class="form-control" placeholder="Search by organizer name" value="{{ $searchKeywords }}">
+            <input type="text" name="keywords" class="form-control" placeholder="@lang('views.search_by_organizer_name')" value="{{ $searchKeywords }}">
         </div>
         <div class="col-12 col-sm-12 col-md-4 col-lg-3 mt-3 mt-md-0">
             <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>

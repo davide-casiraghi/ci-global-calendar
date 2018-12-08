@@ -35,10 +35,12 @@ return [
     'search_by_event_name' => 'Search by event name',
     'search_by_venue_name' => 'Search by venue name',
     'search_by_teacher_name' => 'Search by teacher name',
+    'search_by_organizer_name' => 'Search by organizer name',
     'filter_by_category' => 'Filter by category',
     'filter_by_country' => 'Filter by country',
     'events_management' => 'Events Management',
     'events_venue_management' => 'Venues management',
     'teachers_management' => 'Teachers management',
+    'organizers_management' => 'Organizers management',
 
 ];
