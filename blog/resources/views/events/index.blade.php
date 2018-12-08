@@ -57,14 +57,14 @@
     <div class="eventList my-4">
         @foreach ($events as $event)
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
-                <div class="col-12 col-md-6 col-lg-8 py-2 title">
+                <div class="col-12 col-md-6 col-lg-8 py-3 title">
                     <a href="{{ route('events.edit',$event->id) }}">{{ $event->title }}</a>
                 </div>
-                <div class="col-6 col-md-3 col-lg-2 pb-2 py-md-2 category">
+                <div class="col-6 col-md-3 col-lg-2 pb-3 py-md-3 category">
                     <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-2" data-original-title="@lang('general.category')"></i>
                     {{ $eventCategories[$event->category_id] }}
                 </div>
-                <div class="col-6 col-md-3 col-lg-2 pb-2 py-md-2 country">
+                <div class="col-6 col-md-3 col-lg-2 pb-3 py-md-3 country">
                     <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-2" data-original-title="@lang('general.country')"></i>
                     {{ $countries[$venues[$event->venue_id]] }}
                 </div>
