@@ -48,18 +48,18 @@
     <div class="countriesList my-4">
         @foreach ($backgroundImages as $backgroundImage)
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
-                <div class="col-12 col-sm-6 col-md-4 py-3 title">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 py-3 title">
                     <a href="{{ route('backgroundImages.edit', $backgroundImage->id) }}">{{ $backgroundImage->title }}</a>
                 </div>
                 
-                <div class="col-12 col-sm-3 col-md-2 py-3 code">
+                <div class="col-12 col-sm-3 col-md-2 col-lg-3 py-3 code">
                     <i data-toggle="tooltip" data-placement="top" title="" class="far fa-barcode-alt mr-2" data-original-title="@lang('general.code')"></i>
                     {{ $backgroundImage->credits }}
                 </div>
-                <div class="col-12 col-sm-3 col-md-3 py-3 code">
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3 py-3 code">
                     <img src="{{ $backgroundImage->image_src }}" width="150" class="mx-auto d-block">
                 </div>
-                <div class="col-12 col-sm-12 col-md-3 py-3 code">
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3 py-3 code">
                     {{  $backgroundImage->orientation == 0 ? 'Horizontal' : 'Vertical' }}
                 </div>
                 
