@@ -17,11 +17,16 @@ class BackgroundImageController extends Controller
     public function index(Request $request)
     {
         $searchKeywords = $request->input('keywords');
+        $orientation = $request->input('orientation');
         
-        if ($searchKeywords){
+        
+        if ($searchKeywords||$orientation){
             $backgroundImages = DB::table('background_images')
             ->when($searchKeywords, function ($query, $searchKeywords) {
                 return $query->where('credits', $searchKeywords)->orWhere('credits', 'like', '%' . $searchKeywords . '%');
+            })
+            ->when($orientation, function ($query, $orientation) {
+                return $query->where('orientation', '=', $orientation);
             })
             ->paginate(20);
         }
@@ -31,7 +36,8 @@ class BackgroundImageController extends Controller
 
         return view('backgroundImages.index',compact('backgroundImages'))
             ->with('i', (request()->input('page', 1) - 1) * 20)
-            ->with('searchKeywords',$searchKeywords);
+            ->with('searchKeywords',$searchKeywords)
+            ->with('orientation',$orientation);
     }
 
     /**

@@ -5,8 +5,8 @@
 
     {{-- Clear filters on click reset button --}}
     $("#resetButton").click(function(){
-        $("input#keywords").val("");
-        /*$('#category option').prop("selected", false).trigger('change');*/
+        $("input[name=keywords]").val("");
+        $("select[name=orientation] option").prop("selected", false).trigger('change');
         $('form.searchForm').submit();
     });
 
@@ -36,6 +36,13 @@
         @csrf
         <div class="form-group col-12 col-md-8 col-lg-9">
             <input type="text" name="keywords" id="keywords" class="form-control" placeholder="@lang('views.search_by_photographer_name')" value="{{ $searchKeywords }}">
+        </div> 
+        <div class="form-group">
+            <select name="orientation" class="form-control">
+                <option value="">@lang('views.filter_by_orientation')</option>
+                <option value="0" {{  $orientation == '0' ? 'selected' : '' }} >Horizontal</option>
+                <option value="1" {{  $orientation == '1' ? 'selected' : '' }} >Vertical</option>
+            </select>
         </div>
         <div class="col-12 col-md-4 col-lg-3 mt-sm-0 mt-3">
             <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
