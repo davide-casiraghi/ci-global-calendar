@@ -52,39 +52,6 @@
             <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right">
         </div>
     </form>
-
-    {{-- List of events --}}
-    {{-- <table class="table table-bordered mt-4">
-        <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Category</th>
-            <th>Country</th>
-            <th width="280">Action</th>
-        </tr>
-        @foreach ($events as $event)
-        <tr>
-            <td>{{ $event->id }}</td>
-            <td>{{ $event->title }}</td>
-            <td>{{ $eventCategories[$event->category_id] }}</td>
-            <td>
-                {{ $countries[$venues[$event->venue_id]] }}
-            </td>
-            <td>
-                <form action="{{ route('events.destroy',$event->id) }}" method="POST">
-
-                    <a class="btn btn-info" href="{{ route('events.show',$event->id) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('events.edit',$event->id) }}">Edit</a>
-
-                    @csrf
-                    @method('DELETE')
-
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </table>--}}
     
     {{-- List of events --}}
     <div class="eventList my-4">
