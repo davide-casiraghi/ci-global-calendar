@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddOnMonthlyKindToEventsTable extends Migration
+class ChangeRepeatEventsTableSecond extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,9 @@ class AddOnMonthlyKindToEventsTable extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->string('on_monthly_kind')->nullable();
+            $table->dateTime('repeat_until')->nullable();
+            $table->string('repeat_weekly_on')->nullable();
+            $table->string('repeat_monthly_on')->nullable();
         });
     }
 
@@ -26,7 +28,9 @@ class AddOnMonthlyKindToEventsTable extends Migration
     public function down()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->dropColumn('on_monthly_kind');
+            $table->dropColumn('repeat_until');
+            $table->dropColumn('repeat_weekly_on');
+            $table->dropColumn('repeat_monthly_on');
         });
     }
 }
