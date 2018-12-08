@@ -21,7 +21,7 @@
             </div>
             <div class="modal-body">
                 <p>
-                    <img alt="loading" src="resources/img/ajax-loader.gif">
+                    <img alt="loading" src="/storage/images/ajax-loader.gif">
                 </p>
             </div>
             <div class="modal-footer">
