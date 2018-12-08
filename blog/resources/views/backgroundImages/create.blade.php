@@ -48,8 +48,8 @@
                 <div class="form-group">
                     <strong>Orientation:</strong>
                     <select name="orientation" class="selectpicker" title="Select orientation">
-                            <option value="0">Horizontal</option>
-                            <option value="1">Vertical</option>
+                            <option value="1">Horizontal</option>
+                            <option value="2">Vertical</option>
                     </select>
                 </div>
             </div>

@@ -19,7 +19,6 @@ class BackgroundImageController extends Controller
         $searchKeywords = $request->input('keywords');
         $orientation = $request->input('orientation');
         
-        
         if ($searchKeywords||$orientation){
             $backgroundImages = DB::table('background_images')
             ->when($searchKeywords, function ($query, $searchKeywords) {

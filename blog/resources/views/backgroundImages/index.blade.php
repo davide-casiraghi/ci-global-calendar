@@ -40,8 +40,8 @@
         <div class="form-group col-12 col-md-3 col-lg-3">
             <select name="orientation" class="form-control">
                 <option value="">@lang('views.filter_by_orientation')</option>
-                <option value="1" {{  $orientation ? 'selected' : '' }} >Horizontal</option>
-                <option value="2" {{  $orientation == '1' ? 'selected' : '' }} >Vertical</option>
+                <option value="1" {{  $orientation == '1' ? 'selected' : '' }} >Horizontal</option>
+                <option value="2" {{  $orientation == '2' ? 'selected' : '' }} >Vertical</option>
             </select>
         </div>
         <div class="col-12 col-md-4 col-lg-3 mt-sm-0 mt-3">
@@ -67,7 +67,7 @@
                     <img src="{{ $backgroundImage->image_src }}" width="150" class="mx-auto d-block">
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3 py-3 code">
-                    {{  $backgroundImage->orientation == 0 ? 'Horizontal' : 'Vertical' }}
+                    {{  $backgroundImage->orientation == 1 ? 'Horizontal' : 'Vertical' }}
                 </div>
                 
                 <div class="col-12 pb-2 action">
