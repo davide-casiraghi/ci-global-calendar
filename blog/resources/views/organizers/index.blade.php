@@ -41,7 +41,7 @@
     <div class="organizersList my-4">
         @foreach ($organizers as $organizer)
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
-                <div class="col-12 py-2 title">
+                <div class="col-12 py-3 title">
                     <a href="{{ route('organizers.edit',$organizer->id) }}">{{ $organizer->name }}</a>
                 </div>
                 
