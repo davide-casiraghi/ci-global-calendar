@@ -31,6 +31,7 @@ return [
     'create_new_organizer' => 'Crea nuovo organizzatore',
     'create_new_user' => 'Crea nuovo utente',
     'create_new_category' => 'Crea nuova categoria',
+    'create_new_continent' => 'Crea nuovo continente',
     'year_of_starting_to_practice' => 'Year of starting to practice',
     'year_of_starting_to_teach' => 'Year of starting to teach',
     'significant_teachers' => 'Significant teachers',
@@ -50,5 +51,6 @@ return [
     'teachers_management' => 'Gestione insegnanti',
     'organizers_management' => 'Gestione organizzatori',
     'users_management' => 'Gestione utenti',
+    'continents_management' => 'Gestione continenti',
 
 ];

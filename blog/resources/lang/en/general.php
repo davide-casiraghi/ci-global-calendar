@@ -7,6 +7,7 @@ return [
     'back' => 'Back',
     'submit' => 'Submit',
     'category' => 'Category',
+    'code' => 'Code',
     'organizers' => 'Organizers',
     'teachers' => 'Teachers',
     'venue' => 'Venue',

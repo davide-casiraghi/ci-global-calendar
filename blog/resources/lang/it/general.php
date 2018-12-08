@@ -6,6 +6,7 @@ return [
     'back' => 'Back',
     'submit' => 'Submit',
     'category' => 'Categoria',
+    'code' => 'Codice',
     'organizers' => 'Organizzatori',
     'teachers' => 'Insegnanti',
     'venue' => 'Luogo',

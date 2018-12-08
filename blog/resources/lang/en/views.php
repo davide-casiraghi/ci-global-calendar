@@ -31,6 +31,7 @@ return [
     'create_new_organizer' => 'Create new organizer',
     'create_new_user' => 'Create new user',
     'create_new_category' => 'Create new category',
+    'create_new_continent' => 'Create new continent',
     'year_of_starting_to_practice' => 'Year of starting to practice',
     'year_of_starting_to_teach' => 'Year of starting to teach',
     'significant_teachers' => 'Significant teachers',
@@ -49,5 +50,6 @@ return [
     'teachers_management' => 'Teachers management',
     'organizers_management' => 'Organizers management',
     'users_management' => 'Users management',
+    'continents_management' => 'Continents management',
 
 ];
