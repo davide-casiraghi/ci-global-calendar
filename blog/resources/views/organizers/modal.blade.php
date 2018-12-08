@@ -18,28 +18,31 @@
 
         <div class="row">
            <div class="col-12">
-               <div class="form-group">
-                   <strong>Name:</strong>
-                   <input type="text" name="name" class="form-control" placeholder="Name">
-               </div>
+               @include('partials.forms.input', [
+                   'title' => 'Name',
+                   'name' => 'name',
+                   'placeholder' => 'Name'
+               ])
            </div>
            <div class="col-12">
-               <div class="form-group">
-                   <strong>Email:</strong>
-                   <input type="text" name="email" class="form-control">
-               </div>
+               @include('partials.forms.input', [
+                   'title' => 'Email',
+                   'name' => 'email'
+               ])
            </div>
            <div class="col-12">
-               <div class="form-group">
-                   <strong>Facebook profile:</strong>
-                   <input type="text" name="facebook" class="form-control" placeholder="https://...">
-               </div>
+               @include('partials.forms.input', [
+                   'title' => 'Phone',
+                   'name' => 'phone',
+                   'placeholder' => ''
+               ])
            </div>
            <div class="col-12">
-               <div class="form-group">
-                   <strong>Website:</strong>
-                   <input type="text" name="website" class="form-control" placeholder="https://...">
-               </div>
+               @include('partials.forms.input', [
+                   'title' => 'Website',
+                   'name' => 'website',
+                   'placeholder' => 'https://...'
+               ])
            </div>
        </div>
 
