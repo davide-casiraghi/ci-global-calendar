@@ -49,9 +49,37 @@
         </div>
     </form>
 
+    {{-- List of users --}}
+    <div class="usersList my-4">
+        @foreach ($users as $user)
+            <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
+                <div class="col-12 col-sm-5 py-2 name">
+                    <a href="{{ route('users.edit',$user->id) }}">{{ $user->name }}</a>
+                </div>
+                <div class="col-6 col-sm-4 py-2 country">
+                    <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-2" data-original-title="@lang('general.country')"></i>
+                    @if(!empty($user->country_id)){{ $countries[$user->country_id] }}@endif
+                </div>
+                <div class="col-6 col-sm-3 py-2 status">
+                    @if(!empty($user->status)){!! '<span class="badge badge-success">Enabled</span>' !!}@else{!!'<span class="badge badge-danger">Disabled</span>'!!}@endif
+                </div>
+                <div class="col-12 pb-2 action">
+                    <form action="{{ route('users.destroy',$user->id) }}" method="POST">
 
-    {{-- List of teachers --}}
-    <table class="table table-bordered mt-4">
+                        <a class="btn btn-info mr-2" href="{{ route('users.show',$user->id) }}">@lang('views.view')</a>
+                        <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">@lang('views.edit')</a>
+
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn btn-danger float-right">@lang('views.delete')</button>
+                    </form>
+                </div>
+            </div>
+        @endforeach 
+    </div>
+    {{-- List of users --}}
+    {{--<table class="table table-bordered mt-4">
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -79,7 +107,7 @@
             </td>
         </tr>
         @endforeach
-    </table>
+    </table>--}}
 
 
     {!! $users->links() !!}
