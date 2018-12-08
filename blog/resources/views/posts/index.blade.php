@@ -14,13 +14,11 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Posts Management</h2>
-            </div>
-            <div class="pull-right mt-4 float-right">
-                <a class="btn btn-success" href="{{ route('posts.create') }}"> Create New post</a>
-            </div>
+        <div class="col-12">
+            <h2>Posts Management</h2>
+        </div>
+        <div class="col-12 mt-4 mt-sm-0 text-right">
+            <a class="btn btn-success" href="{{ route('posts.create') }}"> Create New post</a>
         </div>
     </div>
 
@@ -33,10 +31,10 @@
     {{-- Search form --}}
     <form class="row mt-3 searchForm" action="{{ route('posts.index') }}" method="GET">
         @csrf
-        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6">
             <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by post name" value="{{ $searchKeywords }}">
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-3">
             <select name="category_id" class="form-control">
                 <option value="">Search by category</option>
                 @foreach ($categories as $value => $category)
@@ -45,7 +43,7 @@
                 @endforeach
             </select>
         </div>
-        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 mt-sm-0 mt-3">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-3 mt-sm-0 mt-3">
             <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
             <input type="submit" value="Search" class="btn btn-primary float-right">
         </div>

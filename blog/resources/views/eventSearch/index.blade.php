@@ -59,7 +59,7 @@
                 @csrf
 
                 {{--<div class="row mt-3">
-                    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group col-12">
                         <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by event name" value="{{ $searchKeywords }}">
                     </div>
                 </div>--}}

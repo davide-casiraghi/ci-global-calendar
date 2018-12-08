@@ -11,7 +11,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-12 margin-tb">
+        <div class="col-12 margin-tb">
             <div class="pull-left">
                 <h2>Users management</h2>
             </div>
