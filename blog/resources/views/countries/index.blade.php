@@ -62,41 +62,6 @@
         @endforeach    
     </div>
 
-    {{-- List of countries --}}
-    {{--<table class="table table-bordered mt-2">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th width="140">Code</th>
-            <th width="180">Continent</th>
-            <th width="280">Action</th>
-        </tr>
-        @foreach ($countries as $country)
-        <tr>
-            <td>{{ $country->id }}</td>
-            <td>{{ $country->name }}</td>
-            <td>{{ $country->code }}</td>
-            <td>{{ $continents[$country->continent_id] }}</td>
-            <td>
-                <form action="{{ route('countries.destroy',$country->id) }}" method="POST">
-
-
-                    <a class="btn btn-info" href="{{ route('countries.show',$country->id) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('countries.edit',$country->id) }}">Edit</a>
-
-
-                    @csrf
-                    @method('DELETE')
-
-
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </table>--}}
-
-
 
     {!! $countries->links() !!}
 
