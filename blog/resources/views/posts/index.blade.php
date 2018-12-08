@@ -49,8 +49,47 @@
         </div>
     </form>
 
+
     {{-- List of posts --}}
-    <table class="table table-bordered mt-4">
+    <div class="venuesList my-4">
+        @foreach ($posts as $post)
+            <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
+                <div class="col-12 col-md-6 col-lg-7 py-3 title">
+                    <a href="{{ route('posts.edit',$post->id) }}">{{ $post->title }}</a>
+                </div>
+                <div class="col-6 col-md-3 col-lg-3 pb-3 py-md-3 category">
+                    <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-2" data-original-title="@lang('general.category')"></i>
+                    {{ $categories[$post->category_id] }}
+                </div>
+                <div class="col-6 col-md-3 col-lg-2 pb-3 py-md-3 translation" style="line-height: 2rem;">
+                    @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
+                        @if($post->hasTranslation($key))
+                            <a href="postTranslations/{{ $post->id }}/{{ $key }}/edit" class="bg-success text-white p-1 mb-1">{{$key}}</a>
+                        @else
+                            <a href="postTranslations/{{ $post->id }}/{{ $key }}/create" class="bg-secondary text-white p-1 mb-1">{{$key}}</a>
+                        @endif
+                    @endforeach
+                </div>
+                
+                <div class="col-12 pb-2 action">
+                    <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
+
+                        <a class="btn btn-info mr-2" href="{{ route('posts.show',$post->id) }}">@lang('views.view')</a>
+                        <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">@lang('views.edit')</a>
+
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn btn-danger float-right">@lang('views.delete')</button>
+                    </form>
+                </div>
+            </div>
+        @endforeach    
+    </div>
+
+
+    {{-- List of posts --}}
+    {{--<table class="table table-bordered mt-4">
         <tr>
             <th>ID</th>
             <th>Title</th>
@@ -70,8 +109,6 @@
                     @else
                         <a href="postTranslations/{{ $post->id }}/{{ $key }}/create" class="bg-secondary text-white p-1 mb-1">{{$key}}</a>
                     @endif
-
-
                 @endforeach
             </td>
             <td>
@@ -88,7 +125,7 @@
             </td>
         </tr>
         @endforeach
-    </table>
+    </table>--}}
 
 
     {!! $posts->links() !!}

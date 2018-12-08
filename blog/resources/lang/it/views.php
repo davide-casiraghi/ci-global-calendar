@@ -19,7 +19,7 @@ return [
     'monthly' => 'Monthly',
     'facebook_event' => 'Facebook event',
     'event_url' => 'Event URL',
-    'translations' => 'Translations',
+    'translations' => 'Traduzioni',
     'action' => 'Action',
     'view' => 'Mostra',
     'edit' => 'Modifica',
