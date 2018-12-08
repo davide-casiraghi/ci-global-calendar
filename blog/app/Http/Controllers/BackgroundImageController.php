@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\BackgroundImage;
+
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class BackgroundImageController extends Controller

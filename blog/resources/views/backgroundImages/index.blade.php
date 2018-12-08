@@ -22,7 +22,7 @@
     <form class="row mt-3" action="{{ route('backgroundImages.index') }}" method="GET">
         @csrf
         <div class="form-group col-12 col-md-8 col-lg-9">
-            <input type="text" name="keywords" id="keywords" class="form-control" placeholder="@lang('views.search_by_country_name')" value="{{ $searchKeywords }}">
+            <input type="text" name="keywords" id="keywords" class="form-control" placeholder="@lang('views.search_by_photographer_name')" value="{{ $searchKeywords }}">
         </div>
         <div class="col-12 col-md-4 col-lg-3 mt-sm-0 mt-3">
             <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
@@ -36,7 +36,7 @@
         @foreach ($backgroundImages as $backgroundImage)
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
                 <div class="col-12 col-sm-6 col-md-4 py-3 title">
-                    <a href="{{ route('backgroundImages.edit',$backgroundImage->id) }}">{{ $backgroundImage->title }}</a>
+                    <a href="{{ route('backgroundImages.edit', $backgroundImage->id) }}">{{ $backgroundImage->title }}</a>
                 </div>
                 
                 <div class="col-12 col-sm-3 col-md-2 py-3 code">
