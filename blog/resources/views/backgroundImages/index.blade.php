@@ -40,8 +40,8 @@
         <div class="form-group col-12 col-md-3 col-lg-3">
             <select name="orientation" class="form-control">
                 <option value="">@lang('views.filter_by_orientation')</option>
-                <option value="1" {{  $orientation == '1' ? 'selected' : '' }} >Horizontal</option>
-                <option value="2" {{  $orientation == '2' ? 'selected' : '' }} >Vertical</option>
+                <option value="1" {{  $orientation == '1' ? 'selected' : '' }} >@lang('views.horizontal')</option>
+                <option value="2" {{  $orientation == '2' ? 'selected' : '' }} >@lang('views.vertical')</option>
             </select>
         </div>
         <div class="col-12 col-md-4 col-lg-3 mt-sm-0 mt-3">
