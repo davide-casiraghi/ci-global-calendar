@@ -53,14 +53,14 @@
     <div class="usersList my-4">
         @foreach ($users as $user)
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
-                <div class="col-12 col-sm-5 py-2 name">
+                <div class="col-12 col-sm-5 py-3 name">
                     <a href="{{ route('users.edit',$user->id) }}">{{ $user->name }}</a>
                 </div>
-                <div class="col-6 col-sm-4 py-2 country">
+                <div class="col-6 col-sm-4 py-3 country">
                     <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-2" data-original-title="@lang('general.country')"></i>
                     @if(!empty($user->country_id)){{ $countries[$user->country_id] }}@endif
                 </div>
-                <div class="col-6 col-sm-3 py-2 status">
+                <div class="col-6 col-sm-3 py-3 status text-right">
                     @if(!empty($user->status)){!! '<span class="badge badge-success">Enabled</span>' !!}@else{!!'<span class="badge badge-danger">Disabled</span>'!!}@endif
                 </div>
                 <div class="col-12 pb-2 action">
