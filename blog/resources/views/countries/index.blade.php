@@ -27,7 +27,42 @@
         </div>
     </form>
 
-    <table class="table table-bordered mt-2">
+
+    {{-- List of countries --}}
+    <div class="countriesList my-4">
+        @foreach ($countries as $country)
+            <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
+                <div class="col-12 col-sm-6 col-lg-7 py-3 title">
+                    <a href="{{ route('countries.edit',$country->id) }}">{{ $country->name }}</a>
+                </div>
+                <div class="col-6 col-sm-3 col-lg-2 py-3 code">
+                    <i data-toggle="tooltip" data-placement="top" title="" class="far fa-barcode-alt mr-2" data-original-title="@lang('general.code')"></i>
+                    {{ $country->code }} 
+                </div>
+                <div class="col-6 col-sm-3 col-lg-3 py-3 continent">
+                    <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-globe-americas mr-2" data-original-title="@lang('general.continent')"></i>
+                    {{ $continents[$country->continent_id] }}
+                </div>
+                
+                <div class="col-12 pb-2 action">
+                    <form action="{{ route('countries.destroy',$country->id) }}" method="POST">
+
+                        <a class="btn btn-info mr-2" href="{{ route('countries.show',$country->id) }}">@lang('views.view')</a>
+                        <a class="btn btn-primary" href="{{ route('countries.edit',$country->id) }}">@lang('views.edit')</a>
+
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn btn-danger float-right">@lang('views.delete')</button>
+                    </form>
+                </div>
+
+            </div>
+        @endforeach    
+    </div>
+
+    {{-- List of countries --}}
+    {{--<table class="table table-bordered mt-2">
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -58,7 +93,7 @@
             </td>
         </tr>
         @endforeach
-    </table>
+    </table>--}}
 
 
 

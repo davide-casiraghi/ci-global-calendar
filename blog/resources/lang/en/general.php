@@ -16,6 +16,7 @@ return [
     'by' => 'By',
     'links' => 'Links',
     'description' => 'Description',
+    'continent' => 'Continent',
     'country' => 'Country',
     'city' => 'City',
     'privacy_policy' => 'For more information, please consult the Privacy Policy',

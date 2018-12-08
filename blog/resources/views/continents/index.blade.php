@@ -21,7 +21,7 @@
 
     
     {{-- List of continents --}}
-    <div class="venuesList my-4">
+    <div class="continentsList my-4">
         @foreach ($continents as $continent)
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
                 <div class="col-9 col-md-6 col-lg-7 py-3 title">
@@ -48,39 +48,6 @@
             </div>
         @endforeach    
     </div>
-
-
-    {{-- List of continents --}}
-    {{--<table class="table table-bordered mt-4">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th width="140">Code</th>
-            <th width="280">Action</th>
-        </tr>
-        @foreach ($continents as $continent)
-        <tr>
-            <td>{{ $continent->id }}</td>
-            <td>{{ $continent->name }}</td>
-            <td>{{ $continent->code }}</td>
-            <td>
-                <form action="{{ route('continents.destroy',$continent->id) }}" method="POST">
-
-
-                    <a class="btn btn-info" href="{{ route('continents.show',$continent->id) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('continents.edit',$continent->id) }}">Edit</a>
-
-
-                    @csrf
-                    @method('DELETE')
-
-
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </table>--}}
 
 
     {!! $continents->links() !!}
