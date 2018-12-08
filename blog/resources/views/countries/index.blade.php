@@ -19,11 +19,12 @@
 
     <form class="row mt-3" action="{{ route('countries.index') }}" method="GET">
         @csrf
-        <div class="form-group col-8 col-sm-10 col-md-10 col-lg-10">
+        <div class="form-group col-12 col-md-8 col-lg-9">
             <input type="text" name="keywords" id="keywords" class="form-control" placeholder="@lang('views.search_by_country_name')" value="{{ $searchKeywords }}">
         </div>
-        <div class="col-4 col-sm-2 col-md-2 col-lg-2">
-            <input type="submit" value="Search" class="btn btn-primary float-sm-right">
+        <div class="col-12 col-md-4 col-lg-3 mt-sm-0 mt-3">
+            <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
+            <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right">
         </div>
     </form>
 

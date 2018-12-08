@@ -43,7 +43,7 @@
                 @endforeach
             </select>
         </div>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-3 mt-sm-0 mt-3">
+        <div class="col-12 col-lg-3 mt-sm-0 mt-3">
             <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
             <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right">
         </div>
