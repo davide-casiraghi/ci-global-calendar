@@ -22,10 +22,10 @@
     {{-- Search form --}}
     <form class="row mt-3" action="{{ route('teachers.index') }}" method="GET">
         @csrf
-        <div class="form-group col-lg-7 col-md-6 col-sm-6 col-xs-4">
+        <div class="form-group col-12 col-sm-6 col-md-6 col-lg-7">
             <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by teacher name" value="{{ $searchKeywords }}">
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
             <select name="country_id" class="selectpicker" data-live-search="true">
                 <option value="">Search by country</option>
                 @foreach ($countries as $value => $country)
@@ -34,7 +34,7 @@
                 @endforeach
             </select>
         </div>
-        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-4 mt-sm-0 mt-3">
+        <div class="col-12 col-sm-2 col-md-2 col-lg-1 mt-sm-0 mt-3">
             <input type="submit" value="Search" class="btn btn-primary float-sm-right">
         </div>
     </form>
