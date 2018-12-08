@@ -34,6 +34,7 @@ return [
     'significant_teachers' => 'Significant teachers',
     'search_by_event_name' => 'Search by event name',
     'filter_by_category' => 'Filter by category',
-    'filter_by_country' => 'Filter by country'
+    'filter_by_country' => 'Filter by country',
+    'events_management' => 'Events Management'
 
 ];

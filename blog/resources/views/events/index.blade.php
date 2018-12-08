@@ -13,7 +13,7 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <h2>Events Management</h2>
+            <h2>@lang('views.events_management')</h2>
         </div>
         <div class="col-12 mt-4 mt-sm-0 text-right">
             <a class="btn btn-success" href="{{ route('events.create') }}">@lang('views.create_new_event')</a>
@@ -85,7 +85,6 @@
         </tr>
         @endforeach
     </table>--}}
-    
     
     <div class="eventList my-4">
         @foreach ($events as $event)

@@ -34,6 +34,7 @@ return [
     'significant_teachers' => 'Significant teachers',
     'search_by_event_name' => 'Cerca nome evento',
     'filter_by_category' => 'Filtra per categoria',
-    'filter_by_country' => 'Filtra per stato'
+    'filter_by_country' => 'Filtra per stato',
+    'events_management' => 'Gestione eventi'
 
 ];
