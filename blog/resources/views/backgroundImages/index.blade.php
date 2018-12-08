@@ -1,5 +1,18 @@
 @extends('backgroundImages.layout')
 
+@section('javascript-document-ready')
+    @parent
+
+    {{-- Clear filters on click reset button --}}
+    $("#resetButton").click(function(){
+        $("input#keywords").val("");
+        /*$('#category option').prop("selected", false).trigger('change');*/
+        $('form.searchForm').submit();
+    });
+
+@stop
+
+
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -19,7 +32,7 @@
     @endif
 
     {{-- Search form --}}
-    <form class="row mt-3" action="{{ route('backgroundImages.index') }}" method="GET">
+    <form class="row mt-3 searchForm" action="{{ route('backgroundImages.index') }}" method="GET">
         @csrf
         <div class="form-group col-12 col-md-8 col-lg-9">
             <input type="text" name="keywords" id="keywords" class="form-control" placeholder="@lang('views.search_by_photographer_name')" value="{{ $searchKeywords }}">
