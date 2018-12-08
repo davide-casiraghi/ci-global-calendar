@@ -38,9 +38,40 @@
         </div>
     </form>
 
+    {{-- List of teachers --}}
+    <div class="teachersList my-4">
+        @foreach ($teachers as $teacher)
+            <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
+                <div class="col-12 col-md-6 col-lg-7 py-2 title">
+                    <a href="{{ route('teachers.edit',$teacher->id) }}">{{ $teacher->name }}</a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 pb-2 py-md-2 country">
+                    <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-2" data-original-title="@lang('general.country')"></i>
+                    @if($teacher->country_id){{ $countries[$teacher->country_id] }}@endif
+                </div>
+                <div class="col-12 pb-2 action">
+                    <form action="{{ route('teachers.destroy',$teacher->id) }}" method="POST">
+
+                        <a class="btn btn-info mr-2" href="{{ route('teachers.show',$teacher->id) }}">@lang('views.view')</a>
+                        <a class="btn btn-primary" href="{{ route('teachers.edit',$teacher->id) }}">@lang('views.edit')</a>
+
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn btn-danger float-right">@lang('views.delete')</button>
+                    </form>
+                </div>
+                
+                
+            </div>
+        @endforeach 
+    </div>
+    
+    
+    
 
     {{-- List of teachers --}}
-    <table class="table table-bordered mt-4">
+    {{--<table class="table table-bordered mt-4">
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -69,7 +100,7 @@
             </td>
         </tr>
         @endforeach
-    </table>
+    </table>--}}
 
 
     {!! $teachers->links() !!}
