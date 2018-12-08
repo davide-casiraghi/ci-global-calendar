@@ -22,7 +22,8 @@ class BackgroundImageController extends Controller
             $backgroundImages = DB::table('background_images')
             ->when($searchKeywords, function ($query, $searchKeywords) {
                 return $query->where('credits', $searchKeywords)->orWhere('credits', 'like', '%' . $searchKeywords . '%');
-            });
+            })
+            ->paginate(20);
         }
         else{
             $backgroundImages = BackgroundImage::latest()->paginate(20);
