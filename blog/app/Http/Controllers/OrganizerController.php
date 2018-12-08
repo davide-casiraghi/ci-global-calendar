@@ -165,8 +165,7 @@ class OrganizerController extends Controller
     /**
      * Open a modal in the event view when create organizer is clicked
      *
-     * @param  \App\Teacher  $teacher
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function modal(){
         return view('organizers.modal');

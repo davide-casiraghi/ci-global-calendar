@@ -187,8 +187,7 @@ class TeacherController extends Controller
     /**
      * Open a modal in the event view when create teachers is clicked
      *
-     * @param  \App\Teacher  $teacher
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function modal(){
         $countries = Country::pluck('name', 'id');
