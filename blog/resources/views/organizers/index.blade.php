@@ -37,6 +37,31 @@
     </form>
 
 
+    {{-- List of organizers --}}
+    <div class="organizersList my-4">
+        @foreach ($organizers as $organizer)
+            <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
+                <div class="col-12 py-2 title">
+                    <a href="{{ route('organizers.edit',$organizer->id) }}">{{ $organizer->name }}</a>
+                </div>
+                
+                <div class="col-12 pb-2 action">
+                    <form action="{{ route('organizers.destroy',$organizer->id) }}" method="POST">
+
+                        <a class="btn btn-info mr-2" href="{{ route('organizers.show',$organizer->id) }}">@lang('views.view')</a>
+                        <a class="btn btn-primary" href="{{ route('organizers.edit',$organizer->id) }}">@lang('views.edit')</a>
+
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn btn-danger float-right">@lang('views.delete')</button>
+                    </form>
+                </div>
+            </div>
+        @endforeach 
+    </div>
+    
+    {{--
     <table class="table table-bordered mt-4">
         <tr>
             <th>ID</th>
@@ -65,6 +90,7 @@
         </tr>
         @endforeach
     </table>
+    --}}
 
 
     {!! $organizers->links() !!}
