@@ -47,9 +47,41 @@
         </div>
     </form>
 
-
     {{-- List of venues --}}
-    <table class="table table-bordered mt-4">
+    <div class="venuesList my-4">
+        @foreach ($eventVenues as $eventVenue)
+            <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
+                <div class="col-12 col-md-6 col-lg-8 py-2 title">
+                    <a href="{{ route('eventVenues.edit',$eventVenue->id) }}">{{ $eventVenue->name }}</a>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2 pb-2 py-md-2 country">
+                    <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-2" data-original-title="@lang('general.category')"></i>
+                    {{ $countries[$eventVenue->country_id] }}
+                </div>
+                <div class="col-6 col-md-3 col-lg-2 pb-2 py-md-2 city">
+                    <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-city mr-2" data-original-title="@lang('general.country')"></i>
+                    aaaa
+                </div>
+                <div class="col-12 pb-2 action">
+                    <form action="{{ route('eventVenues.destroy',$eventVenue->id) }}" method="POST">
+
+                        <a class="btn btn-info mr-2" href="{{ route('eventVenues.show',$eventVenue->id) }}">@lang('views.view')</a>
+                        <a class="btn btn-primary" href="{{ route('eventVenues.edit',$eventVenue->id) }}">@lang('views.edit')</a>
+
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn btn-danger float-right">@lang('views.delete')</button>
+                    </form>
+                </div>
+            </div>
+        @endforeach    
+    </div>
+    
+    
+    
+    {{-- List of venues --}}
+    {{--<table class="table table-bordered mt-4">
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -75,7 +107,7 @@
             </td>
         </tr>
         @endforeach
-    </table>
+    </table>--}}
 
 
     {!! $eventVenues->links() !!}

@@ -86,6 +86,7 @@
         @endforeach
     </table>--}}
     
+    {{-- List of events --}}
     <div class="eventList my-4">
         @foreach ($events as $event)
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
