@@ -41,6 +41,7 @@ return [
     'search_by_user_name' => 'Cerca nome utente',
     'filter_by_category' => 'Filtra per categoria',
     'filter_by_country' => 'Filtra per stato',
+    'category_management' => 'Gestione categorie post',
     'events_management' => 'Gestione eventi',
     'events_category_management' => 'Gestione categorie eventi',
     'events_venue_management' => 'Gestione location',

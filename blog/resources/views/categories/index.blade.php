@@ -5,14 +5,13 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Categories management</h2>
+                <h2>@lang('views.category_management')</h2>
             </div>
             <div class="pull-right mt-4 float-right">
-                <a class="btn btn-success" href="{{ route('categories.create') }}"> Create New Category</a>
+                <a class="btn btn-success" href="{{ route('categories.create') }}">@lang('views.create_new_category')</a>
             </div>
         </div>
     </div>
-
 
     @if ($message = Session::get('success'))
         <div class="alert alert-success mt-4">
@@ -21,7 +20,30 @@
     @endif
 
 
-    <table class="table table-bordered mt-4">
+    {{-- List of post categories --}}
+    <div class="venuesList my-4">
+        @foreach ($categories as $category)
+            <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
+                <div class="col-12 col-md-6 col-lg-8 py-3 title">
+                    <a href="{{ route('categories.edit',$category->id) }}">{{ $category->name }}</a>
+                </div>
+                
+                <div class="col-12 pb-2 action">
+                    <form action="{{ route('categories.destroy',$category->id) }}" method="POST">
+
+                        <a class="btn btn-primary" href="{{ route('categories.edit',$category->id) }}">@lang('views.edit')</a>
+
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn btn-danger float-right">@lang('views.delete')</button>
+                    </form>
+                </div>
+            </div>
+        @endforeach    
+    </div>
+    {{-- List of post categories --}}
+    {{-- <table class="table table-bordered mt-4">
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -50,7 +72,7 @@
             </td>
         </tr>
         @endforeach
-    </table>
+    </table>--}}
 
 
     {!! $categories->links() !!}

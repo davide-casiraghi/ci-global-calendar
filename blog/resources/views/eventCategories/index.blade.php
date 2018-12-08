@@ -20,7 +20,7 @@
     @endif
 
 
-    {{-- List of categories --}}
+    {{-- List of event categories --}}
     <div class="venuesList my-4">
         @foreach ($eventCategories as $eventCategory)
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
@@ -43,36 +43,6 @@
             </div>
         @endforeach    
     </div>
-
-    {{-- List of categories --}}
-    {{--<table class="table table-bordered mt-4">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th width="280">Action</th>
-        </tr>
-        @foreach ($eventCategories as $eventCategory)
-        <tr>
-            <td>{{ $eventCategory->id }}</td>
-            <td>{{ $eventCategory->name }}</td>
-            <td>
-                <form action="{{ route('eventCategories.destroy',$eventCategory->id) }}" method="POST">
-
-
-                    <a class="btn btn-info" href="{{ route('eventCategories.show',$eventCategory->id) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('eventCategories.edit',$eventCategory->id) }}">Edit</a>
-
-
-                    @csrf
-                    @method('DELETE')
-
-
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </table>--}}
 
 
     {!! $eventCategories->links() !!}

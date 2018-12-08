@@ -40,6 +40,7 @@ return [
     'search_by_organizer_name' => 'Search by organizer name',
     'filter_by_category' => 'Filter by category',
     'filter_by_country' => 'Filter by country',
+    'category_management' => 'Posts category management',
     'events_management' => 'Events management',
     'events_category_management' => 'Events category management',
     'events_venue_management' => 'Venues management',
