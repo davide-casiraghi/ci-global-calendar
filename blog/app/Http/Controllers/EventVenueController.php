@@ -74,11 +74,13 @@ class EventVenueController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
+        $eventVenue = new EventVenue();
+        
         request()->validate([
             'name' => 'required'
         ]);
 
-        $this->saveOnDb($request);
+        $this->saveOnDb($request, $eventVenue);
 
         return redirect()->route('eventVenues.index')
                         ->with('success','Event venue created successfully.');
@@ -128,7 +130,8 @@ class EventVenueController extends Controller
             'name' => 'required'
         ]);
 
-        $eventVenue->update($request->all());
+        //$eventVenue->update($request->all());
+        $this->saveOnDb($request, $eventVenue);
 
         return redirect()->route('eventVenues.index')
                         ->with('success','Event venue updated successfully');
@@ -152,8 +155,7 @@ class EventVenueController extends Controller
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-     public function saveOnDb($request){
-         $eventVenue = new EventVenue();
+     public function saveOnDb($request, $eventVenue){
          $eventVenue->name = $request->get('name');
          $eventVenue->description = $request->get('description');
          $eventVenue->continent_id = Country::where('id', $request->get('country_id'))->pluck('continent_id')->first();
@@ -187,11 +189,13 @@ class EventVenueController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function storeFromModal(Request $request){
+        $eventVenue = new EventVenue();
+        
         request()->validate([
             'name' => 'required'
         ]);
 
-        $this->saveOnDb($request);
+        $this->saveOnDb($request, $eventVenue);
 
         return redirect()->back()->with('message', 'Venue created');
         //return redirect()->back()->with('message', __('auth.successfully_registered'));
