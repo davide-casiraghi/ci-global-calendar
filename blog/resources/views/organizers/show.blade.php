@@ -21,7 +21,7 @@
             </div>
         @endif
 
-        @if(!empty($eventVenue->description))
+        @if(!empty($organizer->description))
             <div class="col-12 mt-4">
                 <h3>Description</h3>
                 {!! $organizer->description !!}
