@@ -32,6 +32,7 @@ return [
     'create_new_user' => 'Create new user',
     'create_new_category' => 'Create new category',
     'create_new_continent' => 'Create new continent',
+    'create_new_country' => 'Create new country',
     'year_of_starting_to_practice' => 'Year of starting to practice',
     'year_of_starting_to_teach' => 'Year of starting to teach',
     'significant_teachers' => 'Significant teachers',
@@ -40,6 +41,7 @@ return [
     'search_by_venue_name' => 'Search by venue name',
     'search_by_teacher_name' => 'Search by teacher name',
     'search_by_organizer_name' => 'Search by organizer name',
+    'search_by_country_name' => 'Search by country name',
     'filter_by_category' => 'Filter by category',
     'filter_by_country' => 'Filter by country',
     'post_management' => 'Posts management',
@@ -51,5 +53,6 @@ return [
     'organizers_management' => 'Organizers management',
     'users_management' => 'Users management',
     'continents_management' => 'Continents management',
+    'countries_management' => 'Countries management',
 
 ];

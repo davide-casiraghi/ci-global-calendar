@@ -4,10 +4,10 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <h2>Countries management</h2>
+            <h2>@lang('views.countries_management')</h2>
         </div>
         <div class="col-12 mt-4 mt-sm-0 text-right">
-            <a class="btn btn-success" href="{{ route('countries.create') }}">Create New Country</a>
+            <a class="btn btn-success" href="{{ route('countries.create') }}">@lang('views.create_new_country')</a>
         </div>
     </div>
 
@@ -20,7 +20,7 @@
     <form class="row mt-3" action="{{ route('countries.index') }}" method="GET">
         @csrf
         <div class="form-group col-8 col-sm-10 col-md-10 col-lg-10">
-            <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by country name" value="{{ $searchKeywords }}">
+            <input type="text" name="keywords" id="keywords" class="form-control" placeholder="@lang('views.search_by_country_name')" value="{{ $searchKeywords }}">
         </div>
         <div class="col-4 col-sm-2 col-md-2 col-lg-2">
             <input type="submit" value="Search" class="btn btn-primary float-sm-right">
