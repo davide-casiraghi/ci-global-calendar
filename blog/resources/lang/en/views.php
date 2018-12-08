@@ -34,9 +34,11 @@ return [
     'significant_teachers' => 'Significant teachers',
     'search_by_event_name' => 'Search by event name',
     'search_by_venue_name' => 'Search by venue name',
+    'search_by_teacher_name' => 'Search by teacher name',
     'filter_by_category' => 'Filter by category',
     'filter_by_country' => 'Filter by country',
     'events_management' => 'Events Management',
-    'events_venue_management' => 'Venues management'
+    'events_venue_management' => 'Venues management',
+    'teachers_management' => 'Teachers management',
 
 ];

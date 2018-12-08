@@ -34,9 +34,11 @@ return [
     'significant_teachers' => 'Significant teachers',
     'search_by_event_name' => 'Cerca nome evento',
     'search_by_venue_name' => 'Cerca nome location',
+    'search_by_teacher_name' => 'Cerca nome insegnante',
     'filter_by_category' => 'Filtra per categoria',
     'filter_by_country' => 'Filtra per stato',
     'events_management' => 'Gestione eventi',
-    'events_venue_management' => 'Gestione location'
+    'events_venue_management' => 'Gestione location',
+    'teachers_management' => 'Gestione insegnanti',
 
 ];

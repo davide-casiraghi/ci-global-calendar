@@ -4,14 +4,12 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <h2>Teachers management</h2>
+            <h2>@lang('views.teachers_management')</h2>
         </div>
         <div class="col-12 mt-4 mt-sm-0 text-right">
-            <a class="btn btn-success" href="{{ route('teachers.create') }}"> Create New Teacher</a>
+            <a class="btn btn-success" href="{{ route('teachers.create') }}">@lang('views.create_new_teacher')</a>
         </div>
     </div>
-    
-
 
     @if ($message = Session::get('success'))
         <div class="alert alert-success mt-4">
@@ -22,20 +20,21 @@
     {{-- Search form --}}
     <form class="row mt-3" action="{{ route('teachers.index') }}" method="GET">
         @csrf
-        <div class="form-group col-12 col-sm-6 col-md-6 col-lg-7">
-            <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search by teacher name" value="{{ $searchKeywords }}">
+        <div class="form-group col-12 col-sm-6 col-md-6 col-lg-5">
+            <input type="text" name="keywords" id="keywords" class="form-control" placeholder="@lang('views.search_by_teacher_name')" value="{{ $searchKeywords }}">
         </div>
-        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-4">
             <select name="country_id" class="selectpicker" data-live-search="true">
-                <option value="">Search by country</option>
+                <option value="">@lang('views.filter_by_country')</option>
                 @foreach ($countries as $value => $country)
                     {{-- {{ $event->category_id == $value ? 'selected' : '' }} --}}
                     <option value="{{$value}}" {{ $searchCountry == $value ? 'selected' : '' }} >{!! $country !!} </option>
                 @endforeach
             </select>
         </div>
-        <div class="col-12 col-sm-2 col-md-2 col-lg-1 mt-sm-0 mt-3">
-            <input type="submit" value="Search" class="btn btn-primary float-sm-right">
+        <div class="col-12 col-lg-3 mt-3 mt-sm-0">
+            <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
+            <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right">
         </div>
     </form>
 
