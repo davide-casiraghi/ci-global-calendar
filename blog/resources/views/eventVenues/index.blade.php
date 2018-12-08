@@ -15,7 +15,7 @@
             <h2>Event venues management</h2>
         </div>
         <div class="col-12 mt-4 mt-sm-0 text-right">
-            <a class="btn btn-success" href="{{ route('eventVenues.create') }}"> Create New Venue</a>
+            <a class="btn btn-success" href="{{ route('eventVenues.create') }}">Create New Venue</a>
         </div>
     </div>
 

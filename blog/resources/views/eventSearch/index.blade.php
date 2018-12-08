@@ -98,7 +98,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-sm-10 mt-3">
+                    <div class="col-12 mt-sm-10 mt-3">
                         <a id="resetButton" class="btn btn-info float-right ml-2" href="{{ URL::route('home') }}">@lang('general.reset')</a>
                         <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right">
                     </div>
