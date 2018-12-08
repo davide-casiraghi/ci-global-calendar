@@ -33,6 +33,7 @@ return [
     'create_new_category' => 'Crea nuova categoria',
     'create_new_continent' => 'Crea nuovo continente',
     'create_new_country' => 'Crea nuovo stato',
+    'add_new_background_image' => 'Aggiungi un immagine di sfondo',
     'year_of_starting_to_practice' => 'Year of starting to practice',
     'year_of_starting_to_teach' => 'Year of starting to teach',
     'significant_teachers' => 'Significant teachers',
@@ -55,5 +56,6 @@ return [
     'users_management' => 'Gestione utenti',
     'continents_management' => 'Gestione continenti',
     'countries_management' => 'Gestione stati',
+    'background_image_management' => 'Gestione immagini di sfondo',
 
 ];

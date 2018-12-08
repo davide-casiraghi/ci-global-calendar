@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Background Images management</h2>
+                <h2>@lang('views.background_image_management')</h2>
             </div>
-            <div class="pull-right mt-4 float-right">
-                <a class="btn btn-success" href="{{ route('backgroundImages.create') }}"> Add new background image</a>
+            <div class="pull-right mt-4 float-right">  
+                <a class="btn btn-success" href="{{ route('backgroundImages.create') }}">@lang('views.add_new_background_image')</a>
             </div>
         </div>
     </div>

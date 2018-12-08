@@ -33,6 +33,7 @@ return [
     'create_new_category' => 'Create new category',
     'create_new_continent' => 'Create new continent',
     'create_new_country' => 'Create new country',
+    'add_new_background_image' => 'Add new background image',
     'year_of_starting_to_practice' => 'Year of starting to practice',
     'year_of_starting_to_teach' => 'Year of starting to teach',
     'significant_teachers' => 'Significant teachers',
@@ -54,5 +55,6 @@ return [
     'users_management' => 'Users management',
     'continents_management' => 'Continents management',
     'countries_management' => 'Countries management',
+    'background_image_management' => 'Background image management',
 
 ];
