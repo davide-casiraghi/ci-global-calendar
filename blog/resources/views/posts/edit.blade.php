@@ -131,10 +131,10 @@
                     </span>
                 </div>
             </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 pull-right my-auto">
+            <div class="col-3 col-sm-3 col-md-3 pull-right my-auto">
                 <input type="text" name="introimage_alt" value="{{ $post->introimage_alt }}" class="form-control" placeholder="Alt">
             </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 pull-right my-auto">
+            <div class="col-3 col-sm-3 col-md-3 pull-right my-auto">
                 <img id="holder" src="{{ $post->introimage_src }}" style="width:100%;">
             </div>
         </div>

@@ -1,11 +1,6 @@
-@section('javascript')
-    @parent
-
-
-@stop
 
 <div class="row h-100">
-    <div class="col-xs-9 col-sm-9 col-md-9 pull-left my-auto">
+    <div class="col-9 col-sm-9 col-md-9 pull-left my-auto">
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"><strong>{{ $title }}</strong></span>
@@ -18,7 +13,7 @@
             </span>
         </div>
     </div>
-    <div class="col-xs-3 col-sm-3 col-md-3 pull-right my-auto">
+    <div class="col-3 col-sm-3 col-md-3 pull-right my-auto">
         <img id="holder" @if(!empty($image)) src="{{ $image }}" @endif style="width:100%;">
     </div>
 </div>
