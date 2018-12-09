@@ -60,4 +60,6 @@ return [
     'background_image_management' => 'Background image management',
     'horizontal' => 'Horizontal',
     'vertical' => 'Vertical',
+    'add_new_event' => 'Add New event',
+    'created_by' => 'Created by',
 ];
