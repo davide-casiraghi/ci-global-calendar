@@ -3,8 +3,8 @@
 return [
     'search' => 'Cerca',
     'reset' => 'Resetta',
-    'back' => 'Back',
-    'submit' => 'Submit',
+    'back' => 'Indietro',
+    'submit' => 'Salva',
     'category' => 'Categoria',
     'code' => 'Codice',
     'organizers' => 'Organizzatori',
@@ -14,12 +14,24 @@ return [
     'to' => 'To',
     'by' => 'By',
     'links' => 'Links',
-    'description' => 'Description',
+    'description' => 'Descrizione',
     'continent' => 'Continente',
     'country' => 'Stato',
     'city' => 'Città',
     'privacy_policy' => 'For more information, please consult the Privacy Policy.',
     'accept_terms_of_use' => 'Dichiaro di aver letto e di accettare i Termini e Condizioni d’Uso',
-    'admin_account_approval' => 'Your account has to be approved by the administrator and it can take some time (days) to get the confirmation. Next time you only need to login and enter your new entry.'
+    'admin_account_approval' => 'Il tuo account deve essere approvato dall\'amministratote e può essere necessario un po\' di tempo (giorni) per avere la conferma. La prossima volta dovrai solo autenticarti per inserire i tuoi eventi.',
+    'to_be_approved' => 'Per essere approvato come un autore del CI Global Calendar, per favore descrivi il tuo ruolo nella comunità della Contact Improvisation. (questo è necessario per prevenire lo spam nei contenuti del sito)',
+    'name' => 'Nome',
+    'email_address' => 'Indirizzo mail',
+    'phone' => 'Telefono',
+    'password' => 'Password',
+    'confirm_password' => 'Conferma Password',
+    'register' => 'Registrati',
+    'select_country' => 'Seziona stato',
+    'remember_me' => 'Ricordami',
+    'login' => 'Accedi',
+    'forgot_your_password' => 'Dimenticato la password?',
+    
         
 ];

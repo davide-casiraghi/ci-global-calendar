@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12 margin-tb">
             <div class="pull-left">
-                <h2>Add New User</h2>
+                <h2>@lang('views.add_new_user')</h2>
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
          <div class="row">
             <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Name',
+                      'title' => __('general.name'),
                       'name' => 'name',
                       'placeholder' => 'User name'
                 ])
@@ -28,29 +28,28 @@
 
             <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Email',
+                      'title' => __('general.email_address'),
                       'name' => 'email',
-                      'placeholder' => 'Email'
                 ])
             </div>
 
             <div class="col-12">
                 @include('partials.forms.password', [
-                      'title' => 'Password',
+                      'title' => __('general.password'),
                       'name' => 'password'
                 ])
             </div>
 
             <div class="col-12">
                 @include('partials.forms.password', [
-                      'title' => 'Confirm Password',
+                      'title' => __('general.confirm_password'),
                       'name' => 'password_confirmation'
                 ])
             </div>
 
             <div class="col-12">
                 <div class="form-group">
-                    <strong>Group:</strong>
+                    <strong>@lang('views.user_group'):</strong>
                     <select name="group" class="selectpicker" title="Select user role">
                         <option value="">Author</option>
                         <option value="1">Super Administrator</option>
@@ -61,7 +60,7 @@
 
             <div class="col-12">
                 <div class="form-group">
-                    <strong>Status:</strong>
+                    <strong>@lang('views.status'):</strong>
                     <select name="status" class="selectpicker" title="">
                         <option value="0">Disabled</option>
                         <option value="1" selected>Enabled</option>
@@ -71,7 +70,7 @@
 
             <div class="col-12">
                 @include('partials.forms.select', [
-                      'title' => 'Country',
+                      'title' => __('general.country'),
                       'name' => 'country_id',
                       'placeholder' => 'Select country',
                       'records' => $countries
@@ -80,21 +79,16 @@
 
             <div class="col-12">
                 @include('partials.forms.textarea', [
-                      'title' => 'Description',
+                      'title' => __('general.description'),
                       'name' => 'description',
                       'placeholder' => 'To be approved as an editor of the CI Global Calendar, please describe your role in the Contact Improvisation community. (this is needed to prevent spam contents in the website)'
                 ])
             </div>
         </div>
 
-        <div class="row mt-5">
-            <div class="col-6 pull-left">
-                <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
-            </div>
-            <div class="col-6 pull-right">
-              <button type="submit" class="btn btn-primary float-right">Submit</button>
-            </div>
-        </div>
+        @include('partials.forms.buttons-back-submit', [
+              'route' => 'users.index'  
+        ])
 
     </form>
 

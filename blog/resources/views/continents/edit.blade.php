@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit Continent</h2>
+                <h2>@lang('views.edit_continent')</h2>
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
          <div class="row">
             <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Name',
+                      'title' => __('general.name'),
                       'name' => 'name',
                       'placeholder' => 'Continent Name',
                       'value' => $continent->name
@@ -29,22 +29,16 @@
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Code',
+                      'title' => __('views.continent_code'), 
                       'name' => 'code',
-                      'placeholder' => 'Continent code',
                       'value' => $continent->code
                 ])
             </div>
         </div>
 
-        <div class="row mt-5">
-            <div class="col-6 pull-left">
-                <a class="btn btn-primary" href="{{ route('continents.index') }}"> Back</a>
-            </div>
-            <div class="col-6 pull-right">
-              <button type="submit" class="btn btn-primary float-right">Submit</button>
-            </div>
-        </div>
+        @include('partials.forms.buttons-back-submit', [
+            'route' => 'continents.index'  
+        ])
 
     </form>
 

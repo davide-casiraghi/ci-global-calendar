@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12 margin-tb">
             <div class="pull-left">
-                <h2>Add New Teacher</h2>
+                <h2>@lang('views.add_new_teacher')</h2>
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
          <div class="row">
             <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Name',
+                      'title' => __('general.name'),
                       'name' => 'name',
                       'placeholder' => 'Teacher name'
                 ])
@@ -30,9 +30,9 @@
             @if(empty($authorUserId))
                 <div class="col-12">
                     @include('partials.forms.select', [
-                          'title' => 'Created by',
+                          'title' => __('views.created_by'),
                           'name' => 'created_by',
-                          'placeholder' => 'Select owner',
+                          'placeholder' => __('views.select_owner'),
                           'records' => $users
                     ])
                 </div>
@@ -40,7 +40,7 @@
 
             <div class="col-12">
                 @include('partials.forms.select', [
-                      'title' => 'Country',
+                      'title' => __('general.country'),
                       'name' => 'country_id',
                       'placeholder' => 'Select country',
                       'records' => $countries,
@@ -48,15 +48,15 @@
             </div>
 
             <div class="col-12">
-                <div class="form-group">
-                    <strong>Bio:</strong>
-                    <textarea class="form-control" style="height:150px" name="bio" placeholder="Bio"></textarea>
-                </div>
+                @include('partials.forms.textarea-plain', [
+                      'title' =>  __('views.bio'),
+                      'name' => 'significant_teachers',
+                ])
             </div>
 
             <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Year of starting to practice',
+                      'title' => __('views.year_of_starting_to_practice'),
                       'name' => 'year_starting_practice',
                       'placeholder' => 'AAAA',
                       'value' => '',
@@ -65,7 +65,7 @@
 
             <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Year of starting to teach',
+                      'title' => __('views.year_of_starting_to_teach'),
                       'name' => 'year_starting_teach',
                       'placeholder' => 'AAAA',
                       'value' => '',
@@ -73,8 +73,15 @@
             </div>
 
             <div class="col-12">
+                @include('partials.forms.textarea-plain', [
+                      'title' =>  __('views.significant_teachers'),
+                      'name' => 'significant_teachers',
+                ])
+            </div>
+
+            <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Facebook profile',
+                      'title' => __('views.facebook_profile'),
                       'name' => 'facebook',
                       'placeholder' => 'https://...',
                       'value' => '',
@@ -83,7 +90,7 @@
 
             <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Website',
+                      'title' => __('views.website'),
                       'name' => 'website',
                       'placeholder' => 'https://...',
                       'value' => '',
@@ -91,20 +98,15 @@
             </div>
 
             @include('partials.forms.upload-image', [
-                  'title' => 'Upload profile picture',
+                  'title' => __('views.upload_profile_picture'), 
                   'name' => 'profile_picture',
                   'value' => ''
             ])
         </div>
 
-        <div class="row mt-5">
-            <div class="col-6 pull-left">
-                <a class="btn btn-primary" href="{{ route('teachers.index') }}"> Back</a>
-            </div>
-            <div class="col-6 pull-right">
-              <button type="submit" class="btn btn-primary float-right">Submit</button>
-            </div>
-        </div>
+        @include('partials.forms.buttons-back-submit', [
+            'route' => 'teachers.index'  
+        ])
 
     </form>
 

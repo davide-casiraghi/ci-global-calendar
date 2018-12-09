@@ -104,7 +104,7 @@
 
 <div class="row">
     <div class="col-12">
-        <legend>Repeat type</legend>
+        <legend>@lang('views.repeat_type')</legend>
     </div>
 </div>
 
@@ -112,29 +112,23 @@
     <div class="col-12">
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-primary @if(!empty($event->repeat_type)) {{ $event->repeat_type == 1 ? 'active' : '' }} @else {{'active'}} @endif ">
-                <input type="radio" name="repeat_type" value="1" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 1 ? 'checked' : '' }} @else {{'checked'}} @endif> No repeat
+                <input type="radio" name="repeat_type" value="1" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 1 ? 'checked' : '' }} @else {{'checked'}} @endif> @lang('views.no_repeat')
             </label>
             <label class="btn btn-primary @if(!empty($event->repeat_type)) {{ $event->repeat_type == 2 ? 'active' : '' }} @endif ">
-                <input type="radio" name="repeat_type" value="2" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 2 ? 'checked' : '' }}@endif> Weekly
+                <input type="radio" name="repeat_type" value="2" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 2 ? 'checked' : '' }}@endif> @lang('views.weekly')
             </label>
             <label class="btn btn-primary @if(!empty($event->repeat_type)) {{ $event->repeat_type == 3 ? 'active' : '' }} @endif ">
-                <input type="radio" name="repeat_type" value="3" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 3 ? 'checked' : '' }}@endif> Monthly
+                <input type="radio" name="repeat_type" value="3" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 3 ? 'checked' : '' }}@endif> @lang('views.monthly')
             </label>
         </div>
     </div>
 </div>
 
 <div class="repeatDetails" style="display:none">
+    
     <div class="row">
-        <div class="col-12">
-            <legend>Weekly</legend>
-        </div>
-    </div>
-
-    <div class="row">
-
         <div id="onWeekly" class="onFrequency col-12 col-sm-6 col-lg-4" style="display:none">
-            <strong>On:</strong><br/>
+            <strong>@lang('views.weekly') - On:</strong><br/>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-primary" id="day_1" >
                     <input type="checkbox" name="repeat_weekly_on_day[]" value="1" autocomplete="off"> M
@@ -162,7 +156,7 @@
         </div>
 
         <div id="onMonthly" class="onFrequency col-12 col-sm-6 col-lg-4" style="display:none">
-            <strong>On:</strong><br/>
+            <strong>@lang('views.monthly') - On:</strong><br/>
             <select name="on_monthly_kind" id="on_monthly_kind" class="selectpicker" title="Select repeat monthly kind">
                 <option value="1">1</option>
             </select>
@@ -171,13 +165,13 @@
         <div class="col-12 col-sm-6 col-lg-8 mt-2 mt-sm-0">
 
             @include('partials.forms.input-date', [
-                  'title' => 'Repeat Until',
+                  'title' => __('views.repeat_until'),
                   'name' => 'repeat_until',
-                  'placeholder' => 'Select date',
+                  'placeholder' => __('views.select_date'),
                   'endDate' => '+1y',
                   'value' => $dateTime['repeatUntil'],
                   'tooltipFontAwesomeClass' => 'fa fa-info-circle',
-                  'tooltipText' => "It's possible to set maximimum one year of repetition from today"
+                  'tooltipText' => __('views.max_until'),
             ])
 
         </div>

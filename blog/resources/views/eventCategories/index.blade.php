@@ -8,7 +8,7 @@
                 <h2>@lang('views.events_category_management')</h2>
             </div>
             <div class="pull-right mt-4 float-right">
-                <a class="btn btn-success" href="{{ route('eventCategories.create') }}">@lang('views.create_new_category')</a>
+                <a class="btn btn-success" href="{{ route('eventCategories.create') }}">@lang('views.add_new_category')</a>
             </div>
         </div>
     </div>
