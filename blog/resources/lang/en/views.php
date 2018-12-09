@@ -94,5 +94,6 @@ return [
     'created_by' => 'Created by',
     'select_owner' => 'Select owner',
     'please_insert_english_translation' => 'Please insert also an english translation of your event below the description, even short.',
-
+    'continent_code' => 'Continent code',
+    'country_code' => 'Country code',
 ];

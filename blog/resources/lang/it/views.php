@@ -95,7 +95,8 @@ return [
     'created_by' => 'Creato da',
     'select_owner' => 'Seleziona proprietario',
     'please_insert_english_translation' => 'Per favore inserisci anche una traduzione in inglese del tuo evento sotto alla descrizione, anche breve.',
-
+    'continent_code' => 'Codice continente',
+    'country_code' => 'Codice stato',
     
 
 ];
