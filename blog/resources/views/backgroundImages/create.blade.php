@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Add New Background image</h2>
+                <h2>@lang('views.add_new_background_image')</h2>
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
              <div class="col-12">
 
                  @include('partials.forms.input', [
-                       'title' => 'Title',
+                       'title' => __('views.title'),
                        'name' => 'title',
                        'placeholder' => 'Image title - just to recognize it'
                  ])
@@ -28,15 +28,15 @@
              </div>
         </div>
 
-        @include('partials.forms.image-event', [
-              'title' => 'Background image',
+        @include('partials.forms.image-event', [ 
+              'title' => __('views.background_image'),
               'db_column_name' => 'image_src'
         ])
 
         <div class="row mt-2">
             <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Credits',
+                      'title' => __('homepage-serach.photo_credits'), 
                       'name' => 'credits',
                       'placeholder' => 'Who took the photo?'
                 ])
@@ -46,16 +46,14 @@
         <div class="row mt-2">
             <div class="col-12">
                 <div class="form-group">
-                    <strong>Orientation:</strong>
-                    <select name="orientation" class="selectpicker" title="Select orientation">
-                            <option value="1">Horizontal</option>
-                            <option value="2">Vertical</option>
+                    <strong>@lang('views.orientation'):</strong>
+                    <select name="orientation" class="selectpicker" title="@lang('views.select_orientation')">
+                            <option value="1">@lang('views.horizontal')</option>
+                            <option value="2">@lang('views.vertical')</option>
                     </select>
                 </div>
             </div>
         </div>
-
-
 
 
         <div class="row mt-5">

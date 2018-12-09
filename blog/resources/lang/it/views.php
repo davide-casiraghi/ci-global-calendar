@@ -97,6 +97,9 @@ return [
     'please_insert_english_translation' => 'Per favore inserisci anche una traduzione in inglese del tuo evento sotto alla descrizione, anche breve.',
     'continent_code' => 'Codice continente',
     'country_code' => 'Codice stato',
+    'background_image' => 'Immagine di sfondo',
+    'orientation' => 'Orientamento',
+    'select_orientation' => 'Seleziona orientamento',
     
 
 ];
