@@ -11,6 +11,7 @@ return [
     'date_start' => 'Date Start',
     'date_end' => 'Date End',
     'select_date' => 'Select date',
+    'select_time' => 'Select time',
     'time_start' => 'Time Start',
     'time_end' => 'Time End',
     'repeat_type' => 'Repeat type',
@@ -62,4 +63,5 @@ return [
     'vertical' => 'Vertical',
     'add_new_event' => 'Add New event',
     'created_by' => 'Created by',
+
 ];

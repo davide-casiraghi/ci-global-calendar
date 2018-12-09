@@ -87,7 +87,7 @@
                 @include('partials.forms.input-date', [
                       'title' =>  __('views.date_start'),
                       'name' => 'startDate',
-                      'placeholder' => 'Select date',
+                      'placeholder' => __('views.select_date'),
                       'value' => '',
                 ])
             </div>
@@ -96,7 +96,7 @@
                 @include('partials.forms.input-time', [
                       'title' =>  __('views.time_start'),
                       'name' => 'time_start',
-                      'placeholder' => 'select time',
+                      'placeholder' => __('views.select_time'),
                       'value' => '6:00 PM'
                 ])
             </div>
@@ -107,7 +107,7 @@
                 @include('partials.forms.input-date', [
                       'title' =>  __('views.date_end'),
                       'name' => 'endDate',
-                      'placeholder' => 'Select date',
+                      'placeholder' => __('views.select_date'),
                       'value' => '',
                 ])
             </div>
@@ -115,7 +115,7 @@
                 @include('partials.forms.input-time', [
                       'title' =>  __('views.time_end'),
                       'name' => 'time_end',
-                      'placeholder' => 'select time',
+                      'placeholder' => __('views.select_time'),
                       'value' => '8:00 PM'
                 ])
             </div>

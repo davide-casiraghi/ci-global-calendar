@@ -11,6 +11,7 @@ return [
     'date_start' => 'Data di inizio',
     'date_end' => 'Data di fine',
     'select_date' => 'Seleziona data',
+    'select_time' => 'Seleziona ora',
     'time_start' => 'Ora di inizio',
     'time_end' => 'Ora di fine',
     'repeat_type' => 'Tipo di ripetizione',
@@ -63,6 +64,7 @@ return [
     'vertical' => 'Verticale',
     'add_new_event' => 'Aggiungi nuovo evento',
     'created_by' => 'Creato da',
+
     
 
 ];
