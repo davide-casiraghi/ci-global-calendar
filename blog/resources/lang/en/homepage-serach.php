@@ -22,5 +22,5 @@ return [
     'select_a_city' => 'Select a city',
     'all_kind_of_events' => 'All kind of events',
     'teacher_name' => 'Teacher name',
-    'photo_credits' => ''
+    'photo_credits' => 'Photo credits'
 ];
