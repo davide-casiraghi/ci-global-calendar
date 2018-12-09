@@ -24,6 +24,7 @@ return [
     'to_be_approved' => 'Per essere approvato come un autore del CI Global Calendar, per favore descrivi il tuo ruolo nella comunità della Contact Improvisation. (questo è necessario per prevenire lo spam nei contenuti del sito)',
     'name' => 'Nome',
     'email_address' => 'Indirizzo mail',
+    'phone' => 'Telefono',
     'password' => 'Password',
     'confirm_password' => 'Conferma Password',
     'register' => 'Registrati',

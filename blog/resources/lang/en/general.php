@@ -25,6 +25,7 @@ return [
     'to_be_approved' => 'To be approved as an editor of the CI Global Calendar, please describe your role in the Contact Improvisation community. (this is needed to prevent spam contents in the website)',
     'name' => 'Name',
     'email_address' => 'E-Mail Address',
+    'phone' => 'Phone',
     'password' => 'Password',
     'confirm_password' => 'Confirm Password',
     'register' => 'Register',

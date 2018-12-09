@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit Organizer</h2>
+                <h2>@lang('views.edit_organizer')</h2>
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
          <div class="row">
             <div class="col-12">
                 @include('partials.forms.input', [
-                    'title' => 'Name',
+                    'title' => __('general.name'),
                     'name' => 'name',
                     'placeholder' => 'Name',
                     'value' => $organizer->name
@@ -32,7 +32,7 @@
             @if(empty($authorUserId))
                 <div class="col-12">
                     @include('partials.forms.select', [
-                          'title' => 'Created by',
+                          'title' => __('views.created_by'),
                           'name' => 'created_by',
                           'placeholder' => 'Select owner',
                           'records' => $users,
@@ -43,23 +43,21 @@
 
             <div class="col-12">
                 @include('partials.forms.input', [
-                    'title' => 'Email',
+                    'title' => __('general.email_address'),
                     'name' => 'email',
-                    'placeholder' => 'email',
                     'value' => $organizer->email
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
-                    'title' => 'Phone',
+                    'title' => __('general.phone'),
                     'name' => 'phone',
-                    'placeholder' => 'Phone',
                     'value' => $organizer->phone
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
-                    'title' => 'Website',
+                    'title' => __('views.website'),
                     'name' => 'website',
                     'placeholder' => 'https://...',
                     'value' => $organizer->website
@@ -67,7 +65,7 @@
             </div>
             <div class="col-12">
                 @include('partials.forms.textarea', [
-                      'title' => 'Description (optional)',
+                      'title' => __('general.description'),
                       'name' => 'description',
                       'placeholder' => 'Organizer description',
                       'value' => $organizer->description
