@@ -3,8 +3,8 @@
 return [
     'search' => 'Cerca',
     'reset' => 'Resetta',
-    'back' => 'Back',
-    'submit' => 'Submit',
+    'back' => 'Indietro',
+    'submit' => 'Salva',
     'category' => 'Categoria',
     'code' => 'Codice',
     'organizers' => 'Organizzatori',

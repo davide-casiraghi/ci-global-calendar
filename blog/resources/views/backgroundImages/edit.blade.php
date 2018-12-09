@@ -58,14 +58,18 @@
             </div>
         </div>
 
-        <div class="row">
+        {{--<div class="row">
             <div class="col-6 pull-left">
                 <a class="btn btn-primary" href="{{ route('backgroundImages.index') }}"> Back</a>
             </div>
             <div class="col-6 pull-right">
               <button type="submit" class="btn btn-primary float-right">Submit</button>
             </div>
-        </div>
+        </div>--}}
+        
+        @include('partials.forms.buttons-back-submit', [
+              'route' => 'backgroundImages.index'  
+        ])
 
 
     </form>

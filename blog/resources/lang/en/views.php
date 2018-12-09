@@ -97,7 +97,9 @@ return [
     'continent_code' => 'Continent code',
     'country_code' => 'Country code',
     'background_image' => 'Background image',
+    'background_image_title' => 'Image title - just to recognize it',
     'orientation' => 'Orientation',
     'select_orientation' => 'Select orientation',
+    'who_took_the_photo'  => 'chi ha scattato la foto?',
     
 ];

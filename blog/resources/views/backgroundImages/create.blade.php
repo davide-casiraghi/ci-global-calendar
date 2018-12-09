@@ -22,7 +22,7 @@
                  @include('partials.forms.input', [
                        'title' => __('views.title'),
                        'name' => 'title',
-                       'placeholder' => 'Image title - just to recognize it'
+                       'placeholder' => __('views.background_image_title'),
                  ])
 
              </div>
@@ -38,7 +38,7 @@
                 @include('partials.forms.input', [
                       'title' => __('homepage-serach.photo_credits'), 
                       'name' => 'credits',
-                      'placeholder' => 'Who took the photo?'
+                      'placeholder' => __('views.who_took_the_photo'), 
                 ])
             </div>
         </div>
@@ -54,8 +54,12 @@
                 </div>
             </div>
         </div>
+        
+        @include('partials.forms.buttons-back-submit', [
+              'route' => 'backgroundImages.index'  
+        ])
 
-
+{{--
         <div class="row mt-5">
             <div class="col-6 pull-left">
                 <a class="btn btn-primary" href="{{ route('backgroundImages.index') }}"> Back</a>
@@ -64,6 +68,7 @@
               <button type="submit" class="btn btn-primary float-right">Submit</button>
             </div>
         </div>
+--}}
 
 
     </form>

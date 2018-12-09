@@ -98,8 +98,10 @@ return [
     'continent_code' => 'Codice continente',
     'country_code' => 'Codice stato',
     'background_image' => 'Immagine di sfondo',
+    'background_image_title' => 'Titolo immagine - per riconoscerla',
     'orientation' => 'Orientamento',
     'select_orientation' => 'Seleziona orientamento',
+    'who_took_the_photo'  => 'Who took the photo?',
     
 
 ];
