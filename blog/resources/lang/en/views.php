@@ -3,7 +3,10 @@
 return [
     'title' => 'Title',
     'category' => 'Category',
+    'select_category' => 'Select category',
     'status' => 'Status',
+    'published' => 'Published',
+    'unpublished' => 'Unpublished',
     'teachers' => 'Teachers',
     'organizers' => 'Organizers',
     'venues' => 'Venues',
@@ -65,5 +68,7 @@ return [
     'vertical' => 'Vertical',
     'add_new_event' => 'Add New event',
     'created_by' => 'Created by',
+    'select_owner' => 'Select owner',
+    'please_insert_english_translation' => 'Please insert also an english translation of your event below the description, even short.',
 
 ];

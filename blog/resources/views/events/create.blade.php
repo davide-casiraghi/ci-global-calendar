@@ -41,7 +41,7 @@
                     @include('partials.forms.select', [
                           'title' =>  __('views.created_by'), 
                           'name' => 'created_by',
-                          'placeholder' => 'Select owner',
+                          'placeholder' => __('views.select_owner'),
                           'records' => $users
                     ])
                 </div>
@@ -51,7 +51,7 @@
                 @include('partials.forms.select', [
                       'title' => __('views.category'),
                       'name' => 'category_id',
-                      'placeholder' => 'Select category',
+                      'placeholder' => __('views.select_category'),
                       'records' => $eventCategories
                 ])
             </div>
