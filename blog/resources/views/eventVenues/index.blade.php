@@ -15,7 +15,7 @@
             <h2>@lang('views.events_venue_management')</h2>
         </div>
         <div class="col-12 mt-4 mt-sm-0 text-right">
-            <a class="btn btn-success" href="{{ route('eventVenues.create') }}">@lang('views.create_new_venue')</a>
+            <a class="btn btn-success" href="{{ route('eventVenues.create') }}">@lang('views.add_new_venue')</a>
         </div>
     </div>
 

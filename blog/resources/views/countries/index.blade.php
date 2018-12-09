@@ -7,7 +7,7 @@
             <h2>@lang('views.countries_management')</h2>
         </div>
         <div class="col-12 mt-4 mt-sm-0 text-right">
-            <a class="btn btn-success" href="{{ route('countries.create') }}">@lang('views.create_new_country')</a>
+            <a class="btn btn-success" href="{{ route('countries.create') }}">@lang('views.add_new_country')</a>
         </div>
     </div>
 
