@@ -51,21 +51,12 @@
                 <div class="form-group">
                     <strong>@lang('views.orientation'):</strong>
                     <select name="orientation" class="selectpicker" title="Select orientation">
-                            <option value="1" @if(!$backgroundImage->orientation) {{  $backgroundImage->orientation == 1 ? 'selected' : '' }}@endif>@lang('views.horizontal')</option>
-                            <option value="2" @if($backgroundImage->orientation) {{  $backgroundImage->orientation == 2 ? 'selected' : '' }}@endif>@lang('views.vertical')</option>
+                            <option value="1" @if($backgroundImage->orientation == 1) {{ 'selected' }}@endif>@lang('views.horizontal')</option>
+                            <option value="2" @if($backgroundImage->orientation == 2) {{ 'selected' }}@endif>@lang('views.vertical')</option>
                     </select>
                 </div>
             </div>
         </div>
-
-        {{--<div class="row">
-            <div class="col-6 pull-left">
-                <a class="btn btn-primary" href="{{ route('backgroundImages.index') }}"> Back</a>
-            </div>
-            <div class="col-6 pull-right">
-              <button type="submit" class="btn btn-primary float-right">Submit</button>
-            </div>
-        </div>--}}
         
         @include('partials.forms.buttons-back-submit', [
               'route' => 'backgroundImages.index'  

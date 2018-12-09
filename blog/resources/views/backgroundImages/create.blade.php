@@ -59,18 +59,6 @@
               'route' => 'backgroundImages.index'  
         ])
 
-{{--
-        <div class="row mt-5">
-            <div class="col-6 pull-left">
-                <a class="btn btn-primary" href="{{ route('backgroundImages.index') }}"> Back</a>
-            </div>
-            <div class="col-6 pull-right">
-              <button type="submit" class="btn btn-primary float-right">Submit</button>
-            </div>
-        </div>
---}}
-
-
     </form>
 
 
