@@ -19,5 +19,7 @@ return [
     'select_a_city' => 'Seleziona una città',
     'all_kind_of_events' => 'Tutti i tipi di eventi',
     'teacher_name' => 'Nome dell\'insegnante',
+    'venue_name' => 'Nome del luogo',
+    'organizer_name' => 'Nome dell\'organizzatore',
     'photo_credits' => 'Foto di'
 ];
