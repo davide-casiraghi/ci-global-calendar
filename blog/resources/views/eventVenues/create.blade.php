@@ -92,14 +92,9 @@
             </div>
         </div>
 
-        <div class="row mt-5">
-            <div class="col-6 pull-left">
-                <a class="btn btn-primary" href="{{ route('eventVenues.index') }}"> Back</a>
-            </div>
-            <div class="col-6 pull-right">
-              <button type="submit" class="btn btn-primary float-right">Submit</button>
-            </div>
-        </div>
+        @include('partials.forms.buttons-back-submit', [
+            'route' => 'eventVenues.index'  
+        ])
 
     </form>
 

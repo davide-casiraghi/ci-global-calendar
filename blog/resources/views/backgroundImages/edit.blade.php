@@ -62,7 +62,6 @@
               'route' => 'backgroundImages.index'  
         ])
 
-
     </form>
 
 
