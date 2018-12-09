@@ -8,7 +8,7 @@
                 <div class="card-header">@lang('general.login')</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
+                    <form method="POST" action="{{ route('login') }}" aria-label="@lang('general.login')">
                         @csrf
 
                         <div class="form-group row">
