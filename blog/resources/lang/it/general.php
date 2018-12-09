@@ -28,5 +28,9 @@ return [
     'confirm_password' => 'Conferma Password',
     'register' => 'Registrati',
     'select_country' => 'Seziona stato',
+    'remember_me' => 'Ricordami',
+    'login' => 'Accedi',
+    'forgot_your_password' => 'Dimenticato la password?',
+    
         
 ];
