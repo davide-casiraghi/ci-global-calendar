@@ -66,6 +66,7 @@ return [
     'vertical' => 'Verticale',
     'add_new_event' => 'Aggiungi nuovo evento',
     'created_by' => 'Creato da',
+    'please_insert_english_translation' => 'Per favore inserisci anche una traduzione in inglese del tuo evento sotto alla descrizione, anche breve.',
 
     
 

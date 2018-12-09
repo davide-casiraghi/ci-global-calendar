@@ -61,7 +61,7 @@
             </div>
             <div class="col-12">
                 @include('partials.forms.alert', [
-                	'text' => 'Please insert also an english translation of your event below the description, even short.',
+                	'text' => __('views.please_insert_english_translation'),
                 	'style' => 'alert-warning',
                 ])
                 @include('partials.forms.textarea', [
