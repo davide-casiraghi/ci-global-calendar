@@ -78,7 +78,7 @@
 
         <div class="row">
             <div class="col-12">
-                <legend>Start, End, Duration</legend>
+                <legend>@lang('views.start_end_duration')</legend>
             </div>
         </div>
 

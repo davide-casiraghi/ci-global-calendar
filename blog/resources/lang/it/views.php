@@ -18,6 +18,8 @@ return [
     'no_repeat' => 'Nessuna Ripetizione',
     'weekly' => 'Settimanale',
     'monthly' => 'Mensile',
+    'repeat_until' => 'Ripeti fino al',
+    'max_until' => 'E\' possibile impostare al massimo un anno di ripetizione da oggi',
     'facebook_event' => 'Evento Facebook',
     'event_url' => 'Sito web',
     'translations' => 'Traduzioni',

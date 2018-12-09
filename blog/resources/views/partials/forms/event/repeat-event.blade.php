@@ -125,16 +125,10 @@
 </div>
 
 <div class="repeatDetails" style="display:none">
+    
     <div class="row">
-        <div class="col-12">
-            <legend>@lang('views.weekly')</legend>
-        </div>
-    </div>
-
-    <div class="row">
-
         <div id="onWeekly" class="onFrequency col-12 col-sm-6 col-lg-4" style="display:none">
-            <strong>On:</strong><br/>
+            <strong>@lang('views.weekly') - On:</strong><br/>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-primary" id="day_1" >
                     <input type="checkbox" name="repeat_weekly_on_day[]" value="1" autocomplete="off"> M
@@ -162,7 +156,7 @@
         </div>
 
         <div id="onMonthly" class="onFrequency col-12 col-sm-6 col-lg-4" style="display:none">
-            <strong>On:</strong><br/>
+            <strong>@lang('views.monthly') - On:</strong><br/>
             <select name="on_monthly_kind" id="on_monthly_kind" class="selectpicker" title="Select repeat monthly kind">
                 <option value="1">1</option>
             </select>
@@ -171,13 +165,13 @@
         <div class="col-12 col-sm-6 col-lg-8 mt-2 mt-sm-0">
 
             @include('partials.forms.input-date', [
-                  'title' => 'Repeat Until',
+                  'title' => __('views.repeat_until'),
                   'name' => 'repeat_until',
-                  'placeholder' => 'Select date',
+                  'placeholder' => __('views.select_date'),
                   'endDate' => '+1y',
                   'value' => $dateTime['repeatUntil'],
                   'tooltipFontAwesomeClass' => 'fa fa-info-circle',
-                  'tooltipText' => "It's possible to set maximimum one year of repetition from today"
+                  'tooltipText' => __('views.max_until'),
             ])
 
         </div>

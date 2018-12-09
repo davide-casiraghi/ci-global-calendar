@@ -18,6 +18,8 @@ return [
     'no_repeat' => 'No Repeat',
     'weekly' => 'Weekly',
     'monthly' => 'Monthly',
+    'repeat_until' => 'Repeat until',
+    'max_until' => 'It\'s possible to set maximimum one year of repetition from today',
     'facebook_event' => 'Facebook event',
     'event_url' => 'Event URL',
     'translations' => 'Translations',
