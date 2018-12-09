@@ -48,10 +48,10 @@
             </div>
 
             <div class="col-12">
-                <div class="form-group">
-                    <strong>Bio:</strong>
-                    <textarea class="form-control" style="height:150px" name="bio" placeholder="Bio"></textarea>
-                </div>
+                @include('partials.forms.textarea-plain', [
+                      'title' =>  __('views.bio'),
+                      'name' => 'significant_teachers',
+                ])
             </div>
 
             <div class="col-12">
@@ -69,6 +69,13 @@
                       'name' => 'year_starting_teach',
                       'placeholder' => 'AAAA',
                       'value' => '',
+                ])
+            </div>
+
+            <div class="col-12">
+                @include('partials.forms.textarea-plain', [
+                      'title' =>  __('views.significant_teachers'),
+                      'name' => 'significant_teachers',
                 ])
             </div>
 

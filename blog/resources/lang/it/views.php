@@ -43,6 +43,7 @@ return [
     'add_new_continent' => 'Crea nuovo continente',
     'add_new_country' => 'Crea nuovo stato',
     'add_new_background_image' => 'Aggiungi un immagine di sfondo',
+    'bio' => 'Biografia',
     'year_of_starting_to_practice' => 'Anno di inizio pratica',
     'year_of_starting_to_teach' => 'Anno di inizio insegnamento',
     'significant_teachers' => 'Insegnanti significativi',

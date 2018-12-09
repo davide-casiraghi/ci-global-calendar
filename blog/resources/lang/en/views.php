@@ -43,6 +43,7 @@ return [
     'add_new_continent' => 'Add new continent',
     'add_new_country' => 'Add new country',
     'add_new_background_image' => 'Add new background image',
+    'bio' => 'Bio',
     'year_of_starting_to_practice' => 'Year of starting to practice',
     'year_of_starting_to_teach' => 'Year of starting to teach',
     'significant_teachers' => 'Significant teachers',
