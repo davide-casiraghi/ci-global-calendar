@@ -34,8 +34,6 @@
                 
                 <div class="col-12 pb-2 action">
                     <form action="{{ route('continents.destroy',$continent->id) }}" method="POST">
-
-                        <a class="btn btn-info mr-2" href="{{ route('continents.show',$continent->id) }}">@lang('views.view')</a>
                         <a class="btn btn-primary" href="{{ route('continents.edit',$continent->id) }}">@lang('views.edit')</a>
 
                         @csrf

@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit Country</h2>
+                <h2>@lang('views.edit_country')</h2>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
          <div class="row">
             <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Name',
+                      'title' => __('general.name'),
                       'name' => 'name',
                       'placeholder' => 'Name',
                       'value' => $country->name
@@ -31,15 +31,14 @@
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Code',
+                      'title' => __('views.country_code'),
                       'name' => 'code',
-                      'placeholder' => 'Country code',
                       'value' => $country->code
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.select', [
-                      'title' => 'Continent',
+                      'title' => __('general.continent'),
                       'name' => 'continent_id',
                       'placeholder' => 'Select continent',
                       'records' => $continents,

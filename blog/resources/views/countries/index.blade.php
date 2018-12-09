@@ -48,8 +48,6 @@
                 
                 <div class="col-12 pb-2 action">
                     <form action="{{ route('countries.destroy',$country->id) }}" method="POST">
-
-                        <a class="btn btn-info mr-2" href="{{ route('countries.show',$country->id) }}">@lang('views.view')</a>
                         <a class="btn btn-primary" href="{{ route('countries.edit',$country->id) }}">@lang('views.edit')</a>
 
                         @csrf
