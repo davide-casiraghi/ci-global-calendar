@@ -4,7 +4,7 @@
     {{--  Clear filters on click reset button --}}
         $("#resetButton").click(function(){
             $("input#keywords").val("");
-            $('#country option').prop("selected", false).trigger('change');
+            $("select[name=country_id] option").prop("selected", false).trigger('change');
             $('form.searchForm').submit();
         });
 @endsection
@@ -21,7 +21,6 @@
         </div>
     </div>
 
-
     @if ($message = Session::get('success'))
         <div class="alert alert-success mt-4">
             <p>{{ $message }}</p>
@@ -29,7 +28,7 @@
     @endif
 
     {{-- Search form --}}
-    <form class="row mt-3" action="{{ route('users.index') }}" method="GET">
+    <form class="row mt-3 searchForm" action="{{ route('users.index') }}" method="GET">
         @csrf
         <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6">
             <input type="text" name="keywords" id="keywords" class="form-control" placeholder="@lang('views.search_by_user_name')" value="{{ $searchKeywords }}">
@@ -38,8 +37,7 @@
             <select name="country_id" class="selectpicker" data-live-search="true">
                 <option value="">@lang('views.filter_by_country')</option>
                 @foreach ($countries as $value => $country)
-                    {{-- {{ $event->category_id == $value ? 'selected' : '' }} --}}
-                    <option value="{{$value}}" {{ $searchCountry == $value ? 'selected' : '' }} >{!! $country !!} </option>
+                    <option value="{{$value}}" {{ $searchCountry == $value ? 'selected' : '' }} >{{ $country }} </option>
                 @endforeach
             </select>
         </div>
