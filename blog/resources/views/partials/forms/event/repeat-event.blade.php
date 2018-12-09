@@ -104,7 +104,7 @@
 
 <div class="row">
     <div class="col-12">
-        <legend>Repeat type</legend>
+        <legend>@lang('views.repeat_type')</legend>
     </div>
 </div>
 
@@ -112,13 +112,13 @@
     <div class="col-12">
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-primary @if(!empty($event->repeat_type)) {{ $event->repeat_type == 1 ? 'active' : '' }} @else {{'active'}} @endif ">
-                <input type="radio" name="repeat_type" value="1" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 1 ? 'checked' : '' }} @else {{'checked'}} @endif> No repeat
+                <input type="radio" name="repeat_type" value="1" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 1 ? 'checked' : '' }} @else {{'checked'}} @endif> @lang('views.no_repeat')
             </label>
             <label class="btn btn-primary @if(!empty($event->repeat_type)) {{ $event->repeat_type == 2 ? 'active' : '' }} @endif ">
-                <input type="radio" name="repeat_type" value="2" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 2 ? 'checked' : '' }}@endif> Weekly
+                <input type="radio" name="repeat_type" value="2" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 2 ? 'checked' : '' }}@endif> @lang('views.weekly')
             </label>
             <label class="btn btn-primary @if(!empty($event->repeat_type)) {{ $event->repeat_type == 3 ? 'active' : '' }} @endif ">
-                <input type="radio" name="repeat_type" value="3" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 3 ? 'checked' : '' }}@endif> Monthly
+                <input type="radio" name="repeat_type" value="3" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 3 ? 'checked' : '' }}@endif> @lang('views.monthly')
             </label>
         </div>
     </div>
@@ -127,7 +127,7 @@
 <div class="repeatDetails" style="display:none">
     <div class="row">
         <div class="col-12">
-            <legend>Weekly</legend>
+            <legend>@lang('views.weekly')</legend>
         </div>
     </div>
 
