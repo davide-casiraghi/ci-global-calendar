@@ -3,7 +3,7 @@
     <textarea   class="form-control{{ $errors->has($name) ? ' is-invalid' : '' }}" 
                 style="height: @if(!empty($height)){{ $height }}@else{{'9rem'}}@endif" 
                 name="{{ $name }}" 
-                @if(!empty($placeholder))placeholder="{{ $placeholder }}"@endif 
+                @if(!empty($placeholder)) placeholder="{{ $placeholder }}" @endif 
                 id="bodyTextarea">
                 @if(!empty($value)){!! $value !!} @endif
     </textarea>

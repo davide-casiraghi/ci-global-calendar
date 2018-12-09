@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit Teacher</h2>
+                <h2>@lang('views.edit_teacher')</h2>
             </div>
         </div>
     </div>
