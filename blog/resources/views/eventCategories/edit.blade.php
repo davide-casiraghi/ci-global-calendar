@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit Event Category</h2>
+                <h2>@lang('views.edit_event_category')</h2>
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
          <div class="row">
             <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Name',
+                      'title' => __('general.name'),
                       'name' => 'name',
                       'placeholder' => 'Event category name',
                       'value' => $eventCategory->name
