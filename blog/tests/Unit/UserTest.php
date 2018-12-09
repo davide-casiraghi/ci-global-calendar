@@ -15,6 +15,13 @@ class UserTest extends TestCase
      */
     public function testExample()
     {
+        // assumption
+        
+        // call actual method to tests
+        
+        // test using assertions
+        
+        
         $this->assertTrue(true);
     }
 }
