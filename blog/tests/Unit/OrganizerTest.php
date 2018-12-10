@@ -14,11 +14,16 @@ class OrganizerTest extends TestCase
 {
     use WithFaker;
     
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
+    
+    public function testIndex(){
+        // Authenticate the user
+            $this->authenticate();
+        // Access to the page
+            $response = $this->get('/organizers')
+                             ->assertStatus(200);
+    }
+ 
+    
     public function test_a_logged_user_can_create_organizer()
     {
         // Authenticate the user
