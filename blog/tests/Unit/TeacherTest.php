@@ -14,7 +14,7 @@ class TeacherTest extends TestCase
 {
     use WithFaker;
     
-    public function test_logged_user_can_see_teachers(){
+    public function test_logged_user_can_see_teachers_index(){
         // Authenticate the user
             $this->authenticate();
         
@@ -22,6 +22,24 @@ class TeacherTest extends TestCase
             $response = $this->get('/teachers')
                              ->assertStatus(200);
     }
+    
+    /*public function test_logged_user_can_see_single_teacher(){
+        // Authenticate the user
+            $this->authenticate();
+            
+        // Access to the page
+            $response = $this->get('/teachers/1/')
+                         ->assertStatus(200);
+        
+            //$this->action('GET', 'TeachersController@show', ['id' => 3]);
+            
+            //$response = $this->get('TeachersController@show', ['id' => 3]);
+            //$response = $this->get('/teachers/'.$id.'/');
+            //dd($response);
+            
+            //$response = $this->get('/teachers/'.$id)
+                        //     ->assertStatus(200);
+    }*/
     
     public function test_a_logged_user_can_create_teacher()
     {
@@ -49,8 +67,5 @@ class TeacherTest extends TestCase
     
     }
     
-    /*public function a_logged_user_can_create_teacher(){
-        
-        
-    }*/
+    
 }
