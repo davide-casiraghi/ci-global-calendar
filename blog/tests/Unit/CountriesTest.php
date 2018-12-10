@@ -10,22 +10,20 @@ use App\Teacher;
 use App\User;
 
 
-class TeacherTest extends TestCase
+class CountriesTest extends TestCase
 {
     use WithFaker;
-    /*
-    public function test_logged_user_can_see_teachers(){
+    
+    public function test_logged_user_can_see_countries(){
         // Authenticate the user
             $this->authenticate();
         
         // Access to the page
-            $response = $this->get('/teachers')
+            $response = $this->get('/countries')
                              ->assertStatus(200);
-                             //$response = $this->get('/teachers');
-                             //dd($response);
-    }*/
+    }
     
-    public function test_a_logged_user_can_create_teacher()
+    /*public function test_a_logged_user_can_create_teacher()
     {
         // Authenticate the user
             $this->authenticate();
@@ -49,7 +47,7 @@ class TeacherTest extends TestCase
         // Status
             $response->assertStatus(302); // I aspect redirect (301 or 302) because after store get redirected to teachers.index
     
-    }
+    }*/
     
     /*public function a_logged_user_can_create_teacher(){
         
