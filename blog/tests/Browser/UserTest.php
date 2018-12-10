@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 use App\User;
 
-class LoginTest extends DuskTestCase
+class UserTest extends DuskTestCase
 {
     /**
      * A Dusk test example.
