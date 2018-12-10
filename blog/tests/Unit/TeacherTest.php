@@ -13,7 +13,7 @@ use App\User;
 class TeacherTest extends TestCase
 {
     use WithFaker;
-    /*
+    
     public function test_logged_user_can_see_teachers(){
         // Authenticate the user
             $this->authenticate();
@@ -21,9 +21,7 @@ class TeacherTest extends TestCase
         // Access to the page
             $response = $this->get('/teachers')
                              ->assertStatus(200);
-                             //$response = $this->get('/teachers');
-                             //dd($response);
-    }*/
+    }
     
     public function test_a_logged_user_can_create_teacher()
     {
