@@ -6,7 +6,8 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class CountriesTest extends TestCase
+
+class ContinentsTest extends TestCase
 {
     use WithFaker;
     
@@ -15,12 +16,12 @@ class CountriesTest extends TestCase
         - php artisan db:seed --class=CountriesTableSeeder --env=testing
         - php artisan db:seed --class=ContinentsTableSeeder --env=testing
     */
-    public function test_logged_user_can_see_countries(){
+    public function test_logged_user_can_see_continents(){
         // Authenticate the user
             $this->authenticate();
         
         // Access to the page
-            $response = $this->get('/countries')
+            $response = $this->get('/continents')
                 ->assertStatus(200);    
     }
     
