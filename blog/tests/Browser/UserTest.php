@@ -10,11 +10,7 @@ use App\User;
 
 class UserTest extends DuskTestCase
 {
-    /**
-     * A Dusk test example.
-     *
-     * @return void
-     */
+
     public function test_user_login()
     {
         $user = factory(User::class)->create();
