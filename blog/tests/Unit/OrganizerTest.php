@@ -15,7 +15,7 @@ class OrganizerTest extends TestCase
     use WithFaker;
     
     
-    public function testIndex(){
+    public function test_logged_user_can_see_organizers(){
         // Authenticate the user
             $this->authenticate();
         // Access to the page
