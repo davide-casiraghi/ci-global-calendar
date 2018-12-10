@@ -15,7 +15,7 @@ class LoginTest extends DuskTestCase
      *
      * @return void
      */
-    public function testExample()
+    public function test_user_login()
     {
         $user = factory(User::class)->create();
 
