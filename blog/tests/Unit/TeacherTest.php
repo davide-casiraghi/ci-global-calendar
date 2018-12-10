@@ -19,7 +19,7 @@ class TeacherTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function test_a_logged_user_can_create_teacher()
     {
         // Authenticate the user
             $this->authenticate();
