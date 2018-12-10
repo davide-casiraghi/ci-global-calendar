@@ -19,8 +19,10 @@ class CountriesTest extends TestCase
             $this->authenticate();
         
         // Access to the page
-            $response = $this->get('/countries')
-                             ->assertStatus(200);
+        $response = $this->get('/countries');
+        dd($response);
+            /*$response = $this->get('/countries')
+                             ->assertStatus(200);*/
     }
     
     /*public function test_a_logged_user_can_create_teacher()
