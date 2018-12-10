@@ -19,7 +19,7 @@ class CreateOrganizersTable extends Migration
             $table->string('image')->nullable();
             $table->string('website')->nullable();
             $table->string('facebook')->nullable();
-            $table->integer('created_by');
+            $table->integer('created_by')->nullable();
             $table->string('slug')->unique();
             $table->timestamps();
         });

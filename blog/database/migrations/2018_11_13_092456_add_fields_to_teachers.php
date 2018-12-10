@@ -14,7 +14,7 @@ class AddFieldsToTeachers extends Migration
     public function up()
     {
         Schema::table('teachers', function (Blueprint $table) {
-            $table->integer('created_by');
+            $table->integer('created_by')->nullable();
             $table->string('slug')->unique();
         });
     }

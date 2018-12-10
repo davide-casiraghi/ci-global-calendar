@@ -16,7 +16,7 @@ class CreateEventsTable extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('category_id');
-            $table->integer('created_by');
+            $table->integer('created_by')->nullable();
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('description');
@@ -43,7 +43,7 @@ class CreateEventsTable extends Migration
         });
         Schema::create('event_locations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('created_by');
+            $table->integer('created_by')->nullable();
             $table->string('name');
             $table->string('slug')->unique();
             $table->text('description')->nullable();
