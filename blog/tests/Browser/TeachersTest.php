@@ -14,8 +14,12 @@ use Tests\Browser\Pages\LoginPage;
 class TeachersTest extends DuskTestCase
 {
     
-    public function test_venues_list_is_showing(){  
-        
+  /**
+   * Verify if the venues list is showing
+   *
+   * @return void
+   */
+    public function test_venues_list_is_showing(){
         $this->browse(function (Browser $browser) {
             $browser->on(new LoginPage)
                     ->loginUser()
@@ -23,7 +27,44 @@ class TeachersTest extends DuskTestCase
                     ->assertSee('Teachers management'); // The list is empty because the new user didn't create an event yet
                     //->dump();
         });
-        
     }
+    
+    /**
+     * Open the Create teacher form
+     *
+     * @return void
+     */
+      public function test_open_create_teacher(){
+          $this->browse(function (Browser $browser) {
+              $browser->visit('/teachers')   //dusk don't like to visit page /teachers/create, so let's go there clicking
+                    ->clickLink('Add new teacher')
+                    ->assertSee('Year of starting to practice');
+                    
+                    //$this->create_new_teacher($browser);
+          });
+          
+      }    
+    
+      /**
+      * Create a new teacher.
+      *
+      * @param  \Laravel\Dusk\Browser  $browser
+      * @param  string  $name
+      * @return void
+      */
+     public function create_new_teacher(Browser $browser)
+     {
+                    $browser->type('name', 'Test Teacher')
+                    ->type('country', 5)
+                    ->type('bio', 'lorem ipsum dolet')
+                    ->type('year_starting_practice', '1999')
+                    ->type('year_starting_teach', '1995')
+                    ->type('significant_teachers', 'test teachers')
+                    ->type('facebook', 'http://www.facebook.com/test')
+                    ->type('website', 'http://www.test.it')
+                ->press('Submit')
+                ->assertSee('Teachers management');
+     }
+    
     
 }

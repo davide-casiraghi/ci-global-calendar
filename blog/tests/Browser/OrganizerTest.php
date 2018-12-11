@@ -18,7 +18,7 @@ class OrganizerTest extends DuskTestCase
         
         $this->browse(function (Browser $browser) {
             $browser->on(new LoginPage)
-                    ->loginUser() //->dump();
+                    ->loginUser() 
                     ->visit('/organizers')
                     ->assertSee('Organizers management'); // The list is empty because the new user didn't create an event yet
                     //->dump();

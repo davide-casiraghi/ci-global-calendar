@@ -38,11 +38,12 @@ class LoginPage extends Page
                     'password' => Hash::make('sdfas3rt'),  // Save the encrypted - bcrypt($password)
                 ]);
             }
-        
-        $browser->visit('/login')
-                ->type('email', 'testuser@dusk.com')
-                ->type('password', 'sdfas3rt')
-                ->press('Login');
+            
+        // Login trough the login page with the test user 
+            $browser->visit('/login')
+                    ->type('email', 'testuser@dusk.com')
+                    ->type('password', 'sdfas3rt')
+                    ->press('Login');
                 
         /*
         This should work but it doesn't
