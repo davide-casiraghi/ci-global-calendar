@@ -24,12 +24,12 @@ class TeacherController extends Controller
         $searchCountry = $request->input('country_id');
 
         // Show just to the owner - Get created_by value if the user is not an admin or super admin
-        $createdBy = $this->getLoggedAuthorId();        
+        $authorUserId = $this->getLoggedAuthorId();        
 
         if ($searchKeywords||$searchCountry){
             $teachers = DB::table('teachers')
-                ->when($createdBy, function ($query, $createdBy) {
-                    return $query->where('created_by', $createdBy);
+                ->when($authorUserId, function ($query, $authorUserId) {
+                    return $query->where('created_by', $authorUserId);
                 })
                 ->when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%' . $searchKeywords . '%');
@@ -41,8 +41,8 @@ class TeacherController extends Controller
         }
         else
             $teachers = Teacher::latest()
-            ->when($createdBy, function ($query, $createdBy) {
-                return $query->where('created_by', $createdBy);
+            ->when($authorUserId, function ($query, $authorUserId) {
+                return $query->where('created_by', $authorUserId);
             })
             ->paginate(20);
 
@@ -50,7 +50,9 @@ class TeacherController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 20)
             ->with('countries', $countries)
             ->with('searchKeywords',$searchKeywords)
-            ->with('searchCountry',$searchCountry);
+            ->with('searchCountry',$searchCountry)
+            ->with('authorUserId',$authorUserId);
+
     }
 
     /**
