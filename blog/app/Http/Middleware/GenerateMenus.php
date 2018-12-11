@@ -33,6 +33,9 @@ class GenerateMenus
                 $profile->prepend('<i class="fa fa fa-info-circle"></i> ');
                 $profile->add('Terms of use', ['action' => ['PostController@show', 'id' => 19]]);
                 $profile->link->builder->items[2]->title = '<i class="far fa-file-alt"></i> '.__('menu.terms_of_use');
+                $profile->add('Teachers directory', ['action' => ['TeacherController@index']]);
+                $profile->link->builder->items[3]->title = '<i class="far fa-users"></i> '.__('menu.teachers_directory');
+            
             $profile = $menu->add(__('menu.get_involved'), ['action' => ['PostController@show', 'id' => 16]]);
                 $profile->prepend('<i class="fa fa-users"></i> ');
             $profile = $menu->add(__('menu.how_to'), ['action' => ['PostController@show', 'id' => 20]]);
@@ -83,8 +86,6 @@ class GenerateMenus
                                 $profile->link->builder->items[13]->title = '<i class="far fa-globe-americas"></i> '.__('menu.countries');
                             $profile->add('Background images', ['action' => ['BackgroundImageController@index']]);
                                 $profile->link->builder->items[14]->title = '<i class="far fa-images"></i> '.__('menu.background_images');
-                                $profile->add('Teachers directory', ['action' => ['TeacherController@index']]);
-                                    $profile->link->builder->items[15]->title = '<i class="far fa-users"></i> '.__('menu.teachers_directory');
                         }
                 }
             }
