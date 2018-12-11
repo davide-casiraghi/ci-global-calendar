@@ -16,26 +16,13 @@ class VenueTest extends DuskTestCase
     
     public function test_venues_list_is_showing(){  
         
-        
-          
-        /*$this->browse(function (Browser $browser) {
-            $browser->visit('/')
-                    ->assertSee('Contact Improvisation');
-        });*/
-        
         $this->browse(function (Browser $browser) {
             $browser->on(new LoginPage)
                     ->loginUser()
                     ->visit('/eventVenues')
-                    ->assertSee('Venues management');
-                    //->waitFor('.venuesList');
+                    ->assertSee('Venues management'); // The list is empty because the new user didn't create an event yet
+                    //->dump();
         });
-        
-        /*$this->browse(function ($first) {
-            $first->loginAs(User::find(1))
-                  ->visit('/eventVenues')->dump();
-//                  ->assertSee('Venues management');
-});*/
         
     }
     
