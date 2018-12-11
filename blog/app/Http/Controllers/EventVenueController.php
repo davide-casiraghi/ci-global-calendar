@@ -24,12 +24,12 @@ class EventVenueController extends Controller
         $searchCountry = $request->input('country_id');
 
         // Show just to the owner - Get created_by value if the user is not an admin or super admin
-        $authorUserId = $this->getLoggedAuthorId();
+        $loggedUser = $this->getLoggedAuthorId();
         
         if ($searchKeywords||$searchCountry){
             $eventVenues = DB::table('event_venues')
-                ->when($authorUserId, function ($query, $authorUserId) {
-                    return $query->where('created_by', $authorUserId);
+                ->when($loggedUser->id, function ($query, $loggedUserId) {
+                    return $query->where('created_by', $loggedUserId);
                 })
                 ->when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%' . $searchKeywords . '%');
@@ -41,8 +41,8 @@ class EventVenueController extends Controller
         }
         else
             $eventVenues = EventVenue::latest()
-                ->when($authorUserId, function ($query, $authorUserId) {
-                    return $query->where('created_by', $authorUserId);
+                ->when($loggedUser->id, function ($query, $loggedUserId) {
+                    return $query->where('created_by', $loggedUserId);
                 })
                 ->paginate(20);
 

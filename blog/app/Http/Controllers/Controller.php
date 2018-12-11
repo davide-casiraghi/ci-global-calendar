@@ -23,7 +23,8 @@ class Controller extends BaseController
         $user = Auth::user();
         
         if($user)
-            $ret = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
+            $ret = $user;
+            //$ret = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
         else
             $ret = null; 
             

@@ -49,18 +49,22 @@
                     <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-2" data-original-title="@lang('general.country')"></i>
                     @if($teacher->country_id){{ $countries[$teacher->country_id] }}@endif
                 </div>
-                <div class="col-12 pb-2 action">
-                    <form action="{{ route('teachers.destroy',$teacher->id) }}" method="POST">
 
-                        <a class="btn btn-info mr-2" href="{{ route('teachers.show',$teacher->id) }}">@lang('views.view')</a>
-                        <a class="btn btn-primary" href="{{ route('teachers.edit',$teacher->id) }}">@lang('views.edit')</a>
+                {{-- Show the edit and delete console just to the owner or the administrators --}}
+                @if($teacher->created_by == $loggedUser->id || $loggedUser->group == 1 || $loggedUser->group == 2)
+                    <div class="col-12 pb-2 action">
+                        <form action="{{ route('teachers.destroy',$teacher->id) }}" method="POST">
 
-                        @csrf
-                        @method('DELETE')
+                            <a class="btn btn-info mr-2" href="{{ route('teachers.show',$teacher->id) }}">@lang('views.view')</a>
+                            <a class="btn btn-primary" href="{{ route('teachers.edit',$teacher->id) }}">@lang('views.edit')</a>
 
-                        <button type="submit" class="btn btn-danger float-right">@lang('views.delete')</button>
-                    </form>
-                </div>
+                            @csrf
+                            @method('DELETE')
+
+                            <button type="submit" class="btn btn-danger float-right">@lang('views.delete')</button>
+                        </form>
+                    </div>
+                @endif
                 
                 
             </div>
