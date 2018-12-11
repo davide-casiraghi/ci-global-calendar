@@ -9,15 +9,33 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use App\EventVenue;
 use App\User;
 
+use Tests\Browser\Pages\LoginPage;
+
 class VenueTest extends DuskTestCase
 {
     
-    public function test_see_venues(){    
-        $this->browse(function ($first) {
-            $first->loginAs(User::find(1))
-                  ->visit('/eventVenues')
-                  ->assertSee('Venues management');
+    public function test_venues_list_is_showing(){  
+        
+        
+          
+        /*$this->browse(function (Browser $browser) {
+            $browser->visit('/')
+                    ->assertSee('Contact Improvisation');
+        });*/
+        
+        $this->browse(function (Browser $browser) {
+            $browser->on(new LoginPage)
+                    ->loginUser()
+                    ->visit('/eventVenues')
+                    ->waitFor('.venuesList');
         });
+        
+        /*$this->browse(function ($first) {
+            $first->loginAs(User::find(1))
+                  ->visit('/eventVenues')->dump();
+//                  ->assertSee('Venues management');
+});*/
+        
     }
     
 }
