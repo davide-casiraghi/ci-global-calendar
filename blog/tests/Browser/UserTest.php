@@ -6,21 +6,30 @@ use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
+use Illuminate\Support\Facades\Hash;
+
 use App\User;
 
 class UserTest extends DuskTestCase
 {
 
-    public function test_user_login()
-    {
-        $user = factory(User::class)->create();
+    public function test_user_login(){
+        //$user = factory(User::class)->create();
+        $user = factory(User::class)->create([
+            'password' => Hash::make('sdfas3rt'),  // Save the encrypted - bcrypt($password)
+            //'password' => Hash::make('testPassword'), 
+        ]);
+        
+
+        //$this->attributes['password'] = bcrypt($password);
 
         $this->browse(function ($browser) use ($user) {
             $browser->visit('/login')
                     ->type('email', $user->email)
-                    ->type('password', 'secret')
+                    ->type('password', 'sdfas3rt')
                     ->press('Login')
                     ->assertPathIs('/');
+                    //->dump();
         });
     }
 }

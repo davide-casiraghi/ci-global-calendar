@@ -26,9 +26,9 @@ class EventSearchController extends Controller
         /*$eventCategories = EventCategory::pluck('name', 'id');
         $countries = Country::pluck('name', 'id');
         $venues = EventVenue::pluck('name', 'id');*/
-
+        
         $minutes = 30;
-
+        
         $backgroundImages = BackgroundImage::all();
 
         $eventCategories = Cache::remember('categories', $minutes, function () {

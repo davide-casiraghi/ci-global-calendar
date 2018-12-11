@@ -29,6 +29,7 @@ class LoginPage extends Page
     }
 
     public function loginUser(Browser $browser){
-        $browser->loginAs(User::where('email','hettie.greenholt@kertzmann.com')->firstOrFail());
+        //$browser->loginAs(User::where('email','hettie.greenholt@kertzmann.com')->firstOrFail());
+        $browser->loginAs(User::find(1));
     }
 }

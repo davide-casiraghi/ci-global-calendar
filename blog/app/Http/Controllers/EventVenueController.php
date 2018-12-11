@@ -25,8 +25,13 @@ class EventVenueController extends Controller
 
         // Show just to the owner - Get created_by value if the user is not an admin or super admin
         $user = Auth::user();
-        $createdBy = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
-
+        if ($user){
+            $createdBy = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
+        }
+        else{
+            $createdBy = 0; // This has been introduced for the tests of laravel dusk, that access to the page directly
+        }
+        
         if ($searchKeywords||$searchCountry){
             $eventVenues = DB::table('event_venues')
                 ->when($createdBy, function ($query, $createdBy) {

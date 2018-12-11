@@ -27,7 +27,8 @@ class VenueTest extends DuskTestCase
             $browser->on(new LoginPage)
                     ->loginUser()
                     ->visit('/eventVenues')
-                    ->waitFor('.venuesList');
+                    ->assertSee('Venues management');
+                    //->waitFor('.venuesList');
         });
         
         /*$this->browse(function ($first) {
