@@ -50,8 +50,7 @@ class TeacherController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 20)
             ->with('countries', $countries)
             ->with('searchKeywords',$searchKeywords)
-            ->with('searchCountry',$searchCountry)
-            ->with('authorUserId',$authorUserId);
+            ->with('searchCountry',$searchCountry);
 
     }
 
