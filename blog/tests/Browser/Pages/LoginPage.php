@@ -31,12 +31,16 @@ class LoginPage extends Page
 
     public function loginUser(Browser $browser){
         
-        $user = factory(User::class)->create([
-            'password' => Hash::make('sdfas3rt'),  // Save the encrypted - bcrypt($password)
-        ]);
+        // Create the test user if it doesn't exist 
+            if (!User::where('email', '=', "testuser@dusk.com")->exists()) {
+                $user = factory(User::class)->create([
+                    'email' => 'testuser@dusk.com',
+                    'password' => Hash::make('sdfas3rt'),  // Save the encrypted - bcrypt($password)
+                ]);
+            }
         
         $browser->visit('/login')
-                ->type('email', $user->email)
+                ->type('email', 'testuser@dusk.com')
                 ->type('password', 'sdfas3rt')
                 ->press('Login');
                 
