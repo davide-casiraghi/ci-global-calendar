@@ -18,32 +18,26 @@ class OrganizerController extends Controller
      */
     public function index(Request $request){
         // Show just to the owner - Get created_by value if the user is not an admin or super admin
-        $createdBy = $this->getLoggedAuthorId();
+        $authorUserId = $this->getLoggedAuthorId();
 
         $searchKeywords = $request->input('keywords');
 
-        /*$organizers = Organizer::latest()
-            ->when($createdBy, function ($query, $createdBy) {
-                return $query->where('created_by', $createdBy);
-            })
-            ->paginate(20);*/
-
-            if ($searchKeywords){
-                $organizers = DB::table('organizers')
-                    ->when($createdBy, function ($query, $createdBy) {
-                        return $query->where('created_by', $createdBy);
-                    })
-                    ->when($searchKeywords, function ($query, $searchKeywords) {
-                        return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%' . $searchKeywords . '%');
-                    })
-                    ->paginate(20);
-            }
-            else
-                $organizers = DB::table('organizers')
-                ->when($createdBy, function ($query, $createdBy) {
-                    return $query->where('created_by', $createdBy);
+        if ($searchKeywords){
+            $organizers = DB::table('organizers')
+                ->when($authorUserId, function ($query, $authorUserId) {
+                    return $query->where('created_by', $authorUserId);
+                })
+                ->when($searchKeywords, function ($query, $searchKeywords) {
+                    return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%' . $searchKeywords . '%');
                 })
                 ->paginate(20);
+        }
+        else
+            $organizers = DB::table('organizers')
+            ->when($authorUserId, function ($query, $authorUserId) {
+                return $query->where('created_by', $authorUserId);
+            })
+            ->paginate(20);
 
         return view('organizers.index',compact('organizers'))
             ->with('i', (request()->input('page', 1) - 1) * 20)
