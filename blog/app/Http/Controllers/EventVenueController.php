@@ -24,13 +24,7 @@ class EventVenueController extends Controller
         $searchCountry = $request->input('country_id');
 
         // Show just to the owner - Get created_by value if the user is not an admin or super admin
-        $user = Auth::user();
-        if ($user){
-            $createdBy = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
-        }
-        else{
-            $createdBy = 0; // This has been introduced for the tests of laravel dusk, that access to the page directly
-        }
+        $createdBy = $this->getLoggedAuthorId();
         
         if ($searchKeywords||$searchCountry){
             $eventVenues = DB::table('event_venues')
@@ -207,18 +201,6 @@ class EventVenueController extends Controller
     }
 
     // **********************************************************************
-
-    /**
-     * Get the current logged user id
-     *
-     * @param  none
-     * @return boolean $ret - the current logged user id, if admin or super admin 0
-     */
-    function getLoggedAuthorId(){
-        $user = Auth::user();
-        $ret = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
-        return $ret;
-    }
 
 
 }

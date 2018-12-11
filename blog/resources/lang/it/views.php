@@ -84,6 +84,7 @@ return [
     'events_category_management' => 'Gestione categorie eventi',
     'events_venue_management' => 'Gestione location',
     'teachers_management' => 'Gestione insegnanti',
+    'teachers_directory' => 'Elenco insegnanti',
     'organizers_management' => 'Gestione organizzatori',
     'users_management' => 'Gestione utenti',
     'continents_management' => 'Gestione continenti',

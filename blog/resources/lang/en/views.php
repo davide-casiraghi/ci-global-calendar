@@ -83,6 +83,7 @@ return [
     'events_category_management' => 'Events category management',
     'events_venue_management' => 'Venues management',
     'teachers_management' => 'Teachers management',
+    'teachers_directory' => 'Teachers directory',
     'organizers_management' => 'Organizers management',
     'users_management' => 'Users management',
     'continents_management' => 'Continents management',

@@ -18,8 +18,7 @@ class OrganizerController extends Controller
      */
     public function index(Request $request){
         // Show just to the owner - Get created_by value if the user is not an admin or super admin
-        $user = Auth::user();
-        $createdBy = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
+        $createdBy = $this->getLoggedAuthorId();
 
         $searchKeywords = $request->input('keywords');
 
@@ -192,17 +191,6 @@ class OrganizerController extends Controller
 
     // **********************************************************************
 
-    /**
-     * Get the current logged user id
-     *
-     * @param  none
-     * @return boolean $ret - the current logged user id, if admin or super admin 0
-     */
-    function getLoggedAuthorId(){
-        $user = Auth::user();
-        $ret = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
-        return $ret;
-    }
 
 
 
