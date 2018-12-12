@@ -20,8 +20,10 @@ class VenueTest extends DuskTestCase
             $browser->on(new LoginPage)
                     ->loginUser()
                     ->visit('/eventVenues')
-                    ->assertSee('Venues management'); // The list is empty because the new user didn't create an event yet
-                    //->dump();
+                    ->assertSee('Venues management') // The list is empty because the new user didn't create an event yet
+                    ->logoutUser()
+                    ->visit('/')
+                    ->dump();
         });
         
     }

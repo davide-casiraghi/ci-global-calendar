@@ -24,8 +24,8 @@ class TeachersTest extends DuskTestCase
             $browser->on(new LoginPage)
                     ->loginUser()
                     ->visit('/teachers')
-                    ->assertSee('Teachers management'); // The list is empty because the new user didn't create an event yet
-                    //->dump();
+                    ->assertSee('Teachers management') // The list is empty because the new user didn't create an event yet
+                    ->logoutUser();
         });
     }
     
