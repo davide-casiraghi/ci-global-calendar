@@ -70,8 +70,8 @@ class TeachersTest extends DuskTestCase
                            ->resize(1920, 3000)
                        ->press('Submit')
                        ->assertSee('Teacher created successfully')
-                       ->logoutUser();
-                       
+                       ->logoutUser();                   
          });
      }
+     
 }

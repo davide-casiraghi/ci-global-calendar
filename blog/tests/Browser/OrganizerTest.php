@@ -11,10 +11,11 @@ use App\User;
 
 use Tests\Browser\Pages\LoginPage;
 
+
 class OrganizerTest extends DuskTestCase
 {
     
-    public function test_organizers_list_is_showing(){  
+    public function test_organizers_list_is_showing(){
         
         $this->browse(function (Browser $browser) {
             $browser->on(new LoginPage)
@@ -23,7 +24,35 @@ class OrganizerTest extends DuskTestCase
                     ->assertSee('Organizers management') // The list is empty because the new user didn't create an event yet
                     ->logoutUser();
         });
-        
     }
+    
+    
+    /**
+    * Create a new organizer
+    *
+    * @param  \Laravel\Dusk\Browser  $browser
+    * @param  string  $name
+    * @return void
+    */
+   public function test_create_new_organizer(){
+       $this->browse(function (Browser $browser) {
+           $browser->on(new LoginPage)
+                   ->loginUser()
+                      ->visit('/organizers')
+                        ->clickLink('Add new organizer')
+                         ->type('name', 'Test organizer')
+                         ->type('email', 'test@testorganizer.com')
+                         ->type('phone', '12312312343')
+                         ->type('website', 'http://www.test.com') 
+                         ->waitFor('#bodyTextarea_ifr');
+                        
+            $browser->driver->executeScript('tinyMCE.activeEditor.setContent(\'eeeeee\')');
+            
+            $browser->resize(1920, 3000)
+                    ->press('Submit')
+                    ->assertSee('Organizer created successfully')
+                    ->logoutUser();                   
+       });
+   }
     
 }
