@@ -50,6 +50,43 @@ class EventsTest extends DuskTestCase
     
       /*******************************************************************************/
       
+      /**
+      * Create a new event
+      *
+      * @param  \Laravel\Dusk\Browser  $browser
+      * @param  string  $name
+      * @return void
+      */
+     public function test_create_new_event(){
+         $this->browse(function (Browser $browser) {
+             $browser->on(new LoginPage)
+                     ->loginUser()
+                        ->visit('/events')
+                          ->clickLink('Add New event')
+                           ->type('title', 'Test event')
+                           ->select('category_id', 3)
+                           ->waitFor('#bodyTextarea_ifr');
+                           
+             $browser->driver->executeScript('tinyMCE.activeEditor.setContent(\'test event description\')');
+             $browser->driver->executeScript("document.getElementById('multiple_teachers').value = '1';");
+             $browser->driver->executeScript("document.getElementById('multiple_organizers').value = '1';");
+             
+             $browser->select('venue_id', 2);
+             
+             $browser->driver->executeScript("document.getElementById('multiple_organizers').value = '1';");
+             $browser->driver->executeScript("document.getElementsByName('startDate').value = '10/10/2023';");
+             $browser->driver->executeScript("document.getElementsByName('endDate').value = '12/10/2023';");
+            
+             $browser->type('facebook_event_link', 'http://www.facebook.com/2342fsdfadc')
+                     ->type('website_event_link', 'http://www.testwebsite.com');
+                    
+            
+              $browser->resize(1920, 3000)
+                      ->press('Submit')->dump();
+                    /*  ->assertSee('Event created successfully')
+                      ->logoutUser();   */              
+         });
+     }
     
      
 }
