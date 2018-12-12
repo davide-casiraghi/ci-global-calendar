@@ -12,6 +12,11 @@ use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
+    /* Restrict the access to this resource just to logged in users except show and index view */
+    public function __construct(){
+        $this->middleware('auth', ['except' => ['index','show']]);
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -13,7 +13,7 @@ use Tests\Browser\Pages\LoginPage;
 
 class TeachersTest extends DuskTestCase
 {
-    
+
   /**
    * Verify if the venues list is showing
    *
