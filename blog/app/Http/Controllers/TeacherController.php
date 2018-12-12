@@ -33,7 +33,7 @@ class TeacherController extends Controller
         // To retrieve just the teachers created by this user - We will compare it with the created_by value in the teacher table
             $loggedUser = $this->getLoggedAuthorId();  
         
-        // To retrieve all the teachers for the teacher directory, we set the logged user id to null
+        // To retrieve all the teachers when the route is teacher.directory, we set the logged user id to null
             if(Route::currentRouteName()=="teachers.directory")
                 $loggedUser->id = null;
 
