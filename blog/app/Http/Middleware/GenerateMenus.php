@@ -33,7 +33,7 @@ class GenerateMenus
                 $profile->prepend('<i class="fa fa fa-info-circle"></i> ');
                 $profile->add('Terms of use', ['action' => ['PostController@show', 'id' => 19]]);
                 $profile->link->builder->items[2]->title = '<i class="far fa-file-alt"></i> '.__('menu.terms_of_use');
-                $profile->add('Teachers directory', ['action' => ['TeacherController@index']]);
+                $profile->add('Teachers directory', ['route' => ['teachers.directory']]); 
                 $profile->link->builder->items[3]->title = '<i class="far fa-users"></i> '.__('menu.teachers_directory');
             
             $profile = $menu->add(__('menu.get_involved'), ['action' => ['PostController@show', 'id' => 16]]);
@@ -57,7 +57,7 @@ class GenerateMenus
                         $profile->link->builder->items[2]->title = '<i class="far fa-calendar-alt"></i> '.__('menu.my_events');
                         $profile->add('My Venues', ['action' => ['EventVenueController@index']]);
                         $profile->link->builder->items[3]->title = '<i class="far fa-map-marker-alt"></i> '.__('menu.my_venues');
-                        $profile->add('My Teachers', ['action' => ['TeacherController@index']]);
+                        $profile->add('My Teachers', ['route' => ['teachers.index']]); 
                         $profile->link->builder->items[4]->title = '<i class="far fa-users"></i> '.__('menu.my_teachers');
                         $profile->add('My Organizers', ['action' => ['OrganizerController@index']]);
                         $profile->link->builder->items[5]->title = '<i class="fas fa-users"></i> '.__('menu.my_organizers');
