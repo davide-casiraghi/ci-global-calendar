@@ -43,7 +43,9 @@ function()
         Route::resource('teachers','TeacherController');
             Route::get('/create-teacher/modal/', 'TeacherController@modal')->name('teachers.modal');
             Route::post('/create-teacher/modal/', 'TeacherController@storeFromModal')->name('teachers.storeFromModal');
-
+            Route::get('/teachersDirectory/', 'TeacherController@index')->name('teachers.directory');
+            
+            
         Route::resource('organizers','OrganizerController');
             Route::get('/create-organizer/modal/', 'OrganizerController@modal')->name('organizers.modal');
             Route::post('/create-organizer/modal/', 'OrganizerController@storeFromModal')->name('organizers.storeFromModal');

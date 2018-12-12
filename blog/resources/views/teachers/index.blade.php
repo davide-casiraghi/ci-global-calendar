@@ -4,7 +4,13 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <h2>@lang('views.teachers_management')</h2>
+            
+            @if(Route::current()->getName() == 'teachers.index') 
+                <h2>@lang('views.teachers_management')</h2>
+            @elseif(Route::current()->getName() == 'teachers.directory') 
+                <h2>@lang('views.teachers_directory')</h2>
+            @endif
+            
         </div>
         <div class="col-12 mt-4 mt-sm-0 text-right">
             <a class="btn btn-success" href="{{ route('teachers.create') }}">@lang('views.add_new_teacher')</a>
