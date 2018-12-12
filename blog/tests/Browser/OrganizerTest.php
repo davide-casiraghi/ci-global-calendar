@@ -15,6 +15,11 @@ use Tests\Browser\Pages\LoginPage;
 class OrganizerTest extends DuskTestCase
 {
     
+    /**
+     * Verify if the teachers list is showing
+     *
+     * @return void
+     */
     public function test_organizers_list_is_showing(){
         
         $this->browse(function (Browser $browser) {
@@ -26,6 +31,7 @@ class OrganizerTest extends DuskTestCase
         });
     }
     
+    /*******************************************************************************/
     
     /**
     * Create a new organizer
@@ -54,5 +60,9 @@ class OrganizerTest extends DuskTestCase
                     ->logoutUser();                   
        });
    }
+   
+   /*******************************************************************************/
+   
+   
     
 }

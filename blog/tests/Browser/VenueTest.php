@@ -14,7 +14,12 @@ use Tests\Browser\Pages\LoginPage;
 class VenueTest extends DuskTestCase
 {
     
-    public function test_venues_list_is_showing(){  
+    /**
+     * Verify if the venues list is showing
+     *
+     * @return void
+     */
+    public function test_venues_list_is_showing(){
         
         $this->browse(function (Browser $browser) {
             $browser->on(new LoginPage)
@@ -23,7 +28,10 @@ class VenueTest extends DuskTestCase
                     ->assertSee('Venues management') // The list is empty because the new user didn't create an event yet
                     ->logoutUser();
         });
-        
     }
+    
+    /*******************************************************************************/
+    
+    
     
 }

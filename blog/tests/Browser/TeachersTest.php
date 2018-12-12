@@ -15,11 +15,11 @@ class TeachersTest extends DuskTestCase
 {
 
   /**
-   * Verify if the venues list is showing
+   * Verify if the teachers list is showing
    *
    * @return void
    */
-    public function test_venues_list_is_showing(){
+    public function test_teachers_list_is_showing(){
         $this->browse(function (Browser $browser) {
             $browser->on(new LoginPage)
                     ->loginUser()
@@ -28,6 +28,8 @@ class TeachersTest extends DuskTestCase
                     ->logoutUser();
         });
     }
+    
+    /*******************************************************************************/
     
     /**
      * Open the Create teacher form
@@ -46,6 +48,8 @@ class TeachersTest extends DuskTestCase
           
       }    
     
+      /*******************************************************************************/
+      
       /**
       * Create a new teacher.
       *
