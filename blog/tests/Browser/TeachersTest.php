@@ -38,7 +38,8 @@ class TeachersTest extends DuskTestCase
           $this->browse(function (Browser $browser) {
               $browser->visit('/teachers')   //dusk don't like to visit page /teachers/create, so let's go there clicking
                     ->clickLink('Add new teacher')
-                    ->assertSee('Year of starting to practice');
+                    ->assertSee('Year of starting to practice')
+                    ->logout();
                     
                     //$this->create_new_teacher($browser);
           });
@@ -54,8 +55,8 @@ class TeachersTest extends DuskTestCase
       */
      public function test_create_new_teacher(){
          $this->browse(function (Browser $browser) {
-             $browser->on(new LoginPage)
-                     ->loginUser()
+             $browser/*->on(new LoginPage)
+                     ->loginUser()*/
                      ->visit('/teachers')->dump();   //dusk don't like to visit page /teachers/create, so let's go there clicking
                     /*       ->clickLink('Add new teacher')
                            ->type('name', 'Test Teacher')

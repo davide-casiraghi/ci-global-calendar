@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class Controller extends BaseController
 {
@@ -22,11 +23,14 @@ class Controller extends BaseController
     function getLoggedAuthorId(){
         $user = Auth::user();
         
-        if($user)
-            $ret = $user;
-            //$ret = (!$user->isSuperAdmin()&&!$user->isAdmin()) ? $user->id : 0;
-        else
-            $ret = null; 
+        // This is needed in the queries with: ->when($loggedUser->id, function ($query, $loggedUserId) {
+        if(!$user){
+            $user = new User();
+            $user->name = null;
+            $user->group = null;
+        }
+        
+        $ret = $user; 
             
         return $ret;
     }
