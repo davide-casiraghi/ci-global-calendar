@@ -113,18 +113,9 @@ class LoginPage extends Page
      * @return void
      */
     public function logoutUser(Browser $browser){
-        
-        
-        // Login trough the login page with the test user 
-            //$browser->visit('/')->clickLink('/logout');
-            
-            //$browser->logout()->dump();
-                //_dusk/logout/
-            
-            $browser->visit('/_dusk/logout/');
-            
-            //$browser->visit('/_dusk/logout/')->visit('/')->dump();
-            
+
+        //$browser->logout(); // this does't work  - still to get why..
+        $browser->visit('/_dusk/logout/'); // so we do that the method logout does            
     }
     
     
