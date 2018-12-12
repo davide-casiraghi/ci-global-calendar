@@ -29,6 +29,11 @@ class LoginPage extends Page
         //
     }
 
+    /**
+     * Login as an author user
+     *
+     * @return void
+     */
     public function loginUser(Browser $browser){
         
         // Create the test user if it doesn't exist 
@@ -54,4 +59,51 @@ class LoginPage extends Page
         $browser->loginAs(User::where('email','hoeger.jerry@example.net')->firstOrFail());
         */
     }
+    
+    /**
+     * Login as a super administrator
+     *
+     * @return void
+     */
+    public function loginSuperAdministrator(Browser $browser){
+        
+        // Create the test user if it doesn't exist 
+            if (!User::where('email', '=', "super_adminuser@dusk.com")->exists()) {
+                $user = factory(User::class)->create([
+                    'email' => 'super_adminuser@dusk.com',
+                    'password' => Hash::make('gr4TWgr4W'),  // Save the encrypted - bcrypt($password)
+                    'group' => 1,
+                ]);
+            }
+            
+        // Login trough the login page with the test user 
+            $browser->visit('/login')
+                    ->type('email', 'super_adminuser@dusk.com')
+                    ->type('password', 'gr4TWgr4W')
+                    ->press('Login');
+    }
+    
+    /**
+     * Login as an administrator 
+     *
+     * @return void
+     */
+    public function loginAdministrator(Browser $browser){
+        
+        // Create the test user if it doesn't exist 
+            if (!User::where('email', '=', "adminuser@dusk.com")->exists()) {
+                $user = factory(User::class)->create([
+                    'email' => 'adminuser@dusk.com',
+                    'password' => Hash::make('rw52Tdfd63g'),  // Save the encrypted - bcrypt($password)
+                    'group' => 2,
+                ]);
+            }
+            
+        // Login trough the login page with the test user 
+            $browser->visit('/login')
+                    ->type('email', 'adminuser@dusk.com')
+                    ->type('password', 'rw52Tdfd63g')
+                    ->press('Login');
+    }
+    
 }
