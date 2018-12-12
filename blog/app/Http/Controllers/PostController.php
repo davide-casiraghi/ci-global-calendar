@@ -18,6 +18,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class PostController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *

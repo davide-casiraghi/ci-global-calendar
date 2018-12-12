@@ -106,4 +106,30 @@ class LoginPage extends Page
                     ->press('Login');
     }
     
+    
+    /**
+     * Logout user
+     *
+     * @return void
+     */
+    public function logoutUser(Browser $browser){
+        
+        // Create the test user if it doesn't exist 
+            if (!User::where('email', '=', "adminuser@dusk.com")->exists()) {
+                $user = factory(User::class)->create([
+                    'email' => 'adminuser@dusk.com',
+                    'password' => Hash::make('rw52Tdfd63g'),  // Save the encrypted - bcrypt($password)
+                    'group' => 2,
+                ]);
+            }
+            
+        // Login trough the login page with the test user 
+            $browser->visit('/login')
+                    ->type('email', 'adminuser@dusk.com')
+                    ->type('password', 'rw52Tdfd63g')
+                    ->press('Login');
+    }
+    
+    
+    
 }
