@@ -53,22 +53,24 @@ class TeachersTest extends DuskTestCase
       * @param  string  $name
       * @return void
       */
-    /* public function test_create_new_teacher(){
+     public function test_create_new_teacher(){
          $this->browse(function (Browser $browser) {
              $browser->on(new LoginPage)
                      ->loginUser()
-                         ->visit('/continents')->dump();   //dusk don't like to visit page /teachers/create, so let's go there clicking
-                    
+                        ->visit('/teachers')
                           ->clickLink('Add new teacher')
                            ->type('name', 'Test Teacher')
-                           ->type('country', 5)
+                           ->select('country_id', 5)
                            ->type('bio', 'lorem ipsum dolet')
                            ->type('year_starting_practice', '1999')
                            ->type('year_starting_teach', '1995')
                            ->type('significant_teachers', 'test teachers')
                            ->type('facebook', 'http://www.facebook.com/test')
                            ->type('website', 'http://www.test.it')
-                       ->press('Submit');
+                           ->resize(1920, 3000)
+                       ->press('Submit')
+                       ->assertSee('Teacher created successfully');
+                       
          });
-     }*/
+     }
 }

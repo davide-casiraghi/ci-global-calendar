@@ -50,7 +50,7 @@
             <div class="col-12">
                 @include('partials.forms.textarea-plain', [
                       'title' =>  __('views.bio'),
-                      'name' => 'significant_teachers',
+                      'name' => 'bio',
                 ])
             </div>
 
