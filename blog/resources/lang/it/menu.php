@@ -11,7 +11,7 @@ return [
     'my_events' => 'I miei eventi',
     'my_organizers' => 'I miei Organizzatori',
     'my_teachers' => 'I miei Insegnanti',
-    'my_venues' => 'I miei Luoghi',
+    'my_venues' => 'I miei Spazi',
     'my_profile' => 'Il mio Profilo',
     'admin_tools' => 'Amministrazione',
     'users' => 'Utenti',
