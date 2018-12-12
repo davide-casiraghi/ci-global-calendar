@@ -24,6 +24,6 @@ $factory->define(App\User::class, function (Faker $faker) {
         'description' => $faker->paragraph,
         'accept_terms' => 1,
         'activation_code' => str_random(10),
-        'status' => $faker->randomElement($array = array (1,1,1,1,1,1,1,0)), // 1 enabled, 0 disabled
+        'status' => 1,
     ];
 });
