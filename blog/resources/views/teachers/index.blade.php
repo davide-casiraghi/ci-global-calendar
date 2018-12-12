@@ -57,7 +57,7 @@
                 </div>
 
                 {{-- Show the edit and delete console just to the owner or the administrators --}}
-                @if($teacher->created_by == $loggedUser->id || $loggedUser->group == 1 || $loggedUser->group == 2)
+                {{--@if($teacher->created_by == $loggedUser->id || $loggedUser->group == 1 || $loggedUser->group == 2) --}}
                     <div class="col-12 pb-2 action">
                         <form action="{{ route('teachers.destroy',$teacher->id) }}" method="POST">
 
@@ -70,7 +70,7 @@
                             <button type="submit" class="btn btn-danger float-right">@lang('views.delete')</button>
                         </form>
                     </div>
-                @endif
+                {{--@endif--}}
                 
                 
             </div>

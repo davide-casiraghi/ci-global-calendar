@@ -8,6 +8,8 @@ use App\User;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
@@ -28,8 +30,12 @@ class TeacherController extends Controller
         $searchKeywords = $request->input('keywords');
         $searchCountry = $request->input('country_id');
 
-        // Show just to the owner - Get created_by value if the user is not an admin or super admin
-        $loggedUser = $this->getLoggedAuthorId();        
+        // To retrieve just the teachers created by this user - We will compare it with the created_by value in the teacher table
+            $loggedUser = $this->getLoggedAuthorId();  
+        
+        // To retrieve all the teachers for the teacher directory, we set the logged user id to null
+            if(Route::currentRouteName()=="teachers.directory")
+                $loggedUser->id = null;
 
         if ($searchKeywords||$searchCountry){
             $teachers = DB::table('teachers')
@@ -57,8 +63,6 @@ class TeacherController extends Controller
             ->with('searchKeywords',$searchKeywords)
             ->with('searchCountry',$searchCountry)
             ->with('loggedUser',$loggedUser);
-            
-
     }
 
     /**
@@ -223,7 +227,5 @@ class TeacherController extends Controller
 
     // **********************************************************************
 
-
-    
 
 }
