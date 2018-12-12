@@ -21,9 +21,7 @@ class VenueTest extends DuskTestCase
                     ->loginUser()
                     ->visit('/eventVenues')
                     ->assertSee('Venues management') // The list is empty because the new user didn't create an event yet
-                    ->logoutUser()
-                    ->visit('/')
-                    ->dump();
+                    ->logoutUser();
         });
         
     }

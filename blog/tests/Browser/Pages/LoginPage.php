@@ -118,7 +118,13 @@ class LoginPage extends Page
         // Login trough the login page with the test user 
             //$browser->visit('/')->clickLink('/logout');
             
-            $browser->logout();
+            //$browser->logout()->dump();
+                //_dusk/logout/
+            
+            $browser->visit('/_dusk/logout/');
+            
+            //$browser->visit('/_dusk/logout/')->visit('/')->dump();
+            
     }
     
     

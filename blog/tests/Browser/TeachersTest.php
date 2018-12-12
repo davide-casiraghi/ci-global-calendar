@@ -36,12 +36,12 @@ class TeachersTest extends DuskTestCase
      */
       public function test_open_create_teacher(){
           $this->browse(function (Browser $browser) {
-              $browser->visit('/teachers')   //dusk don't like to visit page /teachers/create, so let's go there clicking
-                    ->clickLink('Add new teacher')
-                    ->assertSee('Year of starting to practice');
-                    
-                //$this->logout();        
-                    //$this->create_new_teacher($browser);
+              $browser->on(new LoginPage)
+                      ->loginUser()
+                      ->visit('/teachers')   //dusk don't like to visit page /teachers/create, so let's go there clicking
+                      ->clickLink('Add new teacher')
+                      ->assertSee('Year of starting to practice')
+                      ->logoutUser();
           });
           
       }    
