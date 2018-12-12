@@ -58,7 +58,7 @@
                 </div>
                 <div class="col-6 col-md-3 col-lg-2 pb-3 py-md-3 city">
                     <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-city mr-2" data-original-title="@lang('general.city')"></i>
-                    aaaa
+                    {{$eventVenue->city}}
                 </div>
                 <div class="col-12 pb-2 action">
                     <form action="{{ route('eventVenues.destroy',$eventVenue->id) }}" method="POST">
