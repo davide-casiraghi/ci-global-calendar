@@ -24,9 +24,9 @@ Below you can find informations about download the source code on your computer 
 2) Clone the git branch 
 
 3) Procede with the installation: 
-- npm install
-- composer install
-- copy .env.example .env
+    - npm install
+    - composer install
+    - copy .env.example .env
 - php artisan key:generate
 - go to your .env file and change database details
 - import the database file in your mysql database (ask to Davide the most updated vesion)
