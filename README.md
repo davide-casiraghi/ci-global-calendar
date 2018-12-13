@@ -19,7 +19,11 @@ The project is developed with the PHP framework **Laravel 5.7**
 Below you can find informations about download the source code on your computer and join the developer team.
 
 # How to install
-Once you have cloned the branch run: 
+
+1) Send to Davide your SSH Public Key
+2) Clone the git branch 
+
+3) Procede with the installation: 
 - npm install
 - composer install
 - copy .env.example .env
