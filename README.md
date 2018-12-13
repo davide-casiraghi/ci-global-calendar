@@ -27,11 +27,14 @@ Below you can find informations about download the source code on your computer 
     - npm install
     - composer install
     - copy .env.example .env
-- php artisan key:generate
-- go to your .env file and change database details
-- import the database file in your mysql database (ask to Davide the most updated vesion)
-- create an apache virtual host with the same url you set in the APP_URL parameter in .env
-- or.. start then the server running: php artisan serve
+    - php artisan key:generate
+    - go to your .env file and change database details
+    - import the database file in your mysql database (ask to Davide the most updated vesion)
+    - create an apache virtual host with the same url you set in the APP_URL parameter in .env
+    
+# Setup the testing environment
+The project is implemented using unit tests with Laravel Dusk.
+To install the testing environment... 
 
 # Credits and contributors
 Davide Casiraghi
