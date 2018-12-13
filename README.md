@@ -1,5 +1,5 @@
-# ci-global-calendar
-Global Contact Improvisation Calendar
+# Global Contact Improvisation Calendar
+
 
 The project is developed with the PHP framework Laravel 5.7
 
