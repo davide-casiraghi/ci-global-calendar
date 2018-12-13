@@ -1,5 +1,13 @@
 @extends('teachers.layout')
 
+@section('javascript-document-ready')
+    {{--  Clear filters on click reset button --}}
+        $("#resetButton").click(function(){
+            $("input[name=keywords]").val("");
+            $("select[name=country_id] option").prop("selected", false).trigger('change');
+            $('form.searchForm').submit();
+        });
+@endsection
 
 @section('content')
     <div class="row">
@@ -25,19 +33,22 @@
     @endif
 
     {{-- Search form --}}
-    <form class="row mt-3" action="{{ route('teachers.index') }}" method="GET">
+    <form class="row searchForm mt-3" action="{{ route('teachers.index') }}" method="GET">
         @csrf
-        <div class="form-group col-12 col-sm-6 col-md-6 col-lg-5">
-            <input type="text" name="keywords" id="keywords" class="form-control" placeholder="@lang('views.search_by_teacher_name')" value="{{ $searchKeywords }}">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-5">
+            @include('partials.forms.input', [
+                'name' => 'keywords',
+                'placeholder' => __('views.search_by_teacher_name'),
+                'value' => $searchKeywords
+            ])
         </div>
         <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-            <select name="country_id" class="selectpicker" data-live-search="true">
-                <option value="">@lang('views.filter_by_country')</option>
-                @foreach ($countries as $value => $country)
-                    {{-- {{ $event->category_id == $value ? 'selected' : '' }} --}}
-                    <option value="{{$value}}" {{ $searchCountry == $value ? 'selected' : '' }} >{!! $country !!} </option>
-                @endforeach
-            </select>
+            @include('partials.forms.select', [
+                'name' => 'country_id',
+                'placeholder' => __('views.filter_by_country'),
+                'records' => $countries,
+                'seleted' => $searchCountry
+            ])
         </div>
         <div class="col-12 col-lg-3 mt-3 mt-sm-0">
             <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>

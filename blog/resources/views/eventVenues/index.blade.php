@@ -29,7 +29,7 @@
     {{-- Search form --}}
     <form class="row searchForm mt-3" action="{{ route('eventVenues.index') }}" method="GET">
         @csrf
-        <div class="form-group col-12 col-md-6 col-lg-5 mb-2">
+        <div class="col-12 col-md-6 col-lg-5 mb-2">
             @include('partials.forms.input', [
                 'name' => 'keywords',
                 'placeholder' => __('views.search_by_venue_name'),
