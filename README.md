@@ -10,7 +10,7 @@ Once you have cloned the branch run:
 - copy .env.example .env
 - php artisan key:generate
 - go to your .env file and change database details
-- import the database file in your mysql database
+- import the database file in your mysql database (ask to Davide the most updated vesion)
 - start then the server running: php artisan serve
 
 # Credits and contributors
