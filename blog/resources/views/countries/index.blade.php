@@ -20,8 +20,12 @@
     {{-- Search form --}}
     <form class="row mt-3" action="{{ route('countries.index') }}" method="GET">
         @csrf
-        <div class="form-group col-12 col-md-8 col-lg-9">
-            <input type="text" name="keywords" id="keywords" class="form-control" placeholder="@lang('views.search_by_country_name')" value="{{ $searchKeywords }}">
+        <div class="col-12 col-md-8 col-lg-9">
+            @include('partials.forms.input', [
+                'name' => 'keywords',
+                'placeholder' => __('views.search_by_country_name'),
+                'value' => $searchKeywords
+            ])
         </div>
         <div class="col-12 col-md-4 col-lg-3 mt-sm-0 mt-3">
             <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
