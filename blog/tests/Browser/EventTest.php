@@ -71,9 +71,9 @@ class EventsTest extends DuskTestCase
              $browser->driver->executeScript("document.getElementById('multiple_teachers').value = '1';");
              $browser->driver->executeScript("document.getElementById('multiple_organizers').value = '1';");
              
-             $browser->select('venue_id', 2);
+             $browser->select('venue_id', 3);
              
-             $browser->driver->executeScript("document.getElementById('multiple_organizers').value = '1';");
+             //$browser->driver->executeScript("document.getElementById('venue_id').value = '1';");
              $browser->driver->executeScript("document.getElementsByName('startDate').value = '10/10/2023';");
              $browser->driver->executeScript("document.getElementsByName('endDate').value = '12/10/2023';");
             
@@ -82,9 +82,9 @@ class EventsTest extends DuskTestCase
                     
             
               $browser->resize(1920, 3000)
-                      ->press('Submit')->dump();
-                    /*  ->assertSee('Event created successfully')
-                      ->logoutUser();   */              
+                      ->press('Submit')
+                      ->assertSee('Event created successfully')
+                      ->logoutUser();   
          });
      }
     
