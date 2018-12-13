@@ -5,8 +5,8 @@
 
     {{-- Clear filters on click reset button --}}
     $("#resetButton").click(function(){
-        $("input#keywords").val("");
-        $('#category option').prop("selected", false).trigger('change');
+        $("input[name=keywords]").val("");
+        $("select[name=category_id] option").prop("selected", false).trigger('change');
         $('form.searchForm').submit();
     });
 
@@ -31,17 +31,20 @@
     {{-- Search form --}}
     <form class="row mt-3 searchForm" action="{{ route('posts.index') }}" method="GET">
         @csrf
-        <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6"> 
-            <input type="text" name="keywords" id="keywords" class="form-control" placeholder="@lang('views.search_by_post_name')" value="{{ $searchKeywords }}">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6"> 
+            @include('partials.forms.input', [
+                'name' => 'keywords',
+                'placeholder' => __('views.search_by_post_name'),
+                'value' => $searchKeywords
+            ])
         </div>
         <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-            <select name="category_id" class="form-control">
-                <option value="">@lang('views.filter_by_category')</option>
-                @foreach ($categories as $value => $category)
-                    {{-- {{ $event->category_id == $value ? 'selected' : '' }} --}}
-                    <option value="{{$value}}" {{ $searchCategory == $value ? 'selected' : '' }} >{!! $category !!} </option>
-                @endforeach
-            </select>
+            @include('partials.forms.select', [
+                'name' => 'category_id',
+                'placeholder' => __('views.filter_by_category'),
+                'records' => $categories,
+                'seleted' => $searchCategory
+            ])
         </div>
         <div class="col-12 col-lg-3 mt-sm-0 mt-3">
             <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
