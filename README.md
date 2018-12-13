@@ -16,6 +16,7 @@ We are actively looking for people to support the Project, especially (but not o
 
 # Contribute as web developer
 The project is developed with the PHP framework **Laravel 5.7**
+Below you can find informations about download the source code on your computer and join the developer team.
 
 # How to install
 Once you have cloned the branch run: 
