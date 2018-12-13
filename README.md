@@ -1,6 +1,9 @@
 # ci-global-calendar
 Global Contact Improvisation Calendar
 
+The project is developed with the PHP framework Laravel 5.7
+
+# How to install
 Once you have cloned the branch run: 
 - npm install
 - composer install
@@ -10,3 +13,8 @@ Once you have cloned the branch run:
 - import the database file in your mysql database
 - start then the server running: php artisan serve
 
+# Credits and contributors
+Davide Casiraghi
+
+# License
+The Global Contact Improvisation Calendar is free software distributed under the terms of the MIT license.
