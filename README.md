@@ -7,4 +7,7 @@ Once you have cloned the branch run:
 - copy .env.example .env
 - php artisan key:generate
 
-then goto your .env file and change database details
+then go to your .env file and change database details
+
+Start then the server running: php artisan serve
+
