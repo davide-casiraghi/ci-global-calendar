@@ -6,6 +6,16 @@ The goal of the **CI Global Calendar** is to make information about Contact Impr
 
 The project is developed with the PHP framework **Laravel 5.7**
 
+# Get Involved
+The Round Robin Project brings together a collective of dancers involved in the practice of Contact Improvisation and led by the desire to share this dance form with a wider and wider audience.
+
+We are actively looking for people to support the Project, especially (but not only) in regard with:
+
+- Developing/supporting the website: computer people, web designers, programmers, we need you!
+- Fundraising/inventing ways to support the further development and maintenance of this project
+- Advertising the project in whatever Contact Improvisation contexts you travel through
+- Using this website and recommending it to your students and partners
+
 
 # How to install
 Once you have cloned the branch run: 
