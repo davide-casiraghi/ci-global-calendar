@@ -1,0 +1,12 @@
+
+footer{
+    z-index: 2;
+    position: relative;
+
+    /* Sticky everywhere, not on smartphone */
+    @media screen and (min-width: 400px){
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+}

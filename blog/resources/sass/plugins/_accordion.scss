@@ -1,0 +1,107 @@
+
+
+$orange: #f08e0d;
+
+/**** JqueryUI Accordion - CSS override - plugin/contents/jw_ts ****/
+
+
+/****** ACCORDION ******/
+
+/* Slides */
+.accordion{
+    &.ui-state-default{
+        background-color: transparent!important;
+    }
+    &.ui-accordion {
+        .ui-accordion-icons{
+            border-style: solid none none;
+            border-width: 1px medium 0;
+            padding: 24px 60px 24px 0;
+
+            /*font-family: $font-family-avenirNextDemi;*/
+            font-family: AvenirNextLTPro-Demi, Arial, Helvetica, sans-serif;
+            font-size: 1.2rem;
+            border-radius: 0;
+        }
+        .ui-accordion-header{
+            border-color: #c5c5c5;
+            &.ui-state-active{
+                background-color: transparent;
+            }
+
+            .ui-icon{
+                width: 40px!important;
+                height: 40px!important;
+                text-indent: 0!important;
+                overflow: visible!important;
+
+                &:after {
+                    background: #fff;
+                    border: 2px solid $orange;
+                    border-radius: 100%;
+                    box-sizing: border-box;
+
+                    color: $orange;
+                    content: "+"!important;
+                    /*font-family: $font-family-avenirNext;*/
+                    font-family: "Avenir Next", Arial, Helvetica, sans-serif;
+
+
+                    text-align: center;
+                    font-size: 27px;
+                    font-weight: 400;
+
+                    line-height: 33px;
+                    opacity: 1;
+                    padding: 1px 0 0 0px;
+
+                    position: absolute;
+                    top: -8px;
+                    right: 0px;
+
+                    height: 40px;
+                    width: 40px;
+                }
+
+            }
+
+            .ui-accordion-header-icon {
+                margin-top: 0!important;
+                position: absolute;
+                right: .5em;
+                top: inherit!important;
+                background-image: none;
+            }
+
+            &.ui-state-active {
+                .ui-icon{
+                    &:after{
+                        content: "-"!important;
+                    }
+                }
+            }
+        }
+
+        .ui-accordion-content{
+            border-width: 1px 0 0 0;
+            border-style: solid;
+            border-color: #c5c5c5;
+
+            padding: 2rem;
+            /*box-sizing:content-box;*/
+            /*overflow:auto;*/
+
+            height: auto!important;
+            /*font-family: $font-family-avenirNext;*/
+            font-family: "Avenir Next", Arial, Helvetica, sans-serif;
+
+            line-height: 30px;
+
+            a{
+                /*color: $blu!important;*/
+            }
+        }
+    }
+}
+
+/**** end ACCORDION ****/

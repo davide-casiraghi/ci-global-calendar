@@ -1,0 +1,51 @@
+//$images-path: '../../../media/plg_content_imagepopup/css/images';
+
+.imageWrapper{
+    margin-bottom:      5px;
+    position:           relative;
+
+    a{
+        .lens{
+            width:              26px;
+            height:             26px;
+            position:           absolute;
+            //background:         url($images-path/search.png) no-repeat right transparent;
+            background:         url(/search.png) no-repeat right transparent;
+
+        }
+    }
+
+    .imgDesc {
+        background-color:           #f2f2f2;
+        padding:                    5px 11px 5px 11px;
+        line-height:                14px;
+        clear:                      both;
+        font-size:                  10px;
+        color:                      #333;
+    }
+
+    @media screen and (max-width: 450px) {
+        float:          none!important;
+        display:        block!important;
+        margin:         auto!important;
+        margin-bottom:  1.5rem!important;
+        width:          100%!important;
+
+        .imgDesc{
+            float:      none!important;
+            width:      100%!important;
+        }
+
+        a{
+            width:          100%!important;
+            height:         auto!important;
+            img{
+                width:          100%;
+                height:         auto;
+            }
+            .lens{
+                top:            0!important;
+            }
+        }
+    }
+}

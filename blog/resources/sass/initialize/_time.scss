@@ -1,0 +1,29 @@
+.bootstrap-timepicker-widget{
+    table{
+        tr{
+            td{
+                input{
+                    width: 45px;
+                }
+                a{
+                    span{
+                        &.glyphicon-chevron-down{
+                            position:relative;
+                            &:before{
+                                content: "\f13a";
+                                font-family: 'Font Awesome 5 Pro';
+                            }
+                        }
+                        &.glyphicon-chevron-up{
+                            position:relative;
+                            &:before{
+                                content: "\f139";
+                                font-family: 'Font Awesome 5 Pro';
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
