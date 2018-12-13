@@ -11,7 +11,8 @@ Once you have cloned the branch run:
 - php artisan key:generate
 - go to your .env file and change database details
 - import the database file in your mysql database (ask to Davide the most updated vesion)
-- start then the server running: php artisan serve
+- create an apache virtual host with the same url you set in the APP_URL parameter in .env
+- or.. start then the server running: php artisan serve
 
 # Credits and contributors
 Davide Casiraghi
