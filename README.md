@@ -36,7 +36,7 @@ Below you can find informations about download the source code on your computer 
 The project is implemented using unit tests with Laravel Dusk.
 To install the testing environment... 
 
-# Credits and contributors
+# Web developers team
 Davide Casiraghi
 
 # License
