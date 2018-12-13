@@ -34,8 +34,12 @@
     {{-- Search form --}}
     <form class="row mt-3 searchForm" action="{{ route('backgroundImages.index') }}" method="GET">
         @csrf
-        <div class="form-group col-12 col-md-5 col-lg-6">
-            <input type="text" name="keywords" id="keywords" class="form-control" placeholder="@lang('views.search_by_photographer_name')" value="{{ $searchKeywords }}">
+        <div class="col-12 col-md-5 col-lg-6">
+            @include('partials.forms.input', [
+                'name' => 'keywords',
+                'placeholder' => __('views.search_by_photographer_name'),
+                'value' => $searchKeywords
+            ])
         </div> 
         <div class="form-group col-12 col-md-3 col-lg-3">
             <select name="orientation" class="form-control">
