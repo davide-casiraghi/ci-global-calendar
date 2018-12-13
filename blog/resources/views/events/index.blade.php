@@ -29,23 +29,28 @@
     {{-- Search form --}}
     <form class="row searchForm mt-3" action="{{ route('events.index') }}" method="GET">
         @csrf
-        <div class="form-group col-12 col-sm-12 col-md-4 col-lg-3 mb-2">
-            <input type="text" name="keywords" class="form-control" placeholder="@lang('views.search_by_event_name')" value="{{ $searchKeywords }}">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-3 mb-2">
+            @include('partials.forms.input', [
+                'name' => 'keywords',
+                'placeholder' => __('views.search_by_event_name'),
+                'value' => $searchKeywords
+            ])
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-2">
-            <select name="category_id" class="selectpicker" data-live-search="true" title="@lang('views.filter_by_category')">
-                @foreach ($eventCategories as $value => $eventCategory)
-                    {{-- {{ $event->category_id == $value ? 'selected' : '' }} --}}
-                    <option value="{{$value}}" {{ $searchCategory == $value ? 'selected' : '' }} >{!! $eventCategory !!} </option>
-                @endforeach
-            </select>
+            @include('partials.forms.select', [
+                'name' => 'category_id',
+                'placeholder' => __('views.filter_by_category'),
+                'records' => $eventCategories,
+                'seleted' => $searchCategory
+            ])
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <select name="country_id" class="selectpicker" data-live-search="true" title="@lang('views.filter_by_country')">
-                @foreach ($countries as $value => $country)
-                    <option value="{{$value}}" {{ $searchCountry == $value ? 'selected' : '' }} >{!! $country !!} </option>
-                @endforeach
-            </select>
+            @include('partials.forms.select', [
+                'name' => 'country_id',
+                'placeholder' => __('views.filter_by_country'),
+                'records' => $countries,
+                'seleted' => $searchCountry
+            ])
         </div>
         <div class="col-12 col-lg-3 mt-3 mt-sm-2 mt-lg-0">
             <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
