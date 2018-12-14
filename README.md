@@ -24,7 +24,8 @@ The project is developed using this technlogies:
 - PHP framework: **Laravel 5.7**
 - Javascript framework: **Jquery**
 - CSS framework: **Bootstrap 4**
-- Version control: **git**
+- Version control: **git**  
+
 Below you can find informations about download the source code on your computer and join the developer team.
 
 # How to install
