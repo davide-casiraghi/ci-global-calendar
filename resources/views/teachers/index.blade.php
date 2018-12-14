@@ -33,7 +33,7 @@
     @endif
 
     {{-- Search form --}}
-    <form class="row searchForm mt-3" action="{{ route('teachers.index') }}" method="GET">
+    <form class="row searchForm mt-3" action="@if(Route::current()->getName() == 'teachers.index') {{ route('teachers.index') }} @else {{ route('teachers.directory') }} @endif" method="GET">
         @csrf
         <div class="col-12 col-sm-6 col-md-6 col-lg-5">
             @include('partials.forms.input', [
