@@ -2,6 +2,15 @@
 
 use Illuminate\Database\Seeder;
 
+/*
+|--------------------------------------------------------------------------
+| Seeders
+|--------------------------------------------------------------------------
+|
+| Seders are used to generate datas to populate the database of the test environment.
+|
+*/
+
 class EventCategoriesTableSeeder extends Seeder
 {
     /**
