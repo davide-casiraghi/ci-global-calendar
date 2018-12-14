@@ -4,6 +4,8 @@ The **CI Global Calendar** is part of the **Round Robin Project (RRP)**, an inte
 
 The goal of the **CI Global Calendar** is to make information about Contact Improvisation events easily accessible in several languages—representing, at a glance, CI activities around the globe. It offers listings of CI classes, jams, workshops, festivals, and events happening throughout the global CI community, posted individually by event organizers and teachers.
 
+The calendar is still in beta testing phase and not yet available online, we plan to fully operate starting from January 2019 on.
+
 # Get Involved
 The Round Robin Project brings together a collective of dancers involved in the practice of Contact Improvisation and led by the desire to share this dance form with a wider and wider audience.
 
