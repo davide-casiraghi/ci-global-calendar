@@ -22,9 +22,9 @@ We are actively looking for people to support the Project, especially (but not o
 # Contribute as web developer
 The project is developed using this technlogies:
 - PHP framework: **Laravel 5.7**
-- Javascript framework: **Jquery**
+- Javascript framework: **jQuery**
 - CSS framework: **Bootstrap 4**
-- Version control: **git**  
+- Version control: **Git**  
 
 Below you can find informations about download the source code on your computer and join the developer team.
 
