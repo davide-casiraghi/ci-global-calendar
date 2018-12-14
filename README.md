@@ -44,7 +44,7 @@ Below you can find informations about download the source code on your computer 
     - create an apache virtual host with the same url you set in the APP_URL parameter in .env
     
 # Setup the testing environment
-The project is implemented using unit tests with PHPUnit and Laravel Dusk.
+Unit tests and browser tests are still in an early stages and are implemented using unit tests with PHPUnit and Laravel Dusk.
 To install the testing environment... 
 
 # Web developers team
