@@ -25,6 +25,7 @@ The project is developed using this technlogies:
 - Javascript framework: **jQuery**
 - CSS framework: **Bootstrap 4**
 - Version control: **Git**  
+- Testing frameworks: PHPUnit, Laravel Dusk
 
 Below you can find informations about download the source code on your computer and join the developer team.
 
