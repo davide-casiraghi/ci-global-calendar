@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-12 margin-tb">
             <div class="pull-left">
-                <h2>Add New Teacher</h2>
+                <h2>@lang('views.add_new_teacher')</h2>
             </div>
         </div>
     </div>
@@ -24,32 +24,30 @@
          <div class="row">
             <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Name',
+                      'title' => __('general.name'),
                       'name' => 'name',
                       'placeholder' => 'Teacher name'
                 ])
             </div>
 
             <div class="col-12">
-                <div class="form-group">
-                    <strong>Country:</strong>
-                    <select name="country_id" class="selectpicker" data-live-search="true" title="Select country">
-                        @foreach ($countries as $value => $country)
-                            <option value="{{$value}}">{!! $country !!}</option>
-                        @endforeach
-                    </select>
-                </div>
+                @include('partials.forms.select', [
+                      'title' => __('general.country'),
+                      'name' => 'country_id',
+                      'placeholder' => 'Select country',
+                      'records' => $countries,
+                ])
             </div>
 
             <div class="col-12">
-                <div class="form-group">
-                    <strong>Bio:</strong>
-                    <textarea class="form-control" style="height:150px" name="bio" placeholder="Bio"></textarea>
-                </div>
+                @include('partials.forms.textarea-plain', [
+                      'title' =>  __('views.bio'),
+                      'name' => 'bio',
+                ])
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Year of starting to practice',
+                      'title' => __('views.year_of_starting_to_practice'),
                       'name' => 'year_starting_practice',
                       'placeholder' => 'AAAA',
                       'value' => ''
@@ -57,15 +55,21 @@
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Year of starting to teach',
+                      'title' => __('views.year_of_starting_to_teach'),
                       'name' => 'year_starting_teach',
                       'placeholder' => 'AAAA',
                       'value' => ''
                 ])
             </div>
             <div class="col-12">
+                @include('partials.forms.textarea-plain', [
+                      'title' =>  __('views.significant_teachers'),
+                      'name' => 'significant_teachers',
+                ])
+            </div>
+            <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Facebook profile',
+                      'title' => __('views.facebook_profile'),
                       'name' => 'facebook',
                       'placeholder' => 'https://...',
                       'value' => ''
@@ -73,7 +77,7 @@
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Website',
+                      'title' => __('views.website'),
                       'name' => 'website',
                       'placeholder' => 'https://...',
                       'value' => ''
@@ -81,7 +85,7 @@
             </div>
             
             @include('partials.forms.upload-image', [
-                  'title' => 'Upload profile picture',
+                  'title' => __('views.upload_profile_picture'), 
                   'name' => 'profile_picture',
                   'value' => ''
             ])

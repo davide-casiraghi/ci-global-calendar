@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-12 margin-tb">
             <div class="pull-left">
-                <h2>Add New Venue</h2>
+                <h2>@lang('views.add_new_venue')</h2>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-12">
                 @include('partials.forms.input', [
-                    'title' => 'Name',
+                    'title' => __('general.name'),
                     'name' => 'name',
                     'placeholder' => 'Name'
                 ])
@@ -27,28 +27,28 @@
             
             <div class="col-12">
                 @include('partials.forms.input', [
-                    'title' => 'Street',
+                    'title' => __('views.street'),
                     'name' => 'address',
                     'placeholder' => ''
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
-                    'title' => 'City',
+                    'title' => __('views.city'),
                     'name' => 'city',
                     'placeholder' => ''
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
-                    'title' => 'State/Province',
+                    'title' => __('views.state_province'),
                     'name' => 'state_province',
                     'placeholder' => ''
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.select', [
-                      'title' => 'Country',
+                      'title' => __('views.country'),
                       'name' => 'country_id',
                       'placeholder' => 'Select country',
                       'records' => $countries,
@@ -56,7 +56,7 @@
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
-                    'title' => 'Zip code',
+                    'title' => __('views.zip_code'),
                     'name' => 'zip_code',
                     'placeholder' => '',
                     'value' => ''
@@ -64,7 +64,7 @@
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
-                    'title' => 'Website',
+                    'title' => __('views.website'),
                     'name' => 'website',
                     'placeholder' => 'https://...',
                     'value' => ''
@@ -72,7 +72,7 @@
             </div>
             <div class="col-12">
                 @include('partials.forms.textarea', [
-                    'title' => 'Description',
+                    'title' => __('general.description'),
                     'name' => 'description',
                     'placeholder' => 'Event description'
                 ])
