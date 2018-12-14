@@ -20,7 +20,7 @@ Below you can find informations about download the source code on your computer 
 
 # How to install
 
-1) Send to Davide your SSH Public Key ([Github tutorial on SSH](https://help.github.com/articles/checking-for-existing-ssh-keys/))
+1) Send to Davide your SSH Public Key ([check Github tutorial on SSH](https://help.github.com/articles/checking-for-existing-ssh-keys/))
 2) Clone the git branch 
 
 3) Procede with the installation: 
