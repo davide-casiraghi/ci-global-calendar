@@ -3,6 +3,15 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
+/*
+|--------------------------------------------------------------------------
+| Seeders
+|--------------------------------------------------------------------------
+|
+| Seders are used to generate datas to populate the database of the test environment.
+|
+*/
+
 class CountriesTableSeeder extends Seeder
 {
     /**
