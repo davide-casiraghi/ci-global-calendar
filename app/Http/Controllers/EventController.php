@@ -869,7 +869,7 @@ class EventController extends Controller
      * @return string $ret - a string like "the 4th to last Thursday of the month"
      */
 
-    function decodeOnMonthlyKind($onMonthlyKindCode){
+    public function decodeOnMonthlyKind($onMonthlyKindCode){
         $onMonthlyKindCodeArray = explode("|",$onMonthlyKindCode);
         $weekDays = array("", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
 
@@ -1029,4 +1029,5 @@ class EventController extends Controller
         return $ret;
     }*/
 
+    
 }

@@ -78,7 +78,7 @@
             var request = $.ajax({
                 url: "/event/monthSelectOptions",
                 data: {
-                    day: $('#datepicker_start_date input').val()
+                    day: $("input[name='startDate']").val()
                 },
                 success: function( data ) {
                     $("#on_monthly_kind").html(data).selectpicker('refresh');
