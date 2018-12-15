@@ -57,7 +57,7 @@ function()
         Route::resource('backgroundImages','BackgroundImageController');
 
     // To populate the event repeat by month options
-        Route::get('/event/monthSelectOptions/', 'EventController@calculateMonthlySelectOptions')->name('month.select');
+        Route::get('/event/monthSelectOptions/', 'EventController@calculateMonthlySelectOptions');
 
     // Single post by slug
         Route::get('post/{slug}', 'PostController@postBySlug')->where('postBySlug', '[a-z]+');
