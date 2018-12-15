@@ -6,6 +6,9 @@ The goal of the **CI Global Calendar** is to make information about Contact Impr
 
 The calendar is still in beta testing phase and not yet available online, we plan to fully operate starting from January 2019 on.
 
+For further info about the history of the project: [roundrobinproject.weebly.com](https://roundrobinproject.weebly.com/) 
+
+
 # Get Involved
 The Round Robin Project brings together a collective of dancers involved in the practice of Contact Improvisation and led by the desire to share this dance form with a wider and wider audience.
 
@@ -17,7 +20,13 @@ We are actively looking for people to support the Project, especially (but not o
 - Using this website and recommending it to your students and partners
 
 # Contribute as web developer
-The project is developed with the PHP framework **Laravel 5.7**
+The project is developed using this technlogies:
+- PHP framework: **Laravel 5.7**
+- Javascript framework: **jQuery**
+- CSS framework: **Bootstrap 4**
+- Version control: **Git**  
+- Testing frameworks: **PHPUnit**, **Laravel Dusk**
+
 Below you can find informations about download the source code on your computer and join the developer team.
 
 # How to install
@@ -35,7 +44,7 @@ Below you can find informations about download the source code on your computer 
     - create an apache virtual host with the same url you set in the APP_URL parameter in .env
     
 # Setup the testing environment
-The project is implemented using unit tests with Laravel Dusk.
+Unit tests and browser tests are still in an early stages and are implemented using unit tests with PHPUnit and Laravel Dusk.
 To install the testing environment... 
 
 # Web developers team
