@@ -28,32 +28,13 @@ class EventTest extends TestCase
     
     public function test_decode_on_monthly_kind_function(){
         
-        // call the route called by the ajax in /partials/forms/event/repeat-event view
-        //$response = $this->get('/event/monthSelectOptions')
-        
-        $data = [
-            'day' => '2/1/2018'
-        ];
-        
-        //$response = $this->route('GET', '/event/monthSelectOptions', $data);
-        $response = $this->get('/event/monthSelectOptions');
-        
-        dd($response);
-        
-        
-        
-        
-        
-        
-        
-        
         /*
         // Refresh db
         
         // Populate with dummy data
         
         // Post new events with different of monthly kind occurances
-            $response = $this->post('/teachers', $data);
+            $response = $this->post('/events', $data);
         
     
         
