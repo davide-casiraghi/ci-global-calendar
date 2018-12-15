@@ -27,6 +27,22 @@ class EventTest extends TestCase
     
     
     public function test_decode_on_monthly_kind_function(){
+        // Authenticate the user
+            $this->authenticate();
+            
+        // Access to the page
+            $data = ['day' => '10/01/2019'];
+            
+            /*$response = $this->get('en/event/monthSelectOptions')
+                             ->assertStatus(200);*/
+            
+            //$response = $this->get('en/event/monthSelectOptions', $data)
+            $response = $this->get('en/event/monthSelectOptions?day=10/01/2019')
+                 ->assertStatus(200);
+            //dd($response->original);
+        
+        $codeToCompare = "<select name='on_monthly_kind' id='on_monthly_kind' class='selectpicker' title='Select repeat monthly kind'><option value='0|10'>the 10th day of the month</option><option value='1|2|4'>the 2nd Thursday of the month</option><option value='2|20'>the 21th to last day of the month</option><option value='3|3|4'>the 4th to last Thursday of the month</option></select>";
+        $this->assertSame($response->original, $codeToCompare);
         
         /*
         // Refresh db
@@ -34,6 +50,37 @@ class EventTest extends TestCase
         // Populate with dummy data
         
         // Post new events with different of monthly kind occurances
+            $title = $this->faker->name;
+            $data = [
+                'title' => $title,
+                'category_id' => "2000",
+                'description' => $this->faker->paragraph,
+                'created_by' => '1',
+                'slug' = str_slug($title, '-').rand(100000, 1000000),
+                'venue_id' => '1',
+                'website_event_link' => '1',
+                'facebook_event_link' => '1',
+                'on_monthly_kind' => '1',
+                
+                
+                $event->venue_id = $request->get('venue_id');
+                $event->image = $request->get('image');
+                $event->website_event_link = $request->get('website_event_link');
+                $event->facebook_event_link = $request->get('facebook_event_link');
+                $event->status = $request->get('status');
+                $event->on_monthly_kind = $request->get('on_monthly_kind');
+                
+                
+                
+                
+                
+                
+                'year_starting_teach' => "2006",
+                'significant_teachers' => $this->faker->paragraph,
+                'website' => $this->faker->url,
+                'facebook' => "https://www.facebook.com/".$this->faker->word,
+                'country_id' => $this->faker->numberBetween($min = 1, $max = 253),
+            ];
             $response = $this->post('/events', $data);
         
     
@@ -66,6 +113,8 @@ class EventTest extends TestCase
         //$bb = $this->action('GET', 'EventController@decodeOnMonthlyKind');
         
         
-        dd($aa);*/
+        dd($aa);
+        
+        */
     }
 }
