@@ -29,16 +29,14 @@ let mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
    .extract([
         'jquery',
-        //'node_modules/jquery/dist/jquery.js',
         'popper.js', //((positioning engine for tooltips))
         'bootstrap',
         'jquery-ui',
         'jquery-ui/ui/widgets/datepicker',
         'jquery-ui/ui/widgets/accordion' ,
         'smartmenus',
-        /*'smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.js',*/
         'smartmenus/dist/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.js',
-        'tooltip.js', //(tooltips)
+        'tooltip.js', 
         'slick-carousel',
         'gridalicious',
         '@fancyapps/fancybox/dist/jquery.fancybox.js',
@@ -55,7 +53,6 @@ mix.styles([
    'node_modules/bootstrap/dist/css/bootstrap.css',
    'node_modules/jquery-ui/themes/base/core.css',
    'node_modules/jquery-ui/themes/base/accordion.css',
-   /*'node_modules/smartmenus/dist/addons/bootstrap/jquery.smartmenus.bootstrap.css',*/
    'node_modules/smartmenus/dist/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.css',
    'node_modules/smartmenus/dist/css/sm-core-css.css',
    'node_modules/slick-carousel/slick/slick.css',
