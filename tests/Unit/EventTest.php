@@ -42,6 +42,10 @@ class EventTest extends TestCase
     }
     
     public function test_a_logged_user_can_create_event(){
+        // Refresh db
+        
+        // Populate with dummy data
+        
         
         // Authenticate the user
             $this->authenticate();
@@ -71,90 +75,5 @@ class EventTest extends TestCase
             $this->assertDatabaseHas('events',['title' => $title]);
                 
     }
-    
-    
-    /*
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /*
-    // Refresh db
-    
-    // Populate with dummy data
-    
-    // Post new events with different of monthly kind occurances
-        $title = $this->faker->name;
-        $data = [
-            'title' => $title,
-            'category_id' => "2000",
-            'description' => $this->faker->paragraph,
-            'created_by' => '1',
-            'slug' = str_slug($title, '-').rand(100000, 1000000),
-            'venue_id' => '1',
-            'website_event_link' => '1',
-            'facebook_event_link' => '1',
-            'on_monthly_kind' => '1',
-            
-            
-            $event->venue_id = $request->get('venue_id');
-            $event->image = $request->get('image');
-            $event->website_event_link = $request->get('website_event_link');
-            $event->facebook_event_link = $request->get('facebook_event_link');
-            $event->status = $request->get('status');
-            $event->on_monthly_kind = $request->get('on_monthly_kind');
-            
-            
-            
-            
-            
-            
-            'year_starting_teach' => "2006",
-            'significant_teachers' => $this->faker->paragraph,
-            'website' => $this->faker->url,
-            'facebook' => "https://www.facebook.com/".$this->faker->word,
-            'country_id' => $this->faker->numberBetween($min = 1, $max = 253),
-        ];
-        $response = $this->post('/events', $data);
-    
-
-    
-    // Assert in the database i have the right values in the 
-        $this->assertDatabaseHas('events', [
-            'title' => 'Test event monthly kind 1'
-            'repeat_type' => '3'
-            'repeat_monthly_on' => 'sally@example.com'
-            'on_monthly_kind' => 'sally@example.com'
-        ]);
-    
-        $this->assertDatabaseHas('events', [
-            'title' => 'Test event monthly kind 2'
-            'repeat_type' => '3'
-            'repeat_monthly_on' => 'sally@example.com'
-            'on_monthly_kind' => 'sally@example.com'
-        ]);
-    
-    
-    
-    
-    //$event = new Event();
-    //dd($this->decodeOnMonthlyKind("0|7"));
-    //$this->assertSame("7th day of the month", $event->decodeOnMonthlyKind("0|7"));
-    
-    // Act
-    $aa = $this->call('EventController@decodeOnMonthlyKind', 'GET');
-    
-    //$bb = $this->action('GET', 'EventController@decodeOnMonthlyKind');
-    
-    
-    dd($aa);
-    
-    */
-    
     
 }
