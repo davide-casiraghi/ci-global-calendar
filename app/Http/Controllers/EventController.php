@@ -933,7 +933,7 @@ class EventController extends Controller
                 ->select('event_venues.id AS venue_id', 'event_venues.name AS venue_name', 'event_venues.country_id AS country_id', 'event_venues.continent_id', 'event_venues.city')
                 ->where('event_venues.id', '=', $request->get('venue_id'))
                 ->first();
-
+                
         $event->title = $request->get('title');
         $event->description = $request->get('description');
         $event->created_by = \Auth::user()->id;

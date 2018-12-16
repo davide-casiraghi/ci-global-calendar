@@ -56,7 +56,7 @@ class EventTest extends TestCase
                 'slug' => str_slug($title, '-').rand(100000, 1000000),
                 'multiple_teachers' => '1,2',
                 'multiple_organizers' => '1,2',
-                'venue_id' => '1',
+                'venue_id' => '3',
                 'startDate' => '10/01/2022',
                 'endDate' => '12/01/2022',
                 'time_start' => '6:00 PM',
