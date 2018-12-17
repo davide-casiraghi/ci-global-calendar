@@ -22,7 +22,7 @@
                 @include('partials.forms.input', [
                       'title' => __('general.name'),
                       'name' => 'name',
-                      'placeholder' => 'User name'
+                      'placeholder' => __('views.user_name'),
                 ])
             </div>
 
@@ -72,7 +72,7 @@
                 @include('partials.forms.select', [
                       'title' => __('general.country'),
                       'name' => 'country_id',
-                      'placeholder' => 'Select country',
+                      'placeholder' => __('views.select_country'), 
                       'records' => $countries
                 ])
             </div>
@@ -81,7 +81,7 @@
                 @include('partials.forms.textarea', [
                       'title' => __('general.description'),
                       'name' => 'description',
-                      'placeholder' => 'To be approved as an editor of the CI Global Calendar, please describe your role in the Contact Improvisation community. (this is needed to prevent spam contents in the website)'
+                      'placeholder' => __('general.to_be_approved'), 
                 ])
             </div>
         </div>
