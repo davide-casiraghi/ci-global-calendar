@@ -25,7 +25,7 @@
                 @include('partials.forms.input', [
                       'title' => __('general.name'),
                       'name' => 'name',
-                      'placeholder' => 'Name',
+                      'placeholder' => '',
                       'value' => $country->name
                 ])
             </div>
@@ -40,7 +40,7 @@
                 @include('partials.forms.select', [
                       'title' => __('general.continent'),
                       'name' => 'continent_id',
-                      'placeholder' => 'Select continent',
+                      'placeholder' => __('general.select_continent'),
                       'records' => $continents,
                       'seleted' => $country->continent_id
                 ])

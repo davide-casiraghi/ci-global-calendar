@@ -31,6 +31,7 @@ return [
     'confirm_password' => 'Confirm Password',
     'register' => 'Register',
     'select_country' => 'Select country',
+    'select_continent' => 'Select continent',
     'remember_me' => 'Remember me',
     'login' => 'Login',
     'forgot_your_password' => 'Forgot your password?',

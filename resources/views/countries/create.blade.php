@@ -22,7 +22,7 @@
                 @include('partials.forms.input', [
                       'title' => __('general.name'),
                       'name' => 'name',
-                      'placeholder' => 'Name'
+                      'placeholder' => ''
                 ])
             </div>
             <div class="col-12">
@@ -36,7 +36,7 @@
                 @include('partials.forms.select', [
                       'title' => __('general.continent'),
                       'name' => 'continent_id',
-                      'placeholder' => 'Select continent',
+                      'placeholder' => __('general.select_continent'),
                       'records' => $continents
                 ])
             </div>
