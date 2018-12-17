@@ -22,7 +22,7 @@
                 @include('partials.forms.input', [
                     'title' => __('general.name'),
                     'name' => 'name',
-                    'placeholder' => 'Venue name',
+                    'placeholder' => __('homepage-serach.venue_name'),
                 ])
             </div>
 
@@ -32,7 +32,7 @@
                     @include('partials.forms.select', [
                         'title' => __('views.created_by'),
                         'name' => 'created_by',
-                        'placeholder' => 'Select owner',
+                        'placeholder' => __('views.select_owner'),
                         'records' => $users
                     ])
                 </div>
@@ -63,7 +63,7 @@
                 @include('partials.forms.select', [
                       'title' => __('views.country'),
                       'name' => 'country_id',
-                      'placeholder' => 'Select country',
+                      'placeholder' => __('views.select_country'), 
                       'records' => $countries,
                 ])
             </div>
@@ -87,7 +87,7 @@
                 @include('partials.forms.textarea', [
                     'title' => __('general.description'),
                     'name' => 'description',
-                    'placeholder' => 'Event description'
+                    'placeholder' => ''
                 ])
             </div>
         </div>

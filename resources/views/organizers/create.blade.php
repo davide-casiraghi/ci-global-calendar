@@ -22,7 +22,7 @@
                 @include('partials.forms.input', [
                     'title' => __('general.name'),
                     'name' => 'name',
-                    'placeholder' => 'Name'
+                    'placeholder' => __('homepage-serach.organizer_name'), 
                 ])
             </div>
 
@@ -32,7 +32,7 @@
                     @include('partials.forms.select', [
                           'title' => __('views.created_by'),
                           'name' => 'created_by',
-                          'placeholder' => 'Select owner',
+                          'placeholder' => __('views.select_owner'),
                           'records' => $users
                     ])
                 </div>
@@ -61,7 +61,7 @@
                 @include('partials.forms.textarea', [
                       'title' => __('general.description'),
                       'name' => 'description',
-                      'placeholder' => 'Organizer description'
+                      'placeholder' => ''
                 ])
             </div>
         </div>
