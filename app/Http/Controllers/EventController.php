@@ -397,6 +397,7 @@ class EventController extends Controller
     }
 
     /***************************************************************************/
+    
     /**
      * Save all the weekly repetitions inthe event_repetitions table
      * useful: http://thisinterestsme.com/php-get-first-monday-of-month/
@@ -478,6 +479,7 @@ class EventController extends Controller
     }
 
     /***************************************************************************/
+    
     /**
      * Save event repetition in the DB
      *
@@ -497,8 +499,8 @@ class EventController extends Controller
         $eventRepetition->save();
     }
 
-
     /***************************************************************************/
+    
     /**
      * Delete all the previous repetitions from the event_repetitions table
      *
@@ -509,8 +511,8 @@ class EventController extends Controller
         DB::table('event_repetitions')->where('event_id', $eventId)->delete();
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
+    
     /**
      * Send the Misuse mail
      *
@@ -552,7 +554,7 @@ class EventController extends Controller
     }
 
     // **********************************************************************
-
+    
     /**
      * Send the mail to the Organizer (from the event modal in the event show view)
      *
@@ -608,8 +610,8 @@ class EventController extends Controller
         return view('emails.report-thankyou');
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
+    
     /**
      * Set the Event attributes about repeating before store or update (repeat until field and multiple days)
      *

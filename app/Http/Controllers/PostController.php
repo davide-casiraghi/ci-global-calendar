@@ -13,16 +13,25 @@ use App\Classes\ColumnsClass;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class PostController extends Controller
 {
-    /* Restrict the access to this resource just to logged in users except show view */
+    /***************************************************************************/
+    /**
+     * Constructor
+     *
+     * @return none
+     */
     public function __construct(){
-        $this->middleware('auth', ['except' => ['show']]);
+        
+        //Restrict the access to this resource just to logged in users except show view 
+            $this->middleware('auth', ['except' => ['show']]);
     }
     
+    /***************************************************************************/
     /**
      * Display a listing of the resource.
      *
@@ -40,10 +49,7 @@ class PostController extends Controller
         // Returns all countries having translations
             //dd(Post::translated()->get());
         // Countries available for translations
-        $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
-        //dd( LaravelLocalization::getSupportedLocales() );
-
-
+            $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
 
         if ($searchKeywords||$searchCategory){
             $posts = Post::
@@ -62,8 +68,7 @@ class PostController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 20)->with('categories',$categories)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('countriesAvailableForTranslations',$countriesAvailableForTranslations);
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Show the form for creating a new resource.
      *
@@ -78,8 +83,7 @@ class PostController extends Controller
         return view('posts.create')->with('categories', $categories);
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Store a newly created resource in storage.
      *
@@ -87,19 +91,19 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-
+        $post = new Post();
+        
         request()->validate([
             'title' => 'required',
             'body' => 'required',
         ]);
-
-        /*Post::create($request->all());*/
-
-        $post = new Post();
+        
+        $this->saveOnDb($request, $post);
+        
+        /*
         $post->title = $request->get('title');
         $post->body = $request->get('body');
         //dd($request->get('body'));
-        /*$post->author_id = auth()->id();*/
         $post->author_id = 0;
         $post->slug = $request->get('slug');
         if ($post->slug=== NULL) {
@@ -120,14 +124,14 @@ class PostController extends Controller
         $post->before_content = $request->get('before_content');
         $post->after_content = $request->get('after_content');
 
-        $post->save();
+        $post->save();*/
+        
 
         return redirect()->route('posts.index')
                         ->with('success','Post created successfully.');
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Display the specified resource.
      *
@@ -167,8 +171,7 @@ class PostController extends Controller
         return view('posts.show',compact('post'));
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Show the form for editing the specified resource.
      *
@@ -182,8 +185,7 @@ class PostController extends Controller
         return view('posts.edit',compact('post'))->with('categories', $categories);
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Update the specified resource in storage.
      *
@@ -198,14 +200,14 @@ class PostController extends Controller
             'body' => 'required'
         ]);
 
-        $post->update($request->all());
+        //$post->update($request->all());
+        $this->saveOnDb($request, $post);
 
         return redirect()->route('posts.index')
                         ->with('success','Post updated successfully');
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Remove the specified resource from storage.
      *
@@ -218,8 +220,7 @@ class PostController extends Controller
                         ->with('success','Post deleted successfully');
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Return the single post datas by post id [title, body, image]
      *
@@ -233,8 +234,7 @@ class PostController extends Controller
          return $ret;
      }
 
-     // **********************************************************************
-
+     /***************************************************************************/
      /**
       * Return all the posts from by category id
       *
@@ -247,8 +247,7 @@ class PostController extends Controller
           return $ret;
       }
 
-     // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Return the post HTML by SLUG. (eg. http://laravelblog.fr/post/davide_spada)
      *
@@ -261,6 +260,66 @@ class PostController extends Controller
         return $this->show($post);
     }
 
-    // **********************************************************************
+    /***************************************************************************/
+    /**
+     * Save the record on DB
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+     public function saveOnDb($request, $post){
+         
+         $post->title = $request->get('title');
+         $post->body = $request->get('body');
+         $post->created_by = \Auth::user()->id;
+         $post->slug = str_slug($post->title, '-').rand(100000, 1000000);
+         $post->category_id = $request->get('category_id');
+         
+         $post->status = $request->get('status');
+         $post->featured = $request->get('featured');
+         
+         // Intro image  picture upload
+         if ($request->file('introimage')){
+             $introImagePictureFile = $request->file('introimage');
+             $imageName = $introImagePictureFile->hashName();
+             $path = $introImagePictureFile->store('public/images/posts_intro_images');
+             $post->introimage = $imageName;
+        }
 
+         $post->before_content = $request->get('before_content');
+         $post->after_content = $request->get('after_content');
+         
+         $post->save();
+         
+         
+         
+         // remove author_id
+         
+         /*
+         $post->title = $request->get('title');
+         $post->body = $request->get('body');
+         //dd($request->get('body'));
+         
+         $post->author_id = 0;
+         $post->slug = $request->get('slug');
+         if ($post->slug=== NULL) {
+             $post->slug = str_slug($post->title, '-');
+         }
+         $post->category_id = $request->get('category_id');
+
+         $post->meta_description = $request->get('meta_description');
+         $post->meta_keywords = $request->get('meta_keywords');
+         $post->seo_title = $request->get('seo_title');
+         $post->image = $request->get('image');
+         $post->status = $request->get('status');
+         $post->featured = $request->get('featured');
+
+         $post->introimage_src = $request->get('introimage_src');
+         $post->introimage_alt = $request->get('introimage_alt');
+
+         $post->before_content = $request->get('before_content');
+         $post->after_content = $request->get('after_content');
+         
+         */
+     }
 }

@@ -63,6 +63,7 @@ class OrganizerController extends Controller
             ->with('authorUserId',$authorUserId);
     }
 
+    /***************************************************************************/
     /**
      * Store a newly created resource in storage.
      *
@@ -83,6 +84,7 @@ class OrganizerController extends Controller
                         ->with('success','Organizer created successfully.');
     }
 
+    /***************************************************************************/
     /**
      * Display the specified resource.
      *
@@ -93,6 +95,7 @@ class OrganizerController extends Controller
         return view('organizers.show',compact('organizer'));
     }
 
+    /***************************************************************************/
     /**
      * Show the form for editing the specified resource.
      *
@@ -108,6 +111,7 @@ class OrganizerController extends Controller
             ->with('authorUserId',$authorUserId);
     }
 
+    /***************************************************************************/
     /**
      * Update the specified resource in storage.
      *
@@ -128,6 +132,7 @@ class OrganizerController extends Controller
                         ->with('success','Organizer updated successfully');
     }
 
+    /***************************************************************************/
     /**
      * Remove the specified resource from storage.
      *
@@ -140,7 +145,7 @@ class OrganizerController extends Controller
                         ->with('success','Organizer deleted successfully');
     }
 
-
+    /***************************************************************************/
     /**
      * Save the record on DB
      *
@@ -160,6 +165,8 @@ class OrganizerController extends Controller
 
          $organizer->save();
      }
+     
+    /***************************************************************************/
     /**
      * Open a modal in the event view when create organizer is clicked
      *
@@ -169,6 +176,7 @@ class OrganizerController extends Controller
         return view('organizers.modal');
     }
 
+    /***************************************************************************/
     /**
      * Store a newly created organizer from the create event view modal in storage.
      *
