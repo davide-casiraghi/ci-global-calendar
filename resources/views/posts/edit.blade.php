@@ -22,7 +22,7 @@
          <div class="row">
             <div class="col-12">
                 @include('partials.forms.input', [
-                    'title' => 'Title',
+                    'title' => __('views.title'),
                     'name' => 'title',
                     'placeholder' => 'Event title',
                     'value' => $post->title
