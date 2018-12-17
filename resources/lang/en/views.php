@@ -67,6 +67,8 @@ return [
     'state_province' => 'State/Province',
     'country' => 'Country',
     'zip_code' => 'Zip code',
+    'before_post_contents' => 'Before the post content',
+    'after_post_contents' => 'After the post content',
     'search_by_post_name' => 'Search by post name',
     'search_by_event_name' => 'Search by event name',
     'search_by_venue_name' => 'Search by venue name',

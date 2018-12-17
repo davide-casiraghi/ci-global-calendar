@@ -1,3 +1,7 @@
+{{-- 
+    textarea-post partial provide the tinymce editor with some more buttons than the textarea partial.
+--}}
+
 @section('javascript')
     @parent
 

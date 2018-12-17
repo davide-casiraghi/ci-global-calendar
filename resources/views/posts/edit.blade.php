@@ -57,7 +57,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit post</h2>
+                <h2>@lang('views.edit_post')</h2>
             </div>
         </div>
     </div>
@@ -73,10 +73,10 @@
          <div class="row">
             <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Title',
-                      'name' => 'title',
-                      'placeholder' => 'Event title',
-                      'value' => $post->title
+                    'title' => 'Title',
+                    'name' => 'title',
+                    'placeholder' => 'Event title',
+                    'value' => $post->title
                 ])
             </div>
             <div class="col-12">
@@ -86,34 +86,35 @@
                 </div>
             </div>
             <div class="col-12">
-                <div class="form-group">
-                    <strong>Category:</strong>
-                    <select name="category_id" class="selectpicker" data-live-search="true" title="Select category">
-                        @foreach ($categories as $value => $category)
-                            <option value="{{$value}}" {{ $post->category_id == $value ? 'selected' : '' }}>{!! $category !!}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="form-group">
-                    <strong>Before Content:</strong>
-                    <textarea class="form-control" style="height:150px" name="before_content" placeholder="Before the content">{{ $post->before_content }}</textarea>
-                </div>
-            </div>
-            <div class="col-12">
-                @include('partials.forms.textarea-post', [
-                      'title' => 'Text',
-                      'name' => 'body',
-                      'placeholder' => 'Post text',
-                      'value' => $post->body
+                @include('partials.forms.select', [
+                    'title' => __('views.category'),
+                    'name' => 'category_id',
+                    'placeholder' => __('views.select_category'),
+                    'records' => $categories,
+                    'seleted' => $post->category_id
                 ])
             </div>
             <div class="col-12">
-                <div class="form-group">
-                    <strong>After Content:</strong>
-                    <textarea class="form-control" style="height:150px" name="after_content" placeholder="After the content">{{ $post->after_content }}</textarea>
-                </div>
+                @include('partials.forms.textarea-plain', [
+                    'title' =>  __('views.before_post_contents'),
+                    'name' => 'before_content',
+                    'value' => $post->before_content,
+                ])
+            </div>
+            <div class="col-12">
+                @include('partials.forms.textarea-post', [
+                    'title' => 'Text',
+                    'name' => 'body',
+                    'placeholder' => 'Post text',
+                    'value' => $post->body
+                ])
+            </div>
+            <div class="col-12">
+                @include('partials.forms.textarea-plain', [
+                    'title' =>  __('views.after_post_contents'),
+                     'name' => 'before_content',
+                     'value' => $post->after_content,
+                ])
             </div>
         </div>
 

@@ -1,3 +1,8 @@
+
+{{-- 
+    textarea-plain partial provide a textarea with tinymce editor.
+--}}
+
 @section('javascript')
     @parent
 
