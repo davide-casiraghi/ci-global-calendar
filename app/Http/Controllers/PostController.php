@@ -291,35 +291,5 @@ class PostController extends Controller
          
          $post->save();
          
-         
-         
-         // remove author_id
-         
-         /*
-         $post->title = $request->get('title');
-         $post->body = $request->get('body');
-         //dd($request->get('body'));
-         
-         $post->author_id = 0;
-         $post->slug = $request->get('slug');
-         if ($post->slug=== NULL) {
-             $post->slug = str_slug($post->title, '-');
-         }
-         $post->category_id = $request->get('category_id');
-
-         $post->meta_description = $request->get('meta_description');
-         $post->meta_keywords = $request->get('meta_keywords');
-         $post->seo_title = $request->get('seo_title');
-         $post->image = $request->get('image');
-         $post->status = $request->get('status');
-         $post->featured = $request->get('featured');
-
-         $post->introimage_src = $request->get('introimage_src');
-         $post->introimage_alt = $request->get('introimage_alt');
-
-         $post->before_content = $request->get('before_content');
-         $post->after_content = $request->get('after_content');
-         
-         */
      }
 }
