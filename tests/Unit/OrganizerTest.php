@@ -21,6 +21,7 @@ class OrganizerTest extends TestCase
         // Access to the page
             $response = $this->get('/organizers')
                              ->assertStatus(200);
+                        
     }
  
     
