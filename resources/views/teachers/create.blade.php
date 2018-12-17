@@ -22,7 +22,7 @@
                 @include('partials.forms.input', [
                       'title' => __('general.name'),
                       'name' => 'name',
-                      'placeholder' => 'Teacher name'
+                      'placeholder' => __('homepage-serach.teacher_name'),
                 ])
             </div>
 
@@ -42,7 +42,7 @@
                 @include('partials.forms.select', [
                       'title' => __('general.country'),
                       'name' => 'country_id',
-                      'placeholder' => 'Select country',
+                      'placeholder' => __('views.select_country'), 
                       'records' => $countries,
                 ])
             </div>

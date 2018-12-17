@@ -99,6 +99,7 @@ return [
     'add_new_event' => 'Add New event',
     'created_by' => 'Created by',
     'select_owner' => 'Select owner',
+    'select_country' => 'Select country',
     'please_insert_english_translation' => 'Please insert also an english translation of your event below the description, even short.',
     'continent_code' => 'Continent code',
     'country_code' => 'Country code',

@@ -23,7 +23,7 @@
                 @include('partials.forms.input', [
                     'title' => __('general.name'),
                     'name' => 'name',
-                    'placeholder' => 'Name',
+                     'placeholder' => __('homepage-serach.teacher_name'),
                     'value' => $teacher->name
                 ])
             </div>
@@ -34,7 +34,7 @@
                     @include('partials.forms.select', [
                           'title' => __('views.created_by'),
                           'name' => 'created_by',
-                          'placeholder' => 'Select owner',
+                          'placeholder' => __('views.select_owner'),
                           'records' => $users,
                           'seleted' => $teacher->created_by
                     ])
@@ -45,7 +45,7 @@
                 @include('partials.forms.select', [
                       'title' => __('general.country'),
                       'name' => 'country_id',
-                      'placeholder' => 'Select country',
+                      'placeholder' => __('views.select_country'),
                       'records' => $countries,
                       'seleted' => $teacher->country_id
                 ])
