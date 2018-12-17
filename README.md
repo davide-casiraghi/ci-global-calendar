@@ -55,9 +55,12 @@ To run the tests you need to create another database that is used to create dumm
 - **php artisan migrate --database=testing**
 - create a file .env.testing in the root folder copying .env  
   - DB_CONNECTION=testing  
-..* DB_DATABASE=CIGC-local
+  - DB_DATABASE=CIGC-local
 - run this commands
-..* php artisan make:seeder CountriesTableSeeder
+  - php artisan make:seeder --class=CountriesTableSeeder --env=testing
+  - php artisan db:seed --class=ContinentsTableSeeder --env=testing
+  - php artisan db:seed --class=CategoriesTableSeeder --env=testing
+  - php artisan db:seed --class=EventCategoriesTableSeeder --env=testing
 
 
 # Web developers team
