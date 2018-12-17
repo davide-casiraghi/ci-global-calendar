@@ -60,6 +60,7 @@ return [
     'edit_continent' => 'Edit continent',
     'edit_country' => 'Edit country',
     'edit_background_image' => 'Edit background image',
+    'delete_event' => 'Delete event',
     'bio' => 'Bio',
     'year_of_starting_to_practice' => 'Year of starting to practice',
     'year_of_starting_to_teach' => 'Year of starting to teach',
@@ -106,5 +107,6 @@ return [
     'orientation' => 'Orientation',
     'select_orientation' => 'Select orientation',
     'who_took_the_photo'  => 'chi ha scattato la foto?',
+    'contact_the_administrator'  => 'Contact the administrator',
     
 ];

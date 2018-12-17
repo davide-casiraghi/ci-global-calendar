@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Contact the administrator</h2>
+                <h2>@lang('views.contact_the_administrator')</h2>
             </div>
         </div>
     </div>
