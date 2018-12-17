@@ -53,9 +53,9 @@ Before merge on the branch master please run the tests writing in the root folde
 To run the tests you need to create another database that is used to create dummy datas by the test functions.
 - create on your local machine a database called **CIGC-local-test**
 - **php artisan migrate --database=testing**
-- create a file .env.testing in the root folder copying .env
--- DB_CONNECTION=testing
--- DB_DATABASE=CIGC-local
+- create a file .env.testing in the root folder copying .env  
+-- DB_CONNECTION=testing  
+-- DB_DATABASE=CIGC-local  
 
 # Web developers team
 Davide Casiraghi
