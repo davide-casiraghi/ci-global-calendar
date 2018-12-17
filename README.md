@@ -49,9 +49,23 @@ Unit tests and browser tests are implemented using PHPUnit and Laravel Dusk.
 Before merge on the branch master please run the tests writing in the root folder:
 - **./vendor/bin/phpunit**
 - **php artisan dusk**
+## How to setup the test environment
+Before running the tests you need to create another database that is used to create dummy datas by the test functions.
+- create on your local machine a database called **CIGC-local-test**
+- **php artisan migrate --database=testing**
+- create a file .env.testing in the root folder copying .env  (used by phpunit)
+  - DB_CONNECTION=testing  
+  - DB_DATABASE=CIGC-local
+- run this commands:
+  - **php artisan db:seed --class=CountriesTableSeeder --env=testing**
+  - **php artisan db:seed --class=ContinentsTableSeeder --env=testing**
+  - **php artisan db:seed --class=CategoriesTableSeeder --env=testing**
+  - **php artisan db:seed --class=EventCategoriesTableSeeder --env=testing**
+- create a copy of .env.testing and name it .env.dusk.local  (used by laravel dusk)
 
 # Web developers team
 Davide Casiraghi
 
 # License
-The Global Contact Improvisation Calendar is free software distributed under the terms of the MIT license.
+The Global Contact Improvisation Calendar is free software distributed under the terms of the [MIT license](https://opensource.org/licenses/mit-license.php).
+
