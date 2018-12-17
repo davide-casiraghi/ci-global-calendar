@@ -69,6 +69,7 @@
             @include('partials.forms.upload-image', [
                   'title' => __('views.upload_profile_picture'), 
                   'name' => 'introimage',
+                  'folder' => 'posts_intro_images',
                   'value' => ''
             ])
         </div>

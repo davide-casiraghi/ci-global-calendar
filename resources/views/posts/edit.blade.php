@@ -55,15 +55,16 @@
             <div class="col-12">
                 @include('partials.forms.textarea-plain', [
                     'title' =>  __('views.after_post_contents'),
-                     'name' => 'after_content',
-                     'value' => $post->after_content,
+                    'name' => 'after_content',
+                    'value' => $post->after_content,
                 ])
             </div>
             
             @include('partials.forms.upload-image', [
-                  'title' => __('views.upload_profile_picture'), 
-                  'name' => 'introimage',
-                  'value' => $post->introimage,
+                'title' => __('views.upload_profile_picture'), 
+                'name' => 'introimage',
+                'folder' => 'posts_intro_images',
+                'value' => $post->introimage,
             ])            
         </div>
 

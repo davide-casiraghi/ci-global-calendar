@@ -18,9 +18,9 @@
         </div>
     </div>
 </div>
-{{-- Show the Image that has been already stored --}}
+{{-- Show the Image that has been already stored --}} 
 @if(!empty($value))
     <div class="col-12 col-sm-4 col-md-4">
-        <img style="width: 100%" src="/storage/images/teachers_profile/{{$value}}" alt="">
+        <img style="width: 100%" src="/storage/images/{{$folder}}/{{$value}}" alt="">
     </div>
 @endif

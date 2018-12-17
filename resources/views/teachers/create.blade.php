@@ -100,6 +100,7 @@
             @include('partials.forms.upload-image', [
                   'title' => __('views.upload_profile_picture'), 
                   'name' => 'profile_picture',
+                  'folder' => 'teachers_profile',
                   'value' => ''
             ])
         </div>
