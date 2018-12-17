@@ -64,10 +64,6 @@
                     'title' =>  __('views.after_post_contents'),
                     'name' => 'after_content',
                 ])
-                {{--<div class="form-group">
-                    <strong>After Content:</strong>
-                    <textarea class="form-control" style="height:150px" name="after_content" placeholder="After the content"></textarea>
-                </div>--}}
             </div>
             
             @include('partials.forms.upload-image', [

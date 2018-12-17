@@ -55,7 +55,7 @@
             <div class="col-12">
                 @include('partials.forms.textarea-plain', [
                     'title' =>  __('views.after_post_contents'),
-                     'name' => 'before_content',
+                     'name' => 'after_content',
                      'value' => $post->after_content,
                 ])
             </div>
