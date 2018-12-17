@@ -44,7 +44,7 @@ Below you can find informations about download the source code on your computer 
     - create an apache virtual host with the same url you set in the APP_URL parameter in .env
     
 # Setup the testing environment
-Unit tests and browser tests are still in an early stages and are implemented with PHPUnit and Laravel Dusk.
+Unit tests and browser tests are implemented using PHPUnit and Laravel Dusk.  
 Before merge on the branch master please run the tests writing in the root folder:
 - ./vendor/bin/phpunit  
 - php artisan dusk  
