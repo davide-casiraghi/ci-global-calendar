@@ -43,7 +43,7 @@ Below you can find informations about download the source code on your computer 
     - import the database file in your mysql database (ask to Davide the most updated vesion)
     - create an apache virtual host with the same url you set in the APP_URL parameter in .env
     
-# Setup the testing environment
+# Testing environment
 Unit tests and browser tests are implemented using PHPUnit and Laravel Dusk.  
 Before merge on the branch master please run the tests writing in the root folder:
 - ./vendor/bin/phpunit  
