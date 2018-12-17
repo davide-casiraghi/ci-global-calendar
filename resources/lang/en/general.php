@@ -6,6 +6,7 @@ return [
     'reset' => 'Reset',
     'back' => 'Back',
     'submit' => 'Submit',
+    'send' => 'Send',
     'category' => 'Category',
     'code' => 'Code',
     'organizers' => 'Organizers',
@@ -33,6 +34,7 @@ return [
     'remember_me' => 'Remember me',
     'login' => 'Login',
     'forgot_your_password' => 'Forgot your password?',
+    'message' => 'Message',
     
 
 

@@ -15,12 +15,12 @@
 
         <div class="row">
             <div class="col-12 mt-3 mb-5">
-                Please write your text in english.
+                @lang('views.please_write_in_english')
             </div>
 
             <div class="col-12">
                @include('partials.forms.input', [
-                     'title' => 'Name',
+                     'title' => __('general.name'),
                      'name' => 'name',
                      'placeholder' => 'Your name'
                ])
@@ -28,7 +28,7 @@
 
            <div class="col-12">
                @include('partials.forms.input', [
-                     'title' => 'Email',
+                     'title' => __('general.email_address'),
                      'name' => 'email',
                      'placeholder' => 'Your email'
                ])
@@ -36,7 +36,7 @@
 
            <div class="col-12">
                @include('partials.forms.textarea-plain', [
-                     'title' => 'Message',
+                     'title' => __('general.message'),
                      'name' => 'message',
                      'placeholder' => 'Your message'
                ])
@@ -46,10 +46,10 @@
 
        <div class="row mt-5">
            <div class="col-6 pull-left">
-               <a class="btn btn-primary" href="{{ route('home') }}"> Back</a>
+               <a class="btn btn-primary" href="{{ route('home') }}">@lang('general.back')</a>
            </div>
            <div class="col-6 pull-right">
-             <button type="submit" class="btn btn-primary float-right">Send</button>
+             <button type="submit" class="btn btn-primary float-right">@lang('general.send')</button>
            </div>
        </div>
    </form>

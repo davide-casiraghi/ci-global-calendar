@@ -108,5 +108,6 @@ return [
     'select_orientation' => 'Select orientation',
     'who_took_the_photo'  => 'chi ha scattato la foto?',
     'contact_the_administrator'  => 'Contact the administrator',
+    'please_write_in_english' => 'Please write your text in english',
     
 ];
