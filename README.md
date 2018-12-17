@@ -57,7 +57,7 @@ To run the tests you need to create another database that is used to create dumm
   - DB_CONNECTION=testing  
   - DB_DATABASE=CIGC-local
 - run this commands
-  - php artisan make:seeder --class=CountriesTableSeeder --env=testing
+  - php artisan db:seed --class=CountriesTableSeeder --env=testing
   - php artisan db:seed --class=ContinentsTableSeeder --env=testing
   - php artisan db:seed --class=CategoriesTableSeeder --env=testing
   - php artisan db:seed --class=EventCategoriesTableSeeder --env=testing
