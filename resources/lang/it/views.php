@@ -102,7 +102,7 @@ return [
     'background_image_title' => 'Titolo immagine - per riconoscerla',
     'orientation' => 'Orientamento',
     'select_orientation' => 'Seleziona orientamento',
-    'who_took_the_photo'  => 'Who took the photo?',
+    'who_took_the_photo'  => 'Chi ha scattato la foto?',
     
 
 ];
