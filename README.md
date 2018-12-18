@@ -58,11 +58,6 @@ Before running the tests you need to create another database that is used to cre
 - create a file .env.testing in the root folder copying .env  (used by phpunit)
   - DB_CONNECTION=testing  
   - DB_DATABASE=CIGC-local
-- run this commands:
-  - **php artisan db:seed --class=CountriesTableSeeder --env=testing**
-  - **php artisan db:seed --class=ContinentsTableSeeder --env=testing**
-  - **php artisan db:seed --class=CategoriesTableSeeder --env=testing**
-  - **php artisan db:seed --class=EventCategoriesTableSeeder --env=testing**
 - create a copy of .env.testing and name it .env.dusk.local  (used by laravel dusk)
 
 # Web developers team
