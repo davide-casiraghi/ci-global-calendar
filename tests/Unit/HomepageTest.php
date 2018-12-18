@@ -14,10 +14,12 @@ class HomepageTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function test_guest_user_can_see_homepage()
     {
         
 
-        $this->assertTrue(true);
+        // Access to the page
+            $response = $this->get('/')
+                             ->assertStatus(200);
     }
 }

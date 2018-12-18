@@ -127,7 +127,7 @@ class EventController extends Controller
         $this->saveOnDb($request, $event);
 
         return redirect()->route('events.index')
-                        ->with('success', __('views.event_created_succesfully'));                        
+                        ->with('success', __('general.event').__('views.created_successfully'));                        
     }
 
     /***************************************************************************/

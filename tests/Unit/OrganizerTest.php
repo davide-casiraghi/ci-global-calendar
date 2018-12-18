@@ -55,13 +55,15 @@ class OrganizerTest extends TestCase
                 'email' => $this->faker->email,
                 'phone' => $this->faker->e164PhoneNumber,
             ];
-            $response = $this->post('/organizers', $data);
+            $response = $this
+                        ->followingRedirects()
+                        ->post('/organizers', $data);
             
         // Assert in database
             $this->assertDatabaseHas('organizers',$data);
             
         // Status
-            $response->assertStatus(302); // I aspect redirect (301 or 302) because after store get redirected to teachers.index
+            $response->assertStatus(200); 
     
     }
     

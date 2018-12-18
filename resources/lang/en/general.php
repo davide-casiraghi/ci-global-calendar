@@ -11,6 +11,8 @@ return [
     'code' => 'Code',
     'organizers' => 'Organizers',
     'teachers' => 'Teachers',
+    'events' => 'Events',
+    'event' => 'Event',
     'venue' => 'Venue',
     'from' => 'From',
     'to' => 'To',

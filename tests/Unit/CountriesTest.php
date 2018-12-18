@@ -9,12 +9,22 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class CountriesTest extends TestCase
 {
     use WithFaker;
-    
-    /*
-        If this test fail run the seeders for countries and continents
-        - php artisan db:seed --class=CountriesTableSeeder --env=testing
-        - php artisan db:seed --class=ContinentsTableSeeder --env=testing
-    */
+    use RefreshDatabase;  // empty the test DB
+
+    /***************************************************************************/
+    /**
+     * Populate test DB with dummy data
+     */ 
+    public function setUp()
+    {
+        parent::setUp();
+        $this->seed();
+    }
+
+    /***************************************************************************/
+    /**
+     * Test that logged user can see countries index view
+     */  
     public function test_logged_user_can_see_countries(){
         // Authenticate the user
             $this->authenticate();
