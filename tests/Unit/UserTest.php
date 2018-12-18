@@ -9,17 +9,31 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class UserTest extends TestCase
 {
     use WithFaker;
+    use RefreshDatabase; // empty the test DB
     
+    /***************************************************************************/
+    /**
+     * Populate test DB with dummy data
+     */    
+    public function setUp()
+    {
+        parent::setUp();
+        $this->seed();
+    }
+    
+    /***************************************************************************/
+    /**
+     * Test that guest user can see user registration
+     */ 
     public function test_see_user_registration(){
         $response =  $this->get('register')
                           ->assertStatus(200);
     }
     
+    /***************************************************************************/
     /**
-     * A basic test example.
-     *
-     * @return void
-     */
+     * Test that guest user can register
+     */ 
     public function test_user_registration()
     {
         // Post a data to register a user 
@@ -34,6 +48,7 @@ class UserTest extends TestCase
                 'accept_terms' => 1,
             ];
             $response = $this
+                ->followingRedirects()
                 ->post('register', $data);
                 
         // Assert in database
@@ -41,38 +56,8 @@ class UserTest extends TestCase
                 'email' => $data['email']
             ]);
             
-            
-         /* $response = $this
-                ->followingRedirects()  //Without followingRedirects I get 302 (redirect)
-                ->post('register', $data)
-                ->assertStatus(200);
-                //->assertSee(__('auth.successfully_registered'));  
-                //dd($response);*/
-        
-            
-        
-        
-        
-        
-        
-        
-            
-            //$response->assertRedirectedTo('/');
-        // Assert in database
-            //$this->assertDatabaseHas('users',$data);
-            /*$this->assertDatabaseHas('users',[
-                'name' => $data['name']
-            ]);*/
-    
-    
-        /*
-        $response
-            ->assertStatus(201)
-            ->assertJson([
-                'created' => true,
-            ]);
-        */
-        
-        $this->assertTrue(true);
+            $response
+                ->assertStatus(200)
+                ->assertSee(__('auth.successfully_registered'));
     }
 }
