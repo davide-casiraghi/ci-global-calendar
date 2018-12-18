@@ -39,6 +39,10 @@ class TeacherTest extends TestCase
                              ->assertStatus(200);
     }
     
+    /***************************************************************************/
+    /**
+     * Test that guest user can see a teacher
+     */  
     public function test_guest_user_can_see_single_teacher(){
             
         // Access to the page (teacher.show)
