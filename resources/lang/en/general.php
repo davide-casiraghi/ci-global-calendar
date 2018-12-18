@@ -10,6 +10,7 @@ return [
     'category' => 'Category',
     'code' => 'Code',
     'organizers' => 'Organizers',
+    'organizer' => 'Organizer',
     'teachers' => 'Teachers',
     'events' => 'Events',
     'event' => 'Event',

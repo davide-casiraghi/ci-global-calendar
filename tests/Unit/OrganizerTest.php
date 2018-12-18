@@ -59,7 +59,8 @@ class OrganizerTest extends TestCase
             $this->assertDatabaseHas('organizers',$data);
             
         // Status
-            $response->assertStatus(200); 
+            $response->assertStatus(200)
+            ->assertSee(__('general.organizer').__('views.created_successfully'));
     
     }
     

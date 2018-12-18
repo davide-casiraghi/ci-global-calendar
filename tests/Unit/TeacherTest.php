@@ -72,13 +72,15 @@ class TeacherTest extends TestCase
                 'facebook' => "https://www.facebook.com/".$this->faker->word,
                 'country_id' => $this->faker->numberBetween($min = 1, $max = 253),
             ];
-            $response = $this->post('/teachers', $data);
+            $response = $this
+                            ->followingRedirects()
+                            ->post('/teachers', $data);
             
         // Assert in database
             $this->assertDatabaseHas('teachers',$data);
             
         // Status
-            $response->assertStatus(302); // I aspect redirect (301 or 302) because after store get redirected to teachers.index
+            $response->assertStatus(200); // I aspect redirect (301 or 302) because after store get redirected to teachers.index
     
     }
     
