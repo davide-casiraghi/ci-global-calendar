@@ -12,6 +12,7 @@ return [
     'organizers' => 'Organizers',
     'organizer' => 'Organizer',
     'teachers' => 'Teachers',
+    'teacher' => 'Teacher',
     'events' => 'Events',
     'event' => 'Event',
     'venue' => 'Venue',

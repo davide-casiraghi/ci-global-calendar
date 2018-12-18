@@ -80,8 +80,9 @@ class TeacherTest extends TestCase
             $this->assertDatabaseHas('teachers',$data);
             
         // Status
-            $response->assertStatus(200); // I aspect redirect (301 or 302) because after store get redirected to teachers.index
-    
+            $response
+                    ->assertStatus(200)
+                    ->assertSee(__('general.teacher').__('views.created_successfully'));
     }
     
     
