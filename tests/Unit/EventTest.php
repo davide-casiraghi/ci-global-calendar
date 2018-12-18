@@ -109,10 +109,16 @@ class EventTest extends TestCase
                 'facebook_event_link' => "https://www.facebook.com/".$this->faker->word,
                 'website_event_link' => $this->faker->url,
             ];
-            $response = $this->post('/events', $data);
+            $response = $this
+                            ->followingRedirects()
+                            ->post('/events', $data);
             
         // Assert in database
             $this->assertDatabaseHas('events',['title' => $title]);
+            //dd($response);
+            $response
+                ->assertStatus(200)
+                ->assertSee(__('views.event_created_succesfully'));
                 
     }
     

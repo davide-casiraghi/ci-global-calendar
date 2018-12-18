@@ -110,5 +110,5 @@ return [
     'who_took_the_photo'  => 'Who took the photo?',
     'contact_the_administrator'  => 'Contact the administrator',
     'please_write_in_english' => 'Please write your text in english',
-    
+    'event_created_succesfully' => 'Event created successfully',
 ];
