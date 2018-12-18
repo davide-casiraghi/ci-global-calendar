@@ -18,7 +18,12 @@ class TeacherTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->seed();
+        
+        // Seeders - /database/seeds
+            $this->seed();
+        
+        // Seeders - /database/factories
+            $this->teacher = factory(\App\Teacher::class)->create();
     }
     
     /***************************************************************************/
@@ -29,28 +34,21 @@ class TeacherTest extends TestCase
         // Authenticate the user
             $this->authenticate();
         
-        // Access to the page
+        // Access to the page (teacher.index)
             $response = $this->get('/teachers')
                              ->assertStatus(200);
     }
     
-    /*public function test_logged_user_can_see_single_teacher(){
-        // Authenticate the user
-            $this->authenticate();
+    /***************************************************************************/
+    /**
+     * Test that guest user can see a teacher
+     */  
+    public function test_guest_user_can_see_single_teacher(){
             
-        // Access to the page
-            $response = $this->get('/teachers/1/')
+        // Access to the page (teacher.show)
+            $response = $this->get('/en/teachers/'.$this->teacher->id.'/')
                          ->assertStatus(200);
-        
-            //$this->action('GET', 'TeachersController@show', ['id' => 3]);
-            
-            //$response = $this->get('TeachersController@show', ['id' => 3]);
-            //$response = $this->get('/teachers/'.$id.'/');
-            //dd($response);
-            
-            //$response = $this->get('/teachers/'.$id)
-                        //     ->assertStatus(200);
-    }*/
+    }
     
     /***************************************************************************/
     /**
@@ -72,14 +70,17 @@ class TeacherTest extends TestCase
                 'facebook' => "https://www.facebook.com/".$this->faker->word,
                 'country_id' => $this->faker->numberBetween($min = 1, $max = 253),
             ];
-            $response = $this->post('/teachers', $data);
+            $response = $this
+                            ->followingRedirects()
+                            ->post('/teachers', $data);
             
         // Assert in database
             $this->assertDatabaseHas('teachers',$data);
             
         // Status
-            $response->assertStatus(302); // I aspect redirect (301 or 302) because after store get redirected to teachers.index
-    
+            $response
+                    ->assertStatus(200)
+                    ->assertSee(__('general.teacher').__('views.created_successfully'));
     }
     
     

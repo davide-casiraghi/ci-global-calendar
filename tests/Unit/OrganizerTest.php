@@ -18,7 +18,11 @@ class OrganizerTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->seed();
+        // Seeders - /database/seeds
+            $this->seed();
+        
+        // Seeders - /database/factories
+            $this->organizer = factory(\App\Organizer::class)->create();
     }
 
     /***************************************************************************/
@@ -34,6 +38,17 @@ class OrganizerTest extends TestCase
                              ->assertStatus(200);
     }
  
+    /***************************************************************************/
+    /**
+     * Test that guest user can see an organizer
+     */  
+    public function test_guest_user_can_see_single_organizer(){
+            
+        // Access to the page (teacher.show)
+            $response = $this->get('/en/organizers/'.$this->organizer->id.'/')
+                         ->assertStatus(200);
+    }
+    
     /***************************************************************************/
     /**
      * Test that logged user can create an organizer
@@ -59,7 +74,9 @@ class OrganizerTest extends TestCase
             $this->assertDatabaseHas('organizers',$data);
             
         // Status
-            $response->assertStatus(200); 
+            $response
+                    ->assertStatus(200)
+                    ->assertSee(__('general.organizer').__('views.created_successfully'));
     
     }
     

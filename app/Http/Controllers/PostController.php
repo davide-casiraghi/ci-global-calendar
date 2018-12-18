@@ -101,7 +101,7 @@ class PostController extends Controller
         $this->saveOnDb($request, $post);    
 
         return redirect()->route('posts.index')
-                        ->with('success','Post created successfully.');
+                        ->with('success',__('general.post').__('views.created_successfully'));
     }
 
     /***************************************************************************/

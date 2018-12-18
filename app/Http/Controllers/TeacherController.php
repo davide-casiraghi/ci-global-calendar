@@ -97,7 +97,7 @@ class TeacherController extends Controller
         $this->saveOnDb($request, $teacher);
 
         return redirect()->route('teachers.index')
-                        ->with('success','Teacher created successfully.');
+                        ->with('success',__('general.teacher').__('views.created_successfully'));
     }
 
     /**

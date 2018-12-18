@@ -81,7 +81,7 @@ class OrganizerController extends Controller
         $this->saveOnDb($request, $organizer);
 
         return redirect()->route('organizers.index')
-                        ->with('success','Organizer created successfully.');
+                        ->with('success',__('general.organizer').__('views.created_successfully'));
     }
 
     /***************************************************************************/
