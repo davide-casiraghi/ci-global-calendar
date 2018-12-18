@@ -13,14 +13,22 @@ use App\User;
 class OrganizerTest extends TestCase
 {
     use WithFaker;
-    use RefreshDatabase;
-    
+    use RefreshDatabase;  // empty the test DB
+
+    /***************************************************************************/
+    /**
+     * Populate test DB with dummy data
+     */ 
     public function setUp()
     {
         parent::setUp();
         $this->seed();
     }
-    
+
+    /***************************************************************************/
+    /**
+     * Test that logged user can see organizers index view
+     */  
     public function test_logged_user_can_see_organizers(){
         // Authenticate the user
             $this->authenticate();
@@ -30,7 +38,10 @@ class OrganizerTest extends TestCase
                              ->assertStatus(200);
     }
  
-    
+    /***************************************************************************/
+    /**
+     * Test that logged user can create an organizer
+     */  
     public function test_a_logged_user_can_create_organizer()
     {
         // Authenticate the user
@@ -54,8 +65,5 @@ class OrganizerTest extends TestCase
     
     }
     
-    /*public function a_logged_user_can_create_teacher(){
-        
-        
-    }*/
+
 }

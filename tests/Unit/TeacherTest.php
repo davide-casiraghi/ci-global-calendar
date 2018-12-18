@@ -27,7 +27,7 @@ class TeacherTest extends TestCase
     
     /***************************************************************************/
     /**
-     * Test that logged user can see teacher index view
+     * Test that logged user can see teachers index view
      */  
     public function test_logged_user_can_see_teachers_index(){
         // Authenticate the user

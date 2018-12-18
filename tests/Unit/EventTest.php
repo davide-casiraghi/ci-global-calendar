@@ -41,7 +41,7 @@ class EventTest extends TestCase
     
     /***************************************************************************/
     /**
-     * Test that logged user can see event index view
+     * Test that logged user can see events index view
      */    
     public function test_logged_user_can_see_events_index(){
         // Authenticate the user
