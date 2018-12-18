@@ -13,6 +13,13 @@ use App\User;
 class TeacherTest extends TestCase
 {
     use WithFaker;
+    use RefreshDatabase;
+    
+    public function setUp()
+    {
+        parent::setUp();
+        $this->seed();
+    }
     
     public function test_logged_user_can_see_teachers_index(){
         // Authenticate the user

@@ -28,7 +28,7 @@ $factory->define(App\Teacher::class, function (Faker $faker) {
         'profile_picture' => str_random(10).".jpg",
         'website' => $faker->url,
         'facebook' => "https://www.facebook.com/".$faker->word,
-        'created_by' => '2',
+        'created_by' => '1',
         'slug' => $slug,
         'country_id' => $faker->numberBetween($min = 1, $max = 253),
     ];

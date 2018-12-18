@@ -13,6 +13,13 @@ use App\User;
 class OrganizerTest extends TestCase
 {
     use WithFaker;
+    use RefreshDatabase;
+    
+    public function setUp()
+    {
+        parent::setUp();
+        $this->seed();
+    }
     
     public function test_logged_user_can_see_organizers(){
         // Authenticate the user
@@ -21,7 +28,6 @@ class OrganizerTest extends TestCase
         // Access to the page
             $response = $this->get('/organizers')
                              ->assertStatus(200);
-                        
     }
  
     

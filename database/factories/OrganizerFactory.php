@@ -22,7 +22,7 @@ $factory->define(App\Organizer::class, function (Faker $faker) {
     return [
         'name' => $organizer_name,
         'website' => $faker->url,
-        'created_by' => '2',
+        'created_by' => '1',
         'slug' => $slug,
         'email' => $faker->unique()->safeEmail,
         'description' => $faker->paragraph,

@@ -11,6 +11,7 @@ use App\User;
 use App\Country;
 use App\Teacher;
 use App\EventVenue;
+use App\Organizer;
 
 use App\Http\Controllers\Auth\EventController;
 
@@ -18,14 +19,18 @@ use App\Http\Controllers\Auth\EventController;
 class EventTest extends TestCase
 {
     use WithFaker;
+    use RefreshDatabase;
     
     function setUp()
     {
         parent::setUp(); 
+        $this->seed();
         
         // Populate test DB with dummy data
             $this->user = factory(\App\User::class)->create();
             $this->venue = factory(\App\EventVenue::class)->create();
+            $this->teachers = factory(\App\Teacher::class,3)->create();
+            $this->organizers = factory(\App\Organizer::class,3)->create();
     }
     
     public function test_logged_user_can_see_events_index(){
@@ -64,7 +69,7 @@ class EventTest extends TestCase
                 'description' => $this->faker->paragraph,
                 'created_by' => $this->user->id,
                 'slug' => str_slug($title, '-').rand(100000, 1000000),
-                'multiple_teachers' => '1,2',
+                //'multiple_teachers' => '1,2',
                 'multiple_organizers' => '1,2',
                 'venue_id' => $this->venue->id,
                 'startDate' => '10/01/2022',
