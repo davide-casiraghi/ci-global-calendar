@@ -21,18 +21,28 @@ class EventTest extends TestCase
     use WithFaker;
     use RefreshDatabase;
     
+    /***************************************************************************/
+    /**
+     * Populate test DB with dummy data
+     */
     function setUp()
     {
-        parent::setUp(); 
-        $this->seed();
+        parent::setUp();
         
-        // Populate test DB with dummy data
+        // Seeders - /database/seeds
+            $this->seed(); 
+        
+        // Seeders - /database/factories
             $this->user = factory(\App\User::class)->create();
             $this->venue = factory(\App\EventVenue::class)->create();
             $this->teachers = factory(\App\Teacher::class,3)->create();
             $this->organizers = factory(\App\Organizer::class,3)->create();
     }
     
+    /***************************************************************************/
+    /**
+     * Test that logged user can see event index view
+     */    
     public function test_logged_user_can_see_events_index(){
         // Authenticate the user
             $this->authenticate();
@@ -42,7 +52,12 @@ class EventTest extends TestCase
                              ->assertStatus(200);
     }
     
-    
+    /***************************************************************************/
+    /**
+     * Test that the monthSelectOptions function return the right HTML
+     * This function is called trough ajax in the view - partial/repeat-event.blade.php 
+     * The html contain a select dropdown that change every time that start date is changed in the event create and edit view
+     */     
     public function test_decode_on_monthly_kind_function(){
         // Authenticate the user
             $this->authenticate();
@@ -55,7 +70,11 @@ class EventTest extends TestCase
             $codeToCompare = "<select name='on_monthly_kind' id='on_monthly_kind' class='selectpicker' title='Select repeat monthly kind'><option value='0|10'>the 10th day of the month</option><option value='1|2|4'>the 2nd Thursday of the month</option><option value='2|20'>the 21th to last day of the month</option><option value='3|3|4'>the 4th to last Thursday of the month</option></select>";
             $this->assertSame($response->original, $codeToCompare);
     }
-    
+
+    /***************************************************************************/
+    /**
+     * Test that the logged user can create an event
+     */  
     public function test_a_logged_user_can_create_event(){
         
         // Authenticate the user
