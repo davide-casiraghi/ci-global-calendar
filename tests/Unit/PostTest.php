@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
 
 class PostTest extends TestCase
 {
@@ -41,8 +42,7 @@ class PostTest extends TestCase
     /**
      * Test that logged user can create a post
      */  
-    public function test_a_logged_user_can_create_teacher()
-    {
+    public function test_a_logged_user_can_create_post(){
         // Authenticate the user
             $this->authenticate();
         
@@ -68,4 +68,17 @@ class PostTest extends TestCase
                     ->assertStatus(200)
                     ->assertSee(__('general.post').__('views.created_successfully'));
     }
+    
+    /***************************************************************************/
+    /**
+     * Test that guest user can see a post
+     */  
+    /*public function test_guest_user_can_see_single_post(){
+            
+        // Access to the page (post.show)
+            $response = $this->get('/en/posts/1/')
+                         ->assertStatus(200);
+    }*/
+    
+    
 }

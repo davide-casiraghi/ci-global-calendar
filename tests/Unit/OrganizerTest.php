@@ -48,6 +48,7 @@ class OrganizerTest extends TestCase
             $response = $this->get('/en/organizers/'.$this->organizer->id.'/')
                          ->assertStatus(200);
     }
+    
     /***************************************************************************/
     /**
      * Test that logged user can create an organizer
