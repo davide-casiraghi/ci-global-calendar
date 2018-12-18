@@ -19,7 +19,7 @@ use App\Http\Controllers\Auth\EventController;
 class EventTest extends TestCase
 {
     use WithFaker;
-    use RefreshDatabase;
+    use RefreshDatabase; // empty the test DB
     
     /***************************************************************************/
     /**

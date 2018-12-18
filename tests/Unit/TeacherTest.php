@@ -13,14 +13,22 @@ use App\User;
 class TeacherTest extends TestCase
 {
     use WithFaker;
-    use RefreshDatabase;
-    
+    use RefreshDatabase; // empty the test DB
+
+    /***************************************************************************/
+    /**
+     * Populate test DB with dummy data
+     */    
     public function setUp()
     {
         parent::setUp();
         $this->seed();
     }
     
+    /***************************************************************************/
+    /**
+     * Test that logged user can see teacher index view
+     */  
     public function test_logged_user_can_see_teachers_index(){
         // Authenticate the user
             $this->authenticate();
@@ -48,6 +56,10 @@ class TeacherTest extends TestCase
                         //     ->assertStatus(200);
     }*/
     
+    /***************************************************************************/
+    /**
+     * Test that logged user can create a teacher
+     */  
     public function test_a_logged_user_can_create_teacher()
     {
         // Authenticate the user
