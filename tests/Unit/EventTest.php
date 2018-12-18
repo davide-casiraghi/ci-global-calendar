@@ -6,16 +6,6 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-use App\Event;
-use App\User;
-use App\Country;
-use App\Teacher;
-use App\EventVenue;
-use App\Organizer;
-
-use App\Http\Controllers\Auth\EventController;
-
-
 class EventTest extends TestCase
 {
     use WithFaker;

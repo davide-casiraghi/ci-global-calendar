@@ -6,10 +6,6 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-use App\Organizer;
-use App\User;
-
-
 class OrganizerTest extends TestCase
 {
     use WithFaker;
