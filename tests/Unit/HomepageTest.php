@@ -20,4 +20,16 @@ class HomepageTest extends TestCase
             $response = $this->get('/')
                              ->assertStatus(200);
     }
+    
+    /***************************************************************************/
+    /**
+     * Test that logged user can search events in the homepage
+     * If this test fail try to run -> php artisan cache:clear
+     */  
+    public function test_guest_user_can_search_events()
+    {
+        // Access to the page
+            $response = $this->get('/eventSearch#dataarea')
+                             ->assertStatus(200);
+    }    
 }
