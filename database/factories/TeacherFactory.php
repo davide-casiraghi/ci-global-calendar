@@ -25,7 +25,7 @@ $factory->define(App\Teacher::class, function (Faker $faker) {
         'year_starting_practice' => $year_starting_practice,
         'year_starting_teach' => $year_starting_teach,
         'significant_teachers' => $faker->paragraph,
-        'profile_picture' => str_random(10).".jpg",
+        //'profile_picture' => str_random(10).".jpg",  //this can cause an error in the tests
         'website' => $faker->url,
         'facebook' => "https://www.facebook.com/".$faker->word,
         'created_by' => '1',

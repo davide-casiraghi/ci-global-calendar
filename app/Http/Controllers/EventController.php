@@ -958,15 +958,17 @@ class EventController extends Controller
 
             // Multiple teachers (we need this to show them in HP with less use of resources)
                 if($request->get('multiple_teachers')){
-                    $multiple_teachers = explode(',', $request->get('multiple_teachers'));
+                    $multiple_teachers = explode(', ', $request->get('multiple_teachers'));
                     $i = 0; $len = count($multiple_teachers); // to put "," to all items except the last
                     $event->sc_teachers_names = "";
+                    
                     foreach ($multiple_teachers as $key => $teacher_id) {
                         $event->sc_teachers_names .= $teachers[$teacher_id];
                         if ($i != $len - 1)  // not last
                             $event->sc_teachers_names .= ", ";
                         $i++;
                     }
+                    
                 }
                 else{
                     $event->sc_teachers_names = "";
