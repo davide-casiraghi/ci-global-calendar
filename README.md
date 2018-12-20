@@ -64,5 +64,5 @@ Before running the tests you need to create another database that is used to cre
 Davide Casiraghi
 
 # License
-The Global Contact Improvisation Calendar is free software distributed under the terms of the [MIT license](https://opensource.org/licenses/mit-license.php).
+The Global Contact Improvisation Calendar is free software developed by Davide Casiraghi and contributors and distributed under the terms of the [MIT license](https://opensource.org/licenses/mit-license.php).
 
