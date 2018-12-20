@@ -23,6 +23,7 @@
                       'title' => __('general.name'),
                       'name' => 'name',
                       'placeholder' => __('homepage-serach.teacher_name'),
+                      'value' => old('name')
                 ])
             </div>
 
@@ -51,6 +52,7 @@
                 @include('partials.forms.textarea-plain', [
                       'title' =>  __('views.bio'),
                       'name' => 'bio',
+                      'value' => old('bio')
                 ])
             </div>
 
@@ -59,7 +61,7 @@
                       'title' => __('views.year_of_starting_to_practice'),
                       'name' => 'year_starting_practice',
                       'placeholder' => 'AAAA',
-                      'value' => '',
+                      'value' => old('year_starting_practice')
                 ])
             </div>
 
@@ -68,7 +70,7 @@
                       'title' => __('views.year_of_starting_to_teach'),
                       'name' => 'year_starting_teach',
                       'placeholder' => 'AAAA',
-                      'value' => '',
+                      'value' => old('year_starting_teach')
                 ])
             </div>
 
@@ -76,6 +78,7 @@
                 @include('partials.forms.textarea-plain', [
                       'title' =>  __('views.significant_teachers'),
                       'name' => 'significant_teachers',
+                      'value' => old('significant_teachers')
                 ])
             </div>
 
@@ -84,7 +87,7 @@
                       'title' => __('views.facebook_profile'),
                       'name' => 'facebook',
                       'placeholder' => 'https://...',
-                      'value' => '',
+                      'value' => old('facebook')
                 ])
             </div>
 
@@ -93,7 +96,7 @@
                       'title' => __('views.website'),
                       'name' => 'website',
                       'placeholder' => 'https://...',
-                      'value' => '',
+                      'value' => old('facebook')
                 ])
             </div>
 

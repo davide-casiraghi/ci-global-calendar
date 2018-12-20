@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
+use Validator;
 
 class TeacherController extends Controller
 {
@@ -88,11 +89,15 @@ class TeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        $teacher = new Teacher();
+        // Validate form datas
+            $validator = request()->validate([
+                'name' => 'required'
+            ]);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
         
-        request()->validate([
-            'name' => 'required'
-        ]);
+        $teacher = new Teacher();
 
         $this->saveOnDb($request, $teacher);
 

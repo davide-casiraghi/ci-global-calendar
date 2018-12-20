@@ -7,7 +7,9 @@ use App\User;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
+use Validator;
 
 class OrganizerController extends Controller
 {
@@ -71,13 +73,17 @@ class OrganizerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
+        // Validate form datas
+            $validator = request()->validate([
+                'name' => 'required',
+                'email' => 'required'
+            ]);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
+        
         $organizer = new Organizer();
         
-        request()->validate([
-            'name' => 'required',
-            'email' => 'required'
-        ]);
-
         $this->saveOnDb($request, $organizer);
 
         return redirect()->route('organizers.index')

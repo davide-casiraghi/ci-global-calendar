@@ -23,6 +23,7 @@
                     'title' => __('general.name'),
                     'name' => 'name',
                     'placeholder' => __('homepage-serach.organizer_name'), 
+                    'value' => old('name')
                 ])
             </div>
 
@@ -42,26 +43,30 @@
                 @include('partials.forms.input', [
                     'title' => __('general.email_address'),
                     'name' => 'email',
+                    'value' => old('email')
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
                     'title' => __('general.phone'),
                     'name' => 'phone',
+                    'value' => old('phone')
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
                     'title' => __('views.website'),
                     'name' => 'website',
-                    'placeholder' => 'https://...'
+                    'placeholder' => 'https://...',
+                    'value' => old('website')
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.textarea', [
                       'title' => __('general.description'),
                       'name' => 'description',
-                      'placeholder' => ''
+                      'placeholder' => '',
+                      'value' => old('description')
                 ])
             </div>
         </div>
