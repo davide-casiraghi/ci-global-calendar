@@ -102,6 +102,7 @@ class PostController extends Controller
         request()->validate([
             'title' => 'required',
             'body' => 'required',
+            'category_id' => 'required',
         ]);
         
         // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
@@ -185,7 +186,8 @@ class PostController extends Controller
 
         request()->validate([
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
+            'category_id' => 'required',
         ]);
 
         //$post->update($request->all());
