@@ -59,11 +59,15 @@ class PostTranslationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        //dd($request);
-        $validator = request()->validate([
-            'title' => 'required',
-            'body' => 'required',
-        ]);
+        
+        // Validate form datas
+            $validator = request()->validate([
+                'title' => 'required',
+                'body' => 'required',
+            ]);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
 
         $postTranslation = new PostTranslation();
 
@@ -76,12 +80,8 @@ class PostTranslationController extends Controller
 
         $postTranslation->before_content = $request->get('before_content');
         $postTranslation->after_content = $request->get('after_content');
-
-        $postTranslation->save();
         
-        if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
-        }
+        $postTranslation->save();
 
         return redirect()->route('posts.index')
                         ->with('success','Translation created successfully.');

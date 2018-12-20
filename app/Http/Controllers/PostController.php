@@ -99,22 +99,23 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        $post = new Post();
         
-        $validator = request()->validate([
-            'title' => 'required',
-            'body' => 'required',
-            'category_id' => 'required',
-        ]);
+        // Validate form datas
+            $validator = request()->validate([
+                'title' => 'required',
+                'body' => 'required',
+                'category_id' => 'required',
+            ]);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
+        
+        $post = new Post();
         
         // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
             App::setLocale('en');
-        
+            
         $this->saveOnDb($request, $post);    
-
-        if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
-        }
 
         return redirect()->route('posts.index')
                         ->with('success',__('general.post').__('views.created_successfully'));
