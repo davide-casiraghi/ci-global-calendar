@@ -22,7 +22,7 @@ class EventTest extends TestCase
         // Seeders - /database/seeds
             $this->seed(); 
         
-        // Seeders - /database/factories
+        // Factories - /database/factories
             $this->user = factory(\App\User::class)->create();
             $this->venue = factory(\App\EventVenue::class)->create();
             $this->teachers = factory(\App\Teacher::class,3)->create();
@@ -70,7 +70,7 @@ class EventTest extends TestCase
         // Authenticate the user
             $this->authenticate();
             
-        // Teachers id
+        // Get the ID of the 3 Teachers generated with the database factories, eg (3, 4, 5)
             $teachers_id = "";
             $i = 0; $len = count($this->teachers);
             foreach ($this->teachers as $key => $teacher) {

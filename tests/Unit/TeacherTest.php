@@ -22,7 +22,7 @@ class TeacherTest extends TestCase
         // Seeders - /database/seeds
             $this->seed();
         
-        // Seeders - /database/factories
+        // Factories - /database/factories
             $this->teacher = factory(\App\Teacher::class)->create();
     }
     

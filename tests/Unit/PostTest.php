@@ -22,7 +22,7 @@ class PostTest extends TestCase
         // Seeders - /database/seeds
             $this->seed(); 
         
-        // Seeders - /database/factories
+        // Factories - /database/factories
             $this->user = factory(\App\User::class)->create();
     }
     /***************************************************************************/

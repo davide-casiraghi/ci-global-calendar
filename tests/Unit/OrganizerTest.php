@@ -21,7 +21,7 @@ class OrganizerTest extends TestCase
         // Seeders - /database/seeds
             $this->seed();
         
-        // Seeders - /database/factories
+        // Factories - /database/factories
             $this->organizer = factory(\App\Organizer::class)->create();
     }
 
