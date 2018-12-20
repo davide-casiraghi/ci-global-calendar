@@ -51,6 +51,11 @@ class PostController extends Controller
         // Countries available for translations
             $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
 
+
+        // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
+            App::setLocale('en');
+
+
         if ($searchKeywords||$searchCategory){
             $posts = Post::
                 when($searchKeywords, function ($query, $searchKeywords) {
@@ -64,6 +69,7 @@ class PostController extends Controller
         else
             $posts = Post::latest()->paginate(20);
             //dd($posts);
+        
         return view('posts.index',compact('posts'))
             ->with('i', (request()->input('page', 1) - 1) * 20)->with('categories',$categories)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('countriesAvailableForTranslations',$countriesAvailableForTranslations);
     }
@@ -97,6 +103,9 @@ class PostController extends Controller
             'title' => 'required',
             'body' => 'required',
         ]);
+        
+        // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
+            App::setLocale('en');
         
         $this->saveOnDb($request, $post);    
 
