@@ -150,6 +150,9 @@ class PostController extends Controller
             $post->before_content = $galleryClass->getGallery($post->before_content, $storagePath, $publicPath);
             $post->after_content = $galleryClass->getGallery($post->after_content, $storagePath, $publicPath);
 
+            // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
+                App::setLocale('en');
+
         return view('posts.show',compact('post'));
     }
 
@@ -163,6 +166,9 @@ class PostController extends Controller
     public function edit(Post $post){
 
         $categories = Category::pluck('name', 'id');
+        
+        // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
+            App::setLocale('en');
 
         return view('posts.edit',compact('post'))->with('categories', $categories);
     }
