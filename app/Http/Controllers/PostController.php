@@ -112,11 +112,8 @@ class PostController extends Controller
         
         $this->saveOnDb($request, $post);    
 
-
         if ($validator->fails()) {
-            return back()
-                        ->withErrors($validator)
-                        ->withInput();
+            return back()->withErrors($validator)->withInput();
         }
 
         return redirect()->route('posts.index')
