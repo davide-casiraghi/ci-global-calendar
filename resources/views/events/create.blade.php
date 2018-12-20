@@ -130,7 +130,7 @@
                 @include('partials.forms.input', [
                       'title' =>  __('views.facebook_event'),
                       'name' => 'facebook_event_link',
-                      'placeholder' => 'https://www.facebook.com/events/...'
+                      'placeholder' => 'https://www.facebook.com/events/...',
                       'value' => old('facebook_event_link')
                 ])
             </div>
