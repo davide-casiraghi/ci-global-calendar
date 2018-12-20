@@ -78,11 +78,16 @@ class EventVenueController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        $eventVenue = new EventVenue();
         
-        request()->validate([
-            'name' => 'required'
-        ]);
+        // Validate form datas
+            $validator = request()->validate([
+                'name' => 'required'
+            ]);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
+        
+        $eventVenue = new EventVenue();
 
         $this->saveOnDb($request, $eventVenue);
 

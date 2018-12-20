@@ -22,13 +22,15 @@
                 @include('partials.forms.input', [
                       'title' => __('general.name'),
                       'name' => 'name',
-                      'placeholder' => ''
+                      'placeholder' => '',
+                      'value' => old('name')
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => __('views.country_code'),
                       'name' => 'code',
+                      'value' => old('code')
                 ])
             </div>
 

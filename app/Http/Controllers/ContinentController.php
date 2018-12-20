@@ -40,10 +40,15 @@ class ContinentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        request()->validate([
-            'name' => 'required',
-            'code' => 'required'
-        ]);
+        
+        // Validate form datas
+            $validator = request()->validate([
+                'name' => 'required',
+                'code' => 'required'
+            ]);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
 
         $continent = new Continent();
         $continent->name = $request->get('name');

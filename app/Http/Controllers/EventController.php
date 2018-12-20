@@ -115,14 +115,19 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
+        
+        // Validate form datas
+            $validator = request()->validate([
+                'title' => 'required',
+                'description' => 'required',
+                'category_id' => 'required',
+                'venue_id' => 'required',
+            ]);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
+        
         $event = new Event();
-
-        request()->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'category_id' => 'required',
-            'venue_id' => 'required',
-        ]);
 
         $this->saveOnDb($request, $event);
 

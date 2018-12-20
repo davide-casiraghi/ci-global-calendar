@@ -23,6 +23,7 @@
                     'title' => __('general.name'),
                     'name' => 'name',
                     'placeholder' => __('homepage-serach.venue_name'),
+                    'value' => old('name')
                 ])
             </div>
 
@@ -42,21 +43,24 @@
                 @include('partials.forms.input', [
                     'title' => __('views.street'),
                     'name' => 'address',
-                    'placeholder' => ''
+                    'placeholder' => '',
+                    'value' => old('address')
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
                     'title' => __('views.city'),
                     'name' => 'city',
-                    'placeholder' => ''
+                    'placeholder' => '',
+                    'value' => old('city')
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
                     'title' => __('views.state_province'),
                     'name' => 'state_province',
-                    'placeholder' => ''
+                    'placeholder' => '',
+                    'value' => old('state_province')
                 ])
             </div>
             <div class="col-12">
@@ -72,7 +76,7 @@
                     'title' => __('views.zip_code'),
                     'name' => 'zip_code',
                     'placeholder' => '',
-                    'value' => ''
+                    'value' => old('zip_code')
                 ])
             </div>
             <div class="col-12">
@@ -80,7 +84,7 @@
                     'title' => __('views.website'),
                     'name' => 'website',
                     'placeholder' => 'https://...',
-                    'value' => ''
+                    'value' => old('website')
                 ])
             </div>
             <div class="col-12">
@@ -88,6 +92,7 @@
                     'title' => __('general.description'),
                     'name' => 'description',
                     'placeholder' => ''
+                    'value' => old('description')
                 ])
             </div>
         </div>

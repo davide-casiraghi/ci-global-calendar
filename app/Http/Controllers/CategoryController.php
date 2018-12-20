@@ -45,11 +45,16 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
+        
+        // Validate form datas
+            $validator = request()->validate([
+                'name' => 'required'
+            ]);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
+        
         $category = new Category();
-
-        request()->validate([
-            'name' => 'required'
-        ]);
 
         //Category::create($request->all());
         $this->saveOnDb($request, $category);

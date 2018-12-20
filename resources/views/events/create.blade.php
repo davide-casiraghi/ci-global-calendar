@@ -31,7 +31,8 @@
                 @include('partials.forms.input', [
                       'title' => __('views.title'),
                       'name' => 'title',
-                      'placeholder' => 'Event title'
+                      'placeholder' => 'Event title',
+                      'value' => old('title')
                 ])
             </div>
 
@@ -68,6 +69,7 @@
                       'title' =>  __('general.description'),
                       'name' => 'description',
                       'placeholder' => 'Event description',
+                      'value' => old('description')
                 ])
             </div>
         </div>
@@ -88,7 +90,7 @@
                       'title' =>  __('views.date_start'),
                       'name' => 'startDate',
                       'placeholder' => __('views.select_date'),
-                      'value' => '',
+                      'value' => old('startDate')
                 ])
             </div>
 
@@ -108,7 +110,7 @@
                       'title' =>  __('views.date_end'),
                       'name' => 'endDate',
                       'placeholder' => __('views.select_date'),
-                      'value' => '',
+                      'value' => old('endDate')
                 ])
             </div>
             <div class="col-6">
@@ -129,13 +131,15 @@
                       'title' =>  __('views.facebook_event'),
                       'name' => 'facebook_event_link',
                       'placeholder' => 'https://www.facebook.com/events/...'
+                      'value' => old('facebook_event_link')
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => __('views.event_url'),
                       'name' => 'website_event_link',
-                      'placeholder' => 'https://www...'
+                      'placeholder' => 'https://www...',
+                      'value' => old('website_event_link')
                 ])
             </div>
         </div>

@@ -40,11 +40,16 @@ class EventCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
+        
+        // Validate form datas
+            $validator = request()->validate([
+                'name' => 'required'
+            ]);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
+        
         $eventCategory = new EventCategory();
-
-        request()->validate([
-            'name' => 'required'
-        ]);
 
         $this->saveOnDb($request, $eventCategory);
 

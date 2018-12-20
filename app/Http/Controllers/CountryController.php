@@ -51,11 +51,16 @@ class CountryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        request()->validate([
-            'name' => 'required',
-            'code' => 'required',
-            'continent_id' => 'required'
-        ]);
+        
+        // Validate form datas
+            $validator = request()->validate([
+                'name' => 'required',
+                'code' => 'required',
+                'continent_id' => 'required'
+            ]);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
 
         $country = new Country();
         $country->name = $request->get('name');

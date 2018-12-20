@@ -3,10 +3,8 @@
 
 @section('content')
     <div class="row">
-        <div class="col-12 margin-tb">
-            <div class="pull-left">
-                <h2>@lang('views.add_new_user')</h2>
-            </div>
+        <div class="col-12">
+            <h2>@lang('views.add_new_user')</h2>
         </div>
     </div>
 
@@ -23,6 +21,7 @@
                       'title' => __('general.name'),
                       'name' => 'name',
                       'placeholder' => __('views.user_name'),
+                      'value' => old('name')
                 ])
             </div>
 
@@ -30,6 +29,7 @@
                 @include('partials.forms.input', [
                       'title' => __('general.email_address'),
                       'name' => 'email',
+                      'value' => old('email')
                 ])
             </div>
 
@@ -82,6 +82,7 @@
                       'title' => __('general.description'),
                       'name' => 'description',
                       'placeholder' => __('general.to_be_approved'), 
+                      'value' => old('description')
                 ])
             </div>
         </div>

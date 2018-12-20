@@ -60,17 +60,19 @@ class BackgroundImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        request()->validate([
-            'title' => 'required',
-            'image_src' => 'required',
-            'orientation' => 'required',
-        ]);
-
+    public function store(Request $request){
+        
+        // Validate form datas
+            $validator = request()->validate([
+                'title' => 'required',
+                'image_src' => 'required',
+                'orientation' => 'required',
+            ]);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
 
         BackgroundImage::create($request->all());
-
 
         return redirect()->route('backgroundImages.index')
                         ->with('success','BackgroundImage created successfully.');

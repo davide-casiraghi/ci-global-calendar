@@ -2,10 +2,8 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>@lang('views.add_new_background_image')</h2>
-            </div>
+        <div class="col-12">
+            <h2>@lang('views.add_new_background_image')</h2>
         </div>
     </div>
 
@@ -23,6 +21,7 @@
                        'title' => __('views.title'),
                        'name' => 'title',
                        'placeholder' => __('views.background_image_title'),
+                       'value' => old('title')
                  ])
 
              </div>
@@ -39,6 +38,7 @@
                       'title' => __('homepage-serach.photo_credits'), 
                       'name' => 'credits',
                       'placeholder' => __('views.who_took_the_photo'), 
+                      'value' => old('credits')
                 ])
             </div>
         </div>
