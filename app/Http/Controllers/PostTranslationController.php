@@ -19,10 +19,14 @@ class PostTranslationController extends Controller
     *
     * @return \Illuminate\Http\Response
     */
-    public function create($postId, $languageCode)
-    {
+    public function create($postId, $languageCode){
+        
+        $selectedLocaleName = $this->getSelectedLocaleName($languageCode);
 
-       return view('postTranslations.create')->with('postId',$postId)->with('languageCode',$languageCode);
+        return view('postTranslations.create')
+                ->with('postId',$postId)
+                ->with('languageCode',$languageCode)
+                ->with('selectedLocaleName',$selectedLocaleName);
     }
 
     // **********************************************************************
@@ -38,8 +42,12 @@ class PostTranslationController extends Controller
         $postTranslation = PostTranslation::where('post_id', $postId)
                         ->where('locale', $languageCode)
                         ->first();
+                        
+        $selectedLocaleName = $this->getSelectedLocaleName($languageCode);
 
-        return view('postTranslations.edit',compact('postTranslation'))->with('postId',$postId)->with('languageCode',$languageCode);
+        return view('postTranslations.edit',compact('postTranslation'))
+                    ->with('postId',$postId)->with('languageCode',$languageCode)
+                    ->with('selectedLocaleName',$selectedLocaleName);
     }
 
     // **********************************************************************
@@ -104,5 +112,20 @@ class PostTranslationController extends Controller
         return redirect()->route('posts.index')
                         ->with('success','Post updated successfully');
     }
+    
+    // **********************************************************************
+   /**
+    * Get the language name from language code
+    *
+    * @param  $postTranslation string - the country code
+    * @return string the country name
+    */    
+   public function getSelectedLocaleName($languageCode){
+       
+       $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
+       $ret = $countriesAvailableForTranslations[$languageCode]['name'];
+       
+       return $ret;
+   }
 
 }
