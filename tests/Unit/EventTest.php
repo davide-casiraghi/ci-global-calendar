@@ -70,7 +70,7 @@ class EventTest extends TestCase
         // Authenticate the user
             $this->authenticate();
             
-        // Get the ID of the 3 Teachers generated with the database factories, eg (3, 4, 5)
+        // Get the IDs of the 3 Teachers generated with the database factory, eg (3, 4, 5)
             $teachers_id = "";
             $i = 0; $len = count($this->teachers);
             foreach ($this->teachers as $key => $teacher) {
