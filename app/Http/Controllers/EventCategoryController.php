@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\EventCategory;
 use Illuminate\Http\Request;
+use Validator;
 
 class EventCategoryController extends Controller
 {
@@ -42,7 +43,7 @@ class EventCategoryController extends Controller
     public function store(Request $request){
         
         // Validate form datas
-            $validator = request()->validate([
+            $validator = Validator::make($request->all(), [
                 'name' => 'required'
             ]);
             if ($validator->fails()) {

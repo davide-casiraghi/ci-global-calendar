@@ -6,6 +6,7 @@ use App\Country;
 use App\Continent;
 
 use Illuminate\Http\Request;
+use Validator;
 
 class CountryController extends Controller
 {
@@ -53,7 +54,7 @@ class CountryController extends Controller
     public function store(Request $request){
         
         // Validate form datas
-            $validator = request()->validate([
+            $validator = Validator::make($request->all(), [
                 'name' => 'required',
                 'code' => 'required',
                 'continent_id' => 'required'

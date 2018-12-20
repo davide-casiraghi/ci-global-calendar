@@ -101,7 +101,7 @@ class PostController extends Controller
     public function store(Request $request){
         
         // Validate form datas
-            $validator = request()->validate([
+            $validator = Validator::make($request->all(), [
                 'title' => 'required',
                 'body' => 'required',
                 'category_id' => 'required',

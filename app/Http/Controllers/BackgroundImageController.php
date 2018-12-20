@@ -6,6 +6,7 @@ use App\BackgroundImage;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Validator;
 
 class BackgroundImageController extends Controller
 {
@@ -63,7 +64,7 @@ class BackgroundImageController extends Controller
     public function store(Request $request){
         
         // Validate form datas
-            $validator = request()->validate([
+            $validator = Validator::make($request->all(), [
                 'title' => 'required',
                 'image_src' => 'required',
                 'orientation' => 'required',

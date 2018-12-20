@@ -23,6 +23,8 @@ use DateTime;
 use DateInterval;
 use DatePeriod;
 
+use Validator;
+
 class EventController extends Controller
 {
     /* Restrict the access to this resource just to logged in users except show view */
@@ -117,7 +119,7 @@ class EventController extends Controller
     public function store(Request $request){
         
         // Validate form datas
-            $validator = request()->validate([
+            $validator = Validator::make($request->all(), [
                 'title' => 'required',
                 'description' => 'required',
                 'category_id' => 'required',

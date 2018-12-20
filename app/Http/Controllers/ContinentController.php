@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Continent;
 use Illuminate\Http\Request;
+use Validator;
 
 class ContinentController extends Controller
 {
@@ -42,7 +43,7 @@ class ContinentController extends Controller
     public function store(Request $request){
         
         // Validate form datas
-            $validator = request()->validate([
+            $validator = Validator::make($request->all(), [
                 'name' => 'required',
                 'code' => 'required'
             ]);

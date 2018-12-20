@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Validator;
 
 class PostTranslationController extends Controller
 {
@@ -61,7 +62,7 @@ class PostTranslationController extends Controller
     public function store(Request $request){
         
         // Validate form datas
-            $validator = request()->validate([
+            $validator = Validator::make($request->all(), [
                 'title' => 'required',
                 'body' => 'required',
             ]);

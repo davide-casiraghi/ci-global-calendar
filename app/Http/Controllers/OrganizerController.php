@@ -74,7 +74,7 @@ class OrganizerController extends Controller
      */
     public function store(Request $request){
         // Validate form datas
-            $validator = request()->validate([
+            $validator = Validator::make($request->all(), [
                 'name' => 'required',
                 'email' => 'required'
             ]);

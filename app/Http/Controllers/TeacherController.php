@@ -90,9 +90,12 @@ class TeacherController extends Controller
      */
     public function store(Request $request){
         // Validate form datas
-            $validator = request()->validate([
-                'name' => 'required'
+            $validator = Validator::make($request->all(), [
+                'name' => 'required',
+                'year_starting_practice' => 'required',
+                'year_starting_teach' => 'required',
             ]);
+            
             if ($validator->fails()) {
                 return back()->withErrors($validator)->withInput();
             }

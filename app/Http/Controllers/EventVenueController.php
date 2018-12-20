@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
+use Validator;
+
 class EventVenueController extends Controller
 {
     /* Restrict the access to this resource just to logged in users except show view */
@@ -80,7 +82,7 @@ class EventVenueController extends Controller
     public function store(Request $request){
         
         // Validate form datas
-            $validator = request()->validate([
+            $validator = Validator::make($request->all(), [
                 'name' => 'required'
             ]);
             if ($validator->fails()) {

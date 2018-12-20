@@ -6,7 +6,7 @@ use App\Category;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-
+use Validator;
 
 class CategoryController extends Controller
 {
@@ -47,7 +47,7 @@ class CategoryController extends Controller
     public function store(Request $request){
         
         // Validate form datas
-            $validator = request()->validate([
+            $validator = Validator::make($request->all(), [
                 'name' => 'required'
             ]);
             if ($validator->fails()) {
