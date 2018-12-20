@@ -6,6 +6,7 @@ return [
     'reset' => 'Reset',
     'back' => 'Back',
     'submit' => 'Submit',
+    'close' => 'Close',
     'send' => 'Send',
     'category' => 'Category',
     'code' => 'Code',
