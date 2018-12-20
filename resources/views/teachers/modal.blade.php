@@ -93,7 +93,7 @@
 
         <div class="row mt-5">
             <div class="col-6 pull-left">
-                <a class="btn btn-primary" href="{{ route('teachers.index') }}"> Back</a>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
             </div>
             <div class="col-6 pull-right">
               <button type="submit" class="btn btn-primary float-right">Submit</button>
