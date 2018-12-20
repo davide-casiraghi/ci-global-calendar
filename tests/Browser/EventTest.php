@@ -6,6 +6,7 @@ use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
+
 use App\Event;
 use App\User;
 
@@ -13,6 +14,22 @@ use Tests\Browser\Pages\LoginPage;
 
 class EventsTest extends DuskTestCase
 {
+    use DatabaseMigrations;
+    
+
+    public function setUp(){
+        Parent::setUp();
+        
+        // Seeders - /database/seeds
+            $this->seed(); 
+        
+        // Factories - /database/factories
+            $this->user = factory(\App\User::class)->create();
+            $this->venue = factory(\App\EventVenue::class)->create();
+            $this->teachers = factory(\App\Teacher::class,3)->create();
+            $this->organizers = factory(\App\Organizer::class,3)->create();
+    }
+
 
   /**
    * Verify if the teachers list is showing
@@ -40,7 +57,7 @@ class EventsTest extends DuskTestCase
           $this->browse(function (Browser $browser) {
               $browser->on(new LoginPage)
                       ->loginUser()
-                      ->visit('/events')  
+                      ->visit('/events')
                       ->clickLink('Add New event')
                       ->assertSee('Start, End, Duration')
                       ->logoutUser();
@@ -70,7 +87,7 @@ class EventsTest extends DuskTestCase
              $browser->driver->executeScript('tinyMCE.activeEditor.setContent(\'test event description\')');
              $browser->driver->executeScript("document.getElementById('multiple_teachers').value = '1';");
              $browser->driver->executeScript("document.getElementById('multiple_organizers').value = '1';");
-             $browser->select('venue_id', 3);
+             $browser->select('venue_id', 1);
              $browser->driver->executeScript("document.getElementsByName('startDate').value = '10/10/2023';");
              $browser->driver->executeScript("document.getElementsByName('endDate').value = '12/10/2023';");
             
@@ -85,4 +102,14 @@ class EventsTest extends DuskTestCase
      }
     
      
+     /*public function initDatabase(){
+         // Seeders - /database/seeds
+             $this->seed(); 
+         
+         // Factories - /database/factories
+             $this->user = factory(\App\User::class)->create();
+             $this->venue = factory(\App\EventVenue::class)->create();
+             $this->teachers = factory(\App\Teacher::class,3)->create();
+             $this->organizers = factory(\App\Organizer::class,3)->create();
+     }*/
 }

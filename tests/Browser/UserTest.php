@@ -10,9 +10,26 @@ use Illuminate\Support\Facades\Hash;
 
 use App\User;
 
-class UserTest extends DuskTestCase
-{
+class UserTest extends DuskTestCase{
+    
+    use DatabaseMigrations;
 
+    public function setUp(){
+        Parent::setUp();
+        
+        // Seeders - /database/seeds
+            $this->seed(); 
+        
+        // Factories - /database/factories
+            $this->user = factory(\App\User::class)->create();
+            $this->venue = factory(\App\EventVenue::class)->create();
+            $this->teachers = factory(\App\Teacher::class,3)->create();
+            $this->organizers = factory(\App\Organizer::class,3)->create();
+    }
+    
+    
+    
+    
     public function test_user_login(){
         //$user = factory(User::class)->create();
         $user = factory(User::class)->create([

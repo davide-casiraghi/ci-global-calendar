@@ -11,9 +11,23 @@ use App\User;
 
 use Tests\Browser\Pages\LoginPage;
 
-class TeachersTest extends DuskTestCase
-{
+class TeachersTest extends DuskTestCase{
 
+    use DatabaseMigrations;
+
+    public function setUp(){
+        Parent::setUp();
+        
+        // Seeders - /database/seeds
+            $this->seed(); 
+        
+        // Factories - /database/factories
+            $this->user = factory(\App\User::class)->create();
+            $this->venue = factory(\App\EventVenue::class)->create();
+            $this->teachers = factory(\App\Teacher::class,3)->create();
+            $this->organizers = factory(\App\Organizer::class,3)->create();
+    }
+    
   /**
    * Verify if the teachers list is showing
    *

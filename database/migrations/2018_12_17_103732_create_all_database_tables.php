@@ -38,13 +38,7 @@ class CreateAllDatabaseTables extends Migration
             $table->integer('created_by')->nullable();
 
             $table->text('body');
-            $table->integer('author_id');
             $table->integer('category_id')->nullable();
-            $table->string('image')->nullable();
-            
-            $table->string('seo_title')->nullable();
-            $table->text('meta_description');
-            $table->text('meta_keywords');
 
             $table->string('status')->default('2');
             $table->boolean('featured')->default(0);
@@ -52,7 +46,7 @@ class CreateAllDatabaseTables extends Migration
             $table->text('before_content')->nullable();
             $table->text('after_content')->nullable();
             
-            $table->string('introimage_src')->nullable();
+            $table->string('introimage')->nullable();
             $table->string('introimage_alt')->nullable();
 
             $table->string('slug');
@@ -219,7 +213,6 @@ class CreateAllDatabaseTables extends Migration
     {
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_resets');
-        Schema::dropIfExists('posts');
         Schema::dropIfExists('categories');
         Schema::dropIfExists('teachers');
         Schema::dropIfExists('events');
@@ -232,6 +225,10 @@ class CreateAllDatabaseTables extends Migration
         Schema::dropIfExists('organizers');
         Schema::dropIfExists('event_has_organizers');
         Schema::dropIfExists('background_images');
+        Schema::table('post_translations', function (Blueprint $table) {
+            $table->dropForeign('post_translations_post_id_foreign');
+        });
         Schema::dropIfExists('post_translations');
+        Schema::dropIfExists('posts');
     }
 }
