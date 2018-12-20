@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Validator;
+
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class PostController extends Controller
@@ -99,7 +101,7 @@ class PostController extends Controller
     public function store(Request $request){
         $post = new Post();
         
-        request()->validate([
+        $validator = request()->validate([
             'title' => 'required',
             'body' => 'required',
             'category_id' => 'required',
@@ -109,6 +111,13 @@ class PostController extends Controller
             App::setLocale('en');
         
         $this->saveOnDb($request, $post);    
+
+
+        if ($validator->fails()) {
+            return back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
 
         return redirect()->route('posts.index')
                         ->with('success',__('general.post').__('views.created_successfully'));

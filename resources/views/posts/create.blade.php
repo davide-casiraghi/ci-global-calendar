@@ -25,7 +25,7 @@
                     'title' => __('views.title'),
                     'name' => 'title',
                     'placeholder' => 'Post title',
-                    'value' => ''
+                    'value' => old('title')
                 ])
             </div>
             
@@ -51,6 +51,7 @@
                 @include('partials.forms.textarea-plain', [
                     'title' =>  __('views.before_post_contents'),
                     'name' => 'before_content',
+                    'value' => old('before_content')
                 ])
             </div>
             <div class="col-12">
@@ -58,13 +59,14 @@
                     'title' => 'Text',
                     'name' => 'body',
                     'placeholder' => 'Post text',
-                    'value' => ''
+                    'value' => old('body')
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.textarea-plain', [
                     'title' =>  __('views.after_post_contents'),
                     'name' => 'after_content',
+                    'value' => old('after_content')
                 ])
             </div>
             
