@@ -1,6 +1,8 @@
 
 {{--
     This modal is used in the event.create and event.edit view to add a new teacher
+    It is loaded in view/partials/forms/modal-frame when the 
+    button "Add new teacher" is clicked in the event create view
 --}}
 
 @extends('layouts.modal')
