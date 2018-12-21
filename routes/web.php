@@ -25,6 +25,8 @@ function()
 
     /* Resource Controllers */
         Route::resource('users','UserController');
+        
+        Route::resource('categories','CategoryController');
         Route::resource('posts','PostController');
         //Route::resource('postTranslations','PostTranslationController');
         Route::get('/postTranslations/{postId}/{languageCode}/create', 'PostTranslationController@create');
@@ -32,9 +34,13 @@ function()
         Route::post('/postTranslations/store', 'PostTranslationController@store')->name('postTranslations.store');
         Route::put('/postTranslations/update', 'PostTranslationController@update')->name('postTranslations.update');
 
-        Route::resource('categories','CategoryController');
-        Route::resource('events','EventController');
+        
+        
         Route::resource('eventCategories','EventCategoryController');
+        Route::resource('events','EventController');
+        Route::post('/misuse', 'EventController@reportMisuse')->name("events.misuse");
+        Route::get('/misuse/thankyou', 'EventController@reportMisuseThankyou')->name("events.misuse-thankyou");
+        
 
         Route::resource('eventVenues','EventVenueController');
         Route::get('/create-venue/modal/', 'EventVenueController@modal')->name('eventVenues.modal');
@@ -83,9 +89,8 @@ function()
             Route::post('/user-activation/send', 'Auth\RegisterController@userActivationMailSend')->name("user-activation-send");
             Route::get('/verify-user/{code}', 'Auth\RegisterController@activateUser')->name('activate.user');
 
-    /* Report misuse*/
-        Route::post('/misuse', 'EventController@reportMisuse')->name("events.misuse");
-        Route::get('/misuse/thankyou', 'EventController@reportMisuseThankyou')->name("events.misuse-thankyou");
+    
+        
 
     /* Mail to the event organizer */
         Route::post('/mailToOrganizer', 'EventController@mailToOrganizer')->name("events.organizer-message");
