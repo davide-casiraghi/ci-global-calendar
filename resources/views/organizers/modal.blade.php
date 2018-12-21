@@ -2,10 +2,8 @@
 
 @section('content')
     <div class="row">
-        <div class="col-12 margin-tb">
-            <div class="pull-left">
-                <h2>@lang('views.add_new_organizer')</h2>
-            </div>
+        <div class="col-12">
+            <h2>@lang('views.add_new_organizer')</h2>
         </div>
     </div>
 

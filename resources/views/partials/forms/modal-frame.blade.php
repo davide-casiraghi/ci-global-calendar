@@ -1,7 +1,7 @@
 
 @section('javascript-document-ready')
     @parent
-    {{-- Load the modal to create a new teacher --}}
+    {{-- Load the modal to create a new teacher/organizer/eventVenue --}}
     $('.modalFrame').on('show.bs.modal', function (e) {
         $(this).find('.modal-content').load($(e.relatedTarget).attr('data-remote'));
     });
@@ -12,6 +12,15 @@
     role="dialog" aria-labelledby="modalFrameLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
+            
+            {{--
+                Here is injected the code from 
+                    - views/partials/organizers/modal
+                    - views/partials/teachers/modal
+                    - views/partials/eventVenues/modal    
+            --}}
+            
+            
             {{--<div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"
                     aria-label="Close">
