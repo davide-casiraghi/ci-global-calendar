@@ -37,17 +37,46 @@ class ReportMisuse extends Mailable
      public function build()
      {
          // Configure email parameters in .env file
-
-         return $this->markdown('emails.report-misuse')
-                ->to($this->report['emailTo'])
-                ->from('noreply@globalcalendar.com', 'Global CI Calendar')
-                ->replyTo('noreply@globalcalendar.com', 'Global CI Calendar')
-                ->subject($this->report['subject'])
-                ->with([
-                    'event_title' => $this->report['event_title'],
-                    'event_id' => $this->report['event_id'],
-                    'reason' => $this->report['reason'],
-                    'msg' => $this->report['message']
-                ]);
+         
+         
+         
+         switch ($this->report['reason']) {
+             
+             /* Send email to the user that has created the event */
+             case 'It is not translated in english':
+                
+                return $this->markdown('emails.misuse.organizer-event-not-english')
+                 ->to($this->report['creatorEmail'])
+                 ->from('noreply@globalcalendar.com', 'Global CI Calendar')
+                 ->replyTo('noreply@globalcalendar.com', 'Global CI Calendar')
+                 ->subject($this->report['subject'])
+                 ->with([
+                     'event_title' => $this->report['event_title'],
+                     'event_id' => $this->report['event_id'],
+                     'reason' => $this->report['reason'],
+                     'msg' => $this->report['message']
+                 ]);
+                 
+                 break;
+             
+             /* Send email to the administrator */
+             default:
+             
+                return $this->markdown('emails.report-misuse')
+                    ->to($this->report['adminEmail'])
+                    ->from('noreply@globalcalendar.com', 'Global CI Calendar')
+                    ->replyTo('noreply@globalcalendar.com', 'Global CI Calendar')
+                    ->subject($this->report['subject'])
+                    ->with([
+                        'event_title' => $this->report['event_title'],
+                        'event_id' => $this->report['event_id'],
+                        'reason' => $this->report['reason'],
+                        'msg' => $this->report['message']
+                    ]);
+                    
+                 break;
+         }
+         
+         
      }
 }

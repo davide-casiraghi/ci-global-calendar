@@ -193,7 +193,7 @@ class EventController extends Controller
 
             // True if the repetition start and end on the same day
                 $sameDateStartEnd = ((date('Y-m-d', strtotime($datesTimes->start_repeat))) == (date('Y-m-d', strtotime($datesTimes->end_repeat)))) ? 1 : 0;
-
+                
         return view('events.show',compact('event'))
                 ->with('category', $category)
                 ->with('teachers', $teachers)
@@ -528,11 +528,12 @@ class EventController extends Controller
      */
     public function reportMisuse(Request $request){
         $report = array();
-
+        
         $report['senderEmail'] = "noreply@globalcicalendar.com";
         $report['senderName'] = "Anonymus User";
         $report['subject'] = "Report misuse form";
-        $report['emailTo'] = env('ADMIN_MAIL');
+        $report['adminEmail'] = env('ADMIN_MAIL');
+        $report['creatorEmail'] = $this->getCreatorEmail($request->created_by);
 
         $report['message'] = $request->message;
         $report['event_title'] = $request->event_title;
@@ -1019,6 +1020,24 @@ class EventController extends Controller
         return $ret;
     }
 
+    /***********************************************************************/
+    /**
+     * Get creator email
+     *
+     * @param  none
+     * @return array $ret - the array with the organizers emails
+     */
+    function getCreatorEmail($created_by){
+    
+        $creatorEmail = DB::table('users')  // Used to send the Report misuse (not in english)
+                ->select('email')
+                ->where('id',$created_by)
+                ->first();
+    
+        $ret = $creatorEmail->email;
+    
+    return $ret;
+    }
 
     // **********************************************************************
 
@@ -1039,6 +1058,6 @@ class EventController extends Controller
 
         return $ret;
     }*/
-
+    
     
 }

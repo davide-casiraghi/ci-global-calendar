@@ -40,6 +40,13 @@
                                'name' => 'event_id',
                                'value' => $event->id
                          ])
+                         
+                         @include('partials.forms.input-hidden', [
+                               'name' => 'created_by',
+                               'value' => $event->created_by
+                         ])
+                         
+                         {{-- ADD HERE HIDDEN ORGANIZER MAIL --}}
 
                 </div>
                 <div class="modal-footer">
