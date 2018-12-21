@@ -16,11 +16,14 @@ class EventsTest extends DuskTestCase
 {
     use DatabaseMigrations;
     
-
+    /***************************************************************************/
+    /**
+     * Populate test DB with seeds and dummy data 
+     */
     public function setUp(){
         Parent::setUp();
         
-        // Seeders - /database/seeds
+        // Seeders - /database/seeds (continetns, countries, post categories, event categories)
             $this->seed(); 
         
         // Factories - /database/factories

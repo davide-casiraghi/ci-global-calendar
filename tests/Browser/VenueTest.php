@@ -15,12 +15,15 @@ class VenueTest extends DuskTestCase{
     
     use DatabaseMigrations;
 
+    /***************************************************************************/
+    /**
+     * Populate test DB with seeds 
+     */
     public function setUp(){
         Parent::setUp();
         
-        // Seeders - /database/seeds
+        // Seeders - /database/seeds (continetns, countries, post categories, event categories)
             $this->seed(); 
-        
     }
     
     /**

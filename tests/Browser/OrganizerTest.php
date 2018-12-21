@@ -16,18 +16,15 @@ class OrganizerTest extends DuskTestCase
 {
     use DatabaseMigrations;
     
-    
+    /***************************************************************************/
+    /**
+     * Populate test DB with seeds and dummy data 
+     */
     public function setUp(){
         Parent::setUp();
         
-        // Seeders - /database/seeds
+        // Seeders - /database/seeds (continetns, countries, post categories, event categories)
             $this->seed(); 
-        
-        // Factories - /database/factories
-            $this->user = factory(\App\User::class)->create();
-            $this->venue = factory(\App\EventVenue::class)->create();
-            $this->teachers = factory(\App\Teacher::class,3)->create();
-            $this->organizers = factory(\App\Organizer::class,3)->create();
     }
     
     /**
