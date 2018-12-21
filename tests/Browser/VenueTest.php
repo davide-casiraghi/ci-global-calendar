@@ -26,6 +26,7 @@ class VenueTest extends DuskTestCase{
             $this->seed(); 
     }
     
+    /***************************************************************************/
     /**
      * Verify if the venues list is showing
      *

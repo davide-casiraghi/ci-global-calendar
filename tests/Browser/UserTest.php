@@ -14,6 +14,12 @@ class UserTest extends DuskTestCase{
     
     use DatabaseMigrations;
     
+    /***************************************************************************/
+    /**
+     * Verify that a user can register and login
+     *
+     * @return void
+     */
     public function test_user_login(){
 
         $user = factory(User::class)->create([

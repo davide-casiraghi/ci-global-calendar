@@ -27,6 +27,7 @@ class OrganizerTest extends DuskTestCase
             $this->seed(); 
     }
     
+    /***************************************************************************/
     /**
      * Verify if the teachers list is showing
      *
@@ -44,7 +45,6 @@ class OrganizerTest extends DuskTestCase
     }
     
     /*******************************************************************************/
-    
     /**
     * Create a new organizer
     *

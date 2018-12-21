@@ -33,12 +33,12 @@ class EventsTest extends DuskTestCase
             $this->organizers = factory(\App\Organizer::class,3)->create();
     }
 
-
-  /**
-   * Verify if the teachers list is showing
-   *
-   * @return void
-   */
+    /***************************************************************************/
+    /**
+    * Verify if the teachers list is showing
+    *
+    * @return void
+    */
     public function test_events_list_is_showing(){
         $this->browse(function (Browser $browser) {
             $browser->on(new LoginPage)
@@ -50,7 +50,6 @@ class EventsTest extends DuskTestCase
     }
     
     /*******************************************************************************/
-    
     /**
      * Open the Create teacher form
      *
@@ -69,7 +68,6 @@ class EventsTest extends DuskTestCase
       }    
     
       /*******************************************************************************/
-      
       /**
       * Create a new event
       *

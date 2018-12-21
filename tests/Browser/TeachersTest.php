@@ -26,11 +26,12 @@ class TeachersTest extends DuskTestCase{
             $this->seed();
     }
     
-  /**
-   * Verify if the teachers list is showing
-   *
-   * @return void
-   */
+    /***************************************************************************/
+    /**
+    * Verify if the teachers list is showing
+    *
+    * @return void
+    */
     public function test_teachers_list_is_showing(){
         $this->browse(function (Browser $browser) {
             $browser->on(new LoginPage)
@@ -42,7 +43,6 @@ class TeachersTest extends DuskTestCase{
     }
     
     /*******************************************************************************/
-    
     /**
      * Open the Create teacher form
      *
@@ -56,12 +56,10 @@ class TeachersTest extends DuskTestCase{
                       ->clickLink('Add new teacher')
                       ->assertSee('Year of starting to practice')
                       ->logoutUser();
-          });
-          
+          });  
       }    
     
       /*******************************************************************************/
-      
       /**
       * Create a new teacher.
       *
@@ -89,5 +87,7 @@ class TeachersTest extends DuskTestCase{
                        ->logoutUser();                   
          });
      }
+     
+     /***************************************************************************/
      
 }
