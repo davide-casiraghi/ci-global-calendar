@@ -39,7 +39,7 @@ class PostTranslationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($postId, $languageCode){
-
+        
         $postTranslation = PostTranslation::where('post_id', $postId)
                         ->where('locale', $languageCode)
                         ->first();

@@ -20,6 +20,7 @@ class TeacherController extends Controller
         $this->middleware('auth', ['except' => ['index','show']]);
     }
 
+    /***************************************************************************/
     /**
      * Display a listing of the resource.
      *
@@ -66,6 +67,7 @@ class TeacherController extends Controller
             ->with('loggedUser',$loggedUser);
     }
 
+    /***************************************************************************/
     /**
      * Show the form for creating a new resource.
      *
@@ -82,6 +84,7 @@ class TeacherController extends Controller
             ->with('authorUserId',$authorUserId);
     }
 
+    /***************************************************************************/
     /**
      * Store a newly created resource in storage.
      *
@@ -107,7 +110,8 @@ class TeacherController extends Controller
         return redirect()->route('teachers.index')
                         ->with('success',__('general.teacher').__('views.created_successfully'));
     }
-
+    
+    /***************************************************************************/
     /**
      * Display the specified resource.
      *
@@ -140,6 +144,7 @@ class TeacherController extends Controller
             ->with('authorUserId',$authorUserId);
     }
 
+    /***************************************************************************/
     /**
      * Update the specified resource in storage.
      *
@@ -159,6 +164,7 @@ class TeacherController extends Controller
                         ->with('success','Teacher updated successfully');
     }
 
+    /***************************************************************************/
     /**
      * Remove the specified resource from storage.
      *
@@ -171,6 +177,7 @@ class TeacherController extends Controller
                         ->with('success','Teacher deleted successfully');
     }
 
+    /***************************************************************************/
     /**
      * Save the record on DB
      *
@@ -203,6 +210,7 @@ class TeacherController extends Controller
          $teacher->save();
      }
 
+    /***************************************************************************/
     /**
      * Open a modal in the event view when create teachers is clicked
      *
@@ -213,6 +221,7 @@ class TeacherController extends Controller
         return view('teachers.modal')->with('countries', $countries);
     }
 
+    /***************************************************************************/
     /**
      * Store a newly created teacher from the create event view modal in storage.
      *

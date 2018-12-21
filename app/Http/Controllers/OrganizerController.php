@@ -18,6 +18,7 @@ class OrganizerController extends Controller
         $this->middleware('auth', ['except' => ['show']]);
     }
     
+    /***************************************************************************/
     /**
      * Display a listing of the resource.
      *
@@ -50,7 +51,8 @@ class OrganizerController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 20)
             ->with('searchKeywords',$searchKeywords);
     }
-
+    
+    /***************************************************************************/
     /**
      * Show the form for creating a new resource.
      *

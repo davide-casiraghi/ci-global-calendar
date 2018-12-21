@@ -19,6 +19,7 @@ class EventVenueController extends Controller
         $this->middleware('auth', ['except' => ['show']]);
     }
     
+    /***************************************************************************/
     /**
      * Display a listing of the resource.
      *
@@ -57,6 +58,7 @@ class EventVenueController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 20)->with('countries', $countries)->with('searchKeywords',$searchKeywords)->with('searchCountry',$searchCountry);
     }
 
+    /***************************************************************************/
     /**
      * Show the form for creating a new resource.
      *
@@ -73,6 +75,7 @@ class EventVenueController extends Controller
             ->with('authorUserId',$authorUserId);
     }
 
+    /***************************************************************************/
     /**
      * Store a newly created resource in storage.
      *
@@ -97,6 +100,7 @@ class EventVenueController extends Controller
                         ->with('success','Event venue created successfully.');
     }
 
+    /***************************************************************************/
     /**
      * Display the specified resource.
      *
@@ -112,6 +116,7 @@ class EventVenueController extends Controller
         return view('eventVenues.show',compact('eventVenue'))->with('country', $country);
     }
 
+    /***************************************************************************/
     /**
      * Show the form for editing the specified resource.
      *
@@ -129,6 +134,7 @@ class EventVenueController extends Controller
             ->with('authorUserId',$authorUserId);
     }
 
+    /***************************************************************************/
     /**
      * Update the specified resource in storage.
      *
@@ -148,6 +154,7 @@ class EventVenueController extends Controller
                         ->with('success','Event venue updated successfully');
     }
 
+    /***************************************************************************/
     /**
      * Remove the specified resource from storage.
      *
@@ -160,6 +167,7 @@ class EventVenueController extends Controller
                         ->with('success','Event venue deleted successfully');
     }
 
+    /***************************************************************************/
     /**
      * Save the record on DB
      *
@@ -182,6 +190,7 @@ class EventVenueController extends Controller
          $eventVenue->save();
      }
 
+    /***************************************************************************/
     /**
      * Open a modal in the event view when create teachers is clicked
      *
@@ -192,6 +201,7 @@ class EventVenueController extends Controller
         return view('eventVenues.modal')->with('countries', $countries);
     }
 
+    /***************************************************************************/
     /**
      * Store a newly created teacher from the create event view modal in storage.
      *
