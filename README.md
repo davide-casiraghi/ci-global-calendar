@@ -41,7 +41,8 @@ Below you can find informations about download the source code on your computer 
     - **composer install**
     - **copy .env.example .env**
     - **php artisan key:generate**
-    - go to your .env file and change database details
+    - create on your local machine a database called **CIGC-local**
+    - go to your .env file and set yours DB_USERNAME and DB_PASSWORD 
     - import the database file in your mysql database (ask to Davide the most updated vesion)
     - create an apache virtual host with the same url you set in the APP_URL parameter in .env
     - **php artisan cache:clear**
@@ -57,7 +58,7 @@ Before running the tests you need to create another database that is used to cre
 - **php artisan migrate --database=testing**
 - create a file .env.testing in the root folder copying .env  (used by phpunit)
   - DB_CONNECTION=testing  
-  - DB_DATABASE=CIGC-local
+  - DB_DATABASE=CIGC-local-test
 - create a copy of .env.testing and name it .env.dusk.local  (used by laravel dusk)
 
 # Web developers team
