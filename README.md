@@ -65,7 +65,7 @@ Davide Casiraghi
 
 # License
 The Global Contact Improvisation Calendar is free software distributed under the terms of the [MIT license](https://opensource.org/licenses/mit-license.php).   
-It is developed and mantained by this [contributors](https://github.com/davide-casiraghi/ci-global-calendar/graphs/contributors).
+The source code is developed and mantained by this [contributors](https://github.com/davide-casiraghi/ci-global-calendar/graphs/contributors).
 
 
 
