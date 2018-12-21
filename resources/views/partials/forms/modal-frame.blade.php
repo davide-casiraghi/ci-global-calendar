@@ -1,7 +1,8 @@
 
 @section('javascript-document-ready')
     @parent
-    {{-- Load the modal to create a new teacher/organizer/eventVenue --}}
+    {{-- Load the Bootstrap 4 modal to create a new teacher/organizer/eventVenue --}}
+    {{-- https://getbootstrap.com/docs/4.0/components/modal/ --}}
     $('.modalFrame').on('show.bs.modal', function (e) {
         $(this).find('.modal-content').load($(e.relatedTarget).attr('data-remote'));
     });
