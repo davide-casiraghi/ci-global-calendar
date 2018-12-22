@@ -82,7 +82,8 @@ class TeacherTest extends TestCase
                     ->assertStatus(200)
                     ->assertSee(__('general.teacher').__('views.created_successfully'));
     }
-    
+
+    /***************************************************************************/
     /**
      * Test that guest user can UPDATE a teacher
      */  
@@ -101,6 +102,26 @@ class TeacherTest extends TestCase
         // Check the update on DB        
             $this->assertDatabaseHas('teachers',['id'=> $this->teacher->id , 'name' => 'New Name']);
     }
+    
+    /***************************************************************************/
+    /**
+     * Test that guest user can DELETE an teacher
+     */  
+    public function test_guest_user_can_delete_teacher(){
+        
+        // Authenticate the user
+            $this->authenticate();
+            
+        // Delete the post
+            $response = $this
+                        ->followingRedirects()
+                        ->delete('/en/teachers/'.$this->teacher->id, $this->teacher->toArray())
+                        ->assertSee("Teacher deleted successfully");
+                
+        // Check the update on DB        
+            $this->assertDatabaseMissing('teachers',['id'=> $this->teacher->id]);
+    }    
+    
     
     
 }
