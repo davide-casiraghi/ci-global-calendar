@@ -27,7 +27,7 @@ class OrganizerTest extends TestCase
 
     /***************************************************************************/
     /**
-     * Test that logged user can see organizers index view
+     * Test that guest user can see organizers index view
      */  
     public function test_logged_user_can_see_organizers(){
         // Authenticate the user
@@ -51,7 +51,7 @@ class OrganizerTest extends TestCase
     
     /***************************************************************************/
     /**
-     * Test that logged user can create an organizer
+     * Test that registered user can create an organizer
      */  
     public function test_a_logged_user_can_create_organizer()
     {
@@ -77,8 +77,50 @@ class OrganizerTest extends TestCase
             $response
                     ->assertStatus(200)
                     ->assertSee(__('general.organizer').__('views.created_successfully'));
-    
     }
+    
+    /***************************************************************************/
+    /**
+     * Test that guest user can UPDATE a post
+     */  
+    public function test_guest_user_can_update_organizer(){
+        
+        // Authenticate the user
+            $this->authenticate();
+            
+        // Update the post
+            $this->organizer->name = "New Name";
+            $response = $this
+                        ->followingRedirects()
+                        ->put('/en/organizers/'.$this->organizer->id, $this->organizer->toArray())
+                        ->assertSee("Organizer updated successfully");
+                
+        // Check the update on DB        
+            $this->assertDatabaseHas('organizers',['id'=> $this->organizer->id , 'name' => 'New Name']);
+    }
+    
+    /***************************************************************************/
+    
+    
+    
+    /**
+     * Test that guest user can DELETE a post
+     */  
+    /*public function test_guest_user_can_delete_single_organizer(){
+        
+        // Authenticate the user
+            $this->authenticate();
+            
+        // Delete the post
+            $response = $this
+                        ->followingRedirects()
+                        ->delete('/organizers/'.$this->organizer->id, $this->organizer->toArray());
+                        //->assertSee("Organizer deleted successfully");
+                
+        // Check the update on DB        
+            $this->assertDatabaseMissing('organizers',['id'=> $this->organizer->id]);
+    }*/
+    
     
 
 }
