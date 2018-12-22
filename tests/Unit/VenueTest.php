@@ -84,7 +84,7 @@ class VenueTest extends TestCase
 
     /***************************************************************************/
     /**
-     * Test that guest user can UPDATE an organizer
+     * Test that guest user can UPDATE a venue
      */  
     public function test_guest_user_can_update_venue(){
         
@@ -101,15 +101,25 @@ class VenueTest extends TestCase
         // Check the update on DB        
             $this->assertDatabaseHas('event_venues',['id'=> $this->venue->id , 'name' => 'New Name']);
     }
-        
+
     /***************************************************************************/
     /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $this->assertTrue(true);
+     * Test that guest user can DELETE an venue
+     */  
+    public function test_guest_user_can_delete_venue(){
+        
+        // Authenticate the user
+            $this->authenticate();
+            
+        // Delete the post
+            $response = $this
+                        ->followingRedirects()
+                        ->delete('/en/eventVenues/'.$this->venue->id, $this->venue->toArray())
+                        ->assertSee("Event venue deleted successfully");
+                
+        // Check the update on DB        
+            $this->assertDatabaseMissing('event_venues',['id'=> $this->venue->id]);
     }
+    
+
 }
