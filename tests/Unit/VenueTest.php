@@ -81,7 +81,27 @@ class VenueTest extends TestCase
                     ->assertStatus(200)
                     ->assertSee("Event venue created successfully.");
     }
-    
+
+    /***************************************************************************/
+    /**
+     * Test that guest user can UPDATE an organizer
+     */  
+    public function test_guest_user_can_update_venue(){
+        
+        // Authenticate the user
+            $this->authenticate();
+            
+        // Update the post
+            $this->venue->name = "New Name";
+            $response = $this
+                        ->followingRedirects()
+                        ->put('/en/eventVenues/'.$this->venue->id, $this->venue->toArray())
+                        ->assertSee("Event venue updated successfully");
+                
+        // Check the update on DB        
+            $this->assertDatabaseHas('event_venues',['id'=> $this->venue->id , 'name' => 'New Name']);
+    }
+        
     /***************************************************************************/
     /**
      * A basic test example.
