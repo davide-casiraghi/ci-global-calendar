@@ -104,9 +104,26 @@ class PostTest extends TestCase
                 
         // Check the update on DB        
             $this->assertDatabaseHas('post_translations',['id'=> $this->post->id , 'title' => 'Updated Title']);
-    
     }
-    
+
+    /***************************************************************************/
+    /**
+     * Test that guest user can UPDATE a post
+     */  
+    public function test_guest_user_can_delete_single_post(){
+        
+        // Authenticate the user
+            $this->authenticate();
+            
+        // Delete the post
+            $response = $this
+                        ->followingRedirects()
+                        ->delete('/en/posts/'.$this->post->id, $this->post->toArray())
+                        ->assertSee("Post deleted successfully");
+                
+        // Check the update on DB        
+            $this->assertDatabaseMissing('post_translations',['id'=> $this->post->id]);
+    }
 
     
     
