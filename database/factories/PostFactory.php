@@ -16,11 +16,11 @@ $factory->define(App\Post::class, function (Faker $faker) {
         $title = $faker->name;
     return [
         'title' => $faker->name,
+        'created_by' => 1,
         'body' => $faker->text(1500),
-        'author_id' => 2,
         'category_id' => 2,
-        'image' => str_random(10).".jpg",
+        'introimage' => str_random(10).".jpg",
         'slug' => str_slug($title, '-'),
-        'status' => $faker->randomElement($array = array (2,2,2,2,2,2,2,1)), // 2 enabled, 1 disabled
+        'status' => 2, // 2 enabled, 1 disabled
     ];
 });

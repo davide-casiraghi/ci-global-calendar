@@ -24,6 +24,7 @@ class PostTest extends TestCase
         
         // Factories - /database/factories
             $this->user = factory(\App\User::class)->create();
+            $this->post = factory(\App\Post::class)->create();
     }
     /***************************************************************************/
     /**
@@ -73,8 +74,10 @@ class PostTest extends TestCase
     /**
      * Test that guest user can see a post
      */  
-    /*public function test_guest_user_can_see_single_post(){
-            
+/*    public function test_guest_user_can_see_single_post(){
+        
+        dd($this->post);
+        
         // Access to the page (post.show)
             $response = $this->get('/en/posts/1/')
                          ->assertStatus(200);
