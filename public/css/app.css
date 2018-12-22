@@ -17199,6 +17199,10 @@ body hr {
   margin: 2rem 0;
 }
 
+body form label {
+  font-weight: bold;
+}
+
 nav.navbar {
   z-index: 4;
 }
