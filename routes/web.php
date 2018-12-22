@@ -34,17 +34,18 @@ function()
         Route::post('/postTranslations/store', 'PostTranslationController@store')->name('postTranslations.store');
         Route::put('/postTranslations/update', 'PostTranslationController@update')->name('postTranslations.update');
 
-        
-        
         Route::resource('eventCategories','EventCategoryController');
         Route::resource('events','EventController');
-        Route::post('/misuse', 'EventController@reportMisuse')->name("events.misuse");
-        Route::get('/misuse/thankyou', 'EventController@reportMisuseThankyou')->name("events.misuse-thankyou");
-        
+            /* Report Misuse */
+            Route::post('/misuse', 'EventController@reportMisuse')->name("events.misuse");
+            Route::get('/misuse/thankyou', 'EventController@reportMisuseThankyou')->name("events.misuse-thankyou");
+            /* Mail to the event organizer */
+            Route::post('/mailToOrganizer', 'EventController@mailToOrganizer')->name("events.organizer-message");
+            Route::get('/mailToOrganizer/sent', 'EventController@mailToOrganizerSent')->name("events.organizer-sent");
 
         Route::resource('eventVenues','EventVenueController');
-        Route::get('/create-venue/modal/', 'EventVenueController@modal')->name('eventVenues.modal');
-        Route::post('/create-venue/modal/', 'EventVenueController@storeFromModal')->name('eventVenues.storeFromModal');
+            Route::get('/create-venue/modal/', 'EventVenueController@modal')->name('eventVenues.modal');
+            Route::post('/create-venue/modal/', 'EventVenueController@storeFromModal')->name('eventVenues.storeFromModal');
 
         Route::resource('teachers','TeacherController');
             Route::get('/create-teacher/modal/', 'TeacherController@modal')->name('teachers.modal');
@@ -92,10 +93,7 @@ function()
     
         
 
-    /* Mail to the event organizer */
-        Route::post('/mailToOrganizer', 'EventController@mailToOrganizer')->name("events.organizer-message");
-        Route::get('/mailToOrganizer/sent', 'EventController@mailToOrganizerSent')->name("events.organizer-sent");
-
+    
     /* Contact form to write to the administrator */
         Route::get('/contactTheAdministrator', 'ContactAdministratorController@contactAdmin')->name("forms.contact-admin");
         Route::post('/contactTheAdministrator/send', 'ContactAdministratorController@contactAdminSend')->name("forms.contact-admin-send");
