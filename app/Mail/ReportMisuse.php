@@ -61,7 +61,7 @@ class ReportMisuse extends Mailable
              
              /* Send email to the administrator */
              default:
-             
+                     
                 return $this->markdown('emails.misuse.administrator-report-misuse')
                     ->to($this->report['adminEmail'])
                     ->from('noreply@globalcalendar.com', 'Global CI Calendar')

@@ -8,7 +8,12 @@ A user have reported this event:
  **{{$event_title}}**.
 
 **Reason**  
-{{$reason}}
+{{$reason}}  
+
+@if(!empty($msg))
+**Message**  
+{{$msg}}
+@endif
 
 @component('mail::button', ['url' => config('app.url').'events/'.$event_id])
 Show me the event
