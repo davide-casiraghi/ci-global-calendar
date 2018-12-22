@@ -54,6 +54,7 @@ class PostTest extends TestCase
     /***************************************************************************/
     /**
      * Test that logged user can CREATE a post
+     * The post datas are stored in the post_translations table with locale = en (english is the defaul post language)
      */  
     public function test_a_logged_user_can_create_post(){
         // Authenticate the user
