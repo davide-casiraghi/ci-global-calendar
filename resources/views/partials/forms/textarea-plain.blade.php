@@ -4,7 +4,7 @@
 --}}
 
 <div class="form-group">
-    @if(!empty($title))<strong>{{ $title }}:</strong>@endif
+    @if(!empty($title))<strong>{{ $title }}</strong>@endif
     <textarea   class="form-control{{ $errors->has($name) ? ' is-invalid' : '' }}" 
                 style="height: @if(!empty($height)){{ $height }}@else{{'9rem'}}@endif" 
                 name="{{ $name }}" 

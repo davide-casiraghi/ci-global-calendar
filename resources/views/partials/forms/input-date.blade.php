@@ -12,7 +12,7 @@
 @stop
 
 <div class="form-group">
-    <strong>{{ $title }}: </strong>
+    <strong>{{ $title }}</strong>
 
     {{-- Tooltip --}}
     @if(!empty($tooltipFontAwesomeClass) && !empty($tooltipText))

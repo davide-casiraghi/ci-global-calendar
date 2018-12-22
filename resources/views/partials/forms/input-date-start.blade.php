@@ -11,7 +11,7 @@
 @stop
 
 <div class="form-group">
-    <strong>Date Start: </strong>
+    <strong>Date Start</strong>
     <div class="input-group input-append date" id="datepicker_start_date" data-date-format="dd-mm-yyyy">
         <input name="startDate" class="form-control" type="text" @if(!empty($dateTime['dateStart'])) value="{{ $dateTime['dateStart'] }}" @endif placeholder="Select date" value="" readonly="readonly" aria-describedby="date-addon-start">
         <div class="input-group-append">
