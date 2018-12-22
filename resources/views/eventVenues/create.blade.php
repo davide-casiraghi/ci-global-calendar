@@ -91,7 +91,7 @@
                 @include('partials.forms.textarea', [
                     'title' => __('general.description'),
                     'name' => 'description',
-                    'placeholder' => ''
+                    'placeholder' => '',
                     'value' => old('description')
                 ])
             </div>
