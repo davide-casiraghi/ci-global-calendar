@@ -54,7 +54,7 @@
 @stop
 
 <div class="form-group">
-    <strong>{{ $title }}</strong>
+    <label for="{{ $name }}">{{ $title }}</label>
     <textarea   class="form-control" 
                 style="height:150px" 
                 name="{{ $name }}" 

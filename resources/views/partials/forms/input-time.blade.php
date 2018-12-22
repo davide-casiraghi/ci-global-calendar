@@ -8,7 +8,7 @@
 
 
 <div class="form-group">
-    <strong>{{$title}}</strong>
+    <label for="{{ $name }}">{{$title}}</label>
     <div class="input-group">
         <input type="text" name="{{$name}}" class="time_element form-control" />
         <div class="input-group-append">

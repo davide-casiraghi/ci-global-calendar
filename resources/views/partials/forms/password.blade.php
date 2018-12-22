@@ -1,4 +1,4 @@
 <div class="form-group">
-    <strong>{{ $title }}</strong>
+    <label for="{{ $name }}">{{ $title }}</label>
     <input type="password" name="{{ $name }}" class="form-control">
 </div>

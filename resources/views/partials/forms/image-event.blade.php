@@ -3,7 +3,7 @@
     <div class="col-9 col-sm-9 col-md-9 pull-left my-auto">
         <div class="input-group">
             <div class="input-group-prepend">
-                <span class="input-group-text"><strong>{{ $title }}</strong></span>
+                <span class="input-group-text"><label for="{{ $name }}">{{ $title }}</label></span>
             </div>
             <input id="thumbnail" class="form-control mr-2" type="text" name="{{ $db_column_name }}" @if(!empty($image)) value="{{ $image }}" @endif>
             <span class="input-group-btn">

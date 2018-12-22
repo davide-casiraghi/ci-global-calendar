@@ -17,7 +17,7 @@
 <div class="row">
     <div class="col-12 col-sm-6 col-md-6">
         <div class="form-group" >
-            <strong>@lang('views.organizers')</strong>
+            <label>@lang('views.organizers')</label>
             <select id="organizer" class="selectpicker multiselect" multiple data-live-search="true" title="@lang('homepage-serach.organizer_name')">
                 @foreach ($organizers as $value => $organizer)
                     <option value="{{$value}}">{!! $organizer !!}</option>
