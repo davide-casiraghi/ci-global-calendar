@@ -26,9 +26,10 @@ class PostTest extends TestCase
             $this->user = factory(\App\User::class)->create();
             $this->post = factory(\App\Post::class)->create();
     }
+    
     /***************************************************************************/
     /**
-     * Test that logged user can see teachers index view
+     * Test that logged user can see posts index view
      */  
     public function test_logged_user_can_see_posts_index(){
         // Authenticate the user
@@ -37,6 +38,17 @@ class PostTest extends TestCase
         // Access to the page
             $response = $this->get('/posts')
                              ->assertStatus(200);
+    }
+    
+    /***************************************************************************/
+    /**
+     * Test that guest user can see a post
+     */  
+    public function test_guest_user_can_see_single_post(){
+        
+        // Access to the page (post.show)
+            $response = $this->get('/en/posts/'.$this->post->id.'/')
+                         ->assertStatus(200);
     }
     
     /***************************************************************************/
@@ -70,16 +82,7 @@ class PostTest extends TestCase
                     ->assertSee(__('general.post').__('views.created_successfully'));
     }
     
-    /***************************************************************************/
-    /**
-     * Test that guest user can see a post
-     */  
-    public function test_guest_user_can_see_single_post(){
-        
-        // Access to the page (post.show)
-            $response = $this->get('/en/posts/'.$this->post->id.'/')
-                         ->assertStatus(200);
-    }
+
     
     
 }
