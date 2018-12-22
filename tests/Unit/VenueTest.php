@@ -40,6 +40,17 @@ class VenueTest extends TestCase
 
     /***************************************************************************/
     /**
+     * Test that guest user can see an organizer
+     */  
+    public function test_guest_user_can_see_single_venue(){
+            
+        // Access to the page (teacher.show)
+            $response = $this->get('/en/eventVenues/'.$this->venue->id.'/')
+                         ->assertStatus(200);
+    }
+    
+    /***************************************************************************/
+    /**
      * A basic test example.
      *
      * @return void
