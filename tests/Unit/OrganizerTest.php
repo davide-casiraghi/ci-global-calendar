@@ -106,7 +106,7 @@ class OrganizerTest extends TestCase
     /**
      * Test that guest user can DELETE a post
      */  
-    /*public function test_guest_user_can_delete_single_organizer(){
+    public function test_guest_user_can_delete_single_organizer(){
         
         // Authenticate the user
             $this->authenticate();
@@ -114,12 +114,12 @@ class OrganizerTest extends TestCase
         // Delete the post
             $response = $this
                         ->followingRedirects()
-                        ->delete('/organizers/'.$this->organizer->id, $this->organizer->toArray());
-                        //->assertSee("Organizer deleted successfully");
+                        ->delete('/en/organizers/'.$this->organizer->id, $this->organizer->toArray())
+                        ->assertSee("Organizer deleted successfully");
                 
         // Check the update on DB        
             $this->assertDatabaseMissing('organizers',['id'=> $this->organizer->id]);
-    }*/
+    }
     
     
 
