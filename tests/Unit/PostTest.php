@@ -42,7 +42,7 @@ class PostTest extends TestCase
     
     /***************************************************************************/
     /**
-     * Test that guest user can see a post
+     * Test that guest user can READ a post
      */  
     public function test_guest_user_can_see_single_post(){
         
@@ -53,7 +53,7 @@ class PostTest extends TestCase
     
     /***************************************************************************/
     /**
-     * Test that logged user can create a post
+     * Test that logged user can CREATE a post
      */  
     public function test_a_logged_user_can_create_post(){
         // Authenticate the user
