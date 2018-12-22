@@ -81,7 +81,7 @@ class OrganizerTest extends TestCase
     
     /***************************************************************************/
     /**
-     * Test that guest user can UPDATE a post
+     * Test that guest user can UPDATE an organizer
      */  
     public function test_guest_user_can_update_organizer(){
         
@@ -100,13 +100,10 @@ class OrganizerTest extends TestCase
     }
     
     /***************************************************************************/
-    
-    
-    
     /**
-     * Test that guest user can DELETE a post
+     * Test that guest user can DELETE an organizer
      */  
-    public function test_guest_user_can_delete_single_organizer(){
+    public function test_guest_user_can_delete_organizer(){
         
         // Authenticate the user
             $this->authenticate();

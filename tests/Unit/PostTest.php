@@ -90,7 +90,7 @@ class PostTest extends TestCase
     /**
      * Test that guest user can UPDATE a post
      */  
-    public function test_guest_user_can_update_single_post(){
+    public function test_guest_user_can_update_post(){
         
         // Authenticate the user
             $this->authenticate();
@@ -110,7 +110,7 @@ class PostTest extends TestCase
     /**
      * Test that guest user can UPDATE a post
      */  
-    public function test_guest_user_can_delete_single_post(){
+    public function test_guest_user_can_delete_post(){
         
         // Authenticate the user
             $this->authenticate();
