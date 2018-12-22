@@ -86,6 +86,27 @@ class PostTest extends TestCase
                     ->assertSee(__('general.post').__('views.created_successfully'));
     }
     
+    /***************************************************************************/
+    /**
+     * Test that guest user can UPDATE a post
+     */  
+    public function test_guest_user_can_update_single_post(){
+        
+        // Authenticate the user
+            $this->authenticate();
+            
+        // Update the post
+            $this->post->title = "Updated Title";
+            $response = $this
+                        ->followingRedirects()
+                        ->put('/en/posts/'.$this->post->id, $this->post->toArray())
+                        ->assertSee("Post updated successfully");
+                
+        // Check the update on DB        
+            $this->assertDatabaseHas('post_translations',['id'=> $this->post->id , 'title' => 'Updated Title']);
+    
+    }
+    
 
     
     
