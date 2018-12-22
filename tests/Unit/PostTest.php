@@ -74,7 +74,10 @@ class PostTest extends TestCase
                             ->post('/posts', $data);
             
         // Assert in database
-            //$this->assertDatabaseHas('posts',$data);
+            $this->assertDatabaseHas('post_translations',[
+                                    'title' => $data['title'],
+                                    'locale' => 'en'
+                                ]);
             
         // Status
             $response
