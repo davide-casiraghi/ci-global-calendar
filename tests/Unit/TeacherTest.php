@@ -83,5 +83,24 @@ class TeacherTest extends TestCase
                     ->assertSee(__('general.teacher').__('views.created_successfully'));
     }
     
+    /**
+     * Test that guest user can UPDATE a teacher
+     */  
+    public function test_guest_user_can_update_teacher(){
+        
+        // Authenticate the user
+            $this->authenticate();
+            
+        // Update the post
+            $this->teacher->name = "New Name";
+            $response = $this
+                        ->followingRedirects()
+                        ->put('/en/teachers/'.$this->teacher->id, $this->teacher->toArray())
+                        ->assertSee("Teacher updated successfully");
+                
+        // Check the update on DB        
+            $this->assertDatabaseHas('teachers',['id'=> $this->teacher->id , 'name' => 'New Name']);
+    }
+    
     
 }
