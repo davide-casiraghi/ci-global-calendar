@@ -27,6 +27,7 @@ class EventTest extends TestCase
             $this->venue = factory(\App\EventVenue::class)->create();
             $this->teachers = factory(\App\Teacher::class,3)->create();
             $this->organizers = factory(\App\Organizer::class,3)->create();
+            $this->event = factory(\App\Event::class)->create();
     }
     
     /***************************************************************************/
@@ -152,13 +153,13 @@ class EventTest extends TestCase
                 'user_email' => $this->user->email,
                 'message' => $this->faker->paragraph,
                 'event_title' => $this->faker->sentence($nbWords = 3),
-                'event_id' => 1,
+                'event_id' => $this->event->id,
             ];
             $response = $this
                         ->followingRedirects()
                         ->post('/mailToOrganizer', $data);
                         
-            dd($response); // I have to create the event factory
+            //dd($response); // I have to create the event factory
         // Status
             $response
                     ->assertStatus(200)
