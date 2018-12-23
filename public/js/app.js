@@ -883,7 +883,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(17);
-module.exports = __webpack_require__(52);
+module.exports = __webpack_require__(53);
 
 
 /***/ }),
@@ -907,11 +907,12 @@ window.Vue = __webpack_require__(40);
 __webpack_require__(43); // accordion.js
 __webpack_require__(44); // gallery.js
 __webpack_require__(45); // imagepopup.js
+__webpack_require__(46);
+//require('./utility/google_analytics');
 
 // File manager for intro_image button in edit.post view
-__webpack_require__(46); // lfm.js
-__webpack_require__(47); // editPostImageFilemanager.js
-
+__webpack_require__(47); // lfm.js
+__webpack_require__(48); // editPostImageFilemanager.js
 
 // Load Bootrap tooltip everywhere in the website
 $(function () {
@@ -924,7 +925,7 @@ $(function () {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(48));
+Vue.component('example-component', __webpack_require__(49));
 
 var app = new Vue({
   el: '#app'
@@ -30486,6 +30487,24 @@ jQuery(document).ready(function () {
 /* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/* WEBPACK VAR INJECTION */(function($) {/* 
+    Enable mobile devices native menu for selectpicker menus 
+    https://developer.snapappointments.com/bootstrap-select/methods/
+*/
+
+$(document).ready(function () {
+    if ($(".selectpicker").length) {
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+            $('.selectpicker').selectpicker('mobile');
+        }
+    }
+});
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
 /* WEBPACK VAR INJECTION */(function(jQuery) {(function ($) {
 
   $.fn.filemanager = function (type, options) {
@@ -30512,7 +30531,7 @@ jQuery(document).ready(function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {jQuery(document).ready(function () {
@@ -30523,15 +30542,15 @@ jQuery(document).ready(function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(49)
+var normalizeComponent = __webpack_require__(50)
 /* script */
-var __vue_script__ = __webpack_require__(50)
+var __vue_script__ = __webpack_require__(51)
 /* template */
-var __vue_template__ = __webpack_require__(51)
+var __vue_template__ = __webpack_require__(52)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -30570,7 +30589,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -30679,7 +30698,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -30708,7 +30727,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -30751,7 +30770,7 @@ if (false) {
 }
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
