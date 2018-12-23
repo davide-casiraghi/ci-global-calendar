@@ -1,9 +1,9 @@
-@section('javascript-document-ready')
+{{--@section('javascript-document-ready')
     @parent
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
         $('.selectpicker').selectpicker('mobile');
     }
-@stop
+@stop--}}
 
 <div class="form-group">
     @if(!empty($title))<label for="{{ $name }}">{{ $title }}</label>@endif
