@@ -1,4 +1,5 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
+[![GitHub last commit](https://img.shields.io/github/last-commit/davide-casiraghi/ci-global-calendar.svg)](https://github.com/davide-casiraghi/ci-global-calendar) 
 
 # Global Contact Improvisation Calendar
 
