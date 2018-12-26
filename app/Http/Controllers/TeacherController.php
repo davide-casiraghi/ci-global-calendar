@@ -187,7 +187,8 @@ class TeacherController extends Controller
      public function saveOnDb($request, $teacher){
         
          $teacher->name = $request->get('name');
-         $teacher->bio = $request->get('bio');
+         //$teacher->bio = $request->get('bio');
+         $teacher->bio = clean($request->get('bio'));
          $teacher->country_id = $request->get('country_id');
          $teacher->year_starting_practice = $request->get('year_starting_practice');
          $teacher->year_starting_teach = $request->get('year_starting_teach');

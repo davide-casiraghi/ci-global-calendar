@@ -85,7 +85,8 @@ class UserController extends Controller
         $user->group = $request->get('group');
         $user->status = $request->get('status');
         $user->country_id = $request->get('country_id');
-        $user->description = $request->get('description');
+        //$user->description = $request->get('description');
+        $user->description = clean($request->get('description'));
 
         $user->save();
 

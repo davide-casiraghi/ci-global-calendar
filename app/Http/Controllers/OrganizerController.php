@@ -163,7 +163,8 @@ class OrganizerController extends Controller
      public function saveOnDb($request, $organizer){
          
          $organizer->name = $request->get('name');
-         $organizer->description = $request->get('description');
+         //$organizer->description = $request->get('description');
+         $organizer->description = clean($request->get('description'));
          $organizer->website = $request->get('website');
          $organizer->email = $request->get('email');
          $organizer->phone = $request->get('phone');

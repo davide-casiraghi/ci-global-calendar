@@ -270,7 +270,8 @@ class PostController extends Controller
      public function saveOnDb($request, $post){
          
          $post->title = $request->get('title');
-         $post->body = $request->get('body');
+         //$post->body = $request->get('body');
+         $post->body = clean($request->get('body'));
          $post->created_by = \Auth::user()->id;
          $post->slug = str_slug($post->title, '-').rand(100000, 1000000);
          $post->category_id = $request->get('category_id');

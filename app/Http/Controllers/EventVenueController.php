@@ -176,7 +176,8 @@ class EventVenueController extends Controller
      */
      public function saveOnDb($request, $eventVenue){
          $eventVenue->name = $request->get('name');
-         $eventVenue->description = $request->get('description');
+         //$eventVenue->description = $request->get('description');
+         $eventVenue->description = clean($request->get('description'));
          $eventVenue->continent_id = Country::where('id', $request->get('country_id'))->pluck('continent_id')->first();
          $eventVenue->country_id = $request->get('country_id');
          $eventVenue->city = $request->get('city');

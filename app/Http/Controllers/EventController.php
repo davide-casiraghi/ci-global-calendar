@@ -945,7 +945,8 @@ class EventController extends Controller
                 ->first();
                 
         $event->title = $request->get('title');
-        $event->description = $request->get('description');
+        //$event->description = $request->get('description');
+        $event->description = clean($request->get('description'));
         $event->created_by = \Auth::user()->id;
         $event->slug = str_slug($event->title, '-').rand(100000, 1000000);
         $event->category_id = $request->get('category_id');
