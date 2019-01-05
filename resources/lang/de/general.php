@@ -15,7 +15,7 @@ return [
     'teacher' => 'Lehrer*in',
     'events' => 'Veranstaltungen',
     'event' => 'Veranstaltung',
-    'venue' => 'Veranstaltungsort'
+    'venue' => 'Veranstaltungsort',
     'post'=> 'Artikel',
     'from' => 'Von',
     'to' => 'Bis',
