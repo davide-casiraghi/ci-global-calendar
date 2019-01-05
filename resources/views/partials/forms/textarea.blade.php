@@ -7,8 +7,8 @@
     @parent
 
     <!-- Initialize editor for the main textbox -->
-    <script type="text/javascript" src="{{ asset('js/tinymce/tinymce.min.js') }}" ></script>
-    <script type="text/javascript">
+    <script src="{{ asset('js/tinymce/tinymce.min.js') }}" ></script>
+    <script>
 		// https://www.tiny.cloud/docs/get-started/basic-setup/
 			var editor_config = {
 				selector: 'textarea#bodyTextarea',
