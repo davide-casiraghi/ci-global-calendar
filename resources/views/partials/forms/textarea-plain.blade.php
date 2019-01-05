@@ -8,7 +8,7 @@
     <textarea   class="form-control{{ $errors->has($name) ? ' is-invalid' : '' }}" 
                 style="height: @if(!empty($height)){{ $height }}@else{{'9rem'}}@endif" 
                 name="{{ $name }}" 
-                id="{{ $name }}"
+                id="{{ $name }}" 
                 @if(!empty($placeholder)) placeholder="{{ $placeholder }}" @endif 
     >@if(!empty($value)){!! $value !!} @endif</textarea>
     @if ($errors->has($name))
