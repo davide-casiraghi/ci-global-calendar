@@ -12,7 +12,7 @@ return [
     'my_organizers' => 'Mes Organisateur-trices',
     'my_teachers' => 'Mes Enseignant-es',
     'my_venues' => 'Mes Lieux',
-    'my_profile' => 'My Profile',
+    'my_profile' => 'Mon Profil',
     'admin_tools' => 'Admin Tools',
     'users' => 'Users',
     'posts' => 'Posts',
@@ -25,5 +25,6 @@ return [
     'create_account' => 'Créer un compte',
     'login' => 'Identifiant',
     'logout' => 'Fermer la session',
-    'donate' => 'Appel à dons'
+    'donate' => 'Appel à dons',
+    'teachers_directory' => 'Annuaire des enseignants'
 ];

@@ -25,5 +25,6 @@ return [
     'create_account' => 'Registrati',
     'login' => 'Accedi',
     'logout' => 'Logout',
-    'donate' => 'Donazione'
+    'donate' => 'Donazione',
+    'teachers_directory' => 'Elenco insegnanti'
 ];

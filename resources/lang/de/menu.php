@@ -3,7 +3,7 @@
 return [
     'home' => 'Home',
     'about' => 'A Propos',
-    'terms_of_use' => 'Terms of use',
+    'terms_of_use' => 'Benutzungshinweise',
     'get_involved' => 'Mitmachen',
     'how_to' => 'Wie füge ich Inhalte hinzu',
     'manager' => 'Manager',
@@ -12,7 +12,7 @@ return [
     'my_organizers' => 'Organisator*innen',
     'my_teachers' => 'Meine Lehrer*innen',
     'my_venues' => 'Meine Veranstaltungsorte',
-    'my_profile' => 'My Profile',
+    'my_profile' => 'Mein Profil',
     'admin_tools' => 'Admin Tools',
     'users' => 'Users',
     'posts' => 'Posts',
@@ -25,5 +25,6 @@ return [
     'create_account' => 'Account erstellen',
     'login' => 'Login',
     'logout' => 'Logout',
-    'donate' => 'Spende'
+    'donate' => 'Spende',
+    'teachers_directory' => 'Lehrer*innen-Verzeichnis'
 ];

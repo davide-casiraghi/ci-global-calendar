@@ -12,7 +12,7 @@ return [
     'my_organizers' => 'Мои организаторы',
     'my_teachers' => 'Мои учителя',
     'my_venues' => 'Мое место проведения',
-    'my_profile' => 'My Profile',
+    'my_profile' => 'Мой профиль',
     'admin_tools' => 'Admin Tools',
     'users' => 'Users',
     'posts' => 'Posts',
@@ -25,5 +25,6 @@ return [
     'create_account' => 'Создать учетную запись',
     'login' => 'Логин',
     'logout' => 'Выход',
-    'donate' => 'Вклад'
+    'donate' => 'Вклад',
+    'teachers_directory' => 'Учителя'
 ];
