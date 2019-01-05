@@ -1,5 +1,7 @@
 @extends('teachers.layout')
 
+@section('title'){{ $teacher->name }}@endsection
+
 @section('content')
 
     <div class="row">

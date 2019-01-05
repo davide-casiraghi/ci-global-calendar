@@ -1,5 +1,7 @@
 @extends('organizers.layout')
 
+@section('title'){{ $organizer->name }}@endsection
+
 @section('content')
 
     <div class="row">

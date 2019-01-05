@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title')@lang('menu.create_account')@endsection
+
 @section('javascript-head')
     @parent
     {!! NoCaptcha::renderJs() !!}

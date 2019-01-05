@@ -1,5 +1,7 @@
 @extends('events.layout')
 
+@section('title'){{ $eventVenue->name }}@endsection
+
 @section('content')
 
     <div class="row">
