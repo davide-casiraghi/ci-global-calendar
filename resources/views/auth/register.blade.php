@@ -1,5 +1,12 @@
 @extends('layouts.app')
 
+@section('javascript-head')
+    @parent
+    {!! NoCaptcha::renderJs() !!}
+@stop
+
+
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -112,6 +119,9 @@
                                 ])
                             </div>
                         </div>
+                        
+                        {{-- Recaptcha google v2 --}}
+                        {!! NoCaptcha::display() !!}
 
                         {{-- INFORMATION ABOUT ADMIN APPROVAL --}}
                         <div class="form-group row">

@@ -18,6 +18,8 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
         @yield('css')
+        
+        @yield('javascript-head')
 </head>
 
 <body> {{-- Laravel use VUE as default - https://stackoverflow.com/questions/41411344/vue-warn-cannot-find-element-app#41411385 --}}
