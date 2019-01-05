@@ -75,7 +75,9 @@ class EventSearchController extends Controller
                 $searchStartDate = "$tiy-$tim-$tid";
             }
             else{
-                $searchStartDate = null;
+                // If no start date selected the search start from today's date
+                date_default_timezone_set('Europe/Rome');
+                $searchStartDate = date('Y-m-d', time());
             }
             
             if($request->input('endDate')){
@@ -128,11 +130,8 @@ class EventSearchController extends Controller
         }
         // If no filter selected retrieve all the events
         else{
-            //$events = Event::latest()->paginate(20);
-
-            // Latest give the last $eventCategories!!!
-                $events = DB::table('events')
-                //->join('event_repetitions', 'events.id', '=', 'event_repetitions.event_id')
+                $events = Event::
+                 where('event_repetitions.start_repeat', '>=',$searchStartDate)
                 ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) {
                     $join->on('events.id', '=', 'event_repetitions.event_id');
                 })
