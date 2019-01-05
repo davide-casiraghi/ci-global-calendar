@@ -3,7 +3,7 @@
     @yield('content')
 </div>
 
-<script type="text/javascript">
+<script>
     $(document).ready(function(){
         @yield('javascript-document-ready')
     });
