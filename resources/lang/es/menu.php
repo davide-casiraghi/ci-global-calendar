@@ -3,10 +3,10 @@
 return [
     'home' => 'Inicio',
     'about' => 'A cerca de',
-    'terms_of_use' => 'Terms of use',
+    'terms_of_use' => 'Términos de uso',
     'get_involved' => 'Participa',
     'how_to' => 'Cómo insertar contenidos',
-    'manager' => 'Manager',
+    'manager' => 'Administrador',
     'new_event' => 'Nuevo Evento',
     'my_events' => 'Mis eventos',
     'my_organizers' => 'Mis organizador@s',
