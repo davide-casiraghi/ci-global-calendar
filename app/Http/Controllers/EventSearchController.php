@@ -17,10 +17,11 @@ use Illuminate\Http\Request;
 
 class EventSearchController extends Controller
 {
+    // **********************************************************************     
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Display the event search results in Global Calendar Homepage
+     * @param  \Illuminate\Http\Request  $request 
+     * @return view
      */
     public function index(Request $request){
         /*$eventCategories = EventCategory::pluck('name', 'id');
