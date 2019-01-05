@@ -97,8 +97,7 @@ class EventSearchController extends Controller
                                 })
                                 ->groupBy('event_id');
                                 
-        //dd($lastestEventsRepetitions);
-
+        // Retrieve the events that correspond to the selected filters
         if ($searchKeywords||$searchCategory||$searchCountry||$searchContinent||$searchTeacher||$searchVenue||$searchStartDate||$searchEndDate){
             //DB::enableQueryLog();
                 $events = Event::
@@ -127,6 +126,7 @@ class EventSearchController extends Controller
                     ->paginate(20);
                     //dd(DB::getQueryLog());
         }
+        // If no filter selected retrieve all the events
         else{
             //$events = Event::latest()->paginate(20);
 
