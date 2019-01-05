@@ -1,4 +1,4 @@
-<script>
+{{--<script>
     // - https://support.google.com/analytics/answer/1008080?hl=en
     // Set up Analytics tracking
 
@@ -9,4 +9,14 @@
 
       ga('create', 'UA-3675475-42', 'ciglobalcalendar.net');
       ga('send', 'pageview');
+</script>--}}
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-3675475-42"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-3675475-42');
 </script>
