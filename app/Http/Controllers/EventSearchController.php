@@ -62,28 +62,29 @@ class EventSearchController extends Controller
             return Teacher::pluck('name', 'id');
         });
 
-        $searchKeywords = $request->input('keywords');
-        $searchCategory = $request->input('category_id');
-        $searchCountry = $request->input('country_id');
-        $searchContinent = $request->input('continent_id');
-        $searchTeacher = $request->input('teacher_id');
-        $searchVenue = $request->input('venue_name');
+        // Get selected attributes from the search form
+            $searchKeywords = $request->input('keywords');
+            $searchCategory = $request->input('category_id');
+            $searchCountry = $request->input('country_id');
+            $searchContinent = $request->input('continent_id');
+            $searchTeacher = $request->input('teacher_id');
+            $searchVenue = $request->input('venue_name');
 
-        if($request->input('startDate')){
-            list($tid,$tim,$tiy) = explode("/",$request->input('startDate'));
-            $searchStartDate = "$tiy-$tim-$tid";
-        }
-        else{
-            $searchStartDate = null;
-        }
-        
-        if($request->input('endDate')){
-            list($tid,$tim,$tiy) = explode("/",$request->input('endDate'));
-            $searchEndDate = "$tiy-$tim-$tid";
-        }
-        else{
-            $searchEndDate = null;
-        }
+            if($request->input('startDate')){
+                list($tid,$tim,$tiy) = explode("/",$request->input('startDate'));
+                $searchStartDate = "$tiy-$tim-$tid";
+            }
+            else{
+                $searchStartDate = null;
+            }
+            
+            if($request->input('endDate')){
+                list($tid,$tim,$tiy) = explode("/",$request->input('endDate'));
+                $searchEndDate = "$tiy-$tim-$tid";
+            }
+            else{
+                $searchEndDate = null;
+            }
         
         // Sub-Query Joins - https://laravel.com/docs/5.7/queries                        
         $lastestEventsRepetitions = DB::table('event_repetitions')
