@@ -17,7 +17,6 @@ require('./plugins/accordion');   // accordion.js
 require('./plugins/gallery');     // gallery.js
 require('./plugins/imagepopup');  // imagepopup.js
 require('./utility/selectpicker_mobile');
-require('./utility/google_analytics');
 
 // File manager for intro_image button in edit.post view
 require('./plugins/laravel-filemanager/lfm');  // lfm.js

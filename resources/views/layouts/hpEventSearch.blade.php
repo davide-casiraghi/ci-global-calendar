@@ -18,6 +18,11 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
         @yield('css')
+        
+    {{-- JS that need to stay in the head--}}
+        {{-- Google Analitics (before closing the head )--}}
+        @include('partials.google-analytics')
+        
 </head>
 
 <body class=""> {{-- Laravel use VUE as default - https://stackoverflow.com/questions/41411344/vue-warn-cannot-find-element-app#41411385 --}}
