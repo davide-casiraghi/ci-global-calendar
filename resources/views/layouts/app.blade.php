@@ -3,7 +3,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <title>App Name - @yield('title')</title>
+    <title>@yield('title') - @lang('homepage-serach.contact_improvisation') - @lang('homepage-serach.global_calendar')</title>
     {{--<title>{{ config('app.name', 'Laravel') }}</title>--}}
 
     <meta charset="utf-8">

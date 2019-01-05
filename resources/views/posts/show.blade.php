@@ -1,5 +1,7 @@
 @extends('posts.layout')
 
+@section('title'){{ $post->title }}@endsection
+
 @section('beforeContent')
     {!! $post->before_content !!}
 @endsection
