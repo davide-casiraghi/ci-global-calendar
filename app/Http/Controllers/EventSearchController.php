@@ -28,7 +28,8 @@ class EventSearchController extends Controller
         $countries = Country::pluck('name', 'id');
         $venues = EventVenue::pluck('name', 'id');*/
         
-        $minutes = 30;
+        // Set the duration time of the cache
+            $minutes = 15;
         
         $backgroundImages = BackgroundImage::all();
 
@@ -75,7 +76,7 @@ class EventSearchController extends Controller
         else{
             $searchStartDate = null;
         }
-        //dd($request->input('endDate'));
+        
         if($request->input('endDate')){
             list($tid,$tim,$tiy) = explode("/",$request->input('endDate'));
             $searchEndDate = "$tiy-$tim-$tid";
@@ -83,13 +84,8 @@ class EventSearchController extends Controller
         else{
             $searchEndDate = null;
         }
-        //dd($searchStartDate." ".$searchEndDate);
-        // Sub-Query Joins - https://laravel.com/docs/5.7/queries
-        /*$lastestEventsRepetitions = DB::table('event_repetitions')
-                                ->selectRaw('event_id, MIN(id) AS rp_id, start_repeat, end_repeat')
-                                ->groupBy('event_id')
-                                ->toSql();*/
-                                
+        
+        // Sub-Query Joins - https://laravel.com/docs/5.7/queries                        
         $lastestEventsRepetitions = DB::table('event_repetitions')
                                 ->selectRaw('event_id, MIN(id) AS rp_id, start_repeat, end_repeat')
                                 ->when($searchStartDate, function ($query, $searchStartDate) {
