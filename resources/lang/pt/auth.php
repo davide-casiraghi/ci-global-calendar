@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Queste credenziali non corrispondono ai nostri record.',
-    'throttle' => 'Troppi tentativi di accesso. Prova nuovamente tra qualche secondo.',
-    'successfully_registered' => "Ti sei registrato con successo nel CI Global Calendar. Riceverai un'email di conferma quando il tuo account verrà approvato dall'amministratore. Grazie per la registrazione!",
+    'failed' => 'Essas credenciais não correspondem aos nossos registros.',
+    'throttle' => 'Muitas tentativas de login. Por favor, tente de novo em alguns segundos.',
+    'successfully_registered' => 'Você registrou-se com sucesso no Calendário Global do CI.Você receberá um email de confirmação quando sua conta for aprovada pelo administrador. Obrigado por registrar-se!',
 ];
