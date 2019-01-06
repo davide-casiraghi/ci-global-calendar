@@ -70,9 +70,9 @@
 @stop
 <small class="credits">
     @lang('homepage-serach.photo_credits'):
-    <div class="name">
+    <p class="name">
 
-    </div>
+    </p>
 
 </small>
 <div class="background"></div>
