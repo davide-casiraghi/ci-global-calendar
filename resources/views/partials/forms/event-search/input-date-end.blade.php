@@ -18,6 +18,6 @@
         <div class="input-group-append">
           <div class="input-group-text">@lang('homepage-serach.end_on')<i class="far fa-calendar-alt ml-2"></i></div>
         </div>
-        <input name="endDate" class="form-control" type="text" placeholder="Select date" @if(!empty($searchEndDate)) value="{{ $searchEndDate }}"@endif readonly="readonly" aria-describedby="endDate">
+        <input name="endDate" id="endDate" class="form-control" type="text" placeholder="Select date" @if(!empty($searchEndDate)) value="{{ $searchEndDate }}"@endif readonly="readonly" aria-describedby="endDate">
     </div>
 </div>

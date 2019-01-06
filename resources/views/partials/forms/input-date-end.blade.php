@@ -13,7 +13,7 @@
 <div class="form-group">
     <label for="{{ $name }}">Date End</label>
     <div class="input-group input-append date" id="datepicker_end_date" data-date-format="dd-mm-yyyy">
-        <input name="endDate" class="form-control" @if(!empty($dateTime['dateEnd'])) value="{{ $dateTime['dateEnd'] }}" @endif type="text" placeholder="Select date" value="" readonly="readonly" aria-describedby="endDate">
+        <input name="endDate" id="endDate" class="form-control" @if(!empty($dateTime['dateEnd'])) value="{{ $dateTime['dateEnd'] }}" @endif type="text" placeholder="Select date" value="" readonly="readonly" aria-describedby="endDate">
         <div class="input-group-append">
             <span class="input-group-text" id="date-addon-end"><i class="far fa-calendar-alt"></i></span>
         </div>
