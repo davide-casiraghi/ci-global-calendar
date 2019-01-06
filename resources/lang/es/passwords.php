@@ -13,10 +13,10 @@ return [
     |
     */
 
-    'password' => 'Passwords must be at least six characters and match the confirmation.',
-    'reset' => 'Your password has been reset!',
-    'sent' => 'We have e-mailed your password reset link!',
-    'token' => 'This password reset token is invalid.',
-    'user' => 'We can\'t find a user with that e-mail address.',
+    'password' => 'La clave debe contener al menos seis carácteres y coincidir con la confirmación.',
+    'reset' => 'Tu clave ha sido blanqueada.',
+    'sent' => 'Hemos enviado por mail el link para blanquear tu clave!',
+    'token' => 'El token para blanquear la clave es inválido.',
+    'user' => 'No podemos encontrar un usuario/a con esa dirección de e-mail',
 
 ];
