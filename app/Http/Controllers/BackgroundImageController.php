@@ -76,7 +76,7 @@ class BackgroundImageController extends Controller
         BackgroundImage::create($request->all());
 
         return redirect()->route('backgroundImages.index')
-                        ->with('success','BackgroundImage created successfully.');
+                        ->with('success',__('messages.background_image_added_successfully'));
     }
 
     /**
@@ -119,7 +119,7 @@ class BackgroundImageController extends Controller
         $backgroundImage->update($request->all());
 
         return redirect()->route('backgroundImages.index')
-                        ->with('success','Background image updated successfully');
+                        ->with('success',__('messages.background_image_updated_successfully'));
     }
 
     /**
@@ -133,6 +133,6 @@ class BackgroundImageController extends Controller
         $backgroundImage->delete();
 
         return redirect()->route('backgroundImages.index')
-                        ->with('success','Background image deleted successfully');
+                        ->with('success',__('messages.background_image_deleted_successfully'));
     }
 }

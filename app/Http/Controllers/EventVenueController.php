@@ -97,7 +97,7 @@ class EventVenueController extends Controller
         $this->saveOnDb($request, $eventVenue);
 
         return redirect()->route('eventVenues.index')
-                        ->with('success','Event venue created successfully.');
+                        ->with('success',__('messages.venue_added_successfully'));
     }
 
     /***************************************************************************/
@@ -151,7 +151,7 @@ class EventVenueController extends Controller
         $this->saveOnDb($request, $eventVenue);
 
         return redirect()->route('eventVenues.index')
-                        ->with('success','Event venue updated successfully');
+                        ->with('success',__('messages.venue_updated_successfully'));
     }
 
     /***************************************************************************/
@@ -164,7 +164,7 @@ class EventVenueController extends Controller
     public function destroy(EventVenue $eventVenue){
         $eventVenue->delete();
         return redirect()->route('eventVenues.index')
-                        ->with('success','Event venue deleted successfully');
+                        ->with('success',__('messages.venue_deleted_successfully'));
     }
 
     /***************************************************************************/
@@ -218,7 +218,7 @@ class EventVenueController extends Controller
 
         $this->saveOnDb($request, $eventVenue);
 
-        return redirect()->back()->with('message', 'Venue created');
+        return redirect()->back()->with('message', __('messages.venue_added_successfully'));
         //return redirect()->back()->with('message', __('auth.successfully_registered'));
         //return true;
     }

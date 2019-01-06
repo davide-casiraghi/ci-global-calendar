@@ -60,7 +60,7 @@ class CategoryController extends Controller
         $this->saveOnDb($request, $category);
 
         return redirect()->route('categories.index')
-                        ->with('success','Category created successfully.');
+                        ->with('success',__('messages.category_added_successfully'));
     }
 
     /**
@@ -100,7 +100,7 @@ class CategoryController extends Controller
         $this->saveOnDb($request, $category);
 
         return redirect()->route('categories.index')
-                        ->with('success','Category updated successfully');
+                        ->with('success',__('messages.category_updated_successfully'));
     }
 
     /**
@@ -112,7 +112,7 @@ class CategoryController extends Controller
     public function destroy(Category $category){
         $category->delete();
         return redirect()->route('categories.index')
-                        ->with('success','Category deleted successfully');
+                        ->with('success',__('messages.category_deleted_successfully'));
     }
 
     // **********************************************************************

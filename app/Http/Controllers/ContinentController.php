@@ -58,7 +58,7 @@ class ContinentController extends Controller
         $continent->save();
 
         return redirect()->route('continents.index')
-                        ->with('success','Continent created successfully.');
+                        ->with('success',__('messages.continent_added_successfully'));
     }
 
     /**
@@ -97,7 +97,7 @@ class ContinentController extends Controller
         $continent->update($request->all());
 
         return redirect()->route('continents.index')
-                        ->with('success','Continent updated successfully');
+                        ->with('success',__('messages.continent_updated_successfully'));
     }
 
     /**
@@ -109,6 +109,6 @@ class ContinentController extends Controller
     public function destroy(Continent $continent){
         $continent->delete();
         return redirect()->route('continents.index')
-                        ->with('success','Continent deleted successfully');
+                        ->with('success',__('messages.continent_deleted_successfully'));
     }
 }

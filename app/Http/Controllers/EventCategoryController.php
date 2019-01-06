@@ -55,7 +55,7 @@ class EventCategoryController extends Controller
         $this->saveOnDb($request, $eventCategory);
 
         return redirect()->route('eventCategories.index')
-                        ->with('success','Event category created successfully.');
+                        ->with('success',__('messages.category_added_successfully'));
     }
 
     /**
@@ -94,7 +94,7 @@ class EventCategoryController extends Controller
         $this->saveOnDb($request, $eventCategory);
 
         return redirect()->route('eventCategories.index')
-                        ->with('success','Event category updated successfully');
+                        ->with('success',__('messages.category_updated_successfully'));
     }
 
     /**
@@ -108,7 +108,7 @@ class EventCategoryController extends Controller
         $eventCategory->delete();
 
         return redirect()->route('eventCategories.index')
-                        ->with('success','Event category deleted successfully');
+                        ->with('success',__('messages.category_deleted_successfully'));
     }
 
     // **********************************************************************

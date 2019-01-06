@@ -108,7 +108,7 @@ class TeacherController extends Controller
         $this->saveOnDb($request, $teacher);
 
         return redirect()->route('teachers.index')
-                        ->with('success',__('general.teacher').__('views.created_successfully'));
+                        ->with('success',__('messages.teacher_added_successfully'));
     }
     
     /***************************************************************************/
@@ -161,7 +161,7 @@ class TeacherController extends Controller
         $this->saveOnDb($request, $teacher);
 
         return redirect()->route('teachers.index')
-                        ->with('success','Teacher updated successfully');
+                        ->with('success',__('messages.teacher_updated_successfully'));
     }
 
     /***************************************************************************/
@@ -174,7 +174,7 @@ class TeacherController extends Controller
     public function destroy(Teacher $teacher){
         $teacher->delete();
         return redirect()->route('teachers.index')
-                        ->with('success','Teacher deleted successfully');
+                        ->with('success',__('messages.teacher_deleted_successfully'));
     }
 
     /***************************************************************************/
@@ -238,7 +238,7 @@ class TeacherController extends Controller
 
         $this->saveOnDb($request, $teacher);
 
-        return redirect()->back()->with('message', 'Teacher created');
+        return redirect()->back()->with('message', __('messages.teacher_added_successfully'));
         //return redirect()->back()->with('message', __('auth.successfully_registered'));
         //return true;
     }

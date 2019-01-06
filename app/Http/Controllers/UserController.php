@@ -91,7 +91,7 @@ class UserController extends Controller
         $user->save();
 
         return redirect()->route('users.index')
-                        ->with('success','Teacher created successfully.');
+                        ->with('success',__('messages.user_added_successfully'));
     }
 
     /**
@@ -153,7 +153,7 @@ class UserController extends Controller
         $user->save();
 
         return redirect()->route('users.index')
-                        ->with('success','User updated successfully');
+                        ->with('success',__('messages.user_updated_successfully'));
     }
 
     /**
@@ -166,6 +166,6 @@ class UserController extends Controller
     {
         $user->delete();
         return redirect()->route('users.index')
-                        ->with('success','User deleted successfully');
+                        ->with('success',__('messages.user_deleted_successfully'));
     }
 }

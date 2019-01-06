@@ -71,7 +71,7 @@ class CountryController extends Controller
         $country->save();
 
         return redirect()->route('countries.index')
-                        ->with('success','Country created successfully.');
+                        ->with('success',__('messages.country_added_successfully'));
     }
 
     /**
@@ -113,7 +113,7 @@ class CountryController extends Controller
         $country->update($request->all());
 
         return redirect()->route('countries.index')
-                        ->with('success','Country updated successfully');
+                        ->with('success',__('messages.country_updated_successfully'));
     }
 
     /**
@@ -125,7 +125,7 @@ class CountryController extends Controller
     public function destroy(Country $country){
         $country->delete();
         return redirect()->route('countries.index')
-                        ->with('success','Country deleted successfully');
+                        ->with('success',__('messages.country_deleted_successfully'));
     }
 
 

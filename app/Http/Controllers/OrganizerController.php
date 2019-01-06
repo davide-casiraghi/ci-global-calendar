@@ -89,7 +89,7 @@ class OrganizerController extends Controller
         $this->saveOnDb($request, $organizer);
 
         return redirect()->route('organizers.index')
-                        ->with('success',__('general.organizer').__('views.created_successfully'));
+                        ->with('success',__('messages.organizer_added_successfully'));
     }
 
     /***************************************************************************/
@@ -137,7 +137,7 @@ class OrganizerController extends Controller
         $this->saveOnDb($request, $organizer);
 
         return redirect()->route('organizers.index')
-                        ->with('success','Organizer updated successfully');
+                        ->with('success',__('messages.organizer_updated_successfully'));
     }
 
     /***************************************************************************/
@@ -150,7 +150,7 @@ class OrganizerController extends Controller
     public function destroy(Organizer $organizer){
         $organizer->delete();
         return redirect()->route('organizers.index')
-                        ->with('success','Organizer deleted successfully');
+                        ->with('success',__('messages.organizer_deleted_successfully'));
     }
 
     /***************************************************************************/
