@@ -79,6 +79,7 @@ return [
     'search_by_organizer_name' => 'Search by organizer name',
     'search_by_country_name' => 'Search by country name',
     'search_by_photographer_name' => 'Search by photographer name',
+    'search_by_user_name' => 'Search by user name',
     'filter_by_category' => 'Filter by category',
     'filter_by_country' => 'Filter by country',
     'filter_by_orientation' => 'Filter by orientation',
