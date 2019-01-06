@@ -20,7 +20,7 @@
         <div class="input-group-append">
           <div class="input-group-text">@lang('homepage-serach.start_on')<i class="far fa-calendar-alt ml-2"></i></div>
         </div>
-        <input name="startDate" class="form-control" type="text" placeholder="Select date" @if(!empty($searchStartDate)) value="{{ $searchStartDate }}" @endif readonly="readonly" aria-describedby="date-addon-start">
+        <input name="startDate" class="form-control" type="text" placeholder="Select date" @if(!empty($searchStartDate)) value="{{ $searchStartDate }}" @endif readonly="readonly" aria-describedby="startDate">
 
     </div>
 </div>
