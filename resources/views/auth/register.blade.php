@@ -122,7 +122,10 @@
                             </div>
                         </div>
                         
-                        {{-- Recaptcha google v2 --}}
+                        {{-- 
+                            Recaptcha google v2 
+                            https://github.com/anhskohbo/no-captcha
+                        --}}
                         <div class="form-group row">
                             <div class="col-md-4">
 
