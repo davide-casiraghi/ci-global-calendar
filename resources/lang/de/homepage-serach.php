@@ -4,10 +4,13 @@ return [
     'contact_improvisation' => 'Contact Improvisation',
     'global_calendar' => 'Globaler Kalender',
     'find_information' => 'Finde hier Informationen über Contact Improvisation Events (Klassen, Jams, Workshops, Festivals und mehr)',
+    'under_costruction' => 'BAUSTELLE! Der Kalender ist noch immer im Beta-Test-Stadium. Wir planen den Kalender im März 2019 zu öffnen',
     'criteria' => 'Benutze ein oder mehrere Suchkriterien',
     'what' => 'Was',
     'when' => 'Wann',
+    'when_tooltip' => 'You can specify just one or both date fields',
     'where' => 'Wo',
+    'where_tooltip' => 'Just the countries with available events are shown below',
     'who' => 'Wer',
     'results_found' => 'Ergebnisse gefunden',
     'start_on' => 'Startet am (oder danach)',
@@ -19,5 +22,7 @@ return [
     'select_a_city' => 'Stadt wählen',
     'all_kind_of_events' => 'Alle Arten von Events',
     'teacher_name' => 'Name Lehrer*in',
-    'photo_credits' => ''
+    'venue_name' => 'Veranstaltungsort',
+    'organizer_name' => 'Name Organisator*in',
+    'photo_credits' => 'Bildnachweis'
 ];

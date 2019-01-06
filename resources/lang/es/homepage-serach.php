@@ -4,10 +4,13 @@ return [
     'contact_improvisation' => 'Contact Imporvisation',
     'global_calendar' => 'Calendario Global',
     'find_information' => 'Encuentra información a cerca de Contact Improvisación a nivel mundial (clases, talleres, festivales y más)',
+    'under_costruction' => 'SITIO EN CONSTRUCCIÓN, El calendario está aún en fase beta, y esperamos estar plenamente operativos a partir de Enero de 2019',
     'criteria' => 'Usa un criterio de busqueda o más',
     'what' => 'Qué',
     'when' => 'Cuándo',
+    'when_tooltip' => 'You can specify just one or both date fields',
     'where' => 'Dónde',
+    'where_tooltip' => 'Just the countries with available events are shown below',
     'who' => 'Quién ',
     'results_found' => 'resultados encontrados',
     'start_on' => 'Empieza el (o después)',
@@ -19,5 +22,7 @@ return [
     'select_a_city' => 'Elige una ciudad',
     'all_kind_of_events' => 'Todo tipo de eventos',
     'teacher_name' => 'Nombre del/la Profesor/a',
-    'photo_credits' => ''
+    'venue_name' => 'Nombre del lugar',
+    'organizer_name' => 'Nombre del/a organizador/a',
+    'photo_credits' => 'Autor/a de las fotografías'
 ];
