@@ -109,7 +109,7 @@ class EventTest extends TestCase
             //dd($response);
             $response
                 ->assertStatus(200)
-                ->assertSee(__('general.event').__('views.created_successfully'));    
+                ->assertSee(__('messages.event_added_successfully'));    
     }
     
     

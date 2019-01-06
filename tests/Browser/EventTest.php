@@ -97,7 +97,7 @@ class EventsTest extends DuskTestCase
             
               $browser->resize(1920, 3000)
                       ->press('Submit')
-                      ->assertSee('Event created successfully')
+                      ->assertSee(__('messages.event_added_successfully'))
                       ->logoutUser();   
          });
      }

@@ -83,7 +83,7 @@ class TeachersTest extends DuskTestCase{
                            ->type('website', 'http://www.test.it')
                            ->resize(1920, 3000)
                        ->press('Submit')
-                       ->assertSee('Teacher created successfully')
+                       ->assertSee(__('messages.teacher_added_successfully'))
                        ->logoutUser();                   
          });
      }

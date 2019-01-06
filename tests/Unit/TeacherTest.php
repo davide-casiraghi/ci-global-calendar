@@ -82,7 +82,7 @@ class TeacherTest extends TestCase
         // Status
             $response
                     ->assertStatus(200)
-                    ->assertSee(__('general.teacher').__('views.created_successfully'));
+                    ->assertSee(__('messages.teacher_added_successfully'));
     }
 
     /***************************************************************************/

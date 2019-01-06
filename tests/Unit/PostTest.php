@@ -83,7 +83,7 @@ class PostTest extends TestCase
         // Status
             $response
                     ->assertStatus(200)
-                    ->assertSee(__('general.post').__('views.created_successfully'));
+                    ->assertSee(__('messages.article_added_successfully'));
     }
     
     /***************************************************************************/
@@ -100,7 +100,7 @@ class PostTest extends TestCase
             $response = $this
                         ->followingRedirects()
                         ->put('/en/posts/'.$this->post->id, $this->post->toArray())
-                        ->assertSee("Post updated successfully");
+                        ->assertSee(__('messages.article_updated_successfully'));
                 
         // Check the update on DB        
             $this->assertDatabaseHas('post_translations',['id'=> $this->post->id , 'title' => 'Updated Title']);
@@ -119,7 +119,7 @@ class PostTest extends TestCase
             $response = $this
                         ->followingRedirects()
                         ->delete('/en/posts/'.$this->post->id, $this->post->toArray())
-                        ->assertSee("Post deleted successfully");
+                        ->assertSee(__('messages.article_deleted_successfully'));
                 
         // Check the update on DB        
             $this->assertDatabaseMissing('post_translations',['id'=> $this->post->id]);

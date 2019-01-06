@@ -81,7 +81,7 @@ class VenueTest extends TestCase
         // Status
             $response
                     ->assertStatus(200)
-                    ->assertSee("Event venue created successfully.");
+                    ->assertSee(__('messages.venue_added_successfully'));
     }
 
     /***************************************************************************/
@@ -98,7 +98,7 @@ class VenueTest extends TestCase
             $response = $this
                         ->followingRedirects()
                         ->put('/en/eventVenues/'.$this->venue->id, $this->venue->toArray())
-                        ->assertSee("Event venue updated successfully");
+                        ->assertSee(__('messages.venue_updated_successfully'));
                 
         // Check the update on DB        
             $this->assertDatabaseHas('event_venues',['id'=> $this->venue->id , 'name' => 'New Name']);
@@ -117,7 +117,7 @@ class VenueTest extends TestCase
             $response = $this
                         ->followingRedirects()
                         ->delete('/en/eventVenues/'.$this->venue->id, $this->venue->toArray())
-                        ->assertSee("Event venue deleted successfully");
+                        ->assertSee(__('messages.venue_deleted_successfully'));
                 
         // Check the update on DB        
             $this->assertDatabaseMissing('event_venues',['id'=> $this->venue->id]);

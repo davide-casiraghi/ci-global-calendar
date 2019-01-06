@@ -78,7 +78,7 @@ class OrganizerTest extends TestCase
         // Status
             $response
                     ->assertStatus(200)
-                    ->assertSee(__('general.organizer').__('views.created_successfully'));
+                    ->assertSee(__('messages.organizer_added_successfully'));
     }
     
     /***************************************************************************/
