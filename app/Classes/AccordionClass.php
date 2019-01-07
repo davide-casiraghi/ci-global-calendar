@@ -18,10 +18,9 @@ class AccordionClass {
                 $sliderTemplate .= "<div>{SLIDER_CONTENT}</div>";
             $sliderTemplate .= "</div>";
 
-dump($postBody);
         // Do the replacement if needed
             if (substr_count($postBody, '{slide') > 0) {
-                dump("ddd1");
+                
                 $regex = "#(?:<p>)?\{slide[r]?=([^}]+)\}(?:</p>)?(.*?)(?:<p>)?\{/slide[r]?\}(?:</p>)?#s";
 
                 $postBody = preg_replace(
