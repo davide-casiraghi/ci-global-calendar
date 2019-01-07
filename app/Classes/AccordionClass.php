@@ -11,7 +11,7 @@ namespace App\Classes;
 class AccordionClass {
 
     public function getAccordion($postBody) {
-
+        dd("ddd");
         // Load the accordion template
             $sliderTemplate = "<div class='accordion'>";
                 $sliderTemplate .= "<h3>{SLIDER_TITLE}</h3>";
