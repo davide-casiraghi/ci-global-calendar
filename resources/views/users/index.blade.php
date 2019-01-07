@@ -63,7 +63,7 @@
                     @if(!empty($user->country_id)){{ $countries[$user->country_id] }}@endif
                 </div>
                 <div class="col-6 col-sm-3 py-3 status text-right">
-                    @if(!empty($user->status)){!! '<span class="badge badge-success">'.__('views.enabled').'</span>' !!}@else{!!'<span class="badge badge-danger">'.__('views.disabled').'</span>'!!}@endif
+                    @if(!empty($user->status)){!! '<span class="badge badge-success">'.__('views.enabled').'</span>' !!}@else{!!'<span class="badge badge-secondary">'.__('views.disabled').'</span>'!!}@endif
                 </div>
                 <div class="col-12 pb-2 action">
                     <form action="{{ route('users.destroy',$user->id) }}" method="POST">
