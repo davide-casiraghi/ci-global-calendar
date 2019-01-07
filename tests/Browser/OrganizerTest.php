@@ -68,7 +68,7 @@ class OrganizerTest extends DuskTestCase
             
             $browser->resize(1920, 3000)
                     ->press('Submit')
-                    ->assertSee('Organizer created successfully')
+                    ->assertSee(__('messages.organizer_added_successfully'))
                     ->logoutUser();                   
        });
    }
