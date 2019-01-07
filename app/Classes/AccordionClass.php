@@ -20,7 +20,7 @@ class AccordionClass {
 
         // Do the replacement if needed
             if (substr_count($postBody, '{slide') > 0) {
-                
+                dump($postBody);
                 $regex = "#(?:<p>)?\{slide[r]?=([^}]+)\}(?:</p>)?(.*?)(?:<p>)?\{/slide[r]?\}(?:</p>)?#s";
 
                 $postBody = preg_replace(
