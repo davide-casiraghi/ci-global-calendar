@@ -129,7 +129,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Post $post){
-            dump("iii");
+            dump($post);
         // Accordion
             $accordionClass = new AccordionClass();
             $post->body = $accordionClass->getAccordion($post->body);
