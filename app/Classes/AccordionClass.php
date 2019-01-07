@@ -11,17 +11,17 @@ namespace App\Classes;
 class AccordionClass {
 
     public function getAccordion($postBody) {
-        dump("ddd 0");
+        
         // Load the accordion template
             $sliderTemplate = "<div class='accordion'>";
                 $sliderTemplate .= "<h3>{SLIDER_TITLE}</h3>";
                 $sliderTemplate .= "<div>{SLIDER_CONTENT}</div>";
             $sliderTemplate .= "</div>";
 
-dump($postBody);
+
         // Do the replacement if needed
             if (substr_count($postBody, '{slide') > 0) {
-                dd("ddd1");
+                dump("ddd1");
                 $regex = "#(?:<p>)?\{slide[r]?=([^}]+)\}(?:</p>)?(.*?)(?:<p>)?\{/slide[r]?\}(?:</p>)?#s";
 
                 $postBody = preg_replace(
