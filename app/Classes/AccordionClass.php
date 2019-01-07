@@ -18,7 +18,7 @@ class AccordionClass {
                 $sliderTemplate .= "<div>{SLIDER_CONTENT}</div>";
             $sliderTemplate .= "</div>";
 
-
+dump($postBody);
         // Do the replacement if needed
             if (substr_count($postBody, '{slide') > 0) {
                 dd("ddd1");
