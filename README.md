@@ -61,6 +61,7 @@ Before running the tests you need to create another database that is used to cre
   - DB_CONNECTION=testing  
   - DB_DATABASE=CIGC-local-test
 - create a copy of .env.testing and name it .env.dusk.local  (used by laravel dusk)
+- in composer.json remove temporary "laravel/dusk" from "dont-discover", run **composer update** and add "laravel/dusk" again in "dont-discover", this because laravel/dusk should not be insalled on the production and testing environments.
 
 # Web developers team
 Davide Casiraghi
