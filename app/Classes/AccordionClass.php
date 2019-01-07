@@ -11,7 +11,7 @@ namespace App\Classes;
 class AccordionClass {
 
     public function getAccordion($postBody) {
-        
+        dump($postBody);
         // Load the accordion template
             $sliderTemplate = "<div class='accordion'>";
                 $sliderTemplate .= "<h3>{SLIDER_TITLE}</h3>";
@@ -20,7 +20,7 @@ class AccordionClass {
 
         // Do the replacement if needed
             if (substr_count($postBody, '{slide') > 0) {
-                dump($postBody);
+                
                 $regex = "#(?:<p>)?\{slide[r]?=([^}]+)\}(?:</p>)?(.*?)(?:<p>)?\{/slide[r]?\}(?:</p>)?#s";
 
                 $postBody = preg_replace(
