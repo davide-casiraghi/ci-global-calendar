@@ -11,6 +11,7 @@
 		// https://www.tiny.cloud/docs/get-started/basic-setup/
 			var editor_config = {
 				selector: 'textarea#bodyTextarea',
+                extended_valid_elements: 'a[href|target=_blank]',
 				/*plugins : 'advlist autolink link image lists charmap print preview spellchecker media table',*/
 				plugins: [
 				 "advlist autolink lists link image charmap print preview hr anchor pagebreak",
@@ -21,7 +22,7 @@
 				theme: 'modern',
 				height: 400,
 				{{-- toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | blockquote | link image media  | hr', --}}
-                toolbar: 'bold italic | styleselect | bullist numlist | link image | hr',
+                toolbar: 'bold italic | styleselect | bullist numlist | link image | hr | code',
                 menubar: false,
                 path_absolute : "/",
 				relative_urls: false,
