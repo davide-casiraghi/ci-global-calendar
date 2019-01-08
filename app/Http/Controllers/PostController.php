@@ -136,7 +136,7 @@ class PostController extends Controller
                     where('post_translations.post_id', $post->id)
                     ->where('locale',App::getLocale())
                     ->first();
-                
+             
         // If not present get the english version
             if (!$postTranslation){
                 $postTranslation = PostTranslation::
@@ -147,7 +147,7 @@ class PostController extends Controller
         
         // now the post is the translation
             $post = $postTranslation;     
-        
+            
         // Accordion
             $accordionClass = new AccordionClass();
             $post->body = $accordionClass->getAccordion($post->body);
@@ -278,6 +278,7 @@ class PostController extends Controller
         $post = Post::
                 where('post_translations.slug', $slug)
                 ->join('post_translations', 'posts.id', '=', 'post_translations.post_id')
+                ->select('posts.*', 'post_translations.title', 'post_translations.body', 'post_translations.before_content', 'post_translations.after_content')
                 ->first();
         return $this->show($post);
     }
