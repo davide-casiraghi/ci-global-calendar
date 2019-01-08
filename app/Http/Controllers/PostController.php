@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\PostTranslation;
 use App\Category;
 
 use App\Classes\AccordionClass;
@@ -129,7 +130,24 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Post $post){
-
+        
+        // Get the post translation
+            $postTranslation = PostTranslation::
+                    where('post_translations.post_id', $post->id)
+                    ->where('locale',App::getLocale())
+                    ->first();
+                
+        // If not present get the english version
+            if (!$postTranslation){
+                $postTranslation = PostTranslation::
+                        where('post_translations.post_id', $post->id)
+                        ->where('locale','en')
+                        ->first();
+            }
+        
+        // now the post is the translation
+            $post = $postTranslation;     
+        
         // Accordion
             $accordionClass = new AccordionClass();
             $post->body = $accordionClass->getAccordion($post->body);
@@ -159,7 +177,7 @@ class PostController extends Controller
             $post->after_content = $galleryClass->getGallery($post->after_content, $storagePath, $publicPath);
 
             // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
-                App::setLocale('en');
+                //App::setLocale('en');
 
         return view('posts.show',compact('post'));
     }
