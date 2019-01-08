@@ -1,42 +1,57 @@
 <?php
 
 /*
-    This plugin show a responsive accordion with a title that open when [+] button is clicked
     Example of strings that evoke the plugin:
-    {slider=HOW to add contents to this website? - Create account} lorem ipsum {/slider}
+    {# stats_donate coding_lines=[2400] pm_hours=[40] steering_commitee_meetings=[60] languages_number=[8] #}
 */
+
 
 namespace App\Classes;
 
 class StatsDonateClass {
 
+    
+    // **********************************************************************
+
+    /**
+     *  Substitute the activation string with the HTML
+     *  @param array $postBody        the post html
+     *
+     *  @return string $ret             the HTML to print on screen
+    **/
+
     public function getStatsDonate($postBody) {
 
-        // Load the accordion template
-            $sliderTemplate = "<div class='statsDonate'>";
-                $sliderTemplate .= "<h3>{SLIDER_TITLE}</h3>";
-                $sliderTemplate .= "<div>{SLIDER_CONTENT}</div>";
-            $sliderTemplate .= "</div>";
+        // Find plugin occurrences
+            $ptn = '/{# +columns +(coding_lines|pm_hours|steering_commitee_meetings|languages_number)=\[(.*)\] +(coding_lines|pm_hours|steering_commitee_meetings|languages_number)=\[(.*)\] +(coding_lines|pm_hours|steering_commitee_meetings|languages_number)=\[(.*)\] +(coding_lines|pm_hours|steering_commitee_meetings|languages_number)=\[(.*)\] +#}/';
 
+            if(preg_match_all($ptn,$postBody,$matches)){
 
-        // Do the replacement if needed
-            if (substr_count($postBody, '{slide') > 0) {
-                $regex = "#(?:<p>)?\{slide[r]?=([^}]+)\}(?:</p>)?(.*?)(?:<p>)?\{/slide[r]?\}(?:</p>)?#s";
+                // Trasform the matches array in a way that can be used
+                    $matches = $this->turn_array($matches);
 
-                $postBody = preg_replace(
-                    $regex,
-                    str_replace(
-                        array("{SLIDER_TITLE}", "{SLIDER_CONTENT}"),
-                        array("$1", "$2"),
-                        $sliderTemplate
-                    ),
-                    $postBody
-                );
+                    foreach ($matches as $key => $single_category_column_matches) {
 
+                        // Get plugin parameters array
+                            $parameters = $this->getParameters($single_category_column_matches);
+
+                        // Get the post and category data
+                            $postsData = $this->getPostsData($parameters);
+                            $categoryData = $this->getCategoryData($parameters);
+
+                        // Prepare Columns HTML
+                            $columnsHtml = $this->prepareColumns($parameters, $postsData, $categoryData);
+
+                            //$columnsHtml= "this is the gallery!!";
+
+                        // RENDER
+                            $postBody = str_replace($parameters['token'], $columnsHtml, $postBody);
+                    }
             }
-
-
-        return $postBody;
+            return $postBody;
     }
+    
+    
+    
 
 }
