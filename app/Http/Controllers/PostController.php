@@ -30,7 +30,7 @@ class PostController extends Controller
     public function __construct(){
         
         //Restrict the access to this resource just to logged in users except show view 
-            $this->middleware('auth', ['except' => ['show']]);
+            $this->middleware('auth', ['except' => ['show','postBySlug']]);
     }
     
     /***************************************************************************/
@@ -256,7 +256,11 @@ class PostController extends Controller
      */
 
     public function postBySlug($slug){
-        $post = Post::where('slug', $slug)->first();
+        
+        $post = Post::
+                where('post_translations.slug', $slug)
+                ->join('post_translations', 'posts.id', '=', 'post_translations.post_id')
+                ->first();
         return $this->show($post);
     }
 
@@ -273,7 +277,7 @@ class PostController extends Controller
          //$post->body = $request->get('body');
          $post->body = clean($request->get('body'));
          $post->created_by = \Auth::user()->id;
-         $post->slug = str_slug($post->title, '-').rand(100000, 1000000);
+         $post->slug = str_slug($post->title, '-');
          $post->category_id = $request->get('category_id');
          
          $post->status = $request->get('status');
