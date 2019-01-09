@@ -71,7 +71,6 @@ class ContactFormController extends Controller
       * @return view
       */
      public function contactFormThankyou(){
-         dd("EDDAI");
          return view('emails.contact.contactform-sent');
      }
 
