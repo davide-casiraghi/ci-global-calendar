@@ -1,16 +1,33 @@
-@extends('administratorMailForms.layout')
+@extends('contactMailForms.layout')
 
 @section('content')
 
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>@lang('views.contact_the_administrator')</h2>
+                @switch($recipient)
+                    @case("administrator")
+                        <h2>@lang('views.contact_the_administrator')</h2>
+                    @break
+
+                    @case("project-manager")
+                        <h2>@lang('views.contact_the_project_manager')</h2>
+                    @break
+                    
+                    @case("webmaster")
+                        <h2>@lang('views.contact_the_webmaster')</h2>
+                    @break
+
+                    @case("test")
+                        <h2>Contact test</h2>
+                    @break
+                @endswitch
+
             </div>
         </div>
     </div>
 
-    <form action="{{ route('forms.contact-admin-send') }}" method="POST">
+    <form action="{{ route('forms.contactform-send') }}" method="POST">
         @csrf
 
         <div class="row">
@@ -41,6 +58,11 @@
                      'placeholder' => ''
                ])
            </div>
+           
+           @include('partials.forms.input-hidden', [
+                 'name' => 'recipient',
+                 'value' => $recipient
+           ])
 
        </div>
 

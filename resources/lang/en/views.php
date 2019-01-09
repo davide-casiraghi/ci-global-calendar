@@ -110,6 +110,8 @@ return [
     'select_orientation' => 'Select orientation',
     'who_took_the_photo'  => 'Who took the photo?',
     'contact_the_administrator'  => 'Contact the administrator',
+    'contact_the_project_manager'  => 'Contact the project manager',
+    'contact_the_webmaster'  => 'Contact the webmaster',
     'please_write_in_english' => 'Please write your text in english',
     'created_successfully' => ' created successfully',
     'updated_successfully' => ' updated successfully',

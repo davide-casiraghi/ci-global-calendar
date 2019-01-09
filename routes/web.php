@@ -91,13 +91,10 @@ function()
             Route::get('/verify-user/{code}', 'Auth\RegisterController@activateUser')->name('activate.user');
 
     
-        
-
-    
-    /* Contact form to write to the administrator */
-        Route::get('/contactTheAdministrator', 'ContactAdministratorController@contactAdmin')->name("forms.contact-admin");
-        Route::post('/contactTheAdministrator/send', 'ContactAdministratorController@contactAdminSend')->name("forms.contact-admin-send");
-        Route::get('/contactTheAdministrator/thankyou', 'ContactAdministratorController@contactAdminThankyou')->name("forms.contact-admin-thankyou");
+    /* Contact form to write to administrator, project-manager, webmaster */
+        Route::get('/contactForm/compose/{recipient}', 'ContactFormController@contactForm')->name("forms.contactform");
+        Route::post('/contactForm/send', 'ContactFormController@contactFormSend')->name("forms.contactform-send");
+        Route::get('/contactForm/thankyou', 'ContactFormController@contactFormThankyou')->name("forms.contactform-thankyou");
 
 });
 
