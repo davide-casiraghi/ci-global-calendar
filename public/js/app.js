@@ -30493,7 +30493,12 @@ jQuery(document).ready(function () {
 // Load Jquery UI accordion, the one with (+)
 if (jQuery('.statisticsDonate').length) {
 
-    alert("aaa");
+    jQuery(document).ready(function ($) {
+        $('.counter').counterUp({
+            delay: 10,
+            time: 1000
+        });
+    });
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 

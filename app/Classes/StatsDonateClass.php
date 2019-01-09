@@ -97,22 +97,22 @@ class StatsDonateClass {
               $ret .= "<div class='row text-center'>";
                 $ret .= "<div class='col-12 col-sm-6 col-md-3'>";
                     $ret .= "<h4 class='mb-4'><i class='far fa-align-left'></i></h4>";
-                    $ret .= "<h5 class='mt-2 mb-0'><strong>".$parameters['coding_lines']."</strong></h5>";
+                    $ret .= "<h5 class='mt-2 mb-0 counter'><strong>".$parameters['coding_lines']."</strong></h5>";
                     $ret .= "Coding lines";
                 $ret .= "</div>";
                 $ret .= "<div class='col-12 col-sm-6 col-md-3'>";
                     $ret .= "<h4 class='mb-4'><i class='far fa-clock'></i></h4>";
-                    $ret .= "<h5 class='mt-2 mb-0'><strong>".$parameters['pm_hours']."</strong></h5>";
+                    $ret .= "<h5 class='mt-2 mb-0 counter'><strong>".$parameters['pm_hours']."</strong></h5>";
                     $ret .= "Hours of project management";
                 $ret .= "</div>";
                 $ret .= "<div class='col-12 col-sm-6 col-md-3'>";
                     $ret .= "<h4 class='mb-4'><i class='far fa-users'></i></h4>";
-                    $ret .= "<h5 class='mt-2 mb-0'><strong>".$parameters['steering_commitee_meetings']."</strong></h5>";
+                    $ret .= "<h5 class='mt-2 mb-0 counter'><strong>".$parameters['steering_commitee_meetings']."</strong></h5>";
                     $ret .= "Steering commitee meetings";
                 $ret .= "</div>";
                 $ret .= "<div class='col-12 col-sm-6 col-md-3'>";
                     $ret .= "<h4 class='mb-4'><i class='far fa-globe'></i></h4>";
-                    $ret .= "<h5 class='mt-2 mb-0'><strong>".$parameters['languages_number']."</strong></h5>";
+                    $ret .= "<h5 class='mt-2 mb-0 counter'><strong>".$parameters['languages_number']."</strong></h5>";
                     $ret .= "Languages the website is translated in";
                 $ret .= "</div>";
               
