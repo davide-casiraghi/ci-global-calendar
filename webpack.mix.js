@@ -44,7 +44,9 @@ mix.js('resources/js/app.js', 'public/js')
         'bootstrap-datepicker',
         'bootstrap-timepicker',
         'fontawesome-pro/js/fontawesome.js',
-        'cookieconsent'
+        'cookieconsent',
+        'waypoints/lib/jquery.waypoints.js',
+        'jquery.counterup'
     ]);
 
 
