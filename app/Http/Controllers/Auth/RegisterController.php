@@ -191,7 +191,7 @@ class RegisterController extends Controller
          //Mail::to($report['emailTo'])->send(new ContactAdministrator($report));
          Mail::to($report['emailTo'])->send(new UserActivation($report));
 
-         return redirect()->route('forms.contact-admin-thankyou');
+         return redirect()->route('forms.contactform-thankyou');
 
      }
 

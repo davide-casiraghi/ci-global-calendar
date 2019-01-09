@@ -95,9 +95,9 @@ function()
 
     
     /* Contact form to write to the administrator */
-        Route::get('/contactForm/{recipient}', 'ContactFormController@contactForm')->name("forms.contact-admin");
-        Route::post('/contactForm/send', 'ContactFormController@contactFormSend')->name("forms.contact-admin-send");
-        Route::get('/contactForm/thankyou', 'ContactFormController@contactFormThankyou')->name("forms.contact-admin-thankyou");
+        Route::get('/contactForm/{recipient}', 'ContactFormController@contactForm')->name("forms.contactform");
+        Route::post('/contactForm/send', 'ContactFormController@contactFormSend')->name("forms.contactform-send");
+        Route::get('/contactForm/thankyou', 'ContactFormController@contactFormThankyou')->name("forms.contactform-thankyou");
 
 });
 

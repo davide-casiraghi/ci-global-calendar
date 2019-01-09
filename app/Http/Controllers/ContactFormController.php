@@ -45,7 +45,7 @@ class ContactFormController extends Controller
          //Mail::to($request->user())->send(new ReportMisuse($report));
          Mail::to("davide.casiraghi@gmail.com")->send(new ContactAdministrator($report));
 
-         return redirect()->route('forms.contact-admin-thankyou');
+         return redirect()->route('forms.contactform-thankyou');
 
      }
 

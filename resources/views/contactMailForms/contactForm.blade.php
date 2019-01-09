@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <form action="{{ route('forms.contact-admin-send') }}" method="POST">
+    <form action="{{ route('forms.contactform-send') }}" method="POST">
         @csrf
 
         <div class="row">
