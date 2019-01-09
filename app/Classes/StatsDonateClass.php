@@ -2,7 +2,7 @@
 
 /*
     Example of strings that evoke the plugin:
-    {# stats_donate coding_lines=[2400] pm_hours=[40] steering_commitee_meetings=[60] languages_number=[8] #}
+    {# stats_donate coding_hours=[2400] pm_hours=[40] steering_commitee_meetings=[60] languages_number=[8] #}
 */
 
 
@@ -21,7 +21,7 @@ class StatsDonateClass {
     public function getStatsDonate($postBody) {
 
         // Find plugin occurrences
-            $ptn = '/{# +stats_donate +(coding_lines|pm_hours|steering_commitee_meetings|languages_number)=\[(.*)\] +(coding_lines|pm_hours|steering_commitee_meetings|languages_number)=\[(.*)\] +(coding_lines|pm_hours|steering_commitee_meetings|languages_number)=\[(.*)\] +(coding_lines|pm_hours|steering_commitee_meetings|languages_number)=\[(.*)\] +#}/';
+            $ptn = '/{# +stats_donate +(coding_hours|pm_hours|steering_commitee_meetings|languages_number)=\[(.*)\] +(coding_hours|pm_hours|steering_commitee_meetings|languages_number)=\[(.*)\] +(coding_hours|pm_hours|steering_commitee_meetings|languages_number)=\[(.*)\] +(coding_hours|pm_hours|steering_commitee_meetings|languages_number)=\[(.*)\] +#}/';
 
             if(preg_match_all($ptn,$postBody,$matches)){
 
@@ -75,7 +75,7 @@ class StatsDonateClass {
         // Get activation string parameters (from article)
             $ret['token'] = $matches[0];
 
-            $ret['coding_lines'] = $matches[2];
+            $ret['coding_hours'] = $matches[2];
             $ret['pm_hours'] = $matches[4];
             $ret['steering_commitee_meetings'] = $matches[6];
             $ret['languages_number'] = $matches[8];
@@ -86,7 +86,7 @@ class StatsDonateClass {
     // **********************************************************************
     /**
      *  Prepare the stats HTML
-     *  @param array $parameters        parameters array [coding_lines, pm_hours, steering_commitee_meetings, languages_number]
+     *  @param array $parameters        parameters array [coding_hours, pm_hours, steering_commitee_meetings, languages_number]
      *  @return string $ret             the HTML to print on screen
     **/
     function prepareStatsDonate($parameters) {
@@ -97,8 +97,8 @@ class StatsDonateClass {
               $ret .= "<div class='row text-center'>";
                 $ret .= "<div class='col-12 col-sm-6 col-md-3'>";
                     $ret .= "<h4 class='mb-4'><i class='far fa-align-left'></i></h4>";
-                    $ret .= "<h5 class='mt-2 mb-0 counter'><strong>".$parameters['coding_lines']."</strong></h5>";
-                    $ret .= "Coding lines";
+                    $ret .= "<h5 class='mt-2 mb-0 counter'><strong>".$parameters['coding_hours']."</strong></h5>";
+                    $ret .= "Hours spent on coding";
                 $ret .= "</div>";
                 $ret .= "<div class='col-12 col-sm-6 col-md-3'>";
                     $ret .= "<h4 class='mb-4'><i class='far fa-clock'></i></h4>";
