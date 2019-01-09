@@ -10,6 +10,7 @@ use App\Classes\AccordionClass;
 use App\Classes\GalleryClass;
 use App\Classes\CardClass;
 use App\Classes\ColumnsClass;
+use App\Classes\StatsDonateClass;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
