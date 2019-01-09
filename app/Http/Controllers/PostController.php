@@ -10,6 +10,7 @@ use App\Classes\AccordionClass;
 use App\Classes\GalleryClass;
 use App\Classes\CardClass;
 use App\Classes\ColumnsClass;
+use App\Classes\StatsDonateClass;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
@@ -165,6 +166,12 @@ class PostController extends Controller
             $post->body = $columnClass->getColumns($post->body);
             $post->before_content = $columnClass->getColumns($post->before_content);
             $post->after_content = $columnClass->getColumns($post->after_content);
+            
+        // Stats Donate
+            $statsDonateClass = new StatsDonateClass();
+            $post->body = $statsDonateClass->getStatsDonate($post->body);
+            $post->before_content = $statsDonateClass->getStatsDonate($post->before_content);
+            $post->after_content = $statsDonateClass->getStatsDonate($post->after_content);
 
         // Gallery
             $storagePath = storage_path('app/public');

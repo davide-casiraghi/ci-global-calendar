@@ -26,15 +26,18 @@
         "bootstrap-select": "^1.13.3",
         "bootstrap-timepicker": "^0.5.2",
         "ckeditor": ">=4.11.0",
+        "cloc": "^2.3.4",
         "cookieconsent": "^3.1.0",
         "font-awesome": "^4.7.0",
         "gridalicious": "^3.0.4",
         "gulp": "^3.9.1",
         "imagemin": "^5.3.1",
         "jquery-ui": "^1.12.1",
+        "jquery.counterup": "^2.1.0",
         "slick-carousel": "^1.8.1",
         "smartmenus": "^1.1.0",
         "tinymce": "^4.8.2",
-        "tooltip.js": "^1.2.0"
+        "tooltip.js": "^1.2.0",
+        "waypoints": "^4.0.1"
     }
 }
