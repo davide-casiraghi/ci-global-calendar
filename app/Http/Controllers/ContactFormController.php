@@ -7,17 +7,19 @@ use App\Mail\ContactAdministrator;
 
 use Illuminate\Http\Request;
 
-class ContactAdministratorController extends Controller
+class ContactFormController extends Controller
 {
-
+    
     /**
-     * Display a listing of the resource.
-     *
+     * Display the contact form. 
+     * eg. /contactForm/administrator
+     * @param  string  $recipient can be [administrator, project-manager, webmaster]
      * @return \Illuminate\Http\Response
      */
-    public function contactAdmin()
-    {
-        return view('administratorMailForms.contactForm');
+    public function contactForm($recipient)
+    {        
+        return view('contactMailForms.contactForm')
+            ->with('recipient',$recipient);
     }
 
     // **********************************************************************
@@ -28,7 +30,7 @@ class ContactAdministratorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return redirect to route
      */
-    public function contactAdminSend(Request $request){
+    public function contactFormSend(Request $request){
         $report = array();
 
         $report['senderEmail'] = "noreply@globalcicalendar.com";
@@ -55,7 +57,7 @@ class ContactAdministratorController extends Controller
       * @param  \App\Event  $event
       * @return view
       */
-     public function contactAdminThankyou(){
+     public function contactFormThankyou(){
 
          return view('emails.contact.administrator-sent');
      }

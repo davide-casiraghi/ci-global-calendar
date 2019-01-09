@@ -1,4 +1,4 @@
-@extends('administratorMailForms.layout')
+@extends('contactMailForms.layout')
 
 @section('content')
     <div class="row">
