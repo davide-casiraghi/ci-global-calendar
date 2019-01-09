@@ -58,7 +58,7 @@ class ContactFormController extends Controller
 
          //Mail::to($request->user())->send(new ReportMisuse($report));
          Mail::to("davide.casiraghi@gmail.com")->send(new ContactForm($report));
-
+        
          return redirect()->route('forms.contactform-thankyou');
 
      }
@@ -71,7 +71,7 @@ class ContactFormController extends Controller
       * @return view
       */
      public function contactFormThankyou(){
-
+         dd("EDDAI");
          return view('emails.contact.contactform-sent');
      }
 
