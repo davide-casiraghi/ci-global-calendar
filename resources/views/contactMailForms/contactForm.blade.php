@@ -58,6 +58,11 @@
                      'placeholder' => ''
                ])
            </div>
+           
+           @include('partials.forms.input-hidden', [
+                 'name' => 'recipient',
+                 'value' => $recipient
+           ])
 
        </div>
 
