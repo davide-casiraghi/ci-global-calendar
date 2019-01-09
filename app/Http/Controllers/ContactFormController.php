@@ -23,7 +23,6 @@ class ContactFormController extends Controller
     }
 
     // **********************************************************************
-
     /**
      * Send the Contact Admin mail
      *
@@ -31,13 +30,28 @@ class ContactFormController extends Controller
      * @return redirect to route
      */
     public function contactFormSend(Request $request){
+        
         $report = array();
-
+        
+        switch ($request->recipient) {
+            case 'administrator':
+                $report['emailTo'] = env('ADMIN_MAIL');
+                break;
+            case 'project-manager':
+                $report['emailTo'] = env('PROJECTMANAGER_MAIL');
+                break;
+            case 'webmaster':
+                $report['emailTo'] = env('WEBMASTER_MAIL');
+                break;
+            case 'test':
+                $report['emailTo'] = env('TEST_MAIL');
+                break;
+        }
+        
         $report['senderEmail'] = "noreply@globalcicalendar.com";
         $report['senderName'] = "Anonymus User";
         $report['subject'] = "Message from the contact form";
-        $report['emailTo'] = env('ADMIN_MAIL');
-
+        
         $report['name'] = $request->name;
         $report['email'] = $request->email;
         $report['message'] = $request->message;
@@ -50,7 +64,6 @@ class ContactFormController extends Controller
      }
 
      // **********************************************************************
-
      /**
       * Display the thank you view after the misuse report mail is sent (called by /misuse/thankyou route)
       *
