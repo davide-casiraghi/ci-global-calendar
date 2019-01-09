@@ -16,6 +16,8 @@ window.Vue = require('vue');
 require('./plugins/accordion');   // accordion.js
 require('./plugins/gallery');     // gallery.js
 require('./plugins/imagepopup');  // imagepopup.js
+require('./plugins/statistics');  // statistics.js
+
 require('./utility/selectpicker_mobile');
 
 // File manager for intro_image button in edit.post view
