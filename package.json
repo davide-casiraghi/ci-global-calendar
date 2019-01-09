@@ -36,6 +36,7 @@
         "slick-carousel": "^1.8.1",
         "smartmenus": "^1.1.0",
         "tinymce": "^4.8.2",
-        "tooltip.js": "^1.2.0"
+        "tooltip.js": "^1.2.0",
+        "waypoints": "^4.0.1"
     }
 }
