@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ContactAdministrator extends Mailable
+class ContactForm extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -38,7 +38,7 @@ class ContactAdministrator extends Mailable
      {
          // Configure email parameters in .env file
 
-         return $this->markdown('emails.contact.administrator')
+         return $this->markdown('emails.contact.contactform')
                 ->to($this->report['emailTo'])
                 ->from($this->report['email'], $this->report['name'])
                 ->replyTo($this->report['email'], $this->report['name'])

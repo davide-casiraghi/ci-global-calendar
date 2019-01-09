@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ContactAdministrator;
+use App\Mail\ContactForm;
 
 use Illuminate\Http\Request;
 
@@ -57,7 +57,7 @@ class ContactFormController extends Controller
         $report['message'] = $request->message;
 
          //Mail::to($request->user())->send(new ReportMisuse($report));
-         Mail::to("davide.casiraghi@gmail.com")->send(new ContactAdministrator($report));
+         Mail::to("davide.casiraghi@gmail.com")->send(new ContactForm($report));
 
          return redirect()->route('forms.contactform-thankyou');
 
@@ -72,7 +72,7 @@ class ContactFormController extends Controller
       */
      public function contactFormThankyou(){
 
-         return view('emails.contact.administrator-sent');
+         return view('emails.contact.contactform-sent');
      }
 
 
