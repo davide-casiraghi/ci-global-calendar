@@ -95,24 +95,24 @@ class StatsDonateClass {
           
           $ret .= "<div class='row text-center'>";
             $ret .= "<div class='col-12 col-sm-6 col-md-3'>";
-                $ret .= "<i class='far fa-align-left'></i>";
-                $ret .= "<br />";
-                $ret .= $parameters['coding_lines']." coding lines";
+                $ret .= "<h4 class='mb-4'><i class='far fa-align-left'></i></h4>";
+                $ret .= "<h5 class='mt-2 mb-0'>".$parameters['coding_lines']."</h5>";
+                $ret .= "Coding lines";
             $ret .= "</div>";
             $ret .= "<div class='col-12 col-sm-6 col-md-3'>";
-                $ret .= "<i class='far fa-clock'></i>";
-                $ret .= "<br />";
-                $ret .= $parameters['pm_hours']." hours of project management";
+                $ret .= "<h4 class='mb-4'><i class='far fa-clock'></i></h4>";
+                $ret .= "<h5 class='mt-2 mb-0'>".$parameters['pm_hours']."</h5>";
+                $ret .= "Hours of project management";
             $ret .= "</div>";
             $ret .= "<div class='col-12 col-sm-6 col-md-3'>";
-                $ret .= "<i class='far fa-users'></i>";
-                $ret .= "<br />";
-                $ret .= $parameters['steering_commitee_meetings']." steering commitee meetings";
+                $ret .= "<h4 class='mb-4'><i class='far fa-users'></i></h4>";
+                $ret .= "<h5 class='mt-2 mb-0'>".$parameters['steering_commitee_meetings']."</h5>";
+                $ret .= "Steering commitee meetings";
             $ret .= "</div>";
             $ret .= "<div class='col-12 col-sm-6 col-md-3'>";
-                $ret .= "<i class='far fa-globe'></i>";
-                $ret .= "<br />";
-                $ret .= $parameters['languages_number']." languages the website is translated in";
+                $ret .= "<h4 class='mb-4'><i class='far fa-globe'></i></h4>";
+                $ret .= "<h5 class='mt-2 mb-0'>".$parameters['languages_number']."</h5>";
+                $ret .= "Languages the website is translated in";
             $ret .= "</div>";
           
           $ret .= "</div>";
