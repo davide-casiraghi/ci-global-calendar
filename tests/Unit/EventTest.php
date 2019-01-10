@@ -77,7 +77,7 @@ class EventTest extends TestCase
             foreach ($this->teachers as $key => $teacher) {
                 $teachers_id .= $teacher->id;
                 if ($i != $len - 1)  // not last
-                    $teachers_id .= ", ";
+                    $teachers_id .= ",";
                 $i++;
             }
             
