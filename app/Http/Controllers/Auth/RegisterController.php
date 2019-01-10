@@ -159,7 +159,7 @@ class RegisterController extends Controller
             $user->status = 1;
             $user->activation_code = null;
             $user->save();
-            auth()->login($user);
+            //auth()->login($user);
         } catch (\Exception $exception) {
             logger()->error($exception);
             return "Whoops! something went wrong.";
