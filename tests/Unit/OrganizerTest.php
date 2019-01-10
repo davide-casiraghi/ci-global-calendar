@@ -45,7 +45,7 @@ class OrganizerTest extends TestCase
     public function test_guest_user_can_see_single_organizer(){
             
         // Access to the page (teacher.show)
-            $response = $this->get('/en/organizers/'.$this->organizer->id.'/')
+            $response = $this->get('/organizers/'.$this->organizer->id.'/')
                          ->assertStatus(200);
     }
     
@@ -94,7 +94,7 @@ class OrganizerTest extends TestCase
             $this->organizer->name = "New Name";
             $response = $this
                         ->followingRedirects()
-                        ->put('/en/organizers/'.$this->organizer->id, $this->organizer->toArray())
+                        ->put('/organizers/'.$this->organizer->id, $this->organizer->toArray())
                         ->assertSee("Organizer updated successfully");
                 
         // Check the update on DB        
@@ -113,7 +113,7 @@ class OrganizerTest extends TestCase
         // Delete the post
             $response = $this
                         ->followingRedirects()
-                        ->delete('/en/organizers/'.$this->organizer->id, $this->organizer->toArray())
+                        ->delete('/organizers/'.$this->organizer->id, $this->organizer->toArray())
                         ->assertSee("Organizer deleted successfully");
                 
         // Check the update on DB        

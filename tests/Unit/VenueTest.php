@@ -45,7 +45,7 @@ class VenueTest extends TestCase
     public function test_guest_user_can_see_single_venue(){
             
         // Access to the page (teacher.show)
-            $response = $this->get('/en/eventVenues/'.$this->venue->id.'/')
+            $response = $this->get('/eventVenues/'.$this->venue->id.'/')
                          ->assertStatus(200);
     }
     
@@ -97,7 +97,7 @@ class VenueTest extends TestCase
             $this->venue->name = "New Name";
             $response = $this
                         ->followingRedirects()
-                        ->put('/en/eventVenues/'.$this->venue->id, $this->venue->toArray())
+                        ->put('/eventVenues/'.$this->venue->id, $this->venue->toArray())
                         ->assertSee(__('messages.venue_updated_successfully'));
                 
         // Check the update on DB        
@@ -116,8 +116,9 @@ class VenueTest extends TestCase
         // Delete the post
             $response = $this
                         ->followingRedirects()
-                        ->delete('/en/eventVenues/'.$this->venue->id, $this->venue->toArray())
+                        ->delete('/eventVenues/'.$this->venue->id, $this->venue->toArray())
                         ->assertSee(__('messages.venue_deleted_successfully'));
+                
                 
         // Check the update on DB        
             $this->assertDatabaseMissing('event_venues',['id'=> $this->venue->id]);

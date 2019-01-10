@@ -54,7 +54,7 @@ class EventTest extends TestCase
             $this->authenticate();
             
         // Access to the page
-            $response = $this->get('en/event/monthSelectOptions?day=10/01/2019')
+            $response = $this->get('event/monthSelectOptions?day=10/01/2019')
                  ->assertStatus(200);
         
         // Assert the value is the one aspected 
