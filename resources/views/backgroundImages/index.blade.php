@@ -20,7 +20,7 @@
                 <h2>@lang('views.background_image_management')</h2>
             </div>
             <div class="pull-right mt-4 float-right">  
-                <a class="btn btn-success" href="{{ route('backgroundImages.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_background_image')</a>
+                <a class="btn btn-success create-new" href="{{ route('backgroundImages.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_background_image')</a>
             </div>
         </div>
     </div>

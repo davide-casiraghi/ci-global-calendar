@@ -8,7 +8,7 @@
                 <h2>@lang('views.continents_management')</h2>
             </div>
             <div class="pull-right mt-4 float-right">
-                <a class="btn btn-success" href="{{ route('continents.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_continent')</a>
+                <a class="btn btn-success create-new" href="{{ route('continents.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_continent')</a>
             </div>
         </div>
     </div>

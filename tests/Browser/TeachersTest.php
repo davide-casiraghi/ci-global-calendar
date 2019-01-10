@@ -53,7 +53,7 @@ class TeachersTest extends DuskTestCase{
               $browser->on(new LoginPage)
                       ->loginUser()
                       ->visit('/teachers')   //dusk don't like to visit page /teachers/create, so let's go there clicking
-                      ->clickLink('Add new teacher')
+                      ->click('a.create-new')
                       ->assertSee('Year of starting to practice')
                       ->logoutUser();
           });  
@@ -72,7 +72,7 @@ class TeachersTest extends DuskTestCase{
              $browser->on(new LoginPage)
                      ->loginUser()
                         ->visit('/teachers')
-                          ->clickLink('Add new teacher')
+                          ->click('a.create-new')
                            ->type('name', 'Test Teacher')
                            ->select('country_id', 5)
                            ->type('bio', 'lorem ipsum dolet')
