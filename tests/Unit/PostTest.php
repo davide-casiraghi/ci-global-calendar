@@ -25,6 +25,12 @@ class PostTest extends TestCase
         // Factories - /database/factories
             $this->user = factory(\App\User::class)->create();
             $this->post = factory(\App\Post::class)->create();
+            
+            $this->postTranslation = factory(\App\PostTranslation::class)->create([
+                'post_id' => $this->post->id,
+                'locale' => 'it'
+            ]);
+            
     }
     
     /***************************************************************************/
@@ -103,7 +109,7 @@ class PostTest extends TestCase
                         ->assertSee(__('messages.article_updated_successfully'));
                 
         // Check the update on DB        
-            $this->assertDatabaseHas('post_translations',['id'=> $this->post->id , 'title' => 'Updated Title']);
+            $this->assertDatabaseHas('post_translations',['post_id'=> $this->post->id , 'title' => 'Updated Title']);
     }
 
     /***************************************************************************/
@@ -125,6 +131,32 @@ class PostTest extends TestCase
             $this->assertDatabaseMissing('post_translations',['id'=> $this->post->id]);
     }
 
+    /***************************************************************************/
+    /**
+     * Test that logged user can access post in english by slug
+     */  
+    public function test_guest_user_can_see_about_us_english()
+    {
+        $slug = $this->post->slug;
+        
+        // Access to the page
+            $response = $this->get('/post/'.$slug)
+                             ->assertStatus(200);
+    }
+    
+    /***************************************************************************/
+    /**
+     * Test that logged user can can access post translation in italian by slug
+     */  
+    public function test_guest_user_can_see_about_us_italian_translation()
+    {
+        $slug = $this->postTranslation->slug;
+
+        // Access to the page
+            $response = $this->get('/post/'.$slug)
+                             ->assertStatus(200);
+    }
+    
     
     
 }

@@ -31,5 +31,7 @@ class HomepageTest extends TestCase
         // Access to the page
             $response = $this->get('/eventSearch#dataarea')
                              ->assertStatus(200);
-    }    
+    }
+    
+    
 }
