@@ -957,7 +957,7 @@ class EventController extends Controller
         $event->status = $request->get('status');
         $event->on_monthly_kind = $request->get('on_monthly_kind');
 
-        // Support columns for homepage search
+        // Support columns for homepage search (we need this to show events in HP with less use of resources)
             $event->sc_country_id = $venue->country_id;
             $event->sc_country_name = $countries[$venue->country_id];
             $event->sc_city_name = $venue->city;
@@ -965,7 +965,7 @@ class EventController extends Controller
             $event->sc_teachers_id = json_encode(explode(",",$request->get('multiple_teachers')));
             $event->sc_continent_id = $venue->continent_id;
 
-            // Multiple teachers (we need this to show them in HP with less use of resources)
+            // Multiple teachers - populate support column field
                 if($request->get('multiple_teachers')){
                     $multiple_teachers = explode(', ', $request->get('multiple_teachers'));
                     $i = 0; $len = count($multiple_teachers); // to put "," to all items except the last
