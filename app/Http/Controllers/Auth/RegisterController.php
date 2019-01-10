@@ -167,9 +167,8 @@ class RegisterController extends Controller
                     $mailDatas['senderEmail'] = "noreply@globalcicalendar.com";
                     $mailDatas['senderName'] = "Global CI - Administrator";
                     $mailDatas['subject'] = "Activation of your Global CI account";
-                    $mailDatas['emailTo'] = env('ADMIN_MAIL');
+                    $mailDatas['emailTo'] = $user->email;
                     $mailDatas['name'] = $user->name;
-                    $mailDatas['email'] = $user->email;
                  
                 Mail::to($user->email)->send(new UserActivationConfirmation($mailDatas));
             

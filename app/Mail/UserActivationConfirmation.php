@@ -38,7 +38,7 @@ class UserActivationConfirmation extends Mailable
     {
         
         return $this->markdown('emails.user-activation-confirmation')
-               ->to($this->mailDatas['email'])
+               ->to($this->mailDatas['emailTo'])
                ->from('noreply@globalcalendar.com', 'Global CI Calendar')
                ->replyTo('noreply@globalcalendar.com', 'Global CI Calendar')
                ->subject($this->mailDatas['subject'])
