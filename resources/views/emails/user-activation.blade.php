@@ -15,7 +15,7 @@ A new user has registered on the CI Global calendar website.
  **Description:**
  {{$description}}
 
-@component('mail::button', ['url' => config('app.url').'verify-user/'.$activation_code])
+@component('mail::button', ['url' => config('app.url').'/verify-user/'.$activation_code])
 Activate user
 @endcomponent
 
@@ -27,6 +27,6 @@ Thanks,<br>
 {{ config('app.name') }}  
 
 <sub><sup>If you’re having trouble clicking the "Activate user" button, copy and paste the URL below into your web browser:  
-{{config('app.url').'verify-user/'.$activation_code}}</sup></sub>
+{{config('app.url').'/verify-user/'.$activation_code}}</sup></sub>
 
 @endcomponent
