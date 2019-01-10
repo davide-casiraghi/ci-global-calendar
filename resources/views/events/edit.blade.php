@@ -57,9 +57,9 @@
                 ])
             </div>
 
-            {{--<div class="col-12">
+            <div class="col-12">
                 @include('partials.forms.event.select-event-status')
-            </div>--}}
+            </div>
             
             <div class="col-12">
                 @include('partials.forms.textarea', [
