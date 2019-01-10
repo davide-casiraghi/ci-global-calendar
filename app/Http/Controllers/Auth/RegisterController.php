@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\UserActivation;
+use App\Mail\UserActivationConfirmation;
 
 class RegisterController extends Controller
 {
@@ -160,6 +161,18 @@ class RegisterController extends Controller
             $user->activation_code = null;
             $user->save();
             //auth()->login($user);
+            
+            // Send to the user the confirmation about the activation of the account
+                $mailDatas = array();
+                    $mailDatas['senderEmail'] = "noreply@globalcicalendar.com";
+                    $mailDatas['senderName'] = "Global CI - Administrator";
+                    $mailDatas['subject'] = "Activation of your Global CI account";
+                    $mailDatas['emailTo'] = env('ADMIN_MAIL');
+                    $mailDatas['name'] = $user->name;
+                    $mailDatas['email'] = $user->email;
+                 
+                Mail::to($user->email)->send(new UserActivationConfirmation($mailDatas));
+            
         } catch (\Exception $exception) {
             logger()->error($exception);
             return "Whoops! something went wrong.";
