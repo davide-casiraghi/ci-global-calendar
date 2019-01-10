@@ -26,9 +26,9 @@ class PostTest extends TestCase
             $this->user = factory(\App\User::class)->create();
             $this->post = factory(\App\Post::class)->create();
             
-            /*$this->postTranslation = factory(\App\PostTranslation::class)->create([
+            $this->postTranslation = factory(\App\PostTranslation::class)->create([
                 'post_id' => $this->post->id,
-            ]);*/
+            ]);
             
     }
     
@@ -108,7 +108,7 @@ class PostTest extends TestCase
                         ->assertSee(__('messages.article_updated_successfully'));
                 
         // Check the update on DB        
-            $this->assertDatabaseHas('post_translations',['id'=> $this->post->id , 'title' => 'Updated Title']);
+            $this->assertDatabaseHas('post_translations',['post_id'=> $this->post->id , 'title' => 'Updated Title']);
     }
 
     /***************************************************************************/

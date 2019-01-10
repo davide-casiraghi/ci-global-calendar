@@ -18,6 +18,6 @@ $factory->define(App\PostTranslation::class, function (Faker $faker) {
         'title' => $title,
         'body' => $faker->text(1500),
         'slug' => str_slug($title, '-'),
-        'locale' => str_random(10).".jpg",
+        'locale' => 'it',
     ];
 });
