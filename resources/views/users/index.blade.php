@@ -16,7 +16,7 @@
                 <h2>@lang('views.users_management')</h2>
             </div>
             <div class="pull-right mt-4 float-right">
-                <a class="btn btn-success" href="{{ route('users.create') }}">@lang('views.add_new_user')</a>
+                <a class="btn btn-success" href="{{ route('users.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_user')</a>
             </div>
         </div>
     </div>

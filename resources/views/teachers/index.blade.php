@@ -21,7 +21,7 @@
         
         @if(Route::current()->getName() == 'teachers.index') 
             <div class="col-12 mt-4 mt-sm-0 text-right">
-                <a class="btn btn-success" href="{{ route('teachers.create') }}">@lang('views.add_new_teacher')</a>
+                <a class="btn btn-success" href="{{ route('teachers.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_teacher')</a>
             </div>
         @endif
     </div>
