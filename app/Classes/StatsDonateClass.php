@@ -98,7 +98,7 @@ class StatsDonateClass {
                 $ret .= "<div class='col-12 col-sm-6 col-md-3'>";
                     $ret .= "<h4 class='mb-4'><i class='far fa-align-left'></i></h4>";
                     $ret .= "<h5 class='mt-2 mb-0 counter'><strong>".$parameters['coding_hours']."</strong></h5>";
-                    $ret .= "Hours spent on coding";
+                    $ret .= "Hours spent for web desing and development";
                 $ret .= "</div>";
                 $ret .= "<div class='col-12 col-sm-6 col-md-3'>";
                     $ret .= "<h4 class='mb-4'><i class='far fa-clock'></i></h4>";
