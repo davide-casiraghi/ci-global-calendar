@@ -28,6 +28,7 @@ class PostTest extends TestCase
             
             $this->postTranslation = factory(\App\PostTranslation::class)->create([
                 'post_id' => $this->post->id,
+                'locale' => 'it'
             ]);
             
     }
@@ -147,18 +148,15 @@ class PostTest extends TestCase
     /**
      * Test that logged user can can access post translation in italian by slug
      */  
-/*    public function test_guest_user_can_see_about_us_italian_translation()
+    /*public function test_guest_user_can_see_about_us_italian_translation()
     {
+        $slug = $this->postTranslation->slug;
         // Access to the page
-            $response = $this->get('/it/post/about')
+            $response = $this->get('/it/post/'.$slug)
                              ->assertStatus(200);
-    }
+    }*/
     
-        -- create post translation factory first
     
-    */
-
-
     
     
 }
