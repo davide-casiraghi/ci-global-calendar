@@ -148,14 +148,14 @@ class PostTest extends TestCase
     /**
      * Test that logged user can can access post translation in italian by slug
      */  
-    /*public function test_guest_user_can_see_about_us_italian_translation()
+    public function test_guest_user_can_see_about_us_italian_translation()
     {
         $slug = $this->postTranslation->slug;
+
         // Access to the page
-            $response = $this->get('/it/post/'.$slug)
+            $response = $this->get('/post/'.$slug)
                              ->assertStatus(200);
-    }*/
-    
+    }
     
     
     
