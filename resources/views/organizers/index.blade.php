@@ -14,7 +14,7 @@
             <h2>@lang('views.organizers_management')</h2>
         </div>
         <div class="col-12 mt-4 mt-sm-0 text-right">
-            <a class="btn btn-success" href="{{ route('organizers.create') }}">@lang('views.add_new_organizer')</a>
+            <a class="btn btn-success create-new" href="{{ route('organizers.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_organizer')</a>
         </div>
     </div>
 

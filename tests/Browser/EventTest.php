@@ -60,7 +60,7 @@ class EventsTest extends DuskTestCase
               $browser->on(new LoginPage)
                       ->loginUser()
                       ->visit('/events')
-                      ->clickLink('Add New event')
+                      ->click('a.create-new')
                       ->assertSee('Start, End, Duration')
                       ->logoutUser();
           });
@@ -80,7 +80,7 @@ class EventsTest extends DuskTestCase
              $browser->on(new LoginPage)
                      ->loginUser()
                         ->visit('/events')
-                          ->clickLink('Add New event')
+                          ->click('a.create-new')
                            ->type('title', 'Test event')
                            ->select('category_id', 3)
                            ->waitFor('#bodyTextarea_ifr');

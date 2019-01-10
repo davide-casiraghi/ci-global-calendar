@@ -60,6 +60,7 @@
             <div class="col-12">
                 @include('partials.forms.event.select-event-status')
             </div>
+            
             <div class="col-12">
                 @include('partials.forms.textarea', [
                       'title' => 'Description',

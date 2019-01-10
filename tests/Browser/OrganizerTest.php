@@ -57,7 +57,7 @@ class OrganizerTest extends DuskTestCase
            $browser->on(new LoginPage)
                    ->loginUser()
                       ->visit('/organizers')
-                        ->clickLink('Add new organizer')
+                        ->click('a.create-new')
                          ->type('name', 'Test organizer')
                          ->type('email', 'test@testorganizer.com')
                          ->type('phone', '12312312343')
