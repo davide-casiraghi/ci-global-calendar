@@ -964,15 +964,15 @@ class EventController extends Controller
             $event->sc_venue_name = $venue->venue_name;
             $event->sc_teachers_id = json_encode(explode(",",$request->get('multiple_teachers')));
             $event->sc_continent_id = $venue->continent_id;
-
+            
             // Multiple teachers - populate support column field
                 if($request->get('multiple_teachers')){
-                    $multiple_teachers = explode(', ', $request->get('multiple_teachers'));
+                    $multiple_teachers = explode(',', $request->get('multiple_teachers'));
                     $i = 0; $len = count($multiple_teachers); // to put "," to all items except the last
                     $event->sc_teachers_names = "";
-                    
                     foreach ($multiple_teachers as $key => $teacher_id) {
                         $event->sc_teachers_names .= $teachers[$teacher_id];
+                        
                         if ($i != $len - 1)  // not last
                             $event->sc_teachers_names .= ", ";
                         $i++;
