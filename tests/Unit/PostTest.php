@@ -25,6 +25,11 @@ class PostTest extends TestCase
         // Factories - /database/factories
             $this->user = factory(\App\User::class)->create();
             $this->post = factory(\App\Post::class)->create();
+            
+            /*$this->postTranslation = factory(\App\PostTranslation::class)->create([
+                'post_id' => $this->post->id,
+            ]);*/
+            
     }
     
     /***************************************************************************/

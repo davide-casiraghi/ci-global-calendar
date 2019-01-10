@@ -13,9 +13,9 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(App\PostTranslation::class, function (Faker $faker) {
+    $title = $faker->name;
     return [
-        'post_id' => 3,
-        'title' => $faker->name,
+        'title' => $title,
         'body' => $faker->text(1500),
         'slug' => str_slug($title, '-'),
         'locale' => str_random(10).".jpg",
