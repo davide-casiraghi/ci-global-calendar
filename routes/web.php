@@ -67,7 +67,7 @@ function()
         Route::get('/event/monthSelectOptions/', 'EventController@calculateMonthlySelectOptions');
 
     // Single post by slug
-        Route::get('post/{slug}', 'PostController@postBySlug')->where('postBySlug', '[a-z]+');
+        Route::get('/post/{slug}', 'PostController@postBySlug')->where('postBySlug', '[a-z]+');
 
     /* Authentication */
         //Auth::routes();
