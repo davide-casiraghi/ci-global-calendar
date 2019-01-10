@@ -86,8 +86,8 @@ class EventsTest extends DuskTestCase
                            ->waitFor('#bodyTextarea_ifr');
                            
              $browser->driver->executeScript('tinyMCE.activeEditor.setContent(\'test event description\')');
-             $browser->driver->executeScript("document.getElementById('multiple_teachers').value = '1';");
-             $browser->driver->executeScript("document.getElementById('multiple_organizers').value = '1';");
+             $browser->driver->executeScript("document.getElementById('multiple_teachers').value = '1,2';");
+             $browser->driver->executeScript("document.getElementById('multiple_organizers').value = '1,2';");
              $browser->select('venue_id', 1);
              $browser->driver->executeScript("document.getElementsByName('startDate').value = '10/10/2023';");
              $browser->driver->executeScript("document.getElementsByName('endDate').value = '12/10/2023';");
