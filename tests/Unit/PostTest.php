@@ -47,7 +47,7 @@ class PostTest extends TestCase
     public function test_guest_user_can_see_single_post(){
         
         // Access to the page (post.show)
-            $response = $this->get('/en/posts/'.$this->post->id.'/')
+            $response = $this->get('/posts/'.$this->post->id.'/')
                          ->assertStatus(200);
     }
     
@@ -99,7 +99,7 @@ class PostTest extends TestCase
             $this->post->title = "Updated Title";
             $response = $this
                         ->followingRedirects()
-                        ->put('/en/posts/'.$this->post->id, $this->post->toArray())
+                        ->put('/posts/'.$this->post->id, $this->post->toArray())
                         ->assertSee(__('messages.article_updated_successfully'));
                 
         // Check the update on DB        
@@ -118,7 +118,7 @@ class PostTest extends TestCase
         // Delete the post
             $response = $this
                         ->followingRedirects()
-                        ->delete('/en/posts/'.$this->post->id, $this->post->toArray())
+                        ->delete('/posts/'.$this->post->id, $this->post->toArray())
                         ->assertSee(__('messages.article_deleted_successfully'));
                 
         // Check the update on DB        

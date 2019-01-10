@@ -46,7 +46,7 @@ class TeacherTest extends TestCase
     public function test_guest_user_can_see_single_teacher(){
             
         // Access to the page (teacher.show)
-            $response = $this->get('/en/teachers/'.$this->teacher->id.'/')
+            $response = $this->get('/teachers/'.$this->teacher->id.'/')
                          ->assertStatus(200);
     }
     
@@ -98,7 +98,7 @@ class TeacherTest extends TestCase
             $this->teacher->name = "New Name";
             $response = $this
                         ->followingRedirects()
-                        ->put('/en/teachers/'.$this->teacher->id, $this->teacher->toArray())
+                        ->put('/teachers/'.$this->teacher->id, $this->teacher->toArray())
                         ->assertSee("Teacher updated successfully");
                 
         // Check the update on DB        
@@ -117,7 +117,7 @@ class TeacherTest extends TestCase
         // Delete the post
             $response = $this
                         ->followingRedirects()
-                        ->delete('/en/teachers/'.$this->teacher->id, $this->teacher->toArray())
+                        ->delete('/teachers/'.$this->teacher->id, $this->teacher->toArray())
                         ->assertSee("Teacher deleted successfully");
                 
         // Check the update on DB        
