@@ -147,7 +147,11 @@ class PostTest extends TestCase
         // Access to the page
             $response = $this->get('/it/post/about')
                              ->assertStatus(200);
-    }*/
+    }
+    
+        -- create post translation factory first
+    
+    */
 
 
     
