@@ -19,7 +19,7 @@
     <div class="col-12 col-sm-6 col-md-6">
         <div class="form-group" >
             <label>@lang('general.teachers')</label>
-            <select id="teacher" class="selectpicker multiselect" multiple data-live-search="true" title="@lang('homepage-serach.teacher_name')">
+            <select id="teacher" class="selectpicker multiselect" multiple data-live-search="true" title="@lang('views.select_one_or_more')">
                 @foreach ($teachers as $value => $teacher)
                     <option value="{{$value}}">{!! $teacher !!}</option>
                 @endforeach
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="col-12 col-sm-6 col-md-6">
-        <button type="button" data-toggle="modal" class="btn btn-primary mb-3 mb-sm-0 mt-sm-4" data-remote="{{ route('teachers.modal') }}" data-target=".modalFrame">@lang('views.add_new_teacher')</button>
+        <button type="button" data-toggle="modal" class="btn btn-primary mb-3 mb-sm-0 mt-sm-4" data-remote="{{ route('teachers.modal') }}" data-target=".modalFrame"><i class="fa fas fa-plus-circle "></i> @lang('views.add_new_teacher')</button>
     </div>
 </div>
 

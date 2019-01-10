@@ -18,7 +18,7 @@
     <div class="col-12 col-sm-6 col-md-6">
         <div class="form-group" >
             <label>@lang('views.organizers')</label>
-            <select id="organizer" class="selectpicker multiselect" multiple data-live-search="true" title="@lang('homepage-serach.organizer_name')">
+            <select id="organizer" class="selectpicker multiselect" multiple data-live-search="true" title="@lang('views.select_one_or_more')">
                 @foreach ($organizers as $value => $organizer)
                     <option value="{{$value}}">{!! $organizer !!}</option>
                 @endforeach
@@ -27,6 +27,6 @@
         </div>
     </div>
     <div class="col-12 col-sm-6 col-md-6">
-        <button type="button" data-toggle="modal" class="btn btn-primary mb-3 mb-sm-0 mt-sm-4" data-remote="{{ route('organizers.modal') }}" data-target=".modalFrame">@lang('views.add_new_organizer')</button>
+        <button type="button" data-toggle="modal" class="btn btn-primary mb-3 mb-sm-0 mt-sm-4" data-remote="{{ route('organizers.modal') }}" data-target=".modalFrame"><i class="fa fas fa-plus-circle "></i> @lang('views.add_new_organizer')</button>
     </div>
 </div>
