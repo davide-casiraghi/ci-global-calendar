@@ -23,7 +23,7 @@ Activate user
 Write to {{$name}}
 @endcomponent
 
-Thanks,<br>
+Thanks,  
 {{ config('app.name') }}  
 
 <sub><sup>If you’re having trouble clicking the "Activate user" button, copy and paste the URL below into your web browser:  
