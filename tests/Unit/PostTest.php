@@ -7,8 +7,6 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 
-use App\Post;
-
 class PostTest extends TestCase
 {
     use WithFaker;
