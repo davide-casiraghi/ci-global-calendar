@@ -17,14 +17,15 @@ class ColumnsClass {
      function getParameters($matches) {
          $ret = array();
 
-         //dump($matches);
+         //dd($matches);
 
          // Get activation string parameters (from article)
              $ret['token'] = $matches[0];
 
              $ret['cat_id'] = $matches[2];
-             $ret['round_images'] = $matches[4];
-             $ret['show_category_title'] = $matches[6];
+             $ret['show_images'] = $matches[4];
+             $ret['round_images'] = $matches[6];
+             $ret['show_category_title'] = $matches[8];
 
 /*
              $ret['img_col_size_class'] = "col-md-".$matches[6];
@@ -111,14 +112,16 @@ class ColumnsClass {
 
           $ret = "<div class='container columns pt-5'>";
           if ($parameters['show_category_title'])
-            $ret .= "<h2 class='mb-4' style='text-align: center;'>".$categoryData->name."</h3>";
+            $ret .= "<h2 class='column-title mb-4' style='text-align: center;'>".$categoryData->name."</h3>";
 
             $ret .= "<div class='row'>";
             //dump($postsData);
               foreach ($postsData as $key => $postData) {
                   $ret .= "<div class='col'>";
                     //$ret .= "<img class='rounded-circle mb-4' src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' alt='Generic placeholder image' width='140' height='140'>";
-                    $ret .= "<img class='rounded-circle mb-4' style='width:100%;' src='".$postData->introimage_src."' alt='".$postData->introimage_alt."'>";
+                    if ($parameters['show_images']){
+                        $ret .= "<img class='rounded-circle mb-4' style='width:100%;' src='".$postData->introimage_src."' alt='".$postData->introimage_alt."'>";
+                    }
                     $ret .= "<h3 class='mb-4'>".$postData->title."</h3>";
                     //$ret .= "<div>".$postData->body."</div>";
                     $ret .= "<div>".str_limit($postData->body,100)."</div>";
