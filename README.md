@@ -78,7 +78,8 @@ This environment show the content of the branch **testing** that is almost align
 
 The production environment show the content of the branch **master** and is reachable at this URL: 
 
-Before deploying the branch master, compress with Laravel Mix the css and js listed in **webpack.mix.js** running:   **npm run production**
+Before deploying the branch master, compress with Laravel Mix the css and js listed in **webpack.mix.js** running:   
+**npm run production**
   
 # Web developers team
 Davide Casiraghi
