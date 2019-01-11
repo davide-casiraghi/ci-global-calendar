@@ -227,14 +227,19 @@ class GalleryClass {
 
     function get_files($images_dir,$exts = array('jpg')) {
         $files = array();
-        if($handle = opendir($images_dir)) {
-            while(false !== ($file = readdir($handle))) {
-            $extension = strtolower($this->get_file_extension($file));
-                if($extension && in_array($extension,$exts)) {
-                    $files[] = $file;
+        if(is_dir($images_dir)){
+            if($handle = opendir($images_dir)) {
+                while(false !== ($file = readdir($handle))) {
+                $extension = strtolower($this->get_file_extension($file));
+                    if($extension && in_array($extension,$exts)) {
+                        $files[] = $file;
+                    }
                 }
+                closedir($handle);
             }
-            closedir($handle);
+        }
+        else{
+            die(print_r("the dir doesn't exist", true ));
         }
         return $files;
     }
