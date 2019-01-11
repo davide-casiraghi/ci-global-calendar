@@ -71,13 +71,13 @@ Before running the tests you need to create another database that is used to cre
 
 ## Online testing environment 
 
-It's also available for the developers a testing environment, parallel to the production environment where is possible to test fixes and releases before roll them out on the production environment.
+It's also available for the developers a testing environment, parallel to the production environment where is possible to test fixes and releases before roll them out on the production environment.  
 This environment show the content of the branch **testing** that is almost aligned to the branch master and is reachable at this URL: 
 
 ## Production environment
 
 The production environment show the content of the branch **master** and is reachable at this URL: 
-
+  
 # Web developers team
 Davide Casiraghi
 
