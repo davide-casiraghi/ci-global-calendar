@@ -29,7 +29,6 @@
         "bootstrap-datepicker": "^1.8.0",
         "bootstrap-select": "^1.13.5",
         "bootstrap-timepicker": "^0.5.2",
-        "brace-expansion": "^1.1.11",
         "ckeditor": "^4.11.2",
         "cloc": "^2.3.4",
         "cookieconsent": "^3.1.0",
