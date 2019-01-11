@@ -59,6 +59,11 @@
                ])
            </div>
            
+           <div class="col-12">
+               {{-- Recaptcha google v2 --}}
+               @include('partials.forms.recaptcha')
+           </div>
+           
            @include('partials.forms.input-hidden', [
                  'name' => 'recipient',
                  'value' => $recipient

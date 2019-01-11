@@ -117,7 +117,15 @@
                         </div>
                         
                         {{-- Recaptcha google v2 --}}
-                        @include('partials.forms.recaptcha')
+                        <div class="form-group row">
+                            <div class="col-md-4">
+
+                            </div>
+                            <div class="col-md-6">
+                                @include('partials.forms.recaptcha')
+                            </div>
+                        </div>
+                        
                 
                         {{-- INFORMATION ABOUT ADMIN APPROVAL --}}
                         <div class="form-group row">
