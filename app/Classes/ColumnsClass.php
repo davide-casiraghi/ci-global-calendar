@@ -120,7 +120,7 @@ class ColumnsClass {
                   $ret .= "<div class='col'>";
                     //$ret .= "<img class='rounded-circle mb-4' src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' alt='Generic placeholder image' width='140' height='140'>";
                     if ($parameters['show_images']){
-                        $ret .= "<img class='rounded-circle mb-4' style='width:100%;' src='".$postData->introimage_src."' alt='".$postData->introimage_alt."'>";
+                        $ret .= "<img class='rounded-circle mb-4' style='width:100%;' src='".$postData->introimage."' alt='".$postData->introimage_alt."'>";
                     }
                     $ret .= "<h3 class='mb-4'>".$postData->title."</h3>";
                     //$ret .= "<div>".$postData->body."</div>";
