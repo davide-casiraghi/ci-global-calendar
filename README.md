@@ -56,7 +56,10 @@ Unit tests and browser tests are implemented using **PHPUnit** and **Laravel Dus
 Before merge on the branch master please check the testsrunning in the project root folder:
 - **./vendor/bin/phpunit**
 - **php artisan dusk**
-## How to setup the local test environment
+
+## Local test environment
+
+**How to setup the local test environment**
 Before running the tests you need to create another database that is used to create dummy datas by the test functions.
 - create on your local machine a database called **CIGC-local-test**
 - **php artisan migrate --database=testing**
@@ -65,6 +68,15 @@ Before running the tests you need to create another database that is used to cre
   - DB_DATABASE=CIGC-local-test
 - create a copy of .env.testing and name it .env.dusk.local  (used by laravel dusk)
 - in **composer.json** remove temporary "laravel/dusk" from "dont-discover", run **composer update** and add "laravel/dusk" again in "dont-discover", this because laravel/dusk should not be insalled on the production and testing environments.
+
+## Online testing environment 
+
+It's also available for the developers a testing environment, parallel to the production environment where is possible to test fixes and releases before roll them out on the production environment.
+This environment show the content of the branch **testing** that is almost aligned to the branch master and is reachable at this URL: 
+
+## Production environment
+
+The production environment show the content of the branch **master** and is reachable at this URL: 
 
 # Web developers team
 Davide Casiraghi
