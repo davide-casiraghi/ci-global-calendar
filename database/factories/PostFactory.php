@@ -15,7 +15,7 @@ use Faker\Generator as Faker;
 $factory->define(App\Post::class, function (Faker $faker) {
         $title = $faker->name;
     return [
-        'title' => $faker->name,
+        'title' => $title,
         'created_by' => 1,
         'body' => $faker->text(1500),
         'category_id' => 2,
