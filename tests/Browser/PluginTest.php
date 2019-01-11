@@ -7,6 +7,7 @@ use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 use App\Post;
+use App\PostTranslation;
 
 class PluginTest extends DuskTestCase
 {
@@ -24,20 +25,29 @@ class PluginTest extends DuskTestCase
             
         // Factories - /database/factories
             $this->post = factory(\App\Post::class)->create([
-                'title' => 'Donate',
+                'body' => "{slider=This is a test accordion} lorem ipsum {/slider}",
+            ]);
+            
+            $this->postTranslation = factory(\App\PostTranslation::class)->create([
+                'post_id' => $this->post->id,
+                'locale' => 'it'
             ]);
     }
     
+    /***************************************************************************/
     /**
-     * A Dusk test example.
+     * Test if the accordion is rendered
      *
      * @return void
      */
-    public function testExample()
+    public function testAccordion()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/post/donate')->dump();
-                    //->assertSee('Donate');
+            $browser->visit('/post/'.$this->post->slug)
+                ->assertPresent('.ui-accordion');
         });
     }
+    
+    
+    
 }
