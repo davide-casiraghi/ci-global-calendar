@@ -25,7 +25,6 @@ class PluginTest extends DuskTestCase
         // Factories - /database/factories
             $this->post = factory(\App\Post::class)->create([
                 'title' => 'Donate',
-                'slug' => 'donate'
             ]);
     }
     
