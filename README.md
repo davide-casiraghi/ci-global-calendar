@@ -49,7 +49,7 @@ Below you can find informations about download the source code on your computer 
     - **php artisan cache:clear**
 
 # Developing tips
-- If you are adding or modifying CSS or JS files, run **npm run watch**, every time you save, it will compress with Laravel Mix the css and js listed in **webpack.mix.js**.
+- If you are adding or modifying CSS or JS files, run **npm run watch**. Every time you save, it will compress with Laravel Mix the css and js listed in **webpack.mix.js**.
 
 # Tests
 In order to keep the code mantainable and improvable on the long term by a pool of developers, most of the functionalities of the calendar are tested by a series of unit test and browser test.
