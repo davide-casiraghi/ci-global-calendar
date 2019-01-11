@@ -39,7 +39,7 @@ mix.js('resources/js/app.js', 'public/js')
         'tooltip.js', 
         'slick-carousel',
         'gridalicious',
-        '@fancyapps/fancybox/dist/jquery.fancybox.js',
+        '@fancyapps/fancybox',
         'bootstrap-select',
         'bootstrap-datepicker',
         'bootstrap-timepicker',

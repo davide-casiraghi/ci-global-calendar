@@ -40520,9 +40520,9 @@ module.exports = g;
 /***/ }),
 
 /***/ 1:
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi jquery popper.js bootstrap jquery-ui jquery-ui/ui/widgets/datepicker jquery-ui/ui/widgets/accordion smartmenus smartmenus/dist/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.js tooltip.js slick-carousel gridalicious @fancyapps/fancybox/dist/jquery.fancybox.js bootstrap-select bootstrap-datepicker bootstrap-timepicker fontawesome-pro/js/fontawesome.js cookieconsent waypoints/lib/jquery.waypoints.js jquery.counterup ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi jquery popper.js bootstrap jquery-ui jquery-ui/ui/widgets/datepicker jquery-ui/ui/widgets/accordion smartmenus smartmenus/dist/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.js tooltip.js slick-carousel gridalicious @fancyapps/fancybox bootstrap-select bootstrap-datepicker bootstrap-timepicker fontawesome-pro/js/fontawesome.js cookieconsent waypoints/lib/jquery.waypoints.js jquery.counterup ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -40537,7 +40537,7 @@ __webpack_require__(/*! smartmenus/dist/addons/bootstrap-4/jquery.smartmenus.boo
 __webpack_require__(/*! tooltip.js */"./node_modules/tooltip.js/dist/esm/tooltip.js");
 __webpack_require__(/*! slick-carousel */"./node_modules/slick-carousel/slick/slick.js");
 __webpack_require__(/*! gridalicious */"./node_modules/gridalicious/jquery.grid-a-licious.min.js");
-__webpack_require__(/*! @fancyapps/fancybox/dist/jquery.fancybox.js */"./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js");
+__webpack_require__(/*! @fancyapps/fancybox */"./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js");
 __webpack_require__(/*! bootstrap-select */"./node_modules/bootstrap-select/dist/js/bootstrap-select.js");
 __webpack_require__(/*! bootstrap-datepicker */"./node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js");
 __webpack_require__(/*! bootstrap-timepicker */"./node_modules/bootstrap-timepicker/js/bootstrap-timepicker.js");
