@@ -29,7 +29,7 @@ let mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
    .extract([
         'jquery',
-        'popper.js', //((positioning engine for tooltips))
+        /*'popper.js', //((positioning engine for tooltips))
         'bootstrap',
         'jquery-ui',
         'jquery-ui/ui/widgets/datepicker',
@@ -46,7 +46,7 @@ mix.js('resources/js/app.js', 'public/js')
         'fontawesome-pro/js/fontawesome.js',
         'cookieconsent',
         'waypoints/lib/jquery.waypoints.js',
-        'jquery.counterup'
+        'jquery.counterup'*/
     ]);
 
 
