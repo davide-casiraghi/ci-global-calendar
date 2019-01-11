@@ -38,7 +38,7 @@ class GenerateMenus
             
             $profile = $menu->add(__('menu.get_involved'), ['action' => ['PostController@show', 'id' => 16]]);
                 $profile->prepend('<i class="fa fa-users"></i> ');
-            $profile = $menu->add(__('menu.how_to'), ['action' => ['PostController@show', 'id' => 41]]);
+            $profile = $menu->add(__('menu.help'), ['action' => ['PostController@show', 'id' => 41]]);
                 $profile->prepend('<i class="fa fas fa-question-circle"></i> ');
         });
 

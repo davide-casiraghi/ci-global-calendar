@@ -5,7 +5,7 @@ return [
     'about' => 'О нас',
     'terms_of_use' => 'Условия использования',
     'get_involved' => 'Участвовать',
-    'how_to' => 'How to insert contents',
+    'help' => 'Помощь',
     'manager' => 'Менеджер',
     'new_event' => 'Новое событие',
     'my_events' => 'Мои события',
