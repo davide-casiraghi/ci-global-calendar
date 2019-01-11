@@ -50,9 +50,9 @@ Below you can find informations about download the source code on your computer 
     
 # Tests
 In order to keep the code mantainable and improvable on the long term by a pool of developers, most of the functionalities of the calendar are tested by a series of unit test and browser test.
-For this reason a TDD approach is encouraged.
+For this reason a **TDD approach** is encouraged.
 
-Unit tests and browser tests are implemented using PHPUnit and Laravel Dusk.  
+Unit tests and browser tests are implemented using **PHPUnit** and **Laravel Dusk**.  
 Before merge on the branch master please run the tests writing in the root folder:
 - **./vendor/bin/phpunit**
 - **php artisan dusk**
