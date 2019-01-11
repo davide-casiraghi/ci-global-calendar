@@ -2,12 +2,6 @@
 
 @section('title')@lang('menu.create_account')@endsection
 
-@section('javascript-head')
-    @parent
-    {!! NoCaptcha::renderJs() !!}
-@stop
-
-
 
 @section('content')
 <div class="container">
@@ -122,26 +116,17 @@
                             </div>
                         </div>
                         
-                        {{-- 
-                            Recaptcha google v2 
-                            https://github.com/anhskohbo/no-captcha
-                        --}}
+                        {{-- Recaptcha google v2 --}}
                         <div class="form-group row">
                             <div class="col-md-4">
 
                             </div>
                             <div class="col-md-6">
-                                {!! NoCaptcha::display() !!}
-                                
-                                @if ($errors->has('g-recaptcha-response'))
-    								<div class="alert alert-danger mt-3">
-    									{{ $errors->first('g-recaptcha-response') }}
-    								</div>
-								@endif
+                                @include('partials.forms.recaptcha')
                             </div>
                         </div>
                         
-
+                
                         {{-- INFORMATION ABOUT ADMIN APPROVAL --}}
                         <div class="form-group row">
                             <div class="col-md-4">

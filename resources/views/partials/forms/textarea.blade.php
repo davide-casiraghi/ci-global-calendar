@@ -12,6 +12,13 @@
 		// https://www.tiny.cloud/docs/get-started/basic-setup/
 			var editor_config = {
 				selector: 'textarea#bodyTextarea',
+                
+                // Remove Html tags from paste text
+                    paste_as_text: true, //!important
+                
+                // Allow link target blank
+                    extended_valid_elements: 'a[href|target]',
+                
 				/*plugins : 'advlist autolink link image lists charmap print preview spellchecker media table',*/
 				plugins: [
 				 "advlist autolink lists link image charmap print preview hr anchor pagebreak",

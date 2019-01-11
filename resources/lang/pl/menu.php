@@ -5,7 +5,7 @@ return [
     'about' => 'O nas',
     'terms_of_use' => 'Terms of use',
     'get_involved' => 'Zaangażuj się',
-    'how_to' => 'Wsparcie, Jak wstawić zawartość',
+    'help' => 'Wsparcie',
     'manager' => 'Manager',
     'new_event' => 'Nowe Wydarzenie',
     'my_events' => 'Moje wydarzenia',
