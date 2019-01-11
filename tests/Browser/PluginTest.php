@@ -25,7 +25,10 @@ class PluginTest extends DuskTestCase
             
         // Factories - /database/factories
             $this->post = factory(\App\Post::class)->create([
-                'body' => "{slider=This is a test accordion} lorem ipsum {/slider}",
+                'body' => "
+                            {slider=This is a test accordion} lorem ipsum {/slider}<br />
+                            {# stats_donate coding_hours=[2400] pm_hours=[40] steering_commitee_meetings=[60] languages_number=[8] #}
+                ",
             ]);
             
             $this->postTranslation = factory(\App\PostTranslation::class)->create([
@@ -45,6 +48,20 @@ class PluginTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->visit('/post/'.$this->post->slug)
                 ->assertPresent('.ui-accordion');
+        });
+    }
+    
+    /***************************************************************************/
+    /**
+     * Test if the statistics are rendered
+     *
+     * @return void
+     */
+    public function testStatistics()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/post/'.$this->post->slug)
+                ->assertPresent('.statisticsDonate');
         });
     }
     
