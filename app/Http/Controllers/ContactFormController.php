@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactForm;
+use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\Request;
 
@@ -30,6 +31,17 @@ class ContactFormController extends Controller
      * @return redirect to route
      */
     public function contactFormSend(Request $request){
+        
+        // Validate form datas
+            $validator = Validator::make($request->all(), [
+                'name' => 'required',
+                'email' => 'required',
+                'message' => 'required',
+                'g-recaptcha-response' => 'required|captcha'
+            ]);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
         
         $report = array();
         
