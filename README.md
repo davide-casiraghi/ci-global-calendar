@@ -53,7 +53,7 @@ In order to keep the code mantainable and improvable on the long term by a pool 
 For this reason a **TDD approach** is encouraged.
 
 Unit tests and browser tests are implemented using **PHPUnit** and **Laravel Dusk**.  
-Before merge on the branch master please run the tests writing in the root folder:
+Before merge on the branch master please check the testsrunning in the root folder:
 - **./vendor/bin/phpunit**
 - **php artisan dusk**
 ## How to setup the local test environment
