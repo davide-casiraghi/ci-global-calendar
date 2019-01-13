@@ -164,7 +164,6 @@ class GalleryClass {
     }
 
     // **********************************************************************
-
     /**
      *  Get images files name array
      *  @param $images_dir           the images dir on the server
@@ -294,26 +293,28 @@ class GalleryClass {
                         // Get plugin parameters array
                             $parameters = $this->getParameters($single_gallery_matches, $storagePath, $publicPath);
 
-                        // Get images file name array
-                            $image_files = $this->getImageFiles($parameters['images_dir']);
-                            //sort($image_files,SORT_STRING);
+                        if(is_dir($parameters['images_dir'])){
+                            // Get images file name array
+                                $image_files = $this->getImageFiles($parameters['images_dir']);
+                                //sort($image_files,SORT_STRING);
 
-                        // Get images data from excel
-                            //$image_data = $this->getImgDataFromExcel($parameters['images_dir']);
-                            $image_data = null;
-                        // Generate thumbnails files
-                            $this->generateThumbs($parameters['images_dir'], $parameters['thumbs_dir'], $parameters['thumbs_size'], $image_files);
+                            // Get images data from excel
+                                //$image_data = $this->getImgDataFromExcel($parameters['images_dir']);
+                                $image_data = null;
+                            // Generate thumbnails files
+                                $this->generateThumbs($parameters['images_dir'], $parameters['thumbs_dir'], $parameters['thumbs_size'], $image_files);
 
-                        // Create Images array [file_path, short_desc, long_desc]
-                            $images = $this->createImagesArray($image_files, $image_data, $parameters['gallery_url']);
+                            // Create Images array [file_path, short_desc, long_desc]
+                                $images = $this->createImagesArray($image_files, $image_data, $parameters['gallery_url']);
 
-                        // Prepare Gallery HTML
+                            // Prepare Gallery HTML
+                                $galleryHtml = $this->prepareGallery($images);
+                        }
+                        else{
+                            $galleryHtml = "<div class='alert alert-warning' role='alert'>Image directory not found</div>";
+                        }
 
-                            $galleryHtml = $this->prepareGallery($images);
-
-                            //$galleryHtml= "this is the gallery!!";
-
-                        // RENDER
+                        // Replace the TOKEN found in the article with the generatd gallery HTML
                             $postBody = str_replace($parameters['token'], $galleryHtml, $postBody);
                     }
             }
