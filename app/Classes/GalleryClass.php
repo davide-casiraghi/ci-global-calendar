@@ -20,10 +20,6 @@ class GalleryClass {
          $ret = array();
 
          // Get Paths
-             /*$sitePath = JPATH_SITE;
-             $siteUrl  = JURI::root();
-             $siteRelativePath  = JPATH_BASE;*/
-
              $sitePath = '/';
              $siteUrl  = $publicPath;
 
@@ -49,7 +45,6 @@ class GalleryClass {
      }
 
     // **********************************************************************
-
     /**
      *  Generate a single thumbnail file from an image
      *  @param array $src               path of the original image
@@ -98,7 +93,6 @@ class GalleryClass {
     }
 
     // **********************************************************************
-
     /**
      *  Generate all the thumbnails of the gallery
      *  @param string $images_dir        images dir on the server
@@ -135,7 +129,6 @@ class GalleryClass {
     }
 
     // **********************************************************************
-
     /**
      *  Create images array
      *  @param array $image_files           array with all the image names
@@ -177,7 +170,6 @@ class GalleryClass {
     }
 
     // **********************************************************************
-
     /**
      *  Prepare the gallery HTML
      *  @param array $images                        Images array [file_path, short_desc, long_desc]
@@ -216,7 +208,6 @@ class GalleryClass {
     }
 
     // **********************************************************************
-
     /**
      *  Returns files from dir
      *  @param string $images_dir                 The images directory
@@ -253,7 +244,6 @@ class GalleryClass {
     }
 
    // **********************************************************************
-
     /**
      *  Turn array of the metches after preg_match_all function (taken from - https://secure.php.net/manual/en/function.preg-match-all.php)
      *  @param array $file_name        the file name
@@ -272,9 +262,12 @@ class GalleryClass {
     }
 
 
-
     // **********************************************************************
-
+    /**
+     *  Return the post body with the gallery HTML instead of the found snippet
+     *  @param array $file_name        the file name
+     *  @return array $ret             the extension
+    **/
     public function getGallery($postBody, $storagePath, $publicPath) {
 
         // Find plugin occurrences
