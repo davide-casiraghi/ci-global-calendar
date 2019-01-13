@@ -4,8 +4,7 @@
     This plugin show a responsive card made by text on one side and an image on the oter
     Example of strings that evoke the plugin:
     {# card post_id=[6] img_alignment=[right] img_col_size=[3] bkg_color=[transparent|#34564] #}
-    or
-    {# card post_id=[9] img_alignment=[left] img_col_size=[3] #}
+    
 */
 
 
@@ -78,16 +77,18 @@ class CardClass {
 
        function getPostData($parameters) {
 
-           //$image_dir_url = "/storage/images";
+        //$image_dir_url = "/storage/images";
 
-           $postData = app('App\Http\Controllers\PostController')->postdata($parameters['post_id']);
+        $postData = app('App\Http\Controllers\PostController')->postdata($parameters['post_id']);
 
-           $ret['post_title'] = $postData->title;
-           $ret['post_body'] = $postData->body;
-           $ret['post_image_src'] = $postData->introimage_src;
-           $ret['post_image_alt'] = $postData->introimage_alt;
+        $ret['post_title'] = $postData->title;
+        $ret['post_body'] = $postData->body;
+        if ($postData->introimage){
+            $ret['post_image_src'] = $postData->introimage;
+            $ret['post_image_alt'] = $postData->introimage_alt;
+        }
 
-           return $ret;
+        return $ret;
        }
 
       // **********************************************************************

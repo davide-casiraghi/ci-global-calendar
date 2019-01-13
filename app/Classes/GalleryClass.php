@@ -4,6 +4,7 @@
     This plugin show a responsive gallery
     Example of strings that evoke the plugin:
     {# gallery src=[contact_improvisation/gallery_1] width=[400] height=[300] #}
+    {# gallery src=[1/background_homepage] width=[400] height=[300] #}
 */
 
 namespace App\Classes;
@@ -20,10 +21,6 @@ class GalleryClass {
          $ret = array();
 
          // Get Paths
-             /*$sitePath = JPATH_SITE;
-             $siteUrl  = JURI::root();
-             $siteRelativePath  = JPATH_BASE;*/
-
              $sitePath = '/';
              $siteUrl  = $publicPath;
 
@@ -34,22 +31,21 @@ class GalleryClass {
              $ret['photo_height'] = $matches[6];
 
          // Directories
-             $ret['images_dir'] = $storagePath."/".$subDir."/";
-             $ret['thumbs_dir'] = $storagePath."/".$subDir.'/thumb/';
+             $ret['images_dir'] = $publicPath."/images/".$subDir."/";
+             $ret['thumbs_dir'] = $publicPath."/images/".$subDir.'/thumb/';
 
          // Thumbnails size
              $ret['thumbs_size']['width'] = 300;
              $ret['thumbs_size']['height'] = 300;
 
          // URL variables
-             $ret['gallery_url'] = "/storage/".$subDir."/";
-             $ret['thumb_url'] = "/storage/".$subDir."/thumbs/";
+             $ret['gallery_url'] = "/images/".$subDir."/";
+             $ret['thumb_url'] = "/images/".$subDir."/thumbs/";
 
          return $ret;
      }
 
     // **********************************************************************
-
     /**
      *  Generate a single thumbnail file from an image
      *  @param array $src               path of the original image
@@ -98,7 +94,6 @@ class GalleryClass {
     }
 
     // **********************************************************************
-
     /**
      *  Generate all the thumbnails of the gallery
      *  @param string $images_dir        images dir on the server
@@ -135,7 +130,6 @@ class GalleryClass {
     }
 
     // **********************************************************************
-
     /**
      *  Create images array
      *  @param array $image_files           array with all the image names
@@ -164,7 +158,6 @@ class GalleryClass {
     }
 
     // **********************************************************************
-
     /**
      *  Get images files name array
      *  @param $images_dir           the images dir on the server
@@ -178,7 +171,6 @@ class GalleryClass {
     }
 
     // **********************************************************************
-
     /**
      *  Prepare the gallery HTML
      *  @param array $images                        Images array [file_path, short_desc, long_desc]
@@ -217,7 +209,6 @@ class GalleryClass {
     }
 
     // **********************************************************************
-
     /**
      *  Returns files from dir
      *  @param string $images_dir                 The images directory
@@ -227,6 +218,7 @@ class GalleryClass {
 
     function get_files($images_dir,$exts = array('jpg')) {
         $files = array();
+        
         if($handle = opendir($images_dir)) {
             while(false !== ($file = readdir($handle))) {
             $extension = strtolower($this->get_file_extension($file));
@@ -236,6 +228,7 @@ class GalleryClass {
             }
             closedir($handle);
         }
+        
         return $files;
     }
 
@@ -252,7 +245,6 @@ class GalleryClass {
     }
 
    // **********************************************************************
-
     /**
      *  Turn array of the metches after preg_match_all function (taken from - https://secure.php.net/manual/en/function.preg-match-all.php)
      *  @param array $file_name        the file name
@@ -271,9 +263,12 @@ class GalleryClass {
     }
 
 
-
     // **********************************************************************
-
+    /**
+     *  Return the post body with the gallery HTML instead of the found snippet
+     *  @param array $file_name        the file name
+     *  @return array $ret             the extension
+    **/
     public function getGallery($postBody, $storagePath, $publicPath) {
 
         // Find plugin occurrences
@@ -288,27 +283,34 @@ class GalleryClass {
 
                         // Get plugin parameters array
                             $parameters = $this->getParameters($single_gallery_matches, $storagePath, $publicPath);
+                            
+                        if(is_dir($parameters['images_dir'])){
+                            // Get images file name array
+                                $image_files = $this->getImageFiles($parameters['images_dir']);
+                                //sort($image_files,SORT_STRING);
 
-                        // Get images file name array
-                            $image_files = $this->getImageFiles($parameters['images_dir']);
-                            //sort($image_files,SORT_STRING);
+                                if (!empty($image_files)){
+                                    // Get images data from excel
+                                        //$image_data = $this->getImgDataFromExcel($parameters['images_dir']);
+                                        $image_data = null;
+                                    // Generate thumbnails files
+                                        $this->generateThumbs($parameters['images_dir'], $parameters['thumbs_dir'], $parameters['thumbs_size'], $image_files);
 
-                        // Get images data from excel
-                            //$image_data = $this->getImgDataFromExcel($parameters['images_dir']);
-                            $image_data = null;
-                        // Generate thumbnails files
-                            $this->generateThumbs($parameters['images_dir'], $parameters['thumbs_dir'], $parameters['thumbs_size'], $image_files);
+                                    // Create Images array [file_path, short_desc, long_desc]
+                                        $images = $this->createImagesArray($image_files, $image_data, $parameters['gallery_url']);
 
-                        // Create Images array [file_path, short_desc, long_desc]
-                            $images = $this->createImagesArray($image_files, $image_data, $parameters['gallery_url']);
+                                    // Prepare Gallery HTML
+                                        $galleryHtml = $this->prepareGallery($images);
+                                }
+                                else{
+                                    $galleryHtml = "<div class='alert alert-warning' role='alert'>The directory specified exist but it doesn't contain images</div>";
+                                }
+                        }
+                        else{
+                            $galleryHtml = "<div class='alert alert-warning' role='alert'>Image directory not found</div>";
+                        }
 
-                        // Prepare Gallery HTML
-
-                            $galleryHtml = $this->prepareGallery($images);
-
-                            //$galleryHtml= "this is the gallery!!";
-
-                        // RENDER
+                        // Replace the TOKEN found in the article with the generatd gallery HTML
                             $postBody = str_replace($parameters['token'], $galleryHtml, $postBody);
                     }
             }

@@ -65,7 +65,7 @@ Before merge on the branch master please check the testsrunning in the project r
 - **./vendor/bin/phpunit**
 - **php artisan dusk**
 
-## Local test environment
+## Testing locally
 
 **How to setup the local test environment**
 Before running the tests you need to create another database that is used to create dummy datas by the test functions.
@@ -77,7 +77,7 @@ Before running the tests you need to create another database that is used to cre
 - create a copy of .env.testing and name it .env.dusk.local  (used by laravel dusk)
 - in **composer.json** remove temporary "laravel/dusk" from "dont-discover", run **composer update** and add "laravel/dusk" again in "dont-discover", this because laravel/dusk should not be insalled on the production and testing environments.
 
-## Online test environment 
+## Testing environment 
 
 It's also available for the developers a testing environment, parallel to the production environment where is possible to test fixes and releases before roll them out on the production environment.  
 This environment show the content of the branch **testing** that is almost aligned to the branch master and is reachable at this URL: 
