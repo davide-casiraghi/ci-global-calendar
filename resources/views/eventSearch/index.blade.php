@@ -56,7 +56,7 @@
             {{-- Search form --}}
             {{--<form class="searchForm" action="{{ route('eventSearch.index') }}" method="GET">--}}
             <form class="searchForm" action="/eventSearch#dataarea" method="GET">
-                @csrf
+                {{--@csrf--  CSRF is just for POST requests }}
 
                 {{--<div class="row mt-3">
                     <div class="form-group col-12">
