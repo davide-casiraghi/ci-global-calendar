@@ -3,8 +3,8 @@
 # Hello {{$name}}  
 
 Your account has been activated by the administrator.
-
-Thank you for registering with to Global CI Calendar.
+thank you for joining us.
+Thank you for join the Global CI Calendar.
 
 {{ config('app.name') }}
 @endcomponent
