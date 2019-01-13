@@ -43,7 +43,7 @@ class PluginTest extends DuskTestCase
     
     /***************************************************************************/
     /**
-     * Test if the accordion is rendered
+     * Test if the Accordion is rendered
      *
      * @return void
      */
@@ -57,7 +57,7 @@ class PluginTest extends DuskTestCase
     
     /***************************************************************************/
     /**
-     * Test if the statistics are rendered
+     * Test if the Statistics are rendered
      *
      * @return void
      */
@@ -71,7 +71,7 @@ class PluginTest extends DuskTestCase
     
     /***************************************************************************/
     /**
-     * Test if the column plugin is rendered
+     * Test if the Column plugin is rendered
      *
      * @return void
      */
@@ -85,7 +85,7 @@ class PluginTest extends DuskTestCase
     
     /***************************************************************************/
     /**
-     * Test if the card plugin is rendered
+     * Test if the Card plugin is rendered
      *
      * @return void
      */
@@ -99,7 +99,7 @@ class PluginTest extends DuskTestCase
     
     /***************************************************************************/
     /**
-     * Test if the card plugin is rendered
+     * Test if the Gallery plugin is rendered
      *
      * @return void
      */
