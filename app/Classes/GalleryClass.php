@@ -34,16 +34,16 @@ class GalleryClass {
              $ret['photo_height'] = $matches[6];
 
          // Directories
-             $ret['images_dir'] = $storagePath."/".$subDir."/";
-             $ret['thumbs_dir'] = $storagePath."/".$subDir.'/thumb/';
+             $ret['images_dir'] = $publicPath."/images/".$subDir."/";
+             $ret['thumbs_dir'] = $publicPath."/images/".$subDir.'/thumb/';
 
          // Thumbnails size
              $ret['thumbs_size']['width'] = 300;
              $ret['thumbs_size']['height'] = 300;
 
          // URL variables
-             $ret['gallery_url'] = "/storage/".$subDir."/";
-             $ret['thumb_url'] = "/storage/".$subDir."/thumbs/";
+             $ret['gallery_url'] = "/images/".$subDir."/";
+             $ret['thumb_url'] = "/images/".$subDir."/thumbs/";
 
          return $ret;
      }
@@ -292,7 +292,7 @@ class GalleryClass {
 
                         // Get plugin parameters array
                             $parameters = $this->getParameters($single_gallery_matches, $storagePath, $publicPath);
-
+                            //dd($parameters['images_dir']);
                         if(is_dir($parameters['images_dir'])){
                             // Get images file name array
                                 $image_files = $this->getImageFiles($parameters['images_dir']);
