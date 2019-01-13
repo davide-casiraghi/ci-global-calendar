@@ -292,7 +292,7 @@ class GalleryClass {
 
                         // Get plugin parameters array
                             $parameters = $this->getParameters($single_gallery_matches, $storagePath, $publicPath);
-                            dd($parameters['images_dir']);
+                            //dd($parameters['images_dir']);
                         if(is_dir($parameters['images_dir'])){
                             // Get images file name array
                                 $image_files = $this->getImageFiles($parameters['images_dir']);
