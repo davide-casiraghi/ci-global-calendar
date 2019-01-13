@@ -226,20 +226,17 @@ class GalleryClass {
 
     function get_files($images_dir,$exts = array('jpg')) {
         $files = array();
-        if(is_dir($images_dir)){
-            if($handle = opendir($images_dir)) {
-                while(false !== ($file = readdir($handle))) {
-                $extension = strtolower($this->get_file_extension($file));
-                    if($extension && in_array($extension,$exts)) {
-                        $files[] = $file;
-                    }
+        
+        if($handle = opendir($images_dir)) {
+            while(false !== ($file = readdir($handle))) {
+            $extension = strtolower($this->get_file_extension($file));
+                if($extension && in_array($extension,$exts)) {
+                    $files[] = $file;
                 }
-                closedir($handle);
             }
+            closedir($handle);
         }
-        else{
-            die(print_r("the dir doesn't exist", true ));
-        }
+        
         return $files;
     }
 
@@ -292,23 +289,28 @@ class GalleryClass {
 
                         // Get plugin parameters array
                             $parameters = $this->getParameters($single_gallery_matches, $storagePath, $publicPath);
-                            //dd($parameters['images_dir']);
+                            
                         if(is_dir($parameters['images_dir'])){
                             // Get images file name array
                                 $image_files = $this->getImageFiles($parameters['images_dir']);
                                 //sort($image_files,SORT_STRING);
 
-                            // Get images data from excel
-                                //$image_data = $this->getImgDataFromExcel($parameters['images_dir']);
-                                $image_data = null;
-                            // Generate thumbnails files
-                                $this->generateThumbs($parameters['images_dir'], $parameters['thumbs_dir'], $parameters['thumbs_size'], $image_files);
+                                if (!empty($image_files)){
+                                    // Get images data from excel
+                                        //$image_data = $this->getImgDataFromExcel($parameters['images_dir']);
+                                        $image_data = null;
+                                    // Generate thumbnails files
+                                        $this->generateThumbs($parameters['images_dir'], $parameters['thumbs_dir'], $parameters['thumbs_size'], $image_files);
 
-                            // Create Images array [file_path, short_desc, long_desc]
-                                $images = $this->createImagesArray($image_files, $image_data, $parameters['gallery_url']);
+                                    // Create Images array [file_path, short_desc, long_desc]
+                                        $images = $this->createImagesArray($image_files, $image_data, $parameters['gallery_url']);
 
-                            // Prepare Gallery HTML
-                                $galleryHtml = $this->prepareGallery($images);
+                                    // Prepare Gallery HTML
+                                        $galleryHtml = $this->prepareGallery($images);
+                                }
+                                else{
+                                    $galleryHtml = "<div class='alert alert-warning' role='alert'>The directory specified exist but it doesn't contain images</div>";
+                                }
                         }
                         else{
                             $galleryHtml = "<div class='alert alert-warning' role='alert'>Image directory not found</div>";
