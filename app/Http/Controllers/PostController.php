@@ -32,7 +32,7 @@ class PostController extends Controller
     public function __construct(){
         
         //Restrict the access to this resource just to logged in users except show view 
-            $this->middleware('auth', ['except' => ['show','postBySlug']]);
+            $this->middleware('admin', ['except' => ['show','postBySlug']]);
     }
     
     /***************************************************************************/

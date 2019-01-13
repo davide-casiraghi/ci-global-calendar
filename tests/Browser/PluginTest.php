@@ -31,6 +31,7 @@ class PluginTest extends DuskTestCase
                             {# stats_donate coding_hours=[2400] pm_hours=[40] steering_commitee_meetings=[60] languages_number=[8] #}
                             {# columns category_id=[2] show_images=[0] round_images=[0] show_category_title=[1] #}
                             {# card post_id=[1] img_alignment=[right] img_col_size=[3] bkg_color=[transparent] #}
+                            {# gallery src=[test_gallery] width=[400] height=[300] #}
                 ",
             ]);
             
@@ -42,7 +43,7 @@ class PluginTest extends DuskTestCase
     
     /***************************************************************************/
     /**
-     * Test if the accordion is rendered
+     * Test if the Accordion is rendered
      *
      * @return void
      */
@@ -56,7 +57,7 @@ class PluginTest extends DuskTestCase
     
     /***************************************************************************/
     /**
-     * Test if the statistics are rendered
+     * Test if the Statistics are rendered
      *
      * @return void
      */
@@ -70,7 +71,7 @@ class PluginTest extends DuskTestCase
     
     /***************************************************************************/
     /**
-     * Test if the column plugin is rendered
+     * Test if the Column plugin is rendered
      *
      * @return void
      */
@@ -84,7 +85,7 @@ class PluginTest extends DuskTestCase
     
     /***************************************************************************/
     /**
-     * Test if the card plugin is rendered
+     * Test if the Card plugin is rendered
      *
      * @return void
      */
@@ -96,7 +97,19 @@ class PluginTest extends DuskTestCase
         });
     }
     
-    
+    /***************************************************************************/
+    /**
+     * Test if the Gallery plugin is rendered
+     *
+     * @return void
+     */
+    public function testGallery()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/post/'.$this->post->slug)
+                ->assertSee("Image directory not found");
+        });
+    }    
     
     
 }

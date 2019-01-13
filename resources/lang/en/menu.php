@@ -15,7 +15,7 @@ return [
     'my_profile' => 'My Profile',
     'admin_tools' => 'Admin Tools',
     'users' => 'Users',
-    'posts' => 'Posts',
+    'posts' => 'Articles',
     'settings' => 'Settings',
     'posts_categories' => 'Post Categories',
     'event_categories' => 'Events Categories',
