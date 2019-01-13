@@ -4,6 +4,7 @@
     This plugin show a responsive gallery
     Example of strings that evoke the plugin:
     {# gallery src=[contact_improvisation/gallery_1] width=[400] height=[300] #}
+    {# gallery src=[1/background_homepage] width=[400] height=[300] #}
 */
 
 namespace App\Classes;
