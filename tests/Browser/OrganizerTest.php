@@ -64,7 +64,7 @@ class OrganizerTest extends DuskTestCase
                          ->type('website', 'http://www.test.com') 
                          ->waitFor('#bodyTextarea_ifr');
                         
-            $browser->driver->executeScript('tinyMCE.activeEditor.setContent(\'eeeeee\')');
+            $browser->driver->executeScript('tinyMCE.activeEditor.setContent(\'dummy description\')');
             
             $browser->resize(1920, 3000)
                     ->press('Submit')
