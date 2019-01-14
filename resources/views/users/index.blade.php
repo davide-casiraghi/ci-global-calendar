@@ -42,7 +42,9 @@
                 'name' => 'country_id',
                 'placeholder' => __('views.filter_by_country'),
                 'records' => $countries,
-                'seleted' => $searchCountry
+                'seleted' => $searchCountry,
+                'liveSearch' => 'true',
+                'mobileNativeMenu' => 'false',
             ])
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-3 mt-3 mt-sm-2 mt-lg-0">

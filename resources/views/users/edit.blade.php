@@ -80,7 +80,9 @@
                       'name' => 'country_id',
                       'placeholder' => __('views.select_country'), 
                       'records' => $countries,
-                      'seleted' => $user->country_id
+                      'seleted' => $user->country_id,
+                      'liveSearch' => 'true',
+                      'mobileNativeMenu' => 'false',
                 ])
             </div>
 

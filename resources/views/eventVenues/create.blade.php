@@ -32,7 +32,9 @@
                         'title' => __('views.created_by'),
                         'name' => 'created_by',
                         'placeholder' => __('views.select_owner'),
-                        'records' => $users
+                        'records' => $users,
+                        'liveSearch' => 'true',
+                        'mobileNativeMenu' => 'false',
                     ])
                 </div>
             @endif
@@ -67,6 +69,8 @@
                       'name' => 'country_id',
                       'placeholder' => __('views.select_country'), 
                       'records' => $countries,
+                      'liveSearch' => 'true',
+                      'mobileNativeMenu' => 'false',
                 ])
             </div>
             <div class="col-12">

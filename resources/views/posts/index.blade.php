@@ -43,7 +43,9 @@
                 'name' => 'category_id',
                 'placeholder' => __('views.filter_by_category'),
                 'records' => $categories,
-                'seleted' => $searchCategory
+                'seleted' => $searchCategory,
+                'liveSearch' => 'false',
+                'mobileNativeMenu' => 'true',
             ])
         </div>
         <div class="col-12 col-lg-3 mt-sm-0 mt-3">

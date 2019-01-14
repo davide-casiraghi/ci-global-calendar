@@ -34,7 +34,9 @@
                     'title' => __('views.category'),
                     'name' => 'category_id',
                     'placeholder' => __('views.select_category'),
-                    'records' => $categories
+                    'records' => $categories,
+                    'liveSearch' => 'false',
+                    'mobileNativeMenu' => 'true',
                 ])
             </div>
             <div class="col-12">

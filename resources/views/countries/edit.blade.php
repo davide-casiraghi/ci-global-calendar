@@ -42,7 +42,9 @@
                       'name' => 'continent_id',
                       'placeholder' => __('general.select_continent'),
                       'records' => $continents,
-                      'seleted' => $country->continent_id
+                      'seleted' => $country->continent_id,
+                      'liveSearch' => 'false',
+                      'mobileNativeMenu' => 'true',
                 ])
             </div>
         </div>
