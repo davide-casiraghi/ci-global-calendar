@@ -66,11 +66,24 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        <p><strong class="text-white">@lang('homepage-serach.what')</strong></p>
-                        @include('partials.forms.event-search.select-category')
-
-                        <p class="mt-3"><strong class="text-white">@lang('homepage-serach.who')</strong></p>
-                        @include('partials.forms.event-search.select-teacher')
+                        
+                        {{-- WHAT --}}
+                            <p><strong class="text-white">@lang('homepage-serach.what')</strong></p>
+                            
+                            @include('partials.forms.select', [
+                                  'title' =>  '',
+                                  'name' => 'category_id',
+                                  'placeholder' => __('homepage-serach.all_kind_of_events'),
+                                  'records' => $eventCategories,
+                                  'seleted' => $searchCategory,
+                                  'liveSearch' => 'true',
+                                  'mobileNativeMenu' => 'false',
+                            ])
+                        
+                        {{-- WHO --}}
+                            <p class="mt-3"><strong class="text-white">@lang('homepage-serach.who')</strong></p>
+                            
+                            @include('partials.forms.event-search.select-teacher')
                     </div>
                     <div class="col-md-4">
                         <p class="text-white">
