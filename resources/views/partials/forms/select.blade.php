@@ -10,14 +10,12 @@
 
     PARAMETERS:
         - $name: string - the select name attribute
-        - $liveSearch: boolean - enable the live search
-        - $mobileNativeMenu: boolean - enable mobile devices native menu for selectpicker menus
         - $placeholder: string - the text shown when nothing is selected 
         - $value: the selected value
         - $record: the content of the selected value
+        - $liveSearch: boolean - enable the live search
+        - $mobileNativeMenu: boolean - enable mobile devices native menu for selectpicker menus
 --}}
-
-
 
 <div class="form-group">
     @if(!empty($title))<label for="{{ $name }}">{{ $title }}</label>@endif
