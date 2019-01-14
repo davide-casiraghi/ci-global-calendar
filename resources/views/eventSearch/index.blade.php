@@ -84,6 +84,7 @@
                             <p class="mt-3"><strong class="text-white">@lang('homepage-serach.who')</strong></p>
                             
                             @include('partials.forms.event-search.select-teacher')
+                            
                     </div>
                     <div class="col-md-4">
                         <p class="text-white">
