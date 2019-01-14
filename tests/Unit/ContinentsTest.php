@@ -27,8 +27,8 @@ class ContinentsTest extends TestCase
      * Test that logged user can see continents index view
      */  
     public function test_logged_user_can_see_continents(){
-        // Authenticate the user
-            $this->authenticate();
+        // Authenticate the admin
+            $this->authenticateAsAdmin();
         
         // Access to the page
             $response = $this->get('/continents')
