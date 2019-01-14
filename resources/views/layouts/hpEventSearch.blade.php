@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     {{-- Facebook tags  --}}
-        <meta property="og:image" content="/storage/logo/logo_global_calendar.jpg" />
+        <meta property="og:image" content="/storage/logo/fb_logo_global_calendar.jpg" />
 
     {{-- CSRF Token --}}
         <meta name="csrf-token" content="{{ csrf_token() }}">
