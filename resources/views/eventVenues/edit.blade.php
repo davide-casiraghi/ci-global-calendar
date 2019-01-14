@@ -36,7 +36,9 @@
                         'name' => 'created_by',
                         'placeholder' => __('views.select_owner'),
                         'records' => $users,
-                        'seleted' => $eventVenue->created_by
+                        'seleted' => $eventVenue->created_by,
+                        'liveSearch' => 'true',
+                        'mobileNativeMenu' => 'false',
                     ])
                 </div>
             @endif
@@ -68,7 +70,9 @@
                       'name' => 'country_id',
                       'placeholder' => __('views.select_country'), 
                       'records' => $countries,
-                      'seleted' => $eventVenue->country_id
+                      'seleted' => $eventVenue->country_id,
+                      'liveSearch' => 'true',
+                      'mobileNativeMenu' => 'false',
                 ])
             </div>
             <div class="col-12">

@@ -73,7 +73,9 @@
                       'title' => __('general.country'),
                       'name' => 'country_id',
                       'placeholder' => __('views.select_country'), 
-                      'records' => $countries
+                      'records' => $countries,
+                      'liveSearch' => 'true',
+                      'mobileNativeMenu' => 'false',
                 ])
             </div>
 

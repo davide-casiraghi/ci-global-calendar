@@ -39,7 +39,9 @@
                       'title' => __('general.continent'),
                       'name' => 'continent_id',
                       'placeholder' => __('general.select_continent'),
-                      'records' => $continents
+                      'records' => $continents,
+                      'liveSearch' => 'false',
+                      'mobileNativeMenu' => 'true',
                 ])
             </div>
         </div>

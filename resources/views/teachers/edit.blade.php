@@ -36,7 +36,9 @@
                           'name' => 'created_by',
                           'placeholder' => __('views.select_owner'),
                           'records' => $users,
-                          'seleted' => $teacher->created_by
+                          'seleted' => $teacher->created_by,
+                          'liveSearch' => 'true',
+                          'mobileNativeMenu' => 'false',
                     ])
                 </div>
             @endif
@@ -47,7 +49,9 @@
                       'name' => 'country_id',
                       'placeholder' => __('views.select_country'),
                       'records' => $countries,
-                      'seleted' => $teacher->country_id
+                      'seleted' => $teacher->country_id,
+                      'liveSearch' => 'true',
+                      'mobileNativeMenu' => 'false',
                 ])
             </div>
 

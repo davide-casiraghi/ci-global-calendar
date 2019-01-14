@@ -36,7 +36,9 @@
                           'name' => 'created_by',
                           'placeholder' => __('views.select_owner'),
                           'records' => $users,
-                          'seleted' => $organizer->created_by
+                          'seleted' => $organizer->created_by,
+                          'liveSearch' => 'true',
+                          'mobileNativeMenu' => 'false',
                     ])
                 </div>
             @endif

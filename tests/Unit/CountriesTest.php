@@ -26,8 +26,8 @@ class CountriesTest extends TestCase
      * Test that logged user can see countries index view
      */  
     public function test_logged_user_can_see_countries(){
-        // Authenticate the user
-            $this->authenticate();
+        // Authenticate the admin
+            $this->authenticateAsAdmin();
         
         // Access to the page
             $response = $this->get('/countries')

@@ -43,7 +43,9 @@
                           'title' =>  __('views.created_by'), 
                           'name' => 'created_by',
                           'placeholder' => __('views.select_owner'),
-                          'records' => $users
+                          'records' => $users,
+                          'liveSearch' => 'true',
+                          'mobileNativeMenu' => 'false',
                     ])
                 </div>
             @endif
@@ -53,7 +55,9 @@
                       'title' => __('views.category'),
                       'name' => 'category_id',
                       'placeholder' => __('views.select_category'),
-                      'records' => $eventCategories
+                      'records' => $eventCategories,
+                      'liveSearch' => 'true',
+                      'mobileNativeMenu' => 'false',
                 ])
             </div>
 

@@ -42,7 +42,9 @@
                           'name' => 'created_by',
                           'placeholder' => 'Select owner',
                           'records' => $users,
-                          'seleted' => $event->created_by
+                          'seleted' => $event->created_by,
+                          'liveSearch' => 'true',
+                          'mobileNativeMenu' => 'false',
                     ])
                 </div>
             @endif
@@ -53,7 +55,9 @@
                       'name' => 'category_id',
                       'placeholder' => 'Select category',
                       'records' => $eventCategories,
-                      'seleted' => $event->category_id
+                      'seleted' => $event->category_id,
+                      'liveSearch' => 'true',
+                      'mobileNativeMenu' => 'false',
                 ])
             </div>
 

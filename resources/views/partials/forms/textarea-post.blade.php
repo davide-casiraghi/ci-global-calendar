@@ -13,7 +13,7 @@
 				selector: 'textarea#bodyTextarea',
                 
                 // Don't produce p tags on enter, instead produce <br />
-                    forced_root_block : "", 
+                    forced_root_block : '', 
                     force_br_newlines : true, 
                     force_p_newlines : false, 
                 
