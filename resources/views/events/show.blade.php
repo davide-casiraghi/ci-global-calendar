@@ -2,6 +2,10 @@
 
 @section('title'){{ $event->title }}@endsection
 
+@section('fb-tags')
+    <meta property="og:title" content="{{ $event->title }} - {{ $venue->name }} - {{ $venue->city }}, {{ $country->name }}" />
+@endsection    
+    
 @section('content')
 
     <div class="row">

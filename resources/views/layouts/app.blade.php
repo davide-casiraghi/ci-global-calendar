@@ -12,7 +12,8 @@
 
     {{-- Facebook tags  --}}
         <meta property="og:image" content="/storage/logo/fb_logo_cigc_red.jpg" />
-
+        @yield('fb-tags')
+        
     {{-- CSRF Token --}}
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
