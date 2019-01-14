@@ -2,6 +2,10 @@
 
 @section('title'){{ $teacher->name }}@endsection
 
+@section('fb-tags')
+    <meta property="og:title" content="{{ $teacher->name }}" />
+@endsection    
+
 @section('content')
 
     <div class="row">
