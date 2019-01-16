@@ -228,10 +228,12 @@ class EventController extends Controller
                 ->where('event_id','=',$event->id)
                 ->first();
 
-        $dateTime['dateStart'] = date("d/m/Y", strtotime($eventFirstRepetition->start_repeat));
-        $dateTime['dateEnd'] = date("d/m/Y", strtotime($eventFirstRepetition->end_repeat));
-        $dateTime['timeStart'] = date("g:i A", strtotime($eventFirstRepetition->start_repeat));
-        $dateTime['timeEnd'] = date("g:i A", strtotime($eventFirstRepetition->end_repeat));
+        $dateTime['dateStart'] =  (isset($eventFirstRepetition->start_repeat)) ? date("d/m/Y", strtotime($eventFirstRepetition->start_repeat)) : "";
+        $dateTime['dateEnd'] =  (isset($eventFirstRepetition->end_repeat)) ? date("d/m/Y", strtotime($eventFirstRepetition->end_repeat)) : "";
+        $dateTime['timeStart'] =  (isset($eventFirstRepetition->start_repeat)) ? date("g:i A", strtotime($eventFirstRepetition->start_repeat)) : "";
+        $dateTime['timeEnd'] =  (isset($eventFirstRepetition->end_repeat)) ? date("g:i A", strtotime($eventFirstRepetition->end_repeat)) : "";
+        
+        
         $dateTime['repeatUntil'] = date("d/m/Y", strtotime($event->repeat_until));
 
         // GET Multiple teachers
@@ -318,7 +320,7 @@ class EventController extends Controller
     function saveEventRepetitions($request, $event){
 
         $this->deletePreviousRepetitions($event->id);
-
+        
         // Saving repetitions - If it's a single event will be stored with just one repetition
             $timeStart = date("H:i:s", strtotime($request->get('time_start')));
             $timeEnd = date("H:i:s", strtotime($request->get('time_end')));
@@ -337,6 +339,7 @@ class EventController extends Controller
                     break;
 
                 case '2':   // repeatWeekly
+                
                     // Convert the start date in a format that can be used for strtotime
                         $startDate = implode("-", array_reverse(explode("/",$request->get('startDate'))));
 

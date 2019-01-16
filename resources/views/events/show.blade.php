@@ -18,6 +18,10 @@
         <div class="eventTitle col-12 mb-3">
             <h2>{{ $event->title }}</h2>
         </div>
+        
+        <div class="col-12">
+            {{ $event->image }}
+        </div>
 
         <div class="col-12 mt-1">
             <i class="fa fa-tag mr-2" data-toggle="tooltip" data-placement="top" title="Category"></i>
