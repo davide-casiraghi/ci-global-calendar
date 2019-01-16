@@ -20,7 +20,7 @@
         </div>
         
         <div class="col-12">
-            {{ $event->image }}
+            <img class="teacherPhoto ml-3" src="/storage/images/events_teaser/{{ $event->image }}" style="width:200px; float:right;">
         </div>
 
         <div class="col-12 mt-1">
