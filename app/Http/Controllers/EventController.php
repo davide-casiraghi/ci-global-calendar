@@ -973,13 +973,13 @@ class EventController extends Controller
                     
                     // Resize the image with Intervention - http://image.intervention.io/api/resize
                         // -  resize and store the image to a width of 300 and constrain aspect ratio (auto height)
+                        // - save file as jpg with medium quality
                             $image = \Image::make($teaserImageFile->getRealPath())
                                             ->resize(968, null, 
                                                 function ($constraint) {
                                                     $constraint->aspectRatio();
                                             })
-                                            ->encode('jpg', 75)
-                                            ->save(storage_path($destinationPath . $imageName));
+                                            ->save(storage_path($destinationPath . $imageName), 75); 
 
                 $event->image = $imageName;
            }
