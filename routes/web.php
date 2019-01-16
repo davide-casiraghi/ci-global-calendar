@@ -52,7 +52,6 @@ function()
             Route::post('/create-teacher/modal/', 'TeacherController@storeFromModal')->name('teachers.storeFromModal');
             Route::get('/teachersDirectory/', 'TeacherController@index')->name('teachers.directory');
             
-            
         Route::resource('organizers','OrganizerController');
             Route::get('/create-organizer/modal/', 'OrganizerController@modal')->name('organizers.modal');
             Route::post('/create-organizer/modal/', 'OrganizerController@storeFromModal')->name('organizers.storeFromModal');
@@ -101,22 +100,8 @@ function()
 
 /** OTHER PAGES THAT SHOULD NOT BE LOCALIZED **/
 
-/*  Editor Filemanager */
-    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
-    '\vendor\uniSharp\LaravelFilemanager\Lfm::routes()';
-
-/* Tests / Temporary */
-    //Route::get('/home', 'HomeController@index')->name('home');
-
-    //Route::post('countries.search','CountryController');
-    //Route::post('/countries/search', 'CountryController@index')->name('projects.update');
-    //Route::get('/countries/search', 'CountryController@search');
-
-    //Route::get('/search', 'HomeController@index')->name('home');
-
-    /*Route::get('/', function () {
-        //return view('welcome');
-        return view('home');
-    });*/
+    /*  Editor Filemanager */
+        Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+        '\vendor\uniSharp\LaravelFilemanager\Lfm::routes()';
 
 });
