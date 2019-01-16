@@ -1,13 +1,15 @@
+{{--
+    Recaptcha google v2 - https://github.com/anhskohbo/no-captcha
+    
+    PARAMETERS:
+        none
+--}}
 
 @section('javascript-head')
     @parent
     {!! NoCaptcha::renderJs() !!}
 @stop
 
-{{-- 
-    Recaptcha google v2 
-    https://github.com/anhskohbo/no-captcha
---}}
 <div class="recaptcha">
     
     {!! NoCaptcha::display() !!}

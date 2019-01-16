@@ -1,6 +1,12 @@
 
-{{-- 
-    textarea-plain partial provide a textarea without tinymce editor.
+{{--
+    TEXTAREA without tinymce editor.
+
+    PARAMETERS:
+        - $title: string - the title to show
+        - $name: string - the select name attribute
+        - $placeholder: string - the text shown when no text present 
+        - $value: the already stored value (used in edit view to retrieve the already stored value)
 --}}
 
 <div class="form-group">
