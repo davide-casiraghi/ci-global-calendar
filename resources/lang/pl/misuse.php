@@ -1,15 +1,15 @@
 <?php
 
 return [
-    'misuse' => 'Misuse',
-    'report_misuse' => 'Report misuse',
-    'report_violation' => 'You are about to report a violation of the calendar terms of use',
-    'reason' => 'Reason',
-    'select_one_option' => 'Select one option',
-    'not_about_ci' => 'Not about Contact Improvisation',
-    'contains_wrong_info' => 'Contains wrong informations',
-    'not_translated_english' => 'It is not translated in english',
-    'other' => 'Other (specify in the message)',
-    'message' => 'Message (optional)',
-    'include_all_details' => 'Include all the details you can',
+    'misuse' => 'Nadużycie',
+    'report_misuse' => 'Zgłoś nadużycie',
+    'report_violation' => 'Zaraz zgłosisz naruszenie warunków korzystania z kalendarza',
+    'reason' => 'Powód',
+    'select_one_option' => 'Wybierz jedną z opcji',
+    'not_about_ci' => 'To nie jest informacja o Kontakt Improwizacji',
+    'contains_wrong_info' => 'Zawiera nieprawidłowe informacje',
+    'not_translated_english' => 'Nie ma tłumaczenia na język angielski',
+    'other' => 'Inne (określić w wiadomości)',
+    'message' => 'Wiadomość (opcjonalnie)',
+    'include_all_details' => 'Uwzględnij wszystkie szczegóły',
 ];
