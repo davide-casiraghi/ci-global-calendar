@@ -959,6 +959,7 @@ class EventController extends Controller
         $event->on_monthly_kind = $request->get('on_monthly_kind');
         
         // Event teaser image upload
+            //dd($request->file('image'));
             if ($request->file('image')){
                 $imageFile = $request->file('image');
                 $imageName = time() . '.' . 'jpg';  //$imageName = $teaserImageFile->hashName();
@@ -968,6 +969,9 @@ class EventController extends Controller
                 
                 $this->uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
                 $event->image = $imageName;
+           }
+           else{
+               $event->image = $request->get('image_name');
            }
 
         // Support columns for homepage search (we need this to show events in HP with less use of resources)

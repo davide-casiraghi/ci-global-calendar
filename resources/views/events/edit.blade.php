@@ -152,6 +152,7 @@
                   'folder' => 'events_teaser',
                   'value' => $event->image,
             ])
+            
         </div>
 
         @include('partials.forms.buttons-back-submit', [
