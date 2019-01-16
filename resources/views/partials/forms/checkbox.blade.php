@@ -1,3 +1,12 @@
+{{--
+    CHECKBOX form field
+    
+    PARAMETERS:
+        - $name: string - the table field name
+        - $description: string - the description to show
+        - $value: the already stored value (used in edit view to retrieve the already stored value)
+--}}
+
 <div class="form-group">
     <div class="custom-control custom-checkbox">
         <input type="checkbox" name="{{$name}}" class="custom-control-input{{ $errors->has($name) ? ' is-invalid' : '' }}" id="customCheck1">
