@@ -145,6 +145,13 @@
                       'value' => $event->website_event_link
                 ])
             </div>
+            
+            @include('partials.forms.upload-image', [
+                  'title' => __('views.upload_event_teaser_image'), 
+                  'name' => 'image',
+                  'folder' => 'events_teaser',
+                  'value' => $event->image,
+            ])
         </div>
 
         @include('partials.forms.buttons-back-submit', [
