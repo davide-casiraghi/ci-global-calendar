@@ -981,6 +981,11 @@ class EventController extends Controller
                                                     $constraint->aspectRatio();
                                             })
                                             ->save(storage_path($destinationPath . $imageName), 75); 
+                            $image ->resize(310, null, 
+                                function ($constraint) {
+                                    $constraint->aspectRatio();
+                            })
+                            ->save(storage_path($destinationPath . "thumb_".$imageName), 75); 
 
                 $event->image = $imageName;
            }

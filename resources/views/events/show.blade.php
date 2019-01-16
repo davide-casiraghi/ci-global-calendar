@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <img class="teacherPhoto ml-3" src="/storage/images/events_teaser/{{ $event->image }}" style="width:310px; float:right;">
+                    <img class="teacherPhoto ml-3" src="/storage/images/events_teaser/thumb_{{ $event->image }}" style="width:310px; float:right;">
                 </div>
                 
             </div>
