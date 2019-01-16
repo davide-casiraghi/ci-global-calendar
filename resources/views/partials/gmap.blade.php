@@ -1,3 +1,14 @@
+{{--
+    GOOGLE MAPS: show a google map with a placemark and some description in
+    
+    PARAMETERS:
+        - $venue_name: string - 
+        - $venue_address: string - where to place the placemark
+        - $venue_city: string - 
+        - $venue_country: string - 
+        - $venue_zip_code: string -
+--}}
+
 <iframe
     width="100%"
     height="300"

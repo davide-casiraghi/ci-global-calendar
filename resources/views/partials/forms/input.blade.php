@@ -1,3 +1,13 @@
+{{--
+    INPUT form field
+    
+    PARAMETERS:
+        - $title: string - the title to show
+        - $name: string - the table field name
+        - $placeholder: string - the placeholder to show when no date selected
+        - $value: the already stored value (used in edit view to retrieve the already stored value)
+--}}
+
 <div class="form-group">
     @if(!empty($title))<label for="{{ $name }}">{{ $title }}</label>@endif
 
