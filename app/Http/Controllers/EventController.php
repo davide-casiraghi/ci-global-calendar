@@ -956,6 +956,14 @@ class EventController extends Controller
         $event->facebook_event_link = $request->get('facebook_event_link');
         $event->status = $request->get('status');
         $event->on_monthly_kind = $request->get('on_monthly_kind');
+        
+        // Event teaser image upload
+        if ($request->file('image')){
+            $teaserImageFile = $request->file('image');
+            $imageName = $teaserImageFile->hashName();
+            $path = $teaserImageFile->store('public/images/events_teaser');
+            $event->image = $imageName;
+       }
 
         // Support columns for homepage search (we need this to show events in HP with less use of resources)
             $event->sc_country_id = $venue->country_id;
