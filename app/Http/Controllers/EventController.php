@@ -232,8 +232,6 @@ class EventController extends Controller
         $dateTime['dateEnd'] =  (isset($eventFirstRepetition->end_repeat)) ? date("d/m/Y", strtotime($eventFirstRepetition->end_repeat)) : "";
         $dateTime['timeStart'] =  (isset($eventFirstRepetition->start_repeat)) ? date("g:i A", strtotime($eventFirstRepetition->start_repeat)) : "";
         $dateTime['timeEnd'] =  (isset($eventFirstRepetition->end_repeat)) ? date("g:i A", strtotime($eventFirstRepetition->end_repeat)) : "";
-        
-        
         $dateTime['repeatUntil'] = date("d/m/Y", strtotime($event->repeat_until));
 
         // GET Multiple teachers
