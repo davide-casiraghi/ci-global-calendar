@@ -6,6 +6,7 @@ use App\EventVenue;
 use App\Country;
 use App\User;
 
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -26,8 +27,13 @@ class EventVenueController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-        $countries = Country::pluck('name', 'id');
-
+        
+        $minutes = 15;    
+        //$countries = Country::orderBy('name')->pluck('name', 'id');
+        $countries = Cache::remember('countries', $minutes, function () {
+            return Country::orderBy('name')->pluck('name', 'id');
+        });
+                
         $searchKeywords = $request->input('keywords');
         $searchCountry = $request->input('country_id');
 

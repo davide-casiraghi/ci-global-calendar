@@ -39,8 +39,8 @@ class EventController extends Controller
      */
     public function index(Request $request){
         $authorUserId = ($this->getLoggedAuthorId()) ? $this->getLoggedAuthorId() : null; // if is 0 (administrator) it's setted to null to avoid include it in the query
-        $eventCategories = EventCategory::pluck('name', 'id');
-        $countries = Country::pluck('name', 'id');
+        $eventCategories = EventCategory::orderBy('name')->pluck('name', 'id');
+        $countries = Country::orderBy('name')->pluck('name', 'id');
         $venues = EventVenue::pluck( 'country_id', 'id');
 
         $searchKeywords = $request->input('keywords');

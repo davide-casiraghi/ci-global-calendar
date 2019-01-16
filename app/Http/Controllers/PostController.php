@@ -42,7 +42,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-        $categories = Category::pluck('name', 'id');
+        $categories = Category::orderBy('name')->pluck('name', 'id');
 
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
