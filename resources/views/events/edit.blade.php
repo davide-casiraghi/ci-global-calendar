@@ -20,7 +20,7 @@
           'style' => 'alert-danger',
     ])
 
-    <form action="{{ route('events.update',$event->id) }}" method="POST">
+    <form action="{{ route('events.update',$event->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 

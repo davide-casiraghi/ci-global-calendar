@@ -1,3 +1,16 @@
+
+{{--
+    UPLOAD IMAGE
+
+    IMPORTANT: when use this add to the form enctype="multipart/form-data"
+                like: <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
+    PARAMETERS:
+        - $title: string - the title to show
+        - $name: string - the select name attribute
+        - $folder: string - the folder name where to store the images in /storage/app/public/images/..
+        - $value: the already stored value (used in edit view to retrieve the already stored value, in create view can be '')
+--}}
+
 @section('javascript-document-ready')
     @parent
     $('.custom-file-input').on('change',function(){

@@ -23,7 +23,7 @@
           'style' => 'alert-danger',
     ])
 
-    <form action="{{ route('events.store') }}" method="POST">
+    <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
          <div class="row">

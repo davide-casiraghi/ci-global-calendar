@@ -959,6 +959,7 @@ class EventController extends Controller
         
         // Event teaser image upload
         if ($request->file('image')){
+            //dd("image uploading");
             $teaserImageFile = $request->file('image');
             $imageName = $teaserImageFile->hashName();
             $path = $teaserImageFile->store('public/images/events_teaser');
