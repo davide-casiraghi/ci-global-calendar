@@ -960,33 +960,13 @@ class EventController extends Controller
         
         // Event teaser image upload
             if ($request->file('image')){
-                $teaserImageFile = $request->file('image');
-                //$imageName = $teaserImageFile->hashName();
                 
-                $imageName = time() . '.' . 'jpg';
+                $imageFile = $request->file('image');
+                $imageName = time() . '.' . 'jpg';  //$imageName = $teaserImageFile->hashName();
+                $imageSubdir = "events_teaser";
                 
-                // Create dir if not exist (in /storage/app/public/images/..)
-                    if(!\Storage::disk('public')->has('images/events_teaser/')){
-                        \Storage::disk('public')->makeDirectory('images/events_teaser/');
-                    }
-                    
-                    $destinationPath = "app/public/images/events_teaser/";
-                    
-                    // Resize the image with Intervention - http://image.intervention.io/api/resize
-                        // -  resize and store the image to a width of 300 and constrain aspect ratio (auto height)
-                        // - save file as jpg with medium quality
-                            $image = \Image::make($teaserImageFile->getRealPath())
-                                            ->resize(968, null, 
-                                                function ($constraint) {
-                                                    $constraint->aspectRatio();
-                                            })
-                                            ->save(storage_path($destinationPath . $imageName), 75); 
-                            $image ->resize(310, null, 
-                                function ($constraint) {
-                                    $constraint->aspectRatio();
-                            })
-                            ->save(storage_path($destinationPath . "thumb_".$imageName), 75); 
-
+                $this->uploadImageOnServer($imageFile, $imageName, $imageSubdir);
+                
                 $event->image = $imageName;
            }
 
@@ -1092,6 +1072,41 @@ class EventController extends Controller
 
         return $ret;
     }*/
+    
+    // **********************************************************************
+
+    /**
+     * Upload image on server
+     *
+     * @param  none
+     * @return array $ret - the array with the organizers emails
+     */
+    function uploadImageOnServer($imageFile, $imageName, $imageSubdir){
+        
+        // Create dir if not exist (in /storage/app/public/images/..)
+            if(!\Storage::disk('public')->has('images/'.$imageSubdir.'/')){
+                \Storage::disk('public')->makeDirectory('images/'.$imageSubdir.'/');
+            }
+            
+            $destinationPath = "app/public/images/".$imageSubdir."/";
+            
+            // Resize the image with Intervention - http://image.intervention.io/api/resize
+                // -  resize and store the image to a width of 300 and constrain aspect ratio (auto height)
+                // - save file as jpg with medium quality
+                    $image = \Image::make($imageFile->getRealPath())
+                                    ->resize(968, null, 
+                                        function ($constraint) {
+                                            $constraint->aspectRatio();
+                                    })
+                                    ->save(storage_path($destinationPath . $imageName), 75); 
+                    $image ->resize(310, null, 
+                        function ($constraint) {
+                            $constraint->aspectRatio();
+                    })
+                    ->save(storage_path($destinationPath . "thumb_".$imageName), 75); 
+
+    }
+    
     
     
 }
