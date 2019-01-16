@@ -4,13 +4,13 @@ return [
     'contact_improvisation' => 'Kontakt Improwizacja',
     'global_calendar' => 'Globalny Kalendarz',
     'find_information' => 'Znajdź informacje o wydarzeniach Kontakt Improwizacji na na całym świecie (zajęcia, dżemy, warsztaty, festiwale i więcej)',
-    'under_costruction' => 'WE ARE UNDER CONSTRUCTION, calendar is still in beta testing phase, we plan to fully operate starting from January 2019 on',
+    'under_costruction' => 'STRONA W BUDOWIE, kalendarz jest nadal w fazie testów, planujemy w pełni działać od stycznia 2019 roku',
     'criteria' => 'Użyj jednego kryterium wyszukiwania lub więcej',
     'what' => 'Co',
     'when' => 'Kiedy',
-    'when_tooltip' => 'You can specify just one or both date fields',
+    'when_tooltip' => 'Możesz podać tylko jedno lub oba pola dat',
     'where' => 'Gdzie',
-    'where_tooltip' => 'Just the countries with available events are shown below',
+    'where_tooltip' => 'Tylko kraje z dostępnymi wydarzeniami są pokazane poniżej',
     'who' => 'Kto',
     'results_found' => 'znalezione rezultaty',
     'start_on' => 'Rozpoczyna się (lub po)',
@@ -22,7 +22,7 @@ return [
     'select_a_city' => 'Wybierz miasto',
     'all_kind_of_events' => 'Wszystkie rodzaje wydarzeń',
     'teacher_name' => 'Imię i nazwisko nauczyciela',
-    'venue_name' => 'Venue name',
-    'organizer_name' => 'Organizer name',
-    'photo_credits' => 'Photo credits'
+    'venue_name' => 'Nazwa miejsca',
+    'organizer_name' => 'Imię i nazwisko organizatora',
+    'photo_credits' => 'Imię i nazwisko fotografa'
 ];
