@@ -45,7 +45,7 @@ class Controller extends BaseController
      * @param  $imageSubdir - the subdir in /storage/app/public/images/..
      * @return none
      */
-    function uploadImageOnServer($imageFile, $imageName, $imageSubdir){
+    function uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth){
         
         // Create dir if not exist (in /storage/app/public/images/..)
             if(!\Storage::disk('public')->has('images/'.$imageSubdir.'/')){
@@ -57,17 +57,19 @@ class Controller extends BaseController
             // Resize the image with Intervention - http://image.intervention.io/api/resize
                 // -  resize and store the image to a width of 300 and constrain aspect ratio (auto height)
                 // - save file as jpg with medium quality
-                    $image = \Image::make($imageFile->getRealPath())
-                                    ->resize(968, null, 
-                                        function ($constraint) {
-                                            $constraint->aspectRatio();
-                                    })
-                                    ->save(storage_path($destinationPath . $imageName), 75); 
-                    $image ->resize(310, null, 
-                        function ($constraint) {
-                            $constraint->aspectRatio();
-                    })
-                    ->save(storage_path($destinationPath . "thumb_".$imageName), 75); 
+                $image = \Image::make($imageFile->getRealPath())
+                                ->resize($imageWidth, null, 
+                                    function ($constraint) {
+                                        $constraint->aspectRatio();
+                                })
+                                ->save(storage_path($destinationPath . $imageName), 75); 
+            
+            // Create the thumb            
+                $image->resize($thumbWidth, null, 
+                    function ($constraint) {
+                        $constraint->aspectRatio();
+                })
+                ->save(storage_path($destinationPath . "thumb_".$imageName), 75); 
 
     }
     // **********************************************************************
