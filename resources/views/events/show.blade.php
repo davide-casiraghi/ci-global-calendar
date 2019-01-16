@@ -4,6 +4,12 @@
 
 @section('fb-tags')
     <meta property="og:title" content="{{ $event->title }} - {{ $venue->name }} - {{ $venue->city }}, {{ $country->name }}" />
+    @if(!empty($event->image))
+        <meta property="og:image" content="/storage/images/events_teaser/{{ $event->image }}" />
+    @else
+        <meta property="og:image" content="/storage/logo/fb_logo_cigc_red.jpg" />
+    @endif
+    
 @endsection    
     
 @section('content')
@@ -18,51 +24,66 @@
         <div class="eventTitle col-12 mb-3">
             <h2>{{ $event->title }}</h2>
         </div>
+        
+        <div class="col-12">
+            <div class="row">
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-12 mt-1">
+                            <i class="fa fa-tag mr-2" data-toggle="tooltip" data-placement="top" title="Category"></i>
+                            {{ $category->name }}
+                        </div>
 
-        <div class="col-12 mt-1">
-            <i class="fa fa-tag mr-2" data-toggle="tooltip" data-placement="top" title="Category"></i>
-            {{ $category->name }}
-        </div>
+                        <div class="col-12 mt-2" style="display: table;">
+                            <i class="far fa-clock" data-toggle="tooltip" data-placement="top" title="Date & Time" style="display: table-cell; vertical-align: middle; width: 20px; text-align: center;"></i>
+                            <div class="date ml-2">
+                                <div class="bigdate">@date_monthname($datesTimes->start_repeat) @if(!$sameDateStartEnd)-&nbsp;@date_monthname($datesTimes->end_repeat)@endif</div>
+                                <small class="smalldate text-black-50">From @date_monthname($datesTimes->start_repeat)&nbsp;at&nbsp;@time_am_pm($datesTimes->start_repeat) to @if(!$sameDateStartEnd)@date_monthname($datesTimes->end_repeat) at @endif @time_am_pm($datesTimes->end_repeat)</small>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-2" style="display: table;">
+                            <i class="far fa-map-marker-alt" style="display: table-cell; vertical-align: middle; width: 20px; text-align: center;" data-toggle="tooltip" data-placement="top" title="Venue"></i>
+                            <div class="venue ml-2">
+                                {{ $venue->name }}  -  {{ $venue->address }}, {{ $venue->city }}, {{ $country->name }} - <a href="#map" name="map">Show map</a>
+                            </div>
+                        </div>
 
-        <div class="col-12 mt-2" style="display: table;">
-            <i class="far fa-clock" data-toggle="tooltip" data-placement="top" title="Date & Time" style="display: table-cell; vertical-align: middle; width: 20px; text-align: center;"></i>
-            <div class="date ml-2">
-                <div class="bigdate">@date_monthname($datesTimes->start_repeat) @if(!$sameDateStartEnd)-&nbsp;@date_monthname($datesTimes->end_repeat)@endif</div>
-                <small class="smalldate text-black-50">From @date_monthname($datesTimes->start_repeat)&nbsp;at&nbsp;@time_am_pm($datesTimes->start_repeat) to @if(!$sameDateStartEnd)@date_monthname($datesTimes->end_repeat) at @endif @time_am_pm($datesTimes->end_repeat)</small>
+                        @if(count($teachers))
+                            <div class="col-12 mt-2">
+                                <i class="far fa-users mr-1" data-toggle="tooltip" data-placement="top" title="Teachers"></i>
+                                @foreach ($teachers as $key => $teacher)
+                                    {{$teacher->name}}@if(!$loop->last),@endif
+                                @endforeach
+                            </div>
+                        @endif
+
+                        @if(count($organizers))
+                            <div class="col-12 mt-2">
+                                <i class="fa fa-users mr-1" data-toggle="tooltip" data-placement="top" title="Organizers"></i>
+                                @foreach ($organizers as $key => $organizer)
+                                    {{$organizer->name}}
+                                @endforeach
+                            </div>
+                        @endif
+
+                        @if(!empty($repetition_text))
+                            <div class="col-12 col-sm-12 col-md-12 mt-2">
+                                <i class="far fa-folders mr-1" data-toggle="tooltip" data-placement="top" title="Repetitions"></i>
+                                {{-- The event happens every Thursday until 10/6/2018--}}
+                                {{$repetition_text}}
+                            </div>
+                        @endif
+                    </div>
+                </div>
+                <div class="col-4">
+                    <img class="teacherPhoto ml-3" src="/storage/images/events_teaser/{{ $event->image }}" style="width:310px; float:right;">
+                </div>
+                
             </div>
         </div>
-        <div class="col-12 mt-2" style="display: table;">
-            <i class="far fa-map-marker-alt" style="display: table-cell; vertical-align: middle; width: 20px; text-align: center;" data-toggle="tooltip" data-placement="top" title="Venue"></i>
-            <div class="venue ml-2">
-                {{ $venue->name }}  -  {{ $venue->address }}, {{ $venue->city }}, {{ $country->name }} - <a href="#map" name="map">Show map</a>
-            </div>
-        </div>
+        
 
-        @if(count($teachers))
-            <div class="col-12 mt-2">
-                <i class="far fa-users mr-1" data-toggle="tooltip" data-placement="top" title="Teachers"></i>
-                @foreach ($teachers as $key => $teacher)
-                    {{$teacher->name}}@if(!$loop->last),@endif
-                @endforeach
-            </div>
-        @endif
-
-        @if(count($organizers))
-            <div class="col-12 mt-2">
-                <i class="fa fa-users mr-1" data-toggle="tooltip" data-placement="top" title="Organizers"></i>
-                @foreach ($organizers as $key => $organizer)
-                    {{$organizer->name}}
-                @endforeach
-            </div>
-        @endif
-
-        @if(!empty($repetition_text))
-            <div class="col-12 col-sm-12 col-md-12 mt-2">
-                <i class="far fa-folders mr-1" data-toggle="tooltip" data-placement="top" title="Repetitions"></i>
-                {{-- The event happens every Thursday until 10/6/2018--}}
-                {{$repetition_text}}
-            </div>
-        @endif
+        
 
         <div class="col-12">
             <hr>

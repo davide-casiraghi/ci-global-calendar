@@ -198,7 +198,14 @@ class TeacherController extends Controller
          if ($request->file('profile_picture')){
              $profilePictureFile = $request->file('profile_picture');
              $imageName = $profilePictureFile->hashName();
-             $path = $profilePictureFile->store('public/images/teachers_profile');
+             
+             // Create dir if not exist (in /storage/app/public/images/..)
+                 if(!\Storage::disk('public')->has('images/teachers_profile/')){
+                     \Storage::disk('public')->makeDirectory('images/teachers_profile/');
+                 }
+             // Upload the image
+                $path = $profilePictureFile->store('public/images/teachers_profile');
+                
              $teacher->profile_picture = $imageName;
         }
 

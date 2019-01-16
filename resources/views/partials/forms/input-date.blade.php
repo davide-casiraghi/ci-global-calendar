@@ -1,3 +1,17 @@
+{{--
+    Date selector that use datepicker plugin - [plugin link here]
+    
+    PARAMETERS:
+        - $title: string - the title to show
+        - $name: string - the table field name
+        - $placeholder: string - the placeholder to show when no date selected
+        - $endDate: eg.+1y (max one year from today)
+        - $value: the already stored value (used in edit view to show the already stored value)
+        - $tooltipFontAwesomeClass: string - The font awesome class, eg.fa fa-info-circle
+        - $tooltipText: string - text to show in the tooltip
+--}}
+
+
 @section('javascript-document-ready')
     @parent
     var today = new Date();

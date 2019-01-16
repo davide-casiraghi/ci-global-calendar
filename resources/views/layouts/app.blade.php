@@ -11,7 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{-- Facebook tags  --}}
-        <meta property="og:image" content="/storage/logo/fb_logo_cigc_red.jpg" />
         @yield('fb-tags')
         
     {{-- CSRF Token --}}

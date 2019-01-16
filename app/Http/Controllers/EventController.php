@@ -228,10 +228,10 @@ class EventController extends Controller
                 ->where('event_id','=',$event->id)
                 ->first();
 
-        $dateTime['dateStart'] = date("d/m/Y", strtotime($eventFirstRepetition->start_repeat));
-        $dateTime['dateEnd'] = date("d/m/Y", strtotime($eventFirstRepetition->end_repeat));
-        $dateTime['timeStart'] = date("g:i A", strtotime($eventFirstRepetition->start_repeat));
-        $dateTime['timeEnd'] = date("g:i A", strtotime($eventFirstRepetition->end_repeat));
+        $dateTime['dateStart'] =  (isset($eventFirstRepetition->start_repeat)) ? date("d/m/Y", strtotime($eventFirstRepetition->start_repeat)) : "";
+        $dateTime['dateEnd'] =  (isset($eventFirstRepetition->end_repeat)) ? date("d/m/Y", strtotime($eventFirstRepetition->end_repeat)) : "";
+        $dateTime['timeStart'] =  (isset($eventFirstRepetition->start_repeat)) ? date("g:i A", strtotime($eventFirstRepetition->start_repeat)) : "";
+        $dateTime['timeEnd'] =  (isset($eventFirstRepetition->end_repeat)) ? date("g:i A", strtotime($eventFirstRepetition->end_repeat)) : "";
         $dateTime['repeatUntil'] = date("d/m/Y", strtotime($event->repeat_until));
 
         // GET Multiple teachers
@@ -318,7 +318,7 @@ class EventController extends Controller
     function saveEventRepetitions($request, $event){
 
         $this->deletePreviousRepetitions($event->id);
-
+        
         // Saving repetitions - If it's a single event will be stored with just one repetition
             $timeStart = date("H:i:s", strtotime($request->get('time_start')));
             $timeEnd = date("H:i:s", strtotime($request->get('time_end')));
@@ -337,6 +337,7 @@ class EventController extends Controller
                     break;
 
                 case '2':   // repeatWeekly
+                
                     // Convert the start date in a format that can be used for strtotime
                         $startDate = implode("-", array_reverse(explode("/",$request->get('startDate'))));
 
@@ -956,6 +957,33 @@ class EventController extends Controller
         $event->facebook_event_link = $request->get('facebook_event_link');
         $event->status = $request->get('status');
         $event->on_monthly_kind = $request->get('on_monthly_kind');
+        
+        // Event teaser image upload
+            if ($request->file('image')){
+                $teaserImageFile = $request->file('image');
+                //$imageName = $teaserImageFile->hashName();
+                
+                $imageName = time() . '.' . 'jpg';
+                
+                // Create dir if not exist (in /storage/app/public/images/..)
+                    if(!\Storage::disk('public')->has('images/events_teaser/')){
+                        \Storage::disk('public')->makeDirectory('images/events_teaser/');
+                    }
+                    
+                    $destinationPath = "app/public/images/events_teaser/";
+                    
+                    // Resize the image with Intervention - http://image.intervention.io/api/resize
+                        // -  resize and store the image to a width of 300 and constrain aspect ratio (auto height)
+                        // - save file as jpg with medium quality
+                            $image = \Image::make($teaserImageFile->getRealPath())
+                                            ->resize(968, null, 
+                                                function ($constraint) {
+                                                    $constraint->aspectRatio();
+                                            })
+                                            ->save(storage_path($destinationPath . $imageName), 75); 
+
+                $event->image = $imageName;
+           }
 
         // Support columns for homepage search (we need this to show events in HP with less use of resources)
             $event->sc_country_id = $venue->country_id;

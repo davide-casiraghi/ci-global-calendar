@@ -1,5 +1,13 @@
-{{-- 
-    textarea-post partial provide the tinymce editor with some more buttons than the textarea partial.
+{{--
+    TEXTAREA with tinymce editor.
+        - provide some more editor buttons than the textarea partial.
+        - remove the p elements and add br instead
+        
+    PARAMETERS:
+        - $title: string - the title to show
+        - $name: string - the select name attribute
+        - $placeholder: string - the text shown when no text present 
+        - $value: the already stored value (used in edit view to retrieve the already stored value)
 --}}
 
 @section('javascript')

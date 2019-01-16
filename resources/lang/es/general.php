@@ -25,7 +25,7 @@ return [
     'continent' => 'Continente',
     'country' => 'País',
     'city' => 'Ciudad',
-    'privacy_policy' => 'For more information, please consult the Privacy Policy',
+    'privacy_policy' => 'Para más información, consulte la Política de Privacidad',
     'accept_terms_of_use' => 'Declaro que he leído y acepto los Términos y Condiciones de uso',
     'admin_account_approval' => 'Tu cuenta debe ser aprobada por el administrador, y puede demorar algo de tiempo (dias) hasta obtener la confirmación. La próxima vez debes sólo acceder y agregar tu entrada.',
     'to_be_approved' => 'Para ser aprobado como editor/a del Calendario Global CI, por favor describe tu rol en la comunidad de Contact Improvisación (esto es necesario para evitar el spam en el sitio web)',

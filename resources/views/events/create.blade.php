@@ -23,7 +23,7 @@
           'style' => 'alert-danger',
     ])
 
-    <form action="{{ route('events.store') }}" method="POST">
+    <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
          <div class="row">
@@ -146,6 +146,13 @@
                       'value' => old('website_event_link')
                 ])
             </div>
+            
+            @include('partials.forms.upload-image', [
+                  'title' => __('views.upload_event_teaser_image'), 
+                  'name' => 'image',
+                  'folder' => 'events_teaser',
+                  'value' => ''
+            ])
         </div>
 
         @include('partials.forms.buttons-back-submit', [

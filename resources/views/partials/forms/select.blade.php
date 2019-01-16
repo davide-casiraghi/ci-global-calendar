@@ -1,14 +1,8 @@
-{{--@section('javascript-document-ready')
-    @parent
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        $('.selectpicker').selectpicker('mobile');
-    }
-@stop--}}
-
 {{--
     SELECT Dropdown that use bootstrap select - https://developer.snapappointments.com/bootstrap-select/
 
     PARAMETERS:
+        - $title: string - the title to show
         - $name: string - the select name attribute
         - $placeholder: string - the text shown when nothing is selected 
         - $value: the selected value
@@ -16,6 +10,13 @@
         - $liveSearch: boolean - enable the live search
         - $mobileNativeMenu: boolean - enable mobile devices native menu for selectpicker menus
 --}}
+
+{{--@section('javascript-document-ready')
+    @parent
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        $('.selectpicker').selectpicker('mobile');
+    }
+@stop--}}
 
 <div class="form-group">
     @if(!empty($title))<label for="{{ $name }}">{{ $title }}</label>@endif
