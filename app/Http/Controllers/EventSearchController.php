@@ -34,13 +34,14 @@ class EventSearchController extends Controller
         $backgroundImages = BackgroundImage::all();
 
         $eventCategories = Cache::remember('categories', $minutes, function () {
-            return EventCategory::pluck('name', 'id');
+            return EventCategory::orderBy('name')->pluck('name', 'id');
         });
 
         $countries = Cache::remember('countries', $minutes, function () {
             return DB::table('countries')
                 ->join('event_venues', 'countries.id', '=', 'event_venues.country_id')
                 ->join('events', 'event_venues.id', '=', 'events.venue_id')
+                ->orderBy('countries.name')
                 ->pluck('countries.name', 'countries.id');
         });
 
@@ -51,7 +52,7 @@ class EventSearchController extends Controller
 
 
         $continents = Cache::rememberForever('continents', function () {
-            return Continent::pluck('name', 'id');
+            return Continent::orderBy('name')->pluck('name', 'id');
         });
 
         $venues = Cache::remember('venues', $minutes, function () {
@@ -59,7 +60,7 @@ class EventSearchController extends Controller
         });
 
         $teachers = Cache::remember('teachers', $minutes, function () {
-            return Teacher::pluck('name', 'id');
+            return Teacher::orderBy('name')->pluck('name', 'id');
         });
 
         // Get selected attributes from the search form
