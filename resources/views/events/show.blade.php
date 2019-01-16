@@ -27,7 +27,7 @@
         
         <div class="col-12">
             <div class="row">
-                <div class="col-8">
+                <div class="col-12 col-md-8">
                     <div class="row">
                         <div class="col-12 mt-1">
                             <i class="fa fa-tag mr-2" data-toggle="tooltip" data-placement="top" title="Category"></i>
@@ -75,8 +75,8 @@
                         @endif
                     </div>
                 </div>
-                <div class="col-4">
-                    <img class="teacherPhoto ml-3" src="/storage/images/events_teaser/thumb_{{ $event->image }}" style="width:310px; float:right;">
+                <div class="col-12 col-md-4 mt-sm-4">
+                    <img class="teacherPhoto ml-3" src="/storage/images/events_teaser/thumb_{{ $event->image }}" style="width:100%; float:right;">
                 </div>
                 
             </div>
