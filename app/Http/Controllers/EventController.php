@@ -960,7 +960,9 @@ class EventController extends Controller
         // Event teaser image upload
             if ($request->file('image')){
                 $teaserImageFile = $request->file('image');
-                $imageName = $teaserImageFile->hashName();
+                //$imageName = $teaserImageFile->hashName();
+                
+                $imageName = time() . '.' . 'jpg';
                 
                 // Create dir if not exist (in /storage/app/public/images/..)
                     if(!\Storage::disk('public')->has('images/events_teaser/')){
@@ -976,7 +978,7 @@ class EventController extends Controller
                                                 function ($constraint) {
                                                     $constraint->aspectRatio();
                                             })
-                                            //->encode('jpg', 75)
+                                            ->encode('jpg', 75)
                                             ->save(storage_path($destinationPath . $imageName));
 
                 $event->image = $imageName;
