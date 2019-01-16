@@ -29,4 +29,7 @@ return [
     'continent_added_successfully' => 'Continente agregado exitosamente',
     'continent_updated_successfully' => 'Continente actualizado exitosamente',
     'continent_deleted_successfully' => 'Continente borrado exitosamente',
+    'country_added_successfully' => 'País agregado exitosamente',
+    'country_updated_successfully' => 'País actualizado exitosamente',
+    'country_deleted_successfully' => 'País eliminado exitosamente',
 ];
