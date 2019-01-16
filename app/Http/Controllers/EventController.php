@@ -958,13 +958,19 @@ class EventController extends Controller
         $event->on_monthly_kind = $request->get('on_monthly_kind');
         
         // Event teaser image upload
-        if ($request->file('image')){
-            //dd("image uploading");
-            $teaserImageFile = $request->file('image');
-            $imageName = $teaserImageFile->hashName();
-            $path = $teaserImageFile->store('public/images/events_teaser');
-            $event->image = $imageName;
-       }
+            if ($request->file('image')){
+                $teaserImageFile = $request->file('image');
+                $imageName = $teaserImageFile->hashName();
+                
+                // Create dir if not exist (in /storage/app/public/images/..)
+                    if(!\Storage::disk('public')->has('images/events_teaser/')){
+                        \Storage::disk('public')->makeDirectory('images/events_teaser/');
+                    }
+                // Upload the image
+                    $path = $teaserImageFile->store('public/images/events_teaser');
+                    
+                $event->image = $imageName;
+           }
 
         // Support columns for homepage search (we need this to show events in HP with less use of resources)
             $event->sc_country_id = $venue->country_id;
