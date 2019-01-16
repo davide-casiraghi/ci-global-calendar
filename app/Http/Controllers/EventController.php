@@ -967,7 +967,7 @@ class EventController extends Controller
                         \Storage::disk('public')->makeDirectory('images/events_teaser/');
                     }
                     
-                    $destinationPath = 'public/images/events_teaser';
+                    $destinationPath = "app/public/images/events_teaser/";
                     
                     // Resize the image with Intervention - http://image.intervention.io/api/resize
                         // -  resize and store the image to a width of 300 and constrain aspect ratio (auto height)
@@ -977,7 +977,7 @@ class EventController extends Controller
                                                     $constraint->aspectRatio();
                                             })
                                             //->encode('jpg', 75)
-                                            ->save(storage_path("app/public/images/events_teaser/" . $imageName));
+                                            ->save(storage_path($destinationPath . $imageName));
 
                 $event->image = $imageName;
            }
