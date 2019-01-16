@@ -4,6 +4,12 @@
 
 @section('fb-tags')
     <meta property="og:title" content="{{ $event->title }} - {{ $venue->name }} - {{ $venue->city }}, {{ $country->name }}" />
+    @if(!empty($event->image))
+        <meta property="og:image" content="/storage/images/events_teaser/{{ $event->image }}" />
+    @else
+        <meta property="og:image" content="/storage/logo/fb_logo_cigc_red.jpg" />
+    @endif
+    
 @endsection    
     
 @section('content')
