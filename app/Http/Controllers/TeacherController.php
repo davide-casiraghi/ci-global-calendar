@@ -195,19 +195,16 @@ class TeacherController extends Controller
          $teacher->significant_teachers = $request->get('significant_teachers');
 
          // Teacher profile picture upload
-         if ($request->file('profile_picture')){
-             $profilePictureFile = $request->file('profile_picture');
-             $imageName = $profilePictureFile->hashName();
-             
-             // Create dir if not exist (in /storage/app/public/images/..)
-                 if(!\Storage::disk('public')->has('images/teachers_profile/')){
-                     \Storage::disk('public')->makeDirectory('images/teachers_profile/');
-                 }
-             // Upload the image
-                $path = $profilePictureFile->store('public/images/teachers_profile');
-                
-             $teacher->profile_picture = $imageName;
-        }
+             if ($request->file('profile_picture')){
+                 $imageFile = $request->file('profile_picture');
+                 $imageName = $imageFile->hashName();
+                 $imageSubdir = "teachers_profile";
+                 $imageWidth = "968";
+                 $thumbWidth = "345";
+                 
+                 $this->uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);    
+                 $teacher->profile_picture = $imageName;
+            }
 
          $teacher->website = $request->get('website');
          $teacher->facebook = $request->get('facebook');

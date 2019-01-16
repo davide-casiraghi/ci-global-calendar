@@ -960,7 +960,6 @@ class EventController extends Controller
         
         // Event teaser image upload
             if ($request->file('image')){
-                
                 $imageFile = $request->file('image');
                 $imageName = time() . '.' . 'jpg';  //$imageName = $teaserImageFile->hashName();
                 $imageSubdir = "events_teaser";
@@ -968,7 +967,6 @@ class EventController extends Controller
                 $thumbWidth = "310";
                 
                 $this->uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
-                
                 $event->image = $imageName;
            }
 
