@@ -36,4 +36,11 @@
     <div class="col-12 col-sm-4 col-md-4">
         <img style="width: 100%" src="/storage/images/{{$folder}}/{{$value}}" alt="">
     </div>
+    
+    {{-- show the image name to use in the edit view to not delete the image on update --}}
+    @include('partials.forms.input-hidden', [
+          'name' => 'image_name',
+          'value' => $value
+    ])
+    
 @endif

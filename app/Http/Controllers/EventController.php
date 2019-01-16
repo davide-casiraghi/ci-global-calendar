@@ -39,8 +39,8 @@ class EventController extends Controller
      */
     public function index(Request $request){
         $authorUserId = ($this->getLoggedAuthorId()) ? $this->getLoggedAuthorId() : null; // if is 0 (administrator) it's setted to null to avoid include it in the query
-        $eventCategories = EventCategory::pluck('name', 'id');
-        $countries = Country::pluck('name', 'id');
+        $eventCategories = EventCategory::orderBy('name')->pluck('name', 'id');
+        $countries = Country::orderBy('name')->pluck('name', 'id');
         $venues = EventVenue::pluck( 'country_id', 'id');
 
         $searchKeywords = $request->input('keywords');
@@ -959,30 +959,19 @@ class EventController extends Controller
         $event->on_monthly_kind = $request->get('on_monthly_kind');
         
         // Event teaser image upload
+            //dd($request->file('image'));
             if ($request->file('image')){
-                $teaserImageFile = $request->file('image');
-                //$imageName = $teaserImageFile->hashName();
+                $imageFile = $request->file('image');
+                $imageName = time() . '.' . 'jpg';  //$imageName = $teaserImageFile->hashName();
+                $imageSubdir = "events_teaser";
+                $imageWidth = "968";
+                $thumbWidth = "310";
                 
-                $imageName = time() . '.' . 'jpg';
-                
-                // Create dir if not exist (in /storage/app/public/images/..)
-                    if(!\Storage::disk('public')->has('images/events_teaser/')){
-                        \Storage::disk('public')->makeDirectory('images/events_teaser/');
-                    }
-                    
-                    $destinationPath = "app/public/images/events_teaser/";
-                    
-                    // Resize the image with Intervention - http://image.intervention.io/api/resize
-                        // -  resize and store the image to a width of 300 and constrain aspect ratio (auto height)
-                        // - save file as jpg with medium quality
-                            $image = \Image::make($teaserImageFile->getRealPath())
-                                            ->resize(968, null, 
-                                                function ($constraint) {
-                                                    $constraint->aspectRatio();
-                                            })
-                                            ->save(storage_path($destinationPath . $imageName), 75); 
-
+                $this->uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
                 $event->image = $imageName;
+           }
+           else{
+               $event->image = $request->get('image_name');
            }
 
         // Support columns for homepage search (we need this to show events in HP with less use of resources)
@@ -1087,6 +1076,9 @@ class EventController extends Controller
 
         return $ret;
     }*/
+    
+
+    
     
     
 }
