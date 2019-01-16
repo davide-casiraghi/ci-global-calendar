@@ -122,6 +122,8 @@ return [
     'who_took_the_photo'  => 'Qui a pris la photo ?',
     'contact_the_administrator'  => 'Contactez l\'administrateur-trice',
     'please_write_in_english' => 'Merci d\'écrire votre texte en anglais',
+    'select_one' => 'Choisir un',
+    'select_one_or_more' => 'Sélectionnez un ou plusieurs',
     'created_successfully' => ' created successfully',
     'updated_successfully' => ' updated successfully',
     'deleted_successfully' => ' deleted successfully',

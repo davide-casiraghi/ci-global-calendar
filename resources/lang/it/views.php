@@ -123,6 +123,8 @@ return [
     'who_took_the_photo'  => 'Chi ha fatto la foto?',
     'contact_the_administrator'  => 'Contatta l\'amministratore',
     'please_write_in_english' => 'Per cortesia scrivi il tuo testo in Inglese',
+    'select_one' => 'Seleziona uno',
+    'select_one_or_more' => 'Seleziona uno o più',
     'created_successfully' => ' created successfully',
     'updated_successfully' => ' updated successfully',
     'deleted_successfully' => ' deleted successfully',
