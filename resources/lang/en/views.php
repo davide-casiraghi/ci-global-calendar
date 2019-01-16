@@ -30,6 +30,7 @@ return [
     'facebook_profile' => 'Facebook profile',
     'website' => 'Website',
     'upload_profile_picture' => 'Upload profile picture',
+    'upload_event_teaser_image' => 'Upload event teaser image',
     'event_url' => 'Event URL',
     'translations' => 'Translations',
     'action' => 'Action',
