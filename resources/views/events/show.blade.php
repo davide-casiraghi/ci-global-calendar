@@ -75,7 +75,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="col-12 col-md-4 mt-sm-4">
+                <div class="col-12 col-md-4 mt-4 mt-md-0">
                     <img class="teacherPhoto ml-3" src="/storage/images/events_teaser/thumb_{{ $event->image }}" style="width:100%; float:right;">
                 </div>
                 
