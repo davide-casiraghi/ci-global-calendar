@@ -970,43 +970,14 @@ class EventController extends Controller
                     $destinationPath = 'public/images/events_teaser';
                     
                     // Resize the image with Intervention - http://image.intervention.io/api/resize
-                        // create instance
-                            //$image = \Image::make($teaserImageFile->getRealPath());
-                        // resize the image to a width of 300 and constrain aspect ratio (auto height)
-                            /*$image->resize(300, null, function ($constraint) {
-                                $constraint->aspectRatio();
-                            });*/
-                            
-                            //$image->move($destinationPath, $imageName);
-                    
-                            $path = 'images/events_teaser/';
-                            
-                            //dd($teaserImageFile->getRealPath());
-                    
-                            //dd(storage_path("app/public/images/events_teaser"));
-                    
-                            // resize the image to a width of 300 and constrain aspect ratio (auto height)
+                        // -  resize and store the image to a width of 300 and constrain aspect ratio (auto height)
                             $image = \Image::make($teaserImageFile->getRealPath())
                                             ->resize(300, null, 
                                                 function ($constraint) {
                                                     $constraint->aspectRatio();
                                             })
                                             ->save(storage_path("app/public/images/events_teaser/" . $imageName));
-                                            //->save('public/images/events_teaser', $imageName);
-                                            
-                    
-                    
-                    
-                            // prevent possible upsizing
-                            /*$img->resize(null, 400, function ($constraint) {
-                                $constraint->aspectRatio();
-                                $constraint->upsize();
-                            });*/
-                    
-                    
-                // Upload the image
-                    //$path = $teaserImageFile->store('public/images/events_teaser');
-                    
+
                 $event->image = $imageName;
            }
 
