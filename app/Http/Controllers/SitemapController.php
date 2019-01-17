@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Event;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
@@ -30,9 +31,13 @@ class SitemapController extends Controller
     /***************************************************************************/
     
     public function posts(){
-        $posts = Post::where('category_id', 6)->get();
+        //$posts = Post::where('category_id', 6)->get();
         
-        dd($posts);
+        $posts =  DB::table('posts')
+                       ->join('post_translations', 'posts.id', '=', 'post_translations.post_id')
+                       ->select('posts.*', 'post_translations.locale', 'post_translations.slug')->get();
+        
+        //dd($posts);
         return response()->view('sitemap.posts', [
             'posts' => $posts,
         ])->header('Content-Type', 'text/xml');

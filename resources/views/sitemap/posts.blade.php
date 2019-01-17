@@ -2,8 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     @foreach ($posts as $post)
         <url>
-            <loc>{{env('APP_URL')}}{{ $post->uri }}</loc>
-            <lastmod>{{ $post->publishes_at }}</lastmod>
+            <loc>{{env('APP_URL')}}{{ $post->locale }}/post/{{ $post->slug }}</loc>
+            <lastmod>{{ $post->updated_at }}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.6</priority>
         </url>
