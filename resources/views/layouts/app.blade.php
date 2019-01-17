@@ -49,8 +49,12 @@
     <div class="afterContent">
         @yield('afterContent')
     </div>
-
-    @include('footer.footer')
+    
+    @include('footer.footer', [
+        'container' => true,
+        'paddingX' => '',
+    ])
+    
     @include('partials.cookie-consent')
 
     {{-- JS --}}
