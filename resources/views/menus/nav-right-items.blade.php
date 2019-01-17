@@ -27,7 +27,7 @@
 
         {{-- <a class="dropdown-item" href="{{ route('users.index') }}">{{ __('Users') }}</a> --}}
         {{-- User profile --}}
-        <a class="dropdown-item" href="{{ route('users.edit', ['id' => Auth::user()->id]) }}">{{ __('menu.my_profile') }}</a>
+        <a class="dropdown-item" style="white-space: nowrap;" href="{{ route('users.edit', ['id' => Auth::user()->id]) }}"> <i class="far fa-user-cog"></i> {{ __('menu.my_profile') }}</a>
         
          <a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();
