@@ -18175,18 +18175,6 @@ nav.navbar {
   z-index: 4;
 }
 
-nav.navbar #navbarNavDropdown ul.navbar-nav li {
-  color: red;
-}
-
-nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item ul.dropdown-menu li {
-  color: yellow;
-}
-
-nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item ul.dropdown-menu li a.dropdown-item {
-  white-space: nowrap;
-}
-
 nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item ul.dropdown-menu li a.dropdown-item i {
   width: 1.3rem;
   text-align: center;
