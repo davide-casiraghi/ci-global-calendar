@@ -97,7 +97,7 @@
                         @include('partials.forms.input', [
                               'title' => '',
                               'name' => 'venue_name',
-                              'placeholder' => 'Venue name',
+                              'placeholder' => __('homepage-serach.venue_name'),
                               'value' => $searchVenue
                         ])
                     </div>

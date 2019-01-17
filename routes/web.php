@@ -102,6 +102,14 @@ function()
 
     /*  Editor Filemanager */
         Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
-        '\vendor\uniSharp\LaravelFilemanager\Lfm::routes()';
-
-});
+        '\vendor\uniSharp\LaravelFilemanager\Lfm::routes()';    
+    });
+    
+    /* Sitemap */
+        //Route::get('sitemap', 'SitemapController@show');
+        
+        Route::get('/sitemap', 'SitemapController@index');
+        Route::get('/sitemap/posts', 'SitemapController@posts');
+        Route::get('/sitemap/events', 'SitemapController@events');
+        Route::get('/sitemap/teachers', 'SitemapController@teachers');
+        Route::get('/sitemap.xml', 'SitemapController@index');

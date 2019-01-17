@@ -1,8 +1,17 @@
 
-{{-- Nav bar - Bootrap 4  and https://www.smartmenus.org--}}
+{{-- 
+    Navbar - Bootrap 4  and https://www.smartmenus.org
+    
+    PARAMETERS:
+        - $items: array - the items to show in the navbar
+        - $container: boolean - show the menu in a container or not 
+        - $padding-x: string - the padding on the left and right side of the nav bar, expressed in bootstrap spacing notation eg. px-5
 
-<nav class="navbar navbar-expand-lg navbar-light"> {{--navbar-dark bg-dark--}}
-    <div class="container">
+--}}
+
+
+<nav class="navbar navbar-expand-lg navbar-light {{$paddingX}}"> {{--navbar-dark bg-dark--}}
+    @if($container)<div class="container">@endif
         {{--<a class="navbar-brand" href="#">Navbar</a>--}}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,5 +37,5 @@
       {{-- end - Right Nav --}}
 
     </div>
-  </div>
+  @if($container)</div>@endif
 </nav>

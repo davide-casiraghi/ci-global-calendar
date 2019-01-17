@@ -19,22 +19,28 @@
 
 @else
     <li class="nav-item dropdown">
-        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-            {{ Auth::user()->name }} <span class="caret"></span>
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            <i class="far fa-user-circle"></i>  {{--{{ Auth::user()->name }}--}}  <span class="caret"></span>
         </a>
 
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+      <ul class="dropdown-menu sm-nowrap dropdown-menu-right">
 
         {{-- <a class="dropdown-item" href="{{ route('users.index') }}">{{ __('Users') }}</a> --}}
-         <a class="dropdown-item" href="{{ route('logout') }}"
+        {{-- User profile --}}
+        <li>
+            <a class="dropdown-item" href="{{ route('users.edit', ['id' => Auth::user()->id]) }}"> <i class="far fa-user-cog"></i> {{ __('menu.my_profile') }}</a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();">
-             <i class="fa fa-sign-out "></i> @lang('menu.logout')
-         </a>
+            document.getElementById('logout-form').submit();">
+            <i class="fa fa-sign-out "></i> @lang('menu.logout')
+            </a>
+         </li>
 
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               @csrf
           </form>
-      </div>
+      </ul>
   </li>
 @endguest

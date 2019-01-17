@@ -32,7 +32,11 @@
 
 <body> {{-- Laravel use VUE as default - https://stackoverflow.com/questions/41411344/vue-warn-cannot-find-element-app#41411385 --}}
     {{-- {!! menu('main', 'nav') !!} --}}
-    @include('menus.nav', ['items' => $MyNavBar->roots()])
+    @include('menus.nav', [
+        'items' => $MyNavBar->roots(),
+        'container' => true,
+        'paddingX' => '',
+    ])
 
     <div class="beforeContent">
         @yield('beforeContent')
@@ -45,8 +49,12 @@
     <div class="afterContent">
         @yield('afterContent')
     </div>
-
-    @include('footer.footer')
+    
+    @include('footer.footer', [
+        'container' => true,
+        'paddingX' => '',
+    ])
+    
     @include('partials.cookie-consent')
 
     {{-- JS --}}

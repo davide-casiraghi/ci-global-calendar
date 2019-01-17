@@ -16,7 +16,7 @@ return [
     'start_on' => 'Comincia il (o dopo del) ',
     'end_on' => 'Finisce il (o prima del)',
     'specify_one_or_both' => 'È possibile specificare nessuno, uno o entrambi i campi di ricerca',
-    'search_by_venue' => 'Cercare con il nome dello spazio o della sala',
+    'search_by_venue' => 'Cercare con il nome dello spazio',
     'select_a_continent' => 'Seleziona un continente',
     'select_a_country' => 'Seleziona uno stato',
     'select_a_city' => 'Seleziona una città',
@@ -24,7 +24,7 @@ return [
     'teacher_name' => 'Nome dell\'insegnante',
     'venue_name' => 'Nome del luogo',
     'organizer_name' => 'Nome dell\'organizzatore',
-    'venue_name' => 'Nome della località',
+    'venue_name' => 'Nome dello spazio o sala di danza',
     'organizer_name' => 'Nome dell\'organizzatore',
     'photo_credits' => 'Foto di'
 ];
