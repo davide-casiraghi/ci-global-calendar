@@ -111,4 +111,5 @@ function()
         Route::get('/sitemap', 'SitemapController@index');
         Route::get('/sitemap/posts', 'SitemapController@posts');
         Route::get('/sitemap/events', 'SitemapController@events');
+        Route::get('/sitemap/teachers', 'SitemapController@teachers');
         Route::get('/sitemap.xml', 'SitemapController@index');
