@@ -20,7 +20,7 @@
 @else
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-            <i class="far fa-user-circle"></i>  {{--{{ Auth::user()->name }}--}}  <span class="caret"></span>
+            <i class="fas fa-user-circle"></i>  {{--{{ Auth::user()->name }}--}}  <span class="caret"></span>
         </a>
 
       <ul class="dropdown-menu sm-nowrap dropdown-menu-right">
