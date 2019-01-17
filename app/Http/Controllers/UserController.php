@@ -14,8 +14,11 @@ use Validator;
 class UserController extends Controller
 {
     /* Restrict the access to this resource just to logged in users */
-    public function __construct(){
-        $this->middleware('admin');
+    public function __construct(User $user){
+        $this->middleware('admin', ['except' => ['edit']]);
+        
+        
+        //$user = $this->auth->user()  // null
     }
     
     /**
@@ -112,17 +115,24 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
-    {
-        $countries = Country::pluck('name', 'id');
+    public function edit(User $user){
+        
+        // Just Admins and the owner are allowed to edit the user profile
+            if (Auth::user()->id == $user->id || Auth::user()->isSuperAdmin()||Auth::user()->isAdmin()){
+                
+                $countries = Country::pluck('name', 'id');
 
-        // We check the user group to hide the group selection dropdown when the user is a guest
-            $logged_user = Auth::user();
-            $logged_user_group = ($logged_user) ? $logged_user->group : null;
+                // We check the user group to hide the group selection dropdown when the user is a guest
+                    $logged_user = Auth::user();
+                    $logged_user_group = ($logged_user) ? $logged_user->group : null;
 
-        return view('users.edit',compact('user'))
-                ->with('countries', $countries)
-                ->with('logged_user_group', $logged_user_group);
+                return view('users.edit',compact('user'))
+                        ->with('countries', $countries)
+                        ->with('logged_user_group', $logged_user_group);
+        	}
+        	else{
+        		return redirect()->route('home');
+        	}        
     }
 
     /**
