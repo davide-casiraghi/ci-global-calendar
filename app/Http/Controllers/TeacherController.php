@@ -251,7 +251,7 @@ class TeacherController extends Controller
     /**
      * Return the teacher by SLUG. (eg. http://websitename.com/teacher/xxxx)
      *
-     * @param  \App\Post  $post
+     * @param  \App\Teacher  $post
      * @return \Illuminate\Http\Response
      */
 

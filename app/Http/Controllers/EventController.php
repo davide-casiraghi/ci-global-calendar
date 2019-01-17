@@ -949,7 +949,7 @@ class EventController extends Controller
         //$event->description = $request->get('description');
         $event->description = clean($request->get('description'));
         $event->created_by = \Auth::user()->id;
-        $event->slug = str_slug($event->title, '-').rand(100000, 1000000);
+        $event->slug = str_slug($event->title, '-')."-".rand(100000, 1000000);
         $event->category_id = $request->get('category_id');
         $event->venue_id = $request->get('venue_id');
         $event->image = $request->get('image');
@@ -1056,26 +1056,22 @@ class EventController extends Controller
     
     return $ret;
     }
-
-    // **********************************************************************
-
+    
+    /***************************************************************************/
     /**
-     * Get organizers emails
+     * Return the event by SLUG. (eg. http://websitename.com/event/xxxx)
      *
-     * @param  none
-     * @return array $ret - the array with the organizers emails
+     * @param  \App\Event  $post
+     * @return \Illuminate\Http\Response
      */
-    /*function getOrganizersEmails($eventId){
-        $eventOrganizers = Event::find($eventId)->organizers;
-        $ret = "";
 
-        foreach ($eventOrganizers as $key => $eventOrganizer) {
-            $ret .= $eventOrganizer->email;
-            $ret .= ", ";
-        }
-
-        return $ret;
-    }*/
+    public function eventBySlug($slug){
+        
+        $event = Event::
+                where('slug', $slug)
+                ->first();
+        return $this->show($event);
+    }
     
 
     
