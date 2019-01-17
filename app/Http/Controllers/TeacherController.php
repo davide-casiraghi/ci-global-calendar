@@ -249,7 +249,7 @@ class TeacherController extends Controller
 
     /***************************************************************************/
     /**
-     * Return the teacher by SLUG. (eg. http://laravelblog.fr/teacher/xxxx)
+     * Return the teacher by SLUG. (eg. http://websitename.com/teacher/xxxx)
      *
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
