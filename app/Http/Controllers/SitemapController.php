@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
+
+/**
+*    Created using this tutorial: https://laravel-news.com/laravel-sitemap
+**/
+
+
 class SitemapController extends Controller
 {
     
