@@ -63,7 +63,7 @@
         @foreach ($teachers as $teacher)
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
                 <div class="col-12 col-md-6 col-lg-7 py-3 title">
-                    <a href="{{ route('teachers.show',$teacher->id) }}">{{ $teacher->name }}</a>
+                    <a href="/teacher/{{ $teacher->slug }}">{{ $teacher->name }}</a>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3 pb-3 py-md-3 country">
                     <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-2" data-original-title="@lang('general.country')"></i>
