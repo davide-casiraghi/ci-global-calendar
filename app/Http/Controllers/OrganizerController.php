@@ -170,7 +170,7 @@ class OrganizerController extends Controller
          $organizer->phone = $request->get('phone');
 
          $organizer->created_by = \Auth::user()->id;
-         $organizer->slug = str_slug($organizer->name, '-').rand(10000, 100000);
+         $organizer->slug = str_slug($organizer->name, '-')."-".rand(10000, 100000);
 
          $organizer->save();
      }
@@ -205,8 +205,21 @@ class OrganizerController extends Controller
         //return true;
     }
 
-    // **********************************************************************
+    /***************************************************************************/
+    /**
+     * Return the organizer by SLUG. (eg. http://websitename.com/organizer/xxxxx)
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
 
+    public function organizerBySlug($slug){
+        
+        $organizer = Organizer::
+                where('slug', $slug)
+                ->first();
+        return $this->show($organizer);
+    }
 
 
 

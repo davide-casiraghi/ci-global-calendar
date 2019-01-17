@@ -210,7 +210,7 @@ class TeacherController extends Controller
          $teacher->facebook = $request->get('facebook');
 
          $teacher->created_by = \Auth::user()->id;
-         $teacher->slug = str_slug($teacher->name, '-').rand(10000, 100000);
+         $teacher->slug = str_slug($teacher->name, '-')."-".rand(10000, 100000);
 
          $teacher->save();
      }
@@ -247,7 +247,20 @@ class TeacherController extends Controller
         //return true;
     }
 
-    // **********************************************************************
+    /***************************************************************************/
+    /**
+     * Return the teacher by SLUG. (eg. http://laravelblog.fr/teacher/xxxx)
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
 
+    public function teacherBySlug($slug){
+        
+        $teacher = Teacher::
+                where('slug', $slug)
+                ->first();
+        return $this->show($teacher);
+    }
 
 }
