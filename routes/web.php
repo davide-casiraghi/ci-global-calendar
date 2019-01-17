@@ -40,11 +40,9 @@ function()
     /* Events */
         Route::resource('eventCategories','EventCategoryController');
         Route::resource('events','EventController');
+        Route::get('/event/monthSelectOptions/', 'EventController@calculateMonthlySelectOptions');  // To populate the event repeat by month options
         Route::get('/event/{slug}', 'EventController@eventBySlug')->where('eventBySlug', '[a-z]+');
         
-        // To populate the event repeat by month options
-            Route::get('/event/monthSelectOptions/', 'EventController@calculateMonthlySelectOptions');
-
     /* Report Misuse */
         Route::post('/misuse', 'EventController@reportMisuse')->name("events.misuse");
         Route::get('/misuse/thankyou', 'EventController@reportMisuseThankyou')->name("events.misuse-thankyou");
