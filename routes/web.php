@@ -40,6 +40,7 @@ function()
     /* Events */
         Route::resource('eventCategories','EventCategoryController');
         Route::resource('events','EventController');
+        Route::get('/event/{slug}', 'EventController@eventBySlug')->where('eventBySlug', '[a-z]+');
         
         // To populate the event repeat by month options
             Route::get('/event/monthSelectOptions/', 'EventController@calculateMonthlySelectOptions');

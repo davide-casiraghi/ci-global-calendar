@@ -1066,13 +1066,13 @@ class EventController extends Controller
      */
 
     public function eventBySlug($slug){
-        
         $event = Event::
                 where('slug', $slug)
                 ->first();
         return $this->show($event);
     }
     
+    /***************************************************************************/
 
     
     

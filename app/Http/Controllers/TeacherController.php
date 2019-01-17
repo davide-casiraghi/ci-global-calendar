@@ -256,11 +256,12 @@ class TeacherController extends Controller
      */
 
     public function teacherBySlug($slug){
-        
         $teacher = Teacher::
                 where('slug', $slug)
                 ->first();
         return $this->show($teacher);
     }
+    
+    /***************************************************************************/
 
 }

@@ -214,7 +214,6 @@ class OrganizerController extends Controller
      */
 
     public function organizerBySlug($slug){
-        
         $organizer = Organizer::
                 where('slug', $slug)
                 ->first();
