@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Event;
+use App\Teacher;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
@@ -27,15 +28,21 @@ class SitemapController extends Controller
         
       $post = Post::orderBy('updated_at', 'desc')->first();
       $event = Event::orderBy('updated_at', 'desc')->first();
+      $teacher = Teacher::orderBy('updated_at', 'desc')->first();
 
       return response()->view('sitemap.index', [
           'post' => $post,
           'event' => $event,
+          'teacher' => $teacher,
       ])->header('Content-Type', 'text/xml');
     }
     
     /***************************************************************************/
-    
+    /**
+     * Generate the posts XML sitemap 
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function posts(){
         //$posts = Post::where('category_id', 6)->get();
         
@@ -50,11 +57,28 @@ class SitemapController extends Controller
     }
 
     /***************************************************************************/
-    
+    /**
+     * Generate the events XML sitemap 
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function events(){
         $events = Event::orderBy('updated_at', 'desc')->get();
         return response()->view('sitemap.events', [
             'events' => $events,
+        ])->header('Content-Type', 'text/xml');
+    }
+    
+    /***************************************************************************/
+    /**
+     * Generate the teachers XML sitemap 
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function teachers(){
+        $teachers = Teacher::orderBy('updated_at', 'desc')->get();
+        return response()->view('sitemap.teachers', [
+            'teachers' => $teachers,
         ])->header('Content-Type', 'text/xml');
     }
         
@@ -70,26 +94,7 @@ class SitemapController extends Controller
     }
     
     /***************************************************************************/
-    /**
-     * Generate the sitemap XML
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function generateSitemapXML(){
-        $ret = "";
-        
-        
-        $ret .= "<?xml version='1.0' encoding='UTF-8'?>";
-            $ret .= "<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'> ";
-                $ret .= "<url>";
-                    $ret .= "<loc>http://www.example.com/foo.html</loc>";
-                    $ret .= "<lastmod>2018-06-04</lastmod>";
-                $ret .= "</url>";
-        $ret .= "</urlset>";
-        
-        return $ret;
-    }    
-    
+ 
     
     
 }
