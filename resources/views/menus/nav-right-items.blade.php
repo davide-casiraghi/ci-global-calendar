@@ -19,15 +19,15 @@
 
 @else
     <li class="nav-item dropdown">
-        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+        <a id="navbarRightDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             <i class="far fa-user-circle"></i>  {{--{{ Auth::user()->name }}--}}  <span class="caret"></span>
         </a>
 
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarRightDropdown">
 
         {{-- <a class="dropdown-item" href="{{ route('users.index') }}">{{ __('Users') }}</a> --}}
         {{-- User profile --}}
-        <a class="dropdown-item" style="white-space: nowrap;" href="{{ route('users.edit', ['id' => Auth::user()->id]) }}"> <i class="far fa-user-cog"></i> {{ __('menu.my_profile') }}</a>
+        <a class="dropdown-item" href="{{ route('users.edit', ['id' => Auth::user()->id]) }}"> <i class="far fa-user-cog"></i> {{ __('menu.my_profile') }}</a>
         
          <a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();

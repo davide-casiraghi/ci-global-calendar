@@ -1,17 +1,19 @@
 nav{
     &.navbar{
         z-index: 4;
-
         #navbarNavDropdown{
             ul{
                 &.navbar-nav{
                     li{
                         &.nav-item{
+                            color: red;
                             ul{
                                 &.dropdown-menu{
                                     li{
+                                        color: yellow;
                                         a{
                                             &.dropdown-item{
+                                                /*white-space: nowrap;*/
                                                 i{
                                                     width: 1.3rem;
                                                     text-align: center;
