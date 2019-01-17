@@ -31,6 +31,8 @@ class SitemapController extends Controller
     
     public function posts(){
         $posts = Post::where('category_id', 6)->get();
+        
+        dd($posts);
         return response()->view('sitemap.posts', [
             'posts' => $posts,
         ])->header('Content-Type', 'text/xml');

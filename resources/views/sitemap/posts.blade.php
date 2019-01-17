@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     @foreach ($posts as $post)
         <url>
-            <loc>https://laravel-news.com/{{ $post->uri }}</loc>
+            <loc>{{env('APP_URL')}}{{ $post->uri }}</loc>
             <lastmod>{{ $post->publishes_at }}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.6</priority>
