@@ -30,7 +30,11 @@
 
 <body class=""> {{-- Laravel use VUE as default - https://stackoverflow.com/questions/41411344/vue-warn-cannot-find-element-app#41411385 --}}
     {{-- {!! menu('main', 'nav') !!} --}}
-    @include('menus.nav', ['items' => $MyNavBar->roots()])
+    @include('menus.nav', [
+        'items' => $MyNavBar->roots(),
+        'container' => true,
+        'paddingX' => '',
+    ])
 
     <div id="app" class="beforeContent">
         @yield('beforeContent')
