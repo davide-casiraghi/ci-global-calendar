@@ -1066,19 +1066,21 @@ class EventController extends Controller
      */
 
     public function eventBySlug($slug){
+        
         $event = Event::
                 where('slug', $slug)
                 ->first();
-                
 
         $firstRpId = DB::table('event_repetitions')
                 ->select('id')
                 ->where('event_id',$event->id)
-                ->first();     
-                
+                ->first();
+            
+        $request = new Request;
+        $request->rp_id = $firstRpId->id;    
                 
         //dd($event);
-        return $this->show($event, $firstRpId);
+        return $this->show($event, $request);
     }
     
     /***************************************************************************/
