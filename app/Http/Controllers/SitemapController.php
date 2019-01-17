@@ -59,6 +59,7 @@ class SitemapController extends Controller
     /***************************************************************************/
     /**
      * Generate the events XML sitemap 
+     * every event show the link to the closest repetition related to today.
      *
      * @return \Illuminate\Http\Response
      */
