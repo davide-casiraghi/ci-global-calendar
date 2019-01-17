@@ -57,11 +57,11 @@ class VenueTest extends DuskTestCase{
                    ->loginUser()
                       ->visit('/eventVenues')
                         ->click('a.create-new')
-                         ->type('name', 'Test venue name ')
+                         ->type('name', 'Test venue name')
                          ->type('address', 'test venue address')
                          ->type('city', 'test venue city')
                          ->type('state_province', 'test state province')
-                         ->select('country_id', 5)
+                         ->select('country_id', 3)
                          ->type('zip_code', '23422')
                          ->type('website', 'http://www.test.com') 
                          ->waitFor('#bodyTextarea_ifr');
