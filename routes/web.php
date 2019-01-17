@@ -102,6 +102,8 @@ function()
 
     /*  Editor Filemanager */
         Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
-        '\vendor\uniSharp\LaravelFilemanager\Lfm::routes()';
-
-});
+        '\vendor\uniSharp\LaravelFilemanager\Lfm::routes()';    
+    });
+    
+    /* Sitemap */
+        Route::get('sitemap', 'SitemapController@show');
