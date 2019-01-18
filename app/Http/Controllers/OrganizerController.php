@@ -111,12 +111,18 @@ class OrganizerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Organizer $organizer){
-        $authorUserId = $this->getLoggedAuthorId();
-        $users = User::pluck('name', 'id');
+        
+        if (Auth::user()->id == $organizer->created_by || Auth::user()->isSuperAdmin()|| Auth::user()->isAdmin()){
+            $authorUserId = $this->getLoggedAuthorId();
+            $users = User::pluck('name', 'id');
 
-        return view('organizers.edit',compact('organizer'))
-            ->with('users', $users)
-            ->with('authorUserId',$authorUserId);
+            return view('organizers.edit',compact('organizer'))
+                ->with('users', $users)
+                ->with('authorUserId',$authorUserId);
+        }
+        else{
+            return redirect()->route('home')->with('message', __('auth.not_allowed_to_access'));
+        }
     }
 
     /***************************************************************************/
