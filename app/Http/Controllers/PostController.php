@@ -274,7 +274,7 @@ class PostController extends Controller
 
     /***************************************************************************/
     /**
-     * Return the post HTML by SLUG. (eg. http://laravelblog.fr/post/davide_spada)
+     * Return the post by SLUG. (eg. http://websitename.com/post/xxxxx)
      *
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response

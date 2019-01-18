@@ -20,53 +20,63 @@ function()
 {
 	/** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
 
-    /* Homepage - Event Search*/
+    /* Homepage - Event Search */
         Route::get('/', 'EventSearchController@index')->name('home');
+        Route::resource('eventSearch','EventSearchController');
+        Route::get('/eventSearch#dataarea', 'EventSearchController@index');
 
-    /* Resource Controllers */
+    /* Users */
         Route::resource('users','UserController');
         
+    /* Posts */
         Route::resource('categories','CategoryController');
         Route::resource('posts','PostController');
-        //Route::resource('postTranslations','PostTranslationController');
         Route::get('/postTranslations/{postId}/{languageCode}/create', 'PostTranslationController@create');
         Route::get('/postTranslations/{postId}/{languageCode}/edit', 'PostTranslationController@edit');
         Route::post('/postTranslations/store', 'PostTranslationController@store')->name('postTranslations.store');
         Route::put('/postTranslations/update', 'PostTranslationController@update')->name('postTranslations.update');
+        Route::get('/post/{slug}', 'PostController@postBySlug')->where('postBySlug', '[a-z]+');
 
+    /* Events */
         Route::resource('eventCategories','EventCategoryController');
         Route::resource('events','EventController');
-            /* Report Misuse */
-            Route::post('/misuse', 'EventController@reportMisuse')->name("events.misuse");
-            Route::get('/misuse/thankyou', 'EventController@reportMisuseThankyou')->name("events.misuse-thankyou");
-            /* Mail to the event organizer */
-            Route::post('/mailToOrganizer', 'EventController@mailToOrganizer')->name("events.organizer-message");
-            Route::get('/mailToOrganizer/sent', 'EventController@mailToOrganizerSent')->name("events.organizer-sent");
+        Route::get('/event/monthSelectOptions/', 'EventController@calculateMonthlySelectOptions');  // To populate the event repeat by month options
+        Route::get('/event/{slug}', 'EventController@eventBySlug')->where('eventBySlug', '[a-z]+');
+        
+    /* Report Misuse */
+        Route::post('/misuse', 'EventController@reportMisuse')->name("events.misuse");
+        Route::get('/misuse/thankyou', 'EventController@reportMisuseThankyou')->name("events.misuse-thankyou");
+    
+    /* Mail to the event organizer */
+        Route::post('/mailToOrganizer', 'EventController@mailToOrganizer')->name("events.organizer-message");
+        Route::get('/mailToOrganizer/sent', 'EventController@mailToOrganizerSent')->name("events.organizer-sent");
 
+    /* Event Venues */
         Route::resource('eventVenues','EventVenueController');
-            Route::get('/create-venue/modal/', 'EventVenueController@modal')->name('eventVenues.modal');
-            Route::post('/create-venue/modal/', 'EventVenueController@storeFromModal')->name('eventVenues.storeFromModal');
+        Route::get('/create-venue/modal/', 'EventVenueController@modal')->name('eventVenues.modal');
+        Route::post('/create-venue/modal/', 'EventVenueController@storeFromModal')->name('eventVenues.storeFromModal');
 
+    /* Teachers */
         Route::resource('teachers','TeacherController');
-            Route::get('/create-teacher/modal/', 'TeacherController@modal')->name('teachers.modal');
-            Route::post('/create-teacher/modal/', 'TeacherController@storeFromModal')->name('teachers.storeFromModal');
-            Route::get('/teachersDirectory/', 'TeacherController@index')->name('teachers.directory');
-            
+        Route::get('/create-teacher/modal/', 'TeacherController@modal')->name('teachers.modal');
+        Route::post('/create-teacher/modal/', 'TeacherController@storeFromModal')->name('teachers.storeFromModal');
+        Route::get('/teachersDirectory/', 'TeacherController@index')->name('teachers.directory');
+        Route::get('/teacher/{slug}', 'TeacherController@teacherBySlug')->where('teacherBySlug', '[a-z]+');
+    
+    /* Organizers */
         Route::resource('organizers','OrganizerController');
-            Route::get('/create-organizer/modal/', 'OrganizerController@modal')->name('organizers.modal');
-            Route::post('/create-organizer/modal/', 'OrganizerController@storeFromModal')->name('organizers.storeFromModal');
+        Route::get('/create-organizer/modal/', 'OrganizerController@modal')->name('organizers.modal');
+        Route::post('/create-organizer/modal/', 'OrganizerController@storeFromModal')->name('organizers.storeFromModal');
+        Route::get('/organizer/{slug}', 'OrganizerController@organizerBySlug')->where('organizerBySlug', '[a-z]+');
 
+    /* Continents and Countries */
         Route::resource('continents','ContinentController');
         Route::resource('countries','CountryController');
-        Route::resource('eventSearch','EventSearchController');
-            Route::get('/eventSearch#dataarea', 'EventSearchController@index');
+    
+    /* Background images */    
         Route::resource('backgroundImages','BackgroundImageController');
 
-    // To populate the event repeat by month options
-        Route::get('/event/monthSelectOptions/', 'EventController@calculateMonthlySelectOptions');
-
-    // Single post by slug
-        Route::get('/post/{slug}', 'PostController@postBySlug')->where('postBySlug', '[a-z]+');
+    
 
     /* Authentication */
         //Auth::routes();
@@ -106,8 +116,6 @@ function()
     });
     
     /* Sitemap */
-        //Route::get('sitemap', 'SitemapController@show');
-        
         Route::get('/sitemap', 'SitemapController@index');
         Route::get('/sitemap/posts', 'SitemapController@posts');
         Route::get('/sitemap/events', 'SitemapController@events');

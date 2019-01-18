@@ -15,7 +15,7 @@ class OrganizerController extends Controller
 {
     /* Restrict the access to this resource just to logged in users except show view */
     public function __construct(){
-        $this->middleware('auth', ['except' => ['show']]);
+        $this->middleware('auth', ['except' => ['show','organizerBySlug']]);
     }
     
     /***************************************************************************/
@@ -111,12 +111,18 @@ class OrganizerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Organizer $organizer){
-        $authorUserId = $this->getLoggedAuthorId();
-        $users = User::pluck('name', 'id');
+        
+        if (Auth::user()->id == $organizer->created_by || Auth::user()->isSuperAdmin()|| Auth::user()->isAdmin()){
+            $authorUserId = $this->getLoggedAuthorId();
+            $users = User::pluck('name', 'id');
 
-        return view('organizers.edit',compact('organizer'))
-            ->with('users', $users)
-            ->with('authorUserId',$authorUserId);
+            return view('organizers.edit',compact('organizer'))
+                ->with('users', $users)
+                ->with('authorUserId',$authorUserId);
+        }
+        else{
+            return redirect()->route('home')->with('message', __('auth.not_allowed_to_access'));
+        }
     }
 
     /***************************************************************************/
@@ -170,7 +176,7 @@ class OrganizerController extends Controller
          $organizer->phone = $request->get('phone');
 
          $organizer->created_by = \Auth::user()->id;
-         $organizer->slug = str_slug($organizer->name, '-').rand(10000, 100000);
+         $organizer->slug = str_slug($organizer->name, '-')."-".rand(10000, 100000);
 
          $organizer->save();
      }
@@ -205,8 +211,20 @@ class OrganizerController extends Controller
         //return true;
     }
 
-    // **********************************************************************
+    /***************************************************************************/
+    /**
+     * Return the organizer by SLUG. (eg. http://websitename.com/organizer/xxxxx)
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
 
+    public function organizerBySlug($slug){
+        $organizer = Organizer::
+                where('slug', $slug)
+                ->first();
+        return $this->show($organizer);
+    }
 
 
 

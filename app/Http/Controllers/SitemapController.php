@@ -59,11 +59,30 @@ class SitemapController extends Controller
     /***************************************************************************/
     /**
      * Generate the events XML sitemap 
+     * every event show the link to the closest repetition related to today.
      *
      * @return \Illuminate\Http\Response
      */
     public function events(){
-        $events = Event::orderBy('updated_at', 'desc')->get();
+        
+        // search start from today's date
+            date_default_timezone_set('Europe/Rome');
+            $searchStartDate = date('Y-m-d', time());
+
+        // Get lastest event repetitions
+            $lastestEventsRepetitions = DB::table('event_repetitions')
+                ->selectRaw('event_id, MIN(id) AS rp_id, start_repeat, end_repeat')
+                ->where('event_repetitions.start_repeat', '>=',$searchStartDate)
+                ->groupBy('event_id');
+                            
+        // Retrieve the events 
+            $events = DB::table('events')
+                ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) use ($searchStartDate) {
+                    $join->on('events.id', '=', 'event_repetitions.event_id');
+                })
+                ->orderBy('event_repetitions.start_repeat', 'asc')
+                ->get();
+                    
         return response()->view('sitemap.events', [
             'events' => $events,
         ])->header('Content-Type', 'text/xml');

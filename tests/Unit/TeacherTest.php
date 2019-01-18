@@ -74,7 +74,7 @@ class TeacherTest extends TestCase
             $response = $this
                             ->followingRedirects()
                             ->post('/teachers', $data);
-            
+                            
         // Assert in database
             $data['bio'] = clean($bio);
             $this->assertDatabaseHas('teachers',$data);

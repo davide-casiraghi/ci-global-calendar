@@ -17,7 +17,7 @@ class TeacherController extends Controller
 {
     /* Restrict the access to this resource just to logged in users except show and index view */
     public function __construct(){
-        $this->middleware('auth', ['except' => ['index','show']]);
+        $this->middleware('auth', ['except' => ['index','show','teacherBySlug']]);
     }
 
     /***************************************************************************/
@@ -210,7 +210,7 @@ class TeacherController extends Controller
          $teacher->facebook = $request->get('facebook');
 
          $teacher->created_by = \Auth::user()->id;
-         $teacher->slug = str_slug($teacher->name, '-').rand(10000, 100000);
+         $teacher->slug = str_slug($teacher->name, '-')."-".rand(10000, 100000);
 
          $teacher->save();
      }
@@ -247,7 +247,21 @@ class TeacherController extends Controller
         //return true;
     }
 
-    // **********************************************************************
+    /***************************************************************************/
+    /**
+     * Return the teacher by SLUG. (eg. http://websitename.com/teacher/xxxx)
+     *
+     * @param  \App\Teacher  $post
+     * @return \Illuminate\Http\Response
+     */
 
+    public function teacherBySlug($slug){
+        $teacher = Teacher::
+                where('slug', $slug)
+                ->first();
+        return $this->show($teacher);
+    }
+    
+    /***************************************************************************/
 
 }
