@@ -87,7 +87,7 @@
                                     </div>
                                     <div class="col-md-3 py-3 py-md-0 vcenter title">
                                         {{--<a href="{{ route('events.show',$event->id) }}">{{ $event->title }}</a>--}}
-                                        <a href="{!! route('events.show', ['id'=>$event->id, 'rp_id'=>$event->rp_id])  !!}">
+                                        <a href="/event/{{$event->slug}}">
                                             {{ str_limit($event->title, $limit = 50, $end = '...') }}
                                         </a>
                                     </div>
