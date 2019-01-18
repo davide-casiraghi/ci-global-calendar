@@ -130,7 +130,7 @@ class UserController extends Controller
                     ->with('logged_user_group', $logged_user_group);
     	}
     	else{
-    		return redirect()->route('home');
+    		return redirect()->route('home')->with('message', __('auth.not_allowed_to_access'));
     	}        
     }
 

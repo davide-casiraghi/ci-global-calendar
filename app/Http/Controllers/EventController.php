@@ -265,7 +265,7 @@ class EventController extends Controller
                         ->with('authorUserId',$authorUserId);
         }
         else{
-    		return redirect()->route('home');
+    		return redirect()->route('home')->with('message', __('auth.not_allowed_to_access'));
     	}  
     }
 
