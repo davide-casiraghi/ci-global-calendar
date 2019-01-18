@@ -27,6 +27,7 @@ class GenerateMenus
     public function handle($request, Closure $next)
     {
 
+        /* LEFT Menu */
         \Menu::make('MyNavBar', function($menu) {
             
             $profile = $menu->add("home")->link->href('/');
@@ -43,29 +44,31 @@ class GenerateMenus
                 $profile->builder->items[5]->title = '<i class="fa fas fa-question-circle"></i> '.__('menu.help');
         });
 
+        /* RIGHT Menu */
         \Menu::make('MyNavBarRight', function ($menu) {
             $user = Auth::user();
 
             if ($user){
-
-                    $profile = $menu->add(__('menu.manager'));
-                        $profile->prepend('<i class="fa fas fa-edit"></i> ');
-                        $profile->link->href('#');
-
-                        $profile->add('New event', ['action' => ['EventController@create']]);
-                        $profile->link->builder->items[1]->title = '<i class="fa fas fa-plus-circle "></i> '.__('menu.new_event');
-                        $profile->add('My Events', ['action' => ['EventController@index']]);
-                        $profile->link->builder->items[2]->title = '<i class="far fa-calendar-alt"></i> '.__('menu.my_events');
-                        $profile->add('My Venues', ['action' => ['EventVenueController@index']]);
-                        $profile->link->builder->items[3]->title = '<i class="far fa-map-marker-alt"></i> '.__('menu.my_venues');
-                        $profile->add('My Teachers', ['route' => ['teachers.index']]); 
-                        $profile->link->builder->items[4]->title = '<i class="far fa-users"></i> '.__('menu.my_teachers');
-                        $profile->add('My Organizers', ['action' => ['OrganizerController@index']]);
-                        $profile->link->builder->items[5]->title = '<i class="fas fa-users"></i> '.__('menu.my_organizers');
+                
+                /* Manager */
+                $profile = $menu->add("manager")->link->href('#');
+                    $profile->builder->items[0]->title = '<i class="fa fas fa-edit"></i> '.__('menu.manager');
+                    $menu->manager->add('new_event', ['route' => ['events.create']]); 
+                        $profile->builder->items[1]->title = '<i class="fa fas fa-plus-circle"></i> '.__('menu.new_event');
+                    $menu->manager->add('my_events', ['route' => ['events.index']]); 
+                        $profile->builder->items[2]->title = '<i class="far fa-calendar-alt"></i> '.__('menu.my_events');
+                    $menu->manager->add('my_venues', ['route' => ['eventVenues.index']]); 
+                        $profile->builder->items[3]->title = '<i class="far fa-map-marker-alt"></i> '.__('menu.my_venues');
+                    $menu->manager->add('my_teachers', ['route' => ['teachers.index']]); 
+                        $profile->builder->items[4]->title = '<i class="far fa-users"></i> '.__('menu.my_teachers');
+                    $menu->manager->add('my_organizers', ['route' => ['organizers.index']]); 
+                        $profile->builder->items[5]->title = '<i class="fas fa-users"></i> '.__('menu.my_organizers');
+                    
                         
 
                 if($user->isSuperAdmin()||$user->isAdmin()){
-
+                
+                    /* Admin tools */
                     $profile = $menu->add(__('menu.admin_tools'));
                         $profile->prepend('<i class="far fa-cog"></i> ');
                         $profile->link->href('#');
