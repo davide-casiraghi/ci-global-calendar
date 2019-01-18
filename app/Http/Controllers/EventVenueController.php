@@ -130,14 +130,19 @@ class EventVenueController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(EventVenue $eventVenue){
-        $authorUserId = $this->getLoggedAuthorId();
-        $users = User::pluck('name', 'id');
-        $countries = Country::pluck('name', 'id');
+        if (Auth::user()->id == $eventVenue->created_by || Auth::user()->isSuperAdmin()|| Auth::user()->isAdmin()){
+            $authorUserId = $this->getLoggedAuthorId();
+            $users = User::pluck('name', 'id');
+            $countries = Country::pluck('name', 'id');
 
-        return view('eventVenues.edit',compact('eventVenue'))
-            ->with('countries', $countries)
-            ->with('users', $users)
-            ->with('authorUserId',$authorUserId);
+            return view('eventVenues.edit',compact('eventVenue'))
+                ->with('countries', $countries)
+                ->with('users', $users)
+                ->with('authorUserId',$authorUserId);
+        }
+        else{
+            return redirect()->route('home')->with('message', __('auth.not_allowed_to_access'));
+        }
     }
 
     /***************************************************************************/
