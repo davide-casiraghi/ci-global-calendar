@@ -136,7 +136,7 @@
                                 <div class="row text-uppercase">
 
                                 {{-- One day event --}}
-                                @if (@date($event->start_repeat)==@date($event->end_repeat))
+                                @if (Carbon\Carbon::parse($event->start_repeat)->format('d-m-Y') == Carbon\Carbon::parse($event->end_repeat)->format('d-m-Y'))
                                     <div class='dateBox col text-center bg-secondary text-white px-2 vcenter' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
                                         <strong>
                                             @day($event->start_repeat)<br class="d-none d-lg-block"/>

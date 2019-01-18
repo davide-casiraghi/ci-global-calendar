@@ -65,11 +65,10 @@ class SitemapController extends Controller
      */
     public function events(){
         
-        // search start from today's date
-            date_default_timezone_set('Europe/Rome');
-            $searchStartDate = date('Y-m-d', time());
-
         // Get lastest event repetitions
+            date_default_timezone_set('Europe/Rome');
+            $searchStartDate = date('Y-m-d', time());  // search start from today's date
+            
             $lastestEventsRepetitions = DB::table('event_repetitions')
                 ->selectRaw('event_id, MIN(id) AS rp_id, start_repeat, end_repeat')
                 ->where('event_repetitions.start_repeat', '>=',$searchStartDate)
