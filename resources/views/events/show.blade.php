@@ -52,7 +52,7 @@
                             <div class="col-12 mt-2">
                                 <i class="far fa-users mr-1" data-toggle="tooltip" data-placement="top" title="Teachers"></i>
                                 @foreach ($teachers as $key => $teacher)
-                                    {{$teacher->name}}@if(!$loop->last),@endif
+                                    <a href="/teacher/{{$teacher->slug}}">{{$teacher->name}}</a>@if(!$loop->last),@endif
                                 @endforeach
                             </div>
                         @endif
