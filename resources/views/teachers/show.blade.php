@@ -23,38 +23,42 @@
 
         @if(!empty($country->name))
             <div class="col-12 mt-4">
-                <h3>Country</h3>
+                <b>Country:</b>
                 {{ $country->name }}
             </div>
         @endif
 
         @if(!empty($teacher->year_starting_practice))
             <div class="col-12 mt-4">
-                <h3>Year of starting to practice</h3>
+                <b>Year of starting to practice:</b>
                 {{ $teacher->year_starting_practice }}
             </div>
         @endif
 
         @if(!empty($teacher->year_starting_teach))
             <div class="col-12 mt-4">
-                <h3>Year of starting to teach</h3>
+                <b>Year of starting to teach:</b>
                 {{ $teacher->year_starting_teach }}
             </div>
         @endif
 
         @if(!empty($teacher->facebook))
             <div class="col-12 mt-4">
-                <h3>Facebook profile</h3>
+                <b>Facebook profile:</b>
                 <a href="{{ $teacher->facebook }}" target="_blank">{{ $teacher->facebook }}</a>
             </div>
         @endif
 
         @if(!empty($teacher->website))
             <div class="col-12 mt-4">
-                <h3>Website</h3>
+                <b>Website:</b>
                 <a href="{{ $teacher->website }}" target="_blank">{{ $teacher->website }}</a>
             </div>
         @endif
+        
+        <div class="col-12 mt-4">
+            <h4>This teacher will also teach in this events</h4>
+        </div>
 
     </div>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Teacher;
 use App\Country;
 use App\User;
+use App\Event;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -119,9 +120,14 @@ class TeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Teacher $teacher){
-        $country = Country::select('name')
-        ->where('id', $teacher->country_id)
-        ->first();
+        
+        // Get the name of the teacher's country
+            $country = Country::select('name')
+            ->where('id', $teacher->country_id)
+            ->first();
+        
+        // Get the events where this teacher is teaching to
+            $eventsTeacherWillTeach = $teacher->events()->get();
         
         return view('teachers.show',compact('teacher'))
             ->with('country', $country);
