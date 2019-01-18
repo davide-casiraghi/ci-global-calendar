@@ -21,46 +21,27 @@
             </div>
         @endif
 
-        @if(!empty($country->name))
-            <div class="col-12 mt-4">
-                <b>Country:</b>
-                {{ $country->name }}
-            </div>
-        @endif
+        <div class="col-12 mt-4">
+            @if(!empty($country->name))<p><b>Country: </b> {{ $country->name }}</p>@endif
+            @if(!empty($teacher->year_starting_practice))<p><b>Year of starting to practice: </b>{{ $teacher->year_starting_practice }}</p>@endif
+            @if(!empty($teacher->year_starting_teach))<p><b>Year of starting to teach:</b>{{ $teacher->year_starting_teach }}</p>@endif
+            @if(!empty($teacher->facebook))<p><b>Facebook profile: </b><a href="{{ $teacher->facebook }}" target="_blank">{{ $teacher->facebook }}</a></p>@endif
+            @if(!empty($teacher->website))<p><b>Website: </b><a href="{{ $teacher->website }}" target="_blank">{{ $teacher->website }}</a></p>@endif
+        
+        </div>
+        
+            
+        
 
-        @if(!empty($teacher->year_starting_practice))
-            <div class="col-12 mt-4">
-                <b>Year of starting to practice:</b>
-                {{ $teacher->year_starting_practice }}
-            </div>
-        @endif
+        
 
-        @if(!empty($teacher->year_starting_teach))
-            <div class="col-12 mt-4">
-                <b>Year of starting to teach:</b>
-                {{ $teacher->year_starting_teach }}
-            </div>
-        @endif
-
-        @if(!empty($teacher->facebook))
-            <div class="col-12 mt-4">
-                <b>Facebook profile:</b>
-                <a href="{{ $teacher->facebook }}" target="_blank">{{ $teacher->facebook }}</a>
-            </div>
-        @endif
-
-        @if(!empty($teacher->website))
-            <div class="col-12 mt-4">
-                <b>Website:</b>
-                <a href="{{ $teacher->website }}" target="_blank">{{ $teacher->website }}</a>
-            </div>
-        @endif
+        
         
         @if(count($eventsTeacherWillTeach))
-            <div class="col-12 mt-4">
-                <h4>This teacher will teach in this events</h4>
+            <div class="col-12 mt-5">
+                <h4 class="mb-4">This teacher will teach in this events</h4>
                 
-                <ul>
+                {{--<ul>
                     @foreach ($eventsTeacherWillTeach as $event)
                         <li>
                             <a href="/event/{{$event->slug}}">{{$event->title}}</a>
@@ -69,7 +50,7 @@
                             - @date($event->start_repeat) - @date($event->end_repeat)
                         </li>
                     @endforeach
-                </ul>
+                </ul>--}}
                 
                 <div class="eventSearch">
                     <div class="container">
@@ -104,7 +85,7 @@
                                         @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6 py-3 py-md-0 vcenter title">
+                                    <div class="col-md-3 py-3 py-md-0 vcenter title">
                                         {{--<a href="{{ route('events.show',$event->id) }}">{{ $event->title }}</a>--}}
                                         <a href="{!! route('events.show', ['id'=>$event->id, 'rp_id'=>$event->rp_id])  !!}">
                                             {{ str_limit($event->title, $limit = 50, $end = '...') }}
