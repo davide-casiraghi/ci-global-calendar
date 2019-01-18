@@ -61,13 +61,14 @@
                                         <div class="row text-uppercase">
 
                                         {{-- One day event --}}
-                                        @if ($event->start_repeat == $event->end_repeat)
+                                        @if (Carbon\Carbon::parse($event->start_repeat)->format('d-m-Y') == Carbon\Carbon::parse($event->end_repeat)->format('d-m-Y'))
                                             <div class='dateBox col text-center bg-secondary text-white px-2 vcenter' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
                                                 <strong>
                                                     @day($event->start_repeat)<br class="d-none d-lg-block"/>
                                                     @month($event->start_repeat)
                                                 </strong>
                                             </div>
+                                        
                                         {{-- Many days event --}}
                                         @else
                                             <div class='col text-center bg-secondary text-white px-1 mr-1' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
@@ -86,7 +87,6 @@
                                         </div>
                                     </div>
                                     <div class="col-md-3 py-3 py-md-0 vcenter title">
-                                        {{--<a href="{{ route('events.show',$event->id) }}">{{ $event->title }}</a>--}}
                                         <a href="/event/{{$event->slug}}">
                                             {{ str_limit($event->title, $limit = 50, $end = '...') }}
                                         </a>
