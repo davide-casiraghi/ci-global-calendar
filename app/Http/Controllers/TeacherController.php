@@ -143,6 +143,8 @@ class TeacherController extends Controller
                                               ->orderBy('event_repetitions.start_repeat', 'asc')
                                               ->get();
         
+        //dd($eventsTeacherWillTeach);
+        
         return view('teachers.show',compact('teacher'))
             ->with('country', $country)
             ->with('eventsTeacherWillTeach', $eventsTeacherWillTeach);
