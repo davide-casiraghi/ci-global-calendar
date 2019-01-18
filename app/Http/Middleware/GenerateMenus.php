@@ -28,18 +28,19 @@ class GenerateMenus
     {
 
         \Menu::make('MyNavBar', function($menu) {
-            $profile = $menu->add(__('menu.home'))->prepend('<i class="fa fa-home"></i> ');
-            $profile = $menu->add(__('menu.about'), ['action' => ['PostController@show', 'id' => 8]]);
-                $profile->prepend('<i class="fa fa fa-info-circle"></i> ');
-                $profile->add('Terms of use', ['action' => ['PostController@show', 'id' => 19]]);
-                $profile->link->builder->items[2]->title = '<i class="far fa-file-alt"></i> '.__('menu.terms_of_use');
-                $profile->add('Teachers directory', ['route' => ['teachers.directory']]); 
-                $profile->link->builder->items[3]->title = '<i class="far fa-users"></i> '.__('menu.teachers_directory');
             
-            $profile = $menu->add(__('menu.get_involved'), ['action' => ['PostController@show', 'id' => 16]]);
-                $profile->prepend('<i class="fa fa-users"></i> ');
-            $profile = $menu->add(__('menu.help'), ['action' => ['PostController@show', 'id' => 41]]);
-                $profile->prepend('<i class="fa fas fa-question-circle"></i> ');
+            $profile = $menu->add("home")->link->href('/');
+                $profile->builder->items[0]->title = '<i class="fa fa-home"></i> '.__('menu.home');
+            $profile = $menu->add("about")->link->href('/post/about');
+                $profile->builder->items[1]->title = '<i class="fa fa fa-info-circle"></i> '.__('menu.about');
+                $menu->about->add("terms_of_use")->link->href('/post/terms-of-use');
+                    $profile->builder->items[2]->title = '<i class="far fa-file-alt"></i> '.__('menu.terms_of_use');
+                $menu->about->add('teachers_directory', ['route' => ['teachers.directory']]); 
+                    $profile->builder->items[3]->title = '<i class="far fa-users"></i> '.__('menu.teachers_directory');
+            $profile = $menu->add("get_involved")->link->href('/post/get-involved');
+                $profile->builder->items[4]->title = '<i class="fa fa-users"></i> '.__('menu.get_involved');
+            $profile = $menu->add("help")->link->href('/post/how-to-insert-contents');
+                $profile->builder->items[5]->title = '<i class="fa fas fa-question-circle"></i> '.__('menu.help');
         });
 
         \Menu::make('MyNavBarRight', function ($menu) {
@@ -61,8 +62,7 @@ class GenerateMenus
                         $profile->link->builder->items[4]->title = '<i class="far fa-users"></i> '.__('menu.my_teachers');
                         $profile->add('My Organizers', ['action' => ['OrganizerController@index']]);
                         $profile->link->builder->items[5]->title = '<i class="fas fa-users"></i> '.__('menu.my_organizers');
-                        //$profile->add('My Profile', ['action' => ['UserController@edit', 'id' => $user->id]]);
-                        //$profile->link->builder->items[6]->title = '<i class="fa far fa-user"></i> '.__('menu.my_profile');
+                        
 
                 if($user->isSuperAdmin()||$user->isAdmin()){
 
