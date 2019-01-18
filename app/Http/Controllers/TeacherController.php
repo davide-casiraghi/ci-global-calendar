@@ -136,13 +136,15 @@ class TeacherController extends Controller
                 ->groupBy('event_id');
         
         // Get the events where this teacher is teaching to
+        //DB::enableQueryLog();
             $eventsTeacherWillTeach = $teacher->events()
+                                              ->select('events.title','events.slug','events.sc_country_name','events.sc_city_name','event_repetitions.start_repeat','event_repetitions.end_repeat')
                                               ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) use ($searchStartDate) {
                                                     $join->on('events.id', '=', 'event_repetitions.event_id');
                                                 })
                                               ->orderBy('event_repetitions.start_repeat', 'asc')
                                               ->get();
-        
+        //dd(DB::getQueryLog());
         //dd($eventsTeacherWillTeach);
         
         return view('teachers.show',compact('teacher'))
