@@ -6,10 +6,12 @@ use App\Teacher;
 use App\Country;
 use App\User;
 use App\Event;
+use App\EventCategory;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Cache;
 
 use Illuminate\Http\Request;
 use Validator;
@@ -125,6 +127,11 @@ class TeacherController extends Controller
             $country = Country::select('name')
             ->where('id', $teacher->country_id)
             ->first();
+            
+        $minutes = 15;
+        $eventCategories = Cache::remember('categories', $minutes, function () {
+            return EventCategory::orderBy('name')->pluck('name', 'id');
+        });
         
         // Get lastest event repetitions
             date_default_timezone_set('Europe/Rome');
@@ -138,7 +145,7 @@ class TeacherController extends Controller
         // Get the events where this teacher is teaching to
         //DB::enableQueryLog();
             $eventsTeacherWillTeach = $teacher->events()
-                                              ->select('events.title','events.slug','events.sc_country_name','events.sc_city_name','event_repetitions.start_repeat','event_repetitions.end_repeat')
+                                              ->select('events.title','events.category_id','events.slug','events.sc_venue_name','events.sc_country_name','events.sc_city_name','events.sc_teachers_names','event_repetitions.start_repeat','event_repetitions.end_repeat')
                                               ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) use ($searchStartDate) {
                                                     $join->on('events.id', '=', 'event_repetitions.event_id');
                                                 })
@@ -149,6 +156,7 @@ class TeacherController extends Controller
         
         return view('teachers.show',compact('teacher'))
             ->with('country', $country)
+            ->with('eventCategories',$eventCategories)
             ->with('eventsTeacherWillTeach', $eventsTeacherWillTeach);
     }
 
