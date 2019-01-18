@@ -56,10 +56,23 @@
             </div>
         @endif
         
-        <div class="col-12 mt-4">
-            <h4>This teacher will also teach in this events</h4>
-        </div>
-
+        @if(count($eventsTeacherWillTeach))
+            <div class="col-12 mt-4">
+                <h4>This teacher will also teach in this events</h4>
+                
+                <ul>
+                    @foreach ($eventsTeacherWillTeach as $event)
+                        <li>
+                            <a href="/event/{{$event->slug}}">{{$event->title}}</a>
+                            - {{$event->sc_country_name}}
+                            - {{$event->sc_city_name}}
+                        </li>
+                    @endforeach
+                </ul>
+                
+            </div>
+             
+        @endif
     </div>
 
 @endsection

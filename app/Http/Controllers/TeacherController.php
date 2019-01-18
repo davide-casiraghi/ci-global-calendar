@@ -128,9 +128,11 @@ class TeacherController extends Controller
         
         // Get the events where this teacher is teaching to
             $eventsTeacherWillTeach = $teacher->events()->get();
+            //dd($eventsTeacherWillTeach);
         
         return view('teachers.show',compact('teacher'))
-            ->with('country', $country);
+            ->with('country', $country)
+            ->with('eventsTeacherWillTeach', $eventsTeacherWillTeach);
     }
 
     /**
