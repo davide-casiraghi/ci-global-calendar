@@ -58,7 +58,7 @@
         
         @if(count($eventsTeacherWillTeach))
             <div class="col-12 mt-4">
-                <h4>This teacher will also teach in this events</h4>
+                <h4>This teacher will teach in this events</h4>
                 
                 <ul>
                     @foreach ($eventsTeacherWillTeach as $event)
