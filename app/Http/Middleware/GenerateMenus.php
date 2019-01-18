@@ -69,27 +69,27 @@ class GenerateMenus
                 if($user->isSuperAdmin()||$user->isAdmin()){
                 
                     /* Admin tools */
-                    $profile = $menu->add(__('menu.admin_tools'));
-                        $profile->prepend('<i class="far fa-cog"></i> ');
-                        $profile->link->href('#');
-
-                        $profile->add('Users', ['action' => ['UserController@index']]);
-                        $profile->link->builder->items[7]->title = '<i class="fas fa-user-alt"></i> '.__('menu.users');
-                        $profile->add('Posts', ['action' => ['PostController@index']]);
-                        $profile->link->builder->items[8]->title = '<i class="far fa-file-alt"></i> '.__('menu.posts');
-
+                    $profile = $menu->add("admin_tools")->link->href('#');
+                        $profile->builder->items[6]->title = '<i class="far fa-cog"></i> '.__('menu.admin_tools');
+                        $menu->adminTools->add('users', ['route' => ['users.index']]); 
+                            $profile->builder->items[7]->title = '<i class="fas fa-user-alt"></i> '.__('menu.users');
+                        $menu->adminTools->add('posts', ['route' => ['posts.index']]); 
+                            $profile->builder->items[8]->title = '<i class="far fa-file-alt"></i> '.__('menu.posts');
+                        
                         if($user->isSuperAdmin()){
-                            $profile->add('Post Categories', ['action' => ['CategoryController@index']]);
-                                $profile->link->builder->items[9]->title = '<i class="far fa-tags"></i> '.__('menu.posts_categories');
-                            $profile->add('Event Categories', ['action' => ['EventCategoryController@index']]);
-                                $profile->link->builder->items[10]->title = '<i class="fas fa-tags"></i> '.__('menu.event_categories');
-                            $profile->add('Continents', ['action' => ['ContinentController@index']]);
-                                $profile->link->builder->items[11]->title = '<i class="fas fa-globe-americas"></i> '.__('menu.continents');
-                            $profile->add('Countries', ['action' => ['CountryController@index']]);
-                                $profile->link->builder->items[12]->title = '<i class="far fa-globe-americas"></i> '.__('menu.countries');
-                            $profile->add('Background images', ['action' => ['BackgroundImageController@index']]);
-                                $profile->link->builder->items[13]->title = '<i class="far fa-images"></i> '.__('menu.background_images');
+                            $menu->adminTools->add('post_categories', ['route' => ['categories.index']]); 
+                                $profile->builder->items[9]->title = '<i class="far fa-tags"></i> '.__('menu.posts_categories');
+                            $menu->adminTools->add('event_categories', ['route' => ['eventCategories.index']]); 
+                                $profile->builder->items[10]->title = '<i class="fas fa-tags"></i> '.__('menu.event_categories');
+                            $menu->adminTools->add('continents', ['route' => ['continents.index']]); 
+                                $profile->builder->items[11]->title = '<i class="fas fa-globe-americas"></i> '.__('menu.continents');
+                            $menu->adminTools->add('countries', ['route' => ['countries.index']]); 
+                                $profile->builder->items[12]->title = '<i class="far fa-globe-americas"></i> '.__('menu.countries');
+                            $menu->adminTools->add('background_images', ['route' => ['backgroundImages.index']]); 
+                                $profile->builder->items[13]->title = '<i class="far fa-images"></i> '.__('menu.background_images');
+                                                        
                         }
+                    
                 }
             }
         });
