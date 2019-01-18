@@ -230,8 +230,6 @@ class EventVenueController extends Controller
         $this->saveOnDb($request, $eventVenue);
 
         return redirect()->back()->with('message', __('messages.venue_added_successfully'));
-        //return redirect()->back()->with('message', __('auth.successfully_registered'));
-        //return true;
     }
 
     // **********************************************************************
