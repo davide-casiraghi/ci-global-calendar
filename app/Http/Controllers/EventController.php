@@ -214,52 +214,59 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Event $event){
-        $authorUserId = $this->getLoggedAuthorId();
+        
+        if (Auth::user()->id == $event->created_by || Auth::user()->isSuperAdmin()|| Auth::user()->isAdmin()){
+            
+            $authorUserId = $this->getLoggedAuthorId();
 
-        $eventCategories = EventCategory::pluck('name', 'id');
-        $users = User::pluck('name', 'id');
-        $teachers = Teacher::pluck('name', 'id');
-        $organizers = Organizer::pluck('name', 'id');
-        $venues = DB::table('event_venues')
-                ->select('id','name','address','city')->get();
+            $eventCategories = EventCategory::pluck('name', 'id');
+            $users = User::pluck('name', 'id');
+            $teachers = Teacher::pluck('name', 'id');
+            $organizers = Organizer::pluck('name', 'id');
+            $venues = DB::table('event_venues')
+                    ->select('id','name','address','city')->get();
 
-        $eventFirstRepetition = DB::table('event_repetitions')
-                ->select('id','start_repeat','end_repeat')
-                ->where('event_id','=',$event->id)
-                ->first();
+            $eventFirstRepetition = DB::table('event_repetitions')
+                    ->select('id','start_repeat','end_repeat')
+                    ->where('event_id','=',$event->id)
+                    ->first();
 
-        $dateTime['dateStart'] =  (isset($eventFirstRepetition->start_repeat)) ? date("d/m/Y", strtotime($eventFirstRepetition->start_repeat)) : "";
-        $dateTime['dateEnd'] =  (isset($eventFirstRepetition->end_repeat)) ? date("d/m/Y", strtotime($eventFirstRepetition->end_repeat)) : "";
-        $dateTime['timeStart'] =  (isset($eventFirstRepetition->start_repeat)) ? date("g:i A", strtotime($eventFirstRepetition->start_repeat)) : "";
-        $dateTime['timeEnd'] =  (isset($eventFirstRepetition->end_repeat)) ? date("g:i A", strtotime($eventFirstRepetition->end_repeat)) : "";
-        $dateTime['repeatUntil'] = date("d/m/Y", strtotime($event->repeat_until));
+            $dateTime['dateStart'] =  (isset($eventFirstRepetition->start_repeat)) ? date("d/m/Y", strtotime($eventFirstRepetition->start_repeat)) : "";
+            $dateTime['dateEnd'] =  (isset($eventFirstRepetition->end_repeat)) ? date("d/m/Y", strtotime($eventFirstRepetition->end_repeat)) : "";
+            $dateTime['timeStart'] =  (isset($eventFirstRepetition->start_repeat)) ? date("g:i A", strtotime($eventFirstRepetition->start_repeat)) : "";
+            $dateTime['timeEnd'] =  (isset($eventFirstRepetition->end_repeat)) ? date("g:i A", strtotime($eventFirstRepetition->end_repeat)) : "";
+            $dateTime['repeatUntil'] = date("d/m/Y", strtotime($event->repeat_until));
 
-        // GET Multiple teachers
-            $teachersDatas = $event->teachers;
-            $teachersSelected = array();
-            foreach ($teachersDatas as $teacherDatas) {
-                array_push($teachersSelected, $teacherDatas->id);
-            }
-            $multiple_teachers = implode(',', $teachersSelected);
+            // GET Multiple teachers
+                $teachersDatas = $event->teachers;
+                $teachersSelected = array();
+                foreach ($teachersDatas as $teacherDatas) {
+                    array_push($teachersSelected, $teacherDatas->id);
+                }
+                $multiple_teachers = implode(',', $teachersSelected);
 
-        // GET Multiple Organizers
-            $organizersDatas = $event->organizers;
-            $organizersSelected = array();
-            foreach ($organizersDatas as $organizerDatas) {
-                array_push($organizersSelected, $organizerDatas->id);
-            }
-            $multiple_organizers = implode(',', $organizersSelected);
+            // GET Multiple Organizers
+                $organizersDatas = $event->organizers;
+                $organizersSelected = array();
+                foreach ($organizersDatas as $organizerDatas) {
+                    array_push($organizersSelected, $organizerDatas->id);
+                }
+                $multiple_organizers = implode(',', $organizersSelected);
 
-        return view('events.edit',compact('event'))
-                    ->with('eventCategories', $eventCategories)
-                    ->with('users', $users)
-                    ->with('teachers', $teachers)
-                    ->with('multiple_teachers', $multiple_teachers)
-                    ->with('organizers', $organizers)
-                    ->with('multiple_organizers', $multiple_organizers)
-                    ->with('venues', $venues)
-                    ->with('dateTime',$dateTime)
-                    ->with('authorUserId',$authorUserId);
+            return view('events.edit',compact('event'))
+                        ->with('eventCategories', $eventCategories)
+                        ->with('users', $users)
+                        ->with('teachers', $teachers)
+                        ->with('multiple_teachers', $multiple_teachers)
+                        ->with('organizers', $organizers)
+                        ->with('multiple_organizers', $multiple_organizers)
+                        ->with('venues', $venues)
+                        ->with('dateTime',$dateTime)
+                        ->with('authorUserId',$authorUserId);
+        }
+        else{
+    		return redirect()->route('home');
+    	}  
     }
 
     /***************************************************************************/

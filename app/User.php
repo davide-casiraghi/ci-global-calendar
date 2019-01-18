@@ -35,17 +35,14 @@ class User extends Authenticatable
         'group' => 'int',
     ];
 
-    public function isSuperAdmin()
-    {
+    public function isSuperAdmin(){
         if ($this->group == 1)
             return true;
         else
             return false;
-
     }
 
-    public function isAdmin()
-    {
+    public function isAdmin(){
         if ($this->group == 2)
             return true;
         else
