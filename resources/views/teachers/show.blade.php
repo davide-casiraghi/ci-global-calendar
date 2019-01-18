@@ -16,7 +16,7 @@
         @if(!empty($teacher->bio))
             <div class="teacherBio col-12">
                 <h3>Bio</h3>
-                <img class="teacherPhoto ml-3" src="/storage/images/teachers_profile/thumb_{{ $teacher->profile_picture }}" style="width:345px; float:right;">
+                <img class="teacherPhoto ml-3" alt="{{ $teacher->name }}" src="/storage/images/teachers_profile/thumb_{{ $teacher->profile_picture }}" style="width:345px; float:right;">
                 {!! $teacher->bio !!}
             </div>
         @endif
@@ -26,17 +26,9 @@
             @if(!empty($teacher->year_starting_practice))<p><b>Year of starting to practice: </b>{{ $teacher->year_starting_practice }}</p>@endif
             @if(!empty($teacher->year_starting_teach))<p><b>Year of starting to teach:</b>{{ $teacher->year_starting_teach }}</p>@endif
             @if(!empty($teacher->facebook))<p><b>Facebook profile: </b><a href="{{ $teacher->facebook }}" target="_blank">{{ $teacher->facebook }}</a></p>@endif
-            @if(!empty($teacher->website))<p><b>Website: </b><a href="{{ $teacher->website }}" target="_blank">{{ $teacher->website }}</a></p>@endif
-        
+            @if(!empty($teacher->website))<p><b>Website: </b><a href="{{ $teacher->website }}" target="_blank">{{ $teacher->website }}</a></p>@endif        
         </div>
-        
-            
-        
 
-        
-
-        
-        
         @if(count($eventsTeacherWillTeach))
             <div class="col-12 mt-5">
                 <h4 class="mb-4">This teacher will teach in this events</h4>
