@@ -1100,18 +1100,16 @@ class EventController extends Controller
 
     public function eventBySlugAndRepetition($slug, $repetition){
         
-        // Symulate the request
-            $request = new Request;
-        
+        $request = new Request;  // Symulate the request
         
         $event = Event::
-                where('slug', $slug)
-                ->first();
+                        where('slug', $slug)
+                        ->first();
                 
         $repetition = DB::table('event_repetitions')
-                ->select('id')
-                ->where('id',$repetition)
-                ->first();
+                            ->select('id')
+                            ->where('id',$repetition)
+                            ->first();
         
         // Check if repetition exist
             if ($repetition){
