@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-4 mt-4 mt-md-0">
-                    <img class="teacherPhoto ml-3" src="/storage/images/events_teaser/thumb_{{ $event->image }}" style="width:100%; float:right;">
+                    <img class="teacherPhoto ml-3" alt="{{ $event->title }} - {{ $venue->name }} - {{ $venue->city }}, {{ $country->name }}" src="/storage/images/events_teaser/thumb_{{ $event->image }}" style="width:100%; float:right;">
                 </div>
                 
             </div>

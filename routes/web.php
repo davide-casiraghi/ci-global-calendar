@@ -42,6 +42,7 @@ function()
         Route::resource('events','EventController');
         Route::get('/event/monthSelectOptions/', 'EventController@calculateMonthlySelectOptions');  // To populate the event repeat by month options
         Route::get('/event/{slug}', 'EventController@eventBySlug')->where('eventBySlug', '[a-z]+');
+        Route::get('/event/{slug}/{repeatition}', 'EventController@eventBySlugAndRepetition')->where('eventBySlugAndRepetition', '[a-z]+', '[0-9]+');                                    
         
     /* Report Misuse */
         Route::post('/misuse', 'EventController@reportMisuse')->name("events.misuse");

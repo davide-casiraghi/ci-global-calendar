@@ -29,7 +29,7 @@ class EventController extends Controller
 {
     /* Restrict the access to this resource just to logged in users except show view */
     public function __construct(){
-        $this->middleware('auth', ['except' => ['show','reportMisuse','reportMisuseThankyou','mailToOrganizer','mailToOrganizerSent','eventBySlug']]);
+        $this->middleware('auth', ['except' => ['show','reportMisuse','reportMisuseThankyou','mailToOrganizer','mailToOrganizerSent','eventBySlug', 'eventBySlugAndRepetition']]);
     }
     
     /**
@@ -1089,10 +1089,43 @@ class EventController extends Controller
         //dd($event);
         return $this->show($event, $request);
     }
-    
-    /***************************************************************************/
 
-    
+    /***************************************************************************/
+    /**
+     * Return the event by SLUG. (eg. http://websitename.com/event/xxxx/300)
+     *
+     * @param  \App\Event  $post
+     * @return \Illuminate\Http\Response
+     */
+
+    public function eventBySlugAndRepetition($slug, $repetition){
+        
+        $request = new Request;  // Symulate the request
+        
+        $event = Event::
+                        where('slug', $slug)
+                        ->first();
+                
+        $repetition = DB::table('event_repetitions')
+                            ->select('id')
+                            ->where('id',$repetition)
+                            ->first();
+        
+        // Check if repetition exist
+            if ($repetition){
+                $request->rp_id = $repetition->id;   
+            }
+        // If not found get the first repetion of the event in the future.
+            else{
+                $firstRpId = DB::table('event_repetitions')
+                        ->select('id')
+                        ->where('event_id',$event->id)
+                        ->first();
+                $request->rp_id = $firstRpId->id; 
+            }
+        
+        return $this->show($event, $request);
+    }
     
     
 }
