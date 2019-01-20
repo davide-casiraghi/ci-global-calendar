@@ -145,7 +145,7 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event, Request $request){
+    public function show(Event $event, $firstRpDates){
 
         $category = EventCategory::find($event->category_id);
         $teachers = $event->teachers()->get();
@@ -166,14 +166,6 @@ class EventController extends Controller
                 ->where('id',$country->continent_id)
                 ->first();
 
-        $datesTimes = DB::table('event_repetitions')
-                ->select('start_repeat','end_repeat')
-                ->where('event_id',$event->id)
-                ->when($request->rp_id, function ($query, $rp_id) {
-                    return $query->where('id', $rp_id);
-                })
-                ->first();
-
         // Repetition text to show
             switch ($event->repeat_type) {
                 case '1': // noRepeat
@@ -192,7 +184,7 @@ class EventController extends Controller
             }
 
             // True if the repetition start and end on the same day
-                $sameDateStartEnd = ((date('Y-m-d', strtotime($datesTimes->start_repeat))) == (date('Y-m-d', strtotime($datesTimes->end_repeat)))) ? 1 : 0;
+                $sameDateStartEnd = ((date('Y-m-d', strtotime($firstRpDates->start_repeat))) == (date('Y-m-d', strtotime($firstRpDates->end_repeat)))) ? 1 : 0;
                 
         return view('events.show',compact('event'))
                 ->with('category', $category)
@@ -201,7 +193,7 @@ class EventController extends Controller
                 ->with('venue', $venue)
                 ->with('country', $country)
                 ->with('continent', $continent)
-                ->with('datesTimes', $datesTimes)
+                ->with('datesTimes', $firstRpDates)
                 ->with('repetition_text', $repetition_text)
                 ->with('sameDateStartEnd', $sameDateStartEnd);
     }
@@ -1078,16 +1070,13 @@ class EventController extends Controller
                 where('slug', $slug)
                 ->first();
 
-        $firstRpId = DB::table('event_repetitions')
-                ->select('id')
+        $firstRpDates = DB::table('event_repetitions')
+                ->select('start_repeat','end_repeat')
                 ->where('event_id',$event->id)
                 ->first();
-            
-        $request = new Request;
-        $request->rp_id = $firstRpId->id;    
-                
+                    
         //dd($event);
-        return $this->show($event, $request);
+        return $this->show($event, $firstRpDates);
     }
 
     /***************************************************************************/
@@ -1100,31 +1089,24 @@ class EventController extends Controller
 
     public function eventBySlugAndRepetition($slug, $repetition){
         
-        $request = new Request;  // Symulate the request
-        
         $event = Event::
                         where('slug', $slug)
                         ->first();
                 
-        $repetition = DB::table('event_repetitions')
-                            ->select('id')
+        $firstRpDates = DB::table('event_repetitions')
+                            ->select('start_repeat','end_repeat')
                             ->where('id',$repetition)
                             ->first();
         
-        // Check if repetition exist
-            if ($repetition){
-                $request->rp_id = $repetition->id;   
-            }
         // If not found get the first repetion of the event in the future.
-            else{
-                $firstRpId = DB::table('event_repetitions')
-                        ->select('id')
+            if (!$firstRpDates){
+                $firstRpDates = DB::table('event_repetitions')
+                        ->select('start_repeat','end_repeat')
                         ->where('event_id',$event->id)
                         ->first();
-                $request->rp_id = $firstRpId->id; 
             }
         
-        return $this->show($event, $request);
+        return $this->show($event, $firstRpDates);
     }
     
     
