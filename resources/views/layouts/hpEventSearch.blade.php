@@ -54,7 +54,7 @@
         @include('partials.cookie-consent')
     
     @else
-        site offline for maintenance
+        @include('partials.offline-for-maintenance')
     @endif
     
     {{-- JS --}}
