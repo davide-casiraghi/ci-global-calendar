@@ -77,7 +77,7 @@
                                   'records' => $eventCategories,
                                   'seleted' => $searchCategory,
                                   'liveSearch' => 'false',
-                                  'mobileNativeMenu' => 'false',
+                                  'mobileNativeMenu' => 'true',
                             ])
                         
                         {{-- WHO --}}
