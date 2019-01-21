@@ -54,6 +54,7 @@
     @include('footer.footer', [
         'container' => true,
         'paddingX' => '',
+        'backgroundColor' => '#B5A575',
     ])
     
     @include('partials.cookie-consent')

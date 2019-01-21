@@ -9,7 +9,7 @@
 --}}
 
 {{--<hr class="mt-5">--}}
-<footer class="bg-dark {{$paddingX}}">
+<footer class="{{$paddingX}}" style="background-color: {{$backgroundColor}}">
     @if($container)<div class="container">@endif
         <nav class="row py-2">
             <div class="col-12 col-sm-6 col-sm-pull-6 text-center text-md-left mb-2 mb-sm-0">
