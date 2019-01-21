@@ -11,13 +11,6 @@
         - $mobileNativeMenu: boolean - enable mobile devices native menu for selectpicker menus
 --}}
 
-{{--@section('javascript-document-ready')
-    @parent
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        $('.selectpicker').selectpicker('mobile');
-    }
-@stop--}}
-
 {{-- data-mobile="{{ $mobileNativeMenu }}" --}}
 
 @section('javascript-document-ready')

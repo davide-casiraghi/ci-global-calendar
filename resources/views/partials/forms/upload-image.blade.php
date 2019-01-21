@@ -21,6 +21,16 @@
         {{-- replace the "Choose a file" label --}}
             $(this).next('.custom-file-label').html(fileName);
     })
+    
+    $('.deleteImage').on('click',function(){
+    
+        $("input[name='image_name']").val("");
+        $("img.uploadedImage").remove();
+        
+        
+        
+    })
+    
 @stop
 
 <div class="@if(!empty($value)) col-12 col-sm-8 col-md-8 @else col-12 col-sm-12 col-md-12 @endif ">
@@ -28,14 +38,23 @@
     <div class="form-group">
         <div class="custom-file">
             <input type="file" name="{{ $name }}" @if(!empty($value)) value="{{ $value }}" @endif class="custom-file-input">
-            <label class="custom-file-label" for="{{ $name }}">Choose file</label>
+            <label class="custom-file-label" for="{{ $name }}">
+                @if(!empty($value))
+                    Click here to upload a new image file
+                @else
+                    Choose file
+                @endif
+            </label>
         </div>
     </div>
+    @if(!empty($value))
+        <button type="button" class="btn btn-danger deleteImage"><i class="far fa-trash-alt"></i> Delete image</button>
+    @endif
 </div>
 {{-- Show the Image that has been already stored --}} 
 @if(!empty($value))
     <div class="col-12 col-sm-4 col-md-4">
-        <img style="width: 100%" src="/storage/images/{{$folder}}/{{$value}}" alt="">
+        <img class="uploadedImage" style="width: 100%" src="/storage/images/{{$folder}}/{{$value}}" alt="">
     </div>
     
     {{-- show the image name to use in the edit view to not delete the image on update --}}

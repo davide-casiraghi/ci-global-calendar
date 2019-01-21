@@ -11,7 +11,7 @@
             <form action="{{ route('events.destroy',$event->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger">@lang('views.delete_event')</button>
+                <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i> @lang('views.delete_event')</button>
             </form>
         </div>
     </div>
