@@ -2,12 +2,17 @@ nav{
     &.navbar{
         z-index: 4;
         padding: 0;
+        
+        button{
+            margin: .5rem;
+        }
+        
         #navbarNavDropdown{
             /* Menu items */
             ul{
                 &.navbar-nav{
                     li{
-                        /*position: relative;*/
+                        position: relative;
                         &.nav-item{
                             a{
                                 &.nav-link{

@@ -18287,13 +18287,17 @@ nav.navbar {
   padding: 0;
 }
 
+nav.navbar button {
+  margin: .5rem;
+}
+
 nav.navbar #navbarNavDropdown {
   /* Menu items */
   /* end Menu items */
 }
 
 nav.navbar #navbarNavDropdown ul.navbar-nav li {
-  /*position: relative;*/
+  position: relative;
 }
 
 nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item {
