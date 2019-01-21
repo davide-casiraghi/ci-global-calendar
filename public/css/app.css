@@ -18340,6 +18340,10 @@ nav.navbar-fixed-top {
   left: 0;
 }
 
+nav.nav_trasp {
+  background-color: transparent !important;
+}
+
 .languages > a {
   color: white;
 }
