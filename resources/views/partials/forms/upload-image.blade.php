@@ -13,6 +13,7 @@
 
 @section('javascript-document-ready')
     @parent
+    {{-- When an image is chosen, replace the "Choose a file" label --}}
     $('.custom-file-input').on('change',function(){
         {{-- get the file name --}}
             var filePath = $(this).val();
