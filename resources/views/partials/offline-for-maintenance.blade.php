@@ -1,8 +1,8 @@
 {{--
-
     OFFLINE FOR MAINTENANCE
-
+    Activated setting true the SITE_OFFLINE parameter in .env file
 --}}
+
 <div class="container">
     <div class="row">
         <div class="col-3"></div>
