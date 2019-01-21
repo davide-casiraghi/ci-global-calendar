@@ -38,6 +38,7 @@
         'paddingX' => '',
         'backgroundColor' => '#B5A575',
         'stickyNavbar' => true,
+        'transparentBarInHp' => true,
     ])
 
     <div class="beforeContent">

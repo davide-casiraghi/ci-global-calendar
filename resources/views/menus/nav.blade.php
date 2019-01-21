@@ -8,7 +8,29 @@
         - $padding-x: string - the padding on the left and right side of the nav bar, expressed in bootstrap spacing notation eg. px-5
 
 --}}
+    
+@section('javascript')
+    @parent
+    
+    
+    
+    {{-- When scroll down add class sticky-header to the menu top bar --}}
+    	$(window).scroll(function(event){            
+    	    fromTop = ($(window).scrollTop() );
+    	    //console.log(fromTop);
 
+    	    headerOffset = 0;
+
+    	    if (fromTop > headerOffset) {
+    	    	$('.navbar-default').addClass('transparent-bar');
+    	    }
+    	    else{
+    	    	$('.navbar-default').removeClass('transparent-bar');
+    	    }
+
+    	});
+
+@stop
 
 @section('javascript-document-ready')
     @parent
@@ -17,7 +39,36 @@
     @if($stickyNavbar)
         $("#app").addClass('mt-5');
     @endif
+    
+    
+    {{-- TOP MENU TRANSPARENT - Just in HP when the top of the page is shown --}}
+        @if($transparentBarInHp)
+            @if (Route::is('home'))
+                
+                function transparentMenu() {
+                    var sticky_header = $('nav.navbar').outerHeight(true); // Get the height of element including padding, border, margin
+                    if ($(window).scrollTop() >= sticky_header){
+                        $('nav.navbar').removeClass('nav_trasp');
+                        $('footer').removeClass('nav_trasp');
+                    } else {
+                        $('nav.navbar').addClass('nav_trasp');
+                        $('footer').addClass('nav_trasp');
+                    }
+                }
+                
+                transparentMenu();
+                $(window).scroll(function() {    
+                    transparentMenu();
+                });
+            @endif    
+        @endif
+
+    
 @stop
+
+
+
+
 
 <nav class="navbar navbar-expand-lg navbar-light @if($stickyNavbar) navbar-fixed-top @endif {{$paddingX}}" style="background-color: {{$backgroundColor}}"> {{--navbar-dark bg-dark--}}
     @if($container)<div class="container">@endif

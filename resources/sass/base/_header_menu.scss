@@ -2,6 +2,7 @@ nav{
     &.navbar{
         z-index: 4;
         padding: 0;
+        transition: all .2s ease-in;
         
         button{
             margin: .5rem;
@@ -64,5 +65,10 @@ nav{
         top: 0;
         right: 0;
         left: 0;
+    }
+    &.nav_trasp{
+        @media screen and (min-width: 992px) {	 // Just for DESKTOP
+            background-color: transparent!important;
+        }
     }
 }
