@@ -1,20 +1,31 @@
 nav{
     &.navbar{
         z-index: 4;
-        background-color: #B5A575;
         padding: 0;
         #navbarNavDropdown{
             /* Menu items */
             ul{
                 &.navbar-nav{
                     li{
+                        /*position: relative;*/
                         &.nav-item{
                             a{
                                 &.nav-link{
                                     color: white;
                                     padding: 1rem 0.5rem;
-                                    &:hover{
-                                        background-color: #A59668;
+                                    &:hover, &:focus {
+                                        background-color: transparent!important;
+                                        &:after {
+                                            position: absolute;
+                                            z-index: -1;
+                                            background-color: black;
+                                            opacity: 0.3;
+                                            left: 0;
+                                            top: 0;
+                                            height: 100%;
+                                            width: 100%;
+                                            content: '';
+                                        }
                                     }
                                 }
                                 &.has-submenu{

@@ -10,7 +10,7 @@
 --}}
 
 
-<nav class="navbar navbar-expand-lg navbar-light {{$paddingX}}"> {{--navbar-dark bg-dark--}}
+<nav class="navbar navbar-expand-lg navbar-light {{$paddingX}}" style="background-color: {{$backgroundColor}}"> {{--navbar-dark bg-dark--}}
     @if($container)<div class="container">@endif
         {{--<a class="navbar-brand" href="#">Navbar</a>--}}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

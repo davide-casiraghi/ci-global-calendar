@@ -34,6 +34,7 @@
         'items' => $MyNavBar->roots(),
         'container' => true,
         'paddingX' => '',
+        'backgroundColor' => '#B5A575',
     ])
 
     <div id="app" class="beforeContent">

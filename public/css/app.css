@@ -18284,13 +18284,16 @@ body form label {
 
 nav.navbar {
   z-index: 4;
-  background-color: #B5A575;
   padding: 0;
 }
 
 nav.navbar #navbarNavDropdown {
   /* Menu items */
   /* end Menu items */
+}
+
+nav.navbar #navbarNavDropdown ul.navbar-nav li {
+  /*position: relative;*/
 }
 
 nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item {
@@ -18303,8 +18306,22 @@ nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item a.nav-link {
   padding: 1rem 0.5rem;
 }
 
-nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item a.nav-link:hover {
-  background-color: #A59668;
+nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item a.nav-link:hover,
+nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item a.nav-link:focus {
+  background-color: transparent !important;
+}
+
+nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item a.nav-link:hover:after,
+nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item a.nav-link:focus:after {
+  position: absolute;
+  z-index: -1;
+  background-color: black;
+  opacity: 0.3;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  content: '';
 }
 
 nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item ul.dropdown-menu li a.dropdown-item i {
