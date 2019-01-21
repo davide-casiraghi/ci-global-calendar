@@ -43,6 +43,7 @@
     
     {{-- TOP MENU TRANSPARENT - Color on scrolling or show in pages that are not HP --}}
         @if (Route::is('home'))
+            
             function transparentMenu() {
                 var sticky_header = $('nav.navbar').outerHeight(true); // Get the height of element including padding, border, margin
                 var sticky_menu = $('nav.navbar').outerHeight(true);  // Get the height of element including padding, border, margin
@@ -55,14 +56,12 @@
                 }
             }
 
-        
-        {{-- TOP MENU TRANSPARENT - Show and hide bars in homepage --}}
-            //if ($('.navbar-default').hasClass('transparent-menu')){
+            @if($transparentBarInHp)
                 transparentMenu();
                 $(window).scroll(function() {    
                     transparentMenu();
                 });
-            //}    
+            @endif    
         @endif
 
     
