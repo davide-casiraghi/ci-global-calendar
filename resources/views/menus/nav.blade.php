@@ -17,7 +17,6 @@
         $("#app").addClass('mt-5');
     @endif
     
-    
     {{-- TOP MENU TRANSPARENT - Just in HP when the top of the page is shown --}}
         @if($transparentBarInHp)
             @if (Route::is('home'))
@@ -39,8 +38,6 @@
                 });
             @endif    
         @endif
-
-    
 @stop
 
 
