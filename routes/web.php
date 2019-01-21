@@ -122,3 +122,8 @@ function()
         Route::get('/sitemap/events', 'SitemapController@events');
         Route::get('/sitemap/teachers', 'SitemapController@teachers');
         Route::get('/sitemap.xml', 'SitemapController@index');
+        
+    /* Iframe for regional websites */
+        Route::get('/countries/{slug}', 'CountryController@countryEventsList');
+    
+    
