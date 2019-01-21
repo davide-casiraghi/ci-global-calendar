@@ -112,6 +112,12 @@
             ])
         </div>
 
+        {{-- used to not update the slug --}}
+        @include('partials.forms.input-hidden', [
+              'name' => 'slug',
+              'value' => $teacher->slug,
+        ])
+
         @include('partials.forms.buttons-back-submit', [
             'route' => 'teachers.index'  
         ])
