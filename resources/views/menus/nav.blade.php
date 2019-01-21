@@ -10,7 +10,16 @@
 --}}
 
 
-<nav class="navbar navbar-expand-lg navbar-light {{$paddingX}}" style="background-color: {{$backgroundColor}}"> {{--navbar-dark bg-dark--}}
+@section('javascript-document-ready')
+    @parent
+    
+    {{-- Add some margin abobe the contents to compensate the sticky menu --}}
+    @if($stickyNavbar)
+        $("#app").addClass('mt-5');
+    @endif
+@stop
+
+<nav class="navbar navbar-expand-lg navbar-light @if($stickyNavbar) navbar-fixed-top @endif {{$paddingX}}" style="background-color: {{$backgroundColor}}"> {{--navbar-dark bg-dark--}}
     @if($container)<div class="container">@endif
         {{--<a class="navbar-brand" href="#">Navbar</a>--}}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
