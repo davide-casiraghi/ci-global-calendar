@@ -22,13 +22,10 @@
             $(this).next('.custom-file-label').html(fileName);
     })
     
+    {{-- Delete an already uploaded image --}}
     $('.deleteImage').on('click',function(){
-    
         $("input[name='image_name']").val("");
         $("img.uploadedImage").remove();
-        
-        
-        
     })
     
 @stop
