@@ -34,6 +34,8 @@ footer{
         }
     }
     &.nav_trasp{
-        background-color: transparent!important;
+        @media screen and (min-width: 992px) {	 // Just for DESKTOP
+            background-color: transparent!important;
+        }
     }
 }

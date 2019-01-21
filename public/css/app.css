@@ -18342,8 +18342,10 @@ nav.navbar-fixed-top {
   left: 0;
 }
 
-nav.nav_trasp {
-  background-color: transparent !important;
+@media screen and (min-width: 992px) {
+  nav.nav_trasp {
+    background-color: transparent !important;
+  }
 }
 
 .languages > a {
@@ -18403,8 +18405,10 @@ footer .footerMenu a:focus:after {
   content: '';
 }
 
-footer.nav_trasp {
-  background-color: transparent !important;
+@media screen and (min-width: 992px) {
+  footer.nav_trasp {
+    background-color: transparent !important;
+  }
 }
 
 form .bootstrap-select {
