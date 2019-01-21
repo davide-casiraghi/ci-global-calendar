@@ -18365,6 +18365,31 @@ footer {
   }
 }
 
+footer .footerMenu a {
+  padding: 8px 8px;
+  display: inline-block;
+  position: relative;
+}
+
+footer .footerMenu a:hover,
+footer .footerMenu a:focus {
+  background-color: transparent !important;
+  text-decoration: none;
+}
+
+footer .footerMenu a:hover:after,
+footer .footerMenu a:focus:after {
+  position: absolute;
+  z-index: -1;
+  background-color: black;
+  opacity: 0.3;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  content: '';
+}
+
 form .bootstrap-select {
   display: block !important;
   width: 100% !important;
