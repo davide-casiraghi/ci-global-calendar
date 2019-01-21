@@ -24,7 +24,7 @@
     @parent
     @if($mobileNativeMenu)
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-            $('select[name='{{$name}}']').selectpicker('mobile');
+            $("select[name='{{$name}}']").selectpicker('mobile');
         }
     @endif
 @stop
