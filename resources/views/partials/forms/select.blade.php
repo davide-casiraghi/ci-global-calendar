@@ -11,16 +11,20 @@
         - $mobileNativeMenu: boolean - enable mobile devices native menu for selectpicker menus
 --}}
 
-{{--@section('javascript-document-ready')
+{{-- data-mobile="{{ $mobileNativeMenu }}" --}}
+
+@section('javascript-document-ready')
     @parent
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        $('.selectpicker').selectpicker('mobile');
-    }
-@stop--}}
+    @if($mobileNativeMenu=='true')
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+            $("select[name='{{$name}}']").selectpicker('mobile');
+        }
+    @endif
+@stop
 
 <div class="form-group">
     @if(!empty($title))<label for="{{ $name }}">{{ $title }}</label>@endif
-    <select name="{{ $name }}" id="{{ $name }}" class="selectpicker" data-live-search="{{ $liveSearch }}" data-mobile="{{ $mobileNativeMenu }}" title="{{$placeholder}}">
+    <select name="{{ $name }}" id="{{ $name }}" class="selectpicker" data-live-search="{{ $liveSearch }}" title="{{$placeholder}}">
         @foreach ($records as $value => $record)
             <option value="{{$value}}" @if(!empty($seleted)) {{  $seleted == $value ? 'selected' : '' }}@endif>{{ $record }}</option>
         @endforeach

@@ -197,7 +197,8 @@ class EventVenueController extends Controller
          $eventVenue->zip_code = $request->get('zip_code');
          $eventVenue->website = $request->get('website');
 
-         $eventVenue->slug = str_slug($eventVenue->name, '-').rand(10000, 100000);
+         if (!$eventVenue->slug)
+            $eventVenue->slug = str_slug($eventVenue->name, '-').rand(10000, 100000);
          $eventVenue->created_by = \Auth::user()->id;
          $eventVenue->save();
      }

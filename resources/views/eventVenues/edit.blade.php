@@ -101,6 +101,12 @@
             </div>
         </div>
 
+        {{-- used to not update the slug --}}
+        @include('partials.forms.input-hidden', [
+              'name' => 'slug',
+              'value' => $eventVenue->slug,
+        ])
+
         @include('partials.forms.buttons-back-submit', [
             'route' => 'eventVenues.index'  
         ])

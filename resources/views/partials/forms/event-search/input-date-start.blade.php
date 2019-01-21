@@ -12,7 +12,6 @@
         startDate: today
     });
 
-    //$('.datepicker_start_date input').datepicker('setDate', today);
 @stop
 
 <div class="form-group">

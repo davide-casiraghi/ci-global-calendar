@@ -9,8 +9,8 @@ class Post extends Model
 {
     use Translatable;
 
-    public $translatedAttributes = ['title','body','slug','before_content','after_content'];
+    public $translatedAttributes = ['title','body','slug','before_content','after_content','extra_field_trans_1','extra_field_trans_2'];
     protected $fillable = [
-        'title', 'body', 'author_id', 'slug', 'category_id', 'meta_description','meta_keywords', 'seo_title', 'image', 'status', 'featured', 'introimage_src', 'introimage_alt', 'before_content', 'after_content'
+        'title', 'body', 'author_id', 'slug', 'category_id', 'meta_description','meta_keywords', 'seo_title', 'image', 'status', 'featured', 'introimage_src', 'introimage_alt', 'before_content', 'after_content','extra_field_1','extra_field_2','extra_field_3','extra_field_trans_1','extra_field_trans_2'
     ];
 }
