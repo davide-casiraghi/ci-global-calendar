@@ -43,7 +43,7 @@
                 'records' => $countries,
                 'seleted' => $searchCountry,
                 'liveSearch' => 'true',
-                'mobileNativeMenu' => 'false',
+                'mobileNativeMenu' => false,
             ])
         </div>
         <div class="col-12 col-lg-3 mt-3 mt-sm-0">

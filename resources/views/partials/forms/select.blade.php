@@ -15,7 +15,7 @@
 
 @section('javascript-document-ready')
     @parent
-    @if($mobileNativeMenu=='true')
+    @if($mobileNativeMenu)
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
             $("select[name='{{$name}}']").selectpicker('mobile');
         }

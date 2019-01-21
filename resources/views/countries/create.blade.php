@@ -41,7 +41,7 @@
                       'placeholder' => __('general.select_continent'),
                       'records' => $continents,
                       'liveSearch' => 'false',
-                      'mobileNativeMenu' => 'true',
+                      'mobileNativeMenu' => true,
                 ])
             </div>
         </div>

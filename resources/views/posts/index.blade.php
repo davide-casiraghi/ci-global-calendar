@@ -45,7 +45,7 @@
                 'records' => $categories,
                 'seleted' => $searchCategory,
                 'liveSearch' => 'false',
-                'mobileNativeMenu' => 'true',
+                'mobileNativeMenu' => true,
             ])
         </div>
         <div class="col-12 col-lg-3 mt-sm-0 mt-3">

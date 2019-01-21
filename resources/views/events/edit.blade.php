@@ -44,7 +44,7 @@
                           'records' => $users,
                           'seleted' => $event->created_by,
                           'liveSearch' => 'true',
-                          'mobileNativeMenu' => 'false',
+                          'mobileNativeMenu' => false,
                     ])
                 </div>
             @endif
@@ -57,7 +57,7 @@
                       'records' => $eventCategories,
                       'seleted' => $event->category_id,
                       'liveSearch' => 'true',
-                      'mobileNativeMenu' => 'false',
+                      'mobileNativeMenu' => false,
                 ])
             </div>
 

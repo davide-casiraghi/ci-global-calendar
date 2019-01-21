@@ -38,7 +38,7 @@
                           'records' => $users,
                           'seleted' => $teacher->created_by,
                           'liveSearch' => 'true',
-                          'mobileNativeMenu' => 'false',
+                          'mobileNativeMenu' => false,
                     ])
                 </div>
             @endif
@@ -51,7 +51,7 @@
                       'records' => $countries,
                       'seleted' => $teacher->country_id,
                       'liveSearch' => 'true',
-                      'mobileNativeMenu' => 'false',
+                      'mobileNativeMenu' => false,
                 ])
             </div>
 

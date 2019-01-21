@@ -37,7 +37,7 @@
                     'records' => $categories,
                     'seleted' => $post->category_id,
                     'liveSearch' => 'false',
-                    'mobileNativeMenu' => 'true',
+                    'mobileNativeMenu' => true,
                 ])
             </div>
             <div class="col-12">

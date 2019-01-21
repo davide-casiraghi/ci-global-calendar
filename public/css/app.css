@@ -18266,34 +18266,6 @@ a.text-dark:focus {
   }
 }
 
-.navbar-laravel {
-  background-color: #fff;
-  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
-
-body nav.navbar {
-  background-color: #B5A575;
-  padding: 0;
-}
-
-body nav.navbar ul li.nav-item a.nav-link {
-  color: white;
-  padding: 1rem 0.5rem;
-}
-
-body nav.navbar ul li.nav-item a.nav-link:hover {
-  background-color: #A59668;
-}
-
-body nav.navbar button {
-  margin: .5rem;
-}
-
-body > .container .card {
-  margin: auto;
-}
-
 body h1 {
   margin: 2rem 0 3rem 0;
 }
@@ -18312,11 +18284,60 @@ body form label {
 
 nav.navbar {
   z-index: 4;
+  padding: 0;
+}
+
+nav.navbar button {
+  margin: .5rem;
+}
+
+nav.navbar #navbarNavDropdown {
+  /* Menu items */
+  /* end Menu items */
+}
+
+nav.navbar #navbarNavDropdown ul.navbar-nav li {
+  position: relative;
+}
+
+nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item {
+  /* Submenus items */
+  /* end Submenus items */
+}
+
+nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item a.nav-link {
+  color: white;
+  padding: 1rem 0.5rem;
+}
+
+nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item a.nav-link:hover,
+nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item a.nav-link:focus {
+  background-color: transparent !important;
+}
+
+nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item a.nav-link:hover:after,
+nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item a.nav-link:focus:after {
+  position: absolute;
+  z-index: -1;
+  background-color: black;
+  opacity: 0.3;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  content: '';
 }
 
 nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item ul.dropdown-menu li a.dropdown-item i {
   width: 1.3rem;
   text-align: center;
+}
+
+nav.navbar-fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 
 .languages > a {
@@ -18349,6 +18370,31 @@ footer {
     bottom: 0;
     width: 100%;
   }
+}
+
+footer .footerMenu a {
+  padding: 8px 8px;
+  display: inline-block;
+  position: relative;
+}
+
+footer .footerMenu a:hover,
+footer .footerMenu a:focus {
+  background-color: transparent !important;
+  text-decoration: none;
+}
+
+footer .footerMenu a:hover:after,
+footer .footerMenu a:focus:after {
+  position: absolute;
+  z-index: -1;
+  background-color: black;
+  opacity: 0.3;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  content: '';
 }
 
 form .bootstrap-select {
@@ -18599,7 +18645,7 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after 
 }
 
 .eventSearch .container .eventList .date {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
 }
 
 @media screen and (min-width: 992px) {

@@ -34,6 +34,8 @@
         'items' => $MyNavBar->roots(),
         'container' => true,
         'paddingX' => '',
+        'backgroundColor' => '#B5A575',
+        'stickyNavbar' => true,
     ])
 
     <div id="app" class="beforeContent">
@@ -43,6 +45,7 @@
     @include('footer.footer', [
         'container' => true,
         'paddingX' => '',
+        'backgroundColor' => '#B5A575',
     ])
     
     @include('partials.cookie-consent')

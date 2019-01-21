@@ -44,7 +44,7 @@
                       'placeholder' => 'Select country',
                       'records' => $countries,
                       'liveSearch' => 'true',
-                      'mobileNativeMenu' => 'false',
+                      'mobileNativeMenu' => false,
                 ])
             </div>
 

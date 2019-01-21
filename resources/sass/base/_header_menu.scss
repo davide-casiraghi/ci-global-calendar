@@ -1,11 +1,43 @@
 nav{
     &.navbar{
         z-index: 4;
+        padding: 0;
+        
+        button{
+            margin: .5rem;
+        }
+        
         #navbarNavDropdown{
+            /* Menu items */
             ul{
                 &.navbar-nav{
                     li{
+                        position: relative;
                         &.nav-item{
+                            a{
+                                &.nav-link{
+                                    color: white;
+                                    padding: 1rem 0.5rem;
+                                    &:hover, &:focus {
+                                        background-color: transparent!important;
+                                        &:after {
+                                            position: absolute;
+                                            z-index: -1;
+                                            background-color: black;
+                                            opacity: 0.3;
+                                            left: 0;
+                                            top: 0;
+                                            height: 100%;
+                                            width: 100%;
+                                            content: '';
+                                        }
+                                    }
+                                }
+                                &.has-submenu{
+
+                                }
+                            }
+                            /* Submenus items */
                             ul{
                                 &.dropdown-menu{
                                     li{
@@ -19,11 +51,18 @@ nav{
                                         }
                                     }
                                 }
-                            }
+                            } /* end Submenus items */
                         }
                     }
                 }
-            }
+            } /* end Menu items */
         }
+    }
+    
+    &.navbar-fixed-top{
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
     }
 }

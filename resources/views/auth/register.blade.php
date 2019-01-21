@@ -85,7 +85,7 @@
                                       'placeholder' => __('general.select_country'),
                                       'records' => $countries,
                                       'liveSearch' => 'true',
-                                      'mobileNativeMenu' => 'false',
+                                      'mobileNativeMenu' => false,
                                 ])
                             </div>
                         </div>

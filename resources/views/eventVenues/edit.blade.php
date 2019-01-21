@@ -38,7 +38,7 @@
                         'records' => $users,
                         'seleted' => $eventVenue->created_by,
                         'liveSearch' => 'true',
-                        'mobileNativeMenu' => 'false',
+                        'mobileNativeMenu' => false,
                     ])
                 </div>
             @endif
@@ -72,7 +72,7 @@
                       'records' => $countries,
                       'seleted' => $eventVenue->country_id,
                       'liveSearch' => 'true',
-                      'mobileNativeMenu' => 'false',
+                      'mobileNativeMenu' => false,
                 ])
             </div>
             <div class="col-12">
