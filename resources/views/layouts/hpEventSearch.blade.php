@@ -29,29 +29,34 @@
 </head>
 
 <body class=""> {{-- Laravel use VUE as default - https://stackoverflow.com/questions/41411344/vue-warn-cannot-find-element-app#41411385 --}}
-    {{-- {!! menu('main', 'nav') !!} --}}
-    @include('menus.nav', [
-        'items' => $MyNavBar->roots(),
-        'container' => true,
-        'paddingX' => '',
-        'backgroundColor' => '#B5A575',
-        'stickyNavbar' => true,
-        'transparentBarInHp' => true,
-    ])
-
-    <div id="app" class="beforeContent">
-        @yield('beforeContent')
-    </div>
-
-    @include('footer.footer', [
-        'container' => true,
-        'paddingX' => '',
-        'backgroundColor' => '#B5A575',
-        'transparentBarInHp' => true,
-    ])
     
-    @include('partials.cookie-consent')
+    @if(!env('SITE_OFFLINE'))
+        @include('menus.nav', [
+            'items' => $MyNavBar->roots(),
+            'container' => true,
+            'paddingX' => '',
+            'backgroundColor' => '#B5A575',
+            'stickyNavbar' => true,
+            'transparentBarInHp' => true,
+        ])
 
+        <div id="app" class="beforeContent">
+            @yield('beforeContent')
+        </div>
+
+        @include('footer.footer', [
+            'container' => true,
+            'paddingX' => '',
+            'backgroundColor' => '#B5A575',
+            'transparentBarInHp' => true,
+        ])
+        
+        @include('partials.cookie-consent')
+    
+    @else
+        site offline for maintenance
+    @endif
+    
     {{-- JS --}}
         <script src="{{ asset('js/manifest.js') }}" ></script>
         <script src="{{ asset('js/vendor.js') }}" ></script>
