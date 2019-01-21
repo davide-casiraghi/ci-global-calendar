@@ -110,7 +110,7 @@
                               'records' => $countries,
                               'seleted' => $searchCountry,
                               'liveSearch' => 'true',
-                              'mobileNativeMenu' => 'true',
+                              'mobileNativeMenu' => 'false',
                         ])
                         
                         
