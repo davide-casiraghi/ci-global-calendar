@@ -47,6 +47,7 @@
         'container' => true,
         'paddingX' => '',
         'backgroundColor' => '#B5A575',
+        'transparentBarInHp' => true,
     ])
     
     @include('partials.cookie-consent')

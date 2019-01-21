@@ -18285,6 +18285,8 @@ body form label {
 nav.navbar {
   z-index: 4;
   padding: 0;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
 }
 
 nav.navbar button {
@@ -18399,6 +18401,10 @@ footer .footerMenu a:focus:after {
   height: 100%;
   width: 100%;
   content: '';
+}
+
+footer.nav_trasp {
+  background-color: transparent !important;
 }
 
 form .bootstrap-select {

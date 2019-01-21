@@ -41,22 +41,21 @@
     @endif
     
     
-    {{-- TOP MENU TRANSPARENT - Color on scrolling or show in pages that are not HP --}}
-        @if (Route::is('home'))
-            
-            function transparentMenu() {
-                var sticky_header = $('nav.navbar').outerHeight(true); // Get the height of element including padding, border, margin
-                var sticky_menu = $('nav.navbar').outerHeight(true);  // Get the height of element including padding, border, margin
-                if ($(window).scrollTop() >= sticky_header){
-                    $('nav.navbar').addClass('nav_colored');
-                    $('nav.navbar').removeClass('nav_trasp');
-                } else {
-                    $('nav.navbar').removeClass('nav_colored');
-                    $('nav.navbar').addClass('nav_trasp');
+    {{-- TOP MENU TRANSPARENT - Just in HP when the top of the page is shown --}}
+        @if($transparentBarInHp)
+            @if (Route::is('home'))
+                
+                function transparentMenu() {
+                    var sticky_header = $('nav.navbar').outerHeight(true); // Get the height of element including padding, border, margin
+                    if ($(window).scrollTop() >= sticky_header){
+                        $('nav.navbar').removeClass('nav_trasp');
+                        $('footer').removeClass('nav_trasp');
+                    } else {
+                        $('nav.navbar').addClass('nav_trasp');
+                        $('footer').addClass('nav_trasp');
+                    }
                 }
-            }
-
-            @if($transparentBarInHp)
+                
                 transparentMenu();
                 $(window).scroll(function() {    
                     transparentMenu();
