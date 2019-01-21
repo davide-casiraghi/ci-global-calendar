@@ -18266,34 +18266,6 @@ a.text-dark:focus {
   }
 }
 
-.navbar-laravel {
-  background-color: #fff;
-  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
-
-body nav.navbar {
-  background-color: #B5A575;
-  padding: 0;
-}
-
-body nav.navbar ul li.nav-item a.nav-link {
-  color: white;
-  padding: 1rem 0.5rem;
-}
-
-body nav.navbar ul li.nav-item a.nav-link:hover {
-  background-color: #A59668;
-}
-
-body nav.navbar button {
-  margin: .5rem;
-}
-
-body > .container .card {
-  margin: auto;
-}
-
 body h1 {
   margin: 2rem 0 3rem 0;
 }
@@ -18312,6 +18284,27 @@ body form label {
 
 nav.navbar {
   z-index: 4;
+  background-color: #B5A575;
+  padding: 0;
+}
+
+nav.navbar #navbarNavDropdown {
+  /* Menu items */
+  /* end Menu items */
+}
+
+nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item {
+  /* Submenus items */
+  /* end Submenus items */
+}
+
+nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item a.nav-link {
+  color: white;
+  padding: 1rem 0.5rem;
+}
+
+nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item a.nav-link:hover {
+  background-color: #A59668;
 }
 
 nav.navbar #navbarNavDropdown ul.navbar-nav li.nav-item ul.dropdown-menu li a.dropdown-item i {

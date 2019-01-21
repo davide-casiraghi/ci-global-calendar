@@ -1,11 +1,27 @@
 nav{
     &.navbar{
         z-index: 4;
+        background-color: #B5A575;
+        padding: 0;
         #navbarNavDropdown{
+            /* Menu items */
             ul{
                 &.navbar-nav{
                     li{
                         &.nav-item{
+                            a{
+                                &.nav-link{
+                                    color: white;
+                                    padding: 1rem 0.5rem;
+                                    &:hover{
+                                        background-color: #A59668;
+                                    }
+                                }
+                                &.has-submenu{
+
+                                }
+                            }
+                            /* Submenus items */
                             ul{
                                 &.dropdown-menu{
                                     li{
@@ -19,11 +35,11 @@ nav{
                                         }
                                     }
                                 }
-                            }
+                            } /* end Submenus items */
                         }
                     }
                 }
-            }
+            } /* end Menu items */
         }
     }
 }
