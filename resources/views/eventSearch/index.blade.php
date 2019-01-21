@@ -77,7 +77,7 @@
                                   'records' => $eventCategories,
                                   'seleted' => $searchCategory,
                                   'liveSearch' => 'false',
-                                  'mobileNativeMenu' => 'true',
+                                  'mobileNativeMenu' => true,
                             ])
                         
                         {{-- WHO --}}
@@ -99,7 +99,7 @@
                               'records' => $continents,
                               'seleted' => $searchContinent,
                               'liveSearch' => 'false',
-                              'mobileNativeMenu' => 'true',
+                              'mobileNativeMenu' => true,
                         ])
                         
                         @include('partials.forms.select', [
@@ -109,7 +109,7 @@
                               'records' => $countries,
                               'seleted' => $searchCountry,
                               'liveSearch' => 'true',
-                              'mobileNativeMenu' => 'false',
+                              'mobileNativeMenu' => false,
                         ])
                         
                         <p class="mt-3"><strong class="text-white">@lang('homepage-serach.search_by_venue')</strong></p>

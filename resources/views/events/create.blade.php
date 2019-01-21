@@ -45,7 +45,7 @@
                           'placeholder' => __('views.select_owner'),
                           'records' => $users,
                           'liveSearch' => 'true',
-                          'mobileNativeMenu' => 'false',
+                          'mobileNativeMenu' => false,
                     ])
                 </div>
             @endif
@@ -57,7 +57,7 @@
                       'placeholder' => __('views.select_category'),
                       'records' => $eventCategories,
                       'liveSearch' => 'true',
-                      'mobileNativeMenu' => 'false',
+                      'mobileNativeMenu' => false,
                 ])
             </div>
 

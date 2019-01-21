@@ -82,7 +82,7 @@
                       'records' => $countries,
                       'seleted' => $user->country_id,
                       'liveSearch' => 'true',
-                      'mobileNativeMenu' => 'false',
+                      'mobileNativeMenu' => false,
                 ])
             </div>
 

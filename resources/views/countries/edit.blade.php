@@ -44,7 +44,7 @@
                       'records' => $continents,
                       'seleted' => $country->continent_id,
                       'liveSearch' => 'false',
-                      'mobileNativeMenu' => 'true',
+                      'mobileNativeMenu' => true,
                 ])
             </div>
         </div>

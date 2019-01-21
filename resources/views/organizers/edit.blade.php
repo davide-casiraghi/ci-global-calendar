@@ -38,7 +38,7 @@
                           'records' => $users,
                           'seleted' => $organizer->created_by,
                           'liveSearch' => 'true',
-                          'mobileNativeMenu' => 'false',
+                          'mobileNativeMenu' => false,
                     ])
                 </div>
             @endif

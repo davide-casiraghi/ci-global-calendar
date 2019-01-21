@@ -43,7 +43,7 @@
                 'records' => $eventCategories,
                 'seleted' => $searchCategory,
                 'liveSearch' => 'true',
-                'mobileNativeMenu' => 'false',
+                'mobileNativeMenu' => false,
             ])
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -53,7 +53,7 @@
                 'records' => $countries,
                 'seleted' => $searchCountry,
                 'liveSearch' => 'true',
-                'mobileNativeMenu' => 'false',
+                'mobileNativeMenu' => false,
             ])
         </div>
         <div class="col-12 col-lg-3 mt-3 mt-sm-2 mt-lg-0">

@@ -36,7 +36,7 @@
                     'placeholder' => __('views.select_category'),
                     'records' => $categories,
                     'liveSearch' => 'false',
-                    'mobileNativeMenu' => 'true',
+                    'mobileNativeMenu' => true,
                 ])
             </div>
             <div class="col-12">
