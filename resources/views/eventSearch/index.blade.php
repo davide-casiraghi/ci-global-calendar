@@ -76,8 +76,8 @@
                                   'placeholder' => __('homepage-serach.all_kind_of_events'),
                                   'records' => $eventCategories,
                                   'seleted' => $searchCategory,
-                                  'liveSearch' => 'true',
-                                  'mobileNativeMenu' => 'true',
+                                  'liveSearch' => 'false',
+                                  'mobileNativeMenu' => 'false',
                             ])
                         
                         {{-- WHO --}}
@@ -92,6 +92,19 @@
                             <i class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="@lang('homepage-serach.where_tooltip')"></i>
                         </p>
                         @include('partials.forms.event-search.select-continent')
+                        {{--@include('partials.forms.select', [
+                              'title' =>  '',
+                              'name' => 'continent_id',
+                              'placeholder' => __('homepage-serach.select_a_continent'),
+                              'records' => $continents,
+                              'seleted' => $searchContinent,
+                              'liveSearch' => 'true',
+                              'mobileNativeMenu' => 'true',
+                        ])--}}
+                        
+                        
+                        
+                        
                         @include('partials.forms.event-search.select-country')
                         <p class="mt-3"><strong class="text-white">@lang('homepage-serach.search_by_venue')</strong></p>
                         @include('partials.forms.input', [
