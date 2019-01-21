@@ -18285,6 +18285,8 @@ body form label {
 nav.navbar {
   z-index: 4;
   padding: 0;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
 }
 
 nav.navbar button {
@@ -18338,6 +18340,12 @@ nav.navbar-fixed-top {
   top: 0;
   right: 0;
   left: 0;
+}
+
+@media screen and (min-width: 992px) {
+  nav.nav_trasp {
+    background-color: transparent !important;
+  }
 }
 
 .languages > a {
@@ -18395,6 +18403,12 @@ footer .footerMenu a:focus:after {
   height: 100%;
   width: 100%;
   content: '';
+}
+
+@media screen and (min-width: 992px) {
+  footer.nav_trasp {
+    background-color: transparent !important;
+  }
 }
 
 form .bootstrap-select {

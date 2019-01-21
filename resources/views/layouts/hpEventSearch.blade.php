@@ -36,6 +36,7 @@
         'paddingX' => '',
         'backgroundColor' => '#B5A575',
         'stickyNavbar' => true,
+        'transparentBarInHp' => true,
     ])
 
     <div id="app" class="beforeContent">
@@ -46,6 +47,7 @@
         'container' => true,
         'paddingX' => '',
         'backgroundColor' => '#B5A575',
+        'transparentBarInHp' => true,
     ])
     
     @include('partials.cookie-consent')
