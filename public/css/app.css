@@ -18599,7 +18599,7 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after 
 }
 
 .eventSearch .container .eventList .date {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
 }
 
 @media screen and (min-width: 992px) {
