@@ -1,4 +1,31 @@
+
+
+{{--
+
+Iframe to embed in the regional websites:
+
+EG.
+
+    <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.ciglobalcalendar.net/eventSearch/country/SI" 
+        frameborder="0">
+    </iframe>
+
+
+
+--}}
+
 @extends('layouts.regionalframe')
+
+@section('javascript-document-ready')
+    
+        
+@endsection
+
+
+
 
 <div class="eventSearch">
     <div class="container mt-4">
