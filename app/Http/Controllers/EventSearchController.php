@@ -243,7 +243,13 @@ class EventSearchController extends Controller
                 
         $events = Event::where('sc_country_id', $country->id)->get();
         
+        $minutes = 15;  // Set the duration time of the cache
+        $eventCategories = Cache::remember('categories', $minutes, function () {
+            return EventCategory::orderBy('name')->pluck('name', 'id');
+        });
+        
         return view('eventSearch.index-iframe',compact('events'))
-                ->with('country', $country);
+                ->with('country', $country)
+                ->with('eventCategories',$eventCategories);
     }
 }
