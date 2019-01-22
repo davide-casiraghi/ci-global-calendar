@@ -9,37 +9,13 @@
 
 --}}
     
-@section('javascript')
-    @parent
-    
-    
-    
-    {{-- When scroll down add class sticky-header to the menu top bar --}}
-    	$(window).scroll(function(event){            
-    	    fromTop = ($(window).scrollTop() );
-    	    //console.log(fromTop);
-
-    	    headerOffset = 0;
-
-    	    if (fromTop > headerOffset) {
-    	    	$('.navbar-default').addClass('transparent-bar');
-    	    }
-    	    else{
-    	    	$('.navbar-default').removeClass('transparent-bar');
-    	    }
-
-    	});
-
-@stop
-
 @section('javascript-document-ready')
     @parent
     
-    {{-- Add some margin abobe the contents to compensate the sticky menu --}}
+    {{-- Add some margin above the contents to compensate the sticky menu --}}
     @if($stickyNavbar)
         $("#app").addClass('mt-5');
     @endif
-    
     
     {{-- TOP MENU TRANSPARENT - Just in HP when the top of the page is shown --}}
         @if($transparentBarInHp)
@@ -62,8 +38,6 @@
                 });
             @endif    
         @endif
-
-    
 @stop
 
 

@@ -3,16 +3,16 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <title>@lang('homepage-serach.contact_improvisation') - @lang('homepage-serach.global_calendar')</title>
+    <title>@yield('title') - @lang('homepage-serach.contact_improvisation') - @lang('homepage-serach.global_calendar')</title>
     {{--<title>{{ config('app.name', 'Laravel') }}</title>--}}
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    {{-- Facebook tags  --}}
-        <meta property="og:image" content="/storage/logo/fb_logo_cigc_red.jpg" />
 
+    {{-- Facebook tags  --}}
+        @yield('fb-tags')
+        
     {{-- CSRF Token --}}
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -23,40 +23,23 @@
         @yield('css')
         
     {{-- JS that need to stay in the head--}}
+        @yield('javascript-head')
+            
         {{-- Google Analitics (before closing the head )--}}
         @include('partials.google-analytics')
         
 </head>
 
-<body class=""> {{-- Laravel use VUE as default - https://stackoverflow.com/questions/41411344/vue-warn-cannot-find-element-app#41411385 --}}
+<body> {{-- Laravel use VUE as default - https://stackoverflow.com/questions/41411344/vue-warn-cannot-find-element-app#41411385 --}}
     
     @if(!env('SITE_OFFLINE'))
-        @include('menus.nav', [
-            'items' => $MyNavBar->roots(),
-            'container' => true,
-            'paddingX' => '',
-            'backgroundColor' => '#B5A575',
-            'stickyNavbar' => true,
-            'transparentBarInHp' => true,
-        ])
-
-        <div id="app" class="beforeContent">
-            @yield('beforeContent')
+        <div id="app" class="container pt-5">
+            @yield('content')
         </div>
-
-        @include('footer.footer', [
-            'container' => true,
-            'paddingX' => '',
-            'backgroundColor' => '#B5A575',
-            'transparentBarInHp' => true,
-        ])
-        
-        @include('partials.cookie-consent')
-    
     @else
         @include('partials.offline-for-maintenance')
     @endif
-    
+
     {{-- JS --}}
         <script src="{{ asset('js/manifest.js') }}" ></script>
         <script src="{{ asset('js/vendor.js') }}" ></script>

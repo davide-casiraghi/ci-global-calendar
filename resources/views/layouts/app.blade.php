@@ -31,35 +31,40 @@
 </head>
 
 <body> {{-- Laravel use VUE as default - https://stackoverflow.com/questions/41411344/vue-warn-cannot-find-element-app#41411385 --}}
-    {{-- {!! menu('main', 'nav') !!} --}}
-    @include('menus.nav', [
-        'items' => $MyNavBar->roots(),
-        'container' => true,
-        'paddingX' => '',
-        'backgroundColor' => '#B5A575',
-        'stickyNavbar' => true,
-        'transparentBarInHp' => true,
-    ])
-
-    <div class="beforeContent">
-        @yield('beforeContent')
-    </div>
-
-    <div id="app" class="container pt-5">
-        @yield('content')
-    </div>
-
-    <div class="afterContent">
-        @yield('afterContent')
-    </div>
     
-    @include('footer.footer', [
-        'container' => true,
-        'paddingX' => '',
-        'backgroundColor' => '#B5A575',
-    ])
+    @if(!env('SITE_OFFLINE'))
+        @include('menus.nav', [
+            'items' => $MyNavBar->roots(),
+            'container' => true,
+            'paddingX' => '',
+            'backgroundColor' => '#B5A575',
+            'stickyNavbar' => true,
+            'transparentBarInHp' => true,
+        ])
+
+        <div class="beforeContent">
+            @yield('beforeContent')
+        </div>
+
+        <div id="app" class="container pt-5">
+            @yield('content')
+        </div>
+
+        <div class="afterContent">
+            @yield('afterContent')
+        </div>
+        
+        @include('footer.footer', [
+            'container' => true,
+            'paddingX' => '',
+            'backgroundColor' => '#B5A575',
+        ])
+        
+        @include('partials.cookie-consent')
     
-    @include('partials.cookie-consent')
+    @else
+        @include('partials.offline-for-maintenance')
+    @endif
 
     {{-- JS --}}
         <script src="{{ asset('js/manifest.js') }}" ></script>

@@ -29,7 +29,7 @@ class EventController extends Controller
 {
     /* Restrict the access to this resource just to logged in users except show view */
     public function __construct(){
-        $this->middleware('auth', ['except' => ['show','reportMisuse','reportMisuseThankyou','mailToOrganizer','mailToOrganizerSent','eventBySlug', 'eventBySlugAndRepetition']]);
+        $this->middleware('auth', ['except' => ['show','reportMisuse','reportMisuseThankyou','mailToOrganizer','mailToOrganizerSent','eventBySlug', 'eventBySlugAndRepetition','EventsListByCountry']]);
     }
     
     /**
@@ -1111,4 +1111,6 @@ class EventController extends Controller
     }
     
     
+    /***************************************************************************/
+
 }

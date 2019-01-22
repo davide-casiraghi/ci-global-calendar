@@ -226,4 +226,30 @@ class EventSearchController extends Controller
     public function destroy(Event $event){
         //
     }
+    
+    /***************************************************************************/
+    /**
+     * Return and HTML with all the events of a specific country by country CODE. (eg. http://websitename.com/eventSearch/country/SI)
+     * this should be included in the IFRAME for the regional websites
+     *
+     * @param  $slug - The code of the country
+     * @return \Illuminate\Http\Response
+     */
+
+    public function EventsListByCountry($code){
+        $country = Country::
+                where('code', $code)
+                ->first();
+                
+        $events = Event::where('sc_country_id', $country->id)->get();
+        
+        $minutes = 15;  // Set the duration time of the cache
+        $eventCategories = Cache::remember('categories', $minutes, function () {
+            return EventCategory::orderBy('name')->pluck('name', 'id');
+        });
+        
+        return view('eventSearch.index-iframe',compact('events'))
+                ->with('country', $country)
+                ->with('eventCategories',$eventCategories);
+    }
 }

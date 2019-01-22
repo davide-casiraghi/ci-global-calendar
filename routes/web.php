@@ -105,7 +105,7 @@ function()
         Route::get('/contactForm/compose/{recipient}', 'ContactFormController@contactForm')->name("forms.contactform");
         Route::post('/contactForm/send', 'ContactFormController@contactFormSend')->name("forms.contactform-send");
         Route::get('/contactForm/thankyou', 'ContactFormController@contactFormThankyou')->name("forms.contactform-thankyou");
-
+        
 });
 
 
@@ -122,3 +122,8 @@ function()
         Route::get('/sitemap/events', 'SitemapController@events');
         Route::get('/sitemap/teachers', 'SitemapController@teachers');
         Route::get('/sitemap.xml', 'SitemapController@index');
+        
+    /* Iframe for regional websites */
+        Route::get('/eventSearch/country/{code}', 'EventSearchController@EventsListByCountry');
+    
+    

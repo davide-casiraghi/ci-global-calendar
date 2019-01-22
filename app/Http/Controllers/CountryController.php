@@ -129,21 +129,8 @@ class CountryController extends Controller
     }
 
 
+    /***************************************************************************/
 
-/*
-    public function search(Request $request){
-
-        //$countries = Country::latest()->paginate(20);
-        //$countries = Country::where('name', $request->keywords)->get();
-        //$continents = Continent::pluck('name', 'id');
-
-        //return view('countries.index',compact('countries'))
-        //    ->with('i', (request()->input('page', 1) - 1) * 20)->with('continents',$continents);
-
-        return view('countries.index',compact('countries'));
-
-    }
-*/
 
 
 }
