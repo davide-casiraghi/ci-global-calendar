@@ -124,9 +124,10 @@ function()
         Route::get('/sitemap.xml', 'SitemapController@index');
         
     /* Iframe for regional websites */
-        Route::middleware(['cors'])->group(function () {
+        Route::get('/eventSearch/country/{code}', 'EventSearchController@EventsListByCountry');
+        /*Route::middleware(['cors'])->group(function () {
             Route::get('/eventSearch/country/{code}', 'EventSearchController@EventsListByCountry');
-        });
+        });*/
 
 
     
