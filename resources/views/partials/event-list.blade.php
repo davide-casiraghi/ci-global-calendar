@@ -1,3 +1,11 @@
+
+{{--
+
+    EVENT LIST
+    Show the responsive list of events: used in hp search, teacher show view and regional iframe
+
+--}}
+
 <div class="eventList mb-3">
     @foreach ($events as $event)
         <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
