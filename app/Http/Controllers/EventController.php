@@ -29,7 +29,7 @@ class EventController extends Controller
 {
     /* Restrict the access to this resource just to logged in users except show view */
     public function __construct(){
-        $this->middleware('auth', ['except' => ['show','reportMisuse','reportMisuseThankyou','mailToOrganizer','mailToOrganizerSent','eventBySlug', 'eventBySlugAndRepetition']]);
+        $this->middleware('auth', ['except' => ['show','reportMisuse','reportMisuseThankyou','mailToOrganizer','mailToOrganizerSent','eventBySlug', 'eventBySlugAndRepetition','EventsListByCountry']]);
     }
     
     /**
@@ -1111,4 +1111,23 @@ class EventController extends Controller
     }
     
     
+    /***************************************************************************/
+    /**
+     * Return and HTML with all the events of a specific country by country SLUG. (eg. http://websitename.com/events/country/xxxx)
+     * this should be included in the IFRAME for the regional websites
+     *
+     * @param  $slug - The code of the country
+     * @return \Illuminate\Http\Response
+     */
+
+    public function EventsListByCountry($code){
+        $country = Country::
+                where('code', $code)
+                ->first();
+                
+        $events = Event::where('sc_country_id', $country->id)->get();
+        
+        return view('events.list-by-country',compact('events'))
+                ->with('country', $country);
+    }
 }
