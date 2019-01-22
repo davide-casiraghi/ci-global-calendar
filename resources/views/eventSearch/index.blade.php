@@ -140,6 +140,7 @@
             </form>
 
             @if (Route::is('eventSearch.index'))  {{-- Show search results just when search button is pressed --}}
+                
                 {{-- List of events --}}
                 <a id="dataarea"></a> {{-- Anchor to scroll on search --}}
                 <div class="row mt-5">

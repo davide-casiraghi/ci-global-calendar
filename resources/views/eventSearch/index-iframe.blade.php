@@ -14,7 +14,7 @@
             
             <p>
                 You can specify your country using one of this country codes:
-                https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements
+                <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">Country code ISO_3166-1_alpha-2</a>
             </p>
         </div>
     </div>

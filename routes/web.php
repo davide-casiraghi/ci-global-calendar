@@ -124,6 +124,6 @@ function()
         Route::get('/sitemap.xml', 'SitemapController@index');
         
     /* Iframe for regional websites */
-        Route::get('/events/country/{code}', 'EventController@EventsListByCountry');
+        Route::get('/eventSearch/country/{code}', 'EventSearchController@EventsListByCountry');
     
     
