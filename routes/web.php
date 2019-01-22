@@ -126,4 +126,3 @@ function()
     /* Iframe for regional websites */
         Route::get('/eventSearch/country/{code}', 'EventSearchController@EventsListByCountry');
     
-    

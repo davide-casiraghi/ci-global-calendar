@@ -59,11 +59,12 @@ class PostController extends Controller
         // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
             App::setLocale('en');
 
-
+            //aaaaa
         if ($searchKeywords||$searchCategory){
             $posts = Post::
-                when($searchKeywords, function ($query, $searchKeywords) {
-                    return $query->where('title', $searchKeywords)->orWhere('title', 'like', '%' . $searchKeywords . '%');
+                join('post_translations', 'posts.id', '=', 'post_translations.post_id')
+                ->when($searchKeywords, function ($query, $searchKeywords) {
+                    return $query->where('post_translations.title', $searchKeywords)->orWhere('post_translations.title', 'like', '%' . $searchKeywords . '%');
                 })
                 ->when($searchCategory, function ($query, $searchCategory) {
                     return $query->where('category_id', '=', $searchCategory);

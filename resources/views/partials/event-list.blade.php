@@ -1,3 +1,14 @@
+
+{{--
+
+    EVENT LIST
+    Show the responsive list of events: used in hp search, teacher show view and regional iframe
+
+    PARAMETERS:
+        - $events: array - the list of events
+        - $iframeLinkBlank: boolean - if true clicking on an event bring the user out of the IFRAME where the page was loaded (used for regional websites)
+--}}
+
 <div class="eventList mb-3">
     @foreach ($events as $event)
         <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
@@ -31,7 +42,7 @@
             </div>
             <div class="col-md-3 py-3 py-md-0 vcenter title">
                 {{--<a href="{{ route('events.show',$event->id) }}">{{ $event->title }}</a>--}}
-                <a href="/event/{{$event->slug}}/{{$event->rp_id}}">
+                <a href="/event/{{$event->slug}}/{{$event->rp_id}}" @if($iframeLinkBlank)  onclick="window.parent.location.href='https://ciglobalcalendar.net/event/{{$event->slug}}/{{$event->rp_id}}';" @endif>
             {{--    {!! route('events.show', ['id'=>$event->id, 'rp_id'=>$event->rp_id])  !!}">--}}
                     {{ str_limit($event->title, $limit = 50, $end = '...') }}
                 </a>

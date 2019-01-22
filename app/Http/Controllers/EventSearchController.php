@@ -28,19 +28,28 @@ class EventSearchController extends Controller
         $countries = Country::pluck('name', 'id');
         $venues = EventVenue::pluck('name', 'id');*/
         
-        // Set the duration time of the cache
-            $minutes = 15;
+        
+        $minutes = 15; // Set the duration time of the cache
         
         $backgroundImages = BackgroundImage::all();
 
         $eventCategories = Cache::remember('categories', $minutes, function () {
             return EventCategory::orderBy('name')->pluck('name', 'id');
         });
-
+            
+        // Get the countries with active events - aaa
         $countries = Cache::remember('countries', $minutes, function () {
+            
+            date_default_timezone_set('Europe/Rome');
+            $searchStartDate = date('Y-m-d', time());
+            $lastestEventsRepetitionsQuery = $this->getLastestEventsRepetitionsQuery($searchStartDate, null);
+            
             return DB::table('countries')
                 ->join('event_venues', 'countries.id', '=', 'event_venues.country_id')
                 ->join('events', 'event_venues.id', '=', 'events.venue_id')
+                ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
+                        $join->on('events.id', '=', 'event_repetitions.event_id');
+                    })
                 ->orderBy('countries.name')
                 ->pluck('countries.name', 'countries.id');
         });
@@ -90,15 +99,7 @@ class EventSearchController extends Controller
             }
         
         // Sub-Query Joins - https://laravel.com/docs/5.7/queries                        
-        $lastestEventsRepetitions = DB::table('event_repetitions')
-                                ->selectRaw('event_id, MIN(id) AS rp_id, start_repeat, end_repeat')
-                                ->when($searchStartDate, function ($query, $searchStartDate) {
-                                    return $query->where('event_repetitions.start_repeat', '>=',$searchStartDate);
-                                })
-                                ->when($searchEndDate, function ($query, $searchEndDate) {
-                                    return $query->where('event_repetitions.end_repeat', '<=', $searchEndDate);
-                                })
-                                ->groupBy('event_id');
+        $lastestEventsRepetitionsQuery = $this->getLastestEventsRepetitionsQuery($searchStartDate, $searchEndDate);
                                 
         // Retrieve the events that correspond to the selected filters
         if ($searchKeywords||$searchCategory||$searchCountry||$searchContinent||$searchTeacher||$searchVenue||$searchStartDate||$searchEndDate){
@@ -122,7 +123,7 @@ class EventSearchController extends Controller
                     ->when($searchVenue, function ($query, $searchVenue) {
                         return $query->where('title', $searchVenue)->orWhere('sc_venue_name', 'like', '%' . $searchVenue . '%');
                     })
-                    ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) use ($searchStartDate,$searchEndDate) {
+                    ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate,$searchEndDate) {
                         $join->on('events.id', '=', 'event_repetitions.event_id');
                     })
                     ->orderBy('event_repetitions.start_repeat', 'asc')
@@ -252,4 +253,31 @@ class EventSearchController extends Controller
                 ->with('country', $country)
                 ->with('eventCategories',$eventCategories);
     }
+    
+    
+    /***************************************************************************/
+    /**
+     * Get lastest events repetitions
+     *
+     * @param  $searchStartDate - The start date of the interval
+     * @param  $searchEndDate - The end date of the interval
+     * @return \Illuminate\Http\Response
+     */
+     public function getLastestEventsRepetitionsQuery($searchStartDate, $searchEndDate){
+         $ret = DB::table('event_repetitions')
+                     ->selectRaw('event_id, MIN(id) AS rp_id, start_repeat, end_repeat')
+                     ->when($searchStartDate, function ($query, $searchStartDate) {
+                         return $query->where('event_repetitions.start_repeat', '>=',$searchStartDate);
+                     })
+                     ->when($searchEndDate, function ($query, $searchEndDate) {
+                         return $query->where('event_repetitions.end_repeat', '<=', $searchEndDate);
+                     })
+                     ->groupBy('event_id');
+         
+         return $ret;
+     }
+    
+     /***************************************************************************/
+    
+    
 }
