@@ -36,7 +36,7 @@ EG.
 
                 @include('partials.event-list', [
                       'events' => $events,
-                      'linkTargetBlank' => true,
+                      'iframeLinkBlank' => true,
                 ])
                 
                 

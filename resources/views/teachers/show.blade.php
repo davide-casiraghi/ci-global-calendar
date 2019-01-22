@@ -39,7 +39,7 @@
                             <div class="col-12">
                                 @include('partials.event-list', [
                                       'events' => $eventsTeacherWillTeach,
-                                      'linkTargetBlank' => false,
+                                      'iframeLinkBlank' => false,
                                 ])
                             </div>
                         </div>

@@ -6,7 +6,7 @@
 
     PARAMETERS:
         - $events: array - the list of events
-        - $linkTargetBlank: boolean - if true clicking on an event bring to a new blank page
+        - $iframeLinkBlank: boolean - if true clicking on an event bring the user out of the IFRAME where the page was loaded (used for regional websites)
 --}}
 
 <div class="eventList mb-3">
@@ -42,7 +42,7 @@
             </div>
             <div class="col-md-3 py-3 py-md-0 vcenter title">
                 {{--<a href="{{ route('events.show',$event->id) }}">{{ $event->title }}</a>--}}
-                <a href="/event/{{$event->slug}}/{{$event->rp_id}}" @if($linkTargetBlank)  onclick="window.parent.location.href='https://ciglobalcalendar.net/event/{{$event->slug}}/{{$event->rp_id}}';" @endif>
+                <a href="/event/{{$event->slug}}/{{$event->rp_id}}" @if($iframeLinkBlank)  onclick="window.parent.location.href='https://ciglobalcalendar.net/event/{{$event->slug}}/{{$event->rp_id}}';" @endif>
             {{--    {!! route('events.show', ['id'=>$event->id, 'rp_id'=>$event->rp_id])  !!}">--}}
                     {{ str_limit($event->title, $limit = 50, $end = '...') }}
                 </a>

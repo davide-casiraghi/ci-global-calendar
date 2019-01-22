@@ -152,7 +152,7 @@
                 
                 @include('partials.event-list', [
                       'events' => $events,
-                      'linkTargetBlank' => false,
+                      'iframeLinkBlank' => false,
                 ])
 
                 {!! $events->links() !!}
