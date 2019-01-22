@@ -152,6 +152,7 @@
                 
                 @include('partials.event-list', [
                       'events' => $events,
+                      'linkTargetBlank' => false,
                 ])
 
                 {!! $events->links() !!}
