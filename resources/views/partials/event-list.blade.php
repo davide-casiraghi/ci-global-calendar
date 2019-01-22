@@ -4,6 +4,9 @@
     EVENT LIST
     Show the responsive list of events: used in hp search, teacher show view and regional iframe
 
+    PARAMETERS:
+        - $events: array - the list of events
+        - $linkTargetBlank: boolean - if true clicking on an event bring to a new blank page
 --}}
 
 <div class="eventList mb-3">
