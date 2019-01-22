@@ -18456,7 +18456,7 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after 
 }
 
 .accordion.ui-accordion .ui-accordion-header .ui-icon:after {
-  background: #fff;
+  background: #f8fafc;
   border: 2px solid #f08e0d;
   border-radius: 100%;
   -webkit-box-sizing: border-box;
