@@ -28,6 +28,12 @@
 
          <div class="row">
             <div class="col-12">
+                
+                @include('partials.forms.alert', [
+                	'text' => "Please notice that if this is the first event inserted for your country it can take up to 15 minutes before your country appear in the homepage search filters.",
+                	'style' => 'alert-warning',
+                ])
+                
                 @include('partials.forms.input', [
                       'title' => __('views.title'),
                       'name' => 'title',
