@@ -19,13 +19,6 @@ EG.
 
 @extends('layouts.regionalframe')
 
-@section('javascript-document-ready')
-    
-        
-@endsection
-
-
-
 
 <div class="eventSearch">
     <div class="container mt-4">
