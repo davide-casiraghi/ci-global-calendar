@@ -151,7 +151,7 @@
                 </div>
                 
                 @include('partials.event-list', [
-                      'records' => $events,
+                      'events' => $events,
                 ])
 
                 {!! $events->links() !!}

@@ -8,7 +8,7 @@
                 <h2>Contact events in {{$country->name}}</h2>
 
                 @include('partials.event-list', [
-                      'records' => $events,
+                      'events' => $events,
                 ])
                 
                 
