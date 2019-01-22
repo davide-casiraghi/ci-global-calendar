@@ -4,7 +4,6 @@
 
 <head>
     <title>@yield('title') - @lang('homepage-serach.contact_improvisation') - @lang('homepage-serach.global_calendar')</title>
-    {{--<title>{{ config('app.name', 'Laravel') }}</title>--}}
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,13 +31,5 @@
         @include('partials.offline-for-maintenance')
     @endif
 
-    {{-- JS --}}
-        {{--<script src="{{ asset('js/manifest.js') }}" ></script>
-        <script src="{{ asset('js/vendor.js') }}" ></script>
-        <script src="{{ asset('js/app.js') }}" ></script>--}}
-
-        
-
-    
 </body>
 </html>
