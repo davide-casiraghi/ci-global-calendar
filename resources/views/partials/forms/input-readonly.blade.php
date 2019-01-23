@@ -2,7 +2,9 @@
     HIDDEN INPUT form field
     
     PARAMETERS:
+        - $title: string - the content of the label
         - $name: string - the table field name
+        - $tooltip: string - the content of the tooltip
         - $value: the already stored value (used in edit view to retrieve the already stored value)
 --}}
 <div class="form-group">
