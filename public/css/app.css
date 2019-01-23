@@ -18760,3 +18760,7 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after 
   margin-bottom: 5rem;
 }
 
+.event .eventBody {
+  font-size: 1.1rem;
+}
+
