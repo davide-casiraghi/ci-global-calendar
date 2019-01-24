@@ -30,28 +30,12 @@ mix.js('resources/js/app.js', 'public/js')
    .extract([
         'jquery',
         'popper.js', //((positioning engine for tooltips))
-        'bootstrap',
-        'jquery-ui',
-        'jquery-ui/ui/widgets/datepicker',
-        'jquery-ui/ui/widgets/accordion' ,
-        'smartmenus',
-        'smartmenus/dist/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.js',
-        'tooltip.js', 
-        'slick-carousel',
-        'gridalicious',
-        '@fancyapps/fancybox',
-        'bootstrap-select',
-        'bootstrap-datepicker',
-        'bootstrap-timepicker',
-        'fontawesome-pro/js/fontawesome.js',
-        'cookieconsent',
-        'waypoints/lib/jquery.waypoints.js',
-        'jquery.counterup'
+        'bootstrap'
     ]);
 
 
 /* CSS - Vendor - OK*/
-mix.styles([
+/*mix.styles([
    'node_modules/bootstrap/dist/css/bootstrap.css',
    'node_modules/jquery-ui/themes/base/core.css',
    'node_modules/jquery-ui/themes/base/accordion.css',
@@ -64,7 +48,7 @@ mix.styles([
    'node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.css',
    'node_modules/bootstrap-timepicker/css/bootstrap-timepicker.css',
    'node_modules/cookieconsent/build/cookieconsent.min.css',
-], 'public/css/vendor.css');
+], 'public/css/vendor.css');*/
 
 /* CSS - Custom - OK */
 mix.sass('resources/sass/app.scss', 'public/css');
