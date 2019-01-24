@@ -1,12 +1,13 @@
 @extends('organizers.layout')
 
 @section('javascript-document-ready')
+    @parent
     {{--  Clear filters on click reset button --}}
         $("#resetButton").click(function(){
             $("input[name=keywords]").val("");
             $('form.searchForm').submit();
         });
-@endsection
+@stop
 
 @section('content')
     <div class="row">

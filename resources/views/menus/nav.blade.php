@@ -11,7 +11,6 @@
     
 @section('javascript-document-ready')
     @parent
-    
     {{-- Add some margin above the contents to compensate the sticky menu --}}
     @if($stickyNavbar)
         $("#app").addClass('mt-5');
