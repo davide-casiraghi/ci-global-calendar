@@ -30,6 +30,14 @@
                 ])
             </div>
             <div class="col-12">
+                @include('partials.forms.input-readonly', [
+                    'title' => 'Link to this post',
+                    'name' => 'post_link',
+                    'tooltip' => '',
+                    'value' => env('APP_URL').'post/'.$post->slug
+                ])
+            </div>
+            <div class="col-12">
                 @include('partials.forms.select', [
                     'title' => __('views.category'),
                     'name' => 'category_id',

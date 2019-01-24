@@ -4,7 +4,7 @@
 /************************************/
 
 function wrapImageWithAlt(thisObj){
-
+    
     // Crea un DIV per inserire la descrizione sotto all'immagine sempre nel wrap
 
     // Incapsula l'immagine con ALT della sezione news in un contenitore
@@ -57,6 +57,7 @@ function wrapImageWithAlt(thisObj){
     	        description.parent(".imageWrapper").css('margin-left',20);
     	        break;
     	}
+    
 }
 
 // ***************************************************************************
@@ -90,7 +91,7 @@ jQuery(document).ready(function(){
 	/********************************************/
 
 	jQuery(".postBody img, .zoomImage").not(".no_zoomImage").not(".gallery img").not(".featurette-image").not(".columns img").each(function( index ) {
-
+    
     // Wrap image in a container
     	if (jQuery(this).attr('alt'))
             wrapImageWithAlt(jQuery(this));

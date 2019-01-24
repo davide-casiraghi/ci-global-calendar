@@ -41,3 +41,22 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
+
+// Import Javascript Plugins
+	import 'bootstrap';
+	import 'bootstrap-datepicker';
+	import 'jquery-ui';
+	import 'jquery-ui/ui/widgets/accordion';
+	import 'smartmenus';
+	import 'smartmenus/dist/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.js';
+	import 'tooltip.js';
+	import 'slick-carousel'; 
+	import 'gridalicious';
+	import '@fancyapps/fancybox';
+	import 'bootstrap-select';
+	import 'bootstrap-timepicker';
+	import 'fontawesome-pro/js/fontawesome.js';
+	import 'cookieconsent';
+	import 'waypoints/lib/jquery.waypoints.js';
+	import 'jquery.counterup';

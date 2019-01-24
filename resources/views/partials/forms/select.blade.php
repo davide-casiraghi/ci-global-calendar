@@ -5,6 +5,7 @@
         - $title: string - the title to show
         - $name: string - the select name attribute
         - $placeholder: string - the text shown when nothing is selected 
+        - $tooltip: string - the content of the tooltip
         - $value: the selected value
         - $record: the content of the selected value
         - $liveSearch: boolean - enable the live search
@@ -23,7 +24,10 @@
 @stop
 
 <div class="form-group">
-    @if(!empty($title))<label for="{{ $name }}">{{ $title }}</label>@endif
+    @if(!empty($title))
+        <label for="{{ $name }}">{{ $title }}</label>
+        @if(!empty($tooltip))<i class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="{{ $tooltip }}"></i>@endif
+    @endif
     <select name="{{ $name }}" id="{{ $name }}" class="selectpicker" data-live-search="{{ $liveSearch }}" title="{{$placeholder}}">
         @foreach ($records as $value => $record)
             <option value="{{$value}}" @if(!empty($seleted)) {{  $seleted == $value ? 'selected' : '' }}@endif>{{ $record }}</option>
