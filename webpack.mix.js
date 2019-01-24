@@ -30,7 +30,7 @@ mix.js('resources/js/app.js', 'public/js')
    .extract([
         'jquery',
         'popper.js', //((positioning engine for tooltips))
-        'bootstrap'
+        //'bootstrap'
     ]);
 
 
