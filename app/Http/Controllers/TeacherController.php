@@ -30,10 +30,20 @@ class TeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-        $countries = Country::pluck('name', 'id');
+        //$countries = Country::pluck('name', 'id');
 
-        $searchKeywords = $request->input('keywords');
-        $searchCountry = $request->input('country_id');
+        // Get the countries with active teachers
+            $minutes = 15; // Set the duration time of the cache
+            $countries = Cache::remember('countries', $minutes, function () {
+                return DB::table('countries')
+                    ->join('teachers', 'countries.id', '=', 'teachers.country_id')
+                    ->orderBy('countries.name')
+                    ->pluck('countries.name', 'countries.id');
+            });
+        
+        // Search keywords 
+            $searchKeywords = $request->input('keywords');
+            $searchCountry = $request->input('country_id');
 
         // To retrieve just the teachers created by this user - We will compare it with the created_by value in the teacher table
             $loggedUser = $this->getLoggedAuthorId();  
