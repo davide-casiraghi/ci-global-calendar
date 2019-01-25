@@ -12,6 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="{{$barsBackground}}"/> {{-- Theming the browser's address bar to match your brand's colors provides a more immersive user experience.--}}
+    <meta name="description" content="@lang('homepage-serach.find_information')">
     
     {{-- Facebook tags  --}}
         <meta property="og:image" content="/storage/logo/fb_logo_cigc_red.jpg" />
