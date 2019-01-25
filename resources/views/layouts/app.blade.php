@@ -5,8 +5,13 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <title>@yield('title') - @lang('homepage-serach.contact_improvisation') - @lang('homepage-serach.global_calendar')</title>
-    {{--<title>{{ config('app.name', 'Laravel') }}</title>--}}
+    <title>
+        @hasSection('title')
+            @yield('title') - 
+        @endif
+        @lang('homepage-serach.contact_improvisation') - @lang('homepage-serach.global_calendar')
+    </title>
+
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
