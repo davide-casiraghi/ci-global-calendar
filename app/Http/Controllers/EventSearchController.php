@@ -37,8 +37,8 @@ class EventSearchController extends Controller
             return EventCategory::orderBy('name')->pluck('name', 'id');
         });
             
-        // Get the countries with active events - aaa
-        $countries = Cache::remember('countries', $minutes, function () {
+        // Get the countries with active events
+        $countries = Cache::remember('events_countries', $minutes, function () {
             
             date_default_timezone_set('Europe/Rome');
             $searchStartDate = date('Y-m-d', time());

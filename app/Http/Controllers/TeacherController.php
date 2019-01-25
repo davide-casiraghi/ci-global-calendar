@@ -34,7 +34,7 @@ class TeacherController extends Controller
 
         // Get the countries with active teachers
             $minutes = 15; // Set the duration time of the cache
-            $countries = Cache::remember('countries', $minutes, function () {
+            $countries = Cache::remember('teachers_countries', $minutes, function () {
                 return DB::table('countries')
                     ->join('teachers', 'countries.id', '=', 'teachers.country_id')
                     ->orderBy('countries.name')
