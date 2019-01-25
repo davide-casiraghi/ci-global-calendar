@@ -13,7 +13,7 @@
     @parent
     {{-- Add some margin above the contents to compensate the sticky menu --}}
     @if($stickyNavbar)
-        $("#app").addClass('mt-5');
+        $('#app').css('margin-top', '5rem');
     @endif
     
     {{-- TOP MENU TRANSPARENT - Just in HP when the top of the page is shown --}}
