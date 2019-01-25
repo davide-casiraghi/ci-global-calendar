@@ -1,6 +1,7 @@
 @extends('teachers.layout')
 
 @section('title'){{ $teacher->name }}@endsection
+@section('description')Teacher profile @ Global CI calendar @endsection
 
 @section('fb-tags')
     <meta property="og:title" content="{{ $teacher->name }}" />

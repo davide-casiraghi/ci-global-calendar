@@ -1,6 +1,7 @@
 @extends('events.layout')
 
 @section('title'){{ $eventVenue->name }}@endsection
+@section('description')Venue profile @ Global CI calendar @endsection
 
 @section('content')
 

@@ -1,6 +1,7 @@
 @extends('events.layout')
 
 @section('title'){{ $event->title }}@endsection
+@section('description'){{ $category->name }} @ {{ $venue->name }} - {{ $venue->city }}, {{ $country->name }}@endsection
 
 @section('fb-tags')
     <meta property="og:title" content="{{ $event->title }} - {{ $venue->name }} - {{ $venue->city }}, {{ $country->name }}" />
