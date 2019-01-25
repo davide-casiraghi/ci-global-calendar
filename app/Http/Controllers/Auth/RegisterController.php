@@ -92,7 +92,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        $countries = Country::pluck('name', 'id');
+        $countries = Country::orderBy('countries.name')->pluck('name', 'id');
         return view('auth.register', compact('countries'));
     }
 
