@@ -5,19 +5,13 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <title>
-        @hasSection('title')
-            @yield('title') - 
-        @endif
-        @lang('homepage-serach.contact_improvisation') - @lang('homepage-serach.global_calendar')
-    </title>
-
+    <title>@hasSection('title') @yield('title') -@endif @lang('homepage-serach.contact_improvisation') - @lang('homepage-serach.global_calendar')</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="{{$barsBackground}}"/> {{-- Theming the browser's address bar to match your brand's colors provides a more immersive user experience.--}}
-    <meta name="description" content="@lang('homepage-serach.find_information')">
+    <meta name="description" content="@hasSection('description') @yield('description') @else @lang('homepage-serach.find_information')@endif">
     
     {{-- Facebook tags  --}}
         @yield('fb-tags')
