@@ -55,11 +55,8 @@
                     elementCredits.html(credits[current]);
 
                     setTimeout(nextBackground, 10000);
-                    setTimeout(elementCredits, 10000);
                 }
-
                 setTimeout(nextBackground, 10000);
-                setTimeout(elementCredits, 10000);
 
                 elementBackground.css('background-image', backgrounds[0]);
                 elementCredits.html(credits[0]);
