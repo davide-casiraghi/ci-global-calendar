@@ -8,8 +8,18 @@
 
 --}}
 
+
+@section('javascript-document-ready')
+    @parent
+    {{-- Add some margin above the contents to compensate the sticky menu --}}
+    @if($stickyFooter)
+        $('body').css('margin-bottom', '6rem');
+    @endif
+
+@stop
+
 {{--<hr class="mt-5">--}}
-<footer class="{{$paddingX}}" style="background-color: {{$backgroundColor}}">
+<footer class="{{$paddingX}} @if($stickyFooter) sticky @endif " style="background-color: {{$backgroundColor}}">
     @if($container)<div class="container">@endif
         <nav class="row">
             <div class="col-12 col-sm-6 col-sm-pull-6 text-center text-md-left mb-2 mb-sm-0">

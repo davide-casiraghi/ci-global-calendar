@@ -58,6 +58,7 @@
             'container' => true,
             'paddingX' => '',
             'backgroundColor' => '#B5A575',
+            'stickyFooter' => true,
         ])
         
         @include('partials.cookie-consent')

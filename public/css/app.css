@@ -19874,11 +19874,14 @@ footer #dropdownMenuLink img {
 footer {
   z-index: 2;
   position: relative;
+}
+
+footer.sticky {
   /* Sticky everywhere, not on smartphone */
 }
 
 @media screen and (min-width: 400px) {
-  footer {
+  footer.sticky {
     position: fixed;
     bottom: 0;
     width: 100%;
