@@ -5,8 +5,10 @@
     PARAMETERS:
         - $items: array - the items to show in the navbar
         - $container: boolean - show the menu in a container or not 
-        - $padding-x: string - the padding on the left and right side of the nav bar, expressed in bootstrap spacing notation eg. px-5
-
+        - $paddingX: string - the padding on the left and right side of the nav bar, expressed in bootstrap spacing notation eg. px-5
+        - $backgroundColor: string - the navbar background (eg.#B5A575)
+        - $stickyNavbar: boolean - nav bar sticky or not
+        - $transparentBarInHp: boolean - show transparent the navbar in HP, before scrolling down
 --}}
     
 @section('javascript-document-ready')

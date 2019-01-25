@@ -5,13 +5,14 @@
     PARAMETERS:
         - $container: boolean - show the menu in a container or not 
         - $padding-x: string - the padding on the left and right side of the nav bar, expressed in bootstrap spacing notation eg. px-5
-
+        - $backgroundColor: string - the footer background (eg.#B5A575)
+        - $stickyFooter: boolean - footer sticky or not
 --}}
 
 
 @section('javascript-document-ready')
     @parent
-    {{-- Add some margin above the contents to compensate the sticky menu --}}
+    {{-- Add some margin below the body to compensate the sticky footer --}}
     @if($stickyFooter)
         $('body').css('margin-bottom', '6rem');
     @endif
