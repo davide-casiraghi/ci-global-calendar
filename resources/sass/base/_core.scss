@@ -2,6 +2,10 @@ body{
     
     font-family: Avenir Next,Arial,Helvetica,sans-serif;
     
+    @media screen and (max-width: 400px) {	 // Just for MOBILE (to remove the 6rem that compensate the sticky navbar)
+        margin-bottom: 0!important;
+    }
+    
     h1{
         margin: 2rem 0 3rem 0;
     }
