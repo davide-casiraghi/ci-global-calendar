@@ -20051,7 +20051,7 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after 
   width: 26px;
   height: 26px;
   position: absolute;
-  background: url(/search.png) no-repeat right transparent;
+  background: url(/storage/search.png) no-repeat right transparent;
 }
 
 .imageWrapper .imgDesc {
