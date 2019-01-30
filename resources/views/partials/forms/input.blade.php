@@ -16,7 +16,7 @@
     @endif
 
     <input type="text" name="{{ $name }}" class="form-control{{ $errors->has($name) ? ' is-invalid' : '' }}"
-        @if(!empty($placeholder)) placeholder="{{ $placeholder }}" @endif
+        @if(!empty($placeholder)) placeholder="{{ $placeholder }}" aria-label="{{ $placeholder }}" @endif
         @if(!empty($value)) value="{{ $value }}" @endif
     >
 

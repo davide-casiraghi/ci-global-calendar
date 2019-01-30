@@ -9056,24 +9056,6 @@ readers do not read off random characters that represent icons */
 @font-face {
   font-family: "Font Awesome 5 Pro";
   font-style: normal;
-  font-weight: 300;
-  src: url(/fonts/vendor/fontawesome-pro/webfa-light-300.eot?cb05ac4704e34fdf0193998656b4ec45);
-  src: url(/fonts/vendor/fontawesome-pro/webfa-light-300.eot?cb05ac4704e34fdf0193998656b4ec45) format("embedded-opentype"), url(/fonts/vendor/fontawesome-pro/webfa-light-300.woff2?548f2ded83a195a98ac3651bdf9a6f2e) format("woff2"), url(/fonts/vendor/fontawesome-pro/webfa-light-300.woff?431555eb33aa754b71ff96d682f11ab8) format("woff"), url(/fonts/vendor/fontawesome-pro/webfa-light-300.ttf?41dc641e3b0eb4a4645227af6984f2e9) format("truetype"), url(/fonts/vendor/fontawesome-pro/webfa-light-300.svg?ad4a3b4db98007964435cc46eb83bc32) format("svg");
-}
-
-.fal {
-  font-family: "Font Awesome 5 Pro";
-  font-weight: 300;
-}
-
-/*!
- * Font Awesome Pro 5.3.1 by @fontawesome - https://fontawesome.com
- * License - https://fontawesome.com/license (Commercial License)
- */
-
-@font-face {
-  font-family: "Font Awesome 5 Pro";
-  font-style: normal;
   font-weight: 400;
   src: url(/fonts/vendor/fontawesome-pro/webfa-regular-400.eot?aae233685b4e35474545eb5ccc799ae2);
   src: url(/fonts/vendor/fontawesome-pro/webfa-regular-400.eot?aae233685b4e35474545eb5ccc799ae2) format("embedded-opentype"), url(/fonts/vendor/fontawesome-pro/webfa-regular-400.woff2?0950f9f61f5a493c0f5d8e3df26cfbf2) format("woff2"), url(/fonts/vendor/fontawesome-pro/webfa-regular-400.woff?2a84b5593bcfa8665d385a318a433b38) format("woff"), url(/fonts/vendor/fontawesome-pro/webfa-regular-400.ttf?6e69168757d8bea5e20039c5fbaa0281) format("truetype"), url(/fonts/vendor/fontawesome-pro/webfa-regular-400.svg?d62b4167aea45011a45c77ae73bcc0d7) format("svg");
@@ -19772,6 +19754,12 @@ body {
   font-family: Avenir Next, Arial, Helvetica, sans-serif;
 }
 
+@media screen and (max-width: 400px) {
+  body {
+    margin-bottom: 0 !important;
+  }
+}
+
 body h1 {
   margin: 2rem 0 3rem 0;
 }
@@ -19874,11 +19862,14 @@ footer #dropdownMenuLink img {
 footer {
   z-index: 2;
   position: relative;
+}
+
+footer.sticky {
   /* Sticky everywhere, not on smartphone */
 }
 
 @media screen and (min-width: 400px) {
-  footer {
+  footer.sticky {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -20060,7 +20051,7 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after 
   width: 26px;
   height: 26px;
   position: absolute;
-  background: url(/search.png) no-repeat right transparent;
+  background: url(/storage/search.png) no-repeat right transparent;
 }
 
 .imageWrapper .imgDesc {

@@ -19,7 +19,7 @@
         {{--<div class="input-group-append">
           <div class="input-group-text">@lang('homepage-serach.start_on')<i class="far fa-calendar-alt ml-2"></i></div>
       </div>--}}
-        <input name="startDate" id="startDate" class="form-control" type="text" placeholder="@lang('homepage-serach.start_on')" @if(!empty($searchStartDate)) value="{{ $searchStartDate }}" @endif readonly="readonly" aria-describedby="startDate">
+        <input name="startDate" id="startDate" class="form-control" type="text" placeholder="@lang('homepage-serach.start_on')" @if(!empty($searchStartDate)) value="{{ $searchStartDate }}" @endif readonly="readonly" aria-describedby="startDate" aria-label="Enter start date">
 
     </div>
 </div>

@@ -1,6 +1,7 @@
 @extends('organizers.layout')
 
 @section('title'){{ $organizer->name }}@endsection
+@section('description')Organizer profile @ Global CI calendar @endsection
 
 @section('content')
 

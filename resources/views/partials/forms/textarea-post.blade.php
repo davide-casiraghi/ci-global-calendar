@@ -21,9 +21,9 @@
 				selector: 'textarea#bodyTextarea',
                 
                 // Don't produce p tags on enter, instead produce <br />
-                    forced_root_block : '', 
-                    force_br_newlines : true, 
-                    force_p_newlines : false, 
+                    //forced_root_block : '', 
+                    //force_br_newlines : true, 
+                    //force_p_newlines : false, 
                 
                 // Remove Html tags from paste text
                     paste_as_text: true, //!important

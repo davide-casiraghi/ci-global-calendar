@@ -28,7 +28,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $countries = Country::pluck('name', 'id');
+        $countries = Country::orderBy('countries.name')->pluck('name', 'id');
 
         $searchKeywords = $request->input('keywords');
         $searchCountry = $request->input('country_id');

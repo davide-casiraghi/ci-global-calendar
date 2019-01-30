@@ -5,16 +5,17 @@
     PARAMETERS:
         - $items: array - the items to show in the navbar
         - $container: boolean - show the menu in a container or not 
-        - $padding-x: string - the padding on the left and right side of the nav bar, expressed in bootstrap spacing notation eg. px-5
-
+        - $paddingX: string - the padding on the left and right side of the nav bar, expressed in bootstrap spacing notation eg. px-5
+        - $backgroundColor: string - the navbar background (eg.#B5A575)
+        - $stickyNavbar: boolean - nav bar sticky or not
+        - $transparentBarInHp: boolean - show transparent the navbar in HP, before scrolling down
 --}}
     
 @section('javascript-document-ready')
     @parent
-    
     {{-- Add some margin above the contents to compensate the sticky menu --}}
     @if($stickyNavbar)
-        $("#app").addClass('mt-5');
+        $('#app').css('margin-top', '5rem');
     @endif
     
     {{-- TOP MENU TRANSPARENT - Just in HP when the top of the page is shown --}}

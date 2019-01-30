@@ -1,6 +1,7 @@
 @extends('events.layout')
 
 @section('javascript-document-ready')
+    @parent
     {{--  Clear filters on click reset button --}}
         $("#resetButton").click(function(){
             $("input[name=keywords]").val("");
@@ -8,7 +9,7 @@
             $("select[name=country_id] option").prop("selected", false).trigger('change');
             $('form.searchForm').submit();
         });
-@endsection
+@stop
 
 @section('content')
     <div class="row">
