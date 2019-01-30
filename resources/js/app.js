@@ -60,3 +60,4 @@ const app = new Vue({
 	import 'cookieconsent';
 	import 'waypoints/lib/jquery.waypoints.js';
 	import 'jquery.counterup';
+    import 'jquery.cookie';
