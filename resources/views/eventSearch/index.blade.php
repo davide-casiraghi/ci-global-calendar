@@ -26,6 +26,8 @@
                 {{ session()->get('message') }}
             </div>
         @endif
+        
+        
 
     {{-- HI-Light for the donations --}}
     @include('partials.hilight', [
