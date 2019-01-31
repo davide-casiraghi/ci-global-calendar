@@ -34,7 +34,7 @@ class CommunityGoalsClass {
                             $parameters = $this->getParameters($single_category_column_matches);
 
                         // Prepare Stats HTML
-                            $statsHtml = $this->prepareStatsDonate($parameters);
+                            $statsHtml = $this->prepareCommunityGoals($parameters);
 
                             //$statsHtml= "this are the donations stats!!";
 
