@@ -2,7 +2,7 @@
 
 /*
     Example of strings that evoke the plugin:
-    {# stats_donate coding_hours=[2400] pm_hours=[40] steering_commitee_meetings=[60] languages_number=[8] #}
+    {# community_goals backed_amount=[300] goal_amount=[2000] backers_number=[30] days_left=[40] #}
 */
 
 
