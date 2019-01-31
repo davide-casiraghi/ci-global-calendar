@@ -1,7 +1,7 @@
 <?php
 
 /*
-    Example of strings that evoke the plugin:
+    Example of strings that evoke the plugin: - https://cdn-images-1.medium.com/max/1200/1*qpXrpIUJy0ryQOht2Al0tA.png
     {# community_goals backed_amount=[300] goal_amount=[2000] backers_number=[30] days_left=[40] #}
 */
 
@@ -79,6 +79,10 @@ class CommunityGoalsClass {
             $ret['goal_amount'] = $matches[4];
             $ret['backers_number'] = $matches[6];
             $ret['days_left'] = $matches[8];
+            
+            $ret ['progress_bar_value'] = ($ret['backed_amount']/$ret['goal_amount'])*100;
+            
+            
 
         return $ret;
     }
@@ -121,8 +125,8 @@ class CommunityGoalsClass {
                             
                           
                             $ret .= "<div class='progress mt-2'>";
-                            $ret .= "<div class='progress-bar bg-success' style='width: 25%' aria-valuenow='25' aria-valuemin='0' aria-valuemax='100'>";
-                            $ret .= "<span class='sr-only'>40% Complete (success)</span>";
+                            $ret .= "<div class='progress-bar bg-success' style='width: ".$parameters['progress_bar_value']."%' aria-valuenow='".$parameters['progress_bar_value']."' aria-valuemin='0' aria-valuemax='100'>";
+                            $ret .= "<span class='sr-only'>".$parameters['progress_bar_value']."% Complete (success)</span>";
                             $ret .= "</div>";
                             $ret .= "</div>";
                             
