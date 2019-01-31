@@ -71,20 +71,20 @@ class TeachersTest extends DuskTestCase{
          $this->browse(function (Browser $browser) {
              $browser->on(new LoginPage)
                      ->loginUser()
-                        ->visit('/teachers')
-                          ->click('a.create-new')
-                           ->type('name', 'Test Teacher')
-                           ->select('country_id', 5)
-                           ->type('bio', 'lorem ipsum dolet')
-                           ->type('year_starting_practice', '1999')
-                           ->type('year_starting_teach', '1995')
-                           ->type('significant_teachers', 'test teachers')
-                           ->type('facebook', 'http://www.facebook.com/test')
-                           ->type('website', 'http://www.test.it')
-                           ->resize(1920, 3000)
-                       ->press('Submit')
-                       ->assertSee(__('messages.teacher_added_successfully'))
-                       ->logoutUser();                   
+                     ->visit('/teachers')
+                     ->click('a.create-new')
+                     ->type('name', 'Test Teacher')
+                     ->select('country_id', 3)
+                     ->type('bio', 'lorem ipsum dolet')
+                     ->type('year_starting_practice', '1999')
+                     ->type('year_starting_teach', '1995')
+                     ->type('significant_teachers', 'test teachers')
+                     ->type('facebook', 'http://www.facebook.com/test')
+                     ->type('website', 'http://www.test.it')
+                     ->resize(1920, 3000)
+                     ->press('Submit')
+                     ->assertSee(__('messages.teacher_added_successfully'))
+                     ->logoutUser();                   
          });
      }
      

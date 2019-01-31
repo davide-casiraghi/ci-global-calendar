@@ -30,16 +30,16 @@ class TeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-        //$countries = Country::pluck('name', 'id');
+        $countries = Country::orderBy('countries.name')->pluck('name', 'id');
 
-        // Get the countries with active teachers
-            $minutes = 15; // Set the duration time of the cache
+        // Get the countries with active teachers - BUG! IF I CACHE JUST A PART OF THE COUNTRIES WHEN I INSERT A NEW TEACHER WITH A COUNTRY THAT IS NOT IN THE CACHE I GET AN ERROR WHEN I'M BACK TO THE INDEX (eg.no index error)
+        /*    $minutes = 15; // Set the duration time of the cache
             $countries = Cache::remember('teachers_countries', $minutes, function () {
                 return DB::table('countries')
                     ->join('teachers', 'countries.id', '=', 'teachers.country_id')
                     ->orderBy('countries.name')
                     ->pluck('countries.name', 'countries.id');
-            });
+            });*/
         
         // Search keywords 
             $searchKeywords = $request->input('keywords');
