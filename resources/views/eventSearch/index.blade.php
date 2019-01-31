@@ -31,8 +31,11 @@
 
     {{-- HI-Light for the donations --}}
     @include('partials.hilight', [
-          'title' =>  'Dear Global Calendar users: ',
-          'text' =>  'We are the small non-profit that runs the #5 website in the world. We have only 150 staff but serve 450 million users, and have costs like any other top site: servers, power, rent, programs, and staff. Wikipedia is something special. It is like a library or a public park. It is like a temple for the mind, a place we can all go to think and learn. To protect our independence, we’ll never run ads. We take no government funds. We run on donations averaging about $30. If everyone reading this gave $3, our fundraiser would be done within an hour. If Wikipedia is useful to you, take one minute to keep it online another year. Please help us forget fundraising and get back to Wikipedia. Thank you.',
+        'title' =>  'Dear users: ',
+        'text' =>  'The CI Global Calendar is a non-profit project to support the CI global community. To protect our independence we don’t want to run ads. We take no government funds.
+                      If everyone reading this message gave the same amount that offer for a jam, our fundraiser would be done within a week.
+                      If the calendar is useful to you take one minute to help us keep it online another year.
+                      Thank you',
           'linkText' => 'Donate',
           'linkUrl'  => '/post/donate',
     ])
