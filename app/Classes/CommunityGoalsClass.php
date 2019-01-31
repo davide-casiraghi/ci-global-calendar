@@ -98,7 +98,7 @@ class CommunityGoalsClass {
             //$parameters['backers_number']
             //$parameters['days_left']
           
-          $ret .= "ciao";
+          $ret .= "ciao".$parameters['backed_amount'];
             $ret .= "<small><i class='far fa-info-circle'></i>The datas are not updated in real time.</small>";
           $ret .= "</div>";
 
