@@ -93,14 +93,64 @@ class CommunityGoalsClass {
           
           $ret = "<div class='communityGoals'>";
           
-            //$parameters['backed_amount']
-            //$parameters['goal_amount']
+        
             //$parameters['backers_number']
-            //$parameters['days_left']
+            
           
-          $ret .= "ciao".$parameters['backed_amount'];
-            $ret .= "<small><i class='far fa-info-circle'></i>The datas are not updated in real time.</small>";
+         // $ret .= "ciao".$parameters['backed_amount'];
+        
+              
+              
+              
+              
+                  $ret .= "<div class='card'>";
+                      $ret .= "<div class='card-header'>";
+                          $ret .= "CI Global Calendar - Fundrising campaign 2019";
+                      $ret .= "</div>";
+                      $ret .= "<div class='card-body pb-1'>";
+                        
+                            $ret .= "<div class='row'>";
+                                $ret .= "<div class='col-6 text-center'>";
+                                    $ret .= "<i class='far fa-coins'></i> Backed ".$parameters['backed_amount']." €";
+                                $ret .="</div>";
+                                $ret .= "<div class='col-6 text-center'>";
+                                    $ret .= "<i class='far fa-flag-checkered'></i> Goal ".$parameters['goal_amount']." €";
+                                $ret .="</div>";
+                            $ret .="</div>";
+                            
+                            
+                          
+                            $ret .= "<div class='progress mt-2'>";
+                            $ret .= "<div class='progress-bar bg-success' style='width: 25%' aria-valuenow='25' aria-valuemin='0' aria-valuemax='100'>";
+                            $ret .= "<span class='sr-only'>40% Complete (success)</span>";
+                            $ret .= "</div>";
+                            $ret .= "</div>";
+                            
+                            /* Time left */
+                            $ret .= "<div class='row mt-3'>";
+                                $ret .= "<div class='col-12 text-center'>";
+                                    $ret .= "<i class='far fa-alarm-clock'></i> ";
+                                    $ret .= "Time left: ";
+                                    $ret .= "<strong>".$parameters['days_left']." Days</strong>";
+                                $ret .="</div>";
+                            $ret .="</div>";
+                            
+                            $ret .= "<div class='row'>";
+                                $ret .= "<div class='col-12 text-right text-muted'>";
+                                    $ret .= "<small>The datas are not updated in real time.</small>";
+                                $ret .="</div>";
+                            $ret .="</div>";
+                          
+                      $ret .= "</div>";
+                  $ret .= "</div>";
+        
+              
+              
           $ret .= "</div>";
+          
+
+ 
+ 
 
         return $ret;
     }
