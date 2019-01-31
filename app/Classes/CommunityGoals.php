@@ -99,7 +99,7 @@ class CommunityGoalsClass {
             //$parameters['days_left']
           
           $ret .= "ciao";
-            
+            $ret .= "<small><i class='far fa-info-circle'></i>The datas are not updated in real time.</small>";
           $ret .= "</div>";
 
         return $ret;
