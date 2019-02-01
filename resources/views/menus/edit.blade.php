@@ -27,13 +27,6 @@
                       'value' => $menu->name
                 ])
             </div>
-            <div class="col-12">
-                @include('partials.forms.input', [
-                      'title' => __('views.menu_code'), 
-                      'name' => 'code',
-                      'value' => $menu->code
-                ])
-            </div>
         </div>
 
         @include('partials.forms.buttons-back-submit', [

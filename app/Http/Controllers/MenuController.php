@@ -78,8 +78,7 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu){
         
-
-        return view('menus.edit',compact('country'));
+        return view('menus.edit',compact('menu'));
     }
 
     /***************************************************************************/
