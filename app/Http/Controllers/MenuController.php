@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Menu;
 
 use Illuminate\Http\Request;
+use Validator;
 
 class MenuController extends Controller
 {
@@ -43,9 +44,7 @@ class MenuController extends Controller
     public function store(Request $request){
         // Validate form datas
             $validator = Validator::make($request->all(), [
-                'name' => 'required',
-                'code' => 'required',
-                'continent_id' => 'required'
+                'name' => 'required'
             ]);
             if ($validator->fails()) {
                 return back()->withErrors($validator)->withInput();
@@ -119,6 +118,19 @@ class MenuController extends Controller
     }
 
     /***************************************************************************/
+    /**
+     * Save/Update the record on DB
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return string $ret - the ordinal indicator (st, nd, rd, th)
+     */
 
+    function saveOnDb($request, $menu){
+        $menu->name = $request->get('name');
+
+        $menu->save();
+    }
+
+    /***************************************************************************/
 
 }
