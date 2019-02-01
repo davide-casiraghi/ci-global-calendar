@@ -26,7 +26,8 @@ class GenerateMenus
      */
     public function handle($request, Closure $next)
     {
-
+        
+        
         /* LEFT Menu */
         \Menu::make('MyNavBar', function($menu) {
             
