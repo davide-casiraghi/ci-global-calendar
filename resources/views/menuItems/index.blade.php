@@ -48,7 +48,7 @@
     </div>
 
 
-    {!! $menus->links() !!}
+    {!! $menuItems->links() !!}
 
 
 @endsection

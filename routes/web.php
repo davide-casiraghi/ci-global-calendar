@@ -30,7 +30,7 @@ function()
         
     /* Menus */
         Route::resource('menus','MenuController');
-        //Route::resource('menuItems','MenuItemController');
+        Route::resource('menuItems','MenuItemController');
         
     /* Posts */
         Route::resource('categories','CategoryController');
