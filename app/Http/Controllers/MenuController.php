@@ -92,12 +92,10 @@ class MenuController extends Controller
     public function update(Request $request, Menu $menu){
 
         request()->validate([
-            'title' => 'required',
-            'body' => 'required',
-            'category_id' => 'required',
+            'name' => 'required',
         ]);
         
-        $this->saveOnDb($request, $post);
+        $this->saveOnDb($request, $menu);
 
         return redirect()->route('menus.index')
                         ->with('success',__('messages.menu_updated_successfully'));
