@@ -14,7 +14,10 @@ class MenuController extends Controller
      */
     public function index(Request $request){
         
+        $menus = Menu::latest()->paginate(20);
         
+        return view('menus.index',compact('menus'))
+            ->with('i', (request()->input('page', 1) - 1) * 20);
         
     }
     
@@ -25,10 +28,8 @@ class MenuController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-
-        
+        return view('menus.create');
     }
-    
     
     /***************************************************************************/
     /**
@@ -38,7 +39,21 @@ class MenuController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
+        // Validate form datas
+            $validator = Validator::make($request->all(), [
+                'name' => 'required',
+                'code' => 'required',
+                'continent_id' => 'required'
+            ]);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
+
+        $menu = new Menu();
+        $this->saveOnDb($request, $menu);
         
+        return redirect()->route('menus.index')
+                        ->with('success',__('messages.menu_added_successfully'));
         
     }
 
@@ -63,7 +78,7 @@ class MenuController extends Controller
     public function edit(Menu $menu){
         
 
-        return view('menus.edit',compact('country'))->with('continents',$continents);
+        return view('menus.edit',compact('country'));
     }
 
     /***************************************************************************/

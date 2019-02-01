@@ -28,6 +28,10 @@ function()
     /* Users */
         Route::resource('users','UserController');
         
+    /* Menus */
+        Route::resource('menus','MenuController');
+        //Route::resource('menuItems','MenuItemController');
+        
     /* Posts */
         Route::resource('categories','CategoryController');
         Route::resource('posts','PostController');
