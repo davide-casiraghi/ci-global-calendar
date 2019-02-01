@@ -15,6 +15,11 @@ class CreateMenuItemsTable extends Migration
     {
         Schema::create('menu_items', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('compact_name');
+            $table->string('parent_item')->nullable();
+            $table->string('url');
+            $table->string('font_awesome_class')->nullable();
             $table->timestamps();
         });
     }
