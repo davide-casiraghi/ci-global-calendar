@@ -15,7 +15,7 @@
 
       @if($item->hasChildren())
         <ul class="dropdown-menu">
-              @include('menus.nav-items', ['items' => $item->children()])
+              @include('menus.nav.nav-items', ['items' => $item->children()])
         </ul>
       @endif
 

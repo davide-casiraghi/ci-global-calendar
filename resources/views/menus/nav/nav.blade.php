@@ -59,15 +59,15 @@
 
       {{-- Left Nav --}}
       <ul class='navbar-nav mr-auto'>
-          @include('menus.nav-items', ['items' => $MyNavBar->roots()])
+          @include('menus.nav.nav-items', ['items' => $MyNavBar->roots()])
       </ul>
       {{-- end - Left Nav --}}
 
 
       {{-- Right Nav --}}
       <ul class="navbar-nav navbar-right">
-          @include('menus.nav-items', ['items' => $MyNavBarRight->roots()])
-          @include('menus.nav-right-items')
+          @include('menus.nav.nav-items', ['items' => $MyNavBarRight->roots()])
+          @include('menus.nav.nav-right-items')
       </ul>
       {{-- end - Right Nav --}}
 
