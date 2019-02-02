@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\MenuItem;
+use App\Menu;
 
 use Illuminate\Http\Request;
 use Validator;
@@ -32,7 +33,14 @@ class MenuItemController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        return view('menuItems.create');
+        
+        $menu = Menu::orderBy('name')->pluck('name', 'id');
+        $menuItems = MenuItem::orderBy('name')->pluck('name', 'id');
+        $menuItemsOrder = $this->getMenuItemsOrder();
+        
+        return view('menuItems.create')
+            ->with('menuItems',$menuItems)
+            ->with('menu',$menu);
     }
     
     /***************************************************************************/
@@ -131,5 +139,14 @@ class MenuItemController extends Controller
     }
 
     /***************************************************************************/
+
+    public function getMenuItemsOrder(){
+        $ret = array();
+        
+        
+        array_push($ret, "-");
+        
+        return $ret;
+    }
 
 }
