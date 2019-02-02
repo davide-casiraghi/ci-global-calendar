@@ -26,5 +26,8 @@ return [
     'login' => 'Login',
     'logout' => 'Logout',
     'donate' => 'Donate',
-    'teachers_directory' => 'Teachers directory'
+    'teachers_directory' => 'Teachers directory',
+    'menus' => 'Menus',
+    'menu_items' => 'Menu items'
+    
 ];

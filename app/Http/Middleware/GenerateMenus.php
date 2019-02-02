@@ -88,7 +88,11 @@ class GenerateMenus
                                 $profile->builder->items[12]->title = '<i class="far fa-globe-americas"></i> '.__('menu.countries');
                             $menu->adminTools->add('background_images', ['route' => ['backgroundImages.index']]); 
                                 $profile->builder->items[13]->title = '<i class="far fa-images"></i> '.__('menu.background_images');
-                                                        
+                            $menu->adminTools->add('menu', ['route' => ['menus.index']]); 
+                                $profile->builder->items[14]->title = '<i class="fas fa-caret-circle-down"></i> '.__('menu.menus');
+                            $menu->adminTools->add('menu_items', ['route' => ['menuItems.index']]); 
+                                $profile->builder->items[15]->title = '<i class="far fa-caret-circle-down"></i> '.__('menu.menu_items');
+                                                    
                         }
                     
                 }
