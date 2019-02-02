@@ -49,9 +49,30 @@ class MenuItemsTableSeeder extends Seeder
                    'lang_string' => 'menu.teachers_directory',
                    'parent_item' => '3',
                    'url' => '',
-                   'route' => '',
+                   'route' => 'teachers.directory',
                    'font_awesome_class' => 'far fa-file-alt'
            ),
+           array('id' => '5',
+                   'name' => 'Get Involved',
+                   'compact_name' => 'get_involved',
+                   'type' => '0',
+                   'lang_string' => 'menu.teachers_directory',
+                   'parent_item' => '3',
+                   'url' => '',
+                   'route' => 'teachers.directory',
+                   'font_awesome_class' => 'far fa-file-alt'
+           ),
+           array('id' => '6',
+                   'name' => 'Help',
+                   'compact_name' => 'help',
+                   'type' => '0',
+                   'lang_string' => 'menu.teachers_directory',
+                   'parent_item' => '3',
+                   'url' => '',
+                   'route' => 'teachers.directory',
+                   'font_awesome_class' => 'far fa-file-alt'
+           ),
+           
        );
        
        foreach($menuItems as $key => $menuItem) {
