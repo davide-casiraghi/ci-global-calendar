@@ -26,6 +26,16 @@
                       'value' => old('name')
                 ])
             </div>
+            <div class="col-12">
+                @include('partials.forms.select', [
+                    'title' => __('views.parent_menu_item'),
+                    'name' => '	parent_item_id',
+                    'placeholder' => __('views.select_parent_menu_item'),
+                    'records' => $menuItems,
+                    'liveSearch' => 'false',
+                    'mobileNativeMenu' => true,
+                ])
+            </div>
         </div>
 
         @include('partials.forms.buttons-back-submit', [
