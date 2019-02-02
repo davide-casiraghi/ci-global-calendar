@@ -12,7 +12,8 @@ class MenusTableSeeder extends Seeder
     public function run()
     {
         $menus = array(
-           array('id' => '1','name' => 'Main menu'),
+           array('id' => '1','name' => 'Admin menu'),
+           array('id' => '2','name' => 'Main menu'),
        );
        
        foreach($menus as $key => $menu) {
