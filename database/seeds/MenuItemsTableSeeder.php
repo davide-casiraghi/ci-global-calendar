@@ -11,6 +11,15 @@ class MenuItemsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $menuItems = array(
+           array('id' => '1','name' => 'Main menu'),
+       );
+       
+       foreach($menuItems as $key => $menuItem) {
+           DB::table('menu_item')->insert([
+               'id' => $menuItem['id'],
+               'name' => $menuItem['name'],
+           ]);
+       }
     }
 }
