@@ -1,11 +1,11 @@
-@extends('menus.layout')
+@extends('menuItems.layout')
 
 
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>@lang('views.edit_menu')</h2>
+                <h2>@lang('views.edit_menu_item')</h2>
             </div>
         </div>
     </div>
@@ -14,7 +14,7 @@
       'style' => 'alert-danger',
     ])
 
-    <form action="{{ route('menus.update',$menu->id) }}" method="POST">
+    <form action="{{ route('menuItems.update',$menuItem->id) }}" method="POST">
         @csrf
         @method('PUT')
 
@@ -23,14 +23,14 @@
                 @include('partials.forms.input', [
                       'title' => __('general.name'),
                       'name' => 'name',
-                      'placeholder' => 'menu Name',
-                      'value' => $menu->name
+                      'placeholder' => 'menu item Name',
+                      'value' => $menuItem->name
                 ])
             </div>
         </div>
 
         @include('partials.forms.buttons-back-submit', [
-            'route' => 'menus.index'  
+            'route' => 'menuItems.index'  
         ])
 
     </form>
