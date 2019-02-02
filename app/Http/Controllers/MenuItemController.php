@@ -18,6 +18,7 @@ class MenuItemController extends Controller
     public function index(Request $request){
         
         $menuItems = MenuItem::latest()->paginate(20);
+        //dump($menuItems);
         
         return view('menuItems.index',compact('menuItems'))
             ->with('i', (request()->input('page', 1) - 1) * 20);
@@ -86,10 +87,10 @@ class MenuItemController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Menu  $menu
+     * @param  \App\MenuItem  $menuItem
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Menu $menuItem){
+    public function update(Request $request, MenuItem $menuItem){
 
         request()->validate([
             'name' => 'required',
@@ -105,10 +106,10 @@ class MenuItemController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Menu  $menuItem
+     * @param  \App\MenuItem  $menuItem
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Menu $menuItem){
+    public function destroy(MenuItem $menuItem){
         $menuItem->delete();
         
         return redirect()->route('menuItems.index')

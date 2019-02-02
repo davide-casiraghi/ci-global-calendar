@@ -27,13 +27,13 @@
                 <div class="col-9 col-md-6 col-lg-7 py-3 title">
                     <a href="{{ route('menuItems.edit',$menuItem->id) }}">{{ $menuItem->name }}</a>
                 </div>
-                <div class="col-3 col-md-3 col-lg-3 py-3 code">
+                {{--<div class="col-3 col-md-3 col-lg-3 py-3 code">
                     <i data-toggle="tooltip" data-placement="top" title="" class="far fa-barcode-alt mr-2" data-original-title="@lang('general.code')"></i>
                     {{ $menuItems->code }} 
-                </div>
+                </div>--}}
                 
                 <div class="col-12 pb-2 action">
-                    <form action="{{ route('menuItems.destroy',$menuItems->id) }}" method="POST">
+                    <form action="{{ route('menuItems.destroy',$menuItem->id) }}" method="POST">
                         <a class="btn btn-primary" href="{{ route('menuItems.edit',$menuItem->id) }}">@lang('views.edit')</a>
 
                         @csrf
