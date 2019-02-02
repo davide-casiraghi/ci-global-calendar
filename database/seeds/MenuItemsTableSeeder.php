@@ -19,6 +19,10 @@ class MenuItemsTableSeeder extends Seeder
            DB::table('menu_item')->insert([
                'id' => $menuItem['id'],
                'name' => $menuItem['name'],
+               'compact_name' => $menuItem['compact_name'],
+               'parent_item' => $menuItem['parent_item'],
+               'url' => $menuItem['url'],
+               'font_awesome_class' => $menuItem['font_awesome_class'],
            ]);
        }
     }
