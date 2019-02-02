@@ -34,7 +34,7 @@ class GenerateMenus
             $profile = $menu->add("home")->link->href('/');
                 $profile->builder->items[0]->title = '<i class="fa fa-home"></i> '.__('menu.home');
             $profile = $menu->add("about")->link->href('/post/about');
-                $profile->builder->items[1]->title = '<i class="fa fa fa-info-circle"></i> '.__('menu.about');
+                $profile->builder->items[1]->title = '<i class="fa fa-info-circle"></i> '.__('menu.about');
                 $menu->about->add("terms_of_use")->link->href('/post/terms-of-use');
                     $profile->builder->items[2]->title = '<i class="far fa-file-alt"></i> '.__('menu.terms_of_use');
                 $menu->about->add('teachers_directory', ['route' => ['teachers.directory']]); 
