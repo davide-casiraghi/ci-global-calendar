@@ -1,26 +1,26 @@
 <template>
-    
-    
+   <div>
+     <p>hi</p>
+   </div>
 </template>
 
 <script>
-    import draggable from 'vuedraggable'
     export default {
         props : [
             'testimonials',
         ],
         components: {
-            draggable
+            //draggable
         },
         mounted() {
             console.log('Component mounted.');
-            console.log(this.testimonials);
+            //console.log(this.testimonials);
         },
         data() {
-            return {
-                //testimonialsNew: this.testimonials,
-                //csrf: document.head.querySelector('meta[name="csrf-token"]').content
-            }
+            /*return {
+                testimonialsNew: this.testimonials,
+                csrf: document.head.querySelector('meta[name="csrf-token"]').content
+            }*/
         },
         methods: {
             /*update() {
