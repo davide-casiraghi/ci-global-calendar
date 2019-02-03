@@ -21,10 +21,7 @@
 
     
     {{-- List of menus items --}}
-    <ul-list-draggable
-        :testimonials="{{ $menuItems }}"
-    >
-    </ul-list-draggable>
+    <ul-list-draggable :testimonials="{{ json_encode($menuItems) }}"></ul-list-draggable>
     
     
     <div class="menuItemsList my-4">
