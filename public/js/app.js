@@ -7391,8 +7391,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    update: function update() {
+    update: function update(event) {
       console.log("update");
+      console.log(event.dragged);
       /*this.testimonialsNew.map((testimonial, index) => {
           testimonial.order = index + 1;
       })
@@ -57312,11 +57313,9 @@ __webpack_require__.r(__webpack_exports__);
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); //var draggable = require('vuedraggable');
+//Vue.use(draggable);
 
-var draggable = __webpack_require__(/*! vuedraggable */ "./node_modules/vuedraggable/dist/vuedraggable.js");
-
-Vue.use(draggable);
 /**
 * In between we import the custom javascript plugins.
 **/

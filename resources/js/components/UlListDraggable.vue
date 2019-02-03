@@ -30,8 +30,9 @@
             }
         },
         methods: {
-            update() {
+            update(event) {
                 console.log("update");
+                console.log(event.dragged);
                 /*this.testimonialsNew.map((testimonial, index) => {
                     testimonial.order = index + 1;
                 })
