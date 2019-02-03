@@ -7372,12 +7372,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+// Options for the draggable: https://github.com/SortableJS/Sortable#options
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['testimonials'],
   components: {
     draggable: vuedraggable__WEBPACK_IMPORTED_MODULE_0___default.a
   },
-  props: ['testimonials'],
   mounted: function mounted() {
     console.log('Component mounted.'); //console.log(this.testimonials);
   },
@@ -44856,7 +44859,8 @@ var render = function() {
   return _c(
     "draggable",
     {
-      attrs: { options: { group: "people" } },
+      staticClass: "menuItemsList my-4",
+      attrs: { options: { animation: 200 } },
       on: {
         start: function($event) {
           _vm.drag = true
@@ -44873,8 +44877,12 @@ var render = function() {
         expression: "testimonialsNew"
       }
     },
-    _vm._l(_vm.testimonialsNew, function(element) {
-      return _c("div", { key: element.id }, [_vm._v(_vm._s(element.name))])
+    _vm._l(_vm.testimonialsNew, function(element, index) {
+      return _c("div", { key: element.id, staticClass: "row p-1 bg-white" }, [
+        _vm._v(
+          "\n        " + _vm._s(element.name) + " - " + _vm._s(index) + "\n    "
+        )
+      ])
     }),
     0
   )
