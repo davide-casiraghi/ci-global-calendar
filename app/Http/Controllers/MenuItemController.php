@@ -140,6 +140,22 @@ class MenuItemController extends Controller
 
     /***************************************************************************/
 
+    /**
+     * Save/Update the record on DB
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return string $ret - the ordinal indicator (st, nd, rd, th)
+     */
+
+    function updateOrder(Request $request){
+        //$menuItem->name = $request->get('name');
+
+        //$menuItem->save();
+    }
+    
+
+
+
     /*public function getMenuItemsOrder(){
         $ret = array();
         

@@ -29,9 +29,10 @@ function()
         Route::resource('users','UserController');
         
     /* Menus */
+        
         Route::resource('menus','MenuController');
         Route::resource('menuItems','MenuItemController');
-        Route::put('/menuItems/updateOrder', 'menuItems@updateOrder')->name('menuItems.updateOrder');
+        Route::put('/menuItem/updateOrder', 'MenuItemController@updateOrder')->name('menuItems.updateOrder');
         
         
     /* Posts */
@@ -131,4 +132,3 @@ function()
         
     /* Iframe for regional websites */
         Route::get('/eventSearch/country/{code}', 'EventSearchController@EventsListByCountry');
-    

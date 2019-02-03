@@ -7399,7 +7399,7 @@ __webpack_require__.r(__webpack_exports__);
       var elementIndex = event.dragged.title;
       console.log(orderElementPosition);
       console.log(elementIndex);
-      axios.put('/menuItems/updateOrder', {
+      axios.put('/menuItem/updateOrder', {
         testimonials: this.testimonialsNew
       }).then(function (response) {// success message
       });
