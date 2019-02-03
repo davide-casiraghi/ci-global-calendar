@@ -8,7 +8,8 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-
+var Sortable = require('vue-sortable');
+use(Sortable);
 
 /**
 * In between we import the custom javascript plugins.
@@ -60,3 +61,4 @@ const app = new Vue({
 	import 'cookieconsent';
 	import 'waypoints/lib/jquery.waypoints.js';
 	import 'jquery.counterup';
+    import 'sortablejs';

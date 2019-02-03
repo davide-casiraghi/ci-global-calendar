@@ -39,6 +39,7 @@
         "sass-loader": "^7.1.0",
         "slick-carousel": "^1.8.1",
         "smartmenus": "^1.1.0",
+        "sortablejs": "^1.8.1",
         "tinymce": "^4.8.2",
         "tooltip.js": "^1.2.0",
         "vue-sortable": "^0.1.3",
