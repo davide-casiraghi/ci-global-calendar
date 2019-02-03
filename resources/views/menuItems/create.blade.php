@@ -17,6 +17,12 @@
     <form action="{{ route('menuItems.store') }}" method="POST">
         @csrf
 
+
+        {{--<draggable :list="list" class="drag-container">
+            <div v-for="item in list" class="drag-item">{{ item }}</div>
+        </draggable>--}}
+
+
          <div class="row">
             <div class="col-12">
                 @include('partials.forms.input', [

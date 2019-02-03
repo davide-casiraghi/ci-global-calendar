@@ -8,8 +8,8 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-var Sortable = require('vue-sortable');
-use(Sortable);
+var draggable = require('vuedraggable');
+Vue.use(draggable);
 
 /**
 * In between we import the custom javascript plugins.
@@ -38,6 +38,9 @@ $(function () {
 
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('ul-list-draggable', require('./components/UlListDraggable.vue'));
+Vue.component('div-list-draggable', require('./components/DivListDraggable.vue'));
+
 
 const app = new Vue({
     el: '#app'
