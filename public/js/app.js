@@ -7393,14 +7393,20 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     update: function update() {
       console.log("update");
-      this.testimonialsNew.map(function (testimonial, index) {
-        testimonial.order = index + 1;
-      });
-      /*axios.put('/admin/testimonials/updateAll', {
+      /*this.testimonialsNew.map((testimonial, index) => {
+          testimonial.order = index + 1;
+      })
+      axios.put('/admin/testimonials/updateAll', {
           testimonials: this.testimonialsNew
       }).then((response) => {
           // success message
       })*/
+    },
+    onMoveCallback: function onMoveCallback(evt, originalEvent) {
+      console.log("ciao22");
+    },
+    handleChange: function handleChange() {
+      console.log('changed');
     }
   }
 });
@@ -44860,7 +44866,7 @@ var render = function() {
     "draggable",
     {
       staticClass: "menuItemsList my-4",
-      attrs: { options: { animation: 200 } },
+      attrs: { options: { animation: 200 }, move: _vm.update },
       on: {
         start: function($event) {
           _vm.drag = true

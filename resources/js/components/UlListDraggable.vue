@@ -1,6 +1,6 @@
 <template>
 
-    <draggable class="menuItemsList my-4" v-model="testimonialsNew" :options="{animation:200}" @start="drag=true" @end="drag=false">
+    <draggable class="menuItemsList my-4" v-model="testimonialsNew" :options="{animation:200}" @start="drag=true" @end="drag=false" :move="update">
         <div class="row p-1" v-bind:class="{'bg-light': index % 2 === 0, 'bg-white': index % 2 !== 0 }" v-for="(element, index) in testimonialsNew" :key="element.id">
             {{element.name}}
         </div>
@@ -32,15 +32,21 @@
         methods: {
             update() {
                 console.log("update");
-                this.testimonialsNew.map((testimonial, index) => {
+                /*this.testimonialsNew.map((testimonial, index) => {
                     testimonial.order = index + 1;
                 })
-                /*axios.put('/admin/testimonials/updateAll', {
+                axios.put('/admin/testimonials/updateAll', {
                     testimonials: this.testimonialsNew
                 }).then((response) => {
                     // success message
                 })*/
-            }
+            },
+            onMoveCallback(evt, originalEvent){
+               console.log("ciao22");
+           },
+           handleChange() {
+             console.log('changed');
+           },
         },
         
     }
