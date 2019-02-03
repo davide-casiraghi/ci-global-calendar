@@ -31,6 +31,8 @@ function()
     /* Menus */
         Route::resource('menus','MenuController');
         Route::resource('menuItems','MenuItemController');
+        Route::put('/menuItems/updateOrder', 'menuItems@updateOrder')->name('menuItems.updateOrder');
+        
         
     /* Posts */
         Route::resource('categories','CategoryController');

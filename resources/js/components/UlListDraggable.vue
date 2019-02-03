@@ -42,12 +42,16 @@
                 console.log(elementIndex);
                 
                 
-                //aa = onEnd(event);
-                //console.log(aa);
+                axios.put('/menuItems/updateOrder', {
+                    testimonials: this.testimonialsNew
+                }).then((response) => {
+                    // success message
+                })
+                
                 /*this.testimonialsNew.map((testimonial, index) => {
                     testimonial.order = index + 1;
                 })
-                axios.put('/admin/testimonials/updateAll', {
+                axios.put('/menuItems/updateOrder', {
                     testimonials: this.testimonialsNew
                 }).then((response) => {
                     // success message

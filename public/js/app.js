@@ -7398,13 +7398,15 @@ __webpack_require__.r(__webpack_exports__);
       var orderElementPosition = event.dragged.id;
       var elementIndex = event.dragged.title;
       console.log(orderElementPosition);
-      console.log(elementIndex); //aa = onEnd(event);
-      //console.log(aa);
-
+      console.log(elementIndex);
+      axios.put('/menuItems/updateOrder', {
+        testimonials: this.testimonialsNew
+      }).then(function (response) {// success message
+      });
       /*this.testimonialsNew.map((testimonial, index) => {
           testimonial.order = index + 1;
       })
-      axios.put('/admin/testimonials/updateAll', {
+      axios.put('/menuItems/updateOrder', {
           testimonials: this.testimonialsNew
       }).then((response) => {
           // success message
