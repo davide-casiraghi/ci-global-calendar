@@ -1,8 +1,8 @@
 <template>
 
     <draggable class="menuItemsList my-4" v-model="testimonialsNew" :options="{animation:200}" @start="drag=true" @end="drag=false">
-        <div class="row p-1" v-bind:class="{'light-orange': $index % 2 === 0, 'green': $index % 2 !== 0 }" v-for="(element, index) in testimonialsNew" :key="element.id">
-            {{element.name}} - {{ index }}
+        <div class="row p-1" v-bind:class="{'bg-light': index % 2 === 0, 'bg-white': index % 2 !== 0 }" v-for="(element, index) in testimonialsNew" :key="element.id">
+            {{element.name}}
         </div>
     </draggable>
 

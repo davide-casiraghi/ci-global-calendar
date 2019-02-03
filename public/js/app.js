@@ -44883,20 +44883,9 @@ var render = function() {
         {
           key: element.id,
           staticClass: "row p-1",
-          class: {
-            "light-orange": _vm.$index % 2 === 0,
-            green: _vm.$index % 2 !== 0
-          }
+          class: { "bg-light": index % 2 === 0, "bg-white": index % 2 !== 0 }
         },
-        [
-          _vm._v(
-            "\n        " +
-              _vm._s(element.name) +
-              " - " +
-              _vm._s(index) +
-              "\n    "
-          )
-        ]
+        [_vm._v("\n        " + _vm._s(element.name) + "\n    ")]
       )
     }),
     0
