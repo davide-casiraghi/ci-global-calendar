@@ -1,8 +1,8 @@
 <template>
 
     <draggable class="menuItemsList my-4" v-model="testimonialsNew" :options="{animation:200}" @start="drag=true" @end="drag=false" :move="update">
-        <div class="row p-1" v-bind:id="index" v-bind:class="{'bg-light': index % 2 === 0, 'bg-white': index % 2 !== 0 }" v-for="(element, index) in testimonialsNew" :key="element.id">
-            {{element.name}} - {{element.id}}
+        <div class="row p-1" v-bind:id="index" v-bind:title="element.id" v-bind:class="{'bg-light': index % 2 === 0, 'bg-white': index % 2 !== 0 }" v-for="(element, index) in testimonialsNew" :key="element.id">
+            <i class="fas fa-ellipsis-v"></i> {{element.name}} - {{element.id}}
         </div>
     </draggable>
 
@@ -33,7 +33,15 @@
             update(event) {
                 console.log("update");
                 //console.log(event);
-                console.log(event.dragged.id);
+                //console.log(event.dragged.id);
+                
+                var orderElementPosition = event.dragged.id;
+                var elementIndex = event.dragged.title;
+                
+                console.log(orderElementPosition);
+                console.log(elementIndex);
+                
+                
                 //aa = onEnd(event);
                 //console.log(aa);
                 /*this.testimonialsNew.map((testimonial, index) => {
