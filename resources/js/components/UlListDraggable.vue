@@ -42,6 +42,9 @@
                 console.log(elementIndex);
                 
                 
+                
+                
+                
                 axios.put('/menuItem/updateOrder', {
                     testimonials: this.testimonialsNew
                 }).then((response) => {

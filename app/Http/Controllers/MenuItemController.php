@@ -148,6 +148,7 @@ class MenuItemController extends Controller
      */
 
     function updateOrder(Request $request){
+        dd($request);
         //$menuItem->name = $request->get('name');
 
         //$menuItem->save();
