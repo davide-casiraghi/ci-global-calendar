@@ -2,7 +2,7 @@
 
     <draggable class="menuItemsList my-4" v-model="testimonialsNew" :options="{animation:200}" @start="drag=true" @end="drag=false" :move="update">
         <div class="row p-1" v-bind:id="index" v-bind:class="{'bg-light': index % 2 === 0, 'bg-white': index % 2 !== 0 }" v-for="(element, index) in testimonialsNew" :key="element.id">
-            {{element.name}}
+            {{element.name}} - {{element.id}}
         </div>
     </draggable>
 

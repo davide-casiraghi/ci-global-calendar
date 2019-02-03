@@ -44896,7 +44896,15 @@ var render = function() {
           class: { "bg-light": index % 2 === 0, "bg-white": index % 2 !== 0 },
           attrs: { id: index }
         },
-        [_vm._v("\n        " + _vm._s(element.name) + "\n    ")]
+        [
+          _vm._v(
+            "\n        " +
+              _vm._s(element.name) +
+              " - " +
+              _vm._s(element.id) +
+              "\n    "
+          )
+        ]
       )
     }),
     0
