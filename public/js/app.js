@@ -7392,8 +7392,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     update: function update(event) {
-      console.log("update");
-      console.log(event.dragged);
+      console.log("update"); //console.log(event);
+
+      console.log(event.dragged.id); //aa = onEnd(event);
+      //console.log(aa);
+
       /*this.testimonialsNew.map((testimonial, index) => {
           testimonial.order = index + 1;
       })
@@ -44890,7 +44893,8 @@ var render = function() {
         {
           key: element.id,
           staticClass: "row p-1",
-          class: { "bg-light": index % 2 === 0, "bg-white": index % 2 !== 0 }
+          class: { "bg-light": index % 2 === 0, "bg-white": index % 2 !== 0 },
+          attrs: { id: index }
         },
         [_vm._v("\n        " + _vm._s(element.name) + "\n    ")]
       )
