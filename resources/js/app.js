@@ -36,7 +36,6 @@ $(function () {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('ul-list-draggable', require('./components/UlListDraggable.vue'));
 Vue.component('div-list-draggable', require('./components/DivListDraggable.vue'));

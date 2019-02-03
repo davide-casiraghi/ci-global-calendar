@@ -16,11 +16,8 @@
 
     <form action="{{ route('menuItems.store') }}" method="POST">
         @csrf
-
-
-        {{--<draggable :list="list" class="drag-container">
-            <div v-for="item in list" class="drag-item">{{ item }}</div>
-        </draggable>--}}
+        
+        <ul-list-draggable></ul-list-draggable>
 
 
          <div class="row">
