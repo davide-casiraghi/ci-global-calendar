@@ -1,23 +1,20 @@
 <template>
-    
-        <draggable :list="testimonialsNew" :options="{animation:200, handle:'.my-handle'}" :element="'tbody'" @change="update">
 
-            <div v-for="element in testimonialsNew" :key="element.id">{{element.name}}</div>
-
-        </draggable>
-
+    <draggable v-model="testimonialsNew" :options="{group:'people'}" @start="drag=true" @end="drag=false">
+        <div v-for="element in testimonialsNew" :key="element.id">{{element.name}}</div>
+    </draggable>
 
 </template>
 
 <script>
     import draggable from 'vuedraggable'
     export default {
-        props : [
-            'testimonials',
-        ],
         components: {
             draggable
         },
+        props : [
+            'testimonials',
+        ],
         mounted() {
             console.log('Component mounted.');
             //console.log(this.testimonials);
@@ -30,6 +27,7 @@
         },
         methods: {
             update() {
+                console.log("update");
                 this.testimonialsNew.map((testimonial, index) => {
                     testimonial.order = index + 1;
                 })

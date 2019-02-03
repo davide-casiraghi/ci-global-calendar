@@ -8,8 +8,8 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-//var draggable = require('vuedraggable');
-//Vue.use(draggable);
+var draggable = require('vuedraggable');
+Vue.use(draggable);
 
 /**
 * In between we import the custom javascript plugins.

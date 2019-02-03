@@ -7372,15 +7372,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['testimonials'],
   components: {
     draggable: vuedraggable__WEBPACK_IMPORTED_MODULE_0___default.a
   },
+  props: ['testimonials'],
   mounted: function mounted() {
     console.log('Component mounted.'); //console.log(this.testimonials);
   },
@@ -7392,6 +7389,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     update: function update() {
+      console.log("update");
       this.testimonialsNew.map(function (testimonial, index) {
         testimonial.order = index + 1;
       });
@@ -44858,12 +44856,22 @@ var render = function() {
   return _c(
     "draggable",
     {
-      attrs: {
-        list: _vm.testimonialsNew,
-        options: { animation: 200, handle: ".my-handle" },
-        element: "tbody"
+      attrs: { options: { group: "people" } },
+      on: {
+        start: function($event) {
+          _vm.drag = true
+        },
+        end: function($event) {
+          _vm.drag = false
+        }
       },
-      on: { change: _vm.update }
+      model: {
+        value: _vm.testimonialsNew,
+        callback: function($$v) {
+          _vm.testimonialsNew = $$v
+        },
+        expression: "testimonialsNew"
+      }
     },
     _vm._l(_vm.testimonialsNew, function(element) {
       return _c("div", { key: element.id }, [_vm._v(_vm._s(element.name))])
@@ -57286,9 +57294,11 @@ __webpack_require__.r(__webpack_exports__);
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); //var draggable = require('vuedraggable');
-//Vue.use(draggable);
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
+var draggable = __webpack_require__(/*! vuedraggable */ "./node_modules/vuedraggable/dist/vuedraggable.js");
+
+Vue.use(draggable);
 /**
 * In between we import the custom javascript plugins.
 **/
