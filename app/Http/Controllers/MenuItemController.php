@@ -36,7 +36,7 @@ class MenuItemController extends Controller
         
         $menu = Menu::orderBy('name')->pluck('name', 'id');
         $menuItems = MenuItem::orderBy('name')->pluck('name', 'id');
-        $menuItemsOrder = $this->getMenuItemsOrder();
+        //$menuItemsOrder = $this->getMenuItemsOrder();
         
         return view('menuItems.create')
             ->with('menuItems',$menuItems)
@@ -140,13 +140,13 @@ class MenuItemController extends Controller
 
     /***************************************************************************/
 
-    public function getMenuItemsOrder(){
+    /*public function getMenuItemsOrder(){
         $ret = array();
         
         
         array_push($ret, "-");
         
         return $ret;
-    }
+    }*/
 
 }

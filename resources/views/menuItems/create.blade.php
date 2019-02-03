@@ -28,9 +28,19 @@
             </div>
             <div class="col-12">
                 @include('partials.forms.select', [
+                    'title' => __('views.menu_id'),
+                    'name' => 'menu_id',
+                    'placeholder' => __('views.menu_id'),
+                    'records' => $menu,
+                    'liveSearch' => 'false',
+                    'mobileNativeMenu' => true,
+                ])
+            </div>
+            <div class="col-12">
+                @include('partials.forms.select', [
                     'title' => __('views.parent_menu_item'),
                     'name' => '	parent_item_id',
-                    'placeholder' => __('views.select_parent_menu_item'),
+                    'placeholder' => __('views.parent_menu_item'),
                     'records' => $menuItems,
                     'liveSearch' => 'false',
                     'mobileNativeMenu' => true,
@@ -38,10 +48,26 @@
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => __('general.url'),
+                      'title' => __('views.menu_item_type'),
+                      'name' => 'type',
+                      'placeholder' => 'Route or Url',
+                      'value' => old('route')
+                ])
+            </div>
+            <div class="col-12">
+                @include('partials.forms.input', [
+                      'title' => 'Url',
                       'name' => 'url',
-                      'placeholder' => 'Url',
+                      'placeholder' => 'The relative url - eg: /post/about',
                       'value' => old('url')
+                ])
+            </div>
+            <div class="col-12">
+                @include('partials.forms.input', [
+                      'title' => __('views.menu_item_route'),
+                      'name' => 'route',
+                      'placeholder' => 'Route',
+                      'value' => old('route')
                 ])
             </div>
             <div class="col-12">
@@ -56,46 +82,12 @@
                 @include('partials.forms.input', [
                       'title' => __('views.menu_item_lang_string'),
                       'name' => 'lang_string',
-                      'placeholder' => 'Language string',
+                      'placeholder' => 'The one in resouces/lang/en - eg. menu.about',
                       'value' => old('lang_string')
                 ])
             </div>
-            <div class="col-12">
-                @include('partials.forms.input', [
-                      'title' => __('views.menu_item_route'),
-                      'name' => 'route',
-                      'placeholder' => 'Route',
-                      'value' => old('route')
-                ])
-            </div>
-            <div class="col-12">
-                @include('partials.forms.input', [
-                      'title' => __('views.menu_item_type'),
-                      'name' => 'type',
-                      'placeholder' => 'Route',
-                      'value' => old('route')
-                ])
-            </div>
-            <div class="col-12">
-                @include('partials.forms.select', [
-                    'title' => __('views.menu_item_menu_id'),
-                    'name' => 'menu_id',
-                    'placeholder' => __('views.menu_item_menu_id'),
-                    'records' => $menu,
-                    'liveSearch' => 'false',
-                    'mobileNativeMenu' => true,
-                ])
-            </div>
-            <div class="col-12">
-                @include('partials.forms.select', [
-                    'title' => __('views.order'),
-                    'name' => 'order',
-                    'placeholder' => __('views.order'),
-                    'records' => $menuItemsOrder,
-                    'liveSearch' => 'false',
-                    'mobileNativeMenu' => true,
-                ])
-            </div>
+            
+            
             
         </div>
 
