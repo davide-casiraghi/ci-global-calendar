@@ -44878,11 +44878,26 @@ var render = function() {
       }
     },
     _vm._l(_vm.testimonialsNew, function(element, index) {
-      return _c("div", { key: element.id, staticClass: "row p-1 bg-white" }, [
-        _vm._v(
-          "\n        " + _vm._s(element.name) + " - " + _vm._s(index) + "\n    "
-        )
-      ])
+      return _c(
+        "div",
+        {
+          key: element.id,
+          staticClass: "row p-1",
+          class: {
+            "light-orange": _vm.$index % 2 === 0,
+            green: _vm.$index % 2 !== 0
+          }
+        },
+        [
+          _vm._v(
+            "\n        " +
+              _vm._s(element.name) +
+              " - " +
+              _vm._s(index) +
+              "\n    "
+          )
+        ]
+      )
     }),
     0
   )
