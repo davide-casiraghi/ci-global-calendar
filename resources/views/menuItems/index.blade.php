@@ -20,7 +20,13 @@
     @endif
 
     
-    {{-- List of menus --}}
+    {{-- List of menus items --}}
+    <ul-list-draggable
+        :testimonials="{{ $menuItems }}"
+    >
+    </ul-list-draggable>
+    
+    
     <div class="menuItemsList my-4">
         @foreach ($menuItems as $menuItem)
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">

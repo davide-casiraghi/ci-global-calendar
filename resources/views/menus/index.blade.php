@@ -21,11 +21,6 @@
 
     
     {{-- List of menus --}}
-    <ul v-sortable>
-      <li>Foo</li>
-      <li>Bar</li>
-      <li>Baz</li>
-    </ul>
     <div class="menusList my-4 v-sortable">
         @foreach ($menus as $menu)
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">

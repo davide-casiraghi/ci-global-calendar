@@ -16,9 +16,6 @@
 
     <form action="{{ route('menuItems.store') }}" method="POST">
         @csrf
-        
-        <ul-list-draggable></ul-list-draggable>
-
 
          <div class="row">
             <div class="col-12">
