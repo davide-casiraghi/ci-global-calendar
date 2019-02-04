@@ -7392,7 +7392,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     update: function update(event) {
-      console.log("update"); //console.log(event);
+      console.log("update");
+      console.log(this.testimonialsNew); //console.log(event);
       //console.log(event.dragged.id);
 
       var orderElementPosition = event.dragged.id;
