@@ -54432,6 +54432,9 @@ __webpack_require__(/*! ./plugins/imagepopup */ "./resources/js/plugins/imagepop
 
 
 __webpack_require__(/*! ./plugins/statistics */ "./resources/js/plugins/statistics.js"); // statistics.js
+
+
+__webpack_require__(/*! ./plugins/community_goals */ "./resources/js/plugins/community_goals.js"); // community_goals.js
 //require('./utility/selectpicker_mobile');
 // File manager for intro_image button in edit.post view
 
@@ -54664,6 +54667,27 @@ if (jQuery('.accordion').length) {
       }
     });
   });
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+/***/ }),
+
+/***/ "./resources/js/plugins/community_goals.js":
+/*!*************************************************!*\
+  !*** ./resources/js/plugins/community_goals.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(jQuery) {// Load Jquery UI accordion, the one with (+)
+if (jQuery('.communityGoals').length) {//jQuery(document).ready(function($) {
+  //    alert("aa");
+  //    $( function() {
+  //        $( "#progressbar" ).progressbar({
+  //          value: 37
+  //        });
+  //    } );
+  //});
 }
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
