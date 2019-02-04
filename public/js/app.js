@@ -7374,6 +7374,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+// https://github.com/SortableJS/Vue.Draggable
 // Options for the draggable: https://github.com/SortableJS/Sortable#options
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -7393,13 +7394,14 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     update: function update(event) {
       console.log("update");
-      console.log(this.testimonialsNew); //console.log(event);
-      //console.log(event.dragged.id);
+      console.log(this.testimonialsNew);
+      console.log(event); //console.log(event.dragged.id);
 
       var orderElementPosition = event.dragged.id;
-      var elementIndex = event.dragged.title;
+      var elementId = event.draggedContext.element.id;
+      event.draggedContext.element.order = event.dragged.id;
       console.log(orderElementPosition);
-      console.log(elementIndex);
+      console.log(elementId);
       axios.put('/menuItem/updateOrder', {
         testimonials: this.testimonialsNew
       }).then(function (response) {// success message
@@ -44901,7 +44903,7 @@ var render = function() {
           key: element.id,
           staticClass: "row p-1",
           class: { "bg-light": index % 2 === 0, "bg-white": index % 2 !== 0 },
-          attrs: { id: index, title: element.id }
+          attrs: { id: index }
         },
         [
           _c("i", { staticClass: "fas fa-ellipsis-v" }),

@@ -18,7 +18,7 @@ class MenuItemController extends Controller
      */
     public function index(Request $request){
         
-        $menuItems = MenuItem::latest()->paginate(20);
+        $menuItems = MenuItem::orderBy('order', 'ASC')->paginate(20);
         //dump($menuItems);
         
         return view('menuItems.index',compact('menuItems'))
