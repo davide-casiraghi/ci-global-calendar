@@ -202,6 +202,25 @@ class CreateAllDatabaseTables extends Migration
             $table->unique(['post_id','locale']);
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
         });
+        Schema::create('menus', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->timestamps();
+        });
+        Schema::create('menu_items', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->integer('menu_id')->nullable();
+            $table->string('parent_item_id')->nullable();
+            $table->integer('type')->nullable();
+            $table->string('url');
+            $table->string('route')->nullable();
+            $table->string('font_awesome_class')->nullable();
+            $table->string('lang_string')->nullable();
+            $table->string('compact_name');
+            $table->integer('order')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -230,5 +249,7 @@ class CreateAllDatabaseTables extends Migration
         });
         Schema::dropIfExists('post_translations');
         Schema::dropIfExists('posts');
+        Schema::dropIfExists('menus');
+        Schema::dropIfExists('menu_items');
     }
 }
