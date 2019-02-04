@@ -148,7 +148,11 @@ class MenuItemController extends Controller
      */
 
     function updateOrder(Request $request){
-        dd($request);
+        foreach ($request->testimonials as $key => $item) {
+            dump($item['name']);
+        }
+        
+        //dd($request->testimonials);
         //$menuItem->name = $request->get('name');
 
         //$menuItem->save();
