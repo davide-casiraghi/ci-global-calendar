@@ -3,7 +3,7 @@
     <draggable class="menuItemsList my-4" v-model="testimonialsNew" :options="{animation:200}" @start="drag=true" @end="onEnd" :move="update" :component-data="getComponentData()">
         <div class="row p-1" v-bind:id="index" v-bind:class="{'bg-light': index % 2 === 0, 'bg-white': index % 2 !== 0 }" v-for="(element, index) in testimonialsNew" :key="element.id">
             <div class="col-12 py-3 title"><i class="far fa-arrows-alt-v float-right border px-2 py-1 text-secondary"></i><a :href="'/menuItems/'+element.id+'/edit'">{{element.name}}</a></div>
-            <div class="col-12 pb-2 action"><form action="http://www.globalcalendar-laravel.it/it/menuItems/5" method="POST"><a :href="'/menuItems/'+element.id+'/edit'" class="btn btn-primary">Modifica</a> <input type="hidden" name="_token" value="T5KvZeSMVgAzuuE4XNt9BMigey08hgWeB92rBnki"> <input type="hidden" name="_method" value="DELETE"> <button type="submit" class="btn btn-danger float-right">Cancella</button></form></div>
+            <div class="col-12 pb-2 action"><form :action="'/en/menuItems/'+element.id" method="POST"><a :href="'/menuItems/'+element.id+'/edit'" class="btn btn-primary">Modifica</a> <input type="hidden" name="_token" value="T5KvZeSMVgAzuuE4XNt9BMigey08hgWeB92rBnki"> <input type="hidden" name="_method" value="DELETE"> <button type="submit" class="btn btn-danger float-right">Cancella</button></form></div>
         </div>
     </draggable>
 

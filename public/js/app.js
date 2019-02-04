@@ -44939,10 +44939,7 @@ var render = function() {
             _c(
               "form",
               {
-                attrs: {
-                  action: "http://www.globalcalendar-laravel.it/it/menuItems/5",
-                  method: "POST"
-                }
+                attrs: { action: "/en/menuItems/" + element.id, method: "POST" }
               },
               [
                 _c(
