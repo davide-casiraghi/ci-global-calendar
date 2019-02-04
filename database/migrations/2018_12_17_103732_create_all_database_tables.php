@@ -213,12 +213,13 @@ class CreateAllDatabaseTables extends Migration
             $table->integer('menu_id')->nullable();
             $table->string('parent_item_id')->nullable();
             $table->integer('type')->nullable();
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->string('route')->nullable();
             $table->string('font_awesome_class')->nullable();
             $table->string('lang_string')->nullable();
             $table->string('compact_name');
             $table->integer('order')->nullable();
+            $table->integer('access')->nullable();
             $table->timestamps();
         });
     }
