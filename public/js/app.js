@@ -7374,6 +7374,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 // https://github.com/SortableJS/Vue.Draggable
 // Options for the draggable: https://github.com/SortableJS/Sortable#options
 
@@ -44924,10 +44925,58 @@ var render = function() {
           attrs: { id: index }
         },
         [
-          _c("i", { staticClass: "fas fa-ellipsis-v" }),
-          _vm._v(
-            " " + _vm._s(element.name) + " - " + _vm._s(element.id) + "\n    "
-          )
+          _c("div", { staticClass: "col-12 py-3 title" }, [
+            _c("i", {
+              staticClass:
+                "far fa-arrows-alt-v float-right border px-2 py-1 text-secondary"
+            }),
+            _c("a", { attrs: { href: "/menuItems/" + element.id + "/edit" } }, [
+              _vm._v(_vm._s(element.name))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-12 pb-2 action" }, [
+            _c(
+              "form",
+              {
+                attrs: {
+                  action: "http://www.globalcalendar-laravel.it/it/menuItems/5",
+                  method: "POST"
+                }
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { href: "/menuItems/" + element.id + "/edit" }
+                  },
+                  [_vm._v("Modifica")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "hidden",
+                    name: "_token",
+                    value: "T5KvZeSMVgAzuuE4XNt9BMigey08hgWeB92rBnki"
+                  }
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: { type: "hidden", name: "_method", value: "DELETE" }
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger float-right",
+                    attrs: { type: "submit" }
+                  },
+                  [_vm._v("Cancella")]
+                )
+              ]
+            )
+          ])
         ]
       )
     }),
