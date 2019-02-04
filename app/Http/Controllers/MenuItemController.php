@@ -148,30 +148,23 @@ class MenuItemController extends Controller
      */
 
     function updateOrder(Request $request){
-        $ret = array();
+        //$ret = array();
+        
+        //$menuItem = new MenuItem();
+        $requestSimulation = new Request;
+        
         foreach ($request->items as $key => $item) {
-            //dump($item['name']);
             $item['order'] = $key+1;
-            array_push($ret, $item);
+            $menuItem = MenuItem::find($item['id']);
             
+            $menuItem->update($item);
+            //array_push($ret, $item);    
         }
-        dump($ret);
+        //dump($ret);
         //dd($request->testimonials);
         //$menuItem->name = $request->get('name');
 
         //$menuItem->save();
     }
-    
-
-
-
-    /*public function getMenuItemsOrder(){
-        $ret = array();
-        
-        
-        array_push($ret, "-");
-        
-        return $ret;
-    }*/
 
 }
