@@ -7398,6 +7398,7 @@ __webpack_require__.r(__webpack_exports__);
     /**Event*/
     evt) {
       console.log("END!!!!");
+      console.log(this.testimonialsNew);
       /*var itemEl = evt.item;  // dragged HTMLElement
       evt.to;    // target list
       evt.from;  // previous list
@@ -7405,8 +7406,8 @@ __webpack_require__.r(__webpack_exports__);
       evt.newIndex;  // element's new index within new parent*/
     },
     handleChange: function handleChange() {
-      console.log('changed');
-      console.log(this.testimonialsNew); //console.log(event);
+      console.log('changed'); //console.log(this.testimonialsNew);
+      //console.log(event);
       //console.log(event.dragged.id);
 
       /*var orderElementPosition = event.dragged.id;

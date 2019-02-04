@@ -39,6 +39,7 @@
             },
             onEnd: function (/**Event*/evt) {
         		console.log("END!!!!");
+                console.log(this.testimonialsNew);
                 /*var itemEl = evt.item;  // dragged HTMLElement
         		evt.to;    // target list
         		evt.from;  // previous list
@@ -47,7 +48,7 @@
         	},
             handleChange() {
               console.log('changed');
-              console.log(this.testimonialsNew);
+              //console.log(this.testimonialsNew);
               
               //console.log(event);
               //console.log(event.dragged.id);
