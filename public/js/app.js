@@ -7408,7 +7408,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log(elementId);*/
 
       axios.put('/menuItem/updateOrder', {
-        testimonials: this.testimonialsNew
+        items: this.testimonialsNew
       }).then(function (response) {// success message
       });
     },

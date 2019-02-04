@@ -148,7 +148,7 @@ class MenuItemController extends Controller
      */
 
     function updateOrder(Request $request){
-        foreach ($request->testimonials as $key => $item) {
+        foreach ($request->items as $key => $item) {
             dump($item['name']);
         }
         

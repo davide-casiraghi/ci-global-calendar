@@ -52,7 +52,7 @@
               console.log(elementId);*/
               
               axios.put('/menuItem/updateOrder', {
-                  testimonials: this.testimonialsNew
+                  items: this.testimonialsNew
               }).then((response) => {
                   // success message
               })
