@@ -141,7 +141,7 @@ class MenuItemController extends Controller
     /***************************************************************************/
 
     /**
-     * Update the menu item order on DB (called by /resources/js/components/UlListDraggable.vue)
+     * Update the menu items order on DB (called by /resources/js/components/UlListDraggable.vue)
      *
      * @param  \Illuminate\Http\Request  $request
      * @return string $ret - the ordinal indicator (st, nd, rd, th)
