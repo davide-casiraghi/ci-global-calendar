@@ -1,6 +1,6 @@
 <template>
 
-    <draggable class="menuItemsList my-4" v-model="testimonialsNew" :options="{animation:200}" @start="drag=true" @end="drag=false" :move="update">
+    <draggable class="menuItemsList my-4" v-model="testimonialsNew" :options="{animation:200}" @start="drag=true" @end="drag=false" :move="update" :component-data="getComponentData()">
         <div class="row p-1" v-bind:id="index" v-bind:class="{'bg-light': index % 2 === 0, 'bg-white': index % 2 !== 0 }" v-for="(element, index) in testimonialsNew" :key="element.id">
             <i class="fas fa-ellipsis-v"></i> {{element.name}} - {{element.id}}
         </div>
@@ -33,42 +33,44 @@
         methods: {
             update(event) {
                 console.log("update");
-                console.log(this.testimonialsNew);
-                console.log(event);
-                //console.log(event.dragged.id);
-                
-                var orderElementPosition = event.dragged.id;
-                var elementId = event.draggedContext.element.id;
-                event.draggedContext.element.order = event.dragged.id;
-                
-                console.log(orderElementPosition);
-                console.log(elementId);
                 
                 
                 
-                
-                
-                axios.put('/menuItem/updateOrder', {
-                    testimonials: this.testimonialsNew
-                }).then((response) => {
-                    // success message
-                })
-                
-                /*this.testimonialsNew.map((testimonial, index) => {
-                    testimonial.order = index + 1;
-                })
-                axios.put('/menuItems/updateOrder', {
-                    testimonials: this.testimonialsNew
-                }).then((response) => {
-                    // success message
-                })*/
             },
-            onMoveCallback(evt, originalEvent){
-               console.log("ciao22");
-           },
-           handleChange() {
-             console.log('changed');
-           },
+            handleChange() {
+              console.log('changed');
+              
+              console.log(this.testimonialsNew);
+              console.log(event);
+              //console.log(event.dragged.id);
+              
+              /*var orderElementPosition = event.dragged.id;
+              var elementId = event.draggedContext.element.id;
+              event.draggedContext.element.order = event.dragged.id;
+              
+              console.log(orderElementPosition);
+              console.log(elementId);*/
+              
+              axios.put('/menuItem/updateOrder', {
+                  testimonials: this.testimonialsNew
+              }).then((response) => {
+                  // success message
+              })
+            },
+            inputChanged(value) {
+              this.activeNames = value;
+            },
+            getComponentData() {
+              return {
+                on: {
+                  change: this.handleChange,
+                  input: this.inputChanged
+                },
+                props: {
+                  value: this.activeNames
+                }
+              };
+            }
         },
         
     }

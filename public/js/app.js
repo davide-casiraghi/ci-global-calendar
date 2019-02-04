@@ -7394,32 +7394,37 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     update: function update(event) {
       console.log("update");
+    },
+    handleChange: function handleChange() {
+      console.log('changed');
       console.log(this.testimonialsNew);
       console.log(event); //console.log(event.dragged.id);
 
-      var orderElementPosition = event.dragged.id;
+      /*var orderElementPosition = event.dragged.id;
       var elementId = event.draggedContext.element.id;
       event.draggedContext.element.order = event.dragged.id;
+      
       console.log(orderElementPosition);
-      console.log(elementId);
+      console.log(elementId);*/
+
       axios.put('/menuItem/updateOrder', {
         testimonials: this.testimonialsNew
       }).then(function (response) {// success message
       });
-      /*this.testimonialsNew.map((testimonial, index) => {
-          testimonial.order = index + 1;
-      })
-      axios.put('/menuItems/updateOrder', {
-          testimonials: this.testimonialsNew
-      }).then((response) => {
-          // success message
-      })*/
     },
-    onMoveCallback: function onMoveCallback(evt, originalEvent) {
-      console.log("ciao22");
+    inputChanged: function inputChanged(value) {
+      this.activeNames = value;
     },
-    handleChange: function handleChange() {
-      console.log('changed');
+    getComponentData: function getComponentData() {
+      return {
+        on: {
+          change: this.handleChange,
+          input: this.inputChanged
+        },
+        props: {
+          value: this.activeNames
+        }
+      };
     }
   }
 });
@@ -44879,7 +44884,11 @@ var render = function() {
     "draggable",
     {
       staticClass: "menuItemsList my-4",
-      attrs: { options: { animation: 200 }, move: _vm.update },
+      attrs: {
+        options: { animation: 200 },
+        move: _vm.update,
+        "component-data": _vm.getComponentData()
+      },
       on: {
         start: function($event) {
           _vm.drag = true
