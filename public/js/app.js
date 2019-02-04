@@ -7387,9 +7387,11 @@ __webpack_require__.r(__webpack_exports__);
     console.log('Component mounted.'); //console.log(this.testimonials);
   },
   data: function data() {
+    //csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     return {
       testimonialsNew: this.testimonials.data,
-      csrf: document.head.querySelector('meta[name="csrf-token"]').content
+      csrf: document.head.querySelector('meta[name="csrf-token"]').content //csrf: "aaa"
+
     };
   },
   methods: {
@@ -44952,11 +44954,8 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c("input", {
-                  attrs: {
-                    type: "hidden",
-                    name: "_token",
-                    value: "T5KvZeSMVgAzuuE4XNt9BMigey08hgWeB92rBnki"
-                  }
+                  attrs: { type: "hidden", name: "_token" },
+                  domProps: { value: _vm.csrf }
                 }),
                 _vm._v(" "),
                 _c("input", {
