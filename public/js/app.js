@@ -7404,6 +7404,11 @@ __webpack_require__.r(__webpack_exports__);
       evt.from;  // previous list
       evt.oldIndex;  // element's old index within old parent
       evt.newIndex;  // element's new index within new parent*/
+
+      axios.put('/menuItem/updateOrder', {
+        items: this.testimonialsNew
+      }).then(function (response) {// success message
+      });
     },
     handleChange: function handleChange() {
       console.log('changed'); //console.log(this.testimonialsNew);
@@ -7416,11 +7421,6 @@ __webpack_require__.r(__webpack_exports__);
       
       console.log(orderElementPosition);
       console.log(elementId);*/
-
-      axios.put('/menuItem/updateOrder', {
-        items: this.testimonialsNew
-      }).then(function (response) {// success message
-      });
     },
     inputChanged: function inputChanged(value) {
       this.activeNames = value;

@@ -45,6 +45,13 @@
         		evt.from;  // previous list
         		evt.oldIndex;  // element's old index within old parent
         		evt.newIndex;  // element's new index within new parent*/
+                axios.put('/menuItem/updateOrder', {
+                    items: this.testimonialsNew
+                }).then((response) => {
+                    // success message
+                })
+                
+                
         	},
             handleChange() {
               console.log('changed');
@@ -60,11 +67,7 @@
               console.log(orderElementPosition);
               console.log(elementId);*/
               
-              axios.put('/menuItem/updateOrder', {
-                  items: this.testimonialsNew
-              }).then((response) => {
-                  // success message
-              })
+              
             },
             inputChanged(value) {
               this.activeNames = value;
