@@ -26,6 +26,21 @@
                 {{ session()->get('message') }}
             </div>
         @endif
+        
+        
+
+    {{-- HI-Light for the donations --}}
+    @include('partials.hilight', [
+        'title' =>  'Dear users: ',
+        'text' =>  'The CI Global Calendar is a non-profit project to support the CI global community. To protect our independence we don’t want to run ads. We take no government funds.
+                      If everyone reading this message gave the same amount that offer for a jam, our fundraiser would be done within a week.
+                      If the calendar is useful to you take one minute to help us keep it online another year.
+                      Thank you',
+          'linkText' => 'Donate',
+          'linkUrl'  => '/post/donate',
+    ])
+    
+
 
     {{-- The event search interface in Homepage --}}
     <div class="eventSearch jumbotron">

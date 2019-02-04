@@ -54408,6 +54408,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var waypoints_lib_jquery_waypoints_js__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(waypoints_lib_jquery_waypoints_js__WEBPACK_IMPORTED_MODULE_14__);
 /* harmony import */ var jquery_counterup__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! jquery.counterup */ "./node_modules/jquery.counterup/jquery.counterup.js");
 /* harmony import */ var jquery_counterup__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(jquery_counterup__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var jquery_cookie__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! jquery.cookie */ "./node_modules/jquery.cookie/jquery.cookie.js");
+/* harmony import */ var jquery_cookie__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(jquery_cookie__WEBPACK_IMPORTED_MODULE_16__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -54454,6 +54456,7 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 }); // Import Javascript Plugins
+
 
 
 
