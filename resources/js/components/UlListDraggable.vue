@@ -1,6 +1,6 @@
 <template>
 
-    <draggable class="menuItemsList my-4" v-model="testimonialsNew" :options="{animation:200}" @start="drag=true" @end="drag=false" :move="update" :component-data="getComponentData()">
+    <draggable class="menuItemsList my-4" v-model="testimonialsNew" :options="{animation:200}" @start="drag=true" @end="onEnd" :move="update" :component-data="getComponentData()">
         <div class="row p-1" v-bind:id="index" v-bind:class="{'bg-light': index % 2 === 0, 'bg-white': index % 2 !== 0 }" v-for="(element, index) in testimonialsNew" :key="element.id">
             <i class="fas fa-ellipsis-v"></i> {{element.name}} - {{element.id}}
         </div>
@@ -37,10 +37,18 @@
                 
                 
             },
+            onEnd: function (/**Event*/evt) {
+        		console.log("END!!!!");
+                /*var itemEl = evt.item;  // dragged HTMLElement
+        		evt.to;    // target list
+        		evt.from;  // previous list
+        		evt.oldIndex;  // element's old index within old parent
+        		evt.newIndex;  // element's new index within new parent*/
+        	},
             handleChange() {
-              //console.log('changed');
-              
+              console.log('changed');
               console.log(this.testimonialsNew);
+              
               //console.log(event);
               //console.log(event.dragged.id);
               
@@ -59,6 +67,7 @@
             },
             inputChanged(value) {
               this.activeNames = value;
+              console.log("eeeee");
             },
             getComponentData() {
               return {
@@ -70,7 +79,10 @@
                   value: this.activeNames
                 }
               };
-            }
+            },
+            
+            
+            
         },
         
     }

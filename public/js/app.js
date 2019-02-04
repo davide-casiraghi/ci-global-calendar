@@ -7392,13 +7392,22 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    update: function update(event) {
-      console.log("update");
+    update: function update(event) {//console.log("update");
+    },
+    onEnd: function onEnd(
+    /**Event*/
+    evt) {
+      console.log("END!!!!");
+      /*var itemEl = evt.item;  // dragged HTMLElement
+      evt.to;    // target list
+      evt.from;  // previous list
+      evt.oldIndex;  // element's old index within old parent
+      evt.newIndex;  // element's new index within new parent*/
     },
     handleChange: function handleChange() {
       console.log('changed');
-      console.log(this.testimonialsNew);
-      console.log(event); //console.log(event.dragged.id);
+      console.log(this.testimonialsNew); //console.log(event);
+      //console.log(event.dragged.id);
 
       /*var orderElementPosition = event.dragged.id;
       var elementId = event.draggedContext.element.id;
@@ -7414,6 +7423,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     inputChanged: function inputChanged(value) {
       this.activeNames = value;
+      console.log("eeeee");
     },
     getComponentData: function getComponentData() {
       return {
@@ -44893,9 +44903,7 @@ var render = function() {
         start: function($event) {
           _vm.drag = true
         },
-        end: function($event) {
-          _vm.drag = false
-        }
+        end: _vm.onEnd
       },
       model: {
         value: _vm.testimonialsNew,
