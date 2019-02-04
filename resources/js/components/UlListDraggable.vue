@@ -32,16 +32,16 @@
         },
         methods: {
             update(event) {
-                console.log("update");
+                //console.log("update");
                 
                 
                 
             },
             handleChange() {
-              console.log('changed');
+              //console.log('changed');
               
               console.log(this.testimonialsNew);
-              console.log(event);
+              //console.log(event);
               //console.log(event.dragged.id);
               
               /*var orderElementPosition = event.dragged.id;
