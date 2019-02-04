@@ -141,30 +141,20 @@ class MenuItemController extends Controller
     /***************************************************************************/
 
     /**
-     * Save/Update the record on DB
+     * Update the menu item order on DB (called by /resources/js/components/UlListDraggable.vue)
      *
      * @param  \Illuminate\Http\Request  $request
      * @return string $ret - the ordinal indicator (st, nd, rd, th)
      */
 
     function updateOrder(Request $request){
-        //$ret = array();
-        
-        //$menuItem = new MenuItem();
-        $requestSimulation = new Request;
         
         foreach ($request->items as $key => $item) {
             $item['order'] = $key+1;
             $menuItem = MenuItem::find($item['id']);
             
-            $menuItem->update($item);
-            //array_push($ret, $item);    
+            $menuItem->update($item);   
         }
-        //dump($ret);
-        //dd($request->testimonials);
-        //$menuItem->name = $request->get('name');
-
-        //$menuItem->save();
     }
 
 }
