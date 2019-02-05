@@ -11,9 +11,9 @@ use Validator;
 class MenuItemController extends Controller
 {
     
-    /* Restrict the access to this resource just to logged in users */
+    /* Restrict the access to this resource just to logged in users, except some */
     public function __construct(){
-        //dump("eeee");
+        $this->middleware('admin', ['except' => ['updateOrder']]);
     }
     
     /***************************************************************************/
