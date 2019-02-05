@@ -7375,23 +7375,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 // https://github.com/SortableJS/Vue.Draggable
 // Options for the draggable: https://github.com/SortableJS/Sortable#options
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['testimonials'],
+  props: ['testimonials', 'locale'],
   components: {
     draggable: vuedraggable__WEBPACK_IMPORTED_MODULE_0___default.a
   },
   mounted: function mounted() {
-    console.log('Component mounted.'); //console.log(this.testimonials);
+    console.log('Component mounted.'); //console.log(this.locale);
+    //console.log(this.testimonials);
   },
   data: function data() {
     //csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     return {
       testimonialsNew: this.testimonials.data,
-      csrf: document.head.querySelector('meta[name="csrf-token"]').content //csrf: "aaa"
-
+      csrf: document.head.querySelector('meta[name="csrf-token"]').content,
+      localCode: this.locale
     };
   },
   methods: {
@@ -44941,7 +44949,10 @@ var render = function() {
             _c(
               "form",
               {
-                attrs: { action: "/en/menuItems/" + element.id, method: "POST" }
+                attrs: {
+                  action: "/" + _vm.localCode + "/menuItems/" + element.id,
+                  method: "POST"
+                }
               },
               [
                 _c(
