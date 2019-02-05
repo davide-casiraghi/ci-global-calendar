@@ -9,6 +9,11 @@ use Validator;
 
 class MenuController extends Controller
 {
+    /* Restrict the access to this resource just to logged in users, except some */
+    public function __construct(){
+        $this->middleware('admin');
+    }
+    
     /***************************************************************************/
     /**
      * Display a listing of the resource.
