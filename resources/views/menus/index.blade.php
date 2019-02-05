@@ -35,7 +35,7 @@
                 <div class="col-12 pb-2 action">
                     <form action="{{ route('menus.destroy',$menu->id) }}" method="POST">
                         <a class="btn btn-primary" href="{{ route('menus.edit',$menu->id) }}">@lang('views.edit')</a>
-                        <a class="btn btn-primary" href="{{ route('menuItems.index',$menu->id) }}">@lang('views.menu_items')</a>
+                        <a class="btn btn-primary" href="/menuItems/{{$menu->id}}"><i class="far fa-bars"></i> @lang('views.menu_items')</a>
                         
                         @csrf
                         @method('DELETE')

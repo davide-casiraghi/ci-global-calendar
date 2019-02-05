@@ -22,7 +22,9 @@ class MenuItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request){
+    public function index(Request $request, $id){
+        
+        dump($id);
         
         $menuItems = MenuItem::orderBy('order', 'ASC')->paginate(20);
         //dump($menuItems);
