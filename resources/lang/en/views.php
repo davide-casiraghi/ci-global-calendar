@@ -139,6 +139,7 @@ return [
     'created_successfully' => ' created successfully',
     'updated_successfully' => ' updated successfully',
     'deleted_successfully' => ' deleted successfully',
+    'menu_items' => 'Menu Items',
     'parent_menu_item' => 'Parent menu item',
     'menu_item_font_awesome_class' => 'Font awesome class',
     'menu_item_lang_string' => 'Lang string',
