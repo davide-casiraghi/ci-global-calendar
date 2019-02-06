@@ -70,10 +70,9 @@ class MenuItemController extends Controller
 
         $menuItem = new MenuItem();
         $this->saveOnDb($request, $menuItem);
-        //dd("ssss");
+        //dd($request->menu_id);
         
-        return redirect()->route('menuItems.index')
-                        ->with('id',$request->menu_id)
+        return redirect()->route('menuItems.index', ['id' => $request->menu_id] )
                         ->with('success',__('messages.menu_added_successfully'));
         
     }
