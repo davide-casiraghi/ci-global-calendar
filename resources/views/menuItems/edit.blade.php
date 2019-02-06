@@ -33,6 +33,7 @@
                     'name' => 'menu_id',
                     'placeholder' => __('views.menu_id'),
                     'records' => $menu,
+                    'seleted' => $menuItem->menu_id,
                     'liveSearch' => 'false',
                     'mobileNativeMenu' => true,
                 ])
@@ -43,6 +44,7 @@
                     'name' => '	parent_item_id',
                     'placeholder' => __('views.parent_menu_item'),
                     'records' => $menuItems,
+                    'seleted' => $menuItem->parent_item_id,
                     'liveSearch' => 'false',
                     'mobileNativeMenu' => true,
                 ])
