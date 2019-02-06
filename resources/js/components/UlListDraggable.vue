@@ -11,7 +11,7 @@
                     <button type="submit" class="btn btn-danger float-right">Cancella</button>
                 </form>
             </div>
-            <local-draggable v-if="element.testimonialsNew" :testimonialsNew="element.testimonialsNew" > 
+            <local-draggable v-if="element.subItems" :subItems="element.subItems" > 
             </local-draggable>
         </div>
     </draggable>
@@ -38,7 +38,7 @@
             //console.log(this.testimonials);
         },
         data() {
-            //console.log(this.testimonials);
+            console.log(this.testimonials);
             return {
                 testimonialsNew: this.testimonials,
                 csrf: document.head.querySelector('meta[name="csrf-token"]').content,

@@ -7398,7 +7398,7 @@ __webpack_require__.r(__webpack_exports__);
     //console.log(this.testimonials);
   },
   data: function data() {
-    //console.log(this.testimonials);
+    console.log(this.testimonials);
     return {
       testimonialsNew: this.testimonials,
       csrf: document.head.querySelector('meta[name="csrf-token"]').content,
@@ -44988,10 +44988,8 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          element.testimonialsNew
-            ? _c("local-draggable", {
-                attrs: { testimonialsNew: element.testimonialsNew }
-              })
+          element.subItems
+            ? _c("local-draggable", { attrs: { subItems: element.subItems } })
             : _vm._e()
         ],
         1

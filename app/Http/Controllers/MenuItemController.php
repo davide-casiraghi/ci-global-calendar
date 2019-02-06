@@ -29,6 +29,22 @@ class MenuItemController extends Controller
                                 ->orderBy('order', 'ASC')
                                 ->get();
         //dump($menuItems);
+        $menuItemsTree = array();
+        /*
+        foreach ($menuItems as $key => $menuItem) {
+            if (!$menuItem['parent_item_id']){ // First level item
+                array_push($menuItemsTree, $menuItem);
+            }
+            else{  // Sub item
+                $parentItemId = $this->findParentItem($menuItemsTree);
+                array_push($menuItemsTree[$parentItemId]['subItems'],$menuItem);
+                
+                
+            }
+        }*/
+        
+        
+        //dump($menuItems);
         
         return view('menuItems.index',compact('menuItems'))
                     ->with('selectedMenuName', $selectedMenuName);
@@ -163,7 +179,6 @@ class MenuItemController extends Controller
     }
 
     /***************************************************************************/
-
     /**
      * Update the menu items order on DB (called by /resources/js/components/UlListDraggable.vue)
      *
@@ -179,6 +194,20 @@ class MenuItemController extends Controller
             
             $menuItem->update($item);   
         }
+    }
+
+    /***************************************************************************/
+    /**
+     * find the element that correspont to the specified key
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return string $ret - the ordinal indicator (st, nd, rd, th)
+     */
+
+    function findParentItem($menuItemsTree){
+        $ret = null;
+
+        return $ret;
     }
 
 }
