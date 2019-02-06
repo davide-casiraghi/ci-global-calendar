@@ -97,7 +97,12 @@ class MenuItemController extends Controller
      */
     public function edit(MenuItem $menuItem){
         
-        return view('menuItems.edit',compact('menuItem'));
+        $menu = Menu::orderBy('name')->pluck('name', 'id');
+        $menuItems = MenuItem::orderBy('name')->pluck('name', 'id');
+        
+        return view('menuItems.edit',compact('menuItem'))
+                    ->with('menuItems',$menuItems)
+                    ->with('menu',$menu);
     }
 
     /***************************************************************************/
