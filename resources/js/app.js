@@ -18,6 +18,7 @@ require('./plugins/accordion');   // accordion.js
 require('./plugins/gallery');     // gallery.js
 require('./plugins/imagepopup');  // imagepopup.js
 require('./plugins/statistics');  // statistics.js
+require('./plugins/community_goals');  // community_goals.js
 
 //require('./utility/selectpicker_mobile');
 
@@ -64,3 +65,4 @@ const app = new Vue({
 	import 'waypoints/lib/jquery.waypoints.js';
 	import 'jquery.counterup';
     import 'sortablejs';
+    import 'jquery.cookie';

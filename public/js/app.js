@@ -57398,6 +57398,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery_counterup__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(jquery_counterup__WEBPACK_IMPORTED_MODULE_15__);
 /* harmony import */ var sortablejs__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! sortablejs */ "./node_modules/sortablejs/Sortable.js");
 /* harmony import */ var sortablejs__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(sortablejs__WEBPACK_IMPORTED_MODULE_16__);
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'jquery.cookie'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -57422,6 +57423,9 @@ __webpack_require__(/*! ./plugins/imagepopup */ "./resources/js/plugins/imagepop
 
 
 __webpack_require__(/*! ./plugins/statistics */ "./resources/js/plugins/statistics.js"); // statistics.js
+
+
+__webpack_require__(/*! ./plugins/community_goals */ "./resources/js/plugins/community_goals.js"); // community_goals.js
 //require('./utility/selectpicker_mobile');
 // File manager for intro_image button in edit.post view
 
@@ -57448,6 +57452,7 @@ Vue.component('ul-list-draggable', __webpack_require__(/*! ./components/UlListDr
 var app = new Vue({
   el: '#app'
 }); // Import Javascript Plugins
+
 
 
 
@@ -57725,6 +57730,27 @@ if (jQuery('.accordion').length) {
       }
     });
   });
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+/***/ }),
+
+/***/ "./resources/js/plugins/community_goals.js":
+/*!*************************************************!*\
+  !*** ./resources/js/plugins/community_goals.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(jQuery) {// Load Jquery UI accordion, the one with (+)
+if (jQuery('.communityGoals').length) {//jQuery(document).ready(function($) {
+  //    alert("aa");
+  //    $( function() {
+  //        $( "#progressbar" ).progressbar({
+  //          value: 37
+  //        });
+  //    } );
+  //});
 }
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
