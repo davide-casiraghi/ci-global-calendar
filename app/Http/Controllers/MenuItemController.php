@@ -26,23 +26,28 @@ class MenuItemController extends Controller
         
         $selectedMenuName = Menu::find($id)->name;
         $menuItems = MenuItem::where('menu_id','=',$id)
-                                ->orderBy('order', 'ASC')
-                                ->get();
+                                ->oldest()->get();
         //dump($menuItems);
         $menuItemsTree = array();
-        /*
         foreach ($menuItems as $key => $menuItem) {
             if (!$menuItem['parent_item_id']){ // First level item
                 array_push($menuItemsTree, $menuItem);
             }
             else{  // Sub item
-                $parentItemId = $this->findParentItem($menuItemsTree);
-                array_push($menuItemsTree[$parentItemId]['subItems'],$menuItem);
-                
+                //dd($key);
+                $parentItemId = $this->findParentItem($menuItemsTree,$menuItem['parent_item_id']);
+                //dd($menuItemsTree[$parentItemId]);
+                //$menuItemsTree[$parentItemId]['subItems'] = "ciao";
+                $subItemsArray = $menuItemsTree[$parentItemId]['subItems'];
+                $subItemsArray[] = $menuItem;
+                $menuItemsTree[$parentItemId]['subItems'] = $subItemsArray;
+                //$menuItemsTree[$parentItemId]['subItems'][] = $menuItem;
+                //$menuItemsTree[$parentItemId]['subItems'][] = $menuItem;
+                //dd($menuItemsTree);
                 
             }
-        }*/
-        
+        }
+        //dump($menuItemsTree);
         
         //dump($menuItems);
         
@@ -201,13 +206,15 @@ class MenuItemController extends Controller
      * find the element that correspont to the specified key
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return string $ret - the ordinal indicator (st, nd, rd, th)
+     * @return string $key - the index of the parent item
      */
 
-    function findParentItem($menuItemsTree){
-        $ret = null;
-
-        return $ret;
+    function findParentItem($menuItemsTree, $parentItemId){
+        foreach ($menuItemsTree as $key => $menuItem) {
+            if ($menuItem->id == $parentItemId){
+                return $key;
+            }
+        }
     }
 
 }
