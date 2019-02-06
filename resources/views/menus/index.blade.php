@@ -49,7 +49,4 @@
     </div>
 
 
-    {!! $menus->links() !!}
-
-
 @endsection

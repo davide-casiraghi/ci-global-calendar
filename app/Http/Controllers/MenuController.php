@@ -22,10 +22,9 @@ class MenuController extends Controller
      */
     public function index(Request $request){
         
-        $menus = Menu::latest()->paginate(20);
+        $menus = Menu::orderBy('name')->get();
         
-        return view('menus.index',compact('menus'))
-            ->with('i', (request()->input('page', 1) - 1) * 20);
+        return view('menus.index',compact('menus'));
         
     }
     
