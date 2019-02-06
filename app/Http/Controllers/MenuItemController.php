@@ -24,13 +24,14 @@ class MenuItemController extends Controller
      */
     public function index(Request $request, $id){
         
-        dump($id);
-        
-        $menuItems = MenuItem::orderBy('order', 'ASC')->paginate(20);
+        $selectedMenuName = Menu::find($id)->name;
+        $menuItems = MenuItem::where('menu_id','=',$id)
+                                ->orderBy('order', 'ASC')
+                                ->get();
         //dump($menuItems);
         
         return view('menuItems.index',compact('menuItems'))
-            ->with('i', (request()->input('page', 1) - 1) * 20);
+                    ->with('selectedMenuName', $selectedMenuName);
         
     }
     

@@ -115,7 +115,6 @@ return [
     'countries_management' => 'Countries management',
     'background_image_management' => 'Background image management',
     'menus_management' => 'Menu management',
-    'menu_items_management' => 'Menu item management',
     'horizontal' => 'Horizontal',
     'vertical' => 'Vertical',
     'add_new_event' => 'Add New event',
@@ -146,6 +145,7 @@ return [
     'menu_item_route' => 'Route',
     'menu_item_type' => 'Item type',
     'menu_id' => 'Menu',
+    'items' => 'Items',
     
     
     

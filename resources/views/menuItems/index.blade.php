@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>@lang('views.menu_items_management')</h2>
+                <h2>@lang('views.items'): {{$selectedMenuName}}</h2>
             </div>
             <div class="pull-right mt-4 float-right">
                 <a class="btn btn-success create-new" href="{{ route('menuItems.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_menu_item')</a>
@@ -49,9 +49,5 @@
             </div>
         @endforeach    
     </div>
-
-
-    {!! $menuItems->links() !!}
-
 
 @endsection
