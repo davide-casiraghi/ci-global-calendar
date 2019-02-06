@@ -90,9 +90,7 @@ class GenerateMenus
                                 $profile->builder->items[13]->title = '<i class="far fa-images"></i> '.__('menu.background_images');
                             $menu->adminTools->add('menu', ['route' => ['menus.index']]); 
                                 $profile->builder->items[14]->title = '<i class="fas fa-caret-circle-down"></i> '.__('menu.menus');
-                            $menu->adminTools->add('menu_items', ['route' => ['menuItems.index']]); 
-                                $profile->builder->items[15]->title = '<i class="far fa-caret-circle-down"></i> '.__('menu.menu_items');
-                                                    
+                                                
                         }
                     
                 }
