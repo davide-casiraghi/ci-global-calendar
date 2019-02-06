@@ -51,7 +51,7 @@
                       'title' => __('views.menu_item_type'),
                       'name' => 'type',
                       'placeholder' => 'Route or Url',
-                      'value' => old('route')
+                      'value' => old('type')
                 ])
             </div>
             <div class="col-12">
