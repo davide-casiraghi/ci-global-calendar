@@ -144,6 +144,15 @@ class MenuItemController extends Controller
 
     function saveOnDb($request, $menuItem){
         $menuItem->name = $request->get('name');
+        $menuItem->compact_name = str_slug($request->get('name'), '-');   
+        $menuItem->parent_item_id = $request->get('parent_item_id');
+        $menuItem->url = $request->get('url');
+        $menuItem->font_awesome_class = $request->get('font_awesome_class');
+        $menuItem->lang_string = $request->get('lang_string');
+        $menuItem->route = $request->get('route');
+        $menuItem->type = $request->get('type');
+        $menuItem->menu_id = $request->get('menu_id');
+        $menuItem->access = $request->get('access');
 
         $menuItem->save();
     }
