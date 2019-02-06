@@ -39,7 +39,7 @@
             <div class="col-12">
                 @include('partials.forms.select', [
                     'title' => __('views.parent_menu_item'),
-                    'name' => '	parent_item_id',
+                    'name' => 'parent_item_id',
                     'placeholder' => __('views.parent_menu_item'),
                     'records' => $menuItems,
                     'liveSearch' => 'false',

@@ -11,6 +11,8 @@
                     <button type="submit" class="btn btn-danger float-right">Cancella</button>
                 </form>
             </div>
+            <local-draggable v-if="element.testimonialsNew" :testimonialsNew="element.testimonialsNew" > 
+            </local-draggable>
         </div>
     </draggable>
 

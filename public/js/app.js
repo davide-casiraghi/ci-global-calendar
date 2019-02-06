@@ -7382,6 +7382,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+// Example of draggable - https://github.com/David-Desmaisons/draggable-example/blob/master/src/components/Hello.vue#L57
 // https://github.com/SortableJS/Vue.Draggable
 // Options for the draggable: https://github.com/SortableJS/Sortable#options
 
@@ -44983,8 +44986,15 @@ var render = function() {
                 )
               ]
             )
-          ])
-        ]
+          ]),
+          _vm._v(" "),
+          element.testimonialsNew
+            ? _c("local-draggable", {
+                attrs: { testimonialsNew: element.testimonialsNew }
+              })
+            : _vm._e()
+        ],
+        1
       )
     }),
     0
