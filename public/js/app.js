@@ -7382,8 +7382,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 // https://github.com/SortableJS/Vue.Draggable
 // Options for the draggable: https://github.com/SortableJS/Sortable#options
 
@@ -7394,13 +7392,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     console.log('Component UlListDraggable mounted.'); //console.log(this.locale);
-
-    console.log(this.testimonials);
+    //console.log(this.testimonials);
   },
   data: function data() {
-    //csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+    //console.log(this.testimonials);
     return {
-      testimonialsNew: this.testimonials.data,
+      testimonialsNew: this.testimonials,
       csrf: document.head.querySelector('meta[name="csrf-token"]').content,
       localCode: this.locale
     };
@@ -44928,77 +44925,69 @@ var render = function() {
         expression: "testimonialsNew"
       }
     },
-    [
-      _c("p", [_vm._v("aa1")]),
-      _vm._v(" "),
-      _vm._l(_vm.testimonialsNew, function(element, index) {
-        return _c(
-          "div",
-          {
-            key: element.id,
-            staticClass: "row p-1",
-            class: { "bg-light": index % 2 === 0, "bg-white": index % 2 !== 0 },
-            attrs: { id: index }
-          },
-          [
-            _c("p", [_vm._v("bb")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-12 py-3 title" }, [
-              _c("i", {
-                staticClass:
-                  "far fa-arrows-alt-v float-right border px-2 py-1 text-secondary"
-              }),
-              _c(
-                "a",
-                { attrs: { href: "/menuItems/" + element.id + "/edit" } },
-                [_vm._v(_vm._s(element.name))]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-12 pb-2 action" }, [
-              _c(
-                "form",
-                {
-                  attrs: {
-                    action: "/" + _vm.localCode + "/menuItems/" + element.id,
-                    method: "POST"
-                  }
-                },
-                [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { href: "/menuItems/" + element.id + "/edit" }
-                    },
-                    [_vm._v("Modifica")]
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "hidden", name: "_token" },
-                    domProps: { value: _vm.csrf }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "hidden", name: "_method", value: "DELETE" }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-danger float-right",
-                      attrs: { type: "submit" }
-                    },
-                    [_vm._v("Cancella")]
-                  )
-                ]
-              )
+    _vm._l(_vm.testimonialsNew, function(element, index) {
+      return _c(
+        "div",
+        {
+          key: element.id,
+          staticClass: "row p-1",
+          class: { "bg-light": index % 2 === 0, "bg-white": index % 2 !== 0 },
+          attrs: { id: index }
+        },
+        [
+          _c("div", { staticClass: "col-12 py-3 title" }, [
+            _c("i", {
+              staticClass:
+                "far fa-arrows-alt-v float-right border px-2 py-1 text-secondary"
+            }),
+            _c("a", { attrs: { href: "/menuItems/" + element.id + "/edit" } }, [
+              _vm._v(_vm._s(element.name))
             ])
-          ]
-        )
-      })
-    ],
-    2
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-12 pb-2 action" }, [
+            _c(
+              "form",
+              {
+                attrs: {
+                  action: "/" + _vm.localCode + "/menuItems/" + element.id,
+                  method: "POST"
+                }
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { href: "/menuItems/" + element.id + "/edit" }
+                  },
+                  [_vm._v("Modifica")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: { type: "hidden", name: "_token" },
+                  domProps: { value: _vm.csrf }
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: { type: "hidden", name: "_method", value: "DELETE" }
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger float-right",
+                    attrs: { type: "submit" }
+                  },
+                  [_vm._v("Cancella")]
+                )
+              ]
+            )
+          ])
+        ]
+      )
+    }),
+    0
   )
 }
 var staticRenderFns = []

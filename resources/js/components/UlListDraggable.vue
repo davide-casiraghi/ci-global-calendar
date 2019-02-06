@@ -1,9 +1,7 @@
 <template>
 
     <draggable class="menuItemsList my-4" v-model="testimonialsNew" :options="{animation:200}" @start="drag=true" @end="onEnd" :move="update" :component-data="getComponentData()">
-        <p>aa1</p>
         <div class="row p-1" v-bind:id="index" v-bind:class="{'bg-light': index % 2 === 0, 'bg-white': index % 2 !== 0 }" v-for="(element, index) in testimonialsNew" :key="element.id">
-            <p>bb</p>
             <div class="col-12 py-3 title"><i class="far fa-arrows-alt-v float-right border px-2 py-1 text-secondary"></i><a :href="'/menuItems/'+element.id+'/edit'">{{element.name}}</a></div>
             <div class="col-12 pb-2 action">
                 <form :action="'/'+localCode+'/menuItems/'+element.id" method="POST">
@@ -33,14 +31,13 @@
         },
         mounted() {
             console.log('Component UlListDraggable mounted.');
-            
             //console.log(this.locale);
-            
-            console.log(this.testimonials);
+            //console.log(this.testimonials);
         },
         data() {
+            //console.log(this.testimonials);
             return {
-                testimonialsNew: this.testimonials.data,
+                testimonialsNew: this.testimonials,
                 csrf: document.head.querySelector('meta[name="csrf-token"]').content,
                 localCode: this.locale
             }
@@ -48,9 +45,6 @@
         methods: {
             update(event) {
                 //console.log("update");
-                
-                
-                
             },
             onEnd: function (/**Event*/evt) {
         		console.log("END!!!!");
