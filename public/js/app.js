@@ -57398,7 +57398,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery_counterup__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(jquery_counterup__WEBPACK_IMPORTED_MODULE_15__);
 /* harmony import */ var sortablejs__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! sortablejs */ "./node_modules/sortablejs/Sortable.js");
 /* harmony import */ var sortablejs__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(sortablejs__WEBPACK_IMPORTED_MODULE_16__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module 'jquery.cookie'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var jquery_cookie__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! jquery.cookie */ "./node_modules/jquery.cookie/jquery.cookie.js");
+/* harmony import */ var jquery_cookie__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(jquery_cookie__WEBPACK_IMPORTED_MODULE_17__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
