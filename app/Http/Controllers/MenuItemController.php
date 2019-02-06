@@ -51,7 +51,7 @@ class MenuItemController extends Controller
         
         //dump($menuItems);
         
-        return view('menuItems.index',compact('menuItems'))
+        return view('menuItems.index',compact('menuItemsTree'))
                     ->with('selectedMenuName', $selectedMenuName);
         
     }
