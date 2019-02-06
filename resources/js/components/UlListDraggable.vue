@@ -17,6 +17,7 @@
 </template>
 
 <script>
+    // Example of draggable - https://github.com/David-Desmaisons/draggable-example/blob/master/src/components/Hello.vue#L57
     // https://github.com/SortableJS/Vue.Draggable
     // Options for the draggable: https://github.com/SortableJS/Sortable#options
     
