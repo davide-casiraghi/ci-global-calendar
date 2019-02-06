@@ -19,10 +19,10 @@ class MenuItemController extends Controller
     /***************************************************************************/
     /**
      * Display a listing of the resource.
-     *
+     * @param  $id - the menu id
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $id){
+    public function index($id){
         
         $selectedMenuName = Menu::find($id)->name;
         $menuItems = MenuItem::where('menu_id','=',$id)
@@ -70,8 +70,10 @@ class MenuItemController extends Controller
 
         $menuItem = new MenuItem();
         $this->saveOnDb($request, $menuItem);
+        //dd("ssss");
         
         return redirect()->route('menuItems.index')
+                        ->with('id',$request->menu_id)
                         ->with('success',__('messages.menu_added_successfully'));
         
     }
