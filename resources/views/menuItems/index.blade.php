@@ -49,7 +49,10 @@
                 @foreach ($menuItem->children as $subItem)
                     <div class="row border-bottom py-1">
                         <div class="col-10 pl-5 pt-2">
-                            <a href="{{ route('menuItems.edit',$subItem->id) }}">{{ $subItem->name }}</a>
+                            <a href="{{ route('menuItems.edit',$subItem->id) }}">
+                                @if(!empty($subItem->font_awesome_class))<i class="{{ $subItem->font_awesome_class }}"></i> @endif
+                                {{ $subItem->name }}
+                            </a>
                         </div>
                         <div class="col-2">
                             <form action="{{ route('menuItems.destroy',$subItem->id) }}" method="POST">
@@ -67,7 +70,10 @@
                         @foreach ($subItem->children as $subSubItem)
                             <div class="row border-bottom py-1">
                                 <div class="col-10 pt-2" style="padding-left: 5rem;">
-                                    <a href="{{ route('menuItems.edit',$subSubItem->id) }}">{{ $subSubItem->name }}</a>
+                                    <a href="{{ route('menuItems.edit',$subSubItem->id) }}">
+                                        @if(!empty($subSubItem->font_awesome_class))<i class="{{ $subSubItem->font_awesome_class }}"></i> @endif
+                                        {{ $subSubItem->name }}
+                                    </a>
                                 </div>
                                 <div class="col-2">
                                     <form action="{{ route('menuItems.destroy',$subSubItem->id) }}" method="POST">
