@@ -40,7 +40,7 @@ class MenuItemController extends Controller
                 $menuItemsTree[$parentItemId]['subItems'] = $subItemsArray;
             }
         }
-        
+        dump($menuItemsTree);
         return view('menuItems.index',compact('menuItemsTree'))
                     ->with('selectedMenuName', $selectedMenuName);
         

@@ -21,29 +21,45 @@
 
     
     {{-- List of menus items --}}
-    <ul-list-draggable :items_input="{{ json_encode($menuItemsTree) }}" :locale="{{ json_encode(app()->getLocale()) }}" ></ul-list-draggable>
+    {{--<ul-list-draggable :items_input="{{ json_encode($menuItemsTree) }}" :locale="{{ json_encode(app()->getLocale()) }}" ></ul-list-draggable> --}}
     
     
-    {{--<div class="menuItemsList my-4">
-        @foreach ($menuItems as $menuItem)
-            <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
-                <div class="col-9 col-md-6 col-lg-7 py-3 title">
+    <div class="menuItemsList my-4">
+        @foreach ($menuItemsTree as $menuItem)
+            <div class="row pt-2 pb-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }} border-bottom">
+                <div class="col-10">
                     <a href="{{ route('menuItems.edit',$menuItem->id) }}">{{ $menuItem->name }}</a>
                 </div>
-                
-                <div class="col-12 pb-2 action">
+                <div class="col-2">
                     <form action="{{ route('menuItems.destroy',$menuItem->id) }}" method="POST">
-                        <a class="btn btn-primary" href="{{ route('menuItems.edit',$menuItem->id) }}">@lang('views.edit')</a>
-
+                        
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger float-right">@lang('views.delete')</button>
+                        <button type="submit" class="btn btn-danger float-right"><i class="far fa-trash-alt"></i></button>
                     </form>
                 </div>
-                
             </div>
+            
+            @if (!empty($menuItem->subItems))
+                @foreach ($menuItem->subItems as $subItem)
+                    <div class="row border-bottom pt-2 pb-1">
+                        <div class="col-10 pl-5">
+                            <a href="{{ route('menuItems.edit',$subItem->id) }}">{{ $subItem->name }}</a>
+                        </div>
+                        <div class="col-2">
+                            <form action="{{ route('menuItems.destroy',$menuItem->id) }}" method="POST">
+                                
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="submit" class="btn btn-danger float-right"><i class="far fa-trash-alt"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                @endforeach    
+            @endif
         @endforeach    
-    </div>--}}
+    </div>
 
 @endsection

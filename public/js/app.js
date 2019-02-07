@@ -7373,32 +7373,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 // Example of draggable - https://github.com/David-Desmaisons/draggable-example/blob/master/src/components/Hello.vue#L57
 // https://github.com/SortableJS/Vue.Draggable
 // Options for the draggable: https://github.com/SortableJS/Sortable#options
 var local = {
-  template: '#template-dra',
+  template: __webpack_require__(/*! ./listTemplate.html */ "./resources/js/components/listTemplate.html"),
   props: ['items']
 };
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['itemsInput', 'locale'],
+  props: ['items_input', 'locale'],
   components: {
     localdraggable: local
   },
@@ -7407,9 +7391,10 @@ var local = {
     //console.log(this.itemsInput);
   },
   data: function data() {
-    console.log(this.itemsInput);
+    console.log("imported items");
+    console.log(this.items_input);
     return {
-      items: this.itemsInput,
+      items: this.items_input,
       csrf: document.head.querySelector('meta[name="csrf-token"]').content,
       localCode: this.locale
     };
@@ -57596,6 +57581,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UlListDraggable_vue_vue_type_template_id_474dbd9d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/listTemplate.html":
+/*!***************************************************!*\
+  !*** ./resources/js/components/listTemplate.html ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<script type=\"text/x-template\" id=\"template-dra\">\n   <draggable :list=\"items\" class=\"menuItemsList my-4\" :options=\"{animation:200}\" @start=\"drag=true\" @end=\"onEnd\" :move=\"update\" :component-data=\"getComponentData()\">\n       <div v-for=\"element in items\" class=\"row p-1\" v-bind:id=\"index\" v-bind:class=\"{'bg-light': index % 2 === 0, 'bg-white': index % 2 !== 0 }\" :key=\"element.id\">\n           {{element.name}}\n       </div>\n\t</draggable>\n</script>\n";
 
 /***/ }),
 
