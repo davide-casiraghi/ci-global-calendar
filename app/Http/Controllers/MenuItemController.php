@@ -174,14 +174,11 @@ class MenuItemController extends Controller
         $menuItem->menu_id = $request->get('menu_id');
         $menuItem->access = $request->get('access');
         
-    
         if ($request->get('order')){
-            
             if ($request->get('order') != $menuItem->order){
                 $this->updateOrder($menuItem->menu_id, $menuItem->parent_item_id, $menuItem->id, $request->get('order'));
             }
         }
-        
 
         $menuItem->save();
     }
@@ -257,8 +254,6 @@ class MenuItemController extends Controller
         }
     }
     
-    
-
     /***************************************************************************/
     /**
      * Create array tree from array list - it support more than 1 parentid[0] element
