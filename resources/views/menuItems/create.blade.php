@@ -47,12 +47,13 @@
                 ])
             </div>
             <div class="col-12">
-                @include('partials.forms.input', [
-                      'title' => __('views.menu_item_type'),
-                      'name' => 'type',
-                      'placeholder' => 'Route or Url',
-                      'value' => old('type')
-                ])
+                <div class="form-group">
+                    <strong>@lang('views.menu_item_type'):</strong>
+                    <select name="type" class="selectpicker" title="Route or Url">
+                        <option value="1" {{'selected'}}>Route</option>
+                        <option value="2">Url</option>
+                    </select>
+                </div>
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
@@ -76,6 +77,13 @@
                       'name' => 'font_awesome_class',
                       'placeholder' => 'Font awesome icon class',
                       'value' => old('font_awesome_class')
+                ])
+            </div>
+            <div class="col-12">
+                @include('partials.forms.checkbox', [
+                      'name' => 'hide_name',
+                      'description' => __('views.menu_item_hide_name'),
+                      'value' => ''
                 ])
             </div>
             <div class="col-12">
