@@ -28,7 +28,10 @@
         @foreach ($menuItemsTree as $menuItem)
             <div class="row pt-2 pb-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }} border-bottom">
                 <div class="col-10">
-                    <a href="{{ route('menuItems.edit',$menuItem->id) }}">{{ $menuItem->name }}</a>
+                    <a href="{{ route('menuItems.edit',$menuItem->id) }}">
+                        @if(!empty($menuItem->font_awesome_class))<i class="{{ $menuItem->font_awesome_class }}"></i> @endif
+                        {{ $menuItem->name }}
+                    </a>
                 </div>
                 <div class="col-2">
                     <form action="{{ route('menuItems.destroy',$menuItem->id) }}" method="POST">
