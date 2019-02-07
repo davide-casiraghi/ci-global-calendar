@@ -25,12 +25,7 @@ class MenuItemController extends Controller
     public function index($id){
         
         $selectedMenuName = Menu::find($id)->name;
-        $menuItems = MenuItem::where('menu_id','=',$id)
-                                ->orderBy('order','ASC')
-                                ->get();
-        
-        // Get the specified menu items tree
-            $menuItemsTree = $this->getItemsTree($menuItems);
+        $menuItemsTree = $this->getItemsTree($id);
             
         return view('menuItems.index',compact('menuItemsTree'))
                     ->with('selectedMenuName', $selectedMenuName);
@@ -253,8 +248,11 @@ class MenuItemController extends Controller
     /****************/
     
 
-    function getItemsTree($menuItems){
+    function getItemsTree($menuId){
         
+        $menuItems = MenuItem::where('menu_id','=',$menuId)
+                                ->orderBy('order','ASC')
+                                ->get();
         $new = array();
         foreach ($menuItems as $menuItem){
             $new[$menuItem['parent_item_id']][] = $menuItem;
