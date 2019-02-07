@@ -105,10 +105,7 @@ class MenuItemController extends Controller
         
         $menu = Menu::orderBy('name')->pluck('name', 'id');
         $menuItems = MenuItem::orderBy('name')->pluck('name', 'id');
-        $menuItemsSameMenuAndLevel = MenuItem::where('parent_item_id','=',$menuItem->parent_item_id)
-                                        ->where('menu_id','=',$menuItem->menu_id)
-                                        ->orderBy('order')
-                                        ->pluck('name', 'id'); 
+        $menuItemsSameMenuAndLevel = $this->getItemsSameMenuAndLevel($menuItem->menu_id, $menuItem->parent_item_id);                         
         
         return view('menuItems.edit',compact('menuItem'))
                     ->with('menuItems',$menuItems)
@@ -175,6 +172,27 @@ class MenuItemController extends Controller
         $menuItem->type = $request->get('type');
         $menuItem->menu_id = $request->get('menu_id');
         $menuItem->access = $request->get('access');
+        
+        //dd($request->get('order'));
+        if ($request->get('order')){
+            switch ($request->get('order')) {
+                case 'first':
+                    // code...
+                    break;
+                
+                case 'last':
+                    // code...
+                    break;
+                
+                case $menuItem->order:
+                    // do nothing if it's the same
+                    break;
+                default:
+                    //$menuItem->order = $request->get('order');
+                    break;
+            }
+        }
+        
 
         $menuItem->save();
     }
@@ -200,6 +218,7 @@ class MenuItemController extends Controller
     /***************************************************************************/
     /**
      * Create array tree from array list - it support more than 1 parentid[0] element
+     * https://stackoverflow.com/questions/4196157/create-array-tree-from-array-list
      *
      * @param  $list
      * @param  $parent
@@ -216,5 +235,23 @@ class MenuItemController extends Controller
         } 
         return $tree;
     }
+    
+    /***************************************************************************/
+    /**
+     * Get the items of the same menu and level
+     *
+     * @param int $menuId - the menu id
+     * @param  int $parentItemId - the parent menu item id
+     * @return array $ret;
+     */
+
+    function getItemsSameMenuAndLevel($menuId, $parentItemId){
+        $ret = MenuItem::where('parent_item_id','=',$parentItemId)
+                                        ->where('menu_id','=',$menuId)
+                                        ->orderBy('order')
+                                        ->pluck('name', 'id');             
+        return $ret;
+    }
+    
 
 }
