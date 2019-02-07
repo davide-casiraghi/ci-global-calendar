@@ -7364,7 +7364,20 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuedraggable */ "./node_modules/vuedraggable/dist/vuedraggable.js");
 /* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuedraggable__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _localDraggable_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./localDraggable.vue */ "./resources/js/components/localDraggable.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7384,21 +7397,19 @@ var local = {
   props: ['items']
 };
 
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['items_input', 'locale'],
+  props: ['itemsInput', 'locale'],
   components: {
-    draggable: vuedraggable__WEBPACK_IMPORTED_MODULE_0___default.a,
-    localDraggable: _localDraggable_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    localdraggable: local
   },
   mounted: function mounted() {
     console.log('Component UlListDraggable mounted.'); //console.log(this.locale);
-    //console.log(this.items_input);
+    //console.log(this.itemsInput);
   },
   data: function data() {
-    console.log(this.items_input);
+    console.log(this.itemsInput);
     return {
-      items: this.items_input,
+      items: this.itemsInput,
       csrf: document.head.querySelector('meta[name="csrf-token"]').content,
       localCode: this.locale
     };
@@ -44903,7 +44914,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("local-draggable", { attrs: { items: _vm.items } })
+  return _c("localdraggable", { attrs: { items: _vm.items } })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -57585,38 +57596,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UlListDraggable_vue_vue_type_template_id_474dbd9d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
-
-/***/ }),
-
-/***/ "./resources/js/components/localDraggable.vue":
-/*!****************************************************!*\
-  !*** ./resources/js/components/localDraggable.vue ***!
-  \****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-var render, staticRenderFns
-var script = {}
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
-  script,
-  render,
-  staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-component.options.__file = "resources/js/components/localDraggable.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
