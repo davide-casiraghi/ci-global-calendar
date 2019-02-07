@@ -166,9 +166,7 @@ class MenuItemController extends Controller
         $menuItem->access = $request->get('access');
         
         if ($request->get('order')){
-            dump($request->get('order'));
-            dd($menuItem->order);
-            if ($request->get('order') != $menuItem->order){
+            if ($request->get('order') != $menuItem->id){
                 $this->updateOrder($menuItem->menu_id, $menuItem->parent_item_id, $menuItem->id, $request->get('order'));
             }
         }
