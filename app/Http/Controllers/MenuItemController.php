@@ -134,7 +134,7 @@ class MenuItemController extends Controller
     public function destroy(MenuItem $menuItem){
         $menuItem->delete();
         
-        return redirect()->route('menuItems.index')
+        return redirect()->route('menuItemsIndex', ['id' => $menuItem->menu_id] )
                         ->with('success',__('messages.menu_item_deleted_successfully'));
     }
 
