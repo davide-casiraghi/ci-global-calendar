@@ -13,7 +13,7 @@ class MenuItemController extends Controller
     
     /* Restrict the access to this resource just to logged in users, except some */
     public function __construct(){
-        $this->middleware('admin', ['except' => ['updateOrder']]);
+        $this->middleware('admin');
     }
     
     /***************************************************************************/
@@ -105,7 +105,7 @@ class MenuItemController extends Controller
         
         $menu = Menu::orderBy('name')->pluck('name', 'id');
         $menuItems = MenuItem::orderBy('name')->pluck('name', 'id');
-        $menuItemsSameMenuAndLevel = $this->getItemsSameMenuAndLevel($menuItem->menu_id, $menuItem->parent_item_id);                         
+        $menuItemsSameMenuAndLevel = $this->getItemsSameMenuAndLevel($menuItem->menu_id, $menuItem->parent_item_id, 1);                         
         
         return view('menuItems.edit',compact('menuItem'))
                     ->with('menuItems',$menuItems)
@@ -173,23 +173,11 @@ class MenuItemController extends Controller
         $menuItem->menu_id = $request->get('menu_id');
         $menuItem->access = $request->get('access');
         
-        //dd($request->get('order'));
+    
         if ($request->get('order')){
-            switch ($request->get('order')) {
-                case 'first':
-                    // code...
-                    break;
-                
-                case 'last':
-                    // code...
-                    break;
-                
-                case $menuItem->order:
-                    // do nothing if it's the same
-                    break;
-                default:
-                    //$menuItem->order = $request->get('order');
-                    break;
+            
+            if ($request->get('order') != $menuItem->order){
+                $this->updateOrder($menuItem->menu_id, $menuItem->parent_item_id, $menuItem->id, $request->get('order'));
             }
         }
         
@@ -205,7 +193,7 @@ class MenuItemController extends Controller
      * @return string $ret - the ordinal indicator (st, nd, rd, th)
      */
 
-    function updateOrder(Request $request){
+    /*function updateOrder(Request $request){
         
         foreach ($request->items as $key => $item) {
             $item['order'] = $key+1;
@@ -213,7 +201,71 @@ class MenuItemController extends Controller
             
             $menuItem->update($item);   
         }
+    }*/
+    function updateOrder($menuId, $parentItemId, $itemId, $position){
+        $menuItemsSameMenuAndLevel = $this->getItemsSameMenuAndLevel($menuId, $parentItemId, 0);
+        
+        switch ($position) {
+            case 'first':
+                $i = 2;
+                foreach ($menuItemsSameMenuAndLevel as $key => $item) {
+                    
+                    if ($item->id == $itemId){
+                        $item->order = 1;
+                    }
+                    else{
+                        $item->order = $i;
+                        $i++;
+                    }
+                    $item->save();
+                    //$menuItem = MenuItem::find($itemId);
+                    //$menuItem->update($item);   
+                }
+                break;
+            
+            case 'last':
+                $i = 1;
+                $lastIndex = count($menuItemsSameMenuAndLevel);
+                foreach ($menuItemsSameMenuAndLevel as $key => $item) {
+                    if ($item->id == $itemId){
+                        $item->order = $lastIndex;
+                    }
+                    else{
+                        $item->order = $i;
+                        $i++;
+                    }
+                    $item->update($item);
+                }
+                break;
+            
+            default:
+                $i = 1;
+                foreach ($menuItemsSameMenuAndLevel as $key => $item) {
+                    
+                }
+                
+                break;
+        }
+        
+        
+        /*switch ($position) {
+            case 'first':
+                $ret[] = $menuItemsSameMenuAndLevel[$itemId];
+                dd($menuItemsSameMenuAndLevel);
+                dd($ret);
+                break;
+            
+            case 'last':
+                // code...
+                break;
+            
+            default:
+                // code...
+                break;
+        }*/
     }
+    
+    
 
     /***************************************************************************/
     /**
@@ -242,14 +294,23 @@ class MenuItemController extends Controller
      *
      * @param int $menuId - the menu id
      * @param  int $parentItemId - the parent menu item id
+     * @param  int $kind 1 (retun the pluck) - 0 (return the items)
      * @return array $ret;
      */
 
-    function getItemsSameMenuAndLevel($menuId, $parentItemId){
-        $ret = MenuItem::where('parent_item_id','=',$parentItemId)
-                                        ->where('menu_id','=',$menuId)
-                                        ->orderBy('order')
-                                        ->pluck('name', 'id');             
+    function getItemsSameMenuAndLevel($menuId, $parentItemId, $kind){
+        if ($kind == 1){
+            $ret = MenuItem::where('parent_item_id','=',$parentItemId)
+                                            ->where('menu_id','=',$menuId)
+                                            ->orderBy('order')
+                                            ->pluck('name', 'id');             
+        }
+        else{
+            $ret = MenuItem::where('parent_item_id','=',$parentItemId)
+                                            ->where('menu_id','=',$menuId)
+                                            ->orderBy('order')
+                                            ->get();     
+        }
         return $ret;
     }
     
