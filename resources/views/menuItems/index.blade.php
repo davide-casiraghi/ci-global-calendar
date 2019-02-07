@@ -32,7 +32,7 @@
                 <div class="col-10 pt-2">
                     <a href="{{ route('menuItems.edit',$menuItem->id) }}">
                         @if(!empty($menuItem->font_awesome_class))<i class="{{ $menuItem->font_awesome_class }}"></i> @endif
-                        {{ $menuItem->name }}
+                        @if(empty($menuItem->hide_name)){{ $menuItem->name }} @endif
                     </a>
                 </div>
                 <div class="col-2">
