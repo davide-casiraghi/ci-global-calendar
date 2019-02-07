@@ -39,7 +39,7 @@ $(function () {
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('ul-list-draggable', require('./components/UlListDraggable.vue').default);
-//Vue.component('div-list-draggable', require('./components/DivListDraggable.vue'));
+//Vue.component('local-draggable', require('./components/localDraggable.vue'));
 
 
 const app = new Vue({

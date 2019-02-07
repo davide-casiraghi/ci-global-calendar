@@ -28,8 +28,7 @@ function()
     /* Users */
         Route::resource('users','UserController');
         
-    /* Menus */
-        
+    /* Menus */    
         Route::resource('menus','MenuController');
         Route::get('/menuItems/index/{id}', 'MenuItemController@index')->name('menuItemsIndex');
         Route::resource('menuItems','MenuItemController');

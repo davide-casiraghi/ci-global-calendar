@@ -7364,13 +7364,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuedraggable */ "./node_modules/vuedraggable/dist/vuedraggable.js");
 /* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuedraggable__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _localDraggable_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./localDraggable.vue */ "./resources/js/components/localDraggable.vue");
 //
 //
 //
@@ -7385,20 +7379,26 @@ __webpack_require__.r(__webpack_exports__);
 // Example of draggable - https://github.com/David-Desmaisons/draggable-example/blob/master/src/components/Hello.vue#L57
 // https://github.com/SortableJS/Vue.Draggable
 // Options for the draggable: https://github.com/SortableJS/Sortable#options
+var local = {
+  template: '#template-dra',
+  props: ['items']
+};
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['testimonials', 'locale'],
+  props: ['items_input', 'locale'],
   components: {
-    draggable: vuedraggable__WEBPACK_IMPORTED_MODULE_0___default.a
+    draggable: vuedraggable__WEBPACK_IMPORTED_MODULE_0___default.a,
+    localDraggable: _localDraggable_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   mounted: function mounted() {
     console.log('Component UlListDraggable mounted.'); //console.log(this.locale);
-    //console.log(this.testimonials);
+    //console.log(this.items_input);
   },
   data: function data() {
-    console.log(this.testimonials);
+    console.log(this.items_input);
     return {
-      testimonialsNew: this.testimonials,
+      items: this.items_input,
       csrf: document.head.querySelector('meta[name="csrf-token"]').content,
       localCode: this.locale
     };
@@ -7410,7 +7410,7 @@ __webpack_require__.r(__webpack_exports__);
     /**Event*/
     evt) {
       console.log("END!!!!");
-      console.log(this.testimonialsNew);
+      console.log(this.items);
       /*var itemEl = evt.item;  // dragged HTMLElement
       evt.to;    // target list
       evt.from;  // previous list
@@ -7418,12 +7418,12 @@ __webpack_require__.r(__webpack_exports__);
       evt.newIndex;  // element's new index within new parent*/
 
       axios.put('/menuItem/updateOrder', {
-        items: this.testimonialsNew
+        items: this.items
       }).then(function (response) {// success message
       });
     },
     handleChange: function handleChange() {
-      console.log('changed'); //console.log(this.testimonialsNew);
+      console.log('changed'); //console.log(this.items);
       //console.log(event);
       //console.log(event.dragged.id);
 
@@ -44903,93 +44903,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "draggable",
-    {
-      staticClass: "menuItemsList my-4",
-      attrs: {
-        options: { animation: 200 },
-        move: _vm.update,
-        "component-data": _vm.getComponentData()
-      },
-      on: {
-        start: function($event) {
-          _vm.drag = true
-        },
-        end: _vm.onEnd
-      },
-      model: {
-        value: _vm.testimonialsNew,
-        callback: function($$v) {
-          _vm.testimonialsNew = $$v
-        },
-        expression: "testimonialsNew"
-      }
-    },
-    _vm._l(_vm.testimonialsNew, function(element, index) {
-      return _c(
-        "div",
-        {
-          key: element.id,
-          staticClass: "row p-1",
-          class: { "bg-light": index % 2 === 0, "bg-white": index % 2 !== 0 },
-          attrs: { id: index }
-        },
-        [
-          _c("div", { staticClass: "col-12 py-3 title" }, [
-            _c("i", {
-              staticClass:
-                "far fa-arrows-alt-v float-right border px-2 py-1 text-secondary"
-            }),
-            _c("a", { attrs: { href: "/menuItems/" + element.id + "/edit" } }, [
-              _vm._v(_vm._s(element.name))
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12 pb-2 action" }, [
-            _c(
-              "form",
-              {
-                attrs: {
-                  action: "/" + _vm.localCode + "/menuItems/" + element.id,
-                  method: "POST"
-                }
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-primary",
-                    attrs: { href: "/menuItems/" + element.id + "/edit" }
-                  },
-                  [_vm._v("Modifica")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: { type: "hidden", name: "_token" },
-                  domProps: { value: _vm.csrf }
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: { type: "hidden", name: "_method", value: "DELETE" }
-                }),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-danger float-right",
-                    attrs: { type: "submit" }
-                  },
-                  [_vm._v("Cancella")]
-                )
-              ]
-            )
-          ])
-        ]
-      )
-    }),
-    0
-  )
+  return _c("local-draggable", { attrs: { items: _vm.items } })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -57449,7 +57363,7 @@ $(function () {
  */
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue"));
-Vue.component('ul-list-draggable', __webpack_require__(/*! ./components/UlListDraggable.vue */ "./resources/js/components/UlListDraggable.vue").default); //Vue.component('div-list-draggable', require('./components/DivListDraggable.vue'));
+Vue.component('ul-list-draggable', __webpack_require__(/*! ./components/UlListDraggable.vue */ "./resources/js/components/UlListDraggable.vue").default); //Vue.component('local-draggable', require('./components/localDraggable.vue'));
 
 var app = new Vue({
   el: '#app'
@@ -57671,6 +57585,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UlListDraggable_vue_vue_type_template_id_474dbd9d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/localDraggable.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/localDraggable.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/localDraggable.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 

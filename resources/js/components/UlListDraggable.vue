@@ -1,47 +1,46 @@
 <template>
 
-    <draggable class="menuItemsList my-4" v-model="testimonialsNew" :options="{animation:200}" @start="drag=true" @end="onEnd" :move="update" :component-data="getComponentData()">
-        <div class="row p-1" v-bind:id="index" v-bind:class="{'bg-light': index % 2 === 0, 'bg-white': index % 2 !== 0 }" v-for="(element, index) in testimonialsNew" :key="element.id">
-            <div class="col-12 py-3 title"><i class="far fa-arrows-alt-v float-right border px-2 py-1 text-secondary"></i><a :href="'/menuItems/'+element.id+'/edit'">{{element.name}}</a></div>
-            <div class="col-12 pb-2 action">
-                <form :action="'/'+localCode+'/menuItems/'+element.id" method="POST">
-                    <a :href="'/menuItems/'+element.id+'/edit'" class="btn btn-primary">Modifica</a> 
-                    <input type="hidden" name="_token" :value="csrf"> 
-                    <input type="hidden" name="_method" value="DELETE"> 
-                    <button type="submit" class="btn btn-danger float-right">Cancella</button>
-                </form>
-            </div>
-        </div>
-    </draggable>
-    <local-draggable v-if="element.subItems" :subItems="element.subItems" > 
-    </local-draggable>
-
+    <local-draggable :items="items"/>
 
 </template>
+
+
+<!--<script type="text/x-template" id="template-dra">
+  
+</script>-->
 
 <script>
     // Example of draggable - https://github.com/David-Desmaisons/draggable-example/blob/master/src/components/Hello.vue#L57
     // https://github.com/SortableJS/Vue.Draggable
     // Options for the draggable: https://github.com/SortableJS/Sortable#options
     
+    var local = {
+      template: '#template-dra',
+      props: ['items']
+    };
+
+    
     import draggable from 'vuedraggable'
+    import localDraggable from './localDraggable.vue'
+    
     export default {
         props : [
-            'testimonials',
+            'items_input',
             'locale',
         ],
         components: {
-            draggable
+            draggable,
+            localDraggable
         },
         mounted() {
             console.log('Component UlListDraggable mounted.');
             //console.log(this.locale);
-            //console.log(this.testimonials);
+            //console.log(this.items_input);
         },
         data() {
-            console.log(this.testimonials);
+            console.log(this.items_input);
             return {
-                testimonialsNew: this.testimonials,
+                items: this.items_input,
                 csrf: document.head.querySelector('meta[name="csrf-token"]').content,
                 localCode: this.locale
             }
@@ -52,14 +51,14 @@
             },
             onEnd: function (/**Event*/evt) {
         		console.log("END!!!!");
-                console.log(this.testimonialsNew);
+                console.log(this.items);
                 /*var itemEl = evt.item;  // dragged HTMLElement
         		evt.to;    // target list
         		evt.from;  // previous list
         		evt.oldIndex;  // element's old index within old parent
         		evt.newIndex;  // element's new index within new parent*/
                 axios.put('/menuItem/updateOrder', {
-                    items: this.testimonialsNew
+                    items: this.items
                 }).then((response) => {
                     // success message
                 })
@@ -68,7 +67,7 @@
         	},
             handleChange() {
               console.log('changed');
-              //console.log(this.testimonialsNew);
+              //console.log(this.items);
               
               //console.log(event);
               //console.log(event.dragged.id);

@@ -21,7 +21,7 @@
 
     
     {{-- List of menus items --}}
-    <ul-list-draggable :testimonials="{{ json_encode($menuItemsTree) }}" :locale="{{ json_encode(app()->getLocale()) }}" ></ul-list-draggable>
+    <ul-list-draggable :items_input="{{ json_encode($menuItemsTree) }}" :locale="{{ json_encode(app()->getLocale()) }}" ></ul-list-draggable>
     
     
     {{--<div class="menuItemsList my-4">
