@@ -89,8 +89,15 @@
                 @include('partials.forms.input', [
                       'title' => __('views.menu_item_font_awesome_class'),
                       'name' => 'font_awesome_class',
-                      'placeholder' => 'Font awesome icon class',
+                      'placeholder' => __('views.menu_item_font_awesome_class'),
                       'value' => $menuItem->font_awesome_class
+                ])
+            </div>
+            <div class="col-12">
+                @include('partials.forms.checkbox', [
+                      'name' => 'hide_name',
+                      'description' => __('views.menu_item_hide_name'),
+                      'value' => $menuItem->hide_name
                 ])
             </div>
             <div class="col-12">

@@ -217,6 +217,7 @@ class CreateAllDatabaseTables extends Migration
             $table->string('url')->nullable();
             $table->string('route')->nullable();
             $table->string('font_awesome_class')->nullable();
+            $table->boolean('hide_name')->default('0');
             $table->string('lang_string')->nullable();
             $table->string('compact_name');
             $table->integer('order')->nullable();

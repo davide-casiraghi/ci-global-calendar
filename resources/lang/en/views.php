@@ -146,9 +146,7 @@ return [
     'menu_item_type' => 'Item type',
     'menu_id' => 'Menu',
     'items' => 'Items',
-    'menu_item_order' => 'Order'
-    
-    
-    
+    'menu_item_order' => 'Order',
+    'menu_item_hide_name' => 'Hide the menu item name (show just the font awesome icon)',
     
 ];

@@ -116,7 +116,7 @@ class RegisterController extends Controller
             $validatedData['activation_code'] = str_random(30).time();
             $validatedData['country_id'] = $request->country_id;
             $validatedData['description'] = $request->description;
-            $validatedData['accept_terms'] = ($request->accept_terms = "on") ? 1 : 0;
+            $validatedData['accept_terms'] = ($request->accept_terms == "on") ? 1 : 0;
 
             // Create user
                 $user = app(User::class)->create($validatedData);

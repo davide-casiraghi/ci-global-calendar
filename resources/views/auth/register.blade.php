@@ -113,7 +113,8 @@
                             <div class="col-md-6">
                                 @include('partials.forms.checkbox', [
                                       'name' => 'accept_terms',
-                                      'description' => __('general.accept_terms_of_use')
+                                      'description' => __('general.accept_terms_of_use'),
+                                      'value' => ''
                                 ])
                             </div>
                         </div>
