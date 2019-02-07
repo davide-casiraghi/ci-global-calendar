@@ -34,8 +34,12 @@ class MenuItemController extends Controller
             foreach ($menuItems as $menuItem){
                 $new[$menuItem['parent_item_id']][] = $menuItem;
             }
-            $menuItemsTree = $this->createTree($new, $new[0]); 
-            //dump($menuItemsTree);
+            if(!empty($new)){
+                $menuItemsTree = $this->createTree($new, $new[0]); 
+            }
+            else{
+                $menuItemsTree = [];
+            }
             
         return view('menuItems.index',compact('menuItemsTree'))
                     ->with('selectedMenuName', $selectedMenuName);
