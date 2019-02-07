@@ -13,6 +13,9 @@
             </div>
         </div>
     </draggable>
+    <local-draggable v-if="element.subItems" :subItems="element.subItems" > 
+    </local-draggable>
+
 
 </template>
 
