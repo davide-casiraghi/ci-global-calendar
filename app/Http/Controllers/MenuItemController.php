@@ -245,8 +245,14 @@ class MenuItemController extends Controller
     }
     
     
-    /****************/
-    
+    /***************************************************************************/
+    /**
+     * Return the items of the menu in a tree format (multidimensional array)
+     * https://stackoverflow.com/questions/4196157/create-array-tree-from-array-list
+     *
+     * @param  $menuId - the menu id
+     * @return array $ret - the multidimensional array with the tree
+     */
 
     function getItemsTree($menuId){
         
