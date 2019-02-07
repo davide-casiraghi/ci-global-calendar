@@ -11,8 +11,6 @@
                     <button type="submit" class="btn btn-danger float-right">Cancella</button>
                 </form>
             </div>
-            <local-draggable v-if="element.subItems" :subItems="element.subItems" > 
-            </local-draggable>
         </div>
     </draggable>
 

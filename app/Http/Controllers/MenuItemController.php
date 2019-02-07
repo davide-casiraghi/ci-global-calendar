@@ -27,29 +27,19 @@ class MenuItemController extends Controller
         $selectedMenuName = Menu::find($id)->name;
         $menuItems = MenuItem::where('menu_id','=',$id)
                                 ->oldest()->get();
-        //dump($menuItems);
+                                
         $menuItemsTree = array();
         foreach ($menuItems as $key => $menuItem) {
             if (!$menuItem['parent_item_id']){ // First level item
                 array_push($menuItemsTree, $menuItem);
             }
             else{  // Sub item
-                //dd($key);
                 $parentItemId = $this->findParentItem($menuItemsTree,$menuItem['parent_item_id']);
-                //dd($menuItemsTree[$parentItemId]);
-                //$menuItemsTree[$parentItemId]['subItems'] = "ciao";
                 $subItemsArray = $menuItemsTree[$parentItemId]['subItems'];
                 $subItemsArray[] = $menuItem;
                 $menuItemsTree[$parentItemId]['subItems'] = $subItemsArray;
-                //$menuItemsTree[$parentItemId]['subItems'][] = $menuItem;
-                //$menuItemsTree[$parentItemId]['subItems'][] = $menuItem;
-                //dd($menuItemsTree);
-                
             }
         }
-        //dump($menuItemsTree);
-        
-        //dump($menuItems);
         
         return view('menuItems.index',compact('menuItemsTree'))
                     ->with('selectedMenuName', $selectedMenuName);
