@@ -57,18 +57,18 @@
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
-                      'title' => 'Url',
-                      'name' => 'url',
-                      'placeholder' => 'The relative url - eg: /post/about',
-                      'value' => old('url')
-                ])
-            </div>
-            <div class="col-12">
-                @include('partials.forms.input', [
                       'title' => __('views.menu_item_route'),
                       'name' => 'route',
                       'placeholder' => 'Route',
                       'value' => old('route')
+                ])
+            </div>
+            <div class="col-12">
+                @include('partials.forms.input', [
+                      'title' => 'Url',
+                      'name' => 'url',
+                      'placeholder' => 'The relative url - eg: /post/about',
+                      'value' => old('url')
                 ])
             </div>
             <div class="col-12">
