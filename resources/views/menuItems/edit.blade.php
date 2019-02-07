@@ -50,6 +50,18 @@
                 ])
             </div>
             <div class="col-12">
+                @include('partials.forms.select', [
+                    'title' => __('views.menu_item_order'),
+                    'name' => 'order',
+                    'placeholder' => __('views.menu_item_order'),
+                    'records' => $menuItemsSameMenuAndLevel,
+                    'seleted' => $menuItem->id,
+                    'tooltip' => "The menu item will be placed in the menu after the selected menu item.",
+                    'liveSearch' => 'false',
+                    'mobileNativeMenu' => true,
+                ])
+            </div>
+            <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => __('views.menu_item_type'),
                       'name' => 'type',

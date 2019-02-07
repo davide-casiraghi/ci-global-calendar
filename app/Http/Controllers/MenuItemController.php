@@ -105,9 +105,14 @@ class MenuItemController extends Controller
         
         $menu = Menu::orderBy('name')->pluck('name', 'id');
         $menuItems = MenuItem::orderBy('name')->pluck('name', 'id');
+        $menuItemsSameMenuAndLevel = MenuItem::where('parent_item_id','=',$menuItem->parent_item_id)
+                                        ->where('menu_id','=',$menuItem->menu_id)
+                                        ->orderBy('order')
+                                        ->pluck('name', 'id'); 
         
         return view('menuItems.edit',compact('menuItem'))
                     ->with('menuItems',$menuItems)
+                    ->with('menuItemsSameMenuAndLevel',$menuItemsSameMenuAndLevel)
                     ->with('menu',$menu);
     }
 

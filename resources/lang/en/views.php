@@ -146,6 +146,7 @@ return [
     'menu_item_type' => 'Item type',
     'menu_id' => 'Menu',
     'items' => 'Items',
+    'menu_item_order' => 'Order'
     
     
     
