@@ -50,7 +50,7 @@
                 ])
             </div>
             <div class="col-12">
-                @include('partials.forms.select', [
+                @include('partials.forms.select-menu-items-order', [
                     'title' => __('views.menu_item_order'),
                     'name' => 'order',
                     'placeholder' => __('views.menu_item_order'),
