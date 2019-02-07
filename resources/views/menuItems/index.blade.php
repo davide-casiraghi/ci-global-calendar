@@ -26,8 +26,8 @@
     
     <div class="menuItemsList my-4">
         @foreach ($menuItemsTree as $menuItem)
-            <div class="row pt-2 pb-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }} border-bottom">
-                <div class="col-10">
+            <div class="row py-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }} border-bottom">
+                <div class="col-10 pt-2">
                     <a href="{{ route('menuItems.edit',$menuItem->id) }}">
                         @if(!empty($menuItem->font_awesome_class))<i class="{{ $menuItem->font_awesome_class }}"></i> @endif
                         {{ $menuItem->name }}
@@ -47,8 +47,8 @@
             {{-- Sub items --}}
             @if (!empty($menuItem->children))
                 @foreach ($menuItem->children as $subItem)
-                    <div class="row border-bottom pt-2 pb-1">
-                        <div class="col-10 pl-5">
+                    <div class="row border-bottom py-1">
+                        <div class="col-10 pl-5 pt-2">
                             <a href="{{ route('menuItems.edit',$subItem->id) }}">{{ $subItem->name }}</a>
                         </div>
                         <div class="col-2">
@@ -65,8 +65,8 @@
                     {{-- Sub sub items --}}
                     @if (!empty($subItem->children))
                         @foreach ($subItem->children as $subSubItem)
-                            <div class="row border-bottom pt-2 pb-1">
-                                <div class="col-10" style="padding-left: 5rem;">
+                            <div class="row border-bottom py-1">
+                                <div class="col-10 pt-2" style="padding-left: 5rem;">
                                     <a href="{{ route('menuItems.edit',$subSubItem->id) }}">{{ $subSubItem->name }}</a>
                                 </div>
                                 <div class="col-2">
