@@ -188,23 +188,18 @@ class MenuItemController extends Controller
 
     /***************************************************************************/
     /**
-     * Update the menu items order on DB (called by /resources/js/components/UlListDraggable.vue)
+     * Update the menu items order on DB 
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return string $ret - the ordinal indicator (st, nd, rd, th)
+     * @param  $menuId - the menu id
+     * @param  $parentItemId - the parent item id (update the order just of the elements on this level)
+     * @param  $itemId - the id of the element that has been saved
+     * @param  $position - (first, last or the id of the menu item we want to place this one after)
+     * @return none
      */
 
-    /*function updateOrder(Request $request){
-        
-        foreach ($request->items as $key => $item) {
-            $item['order'] = $key+1;
-            $menuItem = MenuItem::find($item['id']);
-            
-            $menuItem->update($item);   
-        }
-    }*/
     function updateOrder($menuId, $parentItemId, $itemId, $position){
         $menuItemsSameMenuAndLevel = $this->getItemsSameMenuAndLevel($menuId, $parentItemId, 0);
+        $menuItem = new MenuItem();
         
         switch ($position) {
             case 'first':
@@ -238,29 +233,28 @@ class MenuItemController extends Controller
             
             default:
                 $i = 1;
+                $afterThisElementIndex = 0;
                 foreach ($menuItemsSameMenuAndLevel as $key => $item) {
-                    
+                    if ($item->id == $itemId){
+                        $menuItem = $item; // store this element for later
+                    }
+                    elseif ($item->id == $position){  // we wil place the elemenet after this one
+                        $item->order = $i; 
+                        $afterThisElementIndex = $i;
+                        $i = $i+2;
+                    }
+                    else{ // all the other elements
+                        $item->order = $i;
+                        $i++;
+                    }
+                    $item->save();
                 }
-                
+                // assign the order after the specified menu item and save
+                    $menuItem->order = $afterThisElementIndex+1;
+                    $menuItem->save();
+                        
                 break;
         }
-        
-        
-        /*switch ($position) {
-            case 'first':
-                $ret[] = $menuItemsSameMenuAndLevel[$itemId];
-                dd($menuItemsSameMenuAndLevel);
-                dd($ret);
-                break;
-            
-            case 'last':
-                // code...
-                break;
-            
-            default:
-                // code...
-                break;
-        }*/
     }
     
     
