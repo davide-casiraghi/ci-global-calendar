@@ -26,7 +26,8 @@ class MenuItemController extends Controller
         
         $selectedMenuName = Menu::find($id)->name;
         $menuItems = MenuItem::where('menu_id','=',$id)
-                                ->oldest()->get();
+                                ->orderBy('order','ASC')
+                                ->get();
         
         // Create menu items tree                        
             $new = array();
@@ -34,7 +35,7 @@ class MenuItemController extends Controller
                 $new[$menuItem['parent_item_id']][] = $menuItem;
             }
             $menuItemsTree = $this->createTree($new, $new[0]); 
-            dump($menuItemsTree);
+            //dump($menuItemsTree);
             
         return view('menuItems.index',compact('menuItemsTree'))
                     ->with('selectedMenuName', $selectedMenuName);
@@ -209,7 +210,6 @@ class MenuItemController extends Controller
             case 'first':
                 $i = 2;
                 foreach ($menuItemsSameMenuAndLevel as $key => $item) {
-                    
                     if ($item->id == $itemId){
                         $item->order = 1;
                     }
@@ -218,8 +218,6 @@ class MenuItemController extends Controller
                         $i++;
                     }
                     $item->save();
-                    //$menuItem = MenuItem::find($itemId);
-                    //$menuItem->update($item);   
                 }
                 break;
             
@@ -234,7 +232,7 @@ class MenuItemController extends Controller
                         $item->order = $i;
                         $i++;
                     }
-                    $item->update($item);
+                    $item->save();
                 }
                 break;
             
