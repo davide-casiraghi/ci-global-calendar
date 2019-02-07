@@ -27,20 +27,15 @@ class MenuItemController extends Controller
         $selectedMenuName = Menu::find($id)->name;
         $menuItems = MenuItem::where('menu_id','=',$id)
                                 ->oldest()->get();
-                                
-        $menuItemsTree = array();
-        foreach ($menuItems as $key => $menuItem) {
-            if (!$menuItem['parent_item_id']){ // First level item
-                array_push($menuItemsTree, $menuItem);
+        
+        // Create menu items tree                        
+            $new = array();
+            foreach ($menuItems as $menuItem){
+                $new[$menuItem['parent_item_id']][] = $menuItem;
             }
-            else{  // Sub item
-                $parentItemId = $this->findParentItem($menuItemsTree,$menuItem['parent_item_id']);
-                $subItemsArray = $menuItemsTree[$parentItemId]['subItems'];
-                $subItemsArray[] = $menuItem;
-                $menuItemsTree[$parentItemId]['subItems'] = $subItemsArray;
-            }
-        }
-        dump($menuItemsTree);
+            $menuItemsTree = $this->createTree($new, $new[0]); 
+            dump($menuItemsTree);
+            
         return view('menuItems.index',compact('menuItemsTree'))
                     ->with('selectedMenuName', $selectedMenuName);
         
@@ -193,18 +188,22 @@ class MenuItemController extends Controller
 
     /***************************************************************************/
     /**
-     * find the element that correspont to the specified key
+     * Create array tree from array list - it support more than 1 parentid[0] element
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  $list
+     * @param  $parent
      * @return string $key - the index of the parent item
      */
 
-    function findParentItem($menuItemsTree, $parentItemId){
-        foreach ($menuItemsTree as $key => $menuItem) {
-            if ($menuItem->id == $parentItemId){
-                return $key;
+    function createTree(&$list, $parent){
+        $tree = array();
+        foreach ($parent as $k=>$l){
+            if(isset($list[$l['id']])){
+                $l['children'] = $this->createTree($list, $list[$l['id']]);
             }
-        }
+            $tree[] = $l;
+        } 
+        return $tree;
     }
 
 }

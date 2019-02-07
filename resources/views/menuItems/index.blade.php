@@ -41,14 +41,15 @@
                 </div>
             </div>
             
-            @if (!empty($menuItem->subItems))
-                @foreach ($menuItem->subItems as $subItem)
+            {{-- Sub items --}}
+            @if (!empty($menuItem->children))
+                @foreach ($menuItem->children as $subItem)
                     <div class="row border-bottom pt-2 pb-1">
                         <div class="col-10 pl-5">
                             <a href="{{ route('menuItems.edit',$subItem->id) }}">{{ $subItem->name }}</a>
                         </div>
                         <div class="col-2">
-                            <form action="{{ route('menuItems.destroy',$menuItem->id) }}" method="POST">
+                            <form action="{{ route('menuItems.destroy',$subItem->id) }}" method="POST">
                                 
                                 @csrf
                                 @method('DELETE')
@@ -57,6 +58,26 @@
                             </form>
                         </div>
                     </div>
+                    
+                    {{-- Sub sub items --}}
+                    @if (!empty($subItem->children))
+                        @foreach ($subItem->children as $subSubItem)
+                            <div class="row border-bottom pt-2 pb-1">
+                                <div class="col-10" style="padding-left: 5rem;">
+                                    <a href="{{ route('menuItems.edit',$subSubItem->id) }}">{{ $subSubItem->name }}</a>
+                                </div>
+                                <div class="col-2">
+                                    <form action="{{ route('menuItems.destroy',$subSubItem->id) }}" method="POST">
+                                        
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button type="submit" class="btn btn-danger float-right"><i class="far fa-trash-alt"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
                 @endforeach    
             @endif
         @endforeach    
