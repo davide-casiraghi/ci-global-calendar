@@ -25,8 +25,10 @@
     
     
     <div class="menuItemsList my-4">
+        @php ($i = 1)
         @foreach ($menuItemsTree as $menuItem)
-            <div class="row py-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }} border-bottom">
+            <div class="row py-1 {{ $i % 2 ? 'bg-white': 'bg-light' }} border-bottom">
+                @php ($i ++)
                 <div class="col-10 pt-2">
                     <a href="{{ route('menuItems.edit',$menuItem->id) }}">
                         @if(!empty($menuItem->font_awesome_class))<i class="{{ $menuItem->font_awesome_class }}"></i> @endif
@@ -47,7 +49,8 @@
             {{-- Sub items --}}
             @if (!empty($menuItem->children))
                 @foreach ($menuItem->children as $subItem)
-                    <div class="row border-bottom py-1">
+                    <div class="row border-bottom py-1 {{ $i % 2 ? 'bg-white': 'bg-light' }}">
+                        @php ($i ++)
                         <div class="col-10 pl-5 pt-2">
                             <a href="{{ route('menuItems.edit',$subItem->id) }}">
                                 @if(!empty($subItem->font_awesome_class))<i class="{{ $subItem->font_awesome_class }}"></i> @endif
@@ -68,7 +71,8 @@
                     {{-- Sub sub items --}}
                     @if (!empty($subItem->children))
                         @foreach ($subItem->children as $subSubItem)
-                            <div class="row border-bottom py-1">
+                            <div class="row border-bottom py-1 {{ $i % 2 ? 'bg-white': 'bg-light' }}">
+                                @php ($i ++)
                                 <div class="col-10 pt-2" style="padding-left: 5rem;">
                                     <a href="{{ route('menuItems.edit',$subSubItem->id) }}">
                                         @if(!empty($subSubItem->font_awesome_class))<i class="{{ $subSubItem->font_awesome_class }}"></i> @endif
