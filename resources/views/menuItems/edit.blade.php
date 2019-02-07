@@ -61,14 +61,17 @@
                     'mobileNativeMenu' => true,
                 ])
             </div>
+            
             <div class="col-12">
-                @include('partials.forms.input', [
-                      'title' => __('views.menu_item_type'),
-                      'name' => 'type',
-                      'placeholder' => 'Route or Url',
-                      'value' => $menuItem->type
-                ])
+                <div class="form-group">
+                    <strong>@lang('views.menu_item_type'):</strong>
+                    <select name="type" class="selectpicker" title="Route or Url">
+                        <option value="1" @if(empty($menuItem->type)) {{'selected'}} @endif @if(!empty($menuItem->type)) {{  $menuItem->type == '1' ? 'selected' : '' }} @endif>Route</option>
+                        <option value="2" @if(!empty($menuItem->type)) {{  $menuItem->type == '2' ? 'selected' : '' }} @endif>Url</option>
+                    </select>
+                </div>
             </div>
+        
             <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => 'Url',
