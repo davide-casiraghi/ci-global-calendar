@@ -29,17 +29,8 @@ class MenuItemController extends Controller
                                 ->orderBy('order','ASC')
                                 ->get();
         
-        // Create menu items tree                        
-            $new = array();
-            foreach ($menuItems as $menuItem){
-                $new[$menuItem['parent_item_id']][] = $menuItem;
-            }
-            if(!empty($new)){
-                $menuItemsTree = $this->createTree($new, $new[0]); 
-            }
-            else{
-                $menuItemsTree = [];
-            }
+        // Get the specified menu items tree
+            $menuItemsTree = $this->getItemsTree($menuItems);
             
         return view('menuItems.index',compact('menuItemsTree'))
                     ->with('selectedMenuName', $selectedMenuName);
@@ -257,6 +248,26 @@ class MenuItemController extends Controller
                 break;
         }
     }
+    
+    
+    /****************/
+    
+
+    function getItemsTree($menuItems){
+        
+        $new = array();
+        foreach ($menuItems as $menuItem){
+            $new[$menuItem['parent_item_id']][] = $menuItem;
+        }
+        if(!empty($new)){
+            $ret = $this->createTree($new, $new[0]); 
+        }
+        else{
+            $ret = [];
+        }
+        return $ret;
+    }
+    
     
     /***************************************************************************/
     /**
