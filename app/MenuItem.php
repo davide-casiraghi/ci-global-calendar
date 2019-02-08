@@ -10,11 +10,6 @@ class MenuItem extends Model
         'name', 'compact_name', 'parent_item_id', 'url', 'font_awesome_class', 'lang_string','route','type','menu_id','order'
     ];
     
-    
-    public static function test() {
-        return "ciao";
-    }
-    
     /***************************************************************************/
     /**
      * Return the items of the menu in a tree format (multidimensional array)
@@ -25,10 +20,11 @@ class MenuItem extends Model
      */
 
     public static function getItemsTree($menuId){
-        
+    
         $menuItems = MenuItem::where('menu_id','=',$menuId)
                                 ->orderBy('order','ASC')
                                 ->get();
+                                
         $new = array();
         foreach ($menuItems as $menuItem){
             $new[$menuItem['parent_item_id']][] = $menuItem;

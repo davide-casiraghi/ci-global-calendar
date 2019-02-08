@@ -67,7 +67,8 @@
 
       {{-- Right Nav --}}
       <ul class="navbar-nav navbar-right">
-          @include('menus.nav.nav-items', ['items' => $MyNavBarRight->roots()])
+          {{--@include('menus.nav.nav-items', ['items' => $MyNavBarRight->roots()])--}}
+          @include('menus.nav.nav-items', ['items' => App\MenuItem::getItemsTree(4)])
           @include('menus.nav.nav-right-items')
       </ul>
       {{-- end - Right Nav --}}
