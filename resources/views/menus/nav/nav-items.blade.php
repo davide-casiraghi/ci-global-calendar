@@ -27,11 +27,11 @@
 
    @if(!empty($item->parent_item_id))
        <a @if(!empty($item->children)) class="dropdown-item has-submenu" @else class="dropdown-item" @endif href="{!! $url !!}">
-           @if(!empty($item->font_awesome_class))<i class="{{$item->font_awesome_class}}"></i>@endif {{$item->name}}
+           @if(!empty($item->font_awesome_class))<i class="{{$item->font_awesome_class}}"></i>@endif @if(empty($item->hide_name)){{$item->name}}@endif
        </a>
    @else
        <a @if(!empty($item->children)) class="nav-link has-submenu" @else class="nav-link" @endif href="{!! $url !!}">
-           @if(!empty($item->font_awesome_class))<i class="{{$item->font_awesome_class}}"></i>@endif {{$item->name}}
+           @if(!empty($item->font_awesome_class))<i class="{{$item->font_awesome_class}}"></i>@endif @if(empty($item->hide_name)){{$item->name}}@endif
        </a>
    @endif
 
