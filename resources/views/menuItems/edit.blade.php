@@ -1,5 +1,10 @@
 @extends('menuItems.layout')
 
+@section('javascript-document-ready')
+    @parent
+    
+@stop
+
 
 @section('content')
     <div class="row">
@@ -86,7 +91,8 @@
                       'title' => 'Url',
                       'name' => 'url',
                       'placeholder' => 'The relative url - eg: /post/about',
-                      'value' => $menuItem->url
+                      'value' => $menuItem->url,
+                      'hide' => true,
                 ])
             </div>
             <div class="col-12">
