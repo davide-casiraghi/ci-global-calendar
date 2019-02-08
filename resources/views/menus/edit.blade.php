@@ -31,7 +31,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <strong>@lang('views.menu_position'):</strong>
-                    <select name="type" class="selectpicker" title="Position">
+                    <select name="position" class="selectpicker" title="Position">
                         <option value="1" @if(empty($menu->position)) {{'selected'}} @endif @if(!empty($menu->position)) {{  $menu->position == '1' ? 'selected' : '' }} @endif>Nav - Left (main)</option>
                         <option value="2" @if(!empty($menu->position)) {{  $menu->position == '2' ? 'selected' : '' }} @endif>Nav - Right</option>
                         <option value="3" @if(!empty($menu->position)) {{  $menu->position == '3' ? 'selected' : '' }} @endif>Footer</option>

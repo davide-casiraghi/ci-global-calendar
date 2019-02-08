@@ -30,7 +30,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <strong>@lang('views.menu_position'):</strong>
-                    <select name="type" class="selectpicker" title="Position">
+                    <select name="position" class="selectpicker" title="Position">
                         <option value="1" {{'selected'}}>Nav - Left (main)</option>
                         <option value="2">Nav - Right</option>
                         <option value="3">Footer</option>

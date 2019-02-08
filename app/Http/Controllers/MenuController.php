@@ -128,6 +128,7 @@ class MenuController extends Controller
 
     function saveOnDb($request, $menu){
         $menu->name = $request->get('name');
+        $menu->position = $request->get('position');
 
         $menu->save();
     }
