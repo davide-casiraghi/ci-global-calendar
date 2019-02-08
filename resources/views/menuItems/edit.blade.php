@@ -3,6 +3,31 @@
 @section('javascript-document-ready')
     @parent
     
+    {{-- SHOW/HIDE elements relating with the selected menu item TYPE  --}}
+        
+        {{-- ON LOAD --}}
+            hideShowsControls();
+    
+        {{-- ON CHANGE --}}
+            $("select[name='type']").change(function(){
+                hideShowsControls();
+             });
+     
+     function hideShowsControls(){
+         switch($("select[name='type']").val()) {
+             case "1":
+                 $(".form-group.url").hide();
+                 $(".form-group.route").show();
+                 $(".form-group.route").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+             break;
+             case "2":
+             $(".form-group.route").hide();
+             $(".form-group.url").show();
+             $(".form-group.url").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+             break;    
+         }
+     }
+     
 @stop
 
 
