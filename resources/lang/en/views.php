@@ -149,4 +149,5 @@ return [
     'menu_item_order' => 'Order',
     'menu_item_hide_name' => 'Hide the menu item name (show just the font awesome icon)',
     'menu_position' => 'Position',
+    'menu_item_access' => 'Access'
 ];
