@@ -106,7 +106,6 @@
                 </div>
             </div>
         
-            
             <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => __('views.menu_item_route'),

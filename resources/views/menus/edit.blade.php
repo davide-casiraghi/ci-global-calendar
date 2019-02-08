@@ -27,6 +27,22 @@
                       'value' => $menu->name
                 ])
             </div>
+            
+            <div class="col-12">
+                <div class="form-group">
+                    <strong>@lang('views.menu_position'):</strong>
+                    <select name="type" class="selectpicker" title="Position">
+                        <option value="1" @if(empty($menu->position)) {{'selected'}} @endif @if(!empty($menu->position)) {{  $menu->position == '1' ? 'selected' : '' }} @endif>Nav - Left (main)</option>
+                        <option value="2" @if(!empty($menu->position)) {{  $menu->position == '2' ? 'selected' : '' }} @endif>Nav - Right</option>
+                        <option value="3" @if(!empty($menu->position)) {{  $menu->position == '3' ? 'selected' : '' }} @endif>Footer</option>
+                        <option value="4" @if(!empty($menu->position)) {{  $menu->position == '4' ? 'selected' : '' }} @endif>Custom 1</option>
+                        <option value="5" @if(!empty($menu->position)) {{  $menu->position == '5' ? 'selected' : '' }} @endif>Custom 2</option>
+                        <option value="6" @if(!empty($menu->position)) {{  $menu->position == '6' ? 'selected' : '' }} @endif>Custom 3</option>
+                    </select>
+                </div>
+            </div>
+            
+            
         </div>
 
         @include('partials.forms.buttons-back-submit', [

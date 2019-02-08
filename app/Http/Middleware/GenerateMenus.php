@@ -29,7 +29,6 @@ class GenerateMenus
      */
     public function handle($request, Closure $next)
     {
-        
         $menu = Menu::orderBy('name')->pluck('name', 'id');
         $menuItems = MenuItem::orderBy('name')->get();
         
