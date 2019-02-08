@@ -20,9 +20,9 @@
                      $(".form-group.route").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
                  break;
                  case "2":
-                 $(".form-group.route").hide();
-                 $(".form-group.url").show();
-                 $(".form-group.url").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+                     $(".form-group.route").hide();
+                     $(".form-group.url").show();
+                     $(".form-group.url").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
                  break;    
              }
          }
