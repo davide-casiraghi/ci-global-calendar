@@ -37,7 +37,6 @@
     
     @if(!env('SITE_OFFLINE'))
         @include('menus.nav.nav', [
-            'items' => $MyNavBar->roots(),
             'container' => true,
             'paddingX' => '',
             'backgroundColor' => $barsBackground,

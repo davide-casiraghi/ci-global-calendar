@@ -25,7 +25,8 @@ class MenuItemController extends Controller
     public function index($id){
         
         $selectedMenuName = Menu::find($id)->name;
-        $menuItemsTree = $this->getItemsTree($id);
+        //$menuItemsTree = $this->getItemsTree($id);
+        $menuItemsTree = MenuItem::getItemsTree($id);
             
         return view('menuItems.index',compact('menuItemsTree'))
                     ->with('selectedMenuName', $selectedMenuName);
@@ -243,56 +244,6 @@ class MenuItemController extends Controller
                         
                 break;
         }
-    }
-    
-    
-    /***************************************************************************/
-    /**
-     * Return the items of the menu in a tree format (multidimensional array)
-     * https://stackoverflow.com/questions/4196157/create-array-tree-from-array-list
-     *
-     * @param  $menuId - the menu id
-     * @return array $ret - the multidimensional array with the tree
-     */
-
-    function getItemsTree($menuId){
-        
-        $menuItems = MenuItem::where('menu_id','=',$menuId)
-                                ->orderBy('order','ASC')
-                                ->get();
-        $new = array();
-        foreach ($menuItems as $menuItem){
-            $new[$menuItem['parent_item_id']][] = $menuItem;
-        }
-        if(!empty($new)){
-            $ret = $this->createTree($new, $new[0]); 
-        }
-        else{
-            $ret = [];
-        }
-        return $ret;
-    }
-    
-    
-    /***************************************************************************/
-    /**
-     * Create array tree from array list - it support more than 1 parentid[0] element
-     * https://stackoverflow.com/questions/4196157/create-array-tree-from-array-list
-     *
-     * @param  $list
-     * @param  $parent
-     * @return string $key - the index of the parent item
-     */
-
-    function createTree(&$list, $parent){
-        $tree = array();
-        foreach ($parent as $k=>$l){
-            if(isset($list[$l['id']])){
-                $l['children'] = $this->createTree($list, $list[$l['id']]);
-            }
-            $tree[] = $l;
-        } 
-        return $tree;
     }
     
     /***************************************************************************/

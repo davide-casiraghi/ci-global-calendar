@@ -20,6 +20,17 @@ use Closure;
 
 class GenerateMenus
 {
+    private $menuList;
+    private $menuItems;
+    
+    public function __construct()
+    {
+        $this->menuList = Menu::orderBy('name')->get();
+        $this->menuItems = MenuItem::orderBy('order')->get();
+    }
+
+    
+    
     /**
      * Handle an incoming request.
      *
@@ -27,16 +38,16 @@ class GenerateMenus
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
-    {
-        $menu = Menu::orderBy('name')->pluck('name', 'id');
-        $menuItems = MenuItem::orderBy('name')->get();
-        
-        //dump($menu);
-        //dump($menuItems);
+    public function handle($request, Closure $next){
         
         /* LEFT Menu */
         \Menu::make('MyNavBar', function($menu) {
+            
+            /*foreach ($this->menuList as $key => $singleMenu) {
+                if ($singleMenu->position == 1){
+                    $this->renderMenu($singleMenu);
+                }
+            }*/
             
             $profile = $menu->add("home")->link->href('/');
                 $profile->builder->items[0]->title = '<i class="fa fa-home"></i> '.__('menu.home');
@@ -106,4 +117,12 @@ class GenerateMenus
 
         return $next($request);
     }
+    
+    /*function renderMenu($menu){
+        foreach ($this->menuItems as $key => $value) {
+            dump("aa");
+        }
+    }*/
+    
+    
 }
