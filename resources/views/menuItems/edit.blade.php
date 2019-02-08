@@ -102,6 +102,7 @@
                         <option value="1" @if(empty($menuItem->type)) {{'selected'}} @endif @if(!empty($menuItem->type)) {{  $menuItem->type == '1' ? 'selected' : '' }} @endif>Route</option>
                         <option value="2" @if(!empty($menuItem->type)) {{  $menuItem->type == '2' ? 'selected' : '' }} @endif>Url</option>
                         <option value="3" @if(!empty($menuItem->type)) {{  $menuItem->type == '3' ? 'selected' : '' }} @endif>System - User Profile</option>
+                        <option value="4" @if(!empty($menuItem->type)) {{  $menuItem->type == '4' ? 'selected' : '' }} @endif>System - Logout</option>    
                     </select>
                 </div>
             </div>

@@ -85,6 +85,7 @@
                         <option value="1" {{'selected'}}>Route</option>
                         <option value="2">Url</option>
                         <option value="3">System - User Profile</option>
+                        <option value="4">System - Logout</option>
                     </select>
                 </div>
             </div>

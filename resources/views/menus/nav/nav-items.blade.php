@@ -10,9 +10,19 @@
             @php ($url = $item->url)
         @break
         
-        @case(3) {{-- System - User Profile --}}
-            @php ($url = route('users.edit', ['id' => Auth::user()->id]))
+        @case(3) {{-- System - User Profile --}}            
+            @if(Auth::user())
+                @php ($url = route('users.edit', ['id' => Auth::user()->id]))
+            @else
+                @php ($url = "")
+            @endif    
         @break
+        
+        @case(4) {{-- System - Logout --}}
+            @php ($url = "#")
+            @php ($onclick = "event.preventDefault(); document.getElementById('logout-form').submit();")
+        @break
+        
     @endswitch
     
     
@@ -26,7 +36,7 @@
    @endif
 
    @if(!empty($item->parent_item_id))
-       <a @if(!empty($item->children)) class="dropdown-item has-submenu" @else class="dropdown-item" @endif href="{!! $url !!}">
+       <a @if(!empty($item->children)) class="dropdown-item has-submenu" @else class="dropdown-item" @endif href="{!! $url !!}" @if(!empty($onclick)) onclick="{{$onclick}}" @endif)>
            @if(!empty($item->font_awesome_class))<i class="{{$item->font_awesome_class}}"></i>@endif @if(empty($item->hide_name)){{$item->name}}@endif
        </a>
    @else
