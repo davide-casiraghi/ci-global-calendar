@@ -89,6 +89,19 @@
                     </select>
                 </div>
             </div>
+            
+            <div class="col-12">
+                <div class="form-group">
+                    <strong>@lang('views.menu_item_access'):</strong>
+                    <select name="access" class="selectpicker" title="Access">
+                        <option value="1" {{'selected'}}>Public</option>
+                        <option value="2">Guest</option>
+                        <option value="3">Manager</option>
+                        <option value="4">Administrator</option>    
+                    </select>
+                </div>
+            </div>
+            
             <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => __('views.menu_item_route'),

@@ -106,6 +106,18 @@
                     </select>
                 </div>
             </div>
+            
+            <div class="col-12">
+                <div class="form-group">
+                    <strong>@lang('views.menu_item_access'):</strong>
+                    <select name="access" class="selectpicker" title="Access">
+                        <option value="1" @if(empty($menuItem->access)) {{'selected'}} @endif @if(!empty($menuItem->access)) {{  $menuItem->access == '1' ? 'selected' : '' }} @endif>Public</option>
+                        <option value="2" @if(!empty($menuItem->access)) {{  $menuItem->access == '2' ? 'selected' : '' }} @endif>Guest</option>
+                        <option value="3" @if(!empty($menuItem->access)) {{  $menuItem->access == '3' ? 'selected' : '' }} @endif>Manager</option>
+                        <option value="4" @if(!empty($menuItem->access)) {{  $menuItem->access == '4' ? 'selected' : '' }} @endif>Administrator</option>    
+                    </select>
+                </div>
+            </div>
         
             <div class="col-12">
                 @include('partials.forms.input', [
