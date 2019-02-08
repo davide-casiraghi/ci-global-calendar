@@ -1,5 +1,22 @@
 @foreach($items as $item)
     
+    {{-- Get the links --}}
+    @switch($item->type)
+        @case(1) {{-- ROUTE --}} {{--$item->route--}}
+            @php ($url = route($item->route) )
+        @break
+
+        @case(2) {{-- URL --}}
+            @php ($url = $item->url)
+        @break
+        
+        @case(3) {{-- System - Logout --}}
+            @php ($url = 1)
+        @break
+    @endswitch
+    
+    
+    
     @if(!empty($item->parent_item_id))
        {{-- Element of submenu --}}
        <li @if(!empty($item->children)) class="dropdown" @endif>
@@ -9,11 +26,11 @@
    @endif
 
    @if(!empty($item->parent_item_id))
-       <a @if(!empty($item->children)) class="dropdown-item has-submenu" @else class="dropdown-item" @endif href="{!! $item->url !!}">
+       <a @if(!empty($item->children)) class="dropdown-item has-submenu" @else class="dropdown-item" @endif href="{!! $url !!}">
            @if(!empty($item->font_awesome_class))<i class="{{$item->font_awesome_class}}"></i>@endif {{$item->name}}
        </a>
    @else
-       <a @if(!empty($item->children)) class="nav-link has-submenu" @else class="nav-link" @endif href="{!! $item->url !!}">
+       <a @if(!empty($item->children)) class="nav-link has-submenu" @else class="nav-link" @endif href="{!! $url !!}">
            @if(!empty($item->font_awesome_class))<i class="{{$item->font_awesome_class}}"></i>@endif {{$item->name}}
        </a>
    @endif
