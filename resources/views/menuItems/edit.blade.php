@@ -23,6 +23,10 @@
                      $(".form-group.route").hide();
                      $(".form-group.url").show();
                      $(".form-group.url").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+                 break; 
+                 case "3":
+                     $(".form-group.route").hide();
+                     $(".form-group.url").hide();
                  break;    
              }
          }
@@ -97,6 +101,7 @@
                     <select name="type" class="selectpicker" title="Route or Url">
                         <option value="1" @if(empty($menuItem->type)) {{'selected'}} @endif @if(!empty($menuItem->type)) {{  $menuItem->type == '1' ? 'selected' : '' }} @endif>Route</option>
                         <option value="2" @if(!empty($menuItem->type)) {{  $menuItem->type == '2' ? 'selected' : '' }} @endif>Url</option>
+                        <option value="3" @if(!empty($menuItem->type)) {{  $menuItem->type == '3' ? 'selected' : '' }} @endif>System - User Profile</option>
                     </select>
                 </div>
             </div>

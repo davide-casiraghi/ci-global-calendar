@@ -1,5 +1,37 @@
 @extends('menuItems.layout')
 
+@section('javascript-document-ready')
+    @parent
+    
+    {{-- ON LOAD --}}
+        hideShowsControls();
+
+    {{-- ON CHANGE --}}
+        $("select[name='type']").change(function(){
+            hideShowsControls();
+         });
+         
+     {{-- SHOW/HIDE elements relating with the selected menu item TYPE  --}}
+         function hideShowsControls(){
+             switch($("select[name='type']").val()) {
+                 case "1":
+                     $(".form-group.url").hide();
+                     $(".form-group.route").show();
+                     $(".form-group.route").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+                 break;
+                 case "2":
+                     $(".form-group.route").hide();
+                     $(".form-group.url").show();
+                     $(".form-group.url").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+                 break;
+                 case "3":
+                     $(".form-group.route").hide();
+                     $(".form-group.url").hide();
+                 break;  
+             }
+         }
+     
+@stop
 
 @section('content')
     <div class="row">
@@ -52,6 +84,7 @@
                     <select name="type" class="selectpicker" title="Route or Url">
                         <option value="1" {{'selected'}}>Route</option>
                         <option value="2">Url</option>
+                        <option value="3">System - User Profile</option>
                     </select>
                 </div>
             </div>
