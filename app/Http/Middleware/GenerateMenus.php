@@ -12,6 +12,9 @@ namespace App\Http\Middleware;
 
 use Illuminate\Support\Facades\Auth;
 
+use App\MenuItem;
+use App\Menu;
+
 
 use Closure;
 
@@ -27,6 +30,11 @@ class GenerateMenus
     public function handle($request, Closure $next)
     {
         
+        $menu = Menu::orderBy('name')->pluck('name', 'id');
+        $menuItems = MenuItem::orderBy('name')->get();
+        
+        //dump($menu);
+        //dump($menuItems);
         
         /* LEFT Menu */
         \Menu::make('MyNavBar', function($menu) {
