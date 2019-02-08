@@ -60,5 +60,31 @@ class MenuItem extends Model
         return $tree;
     }
     
+    /***************************************************************************/
+    /**
+     * Return the access level name
+     * https://stackoverflow.com/questions/4196157/create-array-tree-from-array-list
+     *
+     * @param  $accessId
+     * @return string $ret - the string that describe the access 
+     */
+
+    public static function getAccessName($accessId){
+        $accessLevels = [
+            '1' => 'Public',
+            '2' => 'Guest',
+            '3' => 'Manager',
+            '4' => 'Administrator',  
+        ];
+        
+        $ret = $accessLevels[$accessId];
+        
+        
+        
+        
+        return $ret;
+    }
+    
+    
     
 }

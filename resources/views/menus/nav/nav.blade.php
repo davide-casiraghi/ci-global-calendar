@@ -56,7 +56,7 @@
         </div>
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
+ 
       {{-- Left Nav --}}
       <ul class='navbar-nav mr-auto'>
           {{--@include('menus.nav.nav-items', ['items' => $MyNavBar->roots()])--}}

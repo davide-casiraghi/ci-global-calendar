@@ -34,6 +34,7 @@
                         @if(!empty($menuItem->font_awesome_class))<i class="{{ $menuItem->font_awesome_class }}"></i> @endif
                         @if(empty($menuItem->hide_name)){{ $menuItem->name }} @endif
                     </a>
+                    @if(!empty($menuItem->access)) {{App\MenuItem::getAccessName($menuItem->access)}}@endif
                 </div>
                 <div class="col-2">
                     <form action="{{ route('menuItems.destroy',$menuItem->id) }}" method="POST">
@@ -56,6 +57,7 @@
                                 @if(!empty($subItem->font_awesome_class))<i class="{{ $subItem->font_awesome_class }}"></i> @endif
                                 {{ $subItem->name }}
                             </a>
+                            @if(!empty($subItem->access)) {{App\MenuItem::getAccessName($subItem->access)}}@endif
                         </div>
                         <div class="col-2">
                             <form action="{{ route('menuItems.destroy',$subItem->id) }}" method="POST">
@@ -78,6 +80,7 @@
                                         @if(!empty($subSubItem->font_awesome_class))<i class="{{ $subSubItem->font_awesome_class }}"></i> @endif
                                         {{ $subSubItem->name }}
                                     </a>
+                                    @if(!empty($subSubItem->access)) {{App\MenuItem::getAccessName($subSubItem->access)}}@endif
                                 </div>
                                 <div class="col-2">
                                     <form action="{{ route('menuItems.destroy',$subSubItem->id) }}" method="POST">
