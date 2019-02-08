@@ -206,6 +206,7 @@ class CreateAllDatabaseTables extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('access')->nullable();
+            $table->integer('position')->nullable();
             $table->timestamps();
         });
         Schema::create('menu_items', function (Blueprint $table) {
