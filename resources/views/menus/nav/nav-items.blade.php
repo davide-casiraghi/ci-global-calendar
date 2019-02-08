@@ -10,8 +10,8 @@
             @php ($url = $item->url)
         @break
         
-        @case(3) {{-- System - Logout --}}
-            @php ($url = 1)
+        @case(3) {{-- System - User Profile --}}
+            @php ($url = route('users.edit', ['id' => Auth::user()->id]))
         @break
     @endswitch
     
