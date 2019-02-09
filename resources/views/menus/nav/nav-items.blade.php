@@ -2,7 +2,7 @@
     
     {{-- Get the links --}}
     @switch($item->type)
-        @case(1) {{-- ROUTE --}} {{--$item->route--}}
+        @case(1) {{-- ROUTE --}} 
             @php ($url = route($item->route) )
         @break
 
