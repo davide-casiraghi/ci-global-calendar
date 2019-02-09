@@ -71,7 +71,7 @@
                     'mobileNativeMenu' => true,
                 ])
             </div>
-            <div class="col-12">
+            {{--<div class="col-12">
                 @include('partials.forms.select', [
                     'title' => __('views.parent_menu_item'),
                     'name' => 'parent_item_id',
@@ -81,7 +81,21 @@
                     'liveSearch' => 'false',
                     'mobileNativeMenu' => true,
                 ])
+            </div>--}}
+            
+            <div class="col-12">
+                @include('partials.forms.select-menu-items-parent', [
+                    'title' => __('views.parent_menu_item'),
+                    'name' => 'parent_item_id',
+                    'placeholder' => __('views.parent_menu_item'),
+                    'records' => $menuItemsTree,
+                    'seleted' => $menuItem->parent_item_id,
+                    'liveSearch' => 'false',
+                    'mobileNativeMenu' => true,
+                    'item_id' => $menuItem->id,
+                ])
             </div>
+            
             <div class="col-12">
                 @include('partials.forms.select-menu-items-order', [
                     'title' => __('views.menu_item_order'),

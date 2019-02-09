@@ -98,10 +98,12 @@ class MenuItemController extends Controller
         $menu = Menu::orderBy('name')->pluck('name', 'id');
         $menuItems = MenuItem::orderBy('name')->pluck('name', 'id');
         $menuItemsSameMenuAndLevel = $this->getItemsSameMenuAndLevel($menuItem->menu_id, $menuItem->parent_item_id, 1);                         
+        $menuItemsTree = MenuItem::getItemsTree($menuItem->menu_id);
         
         return view('menuItems.edit',compact('menuItem'))
                     ->with('menuItems',$menuItems)
                     ->with('menuItemsSameMenuAndLevel',$menuItemsSameMenuAndLevel)
+                    ->with('menuItemsTree',$menuItemsTree)
                     ->with('menu',$menu);
     }
 
