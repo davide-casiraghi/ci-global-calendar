@@ -16,15 +16,18 @@ class MenuItem extends Model
      * Return the items of the menu in a tree format (multidimensional array)
      * https://stackoverflow.com/questions/4196157/create-array-tree-from-array-list
      *
-     * @param  $menuId - the menu id
+     * @param  $menuId - the menu id (if 0 return all the items)
      * @return array $ret - the multidimensional array with the tree
      */
 
     public static function getItemsTree($menuId){
     
-        $menuItems = MenuItem::where('menu_id','=',$menuId)
-                                ->orderBy('order','ASC')
-                                ->get();
+        $menuItems = MenuItem::            
+                        when($menuId, function ($query, $menuId) {
+                            return $query->where('menu_id', $menuId);
+                        })
+                        ->orderBy('order','ASC')
+                        ->get();
                                 
         $new = array();
         foreach ($menuItems as $menuItem){

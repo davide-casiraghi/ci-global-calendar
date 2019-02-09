@@ -32,9 +32,11 @@
     <select name="{{ $name }}" id="{{ $name }}" class="selectpicker" data-live-search="{{ $liveSearch }}" title="{{$placeholder}}">
         <option value="">- Root -</option>
         @foreach ($records as $value => $record)
-            @if ($record->id != $item_id)
-                <option value="{{$record->id}}" @if(!empty($seleted)) {{  $seleted == $record->id ? 'selected' : '' }}@endif>{{ $record->name }}</option>
-            @endif
+            
+                @if (empty($item_id) || $record->id != $item_id) {{-- Show all if in create view or hide the same item in the edit view --}}
+                    <option value="{{$record->id}}" @if(!empty($seleted)) {{  $seleted == $record->id ? 'selected' : '' }}@endif>{{ $record->name }}</option>
+                @endif
+            
         @endforeach
         
     </select>
