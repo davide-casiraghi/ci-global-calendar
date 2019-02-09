@@ -30,11 +30,11 @@
         @if(!empty($tooltip))<i class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="{{ $tooltip }}"></i>@endif
     @endif
     <select name="{{ $name }}" id="{{ $name }}" class="selectpicker" data-live-search="{{ $liveSearch }}" title="{{$placeholder}}">
-        <option value="">- Root -</option>
+        <option value="">- Root</option>
         @foreach ($records as $value => $record)
             
                 @if (empty($item_id) || $record->id != $item_id) {{-- Show all if in create view or hide the same item in the edit view --}}
-                    <option value="{{$record->id}}" @if(!empty($seleted)) {{  $seleted == $record->id ? 'selected' : '' }}@endif>{{ $record->name }}</option>
+                    <option value="{{$record->id}}" @if(!empty($seleted)) {{  $seleted == $record->id ? 'selected' : '' }}@endif>-- {{ $record->name }}</option>
                 @endif
             
         @endforeach
