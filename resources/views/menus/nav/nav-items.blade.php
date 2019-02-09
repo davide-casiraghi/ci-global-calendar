@@ -27,31 +27,32 @@
     
     
     
-    @if(!empty($item->parent_item_id))
-       {{-- Element of submenu --}}
-       <li @if(!empty($item->children)) class="dropdown" @endif>
-   @else
-       {{-- Element of main menu --}}
-       <li @if(!empty($item->children)) class="nav-item dropdown" @else class="nav-item" @endif>
-   @endif
+    @if($item->authorized())
+        @if(!empty($item->parent_item_id))
+           {{-- Element of submenu --}}
+           <li @if(!empty($item->children)) class="dropdown" @endif>
+        @else
+           {{-- Element of main menu --}}
+           <li @if(!empty($item->children)) class="nav-item dropdown" @else class="nav-item" @endif>
+        @endif
 
-   @if(!empty($item->parent_item_id))
-       <a @if(!empty($item->children)) class="dropdown-item has-submenu" @else class="dropdown-item" @endif href="{!! $url !!}" @if(!empty($onclick)) onclick="{{$onclick}}" @endif)>
-           @if(!empty($item->font_awesome_class))<i class="{{$item->font_awesome_class}}"></i>@endif @if(empty($item->hide_name)){{$item->name}}@endif
-       </a>
-   @else
-       <a @if(!empty($item->children)) class="nav-link has-submenu" @else class="nav-link" @endif href="{!! $url !!}">
-           @if(!empty($item->font_awesome_class))<i class="{{$item->font_awesome_class}}"></i>@endif @if(empty($item->hide_name)){{$item->name}}@endif
-       </a>
-   @endif
+        @if(!empty($item->parent_item_id))
+           <a @if(!empty($item->children)) class="dropdown-item has-submenu" @else class="dropdown-item" @endif href="{!! $url !!}" @if(!empty($onclick)) onclick="{{$onclick}}" @endif)>
+               @if(!empty($item->font_awesome_class))<i class="{{$item->font_awesome_class}}"></i>@endif @if(empty($item->hide_name)){{$item->name}}@endif
+           </a>
+        @else
+           <a @if(!empty($item->children)) class="nav-link has-submenu" @else class="nav-link" @endif href="{!! $url !!}">
+               @if(!empty($item->font_awesome_class))<i class="{{$item->font_awesome_class}}"></i>@endif @if(empty($item->hide_name)){{$item->name}}@endif
+           </a>
+        @endif
 
 
-     @if(!empty($item->children))
-       <ul class="dropdown-menu">
-             @include('menus.nav.nav-items', ['items' => $item->children])
-       </ul>
+         @if(!empty($item->children))
+           <ul class="dropdown-menu">
+                 @include('menus.nav.nav-items', ['items' => $item->children])
+           </ul>
+         @endif
      @endif
-    
     
     
     

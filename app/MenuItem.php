@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class MenuItem extends Model
 {
@@ -78,12 +79,41 @@ class MenuItem extends Model
         ];
         
         $ret = $accessLevels[$accessId];
+        return $ret;
+    }
+    
+    
+    
+    /****************/
+    public function authorized(){
+        $ret = false;
+        $user = Auth::user();
         
-        
-        
+        switch ($this->access) {
+            case '1':       /* Public */
+                $ret = true;
+                break;
+            case '2':     /* Guest - not authenticated user */
+                if (!$user)
+                    $ret = true;
+                break;
+            case '3':  // Manager
+                if ($user){
+                    $ret = true;
+                }
+                break;
+            case '4': // Admin
+                if ($user){
+                    if($user->isSuperAdmin()||$user->isAdmin()){
+                        $ret = true;
+                    }
+                }
+                break;
+        }
         
         return $ret;
     }
+    
     
     
     
