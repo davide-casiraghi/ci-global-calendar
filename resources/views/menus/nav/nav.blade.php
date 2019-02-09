@@ -69,9 +69,14 @@
       <ul class="navbar-nav navbar-right">
           {{--@include('menus.nav.nav-items', ['items' => $MyNavBarRight->roots()])--}}
           @include('menus.nav.nav-items', ['items' => App\MenuItem::getItemsTree(4)])
-          @include('menus.nav.nav-right-items')
+          {{--@include('menus.nav.nav-right-items')--}}
       </ul>
       {{-- end - Right Nav --}}
+
+      {{-- LOGOUT hidden form--}}
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+          </form>
 
     </div>
   @if($container)</div>@endif
