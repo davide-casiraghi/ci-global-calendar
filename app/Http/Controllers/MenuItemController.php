@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use App\MenuItem;
 use App\Menu;
 
+use Route;
+
 use Illuminate\Http\Request;
+
+
 use Validator;
 
 class MenuItemController extends Controller
@@ -45,6 +49,14 @@ class MenuItemController extends Controller
         $menuItems = MenuItem::orderBy('name')->pluck('name', 'id');
         //$menuItemsOrder = $this->getMenuItemsOrder();
         $menuItemsTree = MenuItem::getItemsTree(0);
+        //$routeCollection = Route::getRoutes();
+        /*
+        $routeCollection = array_map(function (\Illuminate\Routing\Route $route) { return $route->action; }, (array) Route::getRoutes()->getIterator());
+        foreach ($routeCollection as $value) {
+                dump($value['as']);
+        }*/
+
+        //dump($routeCollection);
         
         return view('menuItems.create')
             ->with('menuItems',$menuItems)
