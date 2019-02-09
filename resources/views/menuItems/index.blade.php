@@ -25,7 +25,7 @@
         @foreach ($menuItemsTree as $menuItem)
             @include('menuItems.index-item', [
                 'menuItem' => $menuItem,
-                'level' => 0,
+                'level' => 1,
             ])
         @endforeach    
     </div>

@@ -10,7 +10,7 @@
         - $index: used to decide the color of the item background
 --}}
 
-@php ($paddingLeft = $level*2)
+@php ($paddingLeft = $level*2-1)
 
 <div class="row py-1 border-bottom">
     <div class="col-10 pt-2" style="padding-left:{{$paddingLeft}}rem">

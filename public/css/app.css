@@ -19840,6 +19840,10 @@ body form label {
   font-weight: bold;
 }
 
+body .alternateColors > div:nth-child(odd) {
+  background-color: #FFF;
+}
+
 nav.navbar {
   z-index: 4;
   padding: 0;
