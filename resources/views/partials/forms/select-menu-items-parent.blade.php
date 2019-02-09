@@ -10,6 +10,7 @@
         - $record: the content of the selected value
         - $liveSearch: boolean - enable the live search
         - $mobileNativeMenu: boolean - enable mobile devices native menu for selectpicker menus
+        - $item_id: int - the id of the item edited
 --}}
 
 {{-- data-mobile="{{ $mobileNativeMenu }}" --}}
