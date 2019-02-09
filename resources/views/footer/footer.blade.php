@@ -27,10 +27,14 @@
                 <div class="text text-white pt-2 pb-0 pb-md-2">© 2019, made with <i class="fas fa-heart"></i> by Round Robin Team</div>
             </div>
             <div class="col-12 col-sm-5 col-sm-push-5 text-center text-md-right pr-0">
-                <div class="footerMenu">
-                    <a href="/post/contact-improvisation-global-archive-ciga" class="text-white"><i class="fa fa-globe"></i> CI - Global Archive</a>
-                    <a href="/post/donate" class="text-white"><i class="fa fa-heart"></i> @lang('menu.donate') </a>
-                </div>
+                <ul class="footerMenu m-0 p-0">
+                    <li>
+                        <a href="/post/contact-improvisation-global-archive-ciga" class="text-white"><i class="fa fa-globe"></i> CI - Global Archive</a>
+                    </li>
+                    <li>
+                        <a href="/post/donate" class="text-white"><i class="fa fa-heart"></i> @lang('menu.donate') </a>
+                    </li>
+                </ul>
                 
                 {{--<p class="float-right"><a href="#">Back to top</a></p>--}}
             </div>

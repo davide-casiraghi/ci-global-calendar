@@ -19944,20 +19944,24 @@ footer.sticky {
   }
 }
 
-footer .footerMenu a {
+footer .footerMenu li {
+  display: inline;
+}
+
+footer .footerMenu li a {
   padding: 8px 8px;
   display: inline-block;
   position: relative;
 }
 
-footer .footerMenu a:hover,
-footer .footerMenu a:focus {
+footer .footerMenu li a:hover,
+footer .footerMenu li a:focus {
   background-color: transparent !important;
   text-decoration: none;
 }
 
-footer .footerMenu a:hover:after,
-footer .footerMenu a:focus:after {
+footer .footerMenu li a:hover:after,
+footer .footerMenu li a:focus:after {
   position: absolute;
   z-index: -1;
   background-color: black;
