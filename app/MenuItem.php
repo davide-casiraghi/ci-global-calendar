@@ -90,19 +90,19 @@ class MenuItem extends Model
         $user = Auth::user();
         
         switch ($this->access) {
-            case '1':       /* Public */
+            case '1':   // Public 
                 $ret = true;
                 break;
-            case '2':     /* Guest - not authenticated user */
+            case '2':   // Guest - not authenticated user 
                 if (!$user)
                     $ret = true;
                 break;
-            case '3':  // Manager
+            case '3':   // Manager
                 if ($user){
                     $ret = true;
                 }
                 break;
-            case '4': // Admin
+            case '4':   // Admin
                 if ($user){
                     if($user->isSuperAdmin()||$user->isAdmin()){
                         $ret = true;
