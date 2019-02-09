@@ -50,13 +50,8 @@ class MenuItemController extends Controller
         //$menuItemsOrder = $this->getMenuItemsOrder();
         $menuItemsTree = MenuItem::getItemsTree(0);
         //$routeCollection = Route::getRoutes();
-        /*
-        $routeCollection = array_map(function (\Illuminate\Routing\Route $route) { return $route->action; }, (array) Route::getRoutes()->getIterator());
-        foreach ($routeCollection as $value) {
-                dump($value['as']);
-        }*/
-
-        //dump($routeCollection);
+        $routeNames = array_map(function (\Illuminate\Routing\Route $route) { if (isset($route->action['as'])) return $route->action['as']; }, (array) Route::getRoutes()->getIterator());
+        
         
         return view('menuItems.create')
             ->with('menuItems',$menuItems)
