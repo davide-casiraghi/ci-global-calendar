@@ -73,11 +73,16 @@ class PostController extends Controller
                 ->paginate(20);
         }
         else
-            $posts = Post::latest()->paginate(20);
-            //dd($posts);
+            $posts = Post::orderBy('title')->paginate(20);
+            
+        //dd($posts);
         
         return view('posts.index',compact('posts'))
-            ->with('i', (request()->input('page', 1) - 1) * 20)->with('categories',$categories)->with('searchKeywords',$searchKeywords)->with('searchCategory',$searchCategory)->with('countriesAvailableForTranslations',$countriesAvailableForTranslations);
+            ->with('i', (request()->input('page', 1) - 1) * 20)
+            ->with('categories',$categories)
+            ->with('searchKeywords',$searchKeywords)
+            ->with('searchCategory',$searchCategory)
+            ->with('countriesAvailableForTranslations',$countriesAvailableForTranslations);
     }
 
     /***************************************************************************/
