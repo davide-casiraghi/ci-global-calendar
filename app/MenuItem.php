@@ -79,6 +79,7 @@ class MenuItem extends Model
             '2' => 'Guest',
             '3' => 'Manager',
             '4' => 'Administrator',  
+            '5' => 'Super Administrator',
         ];
         
         $ret = $accessLevels[$accessId];
