@@ -12,14 +12,16 @@ class MenusTableSeeder extends Seeder
     public function run()
     {
         $menus = array(
-           array('id' => '1','name' => 'Admin menu'),
-           array('id' => '2','name' => 'Main menu'),
+           array('id' => '1','name' => 'Main menu - Left', 'position'=> '1'),
+           array('id' => '4','name' => 'Main menu - Right', 'position'=> '2'),
+           array('id' => '3','name' => 'Footer menu', 'position'=> '3'),
        );
        
        foreach($menus as $key => $menu) {
            DB::table('menus')->insert([
                'id' => $menu['id'],
                'name' => $menu['name'],
+               'position' => $menu['position'],
            ]);
        }
     }
