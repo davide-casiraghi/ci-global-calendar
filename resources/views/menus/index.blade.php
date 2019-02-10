@@ -24,13 +24,10 @@
     <div class="menusList my-4 v-sortable">
         @foreach ($menus as $menu)
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
-                <div class="col-9 col-md-6 col-lg-7 py-3 title">
+                <div class="col-12 py-3 title">
                     <a href="{{ route('menus.edit',$menu->id) }}">{{ $menu->name }}</a>
                 </div>
-                <div class="col-3 col-md-3 col-lg-3 py-3 code">
-                    <i data-toggle="tooltip" data-placement="top" title="" class="far fa-barcode-alt mr-2" data-original-title="@lang('general.code')"></i>
-                    {{ $menu->code }} 
-                </div>
+                
                 
                 <div class="col-12 pb-2 action">
                     <form action="{{ route('menus.destroy',$menu->id) }}" method="POST">
