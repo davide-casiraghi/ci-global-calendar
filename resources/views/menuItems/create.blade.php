@@ -143,13 +143,12 @@
                       'value' => old('lang_string')
                 ])
             </div>
-            
-            
-            
         </div>
+        
 
         @include('partials.forms.buttons-back-submit', [
-            'route' => 'menuItems.index'  
+            'route' => 'menuItemsIndex',
+            'routeParameter' => $selectedMenuId,
         ])
 
     </form>
