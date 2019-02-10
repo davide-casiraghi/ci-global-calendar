@@ -31,13 +31,24 @@
     @endif
     <select name="{{ $name }}" id="{{ $name }}" class="selectpicker" data-live-search="{{ $liveSearch }}" title="{{$placeholder}}">
         <option value="">- Root</option>
-        @foreach ($records as $value => $record)
-            
+        
+        {{-- Render items level 0 --}}
+            @foreach ($records as $value => $record)    
                 @if (empty($item_id) || $record->id != $item_id) {{-- Show all if in create view or hide the same item in the edit view --}}
                     <option value="{{$record->id}}" @if(!empty($seleted)) {{  $seleted == $record->id ? 'selected' : '' }}@endif>-- {{ $record->name }}</option>
                 @endif
-            
-        @endforeach
+                    
+                {{-- Render items level 1 --}}
+                    @if (!empty($record->children))
+                        @foreach ($record->children as $key => $subItem)
+                            
+                            @if (empty($item_id) || $subItem->id != $item_id) {{-- Show all if in create view or hide the same item in the edit view --}}
+                                <option value="{{$subItem->id}}" @if(!empty($seleted)) {{  $seleted == $subItem->id ? 'selected' : '' }}@endif>---- {{ $subItem->name }}</option>
+                            @endif
+                        @endforeach
+                    @endif
+                    
+            @endforeach
         
     </select>
 </div>
