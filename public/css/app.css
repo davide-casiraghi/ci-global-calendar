@@ -19952,6 +19952,7 @@ footer .footerMenu li a {
   padding: 8px 8px;
   display: inline-block;
   position: relative;
+  color: white;
 }
 
 footer .footerMenu li a:hover,

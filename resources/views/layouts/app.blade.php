@@ -61,6 +61,7 @@
             'paddingX' => '',
             'backgroundColor' => $barsBackground,
             'stickyFooter' => true,
+            'items' => App\MenuItem::getItemsTree(3),
         ])
         
         @include('partials.cookie-consent')

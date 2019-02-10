@@ -88,7 +88,13 @@ class MenuItem extends Model
     
     
     
-    /****************/
+    /***************************************************************************/
+    /**
+     * Check if the user group with the access level and return true if the user is authorized to see the menu item
+     *
+     * @param  $accessId
+     * @return string $ret - the string that describe the access 
+     */
     public function authorized(){
         $ret = false;
         $user = Auth::user();

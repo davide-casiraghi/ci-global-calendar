@@ -28,12 +28,13 @@
             </div>
             <div class="col-12 col-sm-5 col-sm-push-5 text-center text-md-right pr-0">
                 <ul class="footerMenu m-0 p-0">
-                    <li>
+                    {{--<li>
                         <a href="/post/contact-improvisation-global-archive-ciga" class="text-white"><i class="fa fa-globe"></i> CI - Global Archive</a>
                     </li>
                     <li>
                         <a href="/post/donate" class="text-white"><i class="fa fa-heart"></i> @lang('menu.donate') </a>
-                    </li>
+                    </li>--}}
+                    @include('menus.nav.nav-items', ['items' => $items])
                 </ul>
                 
                 {{--<p class="float-right"><a href="#">Back to top</a></p>--}}
