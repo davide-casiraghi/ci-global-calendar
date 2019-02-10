@@ -7,6 +7,7 @@
         - $padding-x: string - the padding on the left and right side of the nav bar, expressed in bootstrap spacing notation eg. px-5
         - $backgroundColor: string - the footer background (eg.#B5A575)
         - $stickyFooter: boolean - footer sticky or not
+        - $items: array - the items tree to render (in the footer just the first level is rendered, no dropdown available since bootsrap allow just one main nav)
 --}}
 
 
