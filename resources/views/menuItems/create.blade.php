@@ -64,6 +64,7 @@
                     'name' => 'menu_id',
                     'placeholder' => __('views.menu_id'),
                     'records' => $menu,
+                    'seleted' => $selectedMenuId,
                     'liveSearch' => 'false',
                     'mobileNativeMenu' => true,
                 ])

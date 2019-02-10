@@ -8,7 +8,7 @@
                 <h2>@lang('views.items'): {{$selectedMenuName}}</h2>
             </div>
             <div class="pull-right mt-4 float-right">
-                <a class="btn btn-success create-new" href="{{ route('menuItems.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_menu_item')</a>
+                <a class="btn btn-success create-new" href="{{ route('menuItems.create',"menuId=$selectedMenuId") }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_menu_item')</a>
             </div>
         </div>
     </div>

@@ -33,6 +33,7 @@ class MenuItemController extends Controller
         $menuItemsTree = MenuItem::getItemsTree($id);
             
         return view('menuItems.index',compact('menuItemsTree'))
+                    ->with('selectedMenuId', $id)
                     ->with('selectedMenuName', $selectedMenuName);
         
     }
@@ -43,8 +44,8 @@ class MenuItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(){
-        
+    public function create(Request $request){
+        //dd($request->menuId);
         $menu = Menu::orderBy('name')->pluck('name', 'id');
         $menuItems = MenuItem::orderBy('name')->pluck('name', 'id');
         $menuItemsTree = MenuItem::getItemsTree(0);
@@ -54,7 +55,8 @@ class MenuItemController extends Controller
             ->with('menuItems',$menuItems)
             ->with('menu',$menu)
             ->with('menuItemsTree',$menuItemsTree)
-            ->with('routeNames',$routeNames);
+            ->with('routeNames',$routeNames)
+            ->with('selectedMenuId',$request->menuId);
     }
     
     /***************************************************************************/
