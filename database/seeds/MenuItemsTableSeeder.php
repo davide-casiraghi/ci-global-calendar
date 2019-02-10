@@ -296,7 +296,7 @@ class MenuItemsTableSeeder extends Seeder
        );
        
        foreach($menuItems as $key => $menuItem) {
-           DB::table('menu_item')->insert([
+           DB::table('menu_items')->insert([
                'id' => $menuItem['id'],
                'name' => $menuItem['name'],
                'compact_name' => $menuItem['compact_name'],
