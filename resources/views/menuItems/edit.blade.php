@@ -166,7 +166,8 @@
         </div>
 
         @include('partials.forms.buttons-back-submit', [
-            'route' => 'menuItems.index'  
+            'route' => 'menuItemsIndex',
+            'routeParameter'  => $menuItem->menu_id,
         ])
 
     </form>
