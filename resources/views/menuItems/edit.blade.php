@@ -117,7 +117,8 @@
                         <option value="1" @if(empty($menuItem->access)) {{'selected'}} @endif @if(!empty($menuItem->access)) {{  $menuItem->access == '1' ? 'selected' : '' }} @endif>Public</option>
                         <option value="2" @if(!empty($menuItem->access)) {{  $menuItem->access == '2' ? 'selected' : '' }} @endif>Guest</option>
                         <option value="3" @if(!empty($menuItem->access)) {{  $menuItem->access == '3' ? 'selected' : '' }} @endif>Manager</option>
-                        <option value="4" @if(!empty($menuItem->access)) {{  $menuItem->access == '4' ? 'selected' : '' }} @endif>Administrator</option>    
+                        <option value="4" @if(!empty($menuItem->access)) {{  $menuItem->access == '4' ? 'selected' : '' }} @endif>Administrator</option>
+                        <option value="5" @if(!empty($menuItem->access)) {{  $menuItem->access == '5' ? 'selected' : '' }} @endif>Super Administrator</option>   
                     </select>
                 </div>
             </div>

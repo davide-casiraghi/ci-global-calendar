@@ -97,7 +97,8 @@
                         <option value="1" {{'selected'}}>Public</option>
                         <option value="2">Guest</option>
                         <option value="3">Manager</option>
-                        <option value="4">Administrator</option>    
+                        <option value="4">Administrator</option>
+                        <option value="5">Super Administrator</option>
                     </select>
                 </div>
             </div>

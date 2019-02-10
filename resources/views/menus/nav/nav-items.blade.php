@@ -27,7 +27,7 @@
     
     
     
-    @if($item->authorized())
+    @if($item->authorized()) {{-- Check item access <-> User group --}}
         {{-- Get item name --}}
             @if ($item->lang_string)
                 @php ($itemName = __($item->lang_string))

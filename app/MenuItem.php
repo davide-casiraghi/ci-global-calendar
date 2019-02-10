@@ -112,6 +112,13 @@ class MenuItem extends Model
                     }
                 }
                 break;
+            case '5':   // Super Admin
+                if ($user){
+                    if($user->isSuperAdmin()){
+                        $ret = true;
+                    }
+                }
+                break;
         }
         
         return $ret;
