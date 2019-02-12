@@ -14,14 +14,14 @@
 @php ($paddingLeft = $level*2-1)
 
 <div class="row py-1 border-bottom">
-    <div class="col-8 pt-2" style="padding-left:{{$paddingLeft}}rem">
+    <div class="col-10 col-md-8 pt-2 order-1" style="padding-left:{{$paddingLeft}}rem">
         <a href="{{ route('menuItems.edit',$menuItem->id) }}">
             @if(!empty($menuItem->font_awesome_class))<i class="{{ $menuItem->font_awesome_class }}"></i> @endif
             @if(empty($menuItem->hide_name)){{ $menuItem->name }} @endif
         </a>
         @if(!empty($menuItem->access)) <span class="text-secondary">- {{App\MenuItem::getAccessName($menuItem->access)}}</span>@endif
     </div>
-    <div class="col-3 pt-1">
+    <div class="col-12 col-md-3 pt-1 order-3 order-md-2 text-right">
         @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
             @if($menuItem->hasTranslation($key))
                 <a href="/menuItemTranslations/{{ $menuItem->id }}/{{ $key }}/{{$selectedMenuId}}/edit" class="bg-success text-white d-inline-block p-1 mb-1">{{$key}}</a>
@@ -30,7 +30,7 @@
             @endif
         @endforeach
     </div>
-    <div class="col-1">
+    <div class="col-2 col-md-1 order-2 order-md-3">
         <form action="{{ route('menuItems.destroy',$menuItem->id) }}" method="POST">
             
             @csrf
