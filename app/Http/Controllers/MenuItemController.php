@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\MenuItem;
 use App\Menu;
+use App\MenuItem;
 use App\MenuItemTranslation;
 
 use Route;
