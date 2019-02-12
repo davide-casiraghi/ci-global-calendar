@@ -227,7 +227,7 @@ class CreateAllDatabaseTables extends Migration
             $table->timestamps();
         });
         
-        Schema::create('menu_items_translations', function (Blueprint $table) {
+        Schema::create('menu_item_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('menu_item_id')->unsigned();
 
@@ -271,10 +271,10 @@ class CreateAllDatabaseTables extends Migration
         Schema::dropIfExists('posts');
         Schema::dropIfExists('menus');
         
-        Schema::table('menu_items_translations', function (Blueprint $table) {
-            $table->dropForeign('menu_items_translations_menu_item_id_foreign');
+        Schema::table('menu_item_translations', function (Blueprint $table) {
+            $table->dropForeign('menu_item_translations_menu_item_id_foreign');
         });
-        Schema::dropIfExists('menu_items_translations');
+        Schema::dropIfExists('menu_item_translations');
         Schema::dropIfExists('menu_items');
     }
 }

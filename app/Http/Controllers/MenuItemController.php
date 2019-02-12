@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use App\MenuItem;
 use App\Menu;
+use App\MenuItemTranslation;
 
 use Route;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
-
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 use Validator;
+
 
 class MenuItemController extends Controller
 {
@@ -39,8 +42,8 @@ class MenuItemController extends Controller
             
         return view('menuItems.index',compact('menuItemsTree'))
                     ->with('selectedMenuId', $id)
-                    ->with('selectedMenuName', $selectedMenuName);
-        
+                    ->with('selectedMenuName', $selectedMenuName)
+                    ->with('countriesAvailableForTranslations',$countriesAvailableForTranslations);
     }
     
     /***************************************************************************/

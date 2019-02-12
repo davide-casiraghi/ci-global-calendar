@@ -17,10 +17,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 use Validator;
 
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 
 class PostController extends Controller
 {
