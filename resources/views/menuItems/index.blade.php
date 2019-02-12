@@ -26,6 +26,7 @@
             @include('menuItems.index-item', [
                 'menuItem' => $menuItem,
                 'level' => 1,
+                'countriesAvailableForTranslations' => $countriesAvailableForTranslations,
             ])
         @endforeach    
     </div>
