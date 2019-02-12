@@ -15,6 +15,16 @@ class CreateMenuItemsTranslationsTable extends Migration
     {
         Schema::create('menu_items_translations', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('menu_items_id')->unsigned();
+
+            $table->string('name');
+            $table->text('compact_name')->nullable();
+
+            $table->string('locale')->index();
+
+            $table->unique(['menu_items_id','locale']);
+            $table->foreign('menu_items_id')->references('id')->on('menu_items')->onDelete('cascade');
+        
             $table->timestamps();
         });
     }
