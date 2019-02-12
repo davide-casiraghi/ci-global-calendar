@@ -62,7 +62,8 @@ class PostController extends Controller
 
         if ($searchKeywords||$searchCategory){
             $posts = Post::
-                join('post_translations', 'posts.id', '=', 'post_translations.post_id')
+                select('post_translations.post_id AS id', 'post_translations.title AS title', 'category_id')
+                ->join('post_translations', 'posts.id', '=', 'post_translations.post_id')
                 ->when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('post_translations.title', $searchKeywords)->orWhere('post_translations.title', 'like', '%' . $searchKeywords . '%');
                 })
@@ -72,15 +73,16 @@ class PostController extends Controller
                 ->paginate(20);
         }
         else
-            $posts = Post::latest()->paginate(20);
-            //dd($posts);
+            $posts = Post::select('id', 'title', 'category_id')->orderBy('title')->paginate(20);
+            
+        //dd($posts);
         
         return view('posts.index',compact('posts'))
-                    ->with('i', (request()->input('page', 1) - 1) * 20)
-                    ->with('categories',$categories)
-                    ->with('searchKeywords',$searchKeywords)
-                    ->with('searchCategory',$searchCategory)
-                    ->with('countriesAvailableForTranslations',$countriesAvailableForTranslations);
+            ->with('i', (request()->input('page', 1) - 1) * 20)
+            ->with('categories',$categories)
+            ->with('searchKeywords',$searchKeywords)
+            ->with('searchCategory',$searchCategory)
+            ->with('countriesAvailableForTranslations',$countriesAvailableForTranslations);
     }
 
     /***************************************************************************/
