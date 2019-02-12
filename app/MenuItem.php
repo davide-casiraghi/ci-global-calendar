@@ -4,9 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Dimsav\Translatable\Translatable;
 
 class MenuItem extends Model
 {
+    use Translatable;
+    
+    public $translatedAttributes = ['name','compact_name'];
+    
     protected $fillable = [
         'name', 'compact_name', 'parent_item_id', 'url', 'font_awesome_class', 'lang_string','route','type','menu_id','order'
     ];
@@ -86,8 +91,6 @@ class MenuItem extends Model
         $ret = $accessLevels[$accessId];
         return $ret;
     }
-    
-    
     
     /***************************************************************************/
     /**
