@@ -83,8 +83,10 @@ class MenuItemTranslationController extends Controller
         $menuItemTranslation->compact_name = str_slug($menuItemTranslation->name, '-');
 
         $menuItemTranslation->save();
-
-        return redirect()->route('menuItems.index')
+        
+        $selectedMenuId = $request->get('selected_menu_id');
+        
+        return redirect()->route('menuItemsIndex', ['id' => $selectedMenuId] )
                         ->with('success','Translation created successfully.');
     }
     

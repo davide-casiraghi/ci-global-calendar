@@ -28,6 +28,10 @@
                   'name' => 'language_code',
                   'value' => $languageCode
             ])
+            @include('partials.forms.input-hidden', [
+                  'name' => 'selected_menu_id',
+                  'value' => $selectedMenuId,
+            ])
 
          <div class="row">
             <div class="col-12">
