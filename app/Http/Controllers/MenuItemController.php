@@ -80,7 +80,7 @@ class MenuItemController extends Controller
         //dd($request->menu_id);
         
         return redirect()->route('menuItemsIndex', ['id' => $request->menu_id] )
-                        ->with('success',__('messages.menu_added_successfully'));
+                        ->with('success',__('messages.menu_item_added_successfully'));
         
     }
 
@@ -135,7 +135,7 @@ class MenuItemController extends Controller
         $this->saveOnDb($request, $menuItem);
 
         return redirect()->route('menuItemsIndex', ['id' => $request->menu_id] )
-                        ->with('success',__('messages.menu_updated_successfully'));
+                        ->with('success',__('messages.menu_item_updated_successfully'));
     }
     
     /***************************************************************************/

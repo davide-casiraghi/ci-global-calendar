@@ -32,4 +32,7 @@ return [
     'country_added_successfully' => 'Country added successfully',
     'country_updated_successfully' => 'Country updated successfully',
     'country_deleted_successfully' => 'Country deleted successfully',
+    'menu_item_added_successfully' => 'Menu item added successfully',
+    'menu_item_updated_successfully' => 'Menu item updated successfully',
+    'menu_item_deleted_successfully' => 'Menu item deleted successfully',
 ];
