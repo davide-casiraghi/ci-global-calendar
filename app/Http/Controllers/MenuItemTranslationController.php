@@ -54,8 +54,37 @@ class MenuItemTranslationController extends Controller
                     ->with('selectedLocaleName',$selectedLocaleName);
     }
     
-    
-    
+    // **********************************************************************
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request){
+        
+        // Validate form datas
+            $validator = Validator::make($request->all(), [
+                'name' => 'required',
+            ]);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
+
+        $menuItemTranslation = new MenuItemTranslation();
+
+        $menuItemTranslation->menu_item_id = $request->get('menu_item_id');
+        $menuItemTranslation->locale = $request->get('language_code');
+
+        $menuItemTranslation->name = $request->get('title');
+        $menuItemTranslation->compact_name = str_slug($menuItemTranslation->name, '-');
+
+        $menuItemTranslation->save();
+
+        return redirect()->route('menuItems.index')
+                        ->with('success','Translation created successfully.');
+    }
     
     
     
