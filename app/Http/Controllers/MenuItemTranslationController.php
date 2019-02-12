@@ -77,7 +77,7 @@ class MenuItemTranslationController extends Controller
         $menuItemTranslation->menu_item_id = $request->get('menu_item_id');
         $menuItemTranslation->locale = $request->get('language_code');
 
-        $menuItemTranslation->name = $request->get('title');
+        $menuItemTranslation->name = $request->get('name');
         $menuItemTranslation->compact_name = str_slug($menuItemTranslation->name, '-');
 
         $menuItemTranslation->save();
@@ -86,6 +86,29 @@ class MenuItemTranslationController extends Controller
                         ->with('success','Translation created successfully.');
     }
     
-    
+    // **********************************************************************
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\MenuItemTranslation  $postTranslation
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request){
+        request()->validate([
+            'name' => 'required',
+        ]);
+
+        $menuItemTranslation = MenuItemTranslation::where ('id', $request->get('menu_item_translation_id'));
+
+        $mi_t['name'] = $request->get('name');
+        $mi_t['compact_name'] = str_slug($request->get('name'), '-');
+
+        $menuItemTranslation->update($mi_t);
+
+        return redirect()->route('menuItems.index')
+                        ->with('success','Translation updated successfully');
+    }
     
 }
