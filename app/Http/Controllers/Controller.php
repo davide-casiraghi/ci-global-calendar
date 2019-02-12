@@ -74,6 +74,19 @@ class Controller extends BaseController
     }
     // **********************************************************************
     
+    /**
+    * Get the language name from language code
+    *
+    * @param  $postTranslation string - the country code
+    * @return string the country name
+    */    
+    public function getSelectedLocaleName($languageCode){
+       
+       $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
+       $ret = $countriesAvailableForTranslations[$languageCode]['name'];
+       
+       return $ret;
+    }
     
     
 }
