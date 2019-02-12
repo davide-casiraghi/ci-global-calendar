@@ -1,6 +1,5 @@
 @extends('menuItemTranslations.layout')
 
-
 @section('content')
     
     <div class="row">
