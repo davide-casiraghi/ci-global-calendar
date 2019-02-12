@@ -53,14 +53,13 @@ class PostController extends Controller
 
         // Returns all countries having translations
             //dd(Post::translated()->get());
+            
         // Countries available for translations
             $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
-
 
         // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
             App::setLocale('en');
 
-            //aaaaa
         if ($searchKeywords||$searchCategory){
             $posts = Post::
                 join('post_translations', 'posts.id', '=', 'post_translations.post_id')
