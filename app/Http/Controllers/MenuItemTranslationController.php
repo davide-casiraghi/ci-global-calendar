@@ -32,6 +32,31 @@ class MenuItemTranslationController extends Controller
                 ->with('selectedLocaleName',$selectedLocaleName);
     }
     
+    // **********************************************************************
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\MenuItemTranslation  $menuItemTranslation
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($menuItemId, $languageCode){
+        
+        $menuItemTranslation = MenuItemTranslation::where('menu_item_id', $menuItemId)
+                        ->where('locale', $languageCode)
+                        ->first();
+                        
+        $selectedLocaleName = $this->getSelectedLocaleName($languageCode);
+
+        return view('menuItemTranslations.edit',compact('menuItemTranslation'))
+                    ->with('menuItemId',$menuItemId)
+                    ->with('languageCode',$languageCode)
+                    ->with('selectedLocaleName',$selectedLocaleName);
+    }
+    
+    
+    
+    
     
     
 }

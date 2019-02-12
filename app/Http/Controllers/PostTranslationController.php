@@ -50,7 +50,8 @@ class PostTranslationController extends Controller
         $selectedLocaleName = $this->getSelectedLocaleName($languageCode);
 
         return view('postTranslations.edit',compact('postTranslation'))
-                    ->with('postId',$postId)->with('languageCode',$languageCode)
+                    ->with('postId',$postId)
+                    ->with('languageCode',$languageCode)
                     ->with('selectedLocaleName',$selectedLocaleName);
     }
 
