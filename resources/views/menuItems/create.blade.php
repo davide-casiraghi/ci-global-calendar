@@ -91,12 +91,22 @@
                 </div>
             </div>
                         
-            <div class="col-12">
+            {{--<div class="col-12">
                 @include('partials.forms.input', [
                       'title' => __('views.menu_item_route'),
                       'name' => 'route',
                       'placeholder' => 'Route',
                       'value' => old('route')
+                ])
+            </div>--}}
+            <div class="col-12">
+                @include('partials.forms.select-menu-items-route', [
+                    'title' => __('views.menu_item_route'),
+                    'name' => 'route',
+                    'placeholder' => __('views.menu_item_route'),
+                    'records' => $routeNames,
+                    'liveSearch' => 'true',
+                    'mobileNativeMenu' => false,
                 ])
             </div>
             <div class="col-12">
