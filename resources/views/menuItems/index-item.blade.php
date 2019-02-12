@@ -24,9 +24,9 @@
     <div class="col-3 pt-1">
         @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
             @if($menuItem->hasTranslation($key))
-                <a href="postTranslations/{{ $menuItem->id }}/{{ $key }}/edit" class="bg-success text-white d-inline-block p-1 mb-1">{{$key}}</a>
+                <a href="menuItemTranslations/{{ $menuItem->id }}/{{ $key }}/edit" class="bg-success text-white d-inline-block p-1 mb-1">{{$key}}</a>
             @else
-                <a href="postTranslations/{{ $menuItem->id }}/{{ $key }}/create" class="bg-secondary text-white d-inline-block p-1 mb-1">{{$key}}</a>
+                <a href="menuItemTranslations/{{ $menuItem->id }}/{{ $key }}/create" class="bg-secondary text-white d-inline-block p-1 mb-1">{{$key}}</a>
             @endif
         @endforeach
     </div>
