@@ -15,7 +15,7 @@
           'style' => 'alert-danger',
     ])
 
-    <form action="{{ route('menuItemTranslations.store') }}" method="POST">
+    <form action="{{ route('menuItemTranslations.update',$menuItemId) }}" method="POST">
         @csrf
         @method('PUT')
 

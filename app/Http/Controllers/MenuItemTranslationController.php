@@ -85,7 +85,6 @@ class MenuItemTranslationController extends Controller
         $menuItemTranslation->save();
         
         $selectedMenuId = $request->get('selected_menu_id');
-        
         return redirect()->route('menuItemsIndex', ['id' => $selectedMenuId] )
                         ->with('success','Translation created successfully.');
     }
@@ -100,6 +99,7 @@ class MenuItemTranslationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request){
+        
         request()->validate([
             'name' => 'required',
         ]);
@@ -111,7 +111,8 @@ class MenuItemTranslationController extends Controller
 
         $menuItemTranslation->update($mi_t);
 
-        return redirect()->route('menuItems.index')
+        $selectedMenuId = $request->get('selected_menu_id');
+        return redirect()->route('menuItemsIndex', ['id' => $selectedMenuId] )
                         ->with('success','Translation updated successfully');
     }
     
