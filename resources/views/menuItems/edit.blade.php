@@ -86,19 +86,6 @@
             </div>
             
             <div class="col-12">
-                @include('partials.forms.select-menu-items-order', [
-                    'title' => __('views.menu_item_order'),
-                    'name' => 'order',
-                    'placeholder' => __('views.menu_item_order'),
-                    'records' => $menuItemsSameMenuAndLevel,
-                    'seleted' => $menuItem->id,
-                    'tooltip' => "The menu item will be placed in the menu after the selected menu item.",
-                    'liveSearch' => 'false',
-                    'mobileNativeMenu' => true,
-                ])
-            </div>
-            
-            <div class="col-12">
                 <div class="form-group">
                     <strong>@lang('views.menu_item_type'):</strong>
                     <select name="type" class="selectpicker" title="Route or Url">
@@ -110,19 +97,6 @@
                 </div>
             </div>
             
-            <div class="col-12">
-                <div class="form-group">
-                    <strong>@lang('views.menu_item_access'):</strong>
-                    <select name="access" class="selectpicker" title="Access">
-                        <option value="1" @if(empty($menuItem->access)) {{'selected'}} @endif @if(!empty($menuItem->access)) {{  $menuItem->access == '1' ? 'selected' : '' }} @endif>Public</option>
-                        <option value="2" @if(!empty($menuItem->access)) {{  $menuItem->access == '2' ? 'selected' : '' }} @endif>Guest</option>
-                        <option value="3" @if(!empty($menuItem->access)) {{  $menuItem->access == '3' ? 'selected' : '' }} @endif>Manager</option>
-                        <option value="4" @if(!empty($menuItem->access)) {{  $menuItem->access == '4' ? 'selected' : '' }} @endif>Administrator</option>
-                        <option value="5" @if(!empty($menuItem->access)) {{  $menuItem->access == '5' ? 'selected' : '' }} @endif>Super Administrator</option>   
-                    </select>
-                </div>
-            </div>
-        
             <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => __('views.menu_item_route'),
@@ -138,6 +112,30 @@
                       'placeholder' => 'The relative url - eg: /post/about',
                       'value' => $menuItem->url,
                       'hide' => true,
+                ])
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <strong>@lang('views.menu_item_access'):</strong>
+                    <select name="access" class="selectpicker" title="Access">
+                        <option value="1" @if(empty($menuItem->access)) {{'selected'}} @endif @if(!empty($menuItem->access)) {{  $menuItem->access == '1' ? 'selected' : '' }} @endif>Public</option>
+                        <option value="2" @if(!empty($menuItem->access)) {{  $menuItem->access == '2' ? 'selected' : '' }} @endif>Guest</option>
+                        <option value="3" @if(!empty($menuItem->access)) {{  $menuItem->access == '3' ? 'selected' : '' }} @endif>Manager</option>
+                        <option value="4" @if(!empty($menuItem->access)) {{  $menuItem->access == '4' ? 'selected' : '' }} @endif>Administrator</option>
+                        <option value="5" @if(!empty($menuItem->access)) {{  $menuItem->access == '5' ? 'selected' : '' }} @endif>Super Administrator</option>   
+                    </select>
+                </div>
+            </div>
+            <div class="col-12">
+                @include('partials.forms.select-menu-items-order', [
+                    'title' => __('views.menu_item_order'),
+                    'name' => 'order',
+                    'placeholder' => __('views.menu_item_order'),
+                    'records' => $menuItemsSameMenuAndLevel,
+                    'seleted' => $menuItem->id,
+                    'tooltip' => "The menu item will be placed in the menu after the selected menu item.",
+                    'liveSearch' => 'false',
+                    'mobileNativeMenu' => true,
                 ])
             </div>
             <div class="col-12">
