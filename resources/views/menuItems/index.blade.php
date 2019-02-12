@@ -27,6 +27,7 @@
                 'menuItem' => $menuItem,
                 'level' => 1,
                 'countriesAvailableForTranslations' => $countriesAvailableForTranslations,
+                'selectedMenuId' => $selectedMenuId,
             ])
         @endforeach    
     </div>

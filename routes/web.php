@@ -37,8 +37,8 @@ function()
         Route::put('/menuItem/updateOrder', 'MenuItemController@updateOrder')->name('menuItems.updateOrder');
         
         /* Menu Items Translations */
-            Route::get('/menuItemTranslations/{menuItemId}/{languageCode}/create', 'MenuItemTranslationController@create');
-            Route::get('/menuItemTranslations/{menuItemId}/{languageCode}/edit', 'MenuItemTranslationController@edit');
+            Route::get('/menuItemTranslations/{menuItemId}/{languageCode}/{menuId}/create', 'MenuItemTranslationController@create');
+            Route::get('/menuItemTranslations/{menuItemId}/{languageCode}/{menuId}/edit', 'MenuItemTranslationController@edit');
             Route::post('/menuItemTranslations/store', 'MenuItemTranslationController@store')->name('menuItemTranslations.store');
             Route::put('/menuItemTranslations/update', 'MenuItemTranslationController@update')->name('menuItemTranslations.update');
         

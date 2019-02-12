@@ -8,7 +8,7 @@ use App\MenuItemTranslation;
 
 use Illuminate\Http\Request;
 
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Validator;
 
 class MenuItemTranslationController extends Controller
 {
@@ -22,12 +22,13 @@ class MenuItemTranslationController extends Controller
     *
     * @return \Illuminate\Http\Response
     */
-    public function create($menuItemId, $languageCode){
+    public function create($menuItemId, $languageCode, $menuId){
         
         $selectedLocaleName = $this->getSelectedLocaleName($languageCode);
 
         return view('menuItemTranslations.create')
                 ->with('menuItemId',$menuItemId)
+                ->with('selectedMenuId', $menuId)
                 ->with('languageCode',$languageCode)
                 ->with('selectedLocaleName',$selectedLocaleName);
     }
@@ -40,7 +41,7 @@ class MenuItemTranslationController extends Controller
      * @param  \App\MenuItemTranslation  $menuItemTranslation
      * @return \Illuminate\Http\Response
      */
-    public function edit($menuItemId, $languageCode){
+    public function edit($menuItemId, $languageCode, $menuId){
         
         $menuItemTranslation = MenuItemTranslation::where('menu_item_id', $menuItemId)
                         ->where('locale', $languageCode)
@@ -50,6 +51,7 @@ class MenuItemTranslationController extends Controller
 
         return view('menuItemTranslations.edit',compact('menuItemTranslation'))
                     ->with('menuItemId',$menuItemId)
+                    ->with('selectedMenuId', $menuId)
                     ->with('languageCode',$languageCode)
                     ->with('selectedLocaleName',$selectedLocaleName);
     }
