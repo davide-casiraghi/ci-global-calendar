@@ -69,9 +69,9 @@
                 <div class="col-6 col-md-3 col-lg-2 pb-3 py-md-3 translation" style="line-height: 2rem;">
                     @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
                         @if($post->hasTranslation($key))
-                            <a href="postTranslations/{{ $post->id }}/{{ $key }}/edit" class="bg-success text-white p-1 mb-1">{{$key}}</a>
+                            <a href="/postTranslations/{{ $post->id }}/{{ $key }}/edit" class="bg-success text-white p-1 mb-1">{{$key}}</a>
                         @else
-                            <a href="postTranslations/{{ $post->id }}/{{ $key }}/create" class="bg-secondary text-white p-1 mb-1">{{$key}}</a>
+                            <a href="/postTranslations/{{ $post->id }}/{{ $key }}/create" class="bg-secondary text-white p-1 mb-1">{{$key}}</a>
                         @endif
                     @endforeach
                 </div>
