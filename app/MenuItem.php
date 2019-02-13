@@ -40,10 +40,8 @@ class MenuItem extends Model
                         when($menuId, function ($query, $menuId) {
                             return $query->where('menu_id', $menuId);
                         })
-                        //->leftJoin('menu_item_translations', 'menu_items.id', '=', 'menu_item_translations.menu_item_id')
                         ->orderBy('order','ASC')
-                        ->get();    
-            //dump($menuItems);            
+                        ->get();          
                                 
         $new = array();
         foreach ($menuItems as $menuItem){
@@ -56,9 +54,6 @@ class MenuItem extends Model
             $ret = [];
         }
         //dump($ret);
-        
-        //$cc = MenuItem::find(96);
-        //dump($cc);
         
         return $ret;
     }
