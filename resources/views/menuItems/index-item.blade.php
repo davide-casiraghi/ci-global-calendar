@@ -21,7 +21,7 @@
         </a>
         @if(!empty($menuItem->access)) <span class="text-secondary">- {{App\MenuItem::getAccessName($menuItem->access)}}</span>@endif
     </div>
-    <div class="col-12 col-md-3 pt-1 order-3 order-md-2 text-right">
+    <div class="col-12 col-md-3 pt-2 pt-md-1 order-3 order-md-2 text-right">
         @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
             @if($menuItem->hasTranslation($key))
                 <a href="/menuItemTranslations/{{ $menuItem->id }}/{{ $key }}/{{$selectedMenuId}}/edit" class="bg-success text-white d-inline-block p-1 mb-1">{{$key}}</a>
