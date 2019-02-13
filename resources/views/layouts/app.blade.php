@@ -45,11 +45,11 @@
             'transparentBarInHp' => true,
         ])
 
-        <div class="beforeContent">
+        <div class="beforeContent pt-5">
             @yield('beforeContent')
         </div>
 
-        <div id="app" class="container pt-5">
+        <div id="app" class="container">
             @yield('content')
         </div>
 
