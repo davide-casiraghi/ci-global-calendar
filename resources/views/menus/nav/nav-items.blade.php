@@ -29,10 +29,10 @@
     
     @if($item->authorized()) {{-- Check item access <-> User group --}}
         {{-- Get item name --}}
-            @if ($item->lang_string)
-                @php ($itemName = __($item->lang_string))
-            @else
+            @if ($item->name)
                 @php ($itemName = $item->name)
+            @else
+                @php ($itemName = $item->translate('en')->name)
             @endif
             
         {{-- Render item --}}
