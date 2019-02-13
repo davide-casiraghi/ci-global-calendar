@@ -13,6 +13,8 @@
     @import '~bootstrap/scss/bootstrap';
 
 // Plugins
+    @import "~bootstrap-select/sass/bootstrap-select";
+    
     @import "~jquery-ui/themes/base/core.css";
     @import "~jquery-ui/themes/base/accordion.css";
     @import "~smartmenus/dist/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.css";
@@ -20,7 +22,6 @@
     @import "~slick-carousel/slick/slick.css";
     @import "~slick-carousel/slick/slick-theme.css";
     @import "~@fancyapps/fancybox/dist/jquery.fancybox.css";
-    @import "~bootstrap-select/dist/css/bootstrap-select.css";
     @import "~bootstrap-datepicker/dist/css/bootstrap-datepicker.css";
     @import "~bootstrap-timepicker/css/bootstrap-timepicker.css";
     @import "~cookieconsent/build/cookieconsent.min.css";
