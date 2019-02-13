@@ -202,6 +202,44 @@ class CreateAllDatabaseTables extends Migration
             $table->unique(['post_id','locale']);
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
         });
+        Schema::create('menus', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->integer('position')->nullable();
+            $table->integer('order')->nullable();
+            $table->integer('access')->nullable();
+            $table->timestamps();
+        });
+        Schema::create('menu_items', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->integer('menu_id')->nullable();
+            $table->string('parent_item_id')->nullable();
+            $table->integer('type')->nullable();
+            $table->string('url')->nullable();
+            $table->string('route')->nullable();
+            $table->string('font_awesome_class')->nullable();
+            $table->boolean('hide_name')->default('0');
+            $table->string('compact_name');
+            $table->integer('order')->nullable();
+            $table->integer('access')->nullable();
+            $table->timestamps();
+        });
+        
+        Schema::create('menu_item_translations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('menu_item_id')->unsigned();
+
+            $table->string('name');
+            $table->text('compact_name')->nullable();
+
+            $table->string('locale')->index();
+
+            $table->unique(['menu_item_id','locale']);
+            $table->foreign('menu_item_id')->references('id')->on('menu_items')->onDelete('cascade');
+        
+            $table->timestamps();
+        });
     }
 
     /**
@@ -230,5 +268,12 @@ class CreateAllDatabaseTables extends Migration
         });
         Schema::dropIfExists('post_translations');
         Schema::dropIfExists('posts');
+        Schema::dropIfExists('menus');
+        
+        Schema::table('menu_item_translations', function (Blueprint $table) {
+            $table->dropForeign('menu_item_translations_menu_item_id_foreign');
+        });
+        Schema::dropIfExists('menu_item_translations');
+        Schema::dropIfExists('menu_items');
     }
 }

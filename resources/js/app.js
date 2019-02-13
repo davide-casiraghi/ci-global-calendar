@@ -8,7 +8,8 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-
+//var draggable = require('vuedraggable');
+//Vue.use(draggable);
 
 /**
 * In between we import the custom javascript plugins.
@@ -36,8 +37,8 @@ $(function () {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+//Vue.component('ul-list-draggable', require('./components/UlListDraggable.vue').default);
 
 const app = new Vue({
     el: '#app'
@@ -61,4 +62,5 @@ const app = new Vue({
 	import 'cookieconsent';
 	import 'waypoints/lib/jquery.waypoints.js';
 	import 'jquery.counterup';
+    import 'sortablejs';
     import 'jquery.cookie';

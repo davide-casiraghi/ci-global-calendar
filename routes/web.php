@@ -28,15 +28,31 @@ function()
     /* Users */
         Route::resource('users','UserController');
         
+    /* Menus */    
+        Route::resource('menus','MenuController');
+        
+    /* Menu Items */
+        Route::get('/menuItems/index/{id}', 'MenuItemController@index')->name('menuItemsIndex');
+        Route::resource('menuItems','MenuItemController');
+        Route::put('/menuItem/updateOrder', 'MenuItemController@updateOrder')->name('menuItems.updateOrder');
+        
+        /* Menu Items Translations */
+            Route::get('/menuItemTranslations/{menuItemId}/{languageCode}/{menuId}/create', 'MenuItemTranslationController@create');
+            Route::get('/menuItemTranslations/{menuItemId}/{languageCode}/{menuId}/edit', 'MenuItemTranslationController@edit');
+            Route::post('/menuItemTranslations/store', 'MenuItemTranslationController@store')->name('menuItemTranslations.store');
+            Route::put('/menuItemTranslations/update', 'MenuItemTranslationController@update')->name('menuItemTranslations.update');
+        
     /* Posts */
         Route::resource('categories','CategoryController');
         Route::resource('posts','PostController');
-        Route::get('/postTranslations/{postId}/{languageCode}/create', 'PostTranslationController@create');
-        Route::get('/postTranslations/{postId}/{languageCode}/edit', 'PostTranslationController@edit');
-        Route::post('/postTranslations/store', 'PostTranslationController@store')->name('postTranslations.store');
-        Route::put('/postTranslations/update', 'PostTranslationController@update')->name('postTranslations.update');
         Route::get('/post/{slug}', 'PostController@postBySlug')->where('postBySlug', '[a-z]+');
-
+    
+        /* Posts Translations */
+            Route::get('/postTranslations/{postId}/{languageCode}/create', 'PostTranslationController@create');
+            Route::get('/postTranslations/{postId}/{languageCode}/edit', 'PostTranslationController@edit');
+            Route::post('/postTranslations/store', 'PostTranslationController@store')->name('postTranslations.store');
+            Route::put('/postTranslations/update', 'PostTranslationController@update')->name('postTranslations.update');
+        
     /* Events */
         Route::resource('eventCategories','EventCategoryController');
         Route::resource('events','EventController');
@@ -125,4 +141,3 @@ function()
         
     /* Iframe for regional websites */
         Route::get('/eventSearch/country/{code}', 'EventSearchController@EventsListByCountry');
-    

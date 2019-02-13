@@ -34,8 +34,6 @@
               'value' => $languageCode
         ])
 
-
-
          <div class="row">
             <div class="col-12">
                 @include('partials.forms.input', [

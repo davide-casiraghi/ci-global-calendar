@@ -16,8 +16,7 @@
           'style' => 'alert-danger',
     ])
 
-    {{--<form action="/postTranslations/{{ $postId }}/{{ $languageCode }}/store" method="POST">--}}
-        <form action="{{ route('postTranslations.store') }}" method="POST">
+    <form action="{{ route('postTranslations.store') }}" method="POST">
         @csrf
 
             @include('partials.forms.input-hidden', [

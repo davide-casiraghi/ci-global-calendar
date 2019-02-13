@@ -7,6 +7,7 @@
         - $padding-x: string - the padding on the left and right side of the nav bar, expressed in bootstrap spacing notation eg. px-5
         - $backgroundColor: string - the footer background (eg.#B5A575)
         - $stickyFooter: boolean - footer sticky or not
+        - $items: array - the items tree to render (in the footer just the first level is rendered, no dropdown available since bootsrap allow just one main nav)
 --}}
 
 
@@ -27,10 +28,15 @@
                 <div class="text text-white pt-2 pb-0 pb-md-2">© 2019, made with <i class="fas fa-heart"></i> by Round Robin Team</div>
             </div>
             <div class="col-12 col-sm-5 col-sm-push-5 text-center text-md-right pr-0">
-                <div class="footerMenu">
-                    <a href="/post/contact-improvisation-global-archive-ciga" class="text-white"><i class="fa fa-globe"></i> CI - Global Archive</a>
-                    <a href="/post/donate" class="text-white"><i class="fa fa-heart"></i> @lang('menu.donate') </a>
-                </div>
+                <ul class="footerMenu m-0 p-0">
+                    {{--<li>
+                        <a href="/post/contact-improvisation-global-archive-ciga" class="text-white"><i class="fa fa-globe"></i> CI - Global Archive</a>
+                    </li>
+                    <li>
+                        <a href="/post/donate" class="text-white"><i class="fa fa-heart"></i> @lang('menu.donate') </a>
+                    </li>--}}
+                    @include('menus.nav.nav-items', ['items' => $items])
+                </ul>
                 
                 {{--<p class="float-right"><a href="#">Back to top</a></p>--}}
             </div>

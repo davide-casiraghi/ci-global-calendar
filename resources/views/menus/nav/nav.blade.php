@@ -56,20 +56,27 @@
         </div>
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
+ 
       {{-- Left Nav --}}
       <ul class='navbar-nav mr-auto'>
-          @include('menus.nav-items', ['items' => $MyNavBar->roots()])
+          {{--@include('menus.nav.nav-items', ['items' => $MyNavBar->roots()])--}}
+          @include('menus.nav.nav-items', ['items' => App\MenuItem::getItemsTree(1)])
       </ul>
       {{-- end - Left Nav --}}
 
 
       {{-- Right Nav --}}
       <ul class="navbar-nav navbar-right">
-          @include('menus.nav-items', ['items' => $MyNavBarRight->roots()])
-          @include('menus.nav-right-items')
+          {{--@include('menus.nav.nav-items', ['items' => $MyNavBarRight->roots()])--}}
+          @include('menus.nav.nav-items', ['items' => App\MenuItem::getItemsTree(4)])
+          {{--@include('menus.nav.nav-right-items')--}}
       </ul>
       {{-- end - Right Nav --}}
+
+      {{-- LOGOUT hidden form--}}
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+          </form>
 
     </div>
   @if($container)</div>@endif
