@@ -49,17 +49,11 @@ class PostController extends Controller
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
 
-        // Get current locale
-            //dd(App::getLocale());
-
         // Returns all countries having translations
             //dd(Post::translated()->get());
             
         // Countries available for translations
             $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
-
-        // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
-            App::setLocale('en');
 
         if ($searchKeywords||$searchCategory){
             $posts = Post::
@@ -95,9 +89,10 @@ class PostController extends Controller
     public function create(){
 
         $categories = Category::pluck('name', 'id');
-        //dump($categories);
+        
+        // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
+            App::setLocale('en');
 
-        //return view('posts.create');
         return view('posts.create')->with('categories', $categories);
     }
 

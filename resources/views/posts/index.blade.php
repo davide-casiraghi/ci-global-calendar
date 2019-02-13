@@ -56,11 +56,12 @@
 
 
     {{-- List of posts --}}
+    
     <div class="venuesList my-4">
         @foreach ($posts as $post)
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
                 <div class="col-12 col-md-6 col-lg-7 py-3 title">
-                    <a href="{{ route('posts.edit',$post->id) }}">{{ $post->title }}</a>
+                    <a href="{{ route('posts.edit',$post->id) }}">{{ $post->translate('en')->title }}</a>
                 </div>
                 <div class="col-6 col-md-3 col-lg-3 pb-3 py-md-3 category">
                     <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-2" data-original-title="@lang('general.category')"></i>
