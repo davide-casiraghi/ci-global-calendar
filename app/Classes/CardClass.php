@@ -80,9 +80,9 @@ class CardClass {
         //$image_dir_url = "/storage/images";
 
         $postData = app('App\Http\Controllers\PostController')->postdata($parameters['post_id']);
-
-        $ret['post_title'] = $postData->title;
-        $ret['post_body'] = $postData->body;
+        $ret['post_title'] = (!empty($postData->title)) ? $postData->title : $postData->translate('en')->title;
+        $ret['post_body'] = (!empty($postData->body)) ? $postData->body : $postData->translate('en')->body;
+        
         if ($postData->introimage){
             $ret['post_image_src'] = $postData->introimage;
             $ret['post_image_alt'] = $postData->introimage_alt;
@@ -107,7 +107,9 @@ class CardClass {
                     $ret .= "<div class='lead mb-4'>".$postData['post_body']."</div>";
                 $ret .= "</div>";
                 $ret .= "<div class='image ".$parameters['img_col_size_class']." ".$parameters['img_col_order_class']."'>";
-                    $ret .= "<img class='featurette-image img-fluid mx-auto' src='".$postData['post_image_src']."' alt='".$postData['post_image_alt']."'>";
+                    if(!empty($postData['post_image_src'])){
+                        $ret .= "<img class='featurette-image img-fluid mx-auto' src='".$postData['post_image_src']."' alt='".$postData['post_image_alt']."'>";
+                    }
                 $ret .= "</div>";
             $ret .= "</div>";
 

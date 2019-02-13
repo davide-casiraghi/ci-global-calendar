@@ -265,7 +265,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function postdata($post_id){
-         $ret = DB::table('posts')->where('id', $post_id)->first();
+         $ret = Post::where('id', $post_id)->first();
          //dump($ret);
 
          return $ret;
