@@ -57,7 +57,7 @@ class MenuItemController extends Controller
         $menuItemsTree = MenuItem::getItemsTree(0);
         $routeNames = array_map(function (\Illuminate\Routing\Route $route) { if (isset($route->action['as'])) return $route->action['as']; }, (array) Route::getRoutes()->getIterator());
         
-        // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
+        // Set the default language to edit the post for the admin to English (to avoid bug with null name)
             App::setLocale('en');
         
         return view('menuItems.create')
@@ -119,7 +119,7 @@ class MenuItemController extends Controller
         $menuItemsTree = MenuItem::getItemsTree($menuItem->menu_id);
         $routeNames = array_map(function (\Illuminate\Routing\Route $route) { if (isset($route->action['as'])) return $route->action['as']; }, (array) Route::getRoutes()->getIterator());
         
-        // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
+        // Set the default language to edit the post for the admin to English (to avoid bug with null name)
             App::setLocale('en');
         
         return view('menuItems.edit',compact('menuItem'))
