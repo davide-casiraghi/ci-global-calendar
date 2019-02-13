@@ -133,12 +133,8 @@ class MenuItem extends Model
                     }
                 }
                 break;
-        }
-        
+        }    
         return $ret;
     }
-    
-    
-    
     
 }
