@@ -62,6 +62,7 @@
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
                 <div class="col-12 col-md-6 col-lg-7 py-3 title">
                     <a href="{{ route('posts.edit',$post->id) }}">{{ $post->translate('en')->title }}</a>
+                    <a class="btn btn-primary ml-2 py-0 px-1" href="{{ route('posts.show',$post->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="@lang('views.preview')"><i class="fas fa-eye"></i></a>
                 </div>
                 <div class="col-6 col-md-3 col-lg-3 pb-3 py-md-3 category">
                     <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-2" data-original-title="@lang('general.category')"></i>
@@ -80,13 +81,13 @@
                 <div class="col-12 pb-2 action">
                     <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
 
-                        <a class="btn btn-info mr-2" href="{{ route('posts.show',$post->id) }}">@lang('views.view')</a>
-                        <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">@lang('views.edit')</a>
+                        
+                        {{--<a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">@lang('views.edit')</a>--}}
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger float-right">@lang('views.delete')</button>
+                        <button type="submit" class="btn btn-danger float-right"><i class="far fa-trash-alt"></i></button>
                     </form>
                 </div>
             </div>
