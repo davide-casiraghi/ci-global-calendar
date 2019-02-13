@@ -28,13 +28,6 @@ class MenuItem extends Model
      */
 
     public static function getItemsTree($menuId){
-    
-        /*$menuItems = MenuItem::            
-                        when($menuId, function ($query, $menuId) {
-                            return $query->where('menu_id', $menuId);
-                        })
-                        ->orderBy('order','ASC')
-                        ->get();*/
                         
         $menuItems = MenuItem::            
                         when($menuId, function ($query, $menuId) {
