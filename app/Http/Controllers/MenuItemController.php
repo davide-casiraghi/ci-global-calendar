@@ -33,9 +33,6 @@ class MenuItemController extends Controller
         
         // Countries available for translations
             $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
-
-        // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
-            App::setLocale('en');
             
         $selectedMenuName = Menu::find($id)->name;
         $menuItemsTree = MenuItem::getItemsTree($id);
@@ -59,6 +56,9 @@ class MenuItemController extends Controller
         $menuItems = MenuItem::orderBy('name')->pluck('name', 'id');
         $menuItemsTree = MenuItem::getItemsTree(0);
         $routeNames = array_map(function (\Illuminate\Routing\Route $route) { if (isset($route->action['as'])) return $route->action['as']; }, (array) Route::getRoutes()->getIterator());
+        
+        // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
+            App::setLocale('en');
         
         return view('menuItems.create')
             ->with('menuItems',$menuItems)
@@ -118,6 +118,9 @@ class MenuItemController extends Controller
         $menuItemsSameMenuAndLevel = $this->getItemsSameMenuAndLevel($menuItem->menu_id, $menuItem->parent_item_id, 1);                         
         $menuItemsTree = MenuItem::getItemsTree($menuItem->menu_id);
         $routeNames = array_map(function (\Illuminate\Routing\Route $route) { if (isset($route->action['as'])) return $route->action['as']; }, (array) Route::getRoutes()->getIterator());
+        
+        // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
+            App::setLocale('en');
         
         return view('menuItems.edit',compact('menuItem'))
                     ->with('menuItems',$menuItems)

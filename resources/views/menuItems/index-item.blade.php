@@ -17,7 +17,7 @@
     <div class="col-10 col-md-8 pt-2 order-1" style="padding-left:{{$paddingLeft}}rem">
         <a href="{{ route('menuItems.edit',$menuItem->id) }}">
             @if(!empty($menuItem->font_awesome_class))<i class="{{ $menuItem->font_awesome_class }}"></i> @endif
-            @if(empty($menuItem->hide_name)){{ $menuItem->name }} @endif
+            @if(empty($menuItem->hide_name)){{ $menuItem->translate('en')->name }} @endif
         </a>
         @if(!empty($menuItem->access)) <span class="text-secondary">- {{App\MenuItem::getAccessName($menuItem->access)}}</span>@endif
     </div>
