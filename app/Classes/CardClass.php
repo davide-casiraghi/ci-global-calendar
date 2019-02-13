@@ -29,8 +29,8 @@ class CardClass {
              $textColSize = 12-$matches[6];
              $ret['text_col_size_class'] = "col-md-".$textColSize;
              $backgroundColor = $matches[8];
-             $ret['bkg_color'] = "background-color: ".$backgroundColor;
-
+             $ret['bkg_color'] = "background-color: ".$backgroundColor.";";
+             //dd($ret['bkg_color']);
              // Image alignment
                  //$ret['img_alignment'] = $matches[4];
                  $imageAlignment =  $matches[4];
