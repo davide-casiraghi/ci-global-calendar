@@ -12,11 +12,15 @@ namespace App\Http\Middleware;
 
 use Illuminate\Support\Facades\Auth;
 
+use App\MenuItem;
+use App\Menu;
+
 
 use Closure;
 
 class GenerateMenus
 {
+    
     /**
      * Handle an incoming request.
      *
@@ -24,16 +28,15 @@ class GenerateMenus
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
-    {
-
+    public function handle($request, Closure $next){
+        
         /* LEFT Menu */
         \Menu::make('MyNavBar', function($menu) {
             
             $profile = $menu->add("home")->link->href('/');
                 $profile->builder->items[0]->title = '<i class="fa fa-home"></i> '.__('menu.home');
             $profile = $menu->add("about")->link->href('/post/about');
-                $profile->builder->items[1]->title = '<i class="fa fa fa-info-circle"></i> '.__('menu.about');
+                $profile->builder->items[1]->title = '<i class="fa fa-info-circle"></i> '.__('menu.about');
                 $menu->about->add("terms_of_use")->link->href('/post/terms-of-use');
                     $profile->builder->items[2]->title = '<i class="far fa-file-alt"></i> '.__('menu.terms_of_use');
                 $menu->about->add('teachers_directory', ['route' => ['teachers.directory']]); 
@@ -87,7 +90,9 @@ class GenerateMenus
                                 $profile->builder->items[12]->title = '<i class="far fa-globe-americas"></i> '.__('menu.countries');
                             $menu->adminTools->add('background_images', ['route' => ['backgroundImages.index']]); 
                                 $profile->builder->items[13]->title = '<i class="far fa-images"></i> '.__('menu.background_images');
-                                                        
+                            $menu->adminTools->add('menu', ['route' => ['menus.index']]); 
+                                $profile->builder->items[14]->title = '<i class="fas fa-caret-circle-down"></i> '.__('menu.menus');
+                                                
                         }
                     
                 }
@@ -96,4 +101,12 @@ class GenerateMenus
 
         return $next($request);
     }
+    
+    /*function renderMenu($menu){
+        foreach ($this->menuItems as $key => $value) {
+            dump("aa");
+        }
+    }*/
+    
+    
 }

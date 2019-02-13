@@ -7,6 +7,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 
@@ -74,6 +75,19 @@ class Controller extends BaseController
     }
     // **********************************************************************
     
+    /**
+    * Get the language name from language code
+    *
+    * @param  $postTranslation string - the country code
+    * @return string the country name
+    */    
+    public function getSelectedLocaleName($languageCode){
+       
+       $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
+       $ret = $countriesAvailableForTranslations[$languageCode]['name'];
+       
+       return $ret;
+    }
     
     
 }

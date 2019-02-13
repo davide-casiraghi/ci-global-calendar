@@ -23,7 +23,7 @@
     @endif
 @stop
 
-<div class="form-group">
+<div class="form-group {{ $name }}">
     @if(!empty($title))
         <label for="{{ $name }}">{{ $title }}</label>
         @if(!empty($tooltip))<i class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="{{ $tooltip }}"></i>@endif

@@ -7,9 +7,11 @@
         - $placeholder: string - the placeholder to show when no date selected
         - $tooltip: string - the content of the tooltip
         - $value: the already stored value (used in edit view to retrieve the already stored value)
+        - $hide: if true 
 --}}
 
-<div class="form-group">
+
+<div class="form-group {{ $name }}" @if( !empty($hide)) style="display:none;" @endif>
     @if(!empty($title))
         <label for="{{ $name }}">{{ $title }}</label>
         @if(!empty($tooltip))<i class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="{{ $tooltip }}"></i>@endif

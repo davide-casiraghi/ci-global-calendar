@@ -17,10 +17,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 use Validator;
 
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 
 class PostController extends Controller
 {
@@ -48,19 +49,12 @@ class PostController extends Controller
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
 
-        // Get current locale
-            //dd(App::getLocale());
-
         // Returns all countries having translations
             //dd(Post::translated()->get());
+            
         // Countries available for translations
             $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
 
-
-        // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
-            App::setLocale('en');
-
-            //aaaaa
         if ($searchKeywords||$searchCategory){
             $posts = Post::
                 select('post_translations.post_id AS id', 'post_translations.title AS title', 'category_id')
@@ -95,9 +89,10 @@ class PostController extends Controller
     public function create(){
 
         $categories = Category::pluck('name', 'id');
-        //dump($categories);
+        
+        // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
+            App::setLocale('en');
 
-        //return view('posts.create');
         return view('posts.create')->with('categories', $categories);
     }
 
@@ -311,11 +306,11 @@ class PostController extends Controller
      */
      public function saveOnDb($request, $post){
          
-         $post->title = $request->get('title');
+         $post->translateOrNew('en')->title = $request->get('title');
          //$post->body = $request->get('body');
-         $post->body = clean($request->get('body'));
+         $post->translateOrNew('en')->body = clean($request->get('body'));
          $post->created_by = \Auth::user()->id;
-         $post->slug = str_slug($post->title, '-');
+         $post->translateOrNew('en')->slug = str_slug($post->title, '-');
          $post->category_id = $request->get('category_id');
          
          $post->status = $request->get('status');
@@ -329,8 +324,8 @@ class PostController extends Controller
              $post->introimage = $imageName;
         }
 
-         $post->before_content = $request->get('before_content');
-         $post->after_content = $request->get('after_content');
+         $post->translateOrNew('en')->before_content = $request->get('before_content');
+         $post->translateOrNew('en')->after_content = $request->get('after_content');
          
          $post->save();
          

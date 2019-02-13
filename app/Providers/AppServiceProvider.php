@@ -29,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('time_am_pm', function ($expression) {
             return "<?php echo date('g.i a', strtotime($expression))?>";
         });
+        
     }
 
     /**

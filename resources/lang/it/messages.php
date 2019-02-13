@@ -32,4 +32,10 @@ return [
     'country_added_successfully' => 'Nazione aggiunta con successo',
     'country_updated_successfully' => 'Nazione aggiornata correttamente',
     'country_deleted_successfully' => 'Nazione cancellata con successo',
+    'menu_added_successfully' => 'Menu aggiunto con successo',
+    'menu_updated_successfully' => 'Menu aggiornato correttamente',
+    'menu_deleted_successfully' => 'Menu cancellato con successo',
+    'menu_item_added_successfully' => 'Voce di menu aggiunta con successo',
+    'menu_item_updated_successfully' => 'Voce di menu aggiornata correttamente',
+    'menu_item_deleted_successfully' => 'Voce di menu cancellata con successo',
 ];

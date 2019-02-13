@@ -15,6 +15,7 @@ class CountryController extends Controller
         $this->middleware('admin');
     }
     
+    /***************************************************************************/
     /**
      * Display a listing of the resource.
      *
@@ -33,7 +34,8 @@ class CountryController extends Controller
         return view('countries.index',compact('countries'))
             ->with('i', (request()->input('page', 1) - 1) * 20)->with('continents',$continents)->with('searchKeywords',$searchKeywords);
     }
-
+    
+    /***************************************************************************/
     /**
      * Show the form for creating a new resource.
      *
@@ -45,6 +47,7 @@ class CountryController extends Controller
         return view('countries.create')->with('continents',$continents);
     }
 
+    /***************************************************************************/
     /**
      * Store a newly created resource in storage.
      *
@@ -74,6 +77,7 @@ class CountryController extends Controller
                         ->with('success',__('messages.country_added_successfully'));
     }
 
+    /***************************************************************************/
     /**
      * Display the specified resource.
      *
@@ -84,6 +88,7 @@ class CountryController extends Controller
         return view('countries.show',compact('country'));
     }
 
+    /***************************************************************************/
     /**
      * Show the form for editing the specified resource.
      *
@@ -96,6 +101,7 @@ class CountryController extends Controller
         return view('countries.edit',compact('country'))->with('continents',$continents);
     }
 
+    /***************************************************************************/
     /**
      * Update the specified resource in storage.
      *
@@ -116,6 +122,7 @@ class CountryController extends Controller
                         ->with('success',__('messages.country_updated_successfully'));
     }
 
+    /***************************************************************************/
     /**
      * Remove the specified resource from storage.
      *
@@ -127,7 +134,6 @@ class CountryController extends Controller
         return redirect()->route('countries.index')
                         ->with('success',__('messages.country_deleted_successfully'));
     }
-
 
     /***************************************************************************/
 

@@ -24,5 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ContinentsTableSeeder::class);
         $this->call(CountriesTableSeeder::class);
         $this->call(EventCategoriesTableSeeder::class);
+        $this->call(MenusTableSeeder::class);
+        $this->call(MenuItemsTableSeeder::class);
     }
 }

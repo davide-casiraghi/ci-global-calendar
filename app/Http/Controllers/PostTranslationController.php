@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Validator;
 
 class PostTranslationController extends Controller
@@ -51,7 +50,8 @@ class PostTranslationController extends Controller
         $selectedLocaleName = $this->getSelectedLocaleName($languageCode);
 
         return view('postTranslations.edit',compact('postTranslation'))
-                    ->with('postId',$postId)->with('languageCode',$languageCode)
+                    ->with('postId',$postId)
+                    ->with('languageCode',$languageCode)
                     ->with('selectedLocaleName',$selectedLocaleName);
     }
 
@@ -124,19 +124,5 @@ class PostTranslationController extends Controller
                         ->with('success','Post updated successfully');
     }
     
-    // **********************************************************************
-   /**
-    * Get the language name from language code
-    *
-    * @param  $postTranslation string - the country code
-    * @return string the country name
-    */    
-   public function getSelectedLocaleName($languageCode){
-       
-       $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
-       $ret = $countriesAvailableForTranslations[$languageCode]['name'];
-       
-       return $ret;
-   }
 
 }

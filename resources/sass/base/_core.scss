@@ -20,5 +20,12 @@ body{
             font-weight: bold;
         }
     }
+    .alternateColors{
+        > div{
+            &:nth-child(odd){
+                background-color: #FFF;
+            }
+        }
+    }
     
 }
