@@ -62,9 +62,9 @@
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
                 
                 {{-- Title and Preview --}}
-                    <div class="col-10 col-md-5 col-lg-5 pt-2 order-1 title">
-                        <a href="{{ route('posts.edit',$post->id) }}">{{ $post->translate('en')->title }}</a>
-                        <a class="btn btn-secondary ml-2 py-0 px-1 float-md-right" href="{{ route('posts.show',$post->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="@lang('views.preview')"><small><i class="fas fa-eye"></i></small></a>
+                    <div class="col-10 col-md-5 col-lg-5 order-1 title">
+                        <a href="{{ route('posts.edit',$post->id) }}" class="pt-2 d-inline-block">{{ $post->translate('en')->title }}</a>
+                        <a class="btn btn-secondary ml-2 py-0 px-1 mt-md-1 float-md-right" href="{{ route('posts.show',$post->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="@lang('views.preview')"><small><i class="fas fa-eye"></i></small></a>
                     </div>
                 
                 {{-- Category --}}
@@ -74,12 +74,12 @@
                     </div>
                 
                 {{-- Translations --}}
-                    <div class="col-6 col-md-3 col-lg-3 pt-1 order-4 order-md-3 translation" style="line-height: 2rem;">
+                    <div class="col-6 col-md-3 col-lg-3 pt-1 order-4 order-md-3 text-right translation" style="line-height: 2rem;">
                         @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
                             @if($post->hasTranslation($key))
-                                <a href="/postTranslations/{{ $post->id }}/{{ $key }}/edit" class="bg-success text-white p-1 mb-1">{{$key}}</a>
+                                <a href="/postTranslations/{{ $post->id }}/{{ $key }}/edit" class="bg-success text-white px-1 mb-1 mb-md-0 d-inline-block">{{$key}}</a>
                             @else
-                                <a href="/postTranslations/{{ $post->id }}/{{ $key }}/create" class="bg-secondary text-white p-1 mb-1">{{$key}}</a>
+                                <a href="/postTranslations/{{ $post->id }}/{{ $key }}/create" class="bg-secondary text-white px-1 mb-1 mb-md-0 d-inline-block">{{$key}}</a>
                             @endif
                         @endforeach
                     </div>
