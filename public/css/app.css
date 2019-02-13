@@ -20166,15 +20166,33 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after 
 }
 
 .featurette .text .featurette-heading {
+  position: relative;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.5;
   letter-spacing: -0.05rem;
+  font-size: 3rem;
+  padding-top: 1rem;
 }
 
-@media (min-width: 40em) {
+@media screen and (max-width: 400px) {
   .featurette .text .featurette-heading {
-    font-size: 50px;
+    font-size: 2rem;
+    line-height: 1.5;
   }
+}
+
+.featurette .text .featurette-heading:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  /*left: 50%;
+  margin-left: -75px;*/
+  left: 0;
+  margin-left: 0;
+  display: block;
+  width: 150px;
+  height: 2px;
+  background: currentColor;
 }
 
 .featurette .text .lead {
