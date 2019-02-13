@@ -64,6 +64,7 @@
                 {{-- Title and Preview --}}
                     <div class="col-10 col-md-5 col-lg-5 order-1 title">
                         <a href="{{ route('posts.edit',$post->id) }}" class="pt-2 d-inline-block">{{ $post->translate('en')->title }}</a>
+                        
                         <a class="btn btn-secondary ml-2 py-0 px-1 mt-md-1 float-md-right" href="{{ route('posts.show',$post->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="@lang('views.preview')"><small><i class="fas fa-eye"></i></small></a>
                     </div>
                 
