@@ -31,14 +31,15 @@ class MenuItemController extends Controller
      */
     public function index($id){
         
-        $selectedMenuName = Menu::find($id)->name;
-        $menuItemsTree = MenuItem::getItemsTree($id);
-        dump($menuItemsTree);
         // Countries available for translations
             $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
 
         // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
             App::setLocale('en');
+            
+        $selectedMenuName = Menu::find($id)->name;
+        $menuItemsTree = MenuItem::getItemsTree($id);
+        //dump($menuItemsTree);
             
         return view('menuItems.index',compact('menuItemsTree'))
                     ->with('selectedMenuId', $id)
