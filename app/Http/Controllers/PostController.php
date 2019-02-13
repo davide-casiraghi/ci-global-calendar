@@ -306,11 +306,11 @@ class PostController extends Controller
      */
      public function saveOnDb($request, $post){
          
-         $post->title = $request->get('title');
+         $post->translateOrNew('en')->title = $request->get('title');
          //$post->body = $request->get('body');
-         $post->body = clean($request->get('body'));
+         $post->translateOrNew('en')->body = clean($request->get('body'));
          $post->created_by = \Auth::user()->id;
-         $post->slug = str_slug($post->title, '-');
+         $post->translateOrNew('en')->slug = str_slug($post->title, '-');
          $post->category_id = $request->get('category_id');
          
          $post->status = $request->get('status');
@@ -324,8 +324,8 @@ class PostController extends Controller
              $post->introimage = $imageName;
         }
 
-         $post->before_content = $request->get('before_content');
-         $post->after_content = $request->get('after_content');
+         $post->translateOrNew('en')->before_content = $request->get('before_content');
+         $post->translateOrNew('en')->after_content = $request->get('after_content');
          
          $post->save();
          
