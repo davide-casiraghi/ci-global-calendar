@@ -173,8 +173,9 @@ class MenuItemController extends Controller
      */
 
     function saveOnDb($request, $menuItem){
-        $menuItem->name = $request->get('name');
-        $menuItem->compact_name = str_slug($request->get('name'), '-');  
+        //dd($request);
+        $menuItem->translateOrNew('en')->name = $request->get('name');
+        $menuItem->translateOrNew('en')->compact_name = str_slug($request->get('name'), '-');  
         if (!$request->get('parent_item_id')){
             $menuItem->parent_item_id = 0;
         }
