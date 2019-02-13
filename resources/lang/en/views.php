@@ -141,7 +141,6 @@ return [
     'menu_items' => 'Menu Items',
     'parent_menu_item' => 'Parent menu item',
     'menu_item_font_awesome_class' => 'Font awesome class',
-    'menu_item_lang_string' => 'Lang string',
     'menu_item_route' => 'Route',
     'menu_item_type' => 'Item type',
     'menu_id' => 'Menu',

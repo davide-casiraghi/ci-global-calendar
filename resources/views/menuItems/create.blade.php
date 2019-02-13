@@ -145,14 +145,6 @@
                       'value' => ''
                 ])
             </div>
-            <div class="col-12">
-                @include('partials.forms.input', [
-                      'title' => __('views.menu_item_lang_string'),
-                      'name' => 'lang_string',
-                      'placeholder' => 'The one in resouces/lang/en - eg. menu.about',
-                      'value' => old('lang_string')
-                ])
-            </div>
         </div>
         
 

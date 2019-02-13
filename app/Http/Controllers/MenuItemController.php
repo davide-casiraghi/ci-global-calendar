@@ -185,7 +185,6 @@ class MenuItemController extends Controller
         $menuItem->url = $request->get('url');
         $menuItem->font_awesome_class = $request->get('font_awesome_class');
         $menuItem->hide_name = ($request->hide_name == "on") ? 1 : 0;
-        $menuItem->lang_string = $request->get('lang_string');
         $menuItem->route = $request->get('route');
         $menuItem->type = $request->get('type');
         $menuItem->menu_id = $request->get('menu_id');
