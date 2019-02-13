@@ -9,7 +9,7 @@
         - $value: the already stored value (used in edit view to retrieve the already stored value)
 --}}
 
-<div class="form-group">
+<div class="form-group {{ $name }}">
     @if(!empty($title))<label for="{{ $name }}">{{ $title }}</label>@endif
     <textarea   class="form-control{{ $errors->has($name) ? ' is-invalid' : '' }}" 
                 style="height: @if(!empty($height)){{ $height }}@else{{'9rem'}}@endif" 

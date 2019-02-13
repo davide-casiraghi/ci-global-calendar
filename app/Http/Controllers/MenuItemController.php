@@ -33,7 +33,7 @@ class MenuItemController extends Controller
         
         $selectedMenuName = Menu::find($id)->name;
         $menuItemsTree = MenuItem::getItemsTree($id);
-        
+        dump($menuItemsTree);
         // Countries available for translations
             $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
 

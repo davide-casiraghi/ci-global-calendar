@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Dimsav\Translatable\Translatable;
 
+use App\MenuItemTranslation;
+
 class MenuItem extends Model
 {
     use Translatable;
@@ -27,12 +29,21 @@ class MenuItem extends Model
 
     public static function getItemsTree($menuId){
     
-        $menuItems = MenuItem::            
+        /*$menuItems = MenuItem::            
                         when($menuId, function ($query, $menuId) {
                             return $query->where('menu_id', $menuId);
                         })
                         ->orderBy('order','ASC')
-                        ->get();
+                        ->get();*/
+                        
+        $menuItems = MenuItem::            
+                        when($menuId, function ($query, $menuId) {
+                            return $query->where('menu_id', $menuId);
+                        })
+                        //->leftJoin('menu_item_translations', 'menu_items.id', '=', 'menu_item_translations.menu_item_id')
+                        ->orderBy('order','ASC')
+                        ->get();    
+                        
                                 
         $new = array();
         foreach ($menuItems as $menuItem){
