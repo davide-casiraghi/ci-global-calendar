@@ -16,6 +16,7 @@ class CategoryTranslationController extends Controller
         $this->middleware('admin');
     }
     
+    // **********************************************************************
     /**
      * Display a listing of the resource.
      *
@@ -26,16 +27,42 @@ class CategoryTranslationController extends Controller
         //
     }
 
+    // **********************************************************************
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create($categoryId, $languageCode){
+        $selectedLocaleName = $this->getSelectedLocaleName($languageCode);
+        
+        return view('categoryTranslations.create')
+                ->with('categoryId',$categoryId)
+                ->with('languageCode',$languageCode)
+                ->with('selectedLocaleName',$selectedLocaleName);
+    }
+    
+    // **********************************************************************
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\CategoryTranslation  $categoryTranslation
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($categoryId, $languageCode){
+        $categoryTranslation = CategoryTranslation::where('category_id', $categoryId)
+                        ->where('locale', $languageCode)
+                        ->first();
+                        
+        $selectedLocaleName = $this->getSelectedLocaleName($languageCode);
+        
+        return view('categoryTranslations.edit',compact('categoryTranslation'))
+                    ->with('categoryId',$categoryId)
+                    ->with('languageCode',$languageCode)
+                    ->with('selectedLocaleName',$selectedLocaleName);
     }
 
+    // **********************************************************************
     /**
      * Store a newly created resource in storage.
      *
@@ -47,6 +74,7 @@ class CategoryTranslationController extends Controller
         //
     }
 
+    // **********************************************************************
     /**
      * Display the specified resource.
      *
@@ -58,17 +86,7 @@ class CategoryTranslationController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\CategoryTranslation  $categoryTranslation
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(CategoryTranslation $categoryTranslation)
-    {
-        //
-    }
-
+    // **********************************************************************
     /**
      * Update the specified resource in storage.
      *
@@ -81,6 +99,7 @@ class CategoryTranslationController extends Controller
         //
     }
 
+    // **********************************************************************
     /**
      * Remove the specified resource from storage.
      *
