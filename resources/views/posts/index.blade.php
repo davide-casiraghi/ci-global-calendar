@@ -68,18 +68,17 @@
                     </div>
                 
                 {{-- Category --}}
-                    <div class="col-6 col-md-2 col-lg-3 pt-2 order-3 order-md-2 category">
-                        <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-2" data-original-title="@lang('general.category')"></i>
-                        {{ $categories[$post->category_id] }}
+                    <div class="col-6 col-md-2 col-lg-2 pt-2 order-3 order-md-2 category">
+                        <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-2" data-original-title="@lang('general.category')"></i>{{ $categories[$post->category_id] }}
                     </div>
                 
                 {{-- Translations --}}
-                    <div class="col-6 col-md-3 col-lg-3 pt-1 order-4 order-md-3 text-right translation" style="line-height: 2rem;">
+                    <div class="col-6 col-md-3 col-lg-4 order-4 order-md-3 text-right translation" style="line-height: 2rem;">
                         @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
                             @if($post->hasTranslation($key))
-                                <a href="/postTranslations/{{ $post->id }}/{{ $key }}/edit" class="bg-success text-white px-1 mb-1 mb-md-0 d-inline-block">{{$key}}</a>
+                                <a href="/postTranslations/{{ $post->id }}/{{ $key }}/edit" class="bg-success text-white px-2 mb-1 mb-md-0 d-inline-block rounded">{{$key}}</a>
                             @else
-                                <a href="/postTranslations/{{ $post->id }}/{{ $key }}/create" class="bg-secondary text-white px-1 mb-1 mb-md-0 d-inline-block">{{$key}}</a>
+                                <a href="/postTranslations/{{ $post->id }}/{{ $key }}/create" class="bg-secondary text-white px-2 mb-1 mb-md-0 d-inline-block rounded">{{$key}}</a>
                             @endif
                         @endforeach
                     </div>
