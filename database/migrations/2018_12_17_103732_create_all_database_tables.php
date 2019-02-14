@@ -240,6 +240,21 @@ class CreateAllDatabaseTables extends Migration
         
             $table->timestamps();
         });
+        
+        Schema::create('category_translations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('category_id')->unsigned();
+            
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('slug');
+            
+            $table->string('locale')->index();
+            
+            $table->unique(['category_id','locale']);
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+        });
+        
     }
 
     /**
@@ -251,7 +266,6 @@ class CreateAllDatabaseTables extends Migration
     {
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_resets');
-        Schema::dropIfExists('categories');
         Schema::dropIfExists('teachers');
         Schema::dropIfExists('events');
         Schema::dropIfExists('event_categories');
@@ -275,5 +289,12 @@ class CreateAllDatabaseTables extends Migration
         });
         Schema::dropIfExists('menu_item_translations');
         Schema::dropIfExists('menu_items');
+        
+        Schema::table('category_translations', function (Blueprint $table) {
+            $table->dropForeign('category_translations_category_id_foreign');
+        });
+        Schema::dropIfExists('category_translations');
+        Schema::dropIfExists('categories');
+        
     }
 }
