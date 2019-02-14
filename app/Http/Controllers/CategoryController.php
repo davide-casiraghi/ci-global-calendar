@@ -6,6 +6,8 @@ use App\Category;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 use Validator;
 
 class CategoryController extends Controller
@@ -23,9 +25,13 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::latest()->paginate(5);
+        
+        // Countries available for translations
+            $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
 
         return view('categories.index',compact('categories'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 5)
+            ->with('countriesAvailableForTranslations',$countriesAvailableForTranslations);
     }
 
     /**

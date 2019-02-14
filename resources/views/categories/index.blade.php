@@ -33,7 +33,7 @@
                 {{-- Translations --}}
                     <div class="col-6 col-md-6 col-lg-4 order-4 order-md-3 text-right translation" style="line-height: 2rem;">
                         @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
-                            @if($post->hasTranslation($key))
+                            @if($category->hasTranslation($key))
                                 <a href="/categoryTranslations/{{ $category->id }}/{{ $key }}/edit" class="bg-success text-white px-2 mb-1 mb-md-0 d-inline-block rounded">{{$key}}</a>
                             @else
                                 <a href="/categoryTranslations/{{ $category->id }}/{{ $key }}/create" class="bg-secondary text-white px-2 mb-1 mb-md-0 d-inline-block rounded">{{$key}}</a>
