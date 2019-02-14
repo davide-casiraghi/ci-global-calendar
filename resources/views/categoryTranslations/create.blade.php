@@ -1,10 +1,10 @@
-@extends('categoriesTranslations.layout')
+@extends('categoryTranslations.layout')
 
 @section('content')
     
     <div class="row">
         <div class="col-12 col-sm-6">
-            <h2>@lang('views.edit_translation')</h2>
+            <h2>@lang('views.add_new_translation')</h2>
         </div>
         <div class="col-12 col-sm-6 text-right">
             <span class="badge badge-secondary">{{$selectedLocaleName}}</span>
@@ -15,14 +15,8 @@
           'style' => 'alert-danger',
     ])
 
-    <form action="{{ route('categoryTranslations.update') }}" method="POST">
+    <form action="{{ route('categoryTranslations.store') }}" method="POST">
         @csrf
-        @method('PUT')
-
-            @include('partials.forms.input-hidden', [
-                  'name' => 'category_translation_id',
-                  'value' => $categoryTranslation->id
-            ])
 
             @include('partials.forms.input-hidden', [
                   'name' => 'category_id',
@@ -39,7 +33,7 @@
                     'title' => 'Name',
                     'name' => 'name',
                     'placeholder' => 'Category name',
-                    'value' => $categoryTranslation->name,
+                    'value' => old('name'),
                 ])
             </div>
             
@@ -48,7 +42,7 @@
                       'title' => __('general.description'),
                       'name' => 'description',
                       'placeholder' => 'Description',
-                      'value' => $categoryTranslation->description,
+                      'value' => old('description')
                 ])
             </div>
         </div>
