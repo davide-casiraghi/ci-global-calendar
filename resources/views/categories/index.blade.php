@@ -24,9 +24,22 @@
     <div class="venuesList my-4">
         @foreach ($categories as $category)
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
-                <div class="col-12 col-md-6 col-lg-8 py-3 title">
-                    <a href="{{ route('categories.edit',$category->id) }}">{{ $category->name }}</a>
-                </div>
+                
+                {{-- Title --}}
+                    <div class="col-6 col-md-6 col-lg-8 py-3 title">
+                        <a href="{{ route('categories.edit',$category->id) }}">{{ $category->name }}</a>
+                    </div>
+                
+                {{-- Translations --}}
+                    <div class="col-6 col-md-6 col-lg-4 order-4 order-md-3 text-right translation" style="line-height: 2rem;">
+                        @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
+                            @if($post->hasTranslation($key))
+                                <a href="/categoryTranslations/{{ $category->id }}/{{ $key }}/edit" class="bg-success text-white px-2 mb-1 mb-md-0 d-inline-block rounded">{{$key}}</a>
+                            @else
+                                <a href="/categoryTranslations/{{ $category->id }}/{{ $key }}/create" class="bg-secondary text-white px-2 mb-1 mb-md-0 d-inline-block rounded">{{$key}}</a>
+                            @endif
+                        @endforeach
+                    </div>
                 
                 <div class="col-12 pb-2 action">
                     <form action="{{ route('categories.destroy',$category->id) }}" method="POST">

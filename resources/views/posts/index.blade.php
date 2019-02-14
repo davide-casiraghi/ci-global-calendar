@@ -56,7 +56,6 @@
 
 
     {{-- List of posts --}}
-    
     <div class="venuesList my-4">
         @foreach ($posts as $post)
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
