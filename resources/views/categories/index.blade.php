@@ -26,30 +26,29 @@
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
                 
                 {{-- Title --}}
-                    <div class="col-6 col-md-6 col-lg-8 py-3 title">
+                    <div class="col-5 py-2 title">
                         <a href="{{ route('categories.edit',$category->id) }}">{{ $category->name }}</a>
                     </div>
                 
                 {{-- Translations --}}
-                    <div class="col-6 col-md-6 col-lg-4 order-4 order-md-3 text-right translation" style="line-height: 2rem;">
+                    <div class="col-5 text-right translation mt-2" style="line-height: 2rem;">
                         @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
                             @if($category->hasTranslation($key))
-                                <a href="/categoryTranslations/{{ $category->id }}/{{ $key }}/edit" class="bg-success text-white px-2 mb-1 mb-md-0 d-inline-block rounded">{{$key}}</a>
+                                <a href="/categoryTranslations/{{ $category->id }}/{{ $key }}/edit" class="bg-success text-white px-2 mb-1 d-inline-block rounded">{{$key}}</a>
                             @else
-                                <a href="/categoryTranslations/{{ $category->id }}/{{ $key }}/create" class="bg-secondary text-white px-2 mb-1 mb-md-0 d-inline-block rounded">{{$key}}</a>
+                                <a href="/categoryTranslations/{{ $category->id }}/{{ $key }}/create" class="bg-secondary text-white px-2 mb-1 d-inline-block rounded">{{$key}}</a>
                             @endif
                         @endforeach
                     </div>
                 
-                <div class="col-12 pb-2 action">
+                <div class="col-2 pb-2 action">
                     <form action="{{ route('categories.destroy',$category->id) }}" method="POST">
 
-                        <a class="btn btn-primary" href="{{ route('categories.edit',$category->id) }}">@lang('views.edit')</a>
-
+                        
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger float-right">@lang('views.delete')</button>
+                        <button type="submit" class="btn btn-danger float-right"><i class="far fa-trash-alt"></i></button>
                     </form>
                 </div>
             </div>
