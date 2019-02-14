@@ -27,7 +27,7 @@
                 
                 {{-- Title --}}
                     <div class="col-5 py-2 title">
-                        <a href="{{ route('categories.edit',$category->id) }}">{{ $category->name }}</a>
+                        <a href="{{ route('categories.edit',$category->id) }}">{{ $category->translate('en')->name }}</a>
                     </div>
                 
                 {{-- Translations --}}

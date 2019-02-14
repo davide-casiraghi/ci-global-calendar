@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -39,8 +40,8 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(){
+            
         return view('categories.create');
     }
 
@@ -62,7 +63,9 @@ class CategoryController extends Controller
         
         $category = new Category();
 
-        //Category::create($request->all());
+        // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
+            App::setLocale('en');
+        
         $this->saveOnDb($request, $category);
 
         return redirect()->route('categories.index')
@@ -87,6 +90,10 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Category $category){
+        
+        // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
+            App::setLocale('en');
+        
         return view('categories.edit',compact('category'));
     }
 
@@ -102,7 +109,9 @@ class CategoryController extends Controller
             'name' => 'required'
         ]);
 
-        //$category->update($request->all());
+        // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
+            App::setLocale('en');
+        
         $this->saveOnDb($request, $category);
 
         return redirect()->route('categories.index')
