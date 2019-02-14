@@ -69,10 +69,14 @@ class PostController extends Controller
                                                   ->orWhere('post_translations.title', 'like', '%' . $searchKeywords . '%');
                         
                         });
-                        //->where('post_translations.title', $searchKeywords)->orWhere('post_translations.title', 'like', '%' . $searchKeywords . '%');
+                        
                 })
                 ->when($searchCategory, function ($query, $searchCategory) {
-                    return $query->where('category_id', '=', $searchCategory);
+                    //return $query->where('category_id', '=', $searchCategory);
+                    return $query->where('post_translations.locale','=','en')
+                                 ->where(function ($query) use ($searchCategory) { 
+                                            $query->where('category_id', '=', $searchCategory);
+                        });
                 })
                 ->paginate(20);
         }
