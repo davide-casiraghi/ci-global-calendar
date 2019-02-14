@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
+use Carbon\Carbon;
+
 class EventSearchController extends Controller
 {
     // **********************************************************************     
@@ -147,6 +149,8 @@ class EventSearchController extends Controller
                 });*/
         }
 
+        Carbon::setLocale('ru');
+        
         return view('eventSearch.index',compact('events'))
             ->with('i', (request()->input('page', 1) - 1) * 20)
             ->with('eventCategories',$eventCategories)

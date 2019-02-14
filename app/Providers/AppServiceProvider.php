@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
         });
         Blade::directive('month', function ($expression) {
             /*return "<?php echo date('M', strtotime($expression))?>";*/
-            /*return "<?php echo Carbon\Carbon::parse(strtotime($expression))->format('d-m-Y i') ?>";*/
+            
             return "<?php echo Carbon\Carbon::parse($expression)->format('M')?>";
             /*return "<?php echo 'aa';?>";*/
         });
