@@ -69,9 +69,24 @@ class CategoryTranslationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        // Validate form datas
+            $validator = Validator::make($request->all(), [
+                'name' => 'required',
+            ]);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
+
+        $categoryTranslation = new CategoryTranslation();
+        $categoryTranslation->category_id = $request->get('category_id');
+        $categoryTranslation->locale = $request->get('language_code');
+        
+        $categoryTranslation->name = $request->get('name');
+        $categoryTranslation->description = $request->get('description');
+        $categoryTranslation->slug = str_slug($categoryTranslation->name, '-');
+
+        $categoryTranslation->save();
     }
 
     // **********************************************************************
