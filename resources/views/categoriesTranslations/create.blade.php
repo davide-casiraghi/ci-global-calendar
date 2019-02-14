@@ -15,7 +15,6 @@
           'style' => 'alert-danger',
     ])
 
-    
     <form action="{{ route('categoryTranslations.store') }}" method="POST">
         @csrf
 
@@ -34,7 +33,7 @@
                     'title' => 'Name',
                     'name' => 'name',
                     'placeholder' => 'Category name',
-                    'value' => old('name')
+                    'value' => old('name'),
                 ])
             </div>
             
@@ -42,7 +41,8 @@
                 @include('partials.forms.textarea', [
                       'title' => __('general.description'),
                       'name' => 'description',
-                      'placeholder' => 'Description'
+                      'placeholder' => 'Description',
+                      'value' => old('description')
                 ])
             </div>
         </div>
