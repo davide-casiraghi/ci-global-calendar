@@ -75,10 +75,9 @@ class MenuItemTranslationController extends Controller
             }
 
         $menuItemTranslation = new MenuItemTranslation();
-
         $menuItemTranslation->menu_item_id = $request->get('menu_item_id');
         $menuItemTranslation->locale = $request->get('language_code');
-
+        
         $menuItemTranslation->name = $request->get('name');
         $menuItemTranslation->compact_name = str_slug($menuItemTranslation->name, '-');
 

@@ -87,6 +87,9 @@ class CategoryTranslationController extends Controller
         $categoryTranslation->slug = str_slug($categoryTranslation->name, '-');
 
         $categoryTranslation->save();
+        
+        return redirect()->route('categories.index')
+                        ->with('success','Translation created successfully.');
     }
 
     // **********************************************************************
@@ -109,9 +112,21 @@ class CategoryTranslationController extends Controller
      * @param  \App\CategoryTranslation  $categoryTranslation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CategoryTranslation $categoryTranslation)
-    {
-        //
+    public function update(Request $request){
+        request()->validate([
+            'name' => 'required',
+        ]);
+
+        $categoryTranslation = CategoryTranslation::where ('id', $request->get('category_translation_id'));
+
+        $category_t['name'] = $request->get('name');
+        $category_t['description'] = $request->get('description');
+        $category_t['slug'] = str_slug($request->get('name'), '-');
+
+        $categoryTranslation->update($category_t);
+
+        return redirect()->route('categories.index')
+                        ->with('success','Translation updated successfully');
     }
 
     // **********************************************************************
