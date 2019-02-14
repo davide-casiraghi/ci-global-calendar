@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\CategoryTranslation;
+
 use Illuminate\Http\Request;
+
+use Validator;
 
 class CategoryTranslationController extends Controller
 {
+    /* Restrict the access to this resource just to logged in users */
+    public function __construct(){
+        $this->middleware('admin');
+    }
+    
     /**
      * Display a listing of the resource.
      *
