@@ -27,9 +27,7 @@ class Category extends Model
      * @return \Illuminate\Http\Response
      */
      public static function categorydata($cat_id){
-         $ret = Category::
-                    join('category_translations', 'categories.id', '=', 'category_translations.category_id')
-                    ->where('categories.id', $cat_id)->first();
+         $ret = Category::where('categories.id', $cat_id)->first();
 
          return $ret;
      }
