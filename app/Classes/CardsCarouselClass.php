@@ -68,15 +68,15 @@ class CardsCarouselClass {
 
             $ret .= "<div class='row'>";
             //dump($postsData);
-              foreach ($postsData as $key => $postData) {
+              for ($i=1; $i <= $parameters['posts_max_number']; $i++) {
                   $ret .= "<div class='col'>";
                       if ($parameters['show_images']){
-                          $ret .= "<img class='rounded-circle mb-4' style='width:100%;' src='".$postData->introimage."' alt='".$postData->introimage_alt."'>";
+                          $ret .= "<img class='rounded-circle mb-4' style='width:100%;' src='".$postsData[$i]->introimage."' alt='".$postData->introimage_alt."'>";
                       }
                       
-                      $ret .= "<h3 class='mb-4'>".$postData->title."</h3>";
-                      $ret .= "<div>".str_limit(strip_tags($postData->body, '<br><p><b>'),$parameters['limit_chars'])."</div>";
-                      $ret .= "<p><a class='btn btn-secondary' href='/post/".$postData->slug."' role='button'>View details »</a></p>";
+                      $ret .= "<h3 class='mb-4'>".$postsData[$i]->title."</h3>";
+                      $ret .= "<div>".str_limit(strip_tags($postsData[$i]->body, '<br><p><b>'),$parameters['limit_chars'])."</div>";
+                      $ret .= "<p><a class='btn btn-secondary' href='/post/".$postsData[$i]->slug."' role='button'>View details »</a></p>";
                   $ret .= "</div>";
               }
              $ret .= "</div>";
@@ -112,7 +112,7 @@ class CardsCarouselClass {
                             $postsData = Post::postsByCategory($parameters['cat_id']);
                             $categoryData = Category::categorydata($parameters['cat_id']);
                             
-                            dump($postsData);
+                            //dump($postsData);
 
                         // Prepare Columns HTML
                             $columnsHtml = $this->prepareColumns($parameters, $postsData, $categoryData);
