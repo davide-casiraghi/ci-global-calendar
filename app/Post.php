@@ -24,9 +24,8 @@ class Post extends Model
      */
      public static function postsByCategory($cat_id){
          $ret = Post::
-               join('post_translations', 'posts.id', '=', 'post_translations.post_id')
-               ->where('locale', App::getLocale())
-               ->where('category_id', $cat_id)
+               //join('post_translations', 'posts.id', '=', 'post_translations.post_id')
+               where('category_id', $cat_id)
                ->get();
 
          return $ret;

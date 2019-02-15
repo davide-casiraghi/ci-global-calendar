@@ -29,7 +29,6 @@ class Category extends Model
      public static function categorydata($cat_id){
          $ret = Category::
                     join('category_translations', 'categories.id', '=', 'category_translations.category_id')
-                    ->where('locale', App::getLocale())
                     ->where('categories.id', $cat_id)->first();
 
          return $ret;

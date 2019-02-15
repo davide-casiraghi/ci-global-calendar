@@ -111,7 +111,8 @@ class CardsCarouselClass {
                         // Get the post and category data
                             $postsData = Post::postsByCategory($parameters['cat_id']);
                             $categoryData = Category::categorydata($parameters['cat_id']);
-                            //$categoryData = $this->getCategoryData($parameters);
+                            
+                            dump($postsData);
 
                         // Prepare Columns HTML
                             $columnsHtml = $this->prepareColumns($parameters, $postsData, $categoryData);
