@@ -45,7 +45,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-        $categories = $this->getPostCategories();
+        $categories = Category::getCategoriesArray();
 
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
@@ -102,7 +102,7 @@ class PostController extends Controller
      */
     public function create(){
 
-        $categories = $this->getPostCategories();
+        $categories = Category::getCategoriesArray();
 
         return view('posts.create')->with('categories', $categories);
     }
@@ -205,7 +205,7 @@ class PostController extends Controller
      */
     public function edit(Post $post){
 
-        $categories = $this->getPostCategories();
+        $categories = Category::getCategoriesArray();
 
         return view('posts.edit',compact('post'))->with('categories', $categories);
     }
@@ -315,23 +315,7 @@ class PostController extends Controller
          
      }
      
-     /***************************************************************************/
-     /**
-      * Return the post categories collection
-      *
-      * @param  none
-      * @return \Illuminate\Http\Response
-      */
      
-     public function getPostCategories(){
-         $ret = Category::
-                         join('category_translations', 'categories.id', '=', 'category_translations.category_id')
-                         ->where('category_translations.locale','=','en')
-                         ->orderBy('category_translations.name')
-                         ->pluck('category_translations.name', 'categories.id');
-                             
-         return $ret;
-     }
      
      
 }

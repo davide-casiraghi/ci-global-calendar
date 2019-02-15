@@ -31,5 +31,30 @@ class Category extends Model
 
          return $ret;
      }
+     
+     /***************************************************************************/
+     /**
+      * Return the post categories array
+      * the collection is transferred to an array to symulate the pluck behaviour, 
+      * and get the category name translated or the relative fallbacks.
+      * (otherwise the pluck has empty names because doesn't fallback)
+      *
+      * @param  none
+      * @return \Illuminate\Http\Response
+      */
+     
+     public static function getCategoriesArray(){
+                        
+        //$ret = Category::pluck('name', 'id');
+        $ret = array();
+        
+        $categories = Category::get();
+        
+        foreach ($categories as $key => $category) {
+            $ret[$category->id] = $category->name;
+        }                
+                        
+         return $ret;
+     }
     
 }
