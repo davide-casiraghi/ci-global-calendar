@@ -45,7 +45,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-        $categories = $this->getPostCategoriesArray();
+        $categories = Category::getCategoriesArray();
 
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
@@ -102,7 +102,7 @@ class PostController extends Controller
      */
     public function create(){
 
-        $categories = $this->getPostCategoriesArray();
+        $categories = Category::getCategoriesArray();
 
         return view('posts.create')->with('categories', $categories);
     }
@@ -205,7 +205,7 @@ class PostController extends Controller
      */
     public function edit(Post $post){
 
-        $categories = $this->getPostCategoriesArray();
+        $categories = Category::getCategoriesArray();
 
         return view('posts.edit',compact('post'))->with('categories', $categories);
     }
@@ -315,31 +315,7 @@ class PostController extends Controller
          
      }
      
-     /***************************************************************************/
-     /**
-      * Return the post categories array
-      * the collection is transferred to an array to symulate the pluck behaviour, 
-      * and get the category name translated or the relative fallback
-      *
-      * @param  none
-      * @return \Illuminate\Http\Response
-      */
      
-     public function getPostCategoriesArray(){
-                        
-         //$ret = Category::pluck('name', 'id');
-                        
-        
-        $categories = Category::get();
-        
-        $ret = array();
-        foreach ($categories as $key => $category) {
-            $ret[$category->id] = $category->name;
-        }
-                        
-                        
-         return $ret;
-     }
      
      
 }
