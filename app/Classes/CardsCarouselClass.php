@@ -66,7 +66,7 @@ class CardsCarouselClass {
           if ($parameters['show_category_title'])
             $ret .= "<h2 class='column-title mb-4' style='text-align: center;'>".$categoryData->name."</h3>";
 
-            $ret .= "<div class='row'>";
+            $ret .= "<div class='row card-carousel-wrapper'>";
             //dump($postsData);
               for ($i=1; $i <= $parameters['posts_max_number']; $i++) {
                   $ret .= "<div class='col'>";

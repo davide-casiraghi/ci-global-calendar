@@ -19,6 +19,7 @@ require('./plugins/gallery');     // gallery.js
 require('./plugins/imagepopup');  // imagepopup.js
 require('./plugins/statistics');  // statistics.js
 require('./plugins/community_goals');  // community_goals.js
+require('./plugins/cards_carousel');  // community_goals.js
 
 //require('./utility/selectpicker_mobile');
 

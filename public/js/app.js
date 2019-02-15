@@ -56786,6 +56786,9 @@ __webpack_require__(/*! ./plugins/statistics */ "./resources/js/plugins/statisti
 
 
 __webpack_require__(/*! ./plugins/community_goals */ "./resources/js/plugins/community_goals.js"); // community_goals.js
+
+
+__webpack_require__(/*! ./plugins/cards_carousel */ "./resources/js/plugins/cards_carousel.js"); // community_goals.js
 //require('./utility/selectpicker_mobile');
 // File manager for intro_image button in edit.post view
 
@@ -57022,6 +57025,78 @@ if (jQuery('.accordion').length) {
   });
 }
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+/***/ }),
+
+/***/ "./resources/js/plugins/cards_carousel.js":
+/*!************************************************!*\
+  !*** ./resources/js/plugins/cards_carousel.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(jQuery, $) {// Load Jquery UI accordion, the one with (+)
+if (jQuery('.card-carousel-wrapper').length) {
+  // Create carousel 
+  var createCarouselTestimonial = function createCarouselTestimonial(numberOfSlides) {
+    $('.card-carousel-wrapper').not('.slick-initialized').slick({
+      dots: true,
+      arrows: true,
+      infinite: true,
+      slidesToShow: numberOfSlides,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 6000,
+      pauseOnHover: true
+    });
+  }; // Calculate number of slides to show
+
+
+  var calculateNumberOfSlidesToShowTestimonial = function calculateNumberOfSlidesToShowTestimonial() {
+    var carouselWidth = $(".card-carousel-wrapper").width();
+    var numberOfSlides = 0;
+
+    switch (true) {
+      case carouselWidth < 767:
+        numberOfSlides = 1;
+        break;
+
+      case carouselWidth < 991:
+        numberOfSlides = 2;
+        break;
+
+      case carouselWidth < 1199:
+        numberOfSlides = 3;
+        break;
+
+      case carouselWidth > 1200:
+        numberOfSlides = 3;
+        break;
+    }
+
+    return numberOfSlides;
+  }; // Reload Carousel on browser resize (to make it responsible)
+
+
+  var reloadCarouselTestimonial = function reloadCarouselTestimonial() {
+    $('.card-carousel-wrapper').slick('unslick');
+    numberOfSlides = calculateNumberOfSlidesToShowTestimonial();
+    createCarouselTestimonial(numberOfSlides);
+  }; // Call updateMaxHeight when browser resize event fires
+
+
+  $(window).on("resize", reloadCarouselTestimonial);
+  $(document).ready(function () {
+    // Start carousel
+    if ($(".card-carousel-wrapper").length) {
+      setTimeout(function () {
+        numberOfSlides = calculateNumberOfSlidesToShowTestimonial();
+        createCarouselTestimonial(numberOfSlides);
+      }, 300);
+    }
+  });
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
 
