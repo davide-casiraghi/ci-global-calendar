@@ -130,22 +130,7 @@ class CategoryController extends Controller
                         ->with('success',__('messages.category_deleted_successfully'));
     }
 
-    // **********************************************************************
-
-    /**
-     * Return the single category datas by cat id
-     *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-     public function categorydata($cat_id){
-         $ret = DB::table('categories')->where('id', $cat_id)->first();
-
-         return $ret;
-     }
-
-     // **********************************************************************
-
+     /***************************************************************************/
      /**
       * Save/Update the record on DB
       *

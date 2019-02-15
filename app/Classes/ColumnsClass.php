@@ -9,6 +9,7 @@
 namespace App\Classes;
 
 use App\Post;
+use App\Category;
 
 class ColumnsClass {
 
@@ -34,21 +35,6 @@ class ColumnsClass {
 
          return $ret;
      }
-
-   // **********************************************************************
-
-   /**
-    *  Provide the post data array (post_title, post_body, post_image)
-    *  @param array $file_name        the file name
-    *  @return array $ret             the extension
-   **/
-
-   function getCategoryData($parameters) {
-       $categoryData = app('App\Http\Controllers\CategoryController')->categorydata($parameters['cat_id']);
-       $ret = $categoryData;
-
-       return $ret;
-   }
 
   // **********************************************************************
 
@@ -128,7 +114,7 @@ class ColumnsClass {
 
                         // Get the post and category data
                             $postsData = Post::postsByCategory($parameters['cat_id']);
-                            $categoryData = $this->getCategoryData($parameters);
+                            $categoryData = Category::categorydata($parameters['cat_id']);
 
                         // Prepare Columns HTML
                             $columnsHtml = $this->prepareColumns($parameters, $postsData, $categoryData);

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Database\Eloquent\Model;
 use Dimsav\Translatable\Translatable;
 
@@ -17,4 +18,21 @@ class Category extends Model
     protected $fillable = [
         'name', 'slug', 'description'
     ];
+    
+    /***************************************************************************/
+    /**
+     * Return the single category datas by cat id
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+     public static function categorydata($cat_id){
+         $ret = Category::
+                    join('category_translations', 'categories.id', '=', 'category_translations.category_id')
+                    ->where('locale', App::getLocale())
+                    ->where('categories.id', $cat_id)->first();
+
+         return $ret;
+     }
+    
 }
