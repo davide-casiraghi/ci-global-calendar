@@ -280,23 +280,6 @@ class PostController extends Controller
          return $ret;
      }
 
-     /***************************************************************************/
-     /**
-      * Return all the posts by category id in the language specified
-      *
-      * @param  \App\Post  $post
-      * @return \Illuminate\Http\Response
-      */
-      public function postsdata($cat_id){
-          $ret = Post::
-                join('post_translations', 'posts.id', '=', 'post_translations.post_id')
-                ->where('locale', App::getLocale())
-                ->where('category_id', $cat_id)
-                ->get();
-
-          return $ret;
-      }
-
     /***************************************************************************/
     /**
      * Return the post by SLUG. (eg. http://websitename.com/post/xxxxx)

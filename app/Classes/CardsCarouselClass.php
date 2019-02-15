@@ -8,6 +8,7 @@
 
 namespace App\Classes;
 
+use App\Post;
 
 class CardsCarouselClass {
 
@@ -43,7 +44,8 @@ class CardsCarouselClass {
     **/
 
     function getPostsData($parameters) {
-        $postsData = app('App\Http\Controllers\PostController')->postsdata($parameters['cat_id']);
+        $postsData = Post::postsdata($parameters['cat_id']);
+        //$postsData = app('App\Http\Controllers\PostController')->postsdata($parameters['cat_id']);
         //dd($postsData);
         $ret = $postsData;
 

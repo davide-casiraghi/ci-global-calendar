@@ -8,6 +8,8 @@
 
 namespace App\Classes;
 
+use App\Post;
+
 class ColumnsClass {
 
     /**
@@ -28,26 +30,6 @@ class ColumnsClass {
              $ret['round_images'] = $matches[6];
              $ret['show_category_title'] = $matches[8];
 
-/*
-             $ret['img_col_size_class'] = "col-md-".$matches[6];
-             $textColSize = 12-$matches[6];
-             $ret['text_col_size_class'] = "col-md-".$textColSize;
-
-             // Image alignment
-                 //$ret['img_alignment'] = $matches[4];
-                 $imageAlignment =  $matches[4];
-
-                 switch ($imageAlignment) {
-                     case 'left':
-                         $ret['img_col_order_class'] = "order-md-1";
-                         $ret['text_col_order_class'] = "order-md-2";
-                         break;
-                     case 'right':
-                         $ret['img_col_order_class'] = "order-md-2";
-                         $ret['text_col_order_class'] = "order-md-1";
-                         break;
-                 }
-*/
              //dump($ret);
 
          return $ret;
@@ -62,7 +44,8 @@ class ColumnsClass {
     **/
 
     function getPostsData($parameters) {
-        $postsData = app('App\Http\Controllers\PostController')->postsdata($parameters['cat_id']);
+        $postsData = Post::postsdata($parameters['cat_id']);
+        //$postsData = app('App\Http\Controllers\PostController')->postsdata($parameters['cat_id']);
         $ret = $postsData;
 
         return $ret;
