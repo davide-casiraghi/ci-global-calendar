@@ -318,18 +318,26 @@ class PostController extends Controller
      /***************************************************************************/
      /**
       * Return the post categories collection
+      * the collection is transferred to an array to symulate the pluck behaviour, 
+      * and get the category name translated or the relative fallback
       *
       * @param  none
       * @return \Illuminate\Http\Response
       */
      
      public function getPostCategories(){
-         $ret = Category::
-                         join('category_translations', 'categories.id', '=', 'category_translations.category_id')
-                         ->where('category_translations.locale','=','en')
-                         ->orderBy('category_translations.name')
-                         ->pluck('category_translations.name', 'categories.id');
-                             
+                        
+         //$ret = Category::pluck('name', 'id');
+                        
+        
+        $categories = Category::get();
+        
+        $ret = array();
+        foreach ($categories as $key => $category) {
+            $ret[$category->id] = $category->name;
+        }
+                        
+                        
          return $ret;
      }
      
