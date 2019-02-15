@@ -41,6 +41,12 @@
 				theme: 'modern',
 				height: 400,
 				{{-- toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | blockquote | link image media  | hr', --}}
+                codesample_languages: [
+            		{text: 'HTML/XML', value: 'markup'},
+            		{text: 'JavaScript', value: 'javascript'},
+            		{text: 'CSS', value: 'css'},
+            		{text: 'PHP', value: 'php'},
+            	],
                 toolbar: 'bold italic | styleselect | bullist numlist | link image | hr blockquote codesample | code ',
                 menubar: false,
                 path_absolute : "/",
