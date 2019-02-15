@@ -41,7 +41,7 @@
 				theme: 'modern',
 				height: 400,
 				{{-- toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | blockquote | link image media  | hr', --}}
-                toolbar: 'bold italic | styleselect | bullist numlist | link image | hr | code',
+                toolbar: 'bold italic | styleselect | bullist numlist | link image | hr blockquote | code',
                 menubar: false,
                 path_absolute : "/",
 				relative_urls: false,
