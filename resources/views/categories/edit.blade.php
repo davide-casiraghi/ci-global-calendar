@@ -26,7 +26,7 @@
                       'title' => __('general.name'),
                       'name' => 'name',
                       'placeholder' => 'Category name',
-                      'value' => $category->name
+                      'value' => $category->translate('en')->name
                 ])
             </div>
             <div class="col-12">

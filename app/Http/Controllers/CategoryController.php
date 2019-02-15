@@ -92,7 +92,7 @@ class CategoryController extends Controller
     public function edit(Category $category){
         
         // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
-            App::setLocale('en');
+            //App::setLocale('en');
         
         return view('categories.edit',compact('category'));
     }
