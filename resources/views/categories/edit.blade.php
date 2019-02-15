@@ -34,7 +34,7 @@
                       'title' => __('general.description'),
                       'name' => 'description',
                       'placeholder' => 'Description',
-                      'value' => $category->description
+                      'value' => $category->translate('en')->description
                 ])
             </div>
         </div>
