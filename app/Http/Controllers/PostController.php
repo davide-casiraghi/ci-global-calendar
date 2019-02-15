@@ -12,6 +12,7 @@ use App\Classes\CardClass;
 use App\Classes\ColumnsClass;
 use App\Classes\StatsDonateClass;
 use App\Classes\CommunityGoalsClass;
+use App\Classes\CardsCarouselClass;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
@@ -145,23 +146,6 @@ class PostController extends Controller
      */
     public function show(Post $post){
         
-        // Get the post translation
-            $postTranslation = PostTranslation::
-                    where('post_translations.post_id', $post->id)
-                    ->where('locale',App::getLocale())
-                    ->first();
-             
-        // If not present get the english version
-            if (!$postTranslation){
-                $postTranslation = PostTranslation::
-                        where('post_translations.post_id', $post->id)
-                        ->where('locale','en')
-                        ->first();
-            }
-        
-        // now the post is the translation
-            $post = $postTranslation;     
-
         // Accordion
             $accordionClass = new AccordionClass();
             $post->body = $accordionClass->getAccordion($post->body);
@@ -174,6 +158,12 @@ class PostController extends Controller
             $post->before_content = $cardClass->getCard($post->before_content);
             $post->after_content = $cardClass->getCard($post->after_content);
 
+        // Category Columns
+            $cardsCarouselClass = new CardsCarouselClass();
+            $post->body = $cardsCarouselClass->getColumns($post->body);
+            $post->before_content = $cardsCarouselClass->getColumns($post->before_content);
+            $post->after_content = $cardsCarouselClass->getColumns($post->after_content);
+            
         // Category Columns
             $columnClass = new ColumnsClass();
             $post->body = $columnClass->getColumns($post->body);
@@ -272,19 +262,6 @@ class PostController extends Controller
 
          return $ret;
      }
-
-     /***************************************************************************/
-     /**
-      * Return all the posts from by category id
-      *
-      * @param  \App\Post  $post
-      * @return \Illuminate\Http\Response
-      */
-      public function postsdata($cat_id){
-          $ret = DB::table('posts')->where('category_id', $cat_id)->get();
-
-          return $ret;
-      }
 
     /***************************************************************************/
     /**
