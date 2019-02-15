@@ -36,12 +36,12 @@
 				 "advlist autolink lists link image charmap print preview hr anchor pagebreak",
 				 "searchreplace wordcount visualblocks visualchars code fullscreen",
 				 "insertdatetime media nonbreaking save table contextmenu directionality",
-				 "emoticons template paste textcolor colorpicker textpattern"
+				 "emoticons template paste textcolor colorpicker textpattern codesample"
 			   ],
 				theme: 'modern',
 				height: 400,
 				{{-- toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | blockquote | link image media  | hr', --}}
-                toolbar: 'bold italic | styleselect | bullist numlist | link image | hr blockquote | code',
+                toolbar: 'bold italic | styleselect | bullist numlist | link image | hr blockquote codesample | code ',
                 menubar: false,
                 path_absolute : "/",
 				relative_urls: false,
