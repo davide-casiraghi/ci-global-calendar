@@ -14,14 +14,14 @@
 @php ($paddingLeft = $level*2-1)
 
 <div class="row py-1 border-bottom">
-    <div class="col-10 col-md-8 pt-2 order-1" style="padding-left:{{$paddingLeft}}rem">
+    <div class="col-10 col-md-6 pt-2 order-1" style="padding-left:{{$paddingLeft}}rem">
         <a href="{{ route('menuItems.edit',$menuItem->id) }}">
             @if(!empty($menuItem->font_awesome_class))<i class="{{ $menuItem->font_awesome_class }}"></i> @endif
             @if(empty($menuItem->hide_name)){{ $menuItem->translate('en')->name }} @endif
         </a>
         @if(!empty($menuItem->access)) <span class="text-secondary">- {{App\MenuItem::getAccessName($menuItem->access)}}</span>@endif
     </div>
-    <div class="col-12 col-md-3 pt-2 pt-md-1 order-3 order-md-2 text-right">
+    <div class="col-12 col-md-5 pt-2 pt-md-1 order-3 order-md-2 text-right">
         @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
             @if($menuItem->hasTranslation($key))
                 <a href="/menuItemTranslations/{{ $menuItem->id }}/{{ $key }}/{{$selectedMenuId}}/edit" class="bg-success text-white d-inline-block p-1 mb-1">{{$key}}</a>
