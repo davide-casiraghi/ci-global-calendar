@@ -56,7 +56,6 @@
 
 
     {{-- List of posts --}}
-    
     <div class="venuesList my-4">
         @foreach ($posts as $post)
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
@@ -73,12 +72,12 @@
                     </div>
                 
                 {{-- Translations --}}
-                    <div class="col-6 col-md-3 col-lg-4 order-4 order-md-3 text-right translation" style="line-height: 2rem;">
+                    <div class="col-6 col-md-3 col-lg-4 order-4 order-md-3 pt-1 text-right translation">
                         @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
                             @if($post->hasTranslation($key))
-                                <a href="/postTranslations/{{ $post->id }}/{{ $key }}/edit" class="bg-success text-white px-2 mb-1 mb-md-0 d-inline-block rounded">{{$key}}</a>
+                                <a href="/postTranslations/{{ $post->id }}/{{ $key }}/edit" class="bg-success text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
                             @else
-                                <a href="/postTranslations/{{ $post->id }}/{{ $key }}/create" class="bg-secondary text-white px-2 mb-1 mb-md-0 d-inline-block rounded">{{$key}}</a>
+                                <a href="/postTranslations/{{ $post->id }}/{{ $key }}/create" class="bg-secondary text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
                             @endif
                         @endforeach
                     </div>

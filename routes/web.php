@@ -42,8 +42,16 @@ function()
             Route::post('/menuItemTranslations/store', 'MenuItemTranslationController@store')->name('menuItemTranslations.store');
             Route::put('/menuItemTranslations/update', 'MenuItemTranslationController@update')->name('menuItemTranslations.update');
         
-    /* Posts */
+    /* Posts Categories */    
         Route::resource('categories','CategoryController');
+        
+        /* Category Translations */
+            Route::get('/categoryTranslations/{categoryId}/{languageCode}/create', 'CategoryTranslationController@create');
+            Route::get('/categoryTranslations/{categoryId}/{languageCode}/edit', 'CategoryTranslationController@edit');
+            Route::post('/categoryTranslations/store', 'CategoryTranslationController@store')->name('categoryTranslations.store');
+            Route::put('/categoryTranslations/update', 'CategoryTranslationController@update')->name('categoryTranslations.update');
+        
+    /* Posts */
         Route::resource('posts','PostController');
         Route::get('/post/{slug}', 'PostController@postBySlug')->where('postBySlug', '[a-z]+');
     

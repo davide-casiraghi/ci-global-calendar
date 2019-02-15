@@ -2,11 +2,13 @@
 
 
 @section('content')
+    
     <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>@lang('views.edit_category')</h2>
-            </div>
+        <div class="col-12 col-sm-6">
+            <h2>@lang('views.edit_category')</h2>
+        </div>
+        <div class="col-12 col-sm-6 text-right">
+            <span class="badge badge-secondary">English</span>
         </div>
     </div>
 
@@ -24,7 +26,7 @@
                       'title' => __('general.name'),
                       'name' => 'name',
                       'placeholder' => 'Category name',
-                      'value' => $category->name
+                      'value' => $category->translate('en')->name
                 ])
             </div>
             <div class="col-12">
@@ -32,7 +34,7 @@
                       'title' => __('general.description'),
                       'name' => 'description',
                       'placeholder' => 'Description',
-                      'value' => $category->description
+                      'value' => $category->translate('en')->description
                 ])
             </div>
         </div>

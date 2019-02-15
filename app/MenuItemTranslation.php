@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class MenuItemTranslation extends Model {
 
     public $timestamps = false;
-    protected $fillable = ['name', 'compact_name'];
+    protected $fillable = ['name', 'description', 'slug'];
 
 }
