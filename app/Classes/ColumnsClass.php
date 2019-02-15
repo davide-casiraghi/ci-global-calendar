@@ -78,7 +78,7 @@ class ColumnsClass {
                     }
                     $ret .= "<h3 class='mb-4'>".$postData->title."</h3>";
                     //$ret .= "<div>".$postData->body."</div>";
-                    $ret .= "<div>".str_limit($postData->body,100)."</div>";
+                    $ret .= "<div>".str_limit(strip_tags($postData->body, '<br><p><b>'),100)."</div>";
                     $ret .= "<p><a class='btn btn-secondary' href='/post/".$postData->slug."' role='button'>View details »</a></p>";
                   $ret .= "</div>";
               }
