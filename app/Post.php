@@ -23,7 +23,7 @@ class Post extends Model
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-     public static function postsdata($cat_id){
+     public static function postsByCategory($cat_id){
          $ret = Post::
                join('post_translations', 'posts.id', '=', 'post_translations.post_id')
                ->where('locale', App::getLocale())

@@ -35,22 +35,6 @@ class ColumnsClass {
          return $ret;
      }
 
-    // **********************************************************************
-
-    /**
-     *  Provide the post data array (post_title, post_body, post_image)
-     *  @param array $file_name        the file name
-     *  @return array $ret             the extension
-    **/
-
-    function getPostsData($parameters) {
-        $postsData = Post::postsdata($parameters['cat_id']);
-        //$postsData = app('App\Http\Controllers\PostController')->postsdata($parameters['cat_id']);
-        $ret = $postsData;
-
-        return $ret;
-    }
-
    // **********************************************************************
 
    /**
@@ -143,7 +127,7 @@ class ColumnsClass {
                             $parameters = $this->getParameters($single_category_column_matches);
 
                         // Get the post and category data
-                            $postsData = $this->getPostsData($parameters);
+                            $postsData = Post::postsByCategory($parameters['cat_id']);
                             $categoryData = $this->getCategoryData($parameters);
 
                         // Prepare Columns HTML
