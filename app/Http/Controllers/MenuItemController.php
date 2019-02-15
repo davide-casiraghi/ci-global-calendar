@@ -58,7 +58,7 @@ class MenuItemController extends Controller
         $routeNames = array_map(function (\Illuminate\Routing\Route $route) { if (isset($route->action['as'])) return $route->action['as']; }, (array) Route::getRoutes()->getIterator());
         
         // Set the default language to edit the post for the admin to English (to avoid bug with null name)
-            App::setLocale('en');
+            //App::setLocale('en');
         
         return view('menuItems.create')
             ->with('menuItems',$menuItems)
@@ -84,6 +84,9 @@ class MenuItemController extends Controller
                 return back()->withErrors($validator)->withInput();
             }
 
+        // Set the default language to edit the post for the admin to English (to avoid bug with null name)
+            App::setLocale('en');
+            
         $menuItem = new MenuItem();
         $this->saveOnDb($request, $menuItem);
         //dd($request->menu_id);
@@ -120,7 +123,7 @@ class MenuItemController extends Controller
         $routeNames = array_map(function (\Illuminate\Routing\Route $route) { if (isset($route->action['as'])) return $route->action['as']; }, (array) Route::getRoutes()->getIterator());
         
         // Set the default language to edit the post for the admin to English (to avoid bug with null name)
-            App::setLocale('en');
+            //App::setLocale('en');
         
         return view('menuItems.edit',compact('menuItem'))
                     ->with('menuItems',$menuItems)
@@ -144,6 +147,9 @@ class MenuItemController extends Controller
             'name' => 'required',
         ]);
         
+        // Set the default language to edit the post for the admin to English (to avoid bug with null name)
+            App::setLocale('en');
+            
         $this->saveOnDb($request, $menuItem);
 
         return redirect()->route('menuItemsIndex', ['id' => $request->menu_id] )

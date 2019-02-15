@@ -57,8 +57,8 @@
                 @include('partials.forms.input', [
                       'title' => __('general.name'),
                       'name' => 'name',
-                      'placeholder' => 'menu item Name',
-                      'value' => $menuItem->name
+                      'placeholder' => 'Menu item name',
+                      'value' => $menuItem->translate('en')->name
                 ])
             </div>
             <div class="col-12">
