@@ -60,35 +60,37 @@
     <div class="venuesList my-4">
         @foreach ($posts as $post)
             <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
-                <div class="col-12 col-md-6 col-lg-7 py-3 title">
-                    <a href="{{ route('posts.edit',$post->id) }}">{{ $post->translate('en')->title }}</a>
-                </div>
-                <div class="col-6 col-md-3 col-lg-3 pb-3 py-md-3 category">
-                    <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-2" data-original-title="@lang('general.category')"></i>
-                    {{ $categories[$post->category_id] }}
-                </div>
-                <div class="col-6 col-md-3 col-lg-2 pb-3 py-md-3 translation" style="line-height: 2rem;">
-                    @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
-                        @if($post->hasTranslation($key))
-                            <a href="/postTranslations/{{ $post->id }}/{{ $key }}/edit" class="bg-success text-white p-1 mb-1">{{$key}}</a>
-                        @else
-                            <a href="/postTranslations/{{ $post->id }}/{{ $key }}/create" class="bg-secondary text-white p-1 mb-1">{{$key}}</a>
-                        @endif
-                    @endforeach
-                </div>
                 
-                <div class="col-12 pb-2 action">
-                    <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
-
-                        <a class="btn btn-info mr-2" href="{{ route('posts.show',$post->id) }}">@lang('views.view')</a>
-                        <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">@lang('views.edit')</a>
-
-                        @csrf
-                        @method('DELETE')
-
-                        <button type="submit" class="btn btn-danger float-right">@lang('views.delete')</button>
-                    </form>
-                </div>
+                {{-- Title and Preview --}}
+                    <div class="col-10 col-md-5 col-lg-5 order-1 title">
+                        <a href="{{ route('posts.edit',$post->id) }}" class="pt-2 d-inline-block">{{ $post->translate('en')->title }}</a>
+                        <a class="btn btn-secondary ml-2 py-0 px-1 mt-md-1 float-md-right" href="{{ route('posts.show',$post->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="@lang('views.preview')"><small><i class="fas fa-eye"></i></small></a>
+                    </div>
+                
+                {{-- Category --}}
+                    <div class="col-6 col-md-2 col-lg-2 pt-2 order-3 order-md-2 category">
+                        <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-2" data-original-title="@lang('general.category')"></i>{{ $categories[$post->category_id] }}
+                    </div>
+                
+                {{-- Translations --}}
+                    <div class="col-6 col-md-3 col-lg-4 order-4 order-md-3 text-right translation" style="line-height: 2rem;">
+                        @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
+                            @if($post->hasTranslation($key))
+                                <a href="/postTranslations/{{ $post->id }}/{{ $key }}/edit" class="bg-success text-white px-2 mb-1 mb-md-0 d-inline-block rounded">{{$key}}</a>
+                            @else
+                                <a href="/postTranslations/{{ $post->id }}/{{ $key }}/create" class="bg-secondary text-white px-2 mb-1 mb-md-0 d-inline-block rounded">{{$key}}</a>
+                            @endif
+                        @endforeach
+                    </div>
+                
+                {{-- Delete --}}
+                    <div class="col-2 col-lg-1 order-2 order-md-4 action">
+                        <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger float-right"><i class="far fa-trash-alt"></i></button>
+                        </form>
+                    </div>
             </div>
         @endforeach    
     </div>

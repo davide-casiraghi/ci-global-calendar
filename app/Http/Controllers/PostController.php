@@ -54,22 +54,35 @@ class PostController extends Controller
             
         // Countries available for translations
             $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
+            //DB::enableQueryLog();
 
         if ($searchKeywords||$searchCategory){
             $posts = Post::
-                select('post_translations.post_id AS id', 'post_translations.title AS title', 'category_id')
+                select('post_translations.post_id AS id', 'post_translations.title AS title', 'category_id', 'locale')
                 ->join('post_translations', 'posts.id', '=', 'post_translations.post_id')
+                
                 ->when($searchKeywords, function ($query, $searchKeywords) {
-                    return $query->where('post_translations.title', $searchKeywords)->orWhere('post_translations.title', 'like', '%' . $searchKeywords . '%');
+                
+                    return $query->where('post_translations.locale','=','en')
+                                 ->where(function ($query) use ($searchKeywords) { 
+                                            $query->where('post_translations.title', $searchKeywords)
+                                                  ->orWhere('post_translations.title', 'like', '%' . $searchKeywords . '%');
+                                 });
+                        
                 })
                 ->when($searchCategory, function ($query, $searchCategory) {
-                    return $query->where('category_id', '=', $searchCategory);
+                    return $query->where('post_translations.locale','=','en')
+                                 ->where(function ($query) use ($searchCategory) { 
+                                            $query->where('category_id', '=', $searchCategory);
+                        });
                 })
                 ->paginate(20);
         }
         else
             $posts = Post::select('id', 'title', 'category_id')->orderBy('title')->paginate(20);
             
+            //dd(DB::getQueryLog());
+
         //dd($posts);
         
         return view('posts.index',compact('posts'))

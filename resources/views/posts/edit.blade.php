@@ -29,7 +29,9 @@
                     'value' => $post->title
                 ])
             </div>
-            <div class="col-12">
+        </div>
+        <div class="row">
+            <div class="col-10">
                 @include('partials.forms.input-readonly', [
                     'title' => 'Link to this post',
                     'name' => 'post_link',
@@ -37,6 +39,17 @@
                     'value' => env('APP_URL').'post/'.$post->slug
                 ])
             </div>
+            <div class="col-2">
+                @include('partials.forms.input-readonly', [
+                    'title' => 'Post ID',
+                    'name' => 'post_id',
+                    'tooltip' => '',
+                    'value' => $post->id
+                ])
+            </div>
+            
+        </div>
+        <div class="row">
             <div class="col-12">
                 @include('partials.forms.select', [
                     'title' => __('views.category'),
