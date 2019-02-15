@@ -146,23 +146,6 @@ class PostController extends Controller
      */
     public function show(Post $post){
         
-        // Get the post translation
-            $postTranslation = PostTranslation::
-                    where('post_translations.post_id', $post->id)
-                    ->where('locale',App::getLocale())
-                    ->first();
-             
-        // If not present get the english version
-            if (!$postTranslation){
-                $postTranslation = PostTranslation::
-                        where('post_translations.post_id', $post->id)
-                        ->where('locale','en')
-                        ->first();
-            }
-        
-        // now the post is the translation
-            $post = $postTranslation;     
-            
         // Accordion
             $accordionClass = new AccordionClass();
             $post->body = $accordionClass->getAccordion($post->body);
