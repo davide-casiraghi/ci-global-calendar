@@ -44,7 +44,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-        $categories = Category::orderBy('name')->pluck('name', 'id');
+        $categories = $this->getPostCategories();
 
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
@@ -101,10 +101,7 @@ class PostController extends Controller
      */
     public function create(){
 
-        $categories = Category::pluck('name', 'id');
-        
-        // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
-            //App::setLocale('en');
+        $categories = $this->getPostCategories();
 
         return view('posts.create')->with('categories', $categories);
     }
@@ -218,10 +215,7 @@ class PostController extends Controller
      */
     public function edit(Post $post){
 
-        $categories = Category::pluck('name', 'id');
-        
-        // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
-            //App::setLocale('en');
+        $categories = $this->getPostCategories();
 
         return view('posts.edit',compact('post'))->with('categories', $categories);
     }
@@ -343,4 +337,24 @@ class PostController extends Controller
          $post->save();
          
      }
+     
+     /***************************************************************************/
+     /**
+      * Return the post categories collection
+      *
+      * @param  none
+      * @return \Illuminate\Http\Response
+      */
+     
+     public function getPostCategories(){
+         $ret = Category::
+                         join('category_translations', 'categories.id', '=', 'category_translations.category_id')
+                         ->where('category_translations.locale','=','en')
+                         ->orderBy('category_translations.name')
+                         ->pluck('category_translations.name', 'categories.id');
+                             
+         return $ret;
+     }
+     
+     
 }
