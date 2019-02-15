@@ -1,7 +1,11 @@
 <?php
 
 /*
-    Example of strings that evoke the plugin: - https://cdn-images-1.medium.com/max/1200/1*qpXrpIUJy0ryQOht2Al0tA.png
+    This plugin shows a graph with a the fund rise amount gloal 
+    and an istogram bar with the complete percentage.
+    Inspired by: https://cdn-images-1.medium.com/max/1200/1*qpXrpIUJy0ryQOht2Al0tA.png
+    
+    Example of strings that evoke the plugin:  
     {# community_goals backed_amount=[300] goal_amount=[2000] backers_number=[30] days_left=[40] #}
 */
 

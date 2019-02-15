@@ -1,7 +1,8 @@
 <?php
 
 /*
-    This plugin show a responsive accordion with a title that open when [+] button is clicked
+    This plugin show a responsive accordion with a title that open when [+] button is clicked.
+    
     Example of strings that evoke the plugin:
     {slider=HOW to add contents to this website? - Create account} lorem ipsum {/slider}
 */

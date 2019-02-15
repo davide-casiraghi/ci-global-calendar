@@ -1,6 +1,7 @@
 <?php
 
 /*
+    This plugin shows in a specified number of columns the articles from a specic category. 
     Example of strings that evoke the plugin:
     {# columns category_id=[6] show_images=[1] round_images=[1] show_category_title=[1] #}
 */

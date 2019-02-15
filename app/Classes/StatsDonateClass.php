@@ -1,6 +1,13 @@
 <?php
 
 /*
+    This plugin shows some icons and numbers about the CI Calendar development effort.
+    The data shown are:
+        - Coding hours
+        - Project management hours
+        - Number of Steering Commitee meetings
+        - Number of languages the calendar is translated in
+        
     Example of strings that evoke the plugin:
     {# stats_donate coding_hours=[2400] pm_hours=[40] steering_commitee_meetings=[60] languages_number=[8] #}
 */
