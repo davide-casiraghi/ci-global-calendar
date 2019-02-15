@@ -26,7 +26,7 @@
                     'title' => __('views.title'),
                     'name' => 'title',
                     'placeholder' => 'Event title',
-                    'value' => $post->title
+                    'value' => $post->translate('en')->title
                 ])
             </div>
         </div>
@@ -36,7 +36,7 @@
                     'title' => 'Link to this post',
                     'name' => 'post_link',
                     'tooltip' => '',
-                    'value' => env('APP_URL').'post/'.$post->slug
+                    'value' => env('APP_URL').'post/'.$post->translate('en')->slug
                 ])
             </div>
             <div class="col-2">
@@ -65,7 +65,7 @@
                 @include('partials.forms.textarea-plain', [
                     'title' =>  __('views.before_post_contents'),
                     'name' => 'before_content',
-                    'value' => $post->before_content,
+                    'value' => $post->translate('en')->before_content,
                 ])
             </div>
             <div class="col-12">
@@ -73,14 +73,14 @@
                     'title' => 'Text',
                     'name' => 'body',
                     'placeholder' => 'Post text',
-                    'value' => $post->body
+                    'value' => $post->translate('en')->body
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.textarea-plain', [
                     'title' =>  __('views.after_post_contents'),
                     'name' => 'after_content',
-                    'value' => $post->after_content,
+                    'value' => $post->translate('en')->after_content,
                 ])
             </div>
             

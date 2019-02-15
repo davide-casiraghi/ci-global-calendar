@@ -104,7 +104,7 @@ class PostController extends Controller
         $categories = Category::pluck('name', 'id');
         
         // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
-            App::setLocale('en');
+            //App::setLocale('en');
 
         return view('posts.create')->with('categories', $categories);
     }
@@ -221,7 +221,7 @@ class PostController extends Controller
         $categories = Category::pluck('name', 'id');
         
         // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
-            App::setLocale('en');
+            //App::setLocale('en');
 
         return view('posts.edit',compact('post'))->with('categories', $categories);
     }
