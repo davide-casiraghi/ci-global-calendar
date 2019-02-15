@@ -34,21 +34,6 @@ class CardsCarouselClass {
          return $ret;
      }
 
-   // **********************************************************************
-
-   /**
-    *  Provide the post data array (post_title, post_body, post_image)
-    *  @param array $file_name        the file name
-    *  @return array $ret             the extension
-   **/
-/*
-   function getCategoryData($parameters) {
-       $categoryData = app('App\Http\Controllers\CategoryController')->categorydata($parameters['cat_id']);
-       $ret = $categoryData;
-
-       return $ret;
-   }
-*/
   // **********************************************************************
 
      /**
