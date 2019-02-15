@@ -21,12 +21,12 @@
         </a>
         @if(!empty($menuItem->access)) <span class="text-secondary">- {{App\MenuItem::getAccessName($menuItem->access)}}</span>@endif
     </div>
-    <div class="col-12 col-md-5 pt-2 pt-md-1 order-3 order-md-2 text-right">
+    <div class="col-12 col-md-5 mt-2 mt-md-1 order-3 order-md-2 text-right">
         @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
             @if($menuItem->hasTranslation($key))
-                <a href="/menuItemTranslations/{{ $menuItem->id }}/{{ $key }}/{{$selectedMenuId}}/edit" class="bg-success text-white d-inline-block p-1 mb-1">{{$key}}</a>
+                <a href="/menuItemTranslations/{{ $menuItem->id }}/{{ $key }}/{{$selectedMenuId}}/edit" class="bg-success text-white px-2 py-1 mb-1 d-inline-block rounded">{{$key}}</a>
             @else
-                <a href="/menuItemTranslations/{{ $menuItem->id }}/{{ $key }}/{{$selectedMenuId}}/create" class="bg-secondary text-white d-inline-block p-1 mb-1">{{$key}}</a>
+                <a href="/menuItemTranslations/{{ $menuItem->id }}/{{ $key }}/{{$selectedMenuId}}/create" class="bg-secondary text-white px-2 py-1 mb-1 d-inline-block rounded">{{$key}}</a>
             @endif
         @endforeach
     </div>

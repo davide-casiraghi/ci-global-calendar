@@ -31,17 +31,17 @@
                     </div>
                 
                 {{-- Translations --}}
-                    <div class="col-5 text-right translation mt-2" style="line-height: 2rem;">
+                    <div class="col-5 text-right translation mt-1">
                         @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
                             @if($category->hasTranslation($key))
-                                <a href="/categoryTranslations/{{ $category->id }}/{{ $key }}/edit" class="bg-success text-white px-2 mb-1 d-inline-block rounded">{{$key}}</a>
+                                <a href="/categoryTranslations/{{ $category->id }}/{{ $key }}/edit" class="bg-success text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
                             @else
-                                <a href="/categoryTranslations/{{ $category->id }}/{{ $key }}/create" class="bg-secondary text-white px-2 mb-1 d-inline-block rounded">{{$key}}</a>
+                                <a href="/categoryTranslations/{{ $category->id }}/{{ $key }}/create" class="bg-secondary text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
                             @endif
                         @endforeach
                     </div>
                 
-                <div class="col-2 pb-2 action">
+                <div class="col-2 action">
                     <form action="{{ route('categories.destroy',$category->id) }}" method="POST">
 
                         
