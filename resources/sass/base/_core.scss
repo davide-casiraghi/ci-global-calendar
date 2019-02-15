@@ -24,19 +24,20 @@ body{
         border-left:5px solid #E7C297;
         background:#FFD4A1;
         text-align:left;
-        padding: 1.2rem 1.2rem 0.3rem 3rem;
+        padding: 1.2rem 1.2rem 0.3rem 4rem;
         
         position: relative;
         
         &:before {
             font-family: "Font Awesome 5 Pro";
-            content: '\f10d'; /*quote left icon*/
+            content: '\f0a4'; /*quote left icon*/
             display: block;
 
             position: absolute;
             left: 1rem;
-            top: 1rem;
+            top: 1.5rem;
             color: #7a7a7a;
+            font-size: 2rem;
         }
     }
     .alternateColors{
