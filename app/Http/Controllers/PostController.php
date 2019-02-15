@@ -12,6 +12,7 @@ use App\Classes\CardClass;
 use App\Classes\ColumnsClass;
 use App\Classes\StatsDonateClass;
 use App\Classes\CommunityGoalsClass;
+use App\Classes\CardsCarouselClass;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
@@ -175,6 +176,12 @@ class PostController extends Controller
             $post->after_content = $cardClass->getCard($post->after_content);
 
         // Category Columns
+            $cardsCarouselClass = new CardsCarouselClass();
+            $post->body = $cardsCarouselClass->getColumns($post->body);
+            $post->before_content = $cardsCarouselClass->getColumns($post->before_content);
+            $post->after_content = $cardsCarouselClass->getColumns($post->after_content);
+            
+        // Category Columns
             $columnClass = new ColumnsClass();
             $post->body = $columnClass->getColumns($post->body);
             $post->before_content = $columnClass->getColumns($post->before_content);
@@ -275,13 +282,17 @@ class PostController extends Controller
 
      /***************************************************************************/
      /**
-      * Return all the posts from by category id
+      * Return all the posts by category id in the language specified
       *
       * @param  \App\Post  $post
       * @return \Illuminate\Http\Response
       */
       public function postsdata($cat_id){
-          $ret = DB::table('posts')->where('category_id', $cat_id)->get();
+          $ret = Post::
+                join('post_translations', 'posts.id', '=', 'post_translations.post_id')
+                ->where('locale', App::getLocale())
+                ->where('category_id', $cat_id)
+                ->get();
 
           return $ret;
       }
