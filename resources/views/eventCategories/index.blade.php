@@ -41,16 +41,13 @@
                         @endforeach
                     </div>
                 
-                <div class="col-12 pb-2 action">
+                <div class="col-2 action">
                     <form action="{{ route('eventCategories.destroy',$eventCategory->id) }}" method="POST">
-
-                        {{--<a class="btn btn-info mr-2" href="{{ route('eventCategories.show',$eventCategory->id) }}">@lang('views.view')</a>--}}
-                        <a class="btn btn-primary" href="{{ route('eventCategories.edit',$eventCategory->id) }}">@lang('views.edit')</a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger float-right">@lang('views.delete')</button>
+                        <button type="submit" class="btn btn-danger float-right"><i class="far fa-trash-alt"></i></button>
                     </form>
                 </div>
             </div>
