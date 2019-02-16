@@ -19957,6 +19957,14 @@ body blockquote:before {
   font-size: 2rem;
 }
 
+body pre {
+  background: rgba(238, 238, 238, 0.35);
+  border-radius: 3px;
+  padding: 10px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
+  line-height: 2;
+}
+
 body .alternateColors > div:nth-child(odd) {
   background-color: #FFF;
 }
