@@ -42,7 +42,7 @@ function()
             Route::post('/menuItemTranslations/store', 'MenuItemTranslationController@store')->name('menuItemTranslations.store');
             Route::put('/menuItemTranslations/update', 'MenuItemTranslationController@update')->name('menuItemTranslations.update');
         
-    /* Posts Categories */    
+    /* Post Categories */    
         Route::resource('categories','CategoryController');
         
         /* Category Translations */
@@ -61,8 +61,16 @@ function()
             Route::post('/postTranslations/store', 'PostTranslationController@store')->name('postTranslations.store');
             Route::put('/postTranslations/update', 'PostTranslationController@update')->name('postTranslations.update');
         
-    /* Events */
+    /* Event Categories */    
         Route::resource('eventCategories','EventCategoryController');
+        
+        /* Event Categories Translations */
+            Route::get('/eventCategoryTranslations/{eventCategoryId}/{languageCode}/create', 'EventCategoryTranslationController@create');
+            Route::get('/eventCategoryTranslations/{eventCategoryId}/{languageCode}/edit', 'EventCategoryTranslationController@edit');
+            Route::post('/eventCategoryTranslations/store', 'EventCategoryTranslationController@store')->name('eventCategoryTranslations.store');
+            Route::put('/eventCategoryTranslations/update', 'EventCategoryTranslationController@update')->name('eventCategoryTranslations.update');
+        
+    /* Events */
         Route::resource('events','EventController');
         Route::get('/event/monthSelectOptions/', 'EventController@calculateMonthlySelectOptions');  // To populate the event repeat by month options
         Route::get('/event/{slug}', 'EventController@eventBySlug')->where('eventBySlug', '[a-z]+');
