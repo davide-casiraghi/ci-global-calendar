@@ -19962,7 +19962,7 @@ body pre {
   border-radius: 3px;
   padding: 10px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
-  line-height: 2;
+  line-height: 1.6;
 }
 
 body .alternateColors > div:nth-child(odd) {
