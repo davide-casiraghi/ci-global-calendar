@@ -29,7 +29,7 @@
                     paste_as_text: true, //!important
                 
                 // Allow link target blank
-                    extended_valid_elements: 'a[href|target],pre[name|class],code',
+                    extended_valid_elements: 'a[href|target],pre[class],code',
                         
 				/*plugins : 'advlist autolink link image lists charmap print preview spellchecker media table',*/
 				plugins: [
