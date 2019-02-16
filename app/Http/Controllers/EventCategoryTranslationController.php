@@ -85,7 +85,7 @@ class EventCategoryTranslationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($eventCategoryId, $languageCode){
-        $eventCategoryTranslation = EventCategoryTranslation::where('event_category_id', $categoryId)
+        $eventCategoryTranslation = EventCategoryTranslation::where('event_category_id', $eventCategoryId)
                         ->where('locale', $languageCode)
                         ->first();
                         
@@ -109,7 +109,7 @@ class EventCategoryTranslationController extends Controller
             'name' => 'required',
         ]);
 
-        $categoryTranslation = EventCategoryTranslation::where ('id', $request->get('event_category_translation_id'));
+        $eventCategoryTranslation = EventCategoryTranslation::where ('id', $request->get('event_category_translation_id'));
 
         $event_category_t['name'] = $request->get('name');
         $event_category_t['slug'] = str_slug($request->get('name'), '-');
