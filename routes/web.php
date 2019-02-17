@@ -41,6 +41,7 @@ function()
             Route::get('/menuItemTranslations/{menuItemId}/{languageCode}/{menuId}/edit', 'MenuItemTranslationController@edit');
             Route::post('/menuItemTranslations/store', 'MenuItemTranslationController@store')->name('menuItemTranslations.store');
             Route::put('/menuItemTranslations/update', 'MenuItemTranslationController@update')->name('menuItemTranslations.update');
+            Route::delete('/menuItemTranslations/destroy/{menuItemTranslationId}/{selectedMenuId}', 'MenuItemTranslationController@destroy')->name('menuItemTranslations.destroy');
         
     /* Post Categories */    
         Route::resource('categories','CategoryController');
