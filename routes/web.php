@@ -62,7 +62,8 @@ function()
             Route::get('/postTranslations/{postId}/{languageCode}/edit', 'PostTranslationController@edit');
             Route::post('/postTranslations/store', 'PostTranslationController@store')->name('postTranslations.store');
             Route::put('/postTranslations/update', 'PostTranslationController@update')->name('postTranslations.update');
-        
+            Route::delete('/postTranslations/destroy/{postTranslationId}', 'PostTranslationController@destroy')->name('postTranslations.destroy');
+            
     /* Event Categories */    
         Route::resource('eventCategories','EventCategoryController');
         
