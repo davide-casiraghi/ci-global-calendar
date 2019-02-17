@@ -126,7 +126,10 @@ class EventCategoryTranslationController extends Controller
      * @param  \App\EventCategoryTranslation  $eventCategoryTranslation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EventCategoryTranslation $eventCategoryTranslation){
-        //
+    public function destroy($eventCategoryTranslationId){
+        $eventCategoryTranslation = EventCategoryTranslation::find($eventCategoryTranslationId);
+        $eventCategoryTranslation->delete();
+        return redirect()->route('eventCategories.index')
+                        ->with('success',__('messages.event_category_translation_deleted_successfully'));
     }
 }

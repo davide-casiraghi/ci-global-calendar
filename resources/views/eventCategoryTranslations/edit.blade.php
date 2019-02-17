@@ -50,5 +50,17 @@
         ])
 
     </form>
+    
+    <div class="row mt-2">  
+        <div class="col-12 action">
+            <form action="{{ route('eventCategoryTranslations.destroy',$eventCategoryTranslation->id) }}" method="POST">
+
+                @csrf
+                @method('DELETE')
+
+                <button type="submit" class="btn btn-danger float-right"><i class="far fa-trash-alt"></i></button>
+            </form>
+        </div>
+    </div>
 
 @endsection

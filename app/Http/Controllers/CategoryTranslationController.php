@@ -140,6 +140,6 @@ class CategoryTranslationController extends Controller
         $categoryTranslation = CategoryTranslation::find($categoryTranslationId);
         $categoryTranslation->delete();
         return redirect()->route('categories.index')
-                        ->with('success',__('messages.article_deleted_successfully'));
+                        ->with('success',__('messages.category_translation_deleted_successfully'));
     }
 }

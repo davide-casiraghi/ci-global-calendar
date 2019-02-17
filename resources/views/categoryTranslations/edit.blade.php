@@ -60,7 +60,6 @@
     </form>
     
     <div class="row mt-2">  
-    
         <div class="col-12 action">
             <form action="{{ route('categoryTranslations.destroy',$categoryTranslation->id) }}" method="POST">
 
