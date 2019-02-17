@@ -40,4 +40,5 @@ return [
     'menu_item_deleted_successfully' => 'Menu item deleted successfully',
     'category_translation_deleted_successfully' => 'Category translation deleted successfully',
     'event_category_translation_deleted_successfully' => 'Event category translation deleted successfully',
+    'post_translation_deleted_successfully' => 'Post translation deleted successfully',
 ];
