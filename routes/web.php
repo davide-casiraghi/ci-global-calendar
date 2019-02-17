@@ -50,7 +50,9 @@ function()
             Route::get('/categoryTranslations/{categoryId}/{languageCode}/edit', 'CategoryTranslationController@edit');
             Route::post('/categoryTranslations/store', 'CategoryTranslationController@store')->name('categoryTranslations.store');
             Route::put('/categoryTranslations/update', 'CategoryTranslationController@update')->name('categoryTranslations.update');
-        
+            Route::delete('/categoryTranslations/destroy/{categoryTranslationId}', 'CategoryTranslationController@destroy')->name('categoryTranslations.destroy');
+            //Route::post('/categoryTranslations/delete_translation/{categoryId}', 'CategoryTranslationController@delete_translation');
+            
     /* Posts */
         Route::resource('posts','PostController');
         Route::get('/post/{slug}', 'PostController@postBySlug')->where('postBySlug', '[a-z]+');

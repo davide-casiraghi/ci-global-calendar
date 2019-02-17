@@ -136,8 +136,10 @@ class CategoryTranslationController extends Controller
      * @param  \App\CategoryTranslation  $categoryTranslation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CategoryTranslation $categoryTranslation)
-    {
-        //
+    public function destroy($categoryTranslationId){
+        $categoryTranslation = CategoryTranslation::find($categoryTranslationId);
+        $categoryTranslation->delete();
+        return redirect()->route('categories.index')
+                        ->with('success',__('messages.article_deleted_successfully'));
     }
 }
