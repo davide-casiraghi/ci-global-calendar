@@ -71,11 +71,7 @@
                     </div>
                     <div class="col-12 mb-4">
                         <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
-                        @if(!empty($user->country_id)){{ $countries[$user->country_id] }}@endif
-                            
-                            
-                        
-                            
+                        @if(!empty($user->country_id)){{ $countries[$user->country_id] }}@endif    
                     </div>
                     <div class="col-12 pb-2 action">
                         <form action="{{ route('users.destroy',$user->id) }}" method="POST">

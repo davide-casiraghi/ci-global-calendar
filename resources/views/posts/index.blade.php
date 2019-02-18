@@ -16,7 +16,7 @@
     <div class="container max-w-md px-0">
         <div class="row">
             <div class="col-12 col-sm-7">
-                <h2>@lang('views.post_management')</h2>
+                <h3>@lang('views.post_management')</h3>
             </div>
             <div class="col-12 col-sm-5 mt-sm-0 text-right">
                 <a class="btn btn-success create-new" href="{{ route('posts.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_post')</a>
@@ -74,6 +74,8 @@
                     
                     <div class="col-12 col-sm-8 pb-2 pt-3 px-3">
                         <div class="row">
+                            
+                            {{-- Title --}}
                             <div class="col-12 py-1 title">
                                 <h5 class="darkest-gray">{{ $post->title }}</h5>
                             </div>
@@ -81,6 +83,8 @@
                                 <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-2 dark-gray" data-original-title="@lang('general.category')"></i>
                                 @if($post->category_id){{ $categories[$post->category_id] }}@endif
                             </div>
+                            
+                            {{-- Translations --}}
                             <div class="col-12 mb-4 mt-4">
                                 @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
                                     @if($post->hasTranslation($key))
@@ -103,17 +107,9 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
-                    
+                    </div>    
                 </div>    
-                
-                
-                
-                
-                
-                
-                
-                
+
                 
             @endforeach    
         </div>
