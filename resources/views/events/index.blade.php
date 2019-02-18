@@ -12,12 +12,12 @@
 @stop
 
 @section('content')
-    <div class="container max-w-md">
+    <div class="container max-w-md px-0">
         <div class="row">
-            <div class="col-12 col-sm-7 px-0">
+            <div class="col-12 col-sm-7">
                 <h3>@lang('views.events_management')</h3>
             </div>
-            <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right px-0">
+            <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right">
                 <a class="btn btn-success create-new" href="{{ route('events.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_event')</a>
             </div>
         </div>
@@ -32,19 +32,19 @@
         <form class="searchForm mt-3" action="{{ route('events.index') }}" method="GET">
             @csrf
             <div class="row">
-                <div class="col-12 col-sm-6 px-0 order-1">
+                <div class="col-12 col-sm-6 order-1">
                     @include('partials.forms.input', [
                         'name' => 'keywords',
                         'placeholder' => __('views.search_by_event_name'),
                         'value' => $searchKeywords
                     ])
                 </div>
-                <div class="col-12 col-sm-6 px-0 order-4 order-sm-2">
+                <div class="col-12 col-sm-6 order-4 order-sm-2">
                     <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right ml-2">
                     <a id="resetButton" class="btn btn-outline-primary float-right" href="#">@lang('general.reset')</a>
                 </div>
             
-                <div class="col-12 col-sm-6 px-0 pr-2 order-2 order-sm-3">
+                <div class="col-12 col-sm-6 order-2 order-sm-3">
                     @include('partials.forms.select', [
                         'name' => 'category_id',
                         'placeholder' => __('views.filter_by_category'),
@@ -54,7 +54,7 @@
                         'mobileNativeMenu' => false,
                     ])
                 </div>
-                <div class="col-12 col-sm-6 px-0 order-3 order-sm-4">
+                <div class="col-12 col-sm-6 order-3 order-sm-4">
                     @include('partials.forms.select', [
                         'name' => 'country_id',
                         'placeholder' => __('views.filter_by_country'),
@@ -72,7 +72,7 @@
         {{-- List of events --}}
         <div class="eventList my-4">
             @foreach ($events as $event)
-                <div class="row bg-white shadow-1 rounded mb-3">
+                <div class="row bg-white shadow-1 rounded mb-3 mx-1">
                     
                     <div class="d-none d-sm-block col-sm-4 p-0">
                         @if(!empty($event->image))
