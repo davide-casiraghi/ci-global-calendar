@@ -11,12 +11,12 @@
 @stop
 
 @section('content')
-    <div class="container max-w-md">
+    <div class="container max-w-md px-0">
         <div class="row">
-            <div class="col-12 col-sm-7 px-0">
+            <div class="col-12 col-sm-7">
                 <h3>@lang('views.events_venue_management')</h3>
             </div>
-            <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right px-0">
+            <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right">
                 <a class="btn btn-success create-new" href="{{ route('eventVenues.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_venue')</a>
             </div>
         </div>
@@ -32,14 +32,14 @@
         <form class="searchForm mt-3" action="{{ route('eventVenues.index') }}" method="GET">
             @csrf
             <div class="row">
-                <div class="col-12 col-sm-6 px-0 pr-sm-2">
+                <div class="col-12 col-sm-6 pr-sm-2">
                     @include('partials.forms.input', [
                         'name' => 'keywords',
                         'placeholder' => __('views.search_by_venue_name'),
                         'value' => $searchKeywords
                     ])
                 </div>
-                <div class="col-12 col-sm-6 px-0">
+                <div class="col-12 col-sm-6">
                     @include('partials.forms.select', [
                         'name' => 'country_id',
                         'placeholder' => __('views.filter_by_country'),
@@ -49,7 +49,7 @@
                         'mobileNativeMenu' => false,
                     ])
                 </div>
-                <div class="col-12 px-0">
+                <div class="col-12">
                     <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right ml-2">
                     <a id="resetButton" class="btn btn-outline-primary float-right" href="#">@lang('general.reset')</a>
                 </div>
@@ -59,7 +59,7 @@
         {{-- List of venues --}}
         <div class="venuesList my-4">
             @foreach ($eventVenues as $eventVenue)
-                <div class="row bg-white shadow-1 rounded mb-3 pb-2 pt-3 pl-1">
+                <div class="row bg-white shadow-1 rounded mb-3 pb-2 pt-3 mx-1">
                     <div class="col-12 py-1 title">
                         <h5 class="darkest-gray">{{ $eventVenue->name }}</h5>
                     </div>
