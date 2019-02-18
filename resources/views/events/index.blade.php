@@ -69,14 +69,14 @@
             <div class="container max-w-md">
                 <div class="row bg-white shadow-1 rounded mb-3">
                     
-                    <div class="col-4 p-0">
+                    <div class="d-none d-sm-block col-sm-4 p-0">
                         @if(!empty($event->image))
                             <img class="rounded-left" style="width:100%; height:100%;" alt="{{ $event->title }}" src="/storage/images/events_teaser/thumb_{{ $event->image }}">
                         @else
                             <span class="gray-bg rounded-left d-block" style="width:100%; height:100%;"></span>
                         @endif
                     </div>
-                    <div class="col-8 py-2 px-3">
+                    <div class="col-12 col-sm-8 py-2 px-3">
                         <div class="row">
                             <div class="col-12 py-1 title">
                                 <h5 class="darkest-gray">{{ $event->title }}</h5>
