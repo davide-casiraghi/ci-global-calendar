@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\EventRepetition;
 
 class Event extends Model
 {
@@ -45,8 +46,8 @@ class Event extends Model
      * @return array the event repetition start and end repeat dates
      */
     public static function getFirstEventRpDates($eventId){
-        $ret = DB::table('event_repetitions')
-                ->select('start_repeat','end_repeat')
+        $ret = EventRepetition::
+                select('start_repeat','end_repeat')
                 ->where('event_id',$eventId)
                 ->first();
                 

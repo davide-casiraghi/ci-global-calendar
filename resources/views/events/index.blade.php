@@ -97,7 +97,7 @@
                                 <form action="{{ route('events.destroy',$event->id) }}" method="POST">
 
                                     <a class="btn btn-primary float-right" href="{{ route('events.edit',$event->id) }}">@lang('views.edit')</a>
-                                    <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('events.show',$event->id) }}">@lang('views.view')</a>
+                                    <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('events.eventBySlug',$event->slug) }}">@lang('views.view')</a>
                                     
                                     @csrf
                                     @method('DELETE')
