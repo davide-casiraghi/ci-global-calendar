@@ -38,7 +38,7 @@
         <form class="searchForm mt-3" action="@if(Route::current()->getName() == 'teachers.index') {{ route('teachers.index') }} @else {{ route('teachers.directory') }} @endif" method="GET">
             @csrf
             <div class="row">
-                <div class="col-12 col-sm-6  px-0 pr-sm-2">
+                <div class="col-12 col-sm-6 px-0 pr-sm-2">
                     @include('partials.forms.input', [
                         'name' => 'keywords',
                         'placeholder' => __('views.search_by_teacher_name'),

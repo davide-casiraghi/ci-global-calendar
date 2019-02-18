@@ -30,14 +30,14 @@
         <form class="searchForm mt-3" action="{{ route('organizers.index') }}" method="GET">
             @csrf
             <div class="row">
-                <div class="col-12 col-sm-8 px-0 pr-sm-2">
+                <div class="col-12 col-sm-7 px-0 pr-sm-2">
                     @include('partials.forms.input', [
                         'name' => 'keywords',
                         'placeholder' => __('views.search_by_organizer_name'),
                         'value' => $searchKeywords
                     ])
                 </div>
-                <div class="col-12 col-sm-4 mt-2 mt-sm-0 px-0">
+                <div class="col-12 col-sm-5 mt-2 mt-sm-0 px-0">
                     <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right ml-2">
                     <a id="resetButton" class="btn btn-outline-primary float-right" href="#">@lang('general.reset')</a>
                 </div>
