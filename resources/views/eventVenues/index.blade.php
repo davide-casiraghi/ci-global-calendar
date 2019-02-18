@@ -13,10 +13,10 @@
 @section('content')
     <div class="container max-w-md">
         <div class="row">
-            <div class="col-12">
-                <h2>@lang('views.events_venue_management')</h2>
+            <div class="col-12 col-sm-7 px-0">
+                <h3>@lang('views.events_venue_management')</h3>
             </div>
-            <div class="col-12 mt-4 mt-sm-0 text-right">
+            <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right px-0">
                 <a class="btn btn-success create-new" href="{{ route('eventVenues.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_venue')</a>
             </div>
         </div>
@@ -29,28 +29,30 @@
 
 
         {{-- Search form --}}
-        <form class="row searchForm mt-3" action="{{ route('eventVenues.index') }}" method="GET">
+        <form class="searchForm mt-3" action="{{ route('eventVenues.index') }}" method="GET">
             @csrf
-            <div class="col-12 col-md-6 col-lg-5 mb-2">
-                @include('partials.forms.input', [
-                    'name' => 'keywords',
-                    'placeholder' => __('views.search_by_venue_name'),
-                    'value' => $searchKeywords
-                ])
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-2">
-                @include('partials.forms.select', [
-                    'name' => 'country_id',
-                    'placeholder' => __('views.filter_by_country'),
-                    'records' => $countries,
-                    'seleted' => $searchCountry,
-                    'liveSearch' => 'true',
-                    'mobileNativeMenu' => false,
-                ])
-            </div>
-            <div class="col-12 col-lg-3 mt-3 mt-sm-0">
-                <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
-                <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-5 px-0 pr-sm-2">
+                    @include('partials.forms.input', [
+                        'name' => 'keywords',
+                        'placeholder' => __('views.search_by_venue_name'),
+                        'value' => $searchKeywords
+                    ])
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 px-0">
+                    @include('partials.forms.select', [
+                        'name' => 'country_id',
+                        'placeholder' => __('views.filter_by_country'),
+                        'records' => $countries,
+                        'seleted' => $searchCountry,
+                        'liveSearch' => 'true',
+                        'mobileNativeMenu' => false,
+                    ])
+                </div>
+                <div class="col-12 col-sm-12 col-md-3 mt-2 mt-sm-0 px-0">
+                    <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right ml-2">
+                    <a id="resetButton" class="btn btn-outline-primary float-right" href="#">@lang('general.reset')</a>
+                </div>
             </div>
         </form>
 
