@@ -30,28 +30,30 @@
         @endif
 
         {{-- Search form --}}
-        <form class="row mt-3 searchForm" action="{{ route('posts.index') }}" method="GET">
-            @csrf
-            <div class="col-12 col-sm-6 col-md-6 col-lg-6"> 
-                @include('partials.forms.input', [
-                    'name' => 'keywords',
-                    'placeholder' => __('views.search_by_post_name'),
-                    'value' => $searchKeywords
-                ])
-            </div>
-            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                @include('partials.forms.select', [
-                    'name' => 'category_id',
-                    'placeholder' => __('views.filter_by_category'),
-                    'records' => $categories,
-                    'seleted' => $searchCategory,
-                    'liveSearch' => 'false',
-                    'mobileNativeMenu' => true,
-                ])
-            </div>
-            <div class="col-12 col-lg-3 mt-sm-0 mt-3">
-                <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
-                <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right">
+        <form class="mt-3 searchForm" action="{{ route('posts.index') }}" method="GET">
+            <div class="row">    
+                @csrf
+                <div class="col-12 col-sm-6 pr-sm-2"> 
+                    @include('partials.forms.input', [
+                        'name' => 'keywords',
+                        'placeholder' => __('views.search_by_post_name'),
+                        'value' => $searchKeywords
+                    ])
+                </div>
+                <div class="col-12 col-sm-6">
+                    @include('partials.forms.select', [
+                        'name' => 'category_id',
+                        'placeholder' => __('views.filter_by_category'),
+                        'records' => $categories,
+                        'seleted' => $searchCategory,
+                        'liveSearch' => 'false',
+                        'mobileNativeMenu' => true,
+                    ])
+                </div>
+                <div class="col-12">
+                    <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right ml-2">
+                    <a id="resetButton" class="btn btn-outline-primary float-right" href="#">@lang('general.reset')</a>
+                </div>
             </div>
         </form>
 
