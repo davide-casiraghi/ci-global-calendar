@@ -1,4 +1,4 @@
-@extends('categoryTranslations.layout')
+@extends('eventCategoryTranslations.layout')
 
 @section('content')
     
@@ -15,18 +15,18 @@
           'style' => 'alert-danger',
     ])
 
-    <form action="{{ route('categoryTranslations.update') }}" method="POST">
+    <form action="{{ route('eventCategoryTranslations.update') }}" method="POST">
         @csrf
         @method('PUT')
 
             @include('partials.forms.input-hidden', [
-                  'name' => 'category_translation_id',
-                  'value' => $categoryTranslation->id
+                  'name' => 'event_category_translation_id',
+                  'value' => $eventCategoryTranslation->id
             ])
 
             @include('partials.forms.input-hidden', [
-                  'name' => 'category_id',
-                  'value' => $categoryId,
+                  'name' => 'event_category_id',
+                  'value' => $eventCategoryId,
             ])
             @include('partials.forms.input-hidden', [
                   'name' => 'language_code',
@@ -38,30 +38,22 @@
                 @include('partials.forms.input', [
                     'title' => 'Name',
                     'name' => 'name',
-                    'placeholder' => 'Category name',
-                    'value' => $categoryTranslation->name,
+                    'placeholder' => 'Event Category name',
+                    'value' => $eventCategoryTranslation->name,
                 ])
             </div>
             
-            <div class="col-12">
-                @include('partials.forms.textarea', [
-                      'title' => __('general.description'),
-                      'name' => 'description',
-                      'placeholder' => 'Description',
-                      'value' => $categoryTranslation->description,
-                ])
-            </div>
         </div>
 
         @include('partials.forms.buttons-back-submit', [
-            'route' => 'categories.index'  
+            'route' => 'eventCategories.index'  
         ])
 
     </form>
     
     <div class="row mt-2">  
         <div class="col-12 action">
-            <form action="{{ route('categoryTranslations.destroy',$categoryTranslation->id) }}" method="POST">
+            <form action="{{ route('eventCategoryTranslations.destroy',$eventCategoryTranslation->id) }}" method="POST">
 
                 @csrf
                 @method('DELETE')

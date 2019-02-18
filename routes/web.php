@@ -41,8 +41,9 @@ function()
             Route::get('/menuItemTranslations/{menuItemId}/{languageCode}/{menuId}/edit', 'MenuItemTranslationController@edit');
             Route::post('/menuItemTranslations/store', 'MenuItemTranslationController@store')->name('menuItemTranslations.store');
             Route::put('/menuItemTranslations/update', 'MenuItemTranslationController@update')->name('menuItemTranslations.update');
+            Route::delete('/menuItemTranslations/destroy/{menuItemTranslationId}/{selectedMenuId}', 'MenuItemTranslationController@destroy')->name('menuItemTranslations.destroy');
         
-    /* Posts Categories */    
+    /* Post Categories */    
         Route::resource('categories','CategoryController');
         
         /* Category Translations */
@@ -50,7 +51,8 @@ function()
             Route::get('/categoryTranslations/{categoryId}/{languageCode}/edit', 'CategoryTranslationController@edit');
             Route::post('/categoryTranslations/store', 'CategoryTranslationController@store')->name('categoryTranslations.store');
             Route::put('/categoryTranslations/update', 'CategoryTranslationController@update')->name('categoryTranslations.update');
-        
+            Route::delete('/categoryTranslations/destroy/{categoryTranslationId}', 'CategoryTranslationController@destroy')->name('categoryTranslations.destroy');
+            
     /* Posts */
         Route::resource('posts','PostController');
         Route::get('/post/{slug}', 'PostController@postBySlug')->where('postBySlug', '[a-z]+');
@@ -60,9 +62,19 @@ function()
             Route::get('/postTranslations/{postId}/{languageCode}/edit', 'PostTranslationController@edit');
             Route::post('/postTranslations/store', 'PostTranslationController@store')->name('postTranslations.store');
             Route::put('/postTranslations/update', 'PostTranslationController@update')->name('postTranslations.update');
-        
-    /* Events */
+            Route::delete('/postTranslations/destroy/{postTranslationId}', 'PostTranslationController@destroy')->name('postTranslations.destroy');
+            
+    /* Event Categories */    
         Route::resource('eventCategories','EventCategoryController');
+        
+        /* Event Categories Translations */
+            Route::get('/eventCategoryTranslations/{eventCategoryId}/{languageCode}/create', 'EventCategoryTranslationController@create');
+            Route::get('/eventCategoryTranslations/{eventCategoryId}/{languageCode}/edit', 'EventCategoryTranslationController@edit');
+            Route::post('/eventCategoryTranslations/store', 'EventCategoryTranslationController@store')->name('eventCategoryTranslations.store');
+            Route::put('/eventCategoryTranslations/update', 'EventCategoryTranslationController@update')->name('eventCategoryTranslations.update');
+            Route::delete('/eventCategoryTranslations/destroy/{eventCategoryTranslationId}', 'EventCategoryTranslationController@destroy')->name('eventCategoryTranslations.destroy');
+            
+    /* Events */
         Route::resource('events','EventController');
         Route::get('/event/monthSelectOptions/', 'EventController@calculateMonthlySelectOptions');  // To populate the event repeat by month options
         Route::get('/event/{slug}', 'EventController@eventBySlug')->where('eventBySlug', '[a-z]+');

@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class EventCategory extends Model
 {
-    protected $fillable = [
-        'name'
-    ];
+    use \Dimsav\Translatable\Translatable;
+    
+    public $translatedAttributes = ['name','slug'];
+    protected $fillable = [];
 }

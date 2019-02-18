@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\EventCategory;
 use Illuminate\Http\Request;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 use Validator;
 
 class EventCategoryController extends Controller
@@ -20,9 +22,13 @@ class EventCategoryController extends Controller
      */
     public function index(){
         $eventCategories = EventCategory::latest()->paginate(20);
+        
+        // Countries available for translations
+            $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
 
         return view('eventCategories.index',compact('eventCategories'))
-            ->with('i', (request()->input('page', 1) - 1) * 20);
+            ->with('i', (request()->input('page', 1) - 1) * 20)
+            ->with('countriesAvailableForTranslations',$countriesAvailableForTranslations);
     }
 
     /**

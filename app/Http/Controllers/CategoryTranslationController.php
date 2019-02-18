@@ -11,12 +11,13 @@ use Validator;
 
 class CategoryTranslationController extends Controller
 {
+    /***************************************************************************/
     /* Restrict the access to this resource just to logged in users */
     public function __construct(){
         $this->middleware('admin');
     }
     
-    // **********************************************************************
+    /***************************************************************************/
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +28,7 @@ class CategoryTranslationController extends Controller
         //
     }
 
-    // **********************************************************************
+    /***************************************************************************/
     /**
      * Show the form for creating a new resource.
      *
@@ -62,7 +63,7 @@ class CategoryTranslationController extends Controller
                     ->with('selectedLocaleName',$selectedLocaleName);
     }
 
-    // **********************************************************************
+    /***************************************************************************/
     /**
      * Store a newly created resource in storage.
      *
@@ -92,7 +93,7 @@ class CategoryTranslationController extends Controller
                         ->with('success','Translation created successfully.');
     }
 
-    // **********************************************************************
+    /***************************************************************************/
     /**
      * Display the specified resource.
      *
@@ -104,7 +105,7 @@ class CategoryTranslationController extends Controller
         //
     }
 
-    // **********************************************************************
+    /***************************************************************************/
     /**
      * Update the specified resource in storage.
      *
@@ -129,15 +130,17 @@ class CategoryTranslationController extends Controller
                         ->with('success','Translation updated successfully');
     }
 
-    // **********************************************************************
+    /***************************************************************************/
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\CategoryTranslation  $categoryTranslation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CategoryTranslation $categoryTranslation)
-    {
-        //
+    public function destroy($categoryTranslationId){
+        $categoryTranslation = CategoryTranslation::find($categoryTranslationId);
+        $categoryTranslation->delete();
+        return redirect()->route('categories.index')
+                        ->with('success',__('messages.category_translation_deleted_successfully'));
     }
 }

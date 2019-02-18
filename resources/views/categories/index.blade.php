@@ -44,7 +44,6 @@
                 <div class="col-2 action">
                     <form action="{{ route('categories.destroy',$category->id) }}" method="POST">
 
-                        
                         @csrf
                         @method('DELETE')
 
