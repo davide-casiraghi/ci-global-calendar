@@ -27,18 +27,20 @@
         @endif
 
         {{-- Search form --}}
-        <form class="row searchForm mt-3" action="{{ route('organizers.index') }}" method="GET">
+        <form class="searchForm mt-3" action="{{ route('organizers.index') }}" method="GET">
             @csrf
-            <div class="col-12 col-sm-12 col-md-8 col-lg-9 mb-2">
-                @include('partials.forms.input', [
-                    'name' => 'keywords',
-                    'placeholder' => __('views.search_by_organizer_name'),
-                    'value' => $searchKeywords
-                ])
-            </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-3 mt-3 mt-md-0">
-                <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
-                <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right">
+            <div class="row">
+                <div class="col-12 col-sm-8 px-0 pr-sm-2">
+                    @include('partials.forms.input', [
+                        'name' => 'keywords',
+                        'placeholder' => __('views.search_by_organizer_name'),
+                        'value' => $searchKeywords
+                    ])
+                </div>
+                <div class="col-12 col-sm-4 mt-2 mt-sm-0 px-0">
+                    <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right ml-2">
+                    <a id="resetButton" class="btn btn-outline-primary float-right" href="#">@lang('general.reset')</a>
+                </div>
             </div>
         </form>
 
