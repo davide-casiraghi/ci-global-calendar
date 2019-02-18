@@ -84,18 +84,24 @@
                                 <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
                                 @if($teacher->country_id){{ $countries[$teacher->country_id] }}@endif
                             </div>
-                            <div class="col-12 pb-2 action">
-                                <form action="{{ route('teachers.destroy',$teacher->id) }}" method="POST">
+                            @if(Route::current()->getName() == 'teachers.index') 
+                                <div class="col-12 pb-2 action">
+                                    <form action="{{ route('teachers.destroy',$teacher->id) }}" method="POST">
 
-                                    <a class="btn btn-primary float-right" href="{{ route('teachers.edit',$teacher->id) }}">@lang('views.edit')</a>
-                                    <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('teachers.show',$teacher->id) }}">@lang('views.view')</a>
-                                    
-                                    @csrf
-                                    @method('DELETE')
+                                        <a class="btn btn-primary float-right" href="{{ route('teachers.edit',$teacher->id) }}">@lang('views.edit')</a>
+                                        <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('teachers.show',$teacher->id) }}">@lang('views.view')</a>
+                                        
+                                        @csrf
+                                        @method('DELETE')
 
-                                    <button type="submit" class="btn btn-link pl-0">@lang('views.delete')</button>
-                                </form>
-                            </div>
+                                        <button type="submit" class="btn btn-link pl-0">@lang('views.delete')</button>
+                                    </form>
+                                </div>
+                            @else
+                                <div class="col-12 pb-2 action">
+                                    <a class="btn btn-primary float-right" href="{{ route('teachers.show',$teacher->id) }}">@lang('views.view')</a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                     
