@@ -46,7 +46,26 @@
         {{-- List of organizers --}}
         <div class="organizersList my-4">
             @foreach ($organizers as $organizer)
-                <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
+                <div class="row bg-white shadow-1 rounded mb-3 pb-2 pt-3 pl-1">
+                    <div class="col-12 py-1 title">
+                        <h5 class="darkest-gray">{{ $organizer->name }}</h5>
+                    </div>
+                    <div class="col-12 pb-2 action">
+                        <form action="{{ route('organizers.destroy',$organizer->id) }}" method="POST">
+
+                            <a class="btn btn-primary float-right" href="{{ route('organizers.edit',$organizer->id) }}">@lang('views.edit')</a>
+                            <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('organizers.show',$organizer->id) }}">@lang('views.view')</a>
+                            
+                            @csrf
+                            @method('DELETE')
+
+                            <button type="submit" class="btn btn-link pl-0">@lang('views.delete')</button>
+                        </form>
+                    </div>
+                </div>
+                
+                
+                {{--<div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
                     <div class="col-12 py-3 title">
                         <a href="{{ route('organizers.edit',$organizer->id) }}">{{ $organizer->name }}</a>
                     </div>
@@ -63,7 +82,7 @@
                             <button type="submit" class="btn btn-danger float-right">@lang('views.delete')</button>
                         </form>
                     </div>
-                </div>
+                </div>--}}
             @endforeach 
         </div>
 
