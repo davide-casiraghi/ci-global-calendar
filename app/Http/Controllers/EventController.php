@@ -1088,19 +1088,17 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function eventBySlugAndRepetition($slug, $repetition){
-        
-        $event = Event::
-                        where('slug', $slug)
-                        ->first();
+    public function eventBySlugAndRepetition($slug, $repetitionId){
                 
         $firstRpDates = DB::table('event_repetitions')
                             ->select('start_repeat','end_repeat')
-                            ->where('id',$repetition)
+                            ->where('id',$repetitionId)
                             ->first();
         
         // If not found get the first repetion of the event in the future.
             if (!$firstRpDates){
+                $event = Event::where('slug', $slug)->first();
+                
                 $firstRpDates = DB::table('event_repetitions')
                         ->select('start_repeat','end_repeat')
                         ->where('event_id',$event->id)
@@ -1112,5 +1110,20 @@ class EventController extends Controller
     
     
     /***************************************************************************/
+    /**
+     * Return the first repetition of an event 
+     *
+     * @param  \App\Event  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function getFirstRpDate(){
+        $ret = DB::table('event_repetitions')
+                ->select('start_repeat','end_repeat')
+                ->where('event_id',$event->id)
+                ->first();
+                
+        return $ret;
+    }
+
 
 }
