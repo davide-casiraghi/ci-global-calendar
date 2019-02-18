@@ -1071,10 +1071,7 @@ class EventController extends Controller
                 where('slug', $slug)
                 ->first();
 
-        $firstRpDates = DB::table('event_repetitions')
-                ->select('start_repeat','end_repeat')
-                ->where('event_id',$event->id)
-                ->first();
+        $firstRpDates = $this->getFirstEventRpDates($event->id);
                     
         //dd($event);
         return $this->show($event, $firstRpDates);
@@ -1099,10 +1096,12 @@ class EventController extends Controller
             if (!$firstRpDates){
                 $event = Event::where('slug', $slug)->first();
                 
-                $firstRpDates = DB::table('event_repetitions')
+                /*$firstRpDates = DB::table('event_repetitions')
                         ->select('start_repeat','end_repeat')
                         ->where('event_id',$event->id)
-                        ->first();
+                        ->first();*/
+                        
+                $firstRpDates = $this->getFirstEventRpDates($event->id);
             }
         
         return $this->show($event, $firstRpDates);
@@ -1111,15 +1110,15 @@ class EventController extends Controller
     
     /***************************************************************************/
     /**
-     * Return the first repetition of an event 
+     * Return start and end dates of the first repetition of an event 
      *
      * @param  \App\Event  $post
-     * @return \Illuminate\Http\Response
+     * @return array the event repetition start and end repeat dates
      */
-    public function getFirstRpDate(){
+    public function getFirstEventRpDates($eventId){
         $ret = DB::table('event_repetitions')
                 ->select('start_repeat','end_repeat')
-                ->where('event_id',$event->id)
+                ->where('event_id',$eventId)
                 ->first();
                 
         return $ret;
