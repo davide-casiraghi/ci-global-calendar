@@ -1048,7 +1048,7 @@ class EventController extends Controller
         
         $event = Event::where('slug', $slug)->first();
 
-        $firstRpDates = Event::getFirstEventRpDates($event->id);
+        $firstRpDates = Event::getFirstEventRpDatesByEventId($event->id);
                     
         //dd($event);
         return $this->show($event, $firstRpDates);
@@ -1072,14 +1072,8 @@ class EventController extends Controller
                             ->first();
         
         // If not found get the first repetion of the event in the future.
-            if (!$firstRpDates){
-                
-                /*$firstRpDates = DB::table('event_repetitions')
-                        ->select('start_repeat','end_repeat')
-                        ->where('event_id',$event->id)
-                        ->first();*/
-                        
-                $firstRpDates = Event::getFirstEventRpDates($event->id);
+            if (!$firstRpDates){        
+                $firstRpDates = Event::getFirstEventRpDatesByEventId($event->id);
             }
         
         return $this->show($event, $firstRpDates);
