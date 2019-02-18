@@ -49,15 +49,31 @@ class Event extends Model
 
     /***************************************************************************/
     /**
-     * Return Start and End dates of the first repetition of an event 
+     * Return Start and End dates of the first repetition of an event - By Event ID
      *
      * @param  int  event id
-     * @return \App\EventRepetition the event repetition start and end repeat dates
+     * @return \App\EventRepetition the event repetition Start and End repeat dates
      */
     public static function getFirstEventRpDatesByEventId($eventId){
         $ret = EventRepetition::
                 select('start_repeat','end_repeat')
                 ->where('event_id',$eventId)
+                ->first();
+                
+        return $ret;
+    }
+    
+    /***************************************************************************/
+    /**
+     * Return Start and End dates of the first repetition of an event - By Repetition ID
+     *
+     * @param  int  event id
+     * @return \App\EventRepetition the event repetition Start and End repeat dates
+     */
+    public static function getFirstEventRpDatesByRepetitionId($eventId){
+        $ret = EventRepetition::
+                select('start_repeat','end_repeat')
+                ->where('id',$repetitionId)
                 ->first();
                 
         return $ret;
