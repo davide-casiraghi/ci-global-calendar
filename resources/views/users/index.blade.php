@@ -58,7 +58,41 @@
         {{-- List of users --}}
         <div class="usersList my-4">
             @foreach ($users as $user)
-                <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
+                <div class="row bg-white shadow-1 rounded mb-3 pb-2 pt-3 pl-1">
+                    <div class="col-12 py-1">
+                        <div class="row">
+                            <div class="col-8">
+                                <h5 class="darkest-gray">{{ $user->name }}</h5>
+                            </div>
+                            <div class="col-4 pt-1">
+                                @if(!empty($user->status)){!! '<span class="badge badge-success float-right">'.__('views.enabled').'</span>' !!}@else{!!'<span class="badge badge-secondary float-right">'.__('views.disabled').'</span>'!!}@endif
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-12 mb-4">
+                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
+                        @if(!empty($user->country_id)){{ $countries[$user->country_id] }}@endif
+                            
+                            
+                        
+                            
+                    </div>
+                    <div class="col-12 pb-2 action">
+                        <form action="{{ route('users.destroy',$user->id) }}" method="POST">
+
+                            <a class="btn btn-primary float-right" href="{{ route('users.edit',$user->id) }}">@lang('views.edit')</a>
+                            <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('users.show',$user->id) }}">@lang('views.view')</a>
+                            
+                            @csrf
+                            @method('DELETE')
+
+                            <button type="submit" class="btn btn-link pl-0">@lang('views.delete')</button>
+                        </form>
+                    </div>
+                </div>
+                
+                {{--<div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
                     <div class="col-12 col-sm-5 py-3 name">
                         <a href="{{ route('users.edit',$user->id) }}">{{ $user->name }}</a>
                     </div>
@@ -81,7 +115,7 @@
                             <button type="submit" class="btn btn-danger float-right">@lang('views.delete')</button>
                         </form>
                     </div>
-                </div>
+                </div>--}}
             @endforeach 
         </div>
         
