@@ -40,10 +40,10 @@ class Event extends Model
 
     /***************************************************************************/
     /**
-     * Return start and end dates of the first repetition of an event 
+     * Return Start and End dates of the first repetition of an event 
      *
-     * @param  \App\Event  $post
-     * @return array the event repetition start and end repeat dates
+     * @param  int  event id
+     * @return \App\EventRepetition the event repetition start and end repeat dates
      */
     public static function getFirstEventRpDates($eventId){
         $ret = EventRepetition::

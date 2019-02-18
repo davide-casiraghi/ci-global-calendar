@@ -852,7 +852,7 @@ class EventController extends Controller
     /**
      * Decode the event repeat_weekly_on field - used in event.show
      *
-     * @param  string $number
+     * @param  string $repeatWeeklyOn
      * @return string $ret - a string like "Monday"
      */
 
@@ -867,7 +867,7 @@ class EventController extends Controller
     /**
      * Decode the event on_monthly_kind field - used in event.show
      *
-     * @param  string $number
+     * @param  string $onMonthlyKindCode - 
      * @return string $ret - a string like "the 4th to last Thursday of the month"
      */
 
@@ -920,7 +920,8 @@ class EventController extends Controller
     /**
      * Save/Update the record on DB
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Event $event 
      * @return string $ret - the ordinal indicator (st, nd, rd, th)
      */
 
@@ -1031,8 +1032,8 @@ class EventController extends Controller
     /**
      * Get creator email
      *
-     * @param  none
-     * @return array $ret - the array with the organizers emails
+     * @param  int $created_by
+     * @return array $ret - the array with the creator emails
      */
     function getCreatorEmail($created_by){
     
@@ -1050,15 +1051,13 @@ class EventController extends Controller
     /**
      * Return the event by SLUG. (eg. http://websitename.com/event/xxxx)
      *
-     * @param  \App\Event  $post
+     * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
 
     public function eventBySlug($slug){
         
-        $event = Event::
-                where('slug', $slug)
-                ->first();
+        $event = Event::where('slug', $slug)->first();
 
         $firstRpDates = Event::getFirstEventRpDates($event->id);
                     
