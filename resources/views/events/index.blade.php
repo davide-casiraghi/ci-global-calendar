@@ -71,7 +71,7 @@
                     
                     
                     
-                    <div class="col-12   py-1 title">
+                    <div class="col-12 py-1 title">
                         <h5 class="darkest-gray">{{ $event->title }}</h5>
                     </div>
                     <div class="col-12 mb-4">
