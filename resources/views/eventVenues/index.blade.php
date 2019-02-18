@@ -57,6 +57,31 @@
         {{-- List of venues --}}
         <div class="venuesList my-4">
             @foreach ($eventVenues as $eventVenue)
+                <div class="row bg-white shadow-1 rounded mb-3 pb-2 pt-3 pl-1">
+                    <div class="col-12 py-1 title">
+                        <h5 class="darkest-gray">{{ $eventVenue->name }}</h5>
+                    </div>
+                    <div class="col-12 mb-4">
+                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
+                        @if($eventVenue->country_id){{ $countries[$eventVenue->country_id] }}@endif
+                            
+                        <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-city mr-1 ml-4 dark-gray" data-original-title="@lang('general.city')"></i>
+                        {{$eventVenue->city}}
+                    </div>
+                    <div class="col-12 pb-2 action">
+                        <form action="{{ route('eventVenues.destroy',$eventVenue->id) }}" method="POST">
+
+                            <a class="btn btn-primary float-right" href="{{ route('eventVenues.edit',$eventVenue->id) }}">@lang('views.edit')</a>
+                            <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('eventVenues.show',$eventVenue->id) }}">@lang('views.view')</a>
+                            
+                            @csrf
+                            @method('DELETE')
+
+                            <button type="submit" class="btn btn-link pl-0">@lang('views.delete')</button>
+                        </form>
+                    </div>
+                </div>    
+                {{--
                 <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
                     <div class="col-12 col-md-6 col-lg-8 py-3 title">
                         <a href="{{ route('eventVenues.edit',$eventVenue->id) }}">{{ $eventVenue->name }}</a>
@@ -82,6 +107,7 @@
                         </form>
                     </div>
                 </div>
+                --}}
             @endforeach    
         </div>
 
