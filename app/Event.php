@@ -37,6 +37,15 @@ class Event extends Model
     }
 
     /***************************************************************************/
+    /**
+     * Delete all the previous repetitions from the event_repetitions table
+     *
+     * @param  $eventId - Event id
+     * @return none
+     */
+    public static function deletePreviousRepetitions($eventId){
+        EventRepetition::where('event_id', $eventId)->delete();
+    }
 
     /***************************************************************************/
     /**

@@ -318,7 +318,7 @@ class EventController extends Controller
 
     function saveEventRepetitions($request, $event){
 
-        $this->deletePreviousRepetitions($event->id);
+        Event::deletePreviousRepetitions($event->id);
         
         // Saving repetitions - If it's a single event will be stored with just one repetition
             $timeStart = date("H:i:s", strtotime($request->get('time_start')));
@@ -508,17 +508,6 @@ class EventController extends Controller
 
     /***************************************************************************/
     /**
-     * Delete all the previous repetitions from the event_repetitions table
-     *
-     * @param  $eventId - Event id
-     * @return none
-     */
-    function deletePreviousRepetitions($eventId){
-        DB::table('event_repetitions')->where('event_id', $eventId)->delete();
-    }
-
-    /***************************************************************************/
-    /**
      * Send the Misuse mail
      *
      * @param  \Illuminate\Http\Request  $request
@@ -580,7 +569,7 @@ class EventController extends Controller
         $message['event_id'] = $request->event_id;
 
          //Mail::to($request->user())->send(new ReportMisuse($report));
-         // aaaaaaaa
+    
          foreach ($eventOrganizers as $eventOrganizer){
             Mail::to($eventOrganizer->email)->send(new ContactOrganizer($message));
         };
