@@ -11,9 +11,9 @@
 @stop
 
 @section('content')
-    <div class="container max-w-md">
+    <div class="container max-w-md px-0">
         <div class="row">
-            <div class="col-12 col-sm-7 px-0">
+            <div class="col-12 col-sm-7">
                 @if(Route::current()->getName() == 'teachers.index') 
                     <h3>@lang('views.teachers_management')</h3>
                 @elseif(Route::current()->getName() == 'teachers.directory') 
@@ -22,7 +22,7 @@
             </div>
             
             @if(Route::current()->getName() == 'teachers.index') 
-                <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right px-0">
+                <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right">
                     <a class="btn btn-success create-new" href="{{ route('teachers.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_teacher')</a>
                 </div>
             @endif
@@ -38,14 +38,14 @@
         <form class="searchForm mt-3" action="@if(Route::current()->getName() == 'teachers.index') {{ route('teachers.index') }} @else {{ route('teachers.directory') }} @endif" method="GET">
             @csrf
             <div class="row">
-                <div class="col-12 col-sm-6 px-0 pr-sm-2">
+                <div class="col-12 col-sm-6 pr-sm-2">
                     @include('partials.forms.input', [
                         'name' => 'keywords',
                         'placeholder' => __('views.search_by_teacher_name'),
                         'value' => $searchKeywords
                     ])
                 </div>
-                <div class="col-12 col-sm-6 px-0">
+                <div class="col-12 col-sm-6">
                     @include('partials.forms.select', [
                         'name' => 'country_id',
                         'placeholder' => __('views.filter_by_country'),
@@ -55,7 +55,7 @@
                         'mobileNativeMenu' => false,
                     ])
                 </div>
-                <div class="col-12 px-0">
+                <div class="col-12">
                     <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right ml-2">
                     <a id="resetButton" class="btn btn-outline-primary float-right" href="#">@lang('general.reset')</a>
                 </div>
@@ -65,7 +65,7 @@
         {{-- List of teachers --}}
         <div class="teachersList my-4">
             @foreach ($teachers as $teacher)
-                <div class="row bg-white shadow-1 rounded mb-3">
+                <div class="row bg-white shadow-1 rounded mb-3 mx-1">
                     
                     <div class="d-none d-sm-block col-sm-4 p-0">
                         @if(!empty($teacher->profile_picture))
