@@ -76,13 +76,13 @@
                         @endif
                     </div>
                     
-                    <div class="col-12 col-sm-8 py-2 px-3">
+                    <div class="col-12 col-sm-8 pb-2 pt-3 px-3">
                         <div class="row">
                             <div class="col-12 py-1 title">
                                 <h5 class="darkest-gray">{{ $teacher->name }}</h5>
                             </div>
                             <div class="col-12 mb-4">
-                                <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-2" data-original-title="@lang('general.country')"></i>
+                                <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
                                 @if($teacher->country_id){{ $countries[$teacher->country_id] }}@endif
                             </div>
                             <div class="col-12 pb-2 action">
@@ -94,7 +94,7 @@
                                     @csrf
                                     @method('DELETE')
 
-                                    <button type="submit" class="btn btn-link">@lang('views.delete')</button>
+                                    <button type="submit" class="btn btn-link pl-0">@lang('views.delete')</button>
                                 </form>
                             </div>
                         </div>

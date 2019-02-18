@@ -81,7 +81,7 @@
                             <span class="gray-bg rounded-left d-block" style="width:100%; height:100%;"></span>
                         @endif
                     </div>
-                    <div class="col-12 col-sm-8 py-2 px-3">
+                    <div class="col-12 col-sm-8 pb-2 pt-3 px-3">
                         <div class="row">
                             <div class="col-12 py-1 title">
                                 <h5 class="darkest-gray">{{ $event->title }}</h5>
@@ -102,7 +102,7 @@
                                     @csrf
                                     @method('DELETE')
 
-                                    <button type="submit" class="btn btn-link">@lang('views.delete')</button>
+                                    <button type="submit" class="btn btn-link pl-0">@lang('views.delete')</button>
                                 </form>
                             </div>
                         </div>
