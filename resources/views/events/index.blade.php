@@ -14,7 +14,7 @@
 @section('content')
     <div class="container max-w-md">
         <div class="row">
-            <div class="col-12 col-sm-7">
+            <div class="col-12 col-sm-7 px-0">
                 <h3>@lang('views.events_management')</h3>
             </div>
             <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right px-0">
