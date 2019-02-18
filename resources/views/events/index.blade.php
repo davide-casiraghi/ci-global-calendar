@@ -67,16 +67,55 @@
     <div class="eventList my-4">
         @foreach ($events as $event)
             <div class="container max-w-md">
-                <div class="row p-1 bg-white shadow-1 rounded mb-3">
-                    <div class="col-12 col-md-6 col-lg-8 py-3 title">
+                <div class="row py-3 px-2 bg-white shadow-1 rounded mb-3">
+                    
+                    
+                {{--    <div class="col-8">
+                        <h5 class="darkest-gray">{{ $event->title }}</h5>
+                        <form action="{{ route('events.destroy',$event->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-link">@lang('views.delete')</button>
+                        </form>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-12 pl-0">
+                                <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-2 dark-gray" data-original-title="@lang('general.category')"></i>
+                                {{ $eventCategories[$event->category_id] }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 pl-0">
+                                <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-2 dark-gray" data-original-title="@lang('general.country')"></i>
+                                {{ $countries[$venues[$event->venue_id]] }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 pl-0">
+                                <a class="btn btn-primary float-right" href="{{ route('events.edit',$event->id) }}">@lang('views.edit')</a>
+                                <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('events.show',$event->id) }}">@lang('views.view')</a>
+                            </div>
+                        </div>
+                    </div>--}}
+                    
+                    
+                    <div class="col-12   py-1 title">
                         <h5 class="darkest-gray">{{ $event->title }}</h5>
                     </div>
-                    <div class="col-6 col-md-3 col-lg-2 pb-3 py-md-3 category">
+                    {{--<div class="col-6  pb-3  category">
                         <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-2 dark-gray" data-original-title="@lang('general.category')"></i>
                         {{ $eventCategories[$event->category_id] }}
                     </div>
-                    <div class="col-6 col-md-3 col-lg-2 pb-3 py-md-3 country">
+                    <div class="col-6   pb-3  country">
                         <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-2 dark-gray" data-original-title="@lang('general.country')"></i>
+                        {{ $countries[$venues[$event->venue_id]] }}
+                    </div>--}}
+                    <div class="col-12 mb-4">
+                        <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-1 dark-gray" data-original-title="@lang('general.category')"></i>
+                        {{ $eventCategories[$event->category_id] }}
+                        
+                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 ml-4 dark-gray" data-original-title="@lang('general.country')"></i>
                         {{ $countries[$venues[$event->venue_id]] }}
                     </div>
                     <div class="col-12 pb-2 action">
@@ -91,6 +130,8 @@
                             <button type="submit" class="btn btn-link">@lang('views.delete')</button>
                         </form>
                     </div>
+                    
+                    
                 </div>
             </div>
         @endforeach
