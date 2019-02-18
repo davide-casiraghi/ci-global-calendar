@@ -12,10 +12,10 @@
 @section('content')
     <div class="container max-w-md">
         <div class="row">
-            <div class="col-12">
-                <h2>@lang('views.organizers_management')</h2>
+            <div class="col-12 col-sm-7 px-0">
+                <h3>@lang('views.organizers_management')</h3>
             </div>
-            <div class="col-12 mt-4 mt-sm-0 text-right">
+            <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right px-0">
                 <a class="btn btn-success create-new" href="{{ route('organizers.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_organizer')</a>
             </div>
         </div>
