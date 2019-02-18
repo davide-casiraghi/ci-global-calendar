@@ -8736,7 +8736,27 @@ readers do not read off random characters that represent icons */
 }
 
 .lightest-gray {
-  dolor: #f5f7fa;
+  color: #f5f7fa;
+}
+
+.darkest-gray-bg {
+  background-color: #13263e;
+}
+
+.dark-gray-bg {
+  background-color: #627691;
+}
+
+.gray-bg {
+  background-color: #d2ddeb;
+}
+
+.light-gray-bg {
+  background-color: #edf1f5;
+}
+
+.lightest-gray-bg {
+  background-color: #f5f7fa;
 }
 
 /* https://tailwindcss.com/docs/max-width/#app */

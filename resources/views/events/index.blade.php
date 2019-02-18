@@ -67,10 +67,43 @@
     <div class="eventList my-4">
         @foreach ($events as $event)
             <div class="container max-w-md">
-                <div class="row py-3 px-2 bg-white shadow-1 rounded mb-3">
+                <div class="row bg-white shadow-1 rounded mb-3">
                     
+                    <div class="col-4 p-0">
+                        @if(!empty($event->image))
+                            <img class="rounded-left" style="width:100%; height:100%;" alt="{{ $event->title }}" src="/storage/images/events_teaser/thumb_{{ $event->image }}">
+                        @else
+                            <span class="gray-bg rounded-left d-block" style="width:100%; height:100%;"></span>
+                        @endif
+                    </div>
+                    <div class="col-8 py-2 px-3">
+                        <div class="row">
+                            <div class="col-12 py-1 title">
+                                <h5 class="darkest-gray">{{ $event->title }}</h5>
+                            </div>
+                            <div class="col-12 mb-4">
+                                <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-1 dark-gray" data-original-title="@lang('general.category')"></i>
+                                {{ $eventCategories[$event->category_id] }}
+                                
+                                <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 ml-4 dark-gray" data-original-title="@lang('general.country')"></i>
+                                {{ $countries[$venues[$event->venue_id]] }}
+                            </div>
+                            <div class="col-12 pb-2 action">
+                                <form action="{{ route('events.destroy',$event->id) }}" method="POST">
+
+                                    <a class="btn btn-primary float-right" href="{{ route('events.edit',$event->id) }}">@lang('views.edit')</a>
+                                    <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('events.show',$event->id) }}">@lang('views.view')</a>
+                                    
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit" class="btn btn-link">@lang('views.delete')</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                     
-                    
+                    {{--
                     <div class="col-12 py-1 title">
                         <h5 class="darkest-gray">{{ $event->title }}</h5>
                     </div>
@@ -93,6 +126,7 @@
                             <button type="submit" class="btn btn-link">@lang('views.delete')</button>
                         </form>
                     </div>
+                    --}}
                     
                     
                 </div>
