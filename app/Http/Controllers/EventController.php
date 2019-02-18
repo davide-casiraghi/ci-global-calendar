@@ -27,11 +27,13 @@ use Validator;
 
 class EventController extends Controller
 {
+    /***************************************************************************/
     /* Restrict the access to this resource just to logged in users except show view */
     public function __construct(){
         $this->middleware('auth', ['except' => ['show','reportMisuse','reportMisuseThankyou','mailToOrganizer','mailToOrganizerSent','eventBySlug', 'eventBySlugAndRepetition','EventsListByCountry']]);
     }
     
+    /***************************************************************************/
     /**
      * Display a listing of the resource.
      *
@@ -404,7 +406,6 @@ class EventController extends Controller
     }
 
     /***************************************************************************/
-    
     /**
      * Save all the weekly repetitions inthe event_repetitions table
      * useful: http://thisinterestsme.com/php-get-first-monday-of-month/
@@ -486,7 +487,6 @@ class EventController extends Controller
     }
 
     /***************************************************************************/
-    
     /**
      * Save event repetition in the DB
      *
@@ -507,7 +507,6 @@ class EventController extends Controller
     }
 
     /***************************************************************************/
-    
     /**
      * Delete all the previous repetitions from the event_repetitions table
      *
@@ -519,7 +518,6 @@ class EventController extends Controller
     }
 
     /***************************************************************************/
-    
     /**
      * Send the Misuse mail
      *
@@ -561,8 +559,7 @@ class EventController extends Controller
 
     }
 
-    // **********************************************************************
-    
+    /***************************************************************************/
     /**
      * Send the mail to the Organizer (from the event modal in the event show view)
      *
@@ -592,8 +589,7 @@ class EventController extends Controller
 
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Display the thank you view after the mail to the organizer is sent (called by /mailToOrganizer/sent route)
      *
@@ -605,8 +601,7 @@ class EventController extends Controller
         return view('emails.contact.organizer-sent');
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Display the thank you view after the misuse report mail is sent (called by /misuse/thankyou route)
      *
@@ -619,7 +614,6 @@ class EventController extends Controller
     }
 
     /***************************************************************************/
-    
     /**
      * Set the Event attributes about repeating before store or update (repeat until field and multiple days)
      *
@@ -657,8 +651,7 @@ class EventController extends Controller
         return $event;
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Generate the HTML of the monthly select dropdown - inspired by - https://www.theindychannel.com/calendar
      * - Called by the AJAX in the event repeat view -
@@ -743,8 +736,7 @@ class EventController extends Controller
         return $onMonthlyKindSelect;
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * GET number of the specified weekday in this month (1 for the first)
      *
@@ -776,8 +768,7 @@ class EventController extends Controller
         return $weeks;
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * GET number of week from the end of the month - https://stackoverflow.com/questions/5853380/php-get-number-of-week-for-month
      * Week of the month = Week of the year - Week of the year of first day of month + 1
@@ -811,10 +802,11 @@ class EventController extends Controller
                 $weekFromTheEnd = 5;
                 break;
         }
+        
         return $weekFromTheEnd;
     }
 
-    // **********************************************************************
+    /***************************************************************************/
     /**
      * GET number of day from the end of the month
      *
@@ -829,14 +821,14 @@ class EventController extends Controller
         return $dayDifference;
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * GET the ordinal indicator - for the day of the month
      *
      * @param  int $number
      * @return string $ret - the ordinal indicator (st, nd, rd, th)
      */
+     
     function getOrdinalIndicator($number){
         switch ($number) {
             case  1:
@@ -852,11 +844,11 @@ class EventController extends Controller
                 $ret = "th";
                 break;
         }
+        
         return $ret;
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Decode the event repeat_weekly_on field - used in event.show
      *
@@ -867,11 +859,11 @@ class EventController extends Controller
     function decodeRepeatWeeklyOn($repeatWeeklyOn){
         $weekdayArray = ['','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
         $ret = $weekdayArray[$repeatWeeklyOn];
+        
         return $ret;
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Decode the event on_monthly_kind field - used in event.show
      *
@@ -922,11 +914,9 @@ class EventController extends Controller
         }
 
         return $ret;
-
     }
 
     // **********************************************************************
-
     /**
      * Save/Update the record on DB
      *
@@ -1025,7 +1015,6 @@ class EventController extends Controller
     }
 
     // **********************************************************************
-
     /**
      * Get the current logged user id
      *
@@ -1107,7 +1096,6 @@ class EventController extends Controller
         return $this->show($event, $firstRpDates);
     }
     
-    
     /***************************************************************************/
     /**
      * Return start and end dates of the first repetition of an event 
@@ -1124,5 +1112,6 @@ class EventController extends Controller
         return $ret;
     }
 
+    /***************************************************************************/
 
 }
