@@ -61,39 +61,60 @@
         {{-- List of posts --}}
         <div class="venuesList my-4">
             @foreach ($posts as $post)
-                <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
+                <div class="row bg-white shadow-1 rounded mb-3 mx-1">
                     
-                    {{-- Title and Preview --}}
-                        <div class="col-10 col-md-5 col-lg-5 order-1 title">
-                            <a href="{{ route('posts.edit',$post->id) }}" class="pt-2 d-inline-block">{{ $post->translate('en')->title }}</a>
-                            <a class="btn btn-secondary ml-2 py-0 px-1 mt-md-1 float-md-right" href="{{ route('posts.show',$post->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="@lang('views.preview')"><small><i class="fas fa-eye"></i></small></a>
-                        </div>
+                    {{-- Intro Image (hidden on mobile) --}}
+                    <div class="d-none d-sm-block col-sm-4 p-0">
+                        @if(!empty($post->introimage))
+                            <img class="rounded-left" style="width:100%; height:100%;" alt="{{ $post->title }}" src="/storage/images/posts_intro_images/thumb_{{ $post->introimage }}">
+                        @else
+                            <span class="gray-bg rounded-left d-block" style="width:100%; height:100%;"></span>
+                        @endif
+                    </div>
                     
-                    {{-- Category --}}
-                        <div class="col-6 col-md-2 col-lg-2 pt-2 order-3 order-md-2 category">
-                            <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-2" data-original-title="@lang('general.category')"></i>{{ $categories[$post->category_id] }}
+                    <div class="col-12 col-sm-8 pb-2 pt-3 px-3">
+                        <div class="row">
+                            <div class="col-12 py-1 title">
+                                <h5 class="darkest-gray">{{ $post->title }}</h5>
+                            </div>
+                            <div class="col-12">
+                                <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-2 dark-gray" data-original-title="@lang('general.category')"></i>
+                                @if($post->category_id){{ $categories[$post->category_id] }}@endif
+                            </div>
+                            <div class="col-12 mb-4 mt-4">
+                                @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
+                                    @if($post->hasTranslation($key))
+                                        <a href="/postTranslations/{{ $post->id }}/{{ $key }}/edit" class="bg-success text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
+                                    @else
+                                        <a href="/postTranslations/{{ $post->id }}/{{ $key }}/create" class="bg-secondary text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
+                                    @endif
+                                @endforeach
+                            </div>
+                            <div class="col-12 pb-2 action">
+                                <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
+
+                                    <a class="btn btn-primary float-right" href="{{ route('posts.edit',$post->id) }}">@lang('views.edit')</a>
+                                    <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('posts.show',$post->id) }}">@lang('views.view')</a>
+                                    
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit" class="btn btn-link pl-0">@lang('views.delete')</button>
+                                </form>
+                            </div>
                         </div>
+                    </div>
                     
-                    {{-- Translations --}}
-                        <div class="col-6 col-md-3 col-lg-4 order-4 order-md-3 pt-1 text-right translation">
-                            @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
-                                @if($post->hasTranslation($key))
-                                    <a href="/postTranslations/{{ $post->id }}/{{ $key }}/edit" class="bg-success text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
-                                @else
-                                    <a href="/postTranslations/{{ $post->id }}/{{ $key }}/create" class="bg-secondary text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
-                                @endif
-                            @endforeach
-                        </div>
-                    
-                    {{-- Delete --}}
-                        <div class="col-2 col-lg-1 order-2 order-md-4 action">
-                            <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger float-right"><i class="far fa-trash-alt"></i></button>
-                            </form>
-                        </div>
-                </div>
+                </div>    
+                
+                
+                
+                
+                
+                
+                
+                
+                
             @endforeach    
         </div>
 

@@ -68,7 +68,6 @@
                                 @if(!empty($user->status)){!! '<span class="badge badge-success float-right">'.__('views.enabled').'</span>' !!}@else{!!'<span class="badge badge-secondary float-right">'.__('views.disabled').'</span>'!!}@endif
                             </div>
                         </div>
-                        
                     </div>
                     <div class="col-12 mb-4">
                         <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
