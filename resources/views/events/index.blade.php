@@ -58,37 +58,39 @@
             ])
         </div>
         <div class="col-12 col-lg-3 mt-3 mt-sm-2 mt-lg-0">
-            <a id="resetButton" class="btn btn-info float-right ml-2" href="#">@lang('general.reset')</a>
-            <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right">
+            <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right ml-2">
+            <a id="resetButton" class="btn btn-outline-primary float-right" href="#">@lang('general.reset')</a>
         </div>
     </form>
     
     {{-- List of events --}}
     <div class="eventList my-4">
         @foreach ($events as $event)
-            <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
-                <div class="col-12 col-md-6 col-lg-8 py-3 title">
-                    <a href="{{ route('events.edit',$event->id) }}">{{ $event->title }}</a>
-                </div>
-                <div class="col-6 col-md-3 col-lg-2 pb-3 py-md-3 category">
-                    <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-2" data-original-title="@lang('general.category')"></i>
-                    {{ $eventCategories[$event->category_id] }}
-                </div>
-                <div class="col-6 col-md-3 col-lg-2 pb-3 py-md-3 country">
-                    <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-2" data-original-title="@lang('general.country')"></i>
-                    {{ $countries[$venues[$event->venue_id]] }}
-                </div>
-                <div class="col-12 pb-2 action">
-                    <form action="{{ route('events.destroy',$event->id) }}" method="POST">
+            <div class="container max-w-md">
+                <div class="row p-1 bg-white shadow-1 rounded mb-3">
+                    <div class="col-12 col-md-6 col-lg-8 py-3 title">
+                        <h5 class="darkest-gray">{{ $event->title }}</h5>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2 pb-3 py-md-3 category">
+                        <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-2 dark-gray" data-original-title="@lang('general.category')"></i>
+                        {{ $eventCategories[$event->category_id] }}
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2 pb-3 py-md-3 country">
+                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-2 dark-gray" data-original-title="@lang('general.country')"></i>
+                        {{ $countries[$venues[$event->venue_id]] }}
+                    </div>
+                    <div class="col-12 pb-2 action">
+                        <form action="{{ route('events.destroy',$event->id) }}" method="POST">
 
-                        <a class="btn btn-info mr-2" href="{{ route('events.show',$event->id) }}">@lang('views.view')</a>
-                        <a class="btn btn-primary" href="{{ route('events.edit',$event->id) }}">@lang('views.edit')</a>
+                            <a class="btn btn-primary float-right" href="{{ route('events.edit',$event->id) }}">@lang('views.edit')</a>
+                            <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('events.show',$event->id) }}">@lang('views.view')</a>
+                            
+                            @csrf
+                            @method('DELETE')
 
-                        @csrf
-                        @method('DELETE')
-
-                        <button type="submit" class="btn btn-danger float-right">@lang('views.delete')</button>
-                    </form>
+                            <button type="submit" class="btn btn-link">@lang('views.delete')</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         @endforeach

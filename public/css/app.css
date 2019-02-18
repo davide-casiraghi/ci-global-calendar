@@ -8694,8 +8694,91 @@ readers do not read off random characters that represent icons */
   font-family: "Font Awesome 5 Pro";
 }
 
-ul.pagination {
-  justify-content: center;
+.shadow-1 {
+  /*You might use a smaller shadow for something like a button, where you want the user to notice it but don’t want it to dominate the page:*/
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 5px 15px rgba(0, 0, 0, 0.24);
+}
+
+.shadow-2 {
+  /* Medium shadows are useful for things like dropdowns; elements that need to sit a bit further above the rest of the UI */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.shadow-3 {
+  /* Large shadows are great for modal dialogs, where you really want to capture the user’s attention */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-4 {
+  /* Large shadows are great for modal dialogs, where you really want to capture the user’s attention */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.shadow-5 {
+  /* Large shadows are great for modal dialogs, where you really want to capture the user’s attention */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.darkest-gray {
+  color: #13263e;
+}
+
+.dark-gray {
+  color: #627691;
+}
+
+.gray {
+  color: #d2ddeb;
+}
+
+.light-gray {
+  color: #edf1f5;
+}
+
+.lightest-gray {
+  dolor: #f5f7fa;
+}
+
+/* https://tailwindcss.com/docs/max-width/#app */
+
+.max-w-xs {
+  max-width: 20rem !important;
+}
+
+.max-w-sm {
+  max-width: 30rem !important;
+}
+
+.max-w-md {
+  max-width: 40rem !important;
+}
+
+.max-w-lg {
+  max-width: 50rem !important;
+}
+
+.max-w-xl {
+  max-width: 60rem !important;
+}
+
+.max-w-2xl {
+  max-width: 70rem !important;
+}
+
+.max-w-3xl {
+  max-width: 80rem !important;
+}
+
+.max-w-4xl {
+  max-width: 90rem !important;
+}
+
+.max-w-5xl {
+  max-width: 100rem !important;
+}
+
+.max-w-full {
+  max-width: 100% !important;
 }
 
 /*!
@@ -20122,6 +20205,10 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark {
 
 form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after {
   font-size: 0.5rem;
+}
+
+ul.pagination {
+  justify-content: center;
 }
 
 /**** JqueryUI Accordion - CSS override - plugin/contents/jw_ts ****/
