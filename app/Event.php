@@ -10,31 +10,23 @@ class Event extends Model
         'title', 'description', 'organized_by', 'category_id', 'venue_id', 'image', 'facebook_event_link', 'website_event_link', 'status', 'repeat_type', 'repeat_until', 'repeat_weekly_on', 'repeat_monthly_on', 'on_monthly_kind'
     ];
 
+    /***************************************************************************/
     /**
      * Get the teachers for the event.
      */
-    public function teachers()
-    {
+    public function teachers(){
         return $this->belongsToMany('App\Teacher', 'event_has_teachers', 'event_id', 'teacher_id');
     }
 
+    /***************************************************************************/
     /**
      * Get the organizers for the event.
      */
-    public function organizers()
-    {
+    public function organizers(){
         return $this->belongsToMany('App\Organizer', 'event_has_organizers', 'event_id', 'organizer_id');
     }
 
-    /**
-     * Get the organizers for the event.
-     */
-    /*public function eventVenues()
-    {
-        //return $this->hasMany('App\EventVenue');
-        return $this->hasOne('App\EventVenue');
-    }*/
-
+    /***************************************************************************/
     /**
      * Get the organizers for the event.
      */
@@ -43,16 +35,21 @@ class Event extends Model
         return $this->hasMany('App\EventRepetition', 'event_id');
     }
 
-    //helper function for convenience
-    /*public function getVenues($type){
-        switch($type){
-            case 'id':
-                return $this->eventVenues()->wherePivot('type','id');
-            case 'name': //returns films with this person in cast
-                return $this->eventVenues()->wherePivot('type', 'name');
-            default:
-                return $this->eventVenues;
-        }
-    }*/
+    /***************************************************************************/
 
+    /***************************************************************************/
+    /**
+     * Return start and end dates of the first repetition of an event 
+     *
+     * @param  \App\Event  $post
+     * @return array the event repetition start and end repeat dates
+     */
+    public static function getFirstEventRpDates($eventId){
+        $ret = DB::table('event_repetitions')
+                ->select('start_repeat','end_repeat')
+                ->where('event_id',$eventId)
+                ->first();
+                
+        return $ret;
+    }
 }

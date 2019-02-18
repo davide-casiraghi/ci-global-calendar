@@ -1060,7 +1060,7 @@ class EventController extends Controller
                 where('slug', $slug)
                 ->first();
 
-        $firstRpDates = $this->getFirstEventRpDates($event->id);
+        $firstRpDates = Event::getFirstEventRpDates($event->id);
                     
         //dd($event);
         return $this->show($event, $firstRpDates);
@@ -1076,6 +1076,8 @@ class EventController extends Controller
 
     public function eventBySlugAndRepetition($slug, $repetitionId){
                 
+        $event = Event::where('slug', $slug)->first();
+        
         $firstRpDates = DB::table('event_repetitions')
                             ->select('start_repeat','end_repeat')
                             ->where('id',$repetitionId)
@@ -1083,33 +1085,16 @@ class EventController extends Controller
         
         // If not found get the first repetion of the event in the future.
             if (!$firstRpDates){
-                $event = Event::where('slug', $slug)->first();
                 
                 /*$firstRpDates = DB::table('event_repetitions')
                         ->select('start_repeat','end_repeat')
                         ->where('event_id',$event->id)
                         ->first();*/
                         
-                $firstRpDates = $this->getFirstEventRpDates($event->id);
+                $firstRpDates = Event::getFirstEventRpDates($event->id);
             }
         
         return $this->show($event, $firstRpDates);
-    }
-    
-    /***************************************************************************/
-    /**
-     * Return start and end dates of the first repetition of an event 
-     *
-     * @param  \App\Event  $post
-     * @return array the event repetition start and end repeat dates
-     */
-    public function getFirstEventRpDates($eventId){
-        $ret = DB::table('event_repetitions')
-                ->select('start_repeat','end_repeat')
-                ->where('event_id',$eventId)
-                ->first();
-                
-        return $ret;
     }
 
     /***************************************************************************/
