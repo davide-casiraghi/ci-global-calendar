@@ -2,11 +2,13 @@
 
 
 @section('content')
+    
     <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>@lang('views.add_new_event_category')</h2>
-            </div>
+        <div class="col-12 col-sm-8">
+            <h3>@lang('views.add_new_event_category')</h3>
+        </div>
+        <div class="col-12 col-sm-4 text-right">
+            <span class="badge badge-secondary">English</span>
         </div>
     </div>
 

@@ -5,7 +5,7 @@
     
     <div class="row">
         <div class="col-12 col-sm-6">
-            <h2>@lang('views.add_new_category')</h2>
+            <h3>@lang('views.add_new_category')</h3>
         </div>
         <div class="col-12 col-sm-6 text-right">
             <span class="badge badge-secondary">English</span>
