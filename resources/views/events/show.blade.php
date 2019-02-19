@@ -28,7 +28,7 @@
             
             <div class="col-12">
                 <div class="row">
-                    <div class="col-12 col-md-8">
+                    <div class="col-12">
                         <div class="row">
                             <div class="col-12 mt-1">
                                 <i class="fa fa-tag mr-2" data-toggle="tooltip" data-placement="top" title="Category"></i>
@@ -76,11 +76,6 @@
                             @endif
                         </div>
                     </div>
-                    <div class="col-12 col-md-4 mt-4 mt-md-0">
-                        @if(!empty($event->image))
-                            <img class="eventPhoto ml-3" alt="{{ $event->title }} - {{ $venue->name }} - {{ $venue->city }}, {{ $country->name }}" src="/storage/images/events_teaser/thumb_{{ $event->image }}" style="width:100%; float:right;">
-                        @endif
-                    </div>
                     
                 </div>
             </div>
@@ -90,7 +85,13 @@
             </div>
 
             <div class="eventBody col-12 col-sm-12 col-md-12 mt-2">
+                
+                @if(!empty($event->image))
+                    <img class="eventPhoto ml-4 mb-4 float-right" alt="{{ $event->title }} - {{ $venue->name }} - {{ $venue->city }}, {{ $country->name }}" src="/storage/images/events_teaser/thumb_{{ $event->image }}" style="max-width:300px; ">
+                @endif
+            
                 {!! $event->description !!}
+                    
             </div>
 
             <div class="col-12 col-sm-12 col-md-12">
@@ -102,13 +103,13 @@
                 <div class="col-12 mt-3">
                     <h3>Links</h3>
                     @if(!empty($event->facebook_event_link))
-                        <div class="facebook">
+                        <div class="facebook overflow-hidden">
                             <i class="fab fa-facebook-square" style="margin-right: 10px;"></i>
                             <a href="{{ $event->facebook_event_link }}" target="_blank">{{ $event->facebook_event_link }}</a>
                         </div>
                     @endif
                     @if(!empty($event->website_event_link))
-                        <div class="url">
+                        <div class="url overflow-hidden">
                             <i class="fa fa-external-link" style="margin-right: 10px;"></i>
                             <a href="{{ $event->website_event_link }}" target="_blank">{{ $event->website_event_link }}</a>
                         </div>
