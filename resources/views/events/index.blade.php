@@ -108,36 +108,9 @@
                         </div>
                     </div>
                     
-                    {{--
-                    <div class="col-12 py-1 title">
-                        <h5 class="darkest-gray">{{ $event->title }}</h5>
-                    </div>
-                    <div class="col-12 mb-4">
-                        <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-1 dark-gray" data-original-title="@lang('general.category')"></i>
-                        {{ $eventCategories[$event->category_id] }}
-                        
-                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 ml-4 dark-gray" data-original-title="@lang('general.country')"></i>
-                        {{ $countries[$venues[$event->venue_id]] }}
-                    </div>
-                    <div class="col-12 pb-2 action">
-                        <form action="{{ route('events.destroy',$event->id) }}" method="POST">
-
-                            <a class="btn btn-primary float-right" href="{{ route('events.edit',$event->id) }}">@lang('views.edit')</a>
-                            <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('events.show',$event->id) }}">@lang('views.view')</a>
-                            
-                            @csrf
-                            @method('DELETE')
-
-                            <button type="submit" class="btn btn-link">@lang('views.delete')</button>
-                        </form>
-                    </div>
-                    --}}
-                    
-                    
                 </div>
             @endforeach
         </div>
-        
 
         {!! $events->links() !!}
     </div>

@@ -20548,7 +20548,8 @@ ul.pagination {
 }
 
 .postBody {
-  line-height: 1.875rem;
+  font-size: 1.1rem;
+  line-height: 2rem;
 }
 
 .postBody h3 {
@@ -20582,5 +20583,6 @@ ul.pagination {
 
 .event .eventBody {
   font-size: 1.1rem;
+  line-height: 2rem;
 }
 
