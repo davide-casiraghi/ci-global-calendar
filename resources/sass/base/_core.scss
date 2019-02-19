@@ -1,6 +1,15 @@
 body{
     
-    font-family: Avenir Next,Arial,Helvetica,sans-serif;
+    /*font-family: Avenir Next,Arial,Helvetica,sans-serif;*/
+    font-family: "SF Pro Text Regular", Helvetica, sans-serif;
+    letter-spacing: -0.022em;
+    font-size: 17px;
+    line-height: 1.47059;
+    font-weight: 400;
+    color: $darkest-gray;
+    
+    -moz-osx-font-smoothing: grayscale;   /* Firefox */
+     -webkit-font-smoothing: antialiased; /* WebKit  */
     
     @media screen and (max-width: 400px) {	 // Just for MOBILE (to remove the 6rem that compensate the sticky navbar)
         margin-bottom: 0!important;
@@ -12,13 +21,26 @@ body{
     }
     h2{
         margin: 0 0 2rem 0;
-        
+        font-family: "SF Pro Display", Helvetica, sans-serif;
+        font-size: 40px;
+        line-height: 1.1;
+        font-weight: 600;
+        letter-spacing: 0em;
     }
     h3{
-        
+        font-family: "SF Pro Display", Helvetica, sans-serif;
+        font-size: 32px;
+        line-height: 1.125;
+        font-weight: 600;
+        letter-spacing: 0.0328em;
+        color: $darkest-gray;
     }
     h4{
-        
+        font-family: "SF Pro Display", Helvetica, sans-serif;
+        font-size: 32px;
+        line-height: 1.125;
+        font-weight: 600;
+        letter-spacing: 0.004em;
     }
     h5{
         

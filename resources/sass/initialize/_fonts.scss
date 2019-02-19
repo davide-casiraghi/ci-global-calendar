@@ -7,7 +7,48 @@
     @import '~fontawesome-pro/scss/brands';
 
     /** San Francisco Pro (SF Pro) **/
-    
+    @font-face {
+        font-family:'SF Pro Text Regular';
+        src: url('/storage/fonts/SF-Pro/SF-Pro-Text-Regular.woff') format('woff');
+        font-style: normal;
+        font-weight: normal;
+    }
+    @font-face {
+        font-family:'SF Pro Text Regular';
+        src: url('/storage/fonts/SF-Pro/SF-Pro-Text-RegularItalic.woff') format('woff');
+        font-style: italic;
+        font-weight: normal;
+    }
+    @font-face {
+        font-family:'SF Pro Text Bold';
+        src: url('/storage/fonts/SF-Pro/SF-Pro-Text-Bold.woff') format('woff');
+        font-style: normal;
+        font-weight: normal;
+    }
+    @font-face {
+        font-family:'SF Pro Text Semibold';
+        src: url('/storage/fonts/SF-ProSF-Pro-Text-Semibold.woff') format('woff');
+        font-style: normal;
+        font-weight: normal;
+    }
+    @font-face {
+        font-family:'SF Pro Display';
+        src: url('/storage/fonts/SF-Pro/SF-Pro-Display-Regular.woff') format('woff');
+        font-style: normal;
+        font-weight: normal;
+    }
+    @font-face {
+        font-family:'SF Pro Display Medium';
+        src: url('/storage/fonts/SF-Pro/SF-Pro-Display-Medium.woff') format('woff');
+        font-style: normal;
+        font-weight: normal;
+    }
+    @font-face {
+        font-family:'SF Pro Display Semibold';
+        src: url('/storage/fonts/SF-Pro/SF-Pro-Display-Semibold.woff') format('woff');
+        font-style: normal;
+        font-weight: normal;
+    }   
 
     /** Avenir Next LT Pro **/
     /* Per visualizzare il font funziona prima il nome del font senza l'estensione piuttosto che la font-family impostata qui */

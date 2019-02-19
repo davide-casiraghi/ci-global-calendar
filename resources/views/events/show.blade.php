@@ -23,7 +23,7 @@
 
         <div class="row event">
             <div class="eventTitle col-12 mb-3">
-                <h2>{{ $event->title }}</h2>
+                <h3>{{ $event->title }}</h3>
             </div>
             
             <div class="col-12">
