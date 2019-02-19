@@ -2,11 +2,11 @@
 
 
 @section('content')
-    <div class="container max-w-md px-0">
+    <div class="container max-w-sm px-0">
         
         <div class="row">
             <div class="col-12">
-                <h2>@lang('views.add_new_user')</h2>
+                <h3>@lang('views.add_new_user')</h3>
             </div>
         </div>
 
