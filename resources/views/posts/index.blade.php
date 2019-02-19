@@ -77,7 +77,7 @@
                             
                             {{-- Title --}}
                             <div class="col-12 py-1 title">
-                                <h5 class="darkest-gray">{{ $post->title }}</h5>
+                                <h5 class="darkest-gray">{{ $post->translate('en')->title }}</h5>
                             </div>
                             <div class="col-12">
                                 <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-2 dark-gray" data-original-title="@lang('general.category')"></i>
