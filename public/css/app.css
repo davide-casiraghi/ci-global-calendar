@@ -20117,6 +20117,11 @@ body h4 {
   letter-spacing: 0.004em;
 }
 
+body h5 {
+  font-family: "SF Pro Display Semibold", Helvetica, sans-serif;
+  letter-spacing: 0.004em;
+}
+
 body hr {
   margin: 2rem 0;
 }
