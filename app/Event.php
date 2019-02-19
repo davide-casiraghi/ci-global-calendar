@@ -70,7 +70,7 @@ class Event extends Model
      * @param  int  event id
      * @return \App\EventRepetition the event repetition Start and End repeat dates
      */
-    public static function getFirstEventRpDatesByRepetitionId($eventId){
+    public static function getFirstEventRpDatesByRepetitionId($repetitionId){
         $ret = EventRepetition::
                 select('start_repeat','end_repeat')
                 ->where('id',$repetitionId)
