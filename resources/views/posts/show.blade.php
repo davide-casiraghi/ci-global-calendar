@@ -11,7 +11,7 @@
 @section('content')
     <div class="container max-w-md px-0">
         <div class="row">
-            <div class="postTitle col-12 mb-4 mt-5">
+            <div class="postTitle col-12 mb-4 mt-4">
                 <h2>{{ $post->title }}</h2>
             </div>
             <div class="postBody col-12">
