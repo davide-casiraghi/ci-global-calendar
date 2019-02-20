@@ -44,7 +44,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 mt-2" style="display: table;">
-                                    <i class="far fa-map-marker-alt dark-gray" style="display: table-cell; vertical-align: middle; width: 20px; text-align: center;" data-toggle="tooltip" data-placement="top" title="Venue"></i>
+                                    <i class="fas fa-map-marker-alt dark-gray" style="display: table-cell; vertical-align: middle; width: 20px; text-align: center;" data-toggle="tooltip" data-placement="top" title="Venue"></i>
                                     <div class="venue ml-2">
                                         {{ $venue->name }}  -  {{ $venue->address }}, {{ $venue->city }}, {{ $country->name }} - <a href="#map" name="map">Show map</a>
                                     </div>
