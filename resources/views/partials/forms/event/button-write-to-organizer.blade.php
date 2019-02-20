@@ -44,8 +44,8 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Send message</button>
+                        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">@lang('general.close')</button>
+                        <button type="submit" class="btn btn-primary">@lang('general.send')</button>
                     </div>
                 </form>
             </div>

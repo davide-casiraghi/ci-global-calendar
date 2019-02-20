@@ -114,7 +114,7 @@
         
         {{-- Misuse button --}}
             <div class="row">
-                <div class="col-12 mt-3 p-0">
+                <div class="col-12 mt-3 p-0 text-right mb-4">
                     @include('partials.forms.event.button-report-misuse')
                 </div>
             </div>
