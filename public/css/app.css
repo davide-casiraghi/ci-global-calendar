@@ -8866,6 +8866,51 @@ readers do not read off random characters that represent icons */
   max-width: 100% !important;
 }
 
+.text-xs {
+  font-size: 0.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-base {
+  font-size: 1rem;
+}
+
+.text-base-longtext {
+  font-size: 1.05rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+}
+
+.button-small {
+  font-size: 0.875rem !important;
+  padding: 0.2rem 0.6rem !important;
+}
+
 /*!
  * Bootstrap v4.2.1 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -20083,7 +20128,7 @@ body {
   /*font-family: Avenir Next,Arial,Helvetica,sans-serif;*/
   font-family: "SF Pro Text Regular", Helvetica, sans-serif;
   letter-spacing: -0.022em;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.47059;
   font-weight: 400;
   color: #13263e;
