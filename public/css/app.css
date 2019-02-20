@@ -8772,6 +8772,18 @@ readers do not read off random characters that represent icons */
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
+/* WHITE */
+
+.white {
+  color: white;
+}
+
+.white-bg {
+  background-color: white;
+}
+
+/* GRAY */
+
 .darkest-gray {
   color: #13263e;
 }
