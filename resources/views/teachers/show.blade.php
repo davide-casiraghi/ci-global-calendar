@@ -65,6 +65,12 @@
                             @endif
                             {!! $teacher->bio !!}
                         </div>
+                        <div class="col-12 mt-3">
+                            @if(!empty($teacher->significant_teachers))
+                                <b>@lang('views.significant_teachers')</b><br>
+                                {{$teacher->significant_teachers}}
+                            @endif
+                        </div>
                     </div>
                 @endif
         </div>
