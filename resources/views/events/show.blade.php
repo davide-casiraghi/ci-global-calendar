@@ -18,12 +18,15 @@
         
         {{-- Event Intro --}}
             <div class="row">
-                <div class="col-12 pt-4 px-4 white-bg rounded">
+                <div class="col-12 p-4 white-bg rounded">
                     <div class="row">
-                        <div class="eventTitle col-12 mb-3 mt-3">
+                        <div class="col-12 col-md-8 mb-3 mt-3">
                             <h4>{{ $event->title }}</h4>
                         </div>
-                        
+                        <div class="col-12 col-md-4">
+                            {{-- Write to the organizer --}}
+                            @include('partials.forms.event.button-write-to-organizer')
+                        </div>
                     </div>
                     <div class="row">    
                         <div class="col-12">
@@ -93,12 +96,7 @@
                             @endif
                         </div>
                         
-                    {{-- Write to the organizer --}}
-                        <div class="row">
-                            <div class="col-12 col-sm-12 col-md-12">
-                                @include('partials.forms.event.button-write-to-organizer')
-                            </div>
-                        </div>
+                    
                 </div>
             </div>
         
