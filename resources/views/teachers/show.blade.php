@@ -33,7 +33,7 @@
                                 @if(!empty($teacher->year_starting_practice))<b>Year of starting to practice: </b>{{ $teacher->year_starting_practice }}@endif
                             </div>
                             <div class="col-6">
-                                @if(!empty($teacher->year_starting_teach))<b>Year of starting to teach:</b>{{ $teacher->year_starting_teach }}@endif
+                                @if(!empty($teacher->year_starting_teach))<b>Year of starting to teach: </b>{{ $teacher->year_starting_teach }}@endif
                             </div>
                         </div>
                         
