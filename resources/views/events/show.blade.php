@@ -102,11 +102,11 @@
                 </div>
             </div>
         
-        {{-- Event Body --}}
+        {{-- Event Body / Image --}}
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 mt-3 p-4 white-bg rounded text-base-longtext">
                     @if(!empty($event->image))
-                        <img class="eventPhoto ml-4 mb-4 float-right" alt="{{ $event->title }} - {{ $venue->name }} - {{ $venue->city }}, {{ $country->name }}" src="/storage/images/events_teaser/thumb_{{ $event->image }}" style="max-width:300px; ">
+                        <img class="ml-sm-3 float-sm-right img-fluid" alt="{{ $event->title }} - {{ $venue->name }} - {{ $venue->city }}, {{ $country->name }}" src="/storage/images/events_teaser/thumb_{{ $event->image }}">
                     @endif
                     {!! $event->description !!}    
                 </div>
