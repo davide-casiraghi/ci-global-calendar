@@ -199,7 +199,7 @@ class TeacherController extends Controller
         request()->validate([
             'name' => 'required'
         ]);
-
+        //dd($request->profile);
         //$teacher->update($request->all());
         $this->saveOnDb($request, $teacher);
 
@@ -247,7 +247,10 @@ class TeacherController extends Controller
                  
                  $this->uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);    
                  $teacher->profile_picture = $imageName;
-            }
+             }
+             else{
+                 $teacher->profile_picture = $request->profile_picture;
+             }
 
          $teacher->website = $request->get('website');
          $teacher->facebook = $request->get('facebook');

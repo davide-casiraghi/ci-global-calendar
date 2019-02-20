@@ -24,7 +24,7 @@
     
     {{-- Delete an already uploaded image --}}
     $('.deleteImage').on('click',function(){
-        $("input[name='image_name']").val("");
+        $("input[name='{{$name}}']").val("");
         $("img.uploadedImage").remove();
     })
     
@@ -56,7 +56,7 @@
     
     {{-- show the image name to use in the edit view to not delete the image on update --}}
     @include('partials.forms.input-hidden', [
-          'name' => 'image_name',
+          'name' => $name,
           'value' => $value
     ])
     
