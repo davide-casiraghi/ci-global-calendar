@@ -30,10 +30,10 @@
                     <div class="col-12 mt-2">
                         <div class="row">
                             <div class="col-6">
-                                @if(!empty($teacher->year_starting_practice))<b>Year of starting to practice: </b>{{ $teacher->year_starting_practice }}@endif
+                                @if(!empty($teacher->year_starting_practice))<b>@lang('views.year_of_starting_to_practice')<br /> </b>{{ $teacher->year_starting_practice }}@endif
                             </div>
                             <div class="col-6">
-                                @if(!empty($teacher->year_starting_teach))<b>Year of starting to teach: </b>{{ $teacher->year_starting_teach }}@endif
+                                @if(!empty($teacher->year_starting_teach))<b>@lang('views.year_of_starting_to_teach')<br /> </b>{{ $teacher->year_starting_teach }}@endif
                             </div>
                         </div>
                         

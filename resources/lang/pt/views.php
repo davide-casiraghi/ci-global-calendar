@@ -75,7 +75,7 @@ return [
     'delete_event' => 'Deletar evento',
     'bio' => 'Currículo',
     'year_of_starting_to_practice' => 'Ano que começou a praticar',
-    'year_of_starting_to_teach' => 'aAno que começou a ensinar',
+    'year_of_starting_to_teach' => 'Ano que começou a ensinar',
     'significant_teachers' => 'Professor@s relevant@s',
     'street' => 'Rua',
     'city' => 'Cidade',
