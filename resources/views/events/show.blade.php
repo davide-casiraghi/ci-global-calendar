@@ -18,8 +18,8 @@
         
         {{-- Event Intro --}}
             <div class="row">
-                <div class="col-12 p-4 white-bg rounded">
-                    <div class="row">
+                <div class="col-12 white-bg rounded">
+                    <div class="row p-2">
                         <div class="col-12 col-md-8 mb-3 mt-3">
                             <h4>{{ $event->title }}</h4>
                         </div>
@@ -28,7 +28,7 @@
                             @include('partials.forms.event.button-write-to-organizer')
                         </div>
                     </div>
-                    <div class="row">    
+                    <div class="row p-2">    
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-12 mt-1">
@@ -81,7 +81,7 @@
                     </div>
                     
                     {{-- Links --}}
-                        <div class="row mt-2">
+                        <div class="row mt-2 border-top py-2 px-2">
                             @if(!empty($event->facebook_event_link))
                                 <div class="col-6">
                                     <i class="fab fa-facebook-square dark-gray" style="margin-right: 10px;"></i>
