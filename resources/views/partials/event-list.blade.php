@@ -10,7 +10,7 @@
 --}}
 
 <div class="eventList mb-3">
-    @foreach ($events as $event)
+    @forelse ($events as $event)
         <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
             <div class="col-lg-1 date">
                 <div class="row text-uppercase">
@@ -73,5 +73,10 @@
                 @endif
             </div>--}}
         </div>
-    @endforeach
+    
+    @empty
+        <strong>no events found</strong>
+    @endforelse
+    
+    
 </div>
