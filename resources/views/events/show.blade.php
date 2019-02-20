@@ -23,12 +23,12 @@
                         <div class="col-12 col-md-8 mb-3 mt-3">
                             <h4>{{ $event->title }}</h4>
                         </div>
-                        <div class="col-12 col-md-4">
+                        <div class="col-12 col-md-4 text-right my-0 my-md-3">
                             {{-- Write to the organizer --}}
                             @include('partials.forms.event.button-write-to-organizer')
                         </div>
                     </div>
-                    <div class="row p-2">    
+                    <div class="row p-2 pb-3">    
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-12 mt-1">
@@ -82,7 +82,7 @@
                     
                     {{-- Links --}}
                         @if((!empty($event->facebook_event_link))||(!empty($event->website_event_link)))
-                            <div class="row mt-2 border-top py-2 px-2">
+                            <div class="row mt-2 border-top py-3 px-2">
                                 @if(!empty($event->facebook_event_link))
                                     <div class="col-6">
                                         <i class="fab fa-facebook-square dark-gray" style="margin-right: 10px;"></i>
