@@ -69,10 +69,10 @@
                                 @endif
 
                                 @if(!empty($repetition_text))
-                                    <div class="col-12 col-sm-12 col-md-12 mt-2">
-                                        <i class="far fa-folders mr-1 dark-gray" data-toggle="tooltip" data-placement="top" title="Repetitions"></i>
+                                    <div class="col-12 col-sm-12 col-md-12 mt-2 d-table">
+                                        <i class="far fa-folders dark-gray d-table-cell align-middle pr-2" data-toggle="tooltip" data-placement="top" title="Repetitions" style="width: 20px;"></i>
                                         {{-- The event happens every Thursday until 10/6/2018--}}
-                                        {{$repetition_text}}
+                                        {{$repetition_text}}    
                                     </div>
                                 @endif
                             </div>
