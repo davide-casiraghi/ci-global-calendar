@@ -122,7 +122,7 @@
         {{-- Location --}}
             <div class="row">
                 <div class="col-12 mt-4 p-4 white-bg rounded">
-                    <h3>{{ $venue->name }}</h3>
+                    <h4>{{ $venue->name }}</h4>
                     {{ $venue->address }}<br />
                     {{ $venue->city }}<br />
                     {{ $venue->zip_code }}<br />
