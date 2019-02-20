@@ -20414,7 +20414,7 @@ ul.pagination {
 }
 
 .accordion.ui-accordion .ui-accordion-header .ui-icon:after {
-  background: #f8fafc;
+  background: #fff;
   border: 2px solid #f08e0d;
   border-radius: 100%;
   box-sizing: border-box;
