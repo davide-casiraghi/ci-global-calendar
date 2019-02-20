@@ -81,20 +81,22 @@
                     </div>
                     
                     {{-- Links --}}
-                        <div class="row mt-2 border-top py-2 px-2">
-                            @if(!empty($event->facebook_event_link))
-                                <div class="col-6">
-                                    <i class="fab fa-facebook-square dark-gray" style="margin-right: 10px;"></i>
-                                    <a href="{{ $event->facebook_event_link }}" target="_blank">Facebook Event</a>
-                                </div>
-                            @endif
-                            @if(!empty($event->website_event_link))
-                                <div class="col-6">
-                                    <i class="fa fa-external-link dark-gray" style="margin-right: 10px;"></i>
-                                    <a href="{{ $event->website_event_link }}" target="_blank">Website</a>    
-                                </div>
-                            @endif
-                        </div>
+                        @if((!empty($event->facebook_event_link))||(!empty($event->website_event_link)))
+                            <div class="row mt-2 border-top py-2 px-2">
+                                @if(!empty($event->facebook_event_link))
+                                    <div class="col-6">
+                                        <i class="fab fa-facebook-square dark-gray" style="margin-right: 10px;"></i>
+                                        <a href="{{ $event->facebook_event_link }}" target="_blank">Facebook Event</a>
+                                    </div>
+                                @endif
+                                @if(!empty($event->website_event_link))
+                                    <div class="col-6">
+                                        <i class="fa fa-external-link dark-gray" style="margin-right: 10px;"></i>
+                                        <a href="{{ $event->website_event_link }}" target="_blank">Website</a>    
+                                    </div>
+                                @endif
+                            </div>
+                        @endif
                         
                     
                 </div>
