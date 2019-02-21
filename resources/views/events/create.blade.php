@@ -14,7 +14,22 @@
     <div class="row">
         <div class="col-12 margin-tb">
             <div class="pull-left">
-                <h2>@lang('views.add_new_event')</h2>
+                <h4>@lang('views.add_new_event')</h4>
+            </div>
+        </div>
+    </div>
+    
+    <hr>
+    
+    <div class="row">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col sidebar" style="background-color:orange;">
+                    left col
+                </div>
+                <div class="col main" style="background-color:green;">
+                    all the rest
+                </div>
             </div>
         </div>
     </div>

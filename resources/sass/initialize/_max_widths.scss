@@ -10,3 +10,11 @@
 .max-w-4xl	{max-width: 90rem!important;}
 .max-w-5xl	{max-width: 100rem!important;}
 .max-w-full	{max-width: 100%!important;}
+
+
+.sidebar {
+    flex: 0 0 18rem!important;
+    @media (max-width: 700px) {
+        display: none; 
+    }
+}

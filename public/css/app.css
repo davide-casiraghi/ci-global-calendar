@@ -8866,6 +8866,19 @@ readers do not read off random characters that represent icons */
   max-width: 100% !important;
 }
 
+/*.max-w-col {max-width: 10rem!important;}*/
+
+.sidebar {
+  flex: 0 0 230px !important;
+  background-color: greenyellow;
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    display: none;
+  }
+}
+
 /*.text-xs{font-size: .75rem;}
 .text-sm{font-size: .875rem;}
 .text-base{font-size: 1rem;}
