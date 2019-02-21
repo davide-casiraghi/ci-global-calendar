@@ -186,7 +186,7 @@
                             </div>
                             
                             {{-- Repetitions --}}
-                            @include('partials.forms.event.repeat-event')
+                                @include('partials.forms.event.repeat-event')
                             
                             
                         </div>
