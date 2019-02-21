@@ -2,11 +2,11 @@
 
 @section('content')
     
-    <div class="row">
-        <div class="col-12 col-sm-6">
-            <h2>@lang('views.edit_translation')</h2>
+    <div class="row py-4">
+        <div class="col-12 col-sm-9">
+            <h4>@lang('views.edit_translation')</h4>
         </div>
-        <div class="col-12 col-sm-6 text-right">
+        <div class="col-12 col-sm-3 text-right">
             <span class="badge badge-secondary">{{$selectedLocaleName}}</span>
         </div>
     </div>
@@ -44,23 +44,31 @@
             </div>
             
         </div>
-
-        @include('partials.forms.buttons-back-submit', [
-            'route' => 'eventCategories.index'  
-        ])
-
+        
+        <div class="row mt-2">  
+            <div class="col-12 action">
+                @include('partials.forms.buttons-back-submit', [
+                    'route' => 'eventCategories.index'  
+                ])
     </form>
-    
-    <div class="row mt-2">  
-        <div class="col-12 action">
-            <form action="{{ route('eventCategoryTranslations.destroy',$eventCategoryTranslation->id) }}" method="POST">
 
-                @csrf
-                @method('DELETE')
-
-                <button type="submit" class="btn btn-danger float-right"><i class="far fa-trash-alt"></i></button>
-            </form>
+                <form action="{{ route('eventCategoryTranslations.destroy',$eventCategoryTranslation->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-link pl-0">@lang('views.delete_translation')</button>
+                </form>
+            </div>
         </div>
-    </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    
 
 @endsection
