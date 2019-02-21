@@ -106,11 +106,11 @@ class UserController extends Controller
     public function show(User $user)
     {
         $countries = Country::pluck('name', 'id');
-        $role = User::getUserGroupString($user->group);
+        $group = User::getUserGroupString($user->group);
         
         return view('users.show',compact('user'))
                     ->with('countries', $countries)
-                    ->with('role', $role);
+                    ->with('group', $group);
     }
 
     /**

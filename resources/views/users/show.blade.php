@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-6 mt-2">
                         <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-key mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
-                        {{ $role }}
+                        {{ $group }}
                     </div>
                     
                     

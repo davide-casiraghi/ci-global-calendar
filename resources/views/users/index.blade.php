@@ -59,7 +59,7 @@
         <div class="usersList my-4">
             @foreach ($users as $user)
                 <div class="row bg-white shadow-1 rounded mb-3 pb-2 pt-3 mx-1">
-                    <div class="col-12 py-1">
+                    <div class="col-12 py-1 order-1">
                         <div class="row">
                             <div class="col-8">
                                 <h5 class="darkest-gray">{{ $user->name }}</h5>
@@ -69,11 +69,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 mb-4">
+                    <div class="col-6 mb-4 order-2">
                         <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
                         @if(!empty($user->country_id)){{ $countries[$user->country_id] }}@endif    
                     </div>
-                    <div class="col-12 pb-2 action">
+                    <div class="col-6 mb-4 order-3">
+                        <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-key mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
+                        {{ App\User::getUserGroupString($user->group)}}    
+                    </div>
+                    <div class="col-12 pb-2 action order-4">
                         <form action="{{ route('users.destroy',$user->id) }}" method="POST">
 
                             <a class="btn btn-primary float-right" href="{{ route('users.edit',$user->id) }}">@lang('views.edit')</a>
