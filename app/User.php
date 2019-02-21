@@ -49,6 +49,32 @@ class User extends Authenticatable
             return false;
     }
     
+    /***************************************************************************/
+    /**
+     * Return the user group string
+     *
+     * @param  \App\User  $post
+     * @return string $ret - the user role description string
+     */
+     public static function getUserGroupString($group_id){
+    
+         switch ($group_id) {
+             case null:
+                 $ret = "Manager";
+                 break;
+             
+             case 2:
+                 $ret = "Administrator";
+                 break;
+                 
+             case 1:
+                 $ret = "Super Administrator";
+                 break;
+         }
+
+         return $ret;
+     }
+    
     
 
 }
