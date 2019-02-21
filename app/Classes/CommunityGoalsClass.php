@@ -113,7 +113,7 @@ class CommunityGoalsClass {
               
                   $ret .= "<div class='card'>";
                       $ret .= "<div class='card-header'>";
-                          $ret .= "CI Global Calendar - Fundrising campaign 2019";
+                          $ret .= "CI Global Calendar - Fundraising campaign 2019";
                       $ret .= "</div>";
                       $ret .= "<div class='card-body pb-1'>";
                         
