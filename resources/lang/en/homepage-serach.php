@@ -17,6 +17,7 @@ return [
     'end_on' => 'Ends on (or before)',
     'specify_one_or_both' => 'You can specify no one, one or both search fields',
     'search_by_venue' => 'Search by name of venue only',
+    'search_by_city' => 'City name',
     'select_a_continent' => 'Select a continent',
     'select_a_country' => 'Select a country',
     'select_a_city' => 'Select a city',
