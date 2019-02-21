@@ -11,93 +11,98 @@
 @stop
 
 @section('content')
-    <div class="row">
-        <div class="col-12 margin-tb">
-            <div class="pull-left">
-                <h4>@lang('views.add_new_event')</h4>
-            </div>
+    <div class="row pt-4">
+        <div class="col-12">
+            <h4>@lang('views.add_new_event')</h4>
         </div>
     </div>
     
-    <hr>
-    
-    <div class="row">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col sidebar" style="background-color:orange;">
-                    left col
-                </div>
-                <div class="col main" style="background-color:green;">
-                    all the rest
-                </div>
-            </div>
-        </div>
-    </div>
-
     @include('partials.forms.error-management', [
           'style' => 'alert-danger',
     ])
-
+    
+    <hr class="mt-3 mb-4">
+    
     <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-
-         <div class="row">
-            <div class="col-12">
-                
-                @include('partials.forms.alert', [
-                	'text' => "Please notice that if this is the first event inserted for your country it can take up to 15 minutes before your country appear in the homepage search filters.",
-                	'style' => 'alert-warning',
-                ])
-                
-                @include('partials.forms.input', [
-                      'title' => __('views.title'),
-                      'name' => 'title',
-                      'placeholder' => 'Event title',
-                      'value' => old('title')
-                ])
-            </div>
-
-            {{-- Show the created by field just to the admin and super admin --}}
-            @if(empty($authorUserId))
-                <div class="col-12">
-                    @include('partials.forms.select', [
-                          'title' =>  __('views.created_by'), 
-                          'name' => 'created_by',
-                          'placeholder' => __('views.select_owner'),
-                          'records' => $users,
-                          'liveSearch' => 'true',
-                          'mobileNativeMenu' => false,
-                    ])
+    
+        <div class="row">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col sidebar">
+                        <h5 class="text-xl">Basics</h5>
+                        <span>Please notice that if this is the first event inserted for your country it can take up to 15 minutes before your country appear in the homepage search filters.</span>
+                    </div>
+                    <div class="col main">
+                        <div class="row">
+                            <div class="col-12">
+                                @include('partials.forms.input', [
+                                      'title' => __('views.title'),
+                                      'name' => 'title',
+                                      'placeholder' => 'Event title',
+                                      'value' => old('title')
+                                ])
+                            </div>
+                            
+                            {{-- Show the created by field just to the admin and super admin --}}
+                            @if(empty($authorUserId))
+                                <div class="col-12">
+                                    @include('partials.forms.select', [
+                                          'title' =>  __('views.created_by'), 
+                                          'name' => 'created_by',
+                                          'placeholder' => __('views.select_owner'),
+                                          'records' => $users,
+                                          'liveSearch' => 'true',
+                                          'mobileNativeMenu' => false,
+                                    ])
+                                </div>
+                            @endif
+                            
+                            <div class="col-12">
+                                @include('partials.forms.select', [
+                                      'title' => __('views.category'),
+                                      'name' => 'category_id',
+                                      'placeholder' => __('views.select_category'),
+                                      'records' => $eventCategories,
+                                      'liveSearch' => 'true',
+                                      'mobileNativeMenu' => false,
+                                ])
+                            </div>
+                            
+                            {{--<div class="col-12">
+                                @include('partials.forms.event.select-event-status')
+                            </div>--}}
+                            
+                            
+                        </div>
+                    </div>
                 </div>
-            @endif
-
-            <div class="col-12">
-                @include('partials.forms.select', [
-                      'title' => __('views.category'),
-                      'name' => 'category_id',
-                      'placeholder' => __('views.select_category'),
-                      'records' => $eventCategories,
-                      'liveSearch' => 'true',
-                      'mobileNativeMenu' => false,
-                ])
-            </div>
-
-            {{--<div class="col-12">
-                @include('partials.forms.event.select-event-status')
-            </div>--}}
-            <div class="col-12">
-                @include('partials.forms.alert', [
-                	'text' => __('views.please_insert_english_translation'),
-                	'style' => 'alert-warning',
-                ])
-                @include('partials.forms.textarea', [
-                      'title' =>  __('general.description'),
-                      'name' => 'description',
-                      'placeholder' => 'Event description',
-                      'value' => old('description')
-                ])
+                
+                <hr class="mt-3 mb-4">
+                
+                <div class="row">
+                    <div class="col sidebar">
+                        <h5 class="text-xl">@lang('general.description')</h5>
+                        <span>@lang('views.please_insert_english_translation')</span>
+                    </div>
+                    <div class="col main">
+                        <div class="row">
+                            <div class="col-12">
+                                @include('partials.forms.textarea', [
+                                      'title' =>  __('general.description'),
+                                      'name' => 'description',
+                                      'placeholder' => 'Event description',
+                                      'value' => old('description')
+                                ])
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+    
+    
 
         @include('partials.forms.event.select-event-teacher')
         @include('partials.forms.event.select-event-organizer')
