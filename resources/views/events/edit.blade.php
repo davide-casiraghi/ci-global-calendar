@@ -1,20 +1,19 @@
 @extends('events.layout')
 
 @section('content')
-    <div class="row">
+    <div class="row py-4">
         <div class="col-6">
-            <div class="pull-left">
-                <h2>@lang('views.edit_event')</h2>
-            </div>
+            <h4>@lang('views.edit_event')</h4>
         </div>
         <div class="col-6 text-right">
             <form action="{{ route('events.destroy',$event->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i> @lang('views.delete_event')</button>
+                <button type="submit" class="btn btn-link pr-0">@lang('views.delete_event')</button>
             </form>
         </div>
     </div>
+    
 
     @include('partials.forms.error-management', [
           'style' => 'alert-danger',
