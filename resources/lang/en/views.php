@@ -151,4 +151,6 @@ return [
     'menu_item_access' => 'Access',
     'preview' => 'Preview',
     'delete_translation' => 'Delete Translation',
+    'first_country_event_notice' => 'Please notice that if this is the first event inserted for your country it can take up to 15 minutes before your country appear in the homepage search filters.',
+    'people' => 'People',
 ];

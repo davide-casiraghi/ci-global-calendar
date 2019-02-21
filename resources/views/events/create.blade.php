@@ -31,11 +31,11 @@
                 
                 {{-- Basics --}}
                     <div class="row">
-                        <div class="col sidebar">
-                            <h5 class="text-xl">Basics</h5>
-                            <span>Please notice that if this is the first event inserted for your country it can take up to 15 minutes before your country appear in the homepage search filters.</span>
+                        <div class="col-12 col-md form-sidebar">
+                            <h5 class="text-xl">Notice</h5>
+                            <span>@lang('views.first_country_event_notice')</span>
                         </div>
-                        <div class="col main">
+                        <div class="col-12 col-md main">
                             <div class="row">
                                 <div class="col-12">
                                     @include('partials.forms.input', [
@@ -82,7 +82,7 @@
                 
                 {{-- Description --}}
                     <div class="row">
-                        <div class="col sidebar">
+                        <div class="col form-sidebar">
                             <h5 class="text-xl">@lang('general.description')</h5>
                             <span>@lang('views.please_insert_english_translation')</span>
                         </div>
@@ -104,9 +104,9 @@
                 
                 {{-- People --}}
                     <div class="row">
-                        <div class="col sidebar">
-                            <h5 class="text-xl">People</h5>
-                            <span>You can select one or more people</span>
+                        <div class="col form-sidebar">
+                            <h5 class="text-xl">@lang('views.people')</h5>
+                            <span>@lang('views.select_one_or_more')</span>
                         </div>
                         <div class="col main">
                             <div class="row">
@@ -122,7 +122,7 @@
                 
                 {{-- Venue --}}
                     <div class="row">
-                        <div class="col sidebar">
+                        <div class="col form-sidebar">
                             <h5 class="text-xl">Venue</h5>
                             
                         </div>
@@ -139,7 +139,7 @@
                     
                 {{-- Duration --}}
                     <div class="row">
-                        <div class="col sidebar">
+                        <div class="col form-sidebar">
                             <h5 class="text-xl">@lang('views.start_end_duration')</h5>
                             
                         </div>
@@ -197,7 +197,7 @@
                 
                 {{-- Links --}}
                     <div class="row">
-                        <div class="col sidebar">
+                        <div class="col form-sidebar">
                             <h5 class="text-xl">Links</h5>
                             
                         </div>
@@ -227,7 +227,7 @@
                 
                 {{-- Event teaser image --}}
                     <div class="row">
-                        <div class="col sidebar">
+                        <div class="col form-sidebar">
                             <h5 class="text-xl">Event teaser image</h5>
                             
                         </div>

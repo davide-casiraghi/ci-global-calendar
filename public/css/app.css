@@ -8866,13 +8866,14 @@ readers do not read off random characters that represent icons */
   max-width: 100% !important;
 }
 
-.sidebar {
+.form-sidebar {
   flex: 0 0 18rem !important;
 }
 
 @media (max-width: 700px) {
-  .sidebar {
-    display: none;
+  .form-sidebar {
+    flex: 0 1 auto !important;
+    margin-bottom: 1.5rem;
   }
 }
 
