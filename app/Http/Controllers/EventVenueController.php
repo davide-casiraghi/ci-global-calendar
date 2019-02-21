@@ -51,13 +51,15 @@ class EventVenueController extends Controller
                 ->when($searchCountry, function ($query, $searchCountry) {
                     return $query->where('country_id', '=', $searchCountry);
                 })
+                ->orderBy('name')
                 ->paginate(20);
         }
         else
-            $eventVenues = EventVenue::latest()
-                ->when($loggedUser->id, function ($query, $loggedUserId) {
+            $eventVenues = EventVenue::
+                when($loggedUser->id, function ($query, $loggedUserId) {
                     return $query->where('created_by', $loggedUserId);
                 })
+                ->orderBy('name')
                 ->paginate(20);
 
         return view('eventVenues.index',compact('eventVenues'))
