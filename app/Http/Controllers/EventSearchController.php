@@ -38,7 +38,7 @@ class EventSearchController extends Controller
         });
             
         // Get the countries with active events
-        $countries = Cache::remember('events_countries', $minutes, function () {
+        /*$countries = Cache::remember('events_countries', $minutes, function () {
             
             date_default_timezone_set('Europe/Rome');
             $searchStartDate = date('Y-m-d', time());
@@ -52,7 +52,25 @@ class EventSearchController extends Controller
                     })
                 ->orderBy('countries.name')
                 ->pluck('countries.name', 'countries.id');
-        });
+        });*/
+        
+        date_default_timezone_set('Europe/Rome');
+        $searchStartDate = date('Y-m-d', time());
+        $lastestEventsRepetitionsQuery = $this->getLastestEventsRepetitionsQuery($searchStartDate, null);
+        
+        $activeEvents = Event::
+                            join('event_venues', 'event_venues.id', '=', 'events.venue_id')
+                            ->join('countries', 'countries.id', '=', 'event_venues.country_id')
+                            ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
+                                    $join->on('events.id', '=', 'event_repetitions.event_id');
+                                })
+                            ->get();
+                            
+                            //dd($activeEvents);
+            
+        $cities = $activeEvents->unique('sc_city_name')->pluck('city', 'id');
+        $countries = $activeEvents->unique('sc_country_name')->pluck('sc_country_name', 'id');
+        //dd($country);
 
         /*$countries = DB::table('countries')
                 ->join('event_venues', 'countries.id', '=', 'event_venues.country_id')
@@ -76,6 +94,7 @@ class EventSearchController extends Controller
             $searchKeywords = $request->input('keywords');
             $searchCategory = $request->input('category_id');
             $searchCountry = $request->input('country_id');
+            $searchCity = $request->input('city_name');
             $searchContinent = $request->input('continent_id');
             $searchTeacher = $request->input('teacher_id');
             $searchVenue = $request->input('venue_name');
@@ -120,6 +139,9 @@ class EventSearchController extends Controller
                     ->when($searchContinent, function ($query, $searchContinent) {
                         return $query->where('sc_continent_id', '=', $searchContinent);
                     })
+                    ->when($searchCity, function ($query, $searchCity) {
+                        return $query->where('sc_city_name', $searchCity)->orWhere('sc_city_name', 'like', '%' . $searchCity . '%');
+                    })
                     ->when($searchVenue, function ($query, $searchVenue) {
                         return $query->where('title', $searchVenue)->orWhere('sc_venue_name', 'like', '%' . $searchVenue . '%');
                     })
@@ -158,6 +180,7 @@ class EventSearchController extends Controller
             ->with('searchCategory',$searchCategory)
             ->with('searchCountry',$searchCountry)
             ->with('searchContinent',$searchContinent)
+            ->with('searchCity',$searchCity)
             ->with('searchTeacher',$searchTeacher)
             ->with('searchVenue',$searchVenue)
             ->with('searchStartDate',$request->input('startDate'))
