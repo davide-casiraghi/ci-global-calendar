@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="col-12 col-md form-sidebar">
                             <h5 class="text-xl">Notice</h5>
-                            <span>@lang('views.first_country_event_notice')</span>
+                            <span class="dark-gray">@lang('views.first_country_event_notice')</span>
                         </div>
                         <div class="col-12 col-md main">
                             <div class="row">
@@ -84,7 +84,7 @@
                     <div class="row">
                         <div class="col form-sidebar">
                             <h5 class="text-xl">@lang('general.description')</h5>
-                            <span>@lang('views.please_insert_english_translation')</span>
+                            <span class="dark-gray">@lang('views.please_insert_english_translation')</span>
                         </div>
                         <div class="col main">
                             <div class="row">
@@ -106,7 +106,7 @@
                     <div class="row">
                         <div class="col form-sidebar">
                             <h5 class="text-xl">@lang('views.people')</h5>
-                            <span>@lang('views.select_one_or_more')</span>
+                            <span class="dark-gray">@lang('views.select_one_or_more')</span>
                         </div>
                         <div class="col main">
                             <div class="row">
