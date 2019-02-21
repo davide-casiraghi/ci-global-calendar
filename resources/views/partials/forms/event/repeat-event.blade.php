@@ -104,7 +104,7 @@
 
 <div class="row">
     <div class="col-12">
-        <legend>@lang('views.repeat_type')</legend>
+        <h5>@lang('views.repeat_type')</h5>
     </div>
 </div>
 
@@ -127,8 +127,8 @@
 <div class="repeatDetails" style="display:none">
     
     <div class="row">
-        <div id="onWeekly" class="onFrequency col-12 col-sm-6 col-lg-4" style="display:none">
-            <strong>@lang('views.weekly') - On:</strong><br/>
+        <div id="onWeekly" class="onFrequency col-12 col-xl-4" style="display:none">
+            <label>@lang('views.weekly') - On:</label><br/>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-primary" id="day_1" >
                     <input type="checkbox" name="repeat_weekly_on_day[]" value="1" autocomplete="off"> M
@@ -155,14 +155,14 @@
             <input type="hidden" name="repeat_weekly_on" id="repeat_weekly_on" @if(!empty($event->repeat_weekly_on))  value="{{$event->repeat_weekly_on}}" @endif/>
         </div>
 
-        <div id="onMonthly" class="onFrequency col-12 col-sm-6 col-lg-4" style="display:none">
-            <strong>@lang('views.monthly') - On:</strong><br/>
+        <div id="onMonthly" class="onFrequency col-12 col-xl-4" style="display:none">
+            <label>@lang('views.monthly') - On:</label>
             <select name="on_monthly_kind" id="on_monthly_kind" class="selectpicker" title="Select repeat monthly kind">
                 <option value="1">1</option>
             </select>
         </div>
 
-        <div class="col-12 col-sm-6 col-lg-8 mt-2 mt-sm-0">
+        <div class="col-12 col-xl-8 mt-3 mt-xl-0">
 
             @include('partials.forms.input-date', [
                   'title' => __('views.repeat_until'),
