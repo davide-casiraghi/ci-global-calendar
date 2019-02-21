@@ -8866,11 +8866,8 @@ readers do not read off random characters that represent icons */
   max-width: 100% !important;
 }
 
-/*.max-w-col {max-width: 10rem!important;}*/
-
 .sidebar {
-  flex: 0 0 230px !important;
-  background-color: greenyellow;
+  flex: 0 0 18rem !important;
 }
 
 @media (max-width: 700px) {
