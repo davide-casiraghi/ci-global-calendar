@@ -13,7 +13,7 @@
     @forelse ($events as $event)
         <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
             <div class="col-lg-1 date">
-                <div class="row text-uppercase">
+                <div class="row text-uppercase h-100">
 
                 {{-- One day event --}}
                 @if (Carbon\Carbon::parse($event->start_repeat)->format('d-m-Y') == Carbon\Carbon::parse($event->end_repeat)->format('d-m-Y'))
@@ -25,14 +25,14 @@
                     </div>
                 {{-- Many days event --}}
                 @else
-                    <div class='col text-center bg-secondary text-white px-1 mr-1' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
-                        <strong>
+                    <div class='col text-center bg-secondary text-white px-1 mr-1 d-table h-100' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
+                        <strong class="align-middle d-table-cell">
                             @day($event->start_repeat)<br class="d-none d-lg-block"/>
                             @month($event->start_repeat)
                         </strong>
                     </div>
-                    <div class='col text-center bg-secondary text-white px-1' data-toggle="tooltip" data-placement="top" title="@date($event->end_repeat)">
-                        <strong>
+                    <div class='col text-center bg-secondary text-white px-1 d-table h-100' data-toggle="tooltip" data-placement="top" title="@date($event->end_repeat)">
+                        <strong class="align-middle d-table-cell">
                             @day($event->end_repeat)<br class="d-none d-lg-block"/>
                             @month($event->end_repeat)
                         </strong>
