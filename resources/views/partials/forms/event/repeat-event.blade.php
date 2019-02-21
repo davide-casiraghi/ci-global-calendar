@@ -127,7 +127,7 @@
 <div class="repeatDetails" style="display:none">
     
     <div class="row">
-        <div id="onWeekly" class="onFrequency col-12 col-xl-4" style="display:none">
+        <div id="onWeekly" class="onFrequency col-12 col-xl-7" style="display:none">
             <label>@lang('views.weekly') - On:</label><br/>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-primary" id="day_1" >
@@ -155,14 +155,14 @@
             <input type="hidden" name="repeat_weekly_on" id="repeat_weekly_on" @if(!empty($event->repeat_weekly_on))  value="{{$event->repeat_weekly_on}}" @endif/>
         </div>
 
-        <div id="onMonthly" class="onFrequency col-12 col-xl-4" style="display:none">
+        <div id="onMonthly" class="onFrequency col-12 col-xl-7" style="display:none">
             <label>@lang('views.monthly') - On:</label>
             <select name="on_monthly_kind" id="on_monthly_kind" class="selectpicker" title="Select repeat monthly kind">
                 <option value="1">1</option>
             </select>
         </div>
 
-        <div class="col-12 col-xl-8 mt-3 mt-xl-0">
+        <div class="col-12 col-xl-5 mt-3 mt-xl-0">
 
             @include('partials.forms.input-date', [
                   'title' => __('views.repeat_until'),
