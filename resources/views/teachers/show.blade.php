@@ -67,7 +67,7 @@
                         </div>
                         <div class="col-12 mt-3">
                             @if(!empty($teacher->significant_teachers))
-                                <b>@lang('views.significant_teachers')</b><br>
+                                <h5>@lang('views.significant_teachers')</h5>
                                 {{$teacher->significant_teachers}}
                             @endif
                         </div>
