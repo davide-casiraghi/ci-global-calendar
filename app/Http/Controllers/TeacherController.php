@@ -63,13 +63,15 @@ class TeacherController extends Controller
                 ->when($searchCountry, function ($query, $searchCountry) {
                     return $query->where('country_id', '=', $searchCountry);
                 })
+                ->orderBy('name')
                 ->paginate(20);
         }
         else
-            $teachers = Teacher::latest()
-            ->when($loggedUser->id, function ($query, $loggedUserId) {
+            $teachers = Teacher::
+            when($loggedUser->id, function ($query, $loggedUserId) {
                 return $query->where('created_by', $loggedUserId);
             })
+            ->orderBy('name')
             ->paginate(20);
 
         return view('teachers.index',compact('teachers'))
