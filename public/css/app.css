@@ -8870,7 +8870,7 @@ readers do not read off random characters that represent icons */
   flex: 0 0 18rem !important;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 767px) {
   .form-sidebar {
     flex: 0 1 auto !important;
     margin-bottom: 1.5rem;
