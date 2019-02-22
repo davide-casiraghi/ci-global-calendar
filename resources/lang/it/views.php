@@ -16,7 +16,7 @@ return [
     'start_end_duration' => 'Inizio, Fine, Durata',
     'date_start' => 'Data di inizio',
     'date_end' => 'Data della fine',
-    'select_date' => 'Seleziona data',
+    'select_date' => 'Scegliere una data',
     'select_time' => 'Seleziona l\'orario',
     'time_start' => 'Ora di inizio',
     'time_end' => 'Ora della fine',

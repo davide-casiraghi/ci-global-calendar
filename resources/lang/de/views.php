@@ -3,7 +3,7 @@
 return [
     'title' => 'Titel',
     'category' => 'Kategorie',
-    'select_category' => 'Select category',
+    'select_category' => 'Kategorie auswählen',
     'status' => 'Status',
     'enabled' => 'Aktiviert',
     'disabled' => 'Deaktiviert',
