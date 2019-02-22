@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 
+use App\Teacher;
+use App\Http\Resources\Teacher as TeacherResource;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,3 +19,24 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+/*
+Route::get('teachers','TeacherController@index');
+Route::get('teacher/{id}','TeacherController@show');
+*/
+
+/*
+Route::get('/teacher', function () {
+    return new TeacherResource(Teacher::find(1));
+});*/
+
+
+Route::get('/teacher/', function () {
+    return new TeacherResource(Teacher::find(1));
+});
+
+/*
+Route::get('/teachers', function () {
+    return new TeacherResource(Teacher::all());
+});*/
