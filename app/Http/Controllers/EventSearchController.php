@@ -170,12 +170,12 @@ class EventSearchController extends Controller
         // If no filter selected retrieve all the events
         else{
                 $events = Event::
-                 where('event_repetitions.start_repeat', '>=',$searchStartDate)
-                ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) {
-                    $join->on('events.id', '=', 'event_repetitions.event_id');
-                })
-                ->orderBy('event_repetitions.start_repeat', 'asc')
-                ->paginate(20);
+                             where('event_repetitions.start_repeat', '>=',$searchStartDate)
+                            ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) {
+                                $join->on('events.id', '=', 'event_repetitions.event_id');
+                            })
+                            ->orderBy('event_repetitions.start_repeat', 'asc')
+                            ->paginate(20);
 
                 // It works, but I don't use it now to develop
                 /*$cacheExpireMinutes = 30;
