@@ -4,6 +4,8 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
+use App\EventCategory;
+
 class Event extends JsonResource
 {
     /**
@@ -20,7 +22,7 @@ class Event extends JsonResource
             'description' => $this->description,
             'website_event_link' => $this->website_event_link,
             'facebook_event_link' => $this->facebook_event_link,
-            'category_id' => $this->category_id
+            'category' => EventCategory::getCategoryName($this->category_id)
         ];
     }
 }

@@ -10,4 +10,18 @@ class EventCategory extends Model
     
     public $translatedAttributes = ['name','slug'];
     protected $fillable = [];
+    
+    /***************************************************************************/
+    /**
+     * Return the category name
+     *
+     * @param  int  category id
+     * @return string the category name
+     */
+    public static function getCategoryName($categoryId){
+        $ret = EventCategory::find($categoryId)->name;
+                
+                
+        return $ret;
+    }
 }
