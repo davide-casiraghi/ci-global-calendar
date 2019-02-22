@@ -22,7 +22,8 @@ class Event extends JsonResource
             'description' => $this->description,
             'website_event_link' => $this->website_event_link,
             'facebook_event_link' => $this->facebook_event_link,
-            'category' => EventCategory::getCategoryName($this->category_id)
+            'category' => EventCategory::getCategoryName($this->category_id),
+            'teachers' => $this->teachers()->pluck('name','id'),
         ];
     }
 }
