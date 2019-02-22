@@ -71,20 +71,20 @@ class EventSearchController extends Controller
             $lastestEventsRepetitionsQuery = $this->getLastestEventsRepetitionsQuery($searchStartDate, null);
             
             return Event::
-                        //join('event_venues', 'event_venues.id', '=', 'events.venue_id')
-                        //->join('countries', 'countries.id', '=', 'event_venues.country_id')
-                        joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
+                        select('title','countries.name AS country_name','countries.id AS country_id','event_venues.city AS city')
+                        ->join('event_venues', 'event_venues.id', '=', 'events.venue_id')
+                        ->join('countries', 'countries.id', '=', 'event_venues.country_id')
+                        ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
                                 $join->on('events.id', '=', 'event_repetitions.event_id');
                             })
                         ->get();
         });                
+            //dd($activeEvents);                
                             
                             
-                            
-            
-        $cities = $activeEvents->unique('sc_city_name')->pluck('city', 'id');
-        $countries = $activeEvents->unique('sc_country_name')->pluck('sc_country_name', 'id');
-        //dd($country);
+        $countries = $activeEvents->unique('country_name')->pluck('country_name', 'country_id');
+        $cities = $activeEvents->unique('city')->toArray();
+        
 
         /*$countries = DB::table('countries')
                 ->join('event_venues', 'countries.id', '=', 'event_venues.country_id')
