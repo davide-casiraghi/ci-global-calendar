@@ -21,7 +21,6 @@ class EventCategory extends Model
     public static function getCategoryName($categoryId){
         $ret = EventCategory::find($categoryId)->name;
                 
-                
         return $ret;
     }
 }
