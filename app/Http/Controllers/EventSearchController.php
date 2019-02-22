@@ -83,7 +83,7 @@ class EventSearchController extends Controller
                             
                             
         $countries = $activeEvents->unique('country_name')->pluck('country_name', 'country_id');
-        $cities = $activeEvents->unique('city')->toArray();
+        //$cities = $activeEvents->unique('city')->toArray();
         
 
         /*$countries = DB::table('countries')
