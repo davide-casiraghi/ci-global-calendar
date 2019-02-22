@@ -69,15 +69,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 mb-4 order-2">
+                    <div class="col-12 mb-4 order-2">
                         <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
                         @if(!empty($user->country_id)){{ $countries[$user->country_id] }}@endif    
-                    </div>
-                    <div class="col-6 mb-4 order-3">
-                        <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-key mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
+                        <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-key mr-1 ml-4 dark-gray" data-original-title="@lang('general.country')"></i>
                         {{ App\User::getUserGroupString($user->group)}}    
                     </div>
-                    <div class="col-12 pb-2 action order-4">
+                    <div class="col-12 pb-2 action order-3">
                         <form action="{{ route('users.destroy',$user->id) }}" method="POST">
 
                             <a class="btn btn-primary float-right" href="{{ route('users.edit',$user->id) }}">@lang('views.edit')</a>
