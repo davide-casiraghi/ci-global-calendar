@@ -125,7 +125,7 @@ class EventSearchController extends Controller
             //DB::enableQueryLog();
                 $events = Event::
                     when($searchKeywords, function ($query, $searchKeywords) {
-                        return $query->where('title', $searchKeywords)->orWhere('title', 'like', '%' . $searchKeywords . '%');
+                        return $query->where('title', 'like', '%' . $searchKeywords . '%');
                     })
                     ->when($searchCategory, function ($query, $searchCategory) {
                         return $query->where('category_id', '=', $searchCategory);
@@ -140,10 +140,10 @@ class EventSearchController extends Controller
                         return $query->where('sc_continent_id', '=', $searchContinent);
                     })
                     ->when($searchCity, function ($query, $searchCity) {
-                        return $query->where('sc_city_name', $searchCity)->orWhere('sc_city_name', 'like', '%' . $searchCity . '%');
+                        return $query->where('sc_city_name', 'like', '%' . $searchCity . '%');
                     })
                     ->when($searchVenue, function ($query, $searchVenue) {
-                        return $query->where('title', $searchVenue)->orWhere('sc_venue_name', 'like', '%' . $searchVenue . '%');
+                        return $query->where('sc_venue_name', 'like', '%' . $searchVenue . '%');
                     })
                     ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate,$searchEndDate) {
                         $join->on('events.id', '=', 'event_repetitions.event_id');
