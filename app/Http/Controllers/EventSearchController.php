@@ -24,21 +24,17 @@ class EventSearchController extends Controller
      * @return view
      */
     public function index(Request $request){
-        /*$eventCategories = EventCategory::pluck('name', 'id');
-        $countries = Country::pluck('name', 'id');
-        $venues = EventVenue::pluck('name', 'id');*/
         
-        
-        $minutes = 15; // Set the duration time of the cache
+        $cacheExpireMinutes = 15; // Set the duration time of the cache
         
         $backgroundImages = BackgroundImage::all();
 
-        $eventCategories = Cache::remember('categories', $minutes, function () {
+        $eventCategories = Cache::remember('categories', $cacheExpireMinutes, function () {
             return EventCategory::orderBy('name')->pluck('name', 'id');
         });
             
         // Get the countries with active events
-        /*$countries = Cache::remember('events_countries', $minutes, function () {
+        /*$countries = Cache::remember('events_countries', $cacheExpireMinutes, function () {
             
             date_default_timezone_set('Europe/Rome');
             $searchStartDate = date('Y-m-d', time());
@@ -54,10 +50,11 @@ class EventSearchController extends Controller
                 ->pluck('countries.name', 'countries.id');
         });*/
         
+        
+        /*
         date_default_timezone_set('Europe/Rome');
         $searchStartDate = date('Y-m-d', time());
         $lastestEventsRepetitionsQuery = $this->getLastestEventsRepetitionsQuery($searchStartDate, null);
-        
         $activeEvents = Event::
                             join('event_venues', 'event_venues.id', '=', 'events.venue_id')
                             ->join('countries', 'countries.id', '=', 'event_venues.country_id')
@@ -65,8 +62,25 @@ class EventSearchController extends Controller
                                     $join->on('events.id', '=', 'event_repetitions.event_id');
                                 })
                             ->get();
+        */
+            
                             
-                            //dd($activeEvents);
+        $activeEvents = Cache::remember('active_events', $cacheExpireMinutes, function () {                
+            date_default_timezone_set('Europe/Rome');
+            $searchStartDate = date('Y-m-d', time());
+            $lastestEventsRepetitionsQuery = $this->getLastestEventsRepetitionsQuery($searchStartDate, null);
+            
+            return Event::
+                        //join('event_venues', 'event_venues.id', '=', 'events.venue_id')
+                        //->join('countries', 'countries.id', '=', 'event_venues.country_id')
+                        joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
+                                $join->on('events.id', '=', 'event_repetitions.event_id');
+                            })
+                        ->get();
+        });                
+                            
+                            
+                            
             
         $cities = $activeEvents->unique('sc_city_name')->pluck('city', 'id');
         $countries = $activeEvents->unique('sc_country_name')->pluck('sc_country_name', 'id');
@@ -82,11 +96,11 @@ class EventSearchController extends Controller
             return Continent::orderBy('name')->pluck('name', 'id');
         });
 
-        $venues = Cache::remember('venues', $minutes, function () {
+        $venues = Cache::remember('venues', $cacheExpireMinutes, function () {
             return EventVenue::pluck('name', 'id');
         });
 
-        $teachers = Cache::remember('teachers', $minutes, function () {
+        $teachers = Cache::remember('teachers', $cacheExpireMinutes, function () {
             return Teacher::orderBy('name')->pluck('name', 'id');
         });
 
@@ -163,8 +177,8 @@ class EventSearchController extends Controller
                 ->paginate(20);
 
                 // It works, but I don't use it now to develop
-                /*$minutes = 30;
-                $events = Cache::remember('all_events', $minutes, function () {
+                /*$cacheExpireMinutes = 30;
+                $events = Cache::remember('all_events', $cacheExpireMinutes, function () {
                     return DB::table('events')->latest()->paginate(20);
                 });*/
         }
@@ -267,8 +281,8 @@ class EventSearchController extends Controller
                 
         $events = Event::where('sc_country_id', $country->id)->get();
         
-        $minutes = 15;  // Set the duration time of the cache
-        $eventCategories = Cache::remember('categories', $minutes, function () {
+        $cacheExpireMinutes = 15;  // Set the duration time of the cache
+        $eventCategories = Cache::remember('categories', $cacheExpireMinutes, function () {
             return EventCategory::orderBy('name')->pluck('name', 'id');
         });
         
