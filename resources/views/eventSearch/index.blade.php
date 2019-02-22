@@ -140,7 +140,7 @@
                               'value' => $searchCity
                         ])
                         
-                        <p class="mt-3"><strong class="text-white">@lang('homepage-serach.search_by_venue')</strong></p>
+                        {{--<p class="mt-3"><strong class="text-white">@lang('homepage-serach.search_by_venue')</strong></p>--}}
                         @include('partials.forms.input', [
                               'title' => '',
                               'name' => 'venue_name',
