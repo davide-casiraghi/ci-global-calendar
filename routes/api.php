@@ -32,8 +32,8 @@ Route::get('/teacher', function () {
 });*/
 
 
-Route::get('/teacher/', function () {
-    return new TeacherResource(Teacher::find(1));
+Route::get('/teacher/{id}', function ($id) {
+    return new TeacherResource(Teacher::find($id));
 });
 
 /*
