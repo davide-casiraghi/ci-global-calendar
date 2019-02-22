@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\EventRepetition;
 use App\EventCategory;
 use App\Teacher;
 use App\Organizer;
@@ -38,7 +39,7 @@ class EventSearchController extends Controller
             
             date_default_timezone_set('Europe/Rome');
             $searchStartDate = date('Y-m-d', time());
-            $lastestEventsRepetitionsQuery = $this->getLastestEventsRepetitionsQuery($searchStartDate, null);
+            $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
             
             return DB::table('countries')
                 ->join('event_venues', 'countries.id', '=', 'event_venues.country_id')
@@ -54,7 +55,7 @@ class EventSearchController extends Controller
         /*
         date_default_timezone_set('Europe/Rome');
         $searchStartDate = date('Y-m-d', time());
-        $lastestEventsRepetitionsQuery = $this->getLastestEventsRepetitionsQuery($searchStartDate, null);
+        $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
         $activeEvents = Event::
                             join('event_venues', 'event_venues.id', '=', 'events.venue_id')
                             ->join('countries', 'countries.id', '=', 'event_venues.country_id')
@@ -68,7 +69,7 @@ class EventSearchController extends Controller
         $activeEvents = Cache::remember('active_events', $cacheExpireMinutes, function () {                
             date_default_timezone_set('Europe/Rome');
             $searchStartDate = date('Y-m-d', time());
-            $lastestEventsRepetitionsQuery = $this->getLastestEventsRepetitionsQuery($searchStartDate, null);
+            $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
             
             return Event::
                         select('title','countries.name AS country_name','countries.id AS country_id','event_venues.city AS city')
@@ -132,7 +133,7 @@ class EventSearchController extends Controller
             }
         
         // Sub-Query Joins - https://laravel.com/docs/5.7/queries                        
-        $lastestEventsRepetitionsQuery = $this->getLastestEventsRepetitionsQuery($searchStartDate, $searchEndDate);
+        $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, $searchEndDate);
                                 
         // Retrieve the events that correspond to the selected filters
         if ($searchKeywords||$searchCategory||$searchCity||$searchCountry||$searchContinent||$searchTeacher||$searchVenue||$searchStartDate||$searchEndDate){
@@ -290,29 +291,6 @@ class EventSearchController extends Controller
                 ->with('country', $country)
                 ->with('eventCategories',$eventCategories);
     }
-    
-    
-    /***************************************************************************/
-    /**
-     * Get lastest events repetitions
-     *
-     * @param  $searchStartDate - The start date of the interval
-     * @param  $searchEndDate - The end date of the interval
-     * @return \Illuminate\Http\Response
-     */
-     public function getLastestEventsRepetitionsQuery($searchStartDate, $searchEndDate){
-         $ret = DB::table('event_repetitions')
-                     ->selectRaw('event_id, MIN(id) AS rp_id, start_repeat, end_repeat')
-                     ->when($searchStartDate, function ($query, $searchStartDate) {
-                         return $query->where('event_repetitions.start_repeat', '>=',$searchStartDate);
-                     })
-                     ->when($searchEndDate, function ($query, $searchEndDate) {
-                         return $query->where('event_repetitions.end_repeat', '<=', $searchEndDate);
-                     })
-                     ->groupBy('event_id');
-         
-         return $ret;
-     }
     
      /***************************************************************************/
     
