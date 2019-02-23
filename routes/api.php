@@ -37,6 +37,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::get('/teachers', function () {  // http://www.globalcalendar-laravel.it/api/teachers
         return TeacherResource::collection(Teacher::all());
     });
+    
+    Route::get('/teacher/{id}/events', function () {  // http://www.globalcalendar-laravel.it/api/teachers
+        return TeacherResource::collection(Teacher::all());
+    });
+    
 
 /* Events */
     Route::get('/event/{id}', function ($id) {
