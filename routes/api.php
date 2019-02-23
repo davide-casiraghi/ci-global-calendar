@@ -39,17 +39,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::get('/teachers', function () {  // http://www.globalcalendar-laravel.it/api/teachers
         return TeacherResource::collection(Teacher::all());
     });
-    
-    Route::get('/teacher/{id}/events', function ($id) {  // http://www.globalcalendar-laravel.it/api/teacher/81/events
-        date_default_timezone_set('Europe/Rome');
-        $searchStartDate = date('Y-m-d', time());
-        $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
-        
-        return EventResource::collection(
-            Teacher::eventsByTeacher(Teacher::find($id), $lastestEventsRepetitionsQuery, $searchStartDate)
-        );
-    });
-    
 
 /* Events */
     Route::get('/event/{id}', function ($id) {
@@ -62,6 +51,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
     Route::get('/events/country/{countryId}', function ($countryId) {
         return EventResource::collection(Event::where('country_id', $countryId)->get());
+    });
+    
+    Route::get('/events/teacher/{id}', function ($id) {  // http://www.globalcalendar-laravel.it/api/events/teacher/1
+        date_default_timezone_set('Europe/Rome');
+        $searchStartDate = date('Y-m-d', time());
+        $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
+        
+        return EventResource::collection(
+            Teacher::eventsByTeacher(Teacher::find($id), $lastestEventsRepetitionsQuery, $searchStartDate)
+        );
     });
 
 /* Continents */
