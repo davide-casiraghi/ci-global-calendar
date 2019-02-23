@@ -20245,6 +20245,12 @@ body pre {
   line-height: 1.6;
 }
 
+body table tr td {
+  border: 1px solid #dee0df;
+  padding: 10px;
+  text-align: left;
+}
+
 body .alternateColors > div:nth-child(odd) {
   background-color: #FFF;
 }
