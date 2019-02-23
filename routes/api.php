@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 
+use App\EventRepetition;
+
 use App\Teacher;
 use App\Http\Resources\Teacher as TeacherResource;
 
@@ -38,8 +40,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         return TeacherResource::collection(Teacher::all());
     });
     
-    Route::get('/teacher/{id}/events', function ($id) {  // http://www.globalcalendar-laravel.it/api/teachers
-        return TeacherResource::collection(Teacher::eventsByTeacher(Teacher::find($id)));
+    Route::get('/teacher/{id}/events', function ($id) {  // http://www.globalcalendar-laravel.it/api/teacher/81/events
+        date_default_timezone_set('Europe/Rome');
+        $searchStartDate = date('Y-m-d', time());
+        $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
+        
+        return EventResource::collection(
+            Teacher::eventsByTeacher(Teacher::find($id), $lastestEventsRepetitionsQuery, $searchStartDate)
+        );
     });
     
 

@@ -22,15 +22,15 @@ class Teacher extends Model
     
     /***************************************************************************/
     /**
-     * Get the events where this teacher is teaching to
+     * Get the events where this teacher is going to teach to
      *
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-     public static function eventsByTeacher($teacher){
+     public static function eventsByTeacher($teacher, $lastestEventsRepetitionsQuery, $searchStartDate){
          $ret = $teacher->events()
-                         ->select('events.title','events.category_id','events.slug','events.sc_venue_name','events.sc_country_name','events.sc_city_name','events.sc_teachers_names','event_repetitions.start_repeat','event_repetitions.end_repeat')
-                         ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) use ($searchStartDate) {
+                         ->select('events.title','events.category_id','events.slug', 'events.venue_id', 'events.sc_venue_name','events.sc_country_name','events.sc_city_name','events.sc_teachers_names','event_repetitions.start_repeat','event_repetitions.end_repeat')
+                         ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
                                $join->on('events.id', '=', 'event_repetitions.event_id');
                            })
                          ->orderBy('event_repetitions.start_repeat', 'asc')
