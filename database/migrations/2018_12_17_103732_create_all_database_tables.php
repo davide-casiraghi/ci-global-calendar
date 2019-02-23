@@ -266,6 +266,24 @@ class CreateAllDatabaseTables extends Migration
             $table->foreign('event_category_id')->references('id')->on('event_categories')->onDelete('cascade');
         });
         
+        Schema::create('donation_offers', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('surname');
+            $table->string('email');
+            $table->integer('country_id')->nullable();
+            $table->text('contact_trough_voip')->nullable();
+            $table->text('language_spoken')->nullable();
+            $table->integer('offer_kind')->nullable();
+            $table->integer('gift_kind')->nullable();
+            $table->text('gift_description')->nullable();
+            $table->integer('volunteer_kind')->nullable();
+            $table->text('volunteer_description')->nullable();
+            $table->text('other_description')->nullable();
+            $table->text('suggestions')->nullable();
+            $table->timestamps();
+        });
+        
         
     }
 
@@ -312,5 +330,6 @@ class CreateAllDatabaseTables extends Migration
         });
         Schema::dropIfExists('event_category_translations');
         Schema::dropIfExists('event_categories');
+        Schema::dropIfExists('donation_offers');
     }
 }
