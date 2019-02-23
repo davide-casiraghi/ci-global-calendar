@@ -84,6 +84,15 @@ body{
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
         line-height: 1.6;
     }
+    table{
+        tr{
+            td{
+                border: 1px solid #dee0df;
+                padding: 10px;
+                text-align: left;
+            }
+        }
+    }
     .alternateColors{
         > div{
             &:nth-child(odd){
