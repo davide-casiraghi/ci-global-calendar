@@ -32,11 +32,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 /* Teachers */
-    Route::get('/teacher/{id}', function ($id) {  // http://www.globalcalendar-laravel.it/api/teacher/33
+    Route::get('/teacher/{id}', function ($id) {  // http://ciglobalcalendar.net/api/teacher/33
         return new TeacherResource(Teacher::find($id));
     });
 
-    Route::get('/teachers', function () {  // http://www.globalcalendar-laravel.it/api/teachers
+    Route::get('/teachers', function () {  // http://ciglobalcalendar.net/api/teachers
         return TeacherResource::collection(Teacher::all());
     });
 
@@ -45,15 +45,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         return new EventResource(Event::find($id));
     });
 
-    Route::get('/events', function () {
+    /*Route::get('/events', function () {
         return EventResource::collection(Event::all());
-    });
+    });*/
 
     Route::get('/events/country/{countryId}', function ($countryId) {
         return EventResource::collection(Event::where('country_id', $countryId)->get());
     });
     
-    Route::get('/events/teacher/{id}', function ($id) {  // http://www.globalcalendar-laravel.it/api/events/teacher/1
+    Route::get('/events/teacher/{id}', function ($id) {  // http://ciglobalcalendar.net/api/events/teacher/1
         date_default_timezone_set('Europe/Rome');
         $searchStartDate = date('Y-m-d', time());
         $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
