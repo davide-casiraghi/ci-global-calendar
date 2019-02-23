@@ -8,6 +8,9 @@ use App\Http\Resources\Teacher as TeacherResource;
 use App\Event;
 use App\Http\Resources\Event as EventResource;
 
+use App\Continent;
+use App\Http\Resources\Continent as ContinentResource;
+
 use App\Country;
 use App\Http\Resources\Country as CountryResource;
 
@@ -48,6 +51,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         return EventResource::collection(Event::where('country_id', $countryId)->get());
     });
 
+/* Continents */
+    Route::get('/continent/{id}', function ($id) {
+        return new ContinentResource(Continent::find($id));
+    });
+    Route::get('/continents', function () {
+        return ContinentResource::collection(Continent::all());
+    });
 
 /* Countries */
     Route::get('/country/{id}', function ($id) {
