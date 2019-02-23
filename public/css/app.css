@@ -20245,6 +20245,7 @@ body pre {
   line-height: 1.6;
 }
 
+body table tr th,
 body table tr td {
   border: 1px solid #dee0df;
   padding: 10px;
