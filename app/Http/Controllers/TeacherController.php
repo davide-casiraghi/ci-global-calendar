@@ -146,7 +146,7 @@ class TeacherController extends Controller
             return EventCategory::orderBy('name')->pluck('name', 'id');
         });
         
-        // Get for each event the first event repetition in the near future
+        // Get for each event the first event repetition in the near future (JUST THE QUERY)
             date_default_timezone_set('Europe/Rome');
             $searchStartDate = date('Y-m-d', time()); // search start from today's date
             $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);

@@ -18,11 +18,11 @@ class EventRepetition extends Model
     
     /***************************************************************************/
     /**
-     * Get lastest events repetitions
+     * Get for each event the first event repetition in the near future (JUST THE QUERY to use as SUBQUERY)
      *
      * @param  $searchStartDate - The start date of the interval
      * @param  $searchEndDate - The end date of the interval
-     * @return \Illuminate\Http\Response
+     * @return $ret - string - The query string
      */
      public static function getLastestEventsRepetitionsQuery($searchStartDate, $searchEndDate){
          $ret = EventRepetition::
