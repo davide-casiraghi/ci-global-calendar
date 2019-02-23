@@ -112,8 +112,9 @@ function()
     
     /* Background images */    
         Route::resource('backgroundImages','BackgroundImageController');
-
     
+    /* Donation Offers */ 
+        Route::resource('donationOffers','ProductController');
 
     /* Authentication */
         //Auth::routes();
