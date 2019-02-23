@@ -6,6 +6,7 @@ use App\Teacher;
 use App\Country;
 use App\User;
 use App\Event;
+use App\EventRepetition;
 use App\EventCategory;
 
 use Illuminate\Support\Facades\DB;
@@ -145,20 +146,16 @@ class TeacherController extends Controller
             return EventCategory::orderBy('name')->pluck('name', 'id');
         });
         
-        // Get lastest event repetitions
+        // Get for each event the first event repetition in the near future
             date_default_timezone_set('Europe/Rome');
             $searchStartDate = date('Y-m-d', time()); // search start from today's date
-            
-            $lastestEventsRepetitions = DB::table('event_repetitions')
-                ->selectRaw('event_id, MIN(id) AS rp_id, start_repeat, end_repeat')
-                ->where('event_repetitions.start_repeat', '>=',$searchStartDate)
-                ->groupBy('event_id');
-        
+            $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
+                
         // Get the events where this teacher is teaching to
         //DB::enableQueryLog();
             $eventsTeacherWillTeach = $teacher->events()
                                               ->select('events.title','events.category_id','events.slug','events.sc_venue_name','events.sc_country_name','events.sc_city_name','events.sc_teachers_names','event_repetitions.start_repeat','event_repetitions.end_repeat')
-                                              ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) use ($searchStartDate) {
+                                              ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
                                                     $join->on('events.id', '=', 'event_repetitions.event_id');
                                                 })
                                               ->orderBy('event_repetitions.start_repeat', 'asc')

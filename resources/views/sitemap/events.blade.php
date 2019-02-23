@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     @foreach ($events as $event)
         <url>
-            <loc>{{env('APP_URL')}}event/{{ $event->slug }}</loc>
+            <loc>{{env('APP_URL')}}event/{{ $event->slug }}/{{$event->rp_id}}</loc>
             <lastmod>{{ $event->updated_at }}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.6</priority>

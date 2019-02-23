@@ -19,4 +19,23 @@ class Teacher extends Model
         return $this->belongsToMany('App\Event', 'event_has_teachers', 'teacher_id', 'event_id');
     }
     
+    
+    /***************************************************************************/
+    /**
+     * Get the events where this teacher is teaching to
+     *
+     * @param  \App\Teacher  $teacher
+     * @return \Illuminate\Http\Response
+     */
+     public static function eventsByTeacher($teacher){
+         $ret = $teacher->events()
+                         ->select('events.title','events.category_id','events.slug','events.sc_venue_name','events.sc_country_name','events.sc_city_name','events.sc_teachers_names','event_repetitions.start_repeat','event_repetitions.end_repeat')
+                         ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) use ($searchStartDate) {
+                               $join->on('events.id', '=', 'event_repetitions.event_id');
+                           })
+                         ->orderBy('event_repetitions.start_repeat', 'asc')
+                         ->get();
+         return $ret;
+     }
+    
 }
