@@ -14,10 +14,10 @@
     <div class="container max-w-md px-0">
         <div class="row">
             <div class="col-12 col-sm-7">
-                <h4>@lang('views.events_venue_management')</h4>
+                <h4>@lang('views.donation_offers_management')</h4>
             </div>
             <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right">
-                <a class="btn btn-success create-new" href="{{ route('donationOffers.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_venue')</a>
+                <a class="btn btn-success create-new" href="{{ route('donationOffers.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_donation_offer')</a>
             </div>
         </div>
 
@@ -58,7 +58,7 @@
 
         {{-- List of venues --}}
         <div class="venuesList my-4">
-            @foreach ($donationOffer as $donationOffer)
+            @foreach ($donationOffers as $donationOffer)
                 <div class="row bg-white shadow-1 rounded mb-3 pb-2 pt-3 mx-1">
                     <div class="col-12 py-1 title">
                         <h5 class="darkest-gray">{{ $donationOffer->name }}</h5>

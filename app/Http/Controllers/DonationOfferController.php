@@ -29,7 +29,7 @@ class DonationOfferController extends Controller
         $loggedUser = $this->getLoggedAuthorId();
         
         if ($searchKeywords||$searchCountry){
-            $eventVenues = DB::table('event_venues')
+            $donationOffers = DB::table('event_venues')
                 ->when($loggedUser->id, function ($query, $loggedUserId) {
                     return $query->where('created_by', $loggedUserId);
                 })
@@ -63,9 +63,15 @@ class DonationOfferController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(){
+        $authorUserId = $this->getLoggedAuthorId();
+        $users = User::pluck('name', 'id');
+        $countries = Country::pluck('name', 'id');
+
+        return view('donationOffers.create')
+                ->with('countries', $countries)
+                ->with('users', $users)
+                ->with('authorUserId',$authorUserId);
     }
 
     /**
