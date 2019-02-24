@@ -167,7 +167,7 @@ return [
     'i_can_offer' => 'I can offer',
     'donation_kind_financial' => 'A financial contribution',
     'donation_kind_gift' => 'A gift',
-    'donation_kind_volunteer' => 'Volunteer work and time',
+    'donation_kind_volunteer' => 'Volunteer work',
     'donation_kind_other' => 'Other',
     'financial_contribution_description' => 'Please check out the dedicatd page on our website where you can donate through our Paypal account.',
     'gifting' => 'Gifting',

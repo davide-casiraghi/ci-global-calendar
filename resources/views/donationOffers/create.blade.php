@@ -3,8 +3,8 @@
 @section('javascript-document-ready')
     @parent
     {{-- End date update after start date has changed, and doesn't allow to select a date before the start --}}
-    $("select[name='offer_kind']").change(function(){    
-        
+    $("input[type=radio][name='offer_kind']").change(function(){     
+    
         $( ".donation-choice" ).addClass('d-none');
             
         switch(this.value) {    
@@ -135,18 +135,93 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <strong>@lang('views.i_can_offer'):</strong>
-                                        <select name="offer_kind" class="selectpicker" title="@lang('views.choose')">
+                                        {{--<select name="offer_kind" class="selectpicker" title="@lang('views.choose')">
                                             <option value="1">@lang('views.donation_kind_financial')</option>
                                             <option value="2">@lang('views.donation_kind_gift')</option>
                                             <option value="3">@lang('views.donation_kind_volunteer')</option>
                                             <option value="4">@lang('views.donation_kind_other')</option>
-                                        </select>
+                                        </select>--}}
+                                        <div class="row">
+                                            <div class="col-3 text-center">
+                                                <input id="offerFinancial" class="d-none" type="radio" name="offer_kind" value="1" />
+                                                <label class="bg-white shadow-1 rounded p-2 w-100" for="offerFinancial">
+                                                    <small class="dark-gray text-uppercase">@lang('views.donation_kind_financial')</small>
+                                                    <br>
+                                                    <i class="far fa-hand-holding-usd"></i>
+                                                </label>
+                                            </div>
+                                            <div class="col-3 text-center">
+                                                <input id="offerGift" class="d-none" type="radio" name="offer_kind" value="2" />
+                                                <label class="bg-white shadow-1 rounded p-2 w-100"for="offerGift">
+                                                    <small class="dark-gray text-uppercase">@lang('views.donation_kind_gift')</small>
+                                                    <br>
+                                                    <i class="far fa-gift"></i>
+                                                </label>
+                                            </div>
+                                            <div class="col-3 text-center">
+                                                <input id="offerVolunteer" class="d-none" type="radio" name="offer_kind" value="3" />
+                                                <label class="bg-white shadow-1 rounded p-2 w-100"for="offerVolunteer">
+                                                    <small class="dark-gray text-uppercase">@lang('views.donation_kind_volunteer')</small>
+                                                    <br>
+                                                    <i class="far fa-hands-helping"></i>
+                                                </label>
+                                            </div>
+                                            <div class="col-3 text-center">
+                                                <input id="offerOther" class="d-none" type="radio" name="offer_kind" value="4" />
+                                                <label class="bg-white shadow-1 rounded p-2 w-100"for="offerOther">
+                                                    <small class="dark-gray text-uppercase">@lang('views.donation_kind_other')</small>
+                                                    <br>
+                                                    <i class="far fa-hands-heart"></i>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        
+                                        
                                     </div>
                                 </div>
                                                                     
                             </div>
                         </div>
                     </div>
+                    
+                    {{--
+                    <div class="row">
+                        <div class="col form-sidebar">
+                            <h5 class="text-xl">@lang('views.i_want_to_help')</h5>
+                            <span class="dark-gray">@lang('views.kind_of_help_description')</span>
+                        </div>
+                        <div class="col main">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="cc-selector">
+                                        <input id="offerFinancial" type="radio" name="offer_kind" value="1" />
+                                        <label class="bg-white shadow-1 rounded p-2" for="offerFinancial">
+                                            <i class="far fa-hand-holding-usd"></i>
+                                        </label>
+                                        <input id="offerGift" type="radio" name="offer_kind" value="2" />
+                                        <label class="bg-white shadow-1 rounded p-2"for="offerGift">
+                                            <i class="far fa-gift"></i>
+                                        </label>
+                                        <input id="offerVolunteer" type="radio" name="offer_kind" value="3" />
+                                        <label class="bg-white shadow-1 rounded p-2"for="offerVolunteer">
+                                            <i class="far fa-hands-helping"></i>
+                                        </label>
+                                        <input id="offerOther" type="radio" name="offer_kind" value="4" />
+                                        <label class="bg-white shadow-1 rounded p-2"for="offerOther">
+                                            <i class="far fa-hands-heart"></i>
+                                        </label>
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                    --}}
             
             {{-- Financial contribution --}}
                 <div class="row d-none donation-choice donation-choice-1">
