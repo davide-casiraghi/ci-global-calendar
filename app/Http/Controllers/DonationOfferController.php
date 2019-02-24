@@ -11,8 +11,14 @@ use Illuminate\Http\Request;
 
 use Validator;
 
-class DonationOfferController extends Controller
-{
+class DonationOfferController extends Controller{
+    
+    /* Restrict the access to this resource just to logged in users except show and index view */
+    public function __construct(){
+        $this->middleware('auth', ['except' => ['create']]);
+    }
+    
+    /***************************************************************************/
     /**
      * Display a listing of the resource.
      *
@@ -55,6 +61,7 @@ class DonationOfferController extends Controller
         
     }
 
+    /***************************************************************************/
     /**
      * Show the form for creating a new resource.
      *
@@ -71,6 +78,7 @@ class DonationOfferController extends Controller
                 ->with('authorUserId',$authorUserId);
     }
 
+    /***************************************************************************/
     /**
      * Store a newly created resource in storage.
      *
@@ -97,6 +105,7 @@ class DonationOfferController extends Controller
                         ->with('success',__('messages.donation_offer_added_successfully'));
     }
 
+    /***************************************************************************/
     /**
      * Display the specified resource.
      *
@@ -113,6 +122,7 @@ class DonationOfferController extends Controller
         return view('donationOffers.show',compact('donationOffer'))->with('country', $country);
     }
 
+    /***************************************************************************/
     /**
      * Show the form for editing the specified resource.
      *
@@ -126,6 +136,7 @@ class DonationOfferController extends Controller
             ->with('countries', $countries);
     }
 
+    /***************************************************************************/
     /**
      * Update the specified resource in storage.
      *
@@ -146,6 +157,7 @@ class DonationOfferController extends Controller
                         ->with('success',__('messages.donation_offer_updated_successfully'));
     }
 
+    /***************************************************************************/
     /**
      * Remove the specified resource from storage.
      *
@@ -157,7 +169,6 @@ class DonationOfferController extends Controller
         return redirect()->route('donationOffers.index')
                         ->with('success',__('messages.donation_offer_deleted_successfully'));
     }
-    
     
     /***************************************************************************/
     /**

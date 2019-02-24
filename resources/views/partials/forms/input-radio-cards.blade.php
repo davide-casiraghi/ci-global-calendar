@@ -49,32 +49,32 @@
     <div class="row mt-2">
         <div class="col-6 col-sm-3 col-md-6 col-lg-3 mb-2 text-center form-check">
             
-            <label class="form-check-label bg-white shadow-1 rounded px-1 py-2 w-100 h-100" for="offerFinancial">
-                <input id="offerFinancial" class="form-check-input d-none" type="radio" name="offer_kind" value="1" />
+            <label class="form-check-label bg-white shadow-1 rounded px-1 py-2 w-100 h-100 {{ $selected == 1 ? 'active' : '' }}" for="offerFinancial">
+                <input id="offerFinancial" class="form-check-input d-none" type="radio" name="offer_kind" value="1" {{ $selected == 1 ? 'checked' : '' }} />
                 <i class="far fa-hand-holding-usd text-xl"></i>
                 <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('views.donation_kind_financial')</span>
             </label>
         </div>
         <div class="col-6 col-sm-3 col-md-6 col-lg-3 mb-2 text-center form-check">
             
-            <label class="form-check-label bg-white shadow-1 rounded px-1 py-2 w-100 h-100"for="offerGift">
-                <input id="offerGift" class="form-check-input d-none" type="radio" name="offer_kind" value="2" />
+            <label class="form-check-label bg-white shadow-1 rounded px-1 py-2 w-100 h-100 {{ $selected == 2 ? 'active' : '' }}"for="offerGift">
+                <input id="offerGift" class="form-check-input d-none" type="radio" name="offer_kind" value="2" {{ $selected == 2 ? 'checked' : '' }} />
                 <i class="far fa-gift text-xl"></i>
                 <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('views.donation_kind_gift')</span>
             </label>
         </div>
         <div class="col-6 col-sm-3 col-md-6 col-lg-3 mb-2 text-center form-check">
             
-            <label class="form-check-label bg-white shadow-1 rounded px-1 py-2 w-100 h-100"for="offerVolunteer">
-                <input id="offerVolunteer" class="form-check-input d-none" type="radio" name="offer_kind" value="3" />
+            <label class="form-check-label bg-white shadow-1 rounded px-1 py-2 w-100 h-100 {{ $selected == 3 ? 'active' : '' }} "for="offerVolunteer">
+                <input id="offerVolunteer" class="form-check-input d-none" type="radio" name="offer_kind" value="3" {{ $selected == 3 ? 'checked' : '' }} />
                 <i class="far fa-hands-helping text-xl"></i>
                 <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('views.donation_kind_volunteer')</span>
             </label>
         </div>
         <div class="col-6 col-sm-3 col-md-6 col-lg-3 mb-2 text-center form-check">
             
-            <label class="form-check-label bg-white shadow-1 rounded px-1 py-2 w-100 h-100"for="offerOther">
-                <input id="offerOther" class="form-check-input d-none" type="radio" name="offer_kind" value="4" />
+            <label class="form-check-label bg-white shadow-1 rounded px-1 py-2 w-100 h-100 {{ $selected == 4 ? 'active' : '' }}"for="offerOther">
+                <input id="offerOther" class="form-check-input d-none" type="radio" name="offer_kind" value="4" {{ $selected == 4 ? 'checked' : '' }} />
                 <i class="far fa-hands-heart text-xl"></i>
                 <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('views.donation_kind_other')</span>
             </label>

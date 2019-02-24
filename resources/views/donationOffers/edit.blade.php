@@ -109,7 +109,8 @@
                                 <div class="col-12">
                                     @include('partials.forms.input-radio-cards', [
                                         'title' =>  __('views.i_can_offer'),
-                                        
+                                        'name' => 'offer_kind',
+                                        'selected' => $donationOffer->offer_kind
                                     ])
                                 </div>
                                                                     
