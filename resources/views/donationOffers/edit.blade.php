@@ -5,7 +5,7 @@
     <div class="container max-w-lg px-0">
         <div class="row pt-4">
             <div class="col-12">
-                <h4>@lang('views.create_new_donation_offer')</h4>
+                <h4>@lang('views.edit_donation_offer')</h4>
             </div>
         </div>
         
@@ -31,7 +31,7 @@
                                       'title' => __('general.name'),
                                       'name' => 'name',
                                       'placeholder' => '',
-                                      'value' => old('name')
+                                      'value' => $donationOffer->name
                                 ])
                             </div>
                             <div class="col-12">
@@ -39,21 +39,21 @@
                                       'title' => __('general.surname'),
                                       'name' => 'surname',
                                       'placeholder' => '',
-                                      'value' => old('surname')
+                                      'value' => $donationOffer->surname
                                 ])
                             </div>
                             <div class="col-12">
                                 @include('partials.forms.input', [
                                       'title' => __('general.email_address'),
                                       'name' => 'email',
-                                      'value' => old('email')
+                                      'value' => $donationOffer->email
                                 ])
                             </div>
                             <div class="col-12">
                                 @include('partials.forms.textarea-plain', [
                                     'title' =>  __('views.contact_through_skype_or_another_voip'),
                                     'name' => 'contact_trough_voip',
-                                    'value' => old('contact_trough_voip')
+                                    'value' => $donationOffer->contact_trough_voip
                                 ])
                             </div>
                             <div class="col-12">
@@ -62,6 +62,7 @@
                                       'name' => 'country_id',
                                       'placeholder' => __('views.select_country'), 
                                       'records' => $countries,
+                                      'seleted' => $donationOffer->country_id,
                                       'liveSearch' => 'true',
                                       'mobileNativeMenu' => false,
                                 ])
@@ -70,14 +71,14 @@
                                 @include('partials.forms.textarea-plain', [
                                     'title' =>  __('views.language_spoken'),
                                     'name' => 'language_spoken',
-                                    'value' => old('language_spoken')
+                                    'value' => $donationOffer->language_spoken
                                 ])
                             </div>
                             
                             
                             
                             {{-- Show the created by field just to the admin and super admin --}}
-                            @if(empty($authorUserId))
+                            {{--@if(empty($authorUserId))
                                 <div class="col-12">
                                     @include('partials.forms.select', [
                                           'title' =>  __('views.created_by'), 
@@ -89,6 +90,7 @@
                                     ])
                                 </div>
                             @endif
+                            --}}
                             
                         </div>
                     </div>
@@ -197,7 +199,7 @@
                                       'title' =>  __('views.gift_details'),
                                       'name' => 'gift_description',
                                       'placeholder' => '',
-                                      'value' => old('gift_description')
+                                      'value' => $donationOffer->gift_description
                                 ])
                             </div>
                         </div>
@@ -231,7 +233,7 @@
                                       'title' =>  __('views.volunteering_details_request'),
                                       'name' => 'volunteer_description',
                                       'placeholder' => '',
-                                      'value' => old('volunteer_description')
+                                      'value' => $donationOffer->volunteer_description
                                 ])
                             </div>
                         </div>
@@ -250,9 +252,9 @@
                             <div class="col-12">
                                 @include('partials.forms.textarea', [
                                       'title' =>  __('views.other'),
-                                      'name' => 'volunteer_description',
+                                      'name' => 'other_description',
                                       'placeholder' => '',
-                                      'value' => old('volunteer_description')
+                                      'value' => $donationOffer->other_description
                                 ])
                             </div>
                         </div>

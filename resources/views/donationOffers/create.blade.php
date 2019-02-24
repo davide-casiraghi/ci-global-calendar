@@ -280,9 +280,9 @@
                             <div class="col-12">
                                 @include('partials.forms.textarea', [
                                       'title' =>  __('views.other'),
-                                      'name' => 'volunteer_description',
+                                      'name' => 'other_description',
                                       'placeholder' => '',
-                                      'value' => old('volunteer_description')
+                                      'value' => old('other_description')
                                 ])
                             </div>
                         </div>
