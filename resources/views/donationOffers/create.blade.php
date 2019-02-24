@@ -3,21 +3,22 @@
 @section('javascript-document-ready')
     @parent
     {{-- End date update after start date has changed, and doesn't allow to select a date before the start --}}
-    $("select[name='offer_kind']").change(function(){
-        alert(this.value);
+    $("select[name='offer_kind']").change(function(){    
         
-        switch(expression) {
-            case 1:
-                // code block
+        $( ".donation-choice" ).addClass('d-none');
+            
+        switch(this.value) {    
+            case '1':
+                $(".donation-choice-1").removeClass('d-none');
             break;
-            case 2:
-                // code block
+            case '2':
+                $(".donation-choice-2").removeClass('d-none');
             break;
-            case 3:
-                // code block
+            case '3':
+                $(".donation-choice-3").removeClass('d-none');
             break;
-            case 4:
-                // code block
+            case '4':
+                $(".donation-choice-4").removeClass('d-none');
             break;
         }
         
@@ -150,7 +151,7 @@
             <hr class="mt-3 mb-4">
             
             {{-- Financial contribution --}}
-                <div class="row d-none">
+                <div class="row d-none donation-choice donation-choice-1">
 
                     <div class="col form-sidebar">
                         <h5 class="text-xl">@lang('views.donation_kind_financial')</h5>
@@ -171,7 +172,7 @@
             
             
             {{-- Gifting --}}
-                <div class="row d-none">
+                <div class="row d-none donation-choice donation-choice-2">
                     <div class="col form-sidebar">
                         <h5 class="text-xl">@lang('views.gifting')</h5>
                         <span class="dark-gray">@lang('views.reward')</span>
@@ -201,7 +202,7 @@
                 </div>
             
             {{-- Volunteering --}}
-                <div class="row d-none">
+                <div class="row d-none donation-choice donation-choice-3">
                     <div class="col form-sidebar">
                         <h5 class="text-xl">@lang('views.volunteering')</h5>
                         <p class="dark-gray">@lang('views.volunteering_thank_you')</p>
@@ -234,7 +235,7 @@
                 </div>
             
             {{-- Other --}}
-                <div class="row d-none">
+                <div class="row d-none donation-choice donation-choice-4">
                     <div class="col form-sidebar">
                         <h5 class="text-xl">@lang('views.other')</h5>
                         <span class="dark-gray">@lang('views.other_description')</span>
@@ -254,7 +255,7 @@
                 </div>
             
             {{-- Thank you --}}
-                <div class="row">
+                {{--<div class="row">
                     <div class="col form-sidebar">
                         
                     </div>
@@ -268,7 +269,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--}}
                 
             <hr class="mt-3 mb-5">
 
