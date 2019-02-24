@@ -307,6 +307,11 @@
                 </div>--}}
                 
             <hr class="mt-3 mb-5">
+            
+            @include('partials.forms.input-hidden', [
+                  'name' => 'status',
+                  'value' => 1
+            ])
 
             <div class="row mt-2">  
                 <div class="col-12 action">

@@ -9,6 +9,8 @@ use App\User;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 
+use Validator;
+
 class DonationOfferController extends Controller
 {
     /**
@@ -84,8 +86,9 @@ class DonationOfferController extends Controller
     {
         // Validate form datas
             $validator = Validator::make($request->all(), [
-                'name' => 'required'
-                'surname' => 'required'
+                'name' => 'required',
+                'surname' => 'required',
+                'email' => 'required',
             ]);
             if ($validator->fails()) {
                 return back()->withErrors($validator)->withInput();
@@ -107,7 +110,12 @@ class DonationOfferController extends Controller
      */
     public function show(DonationOffer $donationOffer)
     {
-        //
+        $country = Country::
+                        select('id','name','continent_id')
+                        ->where('id',$donationOffer->country_id)
+                        ->first();
+
+        return view('donationOffers.show',compact('donationOffer'))->with('country', $country);
     }
 
     /**
@@ -116,9 +124,11 @@ class DonationOfferController extends Controller
      * @param  \App\DonationOffer  $donationOffer
      * @return \Illuminate\Http\Response
      */
-    public function edit(DonationOffer $donationOffer)
-    {
-        //
+    public function edit(DonationOffer $donationOffer){
+        $countries = Country::pluck('name', 'id');
+
+        return view('donationOffers.edit',compact('donationOffer'))
+            ->with('countries', $countries);
     }
 
     /**
@@ -128,9 +138,17 @@ class DonationOfferController extends Controller
      * @param  \App\DonationOffer  $donationOffer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DonationOffer $donationOffer)
-    {
-        //
+    public function update(Request $request, DonationOffer $donationOffer){
+        request()->validate([
+            'name' => 'required',
+            'surname' => 'required',
+            'email' => 'required',
+        ]);
+
+        $this->saveOnDb($request, $donationOffer);
+
+        return redirect()->route('donationOffers.index')
+                        ->with('success',__('messages.donation_offer_updated_successfully'));
     }
 
     /**
@@ -139,9 +157,10 @@ class DonationOfferController extends Controller
      * @param  \App\DonationOffer  $donationOffer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DonationOffer $donationOffer)
-    {
-        //
+    public function destroy(DonationOffer $donationOffer){
+        $donationOffer->delete();
+        return redirect()->route('donationOffers.index')
+                        ->with('success',__('messages.donation_offer_deleted_successfully'));
     }
     
     
@@ -167,6 +186,8 @@ class DonationOfferController extends Controller
          $donationOffer->other_description = $request->get('other_description');
          $donationOffer->suggestions = $request->get('suggestions');
          $donationOffer->status = $request->get('status');
+         
+         //dd($donationOffer);
          
          $donationOffer->save();
      }
