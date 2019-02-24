@@ -82,7 +82,21 @@ class DonationOfferController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate form datas
+            $validator = Validator::make($request->all(), [
+                'name' => 'required'
+                'surname' => 'required'
+            ]);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
+        
+        $donationOffer = new DonationOffer();
+
+        $this->saveOnDb($request, $donationOffer);
+
+        return redirect()->route('donationOffers.index')
+                        ->with('success',__('messages.donation_offer_added_successfully'));
     }
 
     /**
@@ -129,4 +143,31 @@ class DonationOfferController extends Controller
     {
         //
     }
+    
+    
+    /***************************************************************************/
+    /**
+     * Save the record on DB
+     *
+     * @param  \App\Teacher  $teacher
+     * @return \Illuminate\Http\Response
+     */
+     public function saveOnDb($request, $donationOffer){
+         $donationOffer->name = $request->get('name');
+         $donationOffer->surname = $request->get('surname');
+         $donationOffer->email = $request->get('email');
+         $donationOffer->country_id = $request->get('country_id');
+         $donationOffer->contact_trough_voip = clean($request->get('contact_trough_voip'));
+         $donationOffer->language_spoken = clean($request->get('language_spoken'));
+         $donationOffer->offer_kind = $request->get('offer_kind');
+         $donationOffer->gift_kind = $request->get('gift_kind');
+         $donationOffer->gift_description = $request->get('gift_description');
+         $donationOffer->volunteer_kind = $request->get('volunteer_kind');
+         $donationOffer->volunteer_description = $request->get('volunteer_description');
+         $donationOffer->other_description = $request->get('other_description');
+         $donationOffer->suggestions = $request->get('suggestions');
+         $donationOffer->status = $request->get('status');
+         
+         $donationOffer->save();
+     }
 }

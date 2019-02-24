@@ -41,4 +41,7 @@ return [
     'category_translation_deleted_successfully' => 'Category translation deleted successfully',
     'event_category_translation_deleted_successfully' => 'Event category translation deleted successfully',
     'post_translation_deleted_successfully' => 'Post translation deleted successfully',
+    'donation_offer_added_successfully' => 'Donation offer added successfully',
+    'donation_offer_updated_successfully' => 'Donation offer updatedsuccessfully',
+    'donation_offer_deleted_successfully' => 'Donation offer deleted successfully',
 ];
