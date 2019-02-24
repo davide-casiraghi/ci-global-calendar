@@ -1905,6 +1905,12 @@ pre[class*="language-"] {
 }
 @charset "UTF-8";
 
+/* Green */
+
+/* Yellow */
+
+/* Red */
+
 /*!
  * Font Awesome Pro 5.3.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license (Commercial License)
@@ -8782,7 +8788,7 @@ readers do not read off random characters that represent icons */
   background-color: white;
 }
 
-/* GRAY */
+/* GRAY Text */
 
 .darkest-gray {
   color: #13263e;
@@ -8804,6 +8810,8 @@ readers do not read off random characters that represent icons */
   color: #f5f7fa;
 }
 
+/* GRAY Background  */
+
 .darkest-gray-bg {
   background-color: #13263e;
 }
@@ -8822,6 +8830,186 @@ readers do not read off random characters that represent icons */
 
 .lightest-gray-bg {
   background-color: #f5f7fa;
+}
+
+/* GREEN Text */
+
+.green-1 {
+  color: #e4fceb;
+}
+
+.green-2 {
+  color: #acecc3;
+}
+
+.green-3 {
+  color: #7ad6a1;
+}
+
+.green-4 {
+  color: #46be78;
+}
+
+.green-5 {
+  color: #33995c;
+}
+
+.green-6 {
+  color: #247544;
+}
+
+.green-7 {
+  color: #1b503a;
+}
+
+/* GREEN Background */
+
+.green-bg-1 {
+  background-color: #e4fceb;
+}
+
+.green-bg-2 {
+  background-color: #acecc3;
+}
+
+.green-bg-3 {
+  background-color: #7ad6a1;
+}
+
+.green-bg-4 {
+  background-color: #46be78;
+}
+
+.green-bg-5 {
+  background-color: #33995c;
+}
+
+.green-bg-6 {
+  background-color: #247544;
+}
+
+.green-bg-7 {
+  background-color: #1b503a;
+}
+
+/* RED Text */
+
+.red-1 {
+  color: #fce8e8;
+}
+
+.red-2 {
+  color: #f1acae;
+}
+
+.red-3 {
+  color: #df686a;
+}
+
+.red-4 {
+  color: #d7333b;
+}
+
+.red-5 {
+  color: #b3232b;
+}
+
+.red-6 {
+  color: #851e22;
+}
+
+.red-7 {
+  color: #601a1d;
+}
+
+/* RED Background */
+
+.red-bg-1 {
+  background-color: #fce8e8;
+}
+
+.red-bg-2 {
+  background-color: #f1acae;
+}
+
+.red-bg-3 {
+  background-color: #df686a;
+}
+
+.red-bg-4 {
+  background-color: #d7333b;
+}
+
+.red-bg-5 {
+  background-color: #b3232b;
+}
+
+.red-bg-6 {
+  background-color: #851e22;
+}
+
+.red-bg-7 {
+  background-color: #601a1d;
+}
+
+/* YELLOW Text */
+
+.yellow-1 {
+  color: #fffcf5;
+}
+
+.yellow-2 {
+  color: #fdf3d8;
+}
+
+.yellow-3 {
+  color: #f8dfa5;
+}
+
+.yellow-4 {
+  color: #f2c873;
+}
+
+.yellow-5 {
+  color: #c9a54f;
+}
+
+.yellow-6 {
+  color: #8b6b2d;
+}
+
+.yellow-7 {
+  color: #5a471c;
+}
+
+/* YELLOW Background */
+
+.yellow-bg-1 {
+  background-color: #fffcf5;
+}
+
+.yellow-bg-2 {
+  background-color: #fdf3d8;
+}
+
+.yellow-bg-3 {
+  background-color: #f8dfa5;
+}
+
+.yellow-bg-4 {
+  background-color: #f2c873;
+}
+
+.yellow-bg-5 {
+  background-color: #c9a54f;
+}
+
+.yellow-bg-6 {
+  background-color: #8b6b2d;
+}
+
+.yellow-bg-7 {
+  background-color: #5a471c;
 }
 
 /* https://tailwindcss.com/docs/max-width/#app */
@@ -20574,6 +20762,12 @@ form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark {
 
 form .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after {
   font-size: 0.5rem;
+}
+
+form .radioCards label.active {
+  color: #1b503a;
+  background-color: #e4fceb !important;
+  border: 2px solid #1b503a;
 }
 
 ul.pagination {

@@ -23,7 +23,15 @@ form{
                 }
             }
         }
-
-
+    }
+    
+    .radioCards{
+        label{
+            &.active{
+                color: $green-7;
+                background-color: $green-1!important;
+                border: 2px solid $green-7;
+            }
+        }
     }
 }
