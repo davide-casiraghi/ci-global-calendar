@@ -271,6 +271,7 @@ class CreateAllDatabaseTables extends Migration
             $table->string('name');
             $table->string('surname');
             $table->string('email');
+            $table->integer('created_by')->nullable();
             $table->integer('country_id')->nullable();
             $table->text('contact_trough_voip')->nullable();
             $table->text('language_spoken')->nullable();
@@ -281,6 +282,7 @@ class CreateAllDatabaseTables extends Migration
             $table->text('volunteer_description')->nullable();
             $table->text('other_description')->nullable();
             $table->text('suggestions')->nullable();
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
         
