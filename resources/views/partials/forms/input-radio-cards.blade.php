@@ -1,5 +1,12 @@
 
-
+{{--
+    INPUT radio form field
+    Display some radios as graphic cards with icons and legend
+    
+    PARAMETERS:
+        - $title: string - the title to show above the radio button list
+        
+--}}
 
 <div class="form-group radioCards">
     <strong>{{$title}}</strong>
