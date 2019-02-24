@@ -10,7 +10,10 @@
 .text-5xl{font-size: 3rem;}*/
 
 /* Type scale p.105*/
-.text-xs{font-size:12px;}
+.text-xs{
+    font-size:12px;
+    line-height: 1.4;
+}
 .text-sm{font-size:14px;}
 .text-base{font-size:16px;}
 .text-base-longtext{font-size:17px;}

@@ -8892,6 +8892,7 @@ readers do not read off random characters that represent icons */
 
 .text-xs {
   font-size: 12px;
+  line-height: 1.4;
 }
 
 .text-sm {

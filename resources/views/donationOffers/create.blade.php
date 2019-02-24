@@ -3,10 +3,12 @@
 @section('javascript-document-ready')
     @parent
     {{-- End date update after start date has changed, and doesn't allow to select a date before the start --}}
-    $("input[type=radio][name='offer_kind']").change(function(){     
-    
+    $("input[type=radio][name='offer_kind']").change(function(){
         $( ".donation-choice" ).addClass('d-none');
-            
+        
+        $('.radioCards label').removeClass('active');
+        $(this).parent('label').addClass('active');
+        
         switch(this.value) {    
             case '1':
                 $(".donation-choice-1").removeClass('d-none');
@@ -141,37 +143,37 @@
                                             <option value="3">@lang('views.donation_kind_volunteer')</option>
                                             <option value="4">@lang('views.donation_kind_other')</option>
                                         </select>--}}
-                                        <div class="row">
-                                            <div class="col-3 text-center">
-                                                <input id="offerFinancial" class="d-none" type="radio" name="offer_kind" value="1" />
-                                                <label class="bg-white shadow-1 rounded p-2 w-100" for="offerFinancial">
-                                                    <small class="dark-gray text-uppercase">@lang('views.donation_kind_financial')</small>
-                                                    <br>
-                                                    <i class="far fa-hand-holding-usd"></i>
+                                        <div class="row mt-2 radioCards">
+                                            <div class="col-6 col-sm-3 col-md-6 col-lg-3 mb-2 text-center form-check">
+                                                
+                                                <label class="form-check-label bg-white shadow-1 rounded p-2 w-100 h-100" for="offerFinancial">
+                                                    <input id="offerFinancial" class="form-check-input d-none" type="radio" name="offer_kind" value="1" />
+                                                    <i class="far fa-hand-holding-usd text-xl"></i>
+                                                    <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('views.donation_kind_financial')</span>
                                                 </label>
                                             </div>
-                                            <div class="col-3 text-center">
-                                                <input id="offerGift" class="d-none" type="radio" name="offer_kind" value="2" />
-                                                <label class="bg-white shadow-1 rounded p-2 w-100"for="offerGift">
-                                                    <small class="dark-gray text-uppercase">@lang('views.donation_kind_gift')</small>
-                                                    <br>
-                                                    <i class="far fa-gift"></i>
+                                            <div class="col-6 col-sm-3 col-md-6 col-lg-3 mb-2 text-center form-check">
+                                                
+                                                <label class="form-check-label bg-white shadow-1 rounded p-2 w-100 h-100"for="offerGift">
+                                                    <input id="offerGift" class="form-check-input d-none" type="radio" name="offer_kind" value="2" />
+                                                    <i class="far fa-gift text-xl"></i>
+                                                    <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('views.donation_kind_gift')</span>
                                                 </label>
                                             </div>
-                                            <div class="col-3 text-center">
-                                                <input id="offerVolunteer" class="d-none" type="radio" name="offer_kind" value="3" />
-                                                <label class="bg-white shadow-1 rounded p-2 w-100"for="offerVolunteer">
-                                                    <small class="dark-gray text-uppercase">@lang('views.donation_kind_volunteer')</small>
-                                                    <br>
-                                                    <i class="far fa-hands-helping"></i>
+                                            <div class="col-6 col-sm-3 col-md-6 col-lg-3 mb-2 text-center form-check">
+                                                
+                                                <label class="form-check-label bg-white shadow-1 rounded p-2 w-100 h-100"for="offerVolunteer">
+                                                    <input id="offerVolunteer" class="form-check-input d-none" type="radio" name="offer_kind" value="3" />
+                                                    <i class="far fa-hands-helping text-xl"></i>
+                                                    <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('views.donation_kind_volunteer')</span>
                                                 </label>
                                             </div>
-                                            <div class="col-3 text-center">
-                                                <input id="offerOther" class="d-none" type="radio" name="offer_kind" value="4" />
-                                                <label class="bg-white shadow-1 rounded p-2 w-100"for="offerOther">
-                                                    <small class="dark-gray text-uppercase">@lang('views.donation_kind_other')</small>
-                                                    <br>
-                                                    <i class="far fa-hands-heart"></i>
+                                            <div class="col-6 col-sm-3 col-md-6 col-lg-3 mb-2 text-center form-check">
+                                                
+                                                <label class="form-check-label bg-white shadow-1 rounded p-2 w-100 h-100"for="offerOther">
+                                                    <input id="offerOther" class="form-check-input d-none" type="radio" name="offer_kind" value="4" />
+                                                    <i class="far fa-hands-heart text-xl"></i>
+                                                    <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('views.donation_kind_other')</span>
                                                 </label>
                                             </div>
                                         </div>
