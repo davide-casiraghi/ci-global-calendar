@@ -29,7 +29,6 @@ class EventVenueController extends Controller
     public function index(Request $request){
         
         $minutes = 15;    
-        //$countries = Country::orderBy('name')->pluck('name', 'id');
         $countries = Cache::remember('countries', $minutes, function () {
             return Country::orderBy('name')->pluck('name', 'id');
         });
@@ -63,7 +62,10 @@ class EventVenueController extends Controller
                 ->paginate(20);
 
         return view('eventVenues.index',compact('eventVenues'))
-            ->with('i', (request()->input('page', 1) - 1) * 20)->with('countries', $countries)->with('searchKeywords',$searchKeywords)->with('searchCountry',$searchCountry);
+                ->with('i', (request()->input('page', 1) - 1) * 20)
+                ->with('countries', $countries)
+                ->with('searchKeywords',$searchKeywords)
+                ->with('searchCountry',$searchCountry);
     }
 
     /***************************************************************************/
@@ -78,9 +80,9 @@ class EventVenueController extends Controller
         $countries = Country::pluck('name', 'id');
 
         return view('eventVenues.create')
-            ->with('countries', $countries)
-            ->with('users', $users)
-            ->with('authorUserId',$authorUserId);
+                ->with('countries', $countries)
+                ->with('users', $users)
+                ->with('authorUserId',$authorUserId);
     }
 
     /***************************************************************************/

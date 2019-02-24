@@ -114,7 +114,7 @@ function()
         Route::resource('backgroundImages','BackgroundImageController');
     
     /* Donation Offers */ 
-        Route::resource('donationOffers','ProductController');
+        Route::resource('donationOffers','DonationOfferController');
 
     /* Authentication */
         //Auth::routes();
