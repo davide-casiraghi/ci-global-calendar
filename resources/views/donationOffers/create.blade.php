@@ -147,12 +147,10 @@
                             </div>
                         </div>
                     </div>
-                
-            <hr class="mt-3 mb-4">
             
             {{-- Financial contribution --}}
                 <div class="row d-none donation-choice donation-choice-1">
-
+                    <div class="col-12"><hr class="mt-3 mb-4"></div>
                     <div class="col form-sidebar">
                         <h5 class="text-xl">@lang('views.donation_kind_financial')</h5>
                     </div>
@@ -173,6 +171,7 @@
             
             {{-- Gifting --}}
                 <div class="row d-none donation-choice donation-choice-2">
+                    <div class="col-12"><hr class="mt-3 mb-4"></div>
                     <div class="col form-sidebar">
                         <h5 class="text-xl">@lang('views.gifting')</h5>
                         <span class="dark-gray">@lang('views.reward')</span>
@@ -203,6 +202,7 @@
             
             {{-- Volunteering --}}
                 <div class="row d-none donation-choice donation-choice-3">
+                    <div class="col-12"><hr class="mt-3 mb-4"></div>
                     <div class="col form-sidebar">
                         <h5 class="text-xl">@lang('views.volunteering')</h5>
                         <p class="dark-gray">@lang('views.volunteering_thank_you')</p>
@@ -236,6 +236,7 @@
             
             {{-- Other --}}
                 <div class="row d-none donation-choice donation-choice-4">
+                    <div class="col-12"><hr class="mt-3 mb-4"></div>
                     <div class="col form-sidebar">
                         <h5 class="text-xl">@lang('views.other')</h5>
                         <span class="dark-gray">@lang('views.other_description')</span>
