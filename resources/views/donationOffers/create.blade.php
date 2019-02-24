@@ -215,7 +215,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <strong>@lang('views.reward'):</strong>
-                                    <select name="group" class="selectpicker" title="@lang('views.choose')">
+                                    <select name="gift_kind" class="selectpicker" title="@lang('views.choose')">
                                         <option value="1">@lang('views.gift_kind_free_festival')</option>
                                         <option value="2">@lang('views.gift_kind_free_other')</option>
                                         <option value="3">@lang('views.gift_kind_fee')</option>

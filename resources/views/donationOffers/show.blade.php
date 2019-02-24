@@ -6,27 +6,49 @@
 @section('content')
 
     <div class="row">
+        
         <div class="col-12">
-            {{ $donationOffer->name }} {{ $donationOffer->surname }}
+            <h4>Donor details</h4>
+            <b>Name:</b> {{ $donationOffer->name }} <br />
+            <b>Surname:</b> {{ $donationOffer->surname }}
         </div>
         <div class="col-12">
-            {{ $donationOffer->email }}
+            <b>Email:</b> {{ $donationOffer->email }}
         </div>
         <div class="col-12">
-            {{ $donationOffer->country_id }}
+            {{ $country->name }}
         </div>
         
-        @if(!empty($donationOffer->gift_kind))
+        @if(!empty($donationOffer->contact_trough_voip))
             <div class="col-12">
-                {{ $donationOffer->contact_trough_voip }}
+                <b>Contact trough voip:</b>
+                {!! $donationOffer->contact_trough_voip !!}
             </div>
         @endif
         
         <div class="col-12">
-            {{ $donationOffer->language_spoken }}
+            <b>Language spoken:</b>
+            {!! $donationOffer->language_spoken !!}
         </div>
         <div class="col-12">
-            {{ $donationOffer->offer_kind }}
+            <b>Offer Kind:</b>
+            @switch($donationOffer->offer_kind)
+                @case(1)
+                    @lang('views.donation_kind_financial')
+                @break
+
+                @case(2)
+                    @lang('views.donation_kind_gift')
+                @break
+
+                @case(3)
+                    @lang('views.donation_kind_volunteer')
+                @break
+                
+                @case(4)
+                    @lang('views.donation_kind_other')
+                @break
+            @endswitch
         </div>
         
         @if(!empty($donationOffer->gift_kind))
@@ -37,7 +59,8 @@
         
         @if(!empty($donationOffer->gift_description))
             <div class="col-12">
-                {{ $donationOffer->gift_description }}
+                <b>Gift description</b>
+                {!! $donationOffer->gift_description !!}
             </div>
         @endif
         
@@ -66,34 +89,9 @@
         @endif
         
         <div class="col-12">
-            {{ $donationOffer->status }}
+            Status: {{ $donationOffer->status }}
         </div>
         
-
-        <div class="col-12">
-            @if(!empty($eventVenue->address)) {{ $eventVenue->address }}<br /> @endif
-            @if(!empty($eventVenue->city)) {{ $eventVenue->city }}<br /> @endif
-            @if(!empty($eventVenue->state_province)) {{ $eventVenue->state_province }}<br /> @endif
-            @if(!empty($country->name)) {{ $country->name }}<br /> @endif
-            @if(!empty($eventVenue->zip_code)) {{ $eventVenue->zip_code }} @endif
-        </div>
-
-        @if(!empty($eventVenue->description))
-            <div class="col-12 mt-4">
-                <h3>Description</h3>
-                {!! $eventVenue->description !!}
-            </div>
-        @endif
-
-        @if(!empty($eventVenue->website))
-            <div class="col-12 mt-4">
-                <strong>Website</strong><br />
-                <a href="{{ $eventVenue->website }}" target="_blank">{{ $eventVenue->website }}</a>
-            </div>
-        @endif
-
-
-
 
     </div>
 

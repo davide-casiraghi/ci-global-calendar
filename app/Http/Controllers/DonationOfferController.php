@@ -31,11 +31,8 @@ class DonationOfferController extends Controller
         $loggedUser = $this->getLoggedAuthorId();
         
         if ($searchKeywords||$searchCountry){
-            $donationOffers = DB::table('event_venues')
-                ->when($loggedUser->id, function ($query, $loggedUserId) {
-                    return $query->where('created_by', $loggedUserId);
-                })
-                ->when($searchKeywords, function ($query, $searchKeywords) {
+            $donationOffers = DonationOffer::
+                when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%' . $searchKeywords . '%');
                 })
                 ->when($searchCountry, function ($query, $searchCountry) {
@@ -46,12 +43,10 @@ class DonationOfferController extends Controller
         }
         else
             $donationOffers = DonationOffer::
-                when($loggedUser->id, function ($query, $loggedUserId) {
-                    return $query->where('created_by', $loggedUserId);
-                })
-                ->orderBy('name')
+                orderBy('name')
                 ->paginate(20);
 
+//dd($donationOffers);
         return view('donationOffers.index',compact('donationOffers'))
                     ->with('i', (request()->input('page', 1) - 1) * 20)
                     ->with('countries', $countries)
