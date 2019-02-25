@@ -15,6 +15,16 @@
             }, 1300, 'swing');
             
         }
+    
+    {{-- Update Continent SELECT on change Country SELECT --}}
+        $("select[name='country_id']").on('change', function() {
+        //alert( this.value );
+        });
+
+    {{-- Update Country SELECT on change Continent SELECT --}}
+        $("select[name='continent_id']").on('change', function() {
+        //alert( this.value );
+        });
 
 @stop
 
