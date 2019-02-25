@@ -56,6 +56,9 @@ class DonationOffer extends Model
               case 3:
                   $ret = "<span class='badge badge-secondary float-right'>".__('donations.status_used')."</span>";
                   break;
+              case 4:
+                  $ret = "<span class='badge badge-danger float-right'>".__('donations.status_refused')."</span>";
+                  break;
               default:
                  $ret = "";
                  break;
@@ -75,6 +78,7 @@ class DonationOffer extends Model
                 1 => __('donations.status_available'),
                 2 => __('donations.status_expired'),
                 3 => __('donations.status_used'),
+                4 => __('donations.status_refused'),
             ];
            
            return $ret;

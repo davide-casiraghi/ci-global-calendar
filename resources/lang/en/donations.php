@@ -47,4 +47,5 @@ return [
     'status_available' => 'Available',
     'status_expired' => 'Expired',
     'status_used' => 'Used',
+    'status_refused' => 'Refused',
 ];
