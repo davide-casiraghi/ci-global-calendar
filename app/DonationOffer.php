@@ -10,6 +10,35 @@ class DonationOffer extends Model
         'name', 'surname', 'email', 'country_id', 'contact_trough_voip', 'language_spoken', 'offer_kind', 'gift_kind', 'gift_description', 'volunteer_kind', 'volunteer_description', 'other_description', 'suggestions', 'status'
     ];
     
+    
+    /***************************************************************************/
+    /**
+     * Return the donation kind array
+     *
+     * @param  int $offer_kind
+     * @return array $ret  - the volunteering kind array
+     */
+     public static function getDonationKindArray(){      
+          $ret = [
+              1 =>[
+                  'label'=> __('donations.donation_kind_financial'),
+                  'icon'=> 'far fa-hand-holding-usd',
+              ],
+              2 =>[                 
+                  'label'=> __('donations.donation_kind_free_entrance'),
+                  'icon'=> 'far fa-ticket-alt',      
+              ],
+              3 =>[
+                  'label'=> __('donations.donation_kind_volunteer'),
+                  'icon'=> 'far fa-hands-helping',
+              ],
+              4 =>[
+                  'label'=> __('donations.donation_kind_other_gift'),
+                  'icon'=> 'far fa-gift',
+              ]
+          ];
+      }
+    
     /***************************************************************************/
     /**
      * Return the donation kind string
@@ -116,7 +145,7 @@ class DonationOffer extends Model
                   4 => __('donations.volunteering_kind_communicator'),
                   5 => __('donations.volunteering_kind_other'),
               ];
-             
+                   
              return $ret;
          }
          
