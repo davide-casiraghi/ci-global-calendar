@@ -70,9 +70,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::get('/continents', function () {
         return ContinentResource::collection(Continent::all());
     });
-    Route::get('/continents/activeContinentCountriesTree', function () {
-        return Continent::activeContinentCountriesTree();
-    });
 
 /* Countries */
     Route::get('/country/{id}', function ($id) {
@@ -80,6 +77,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     });
     Route::get('/countries', function () {
         return CountryResource::collection(Country::all());
+    });
+    Route::get('/countries/activeContinentCountriesJsonTree', function () {
+        return Country::activeContinentCountriesJsonTree();
     });
 
 /*
