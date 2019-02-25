@@ -38,8 +38,6 @@ class EventSearchController extends Controller
             $activeEvents = Event::getActiveEvents();                                
             $countries = $activeEvents->unique('country_name')->sortBy('country_name')->pluck('country_name', 'country_id');
             //$cities = $activeEvents->unique('city')->toArray();
-        
-
 
         $continents = Cache::rememberForever('continents', function () {
             return Continent::orderBy('name')->pluck('name', 'id');

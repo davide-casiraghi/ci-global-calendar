@@ -98,7 +98,7 @@ class Event extends Model
             $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
             
             return Event::
-                        select('title','countries.name AS country_name','countries.id AS country_id','event_venues.city AS city')
+                        select('title','countries.name AS country_name','countries.id AS country_id','countries.continent_id AS continent_id','event_venues.city AS city')
                         ->join('event_venues', 'event_venues.id', '=', 'events.venue_id')
                         ->join('countries', 'countries.id', '=', 'event_venues.country_id')
                         ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
