@@ -57,7 +57,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $countries = Country::pluck('name', 'id');
+        $countries = Country::getCountries();
 
         return view('users.create')->with('countries', $countries);
     }
@@ -105,7 +105,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        $countries = Country::pluck('name', 'id');
+        $countries = Country::getCountries();
         $group = User::getUserGroupString($user->group);
         
         return view('users.show',compact('user'))
@@ -123,7 +123,7 @@ class UserController extends Controller
         
         if (Auth::user()->id == $user->id || Auth::user()->isSuperAdmin()|| Auth::user()->isAdmin()){  // Just Admins and the owner are allowed to edit the user profile
             
-            $countries = Country::pluck('name', 'id');
+            $countries = Country::getCountries();
 
             // We check the user group to hide the group selection dropdown when the user is a guest
                 $logged_user = Auth::user();

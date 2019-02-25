@@ -90,7 +90,7 @@ class TeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        $countries = Country::pluck('name', 'id');
+        $countries = Country::getCountries();
         $users = User::pluck('name', 'id');
         $authorUserId = $this->getLoggedAuthorId();
 
@@ -178,7 +178,7 @@ class TeacherController extends Controller
     public function edit(Teacher $teacher){
         $authorUserId = $this->getLoggedAuthorId();
         $users = User::pluck('name', 'id');
-        $countries = Country::pluck('name', 'id');
+        $countries = Country::getCountries();
 
         return view('teachers.edit',compact('teacher'))
             ->with('countries', $countries)
@@ -268,7 +268,7 @@ class TeacherController extends Controller
      * @return view
      */
     public function modal(){
-        $countries = Country::pluck('name', 'id');
+        $countries = Country::getCountries();
         return view('teachers.modal')->with('countries', $countries);
     }
 

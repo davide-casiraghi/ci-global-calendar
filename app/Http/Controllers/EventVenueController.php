@@ -77,7 +77,7 @@ class EventVenueController extends Controller
     public function create(){
         $authorUserId = $this->getLoggedAuthorId();
         $users = User::pluck('name', 'id');
-        $countries = Country::pluck('name', 'id');
+        $countries = Country::getCountries();
 
         return view('eventVenues.create')
                 ->with('countries', $countries)
@@ -137,7 +137,7 @@ class EventVenueController extends Controller
         if (Auth::user()->id == $eventVenue->created_by || Auth::user()->isSuperAdmin()|| Auth::user()->isAdmin()){
             $authorUserId = $this->getLoggedAuthorId();
             $users = User::pluck('name', 'id');
-            $countries = Country::pluck('name', 'id');
+            $countries = Country::getCountries();
 
             return view('eventVenues.edit',compact('eventVenue'))
                 ->with('countries', $countries)
@@ -214,7 +214,7 @@ class EventVenueController extends Controller
      * @return view
      */
     public function modal(){
-        $countries = Country::pluck('name', 'id');
+        $countries = Country::getCountries();
         return view('eventVenues.modal')->with('countries', $countries);
     }
 

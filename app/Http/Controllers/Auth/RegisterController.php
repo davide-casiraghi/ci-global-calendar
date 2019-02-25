@@ -127,7 +127,7 @@ class RegisterController extends Controller
         // this was the bugged version that send the activation button link to the user
             //$user->notify(new UserRegisteredSuccessfully($user));
 
-            $countries = Country::pluck('name', 'id');
+            $countries = Country::getCountries();
 
             $mailDatas['subject'] = "New user registration";
 

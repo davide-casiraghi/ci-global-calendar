@@ -51,7 +51,7 @@ class UserRegisteredSuccessfully extends Notification
      */
     public function toMail($notifiable)
     {
-        $countries = Country::pluck('name', 'id');
+        $countries = Country::getCountries();
 
         /** @var User $user */
         $user = $this->user;

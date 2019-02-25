@@ -916,7 +916,7 @@ class EventController extends Controller
 
     function saveOnDb($request, $event){
 
-        $countries = Country::pluck('name', 'id');
+        $countries = Country::getCountries();
         $teachers = Teacher::pluck('name', 'id');
 
         $venue = DB::table('event_venues')
