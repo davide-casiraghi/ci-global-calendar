@@ -123,6 +123,11 @@
                             <i class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="@lang('homepage-serach.where_tooltip')"></i>
                         </p>
                         
+                        
+                        
+                        {{--<continents-countries-selects :activeContinentCountriesTree="{{ json_encode($menuItemsTree) }}"></continents-countries-selects>--}}
+
+                        
                         @include('partials.forms.select', [
                               'title' =>  '',
                               'name' => 'continent_id',

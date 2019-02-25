@@ -39,7 +39,7 @@ $(function () {
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
-//Vue.component('ul-list-draggable', require('./components/UlListDraggable.vue').default);
+Vue.component('continents-countries-selects', require('./components/ContinentsCountriesSelects.vue').default);
 
 const app = new Vue({
     el: '#app'
