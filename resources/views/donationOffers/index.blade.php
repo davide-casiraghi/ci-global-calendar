@@ -14,10 +14,10 @@
     <div class="container max-w-md px-0">
         <div class="row">
             <div class="col-12 col-sm-7">
-                <h4>@lang('views.donation_offers_management')</h4>
+                <h4>@lang('donations.donation_offers_management')</h4>
             </div>
             <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right">
-                <a class="btn btn-success create-new" href="{{ route('donationOffers.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_donation_offer')</a>
+                <a class="btn btn-success create-new" href="{{ route('donationOffers.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('donations.create_new_donation_offer')</a>
             </div>
         </div>
 
@@ -61,14 +61,14 @@
             @foreach ($donationOffers as $donationOffer)
                 <div class="row bg-white shadow-1 rounded mb-3 pb-2 pt-3 mx-1">
                     <div class="col-12 py-1 title">
-                        <h5 class="darkest-gray">{{ $donationOffer->name }}</h5>
+                        <h5 class="darkest-gray">{{ $donationOffer->name }} {{ $donationOffer->surname }}</h5>
                     </div>
                     <div class="col-12 mb-4">
                         <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
                         @if($donationOffer->country_id){{ $countries[$donationOffer->country_id] }}@endif
                             
-                        <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-city mr-1 ml-4 dark-gray" data-original-title="@lang('general.city')"></i>
-                        {{$donationOffer->city}}
+                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-hands-heart mr-1 ml-4 dark-gray" data-original-title="@lang('donations.donation_kind')"></i>
+                        {{App\DonationOffer::getDonationKindString($donationOffer->offer_kind)}}
                     </div>
                     <div class="col-12 pb-2 action">
                         <form action="{{ route('donationOffers.destroy',$donationOffer->id) }}" method="POST">

@@ -35,7 +35,7 @@
     <div class="container max-w-lg px-0">
         <div class="row pt-4">
             <div class="col-12">
-                <h4>@lang('views.create_new_donation_offer')</h4>
+                <h4>@lang('donations.create_new_donation_offer')</h4>
             </div>
         </div>
         
@@ -51,8 +51,8 @@
             {{-- Basics --}}
                 <div class="row">
                     <div class="col-12 col-md form-sidebar">
-                        <h5 class="text-xl">@lang('views.your_contact_details')</h5>
-                        <span class="dark-gray">@lang('views.your_contact_details_desc')</span>
+                        <h5 class="text-xl">@lang('donations.your_contact_details')</h5>
+                        <span class="dark-gray">@lang('donations.your_contact_details_desc')</span>
                     </div>
                     <div class="col-12 col-md main">
                         <div class="row">
@@ -81,7 +81,7 @@
                             </div>
                             <div class="col-12">
                                 @include('partials.forms.textarea-plain', [
-                                    'title' =>  __('views.contact_through_skype_or_another_voip'),
+                                    'title' =>  __('donations.contact_through_skype_or_another_voip'),
                                     'name' => 'contact_trough_voip',
                                     'value' => old('contact_trough_voip')
                                 ])
@@ -98,7 +98,7 @@
                             </div>
                             <div class="col-12">
                                 @include('partials.forms.textarea-plain', [
-                                    'title' =>  __('views.language_spoken'),
+                                    'title' =>  __('donations.language_spoken'),
                                     'name' => 'language_spoken',
                                     'value' => old('language_spoken')
                                 ])
@@ -129,14 +129,14 @@
                 {{-- How you want to help --}}
                     <div class="row">
                         <div class="col form-sidebar">
-                            <h5 class="text-xl">@lang('views.i_want_to_help')</h5>
-                            <span class="dark-gray">@lang('views.kind_of_help_description')</span>
+                            <h5 class="text-xl">@lang('donations.i_want_to_help')</h5>
+                            <span class="dark-gray">@lang('donations.kind_of_help_description')</span>
                         </div>
                         <div class="col main">
                             <div class="row">
                                 <div class="col-12">
                                     @include('partials.forms.input-radio-cards', [
-                                        'title' =>  __('views.i_can_offer'),
+                                        'title' =>  __('donations.i_can_offer'),
                                         'name' => 'offer_kind',
                                     ])
                                 </div>
@@ -186,13 +186,13 @@
                 <div class="row d-none donation-choice donation-choice-1">
                     <div class="col-12"><hr class="mt-3 mb-4"></div>
                     <div class="col form-sidebar">
-                        <h5 class="text-xl">@lang('views.donation_kind_financial')</h5>
+                        <h5 class="text-xl">@lang('donations.donation_kind_financial')</h5>
                     </div>
                     
                     <div class="col main">
                         <div class="row">
                             <div class="col-12">
-                                <span class="dark-gray">@lang('views.financial_contribution_description')</span>
+                                <span class="dark-gray">@lang('donations.financial_contribution_description')</span>
                                 <br />
                                 <a href="/post/donate" target="_blank">@lang('menu.donate') ></a>
                             </div>
@@ -207,24 +207,24 @@
                 <div class="row d-none donation-choice donation-choice-2">
                     <div class="col-12"><hr class="mt-3 mb-4"></div>
                     <div class="col form-sidebar">
-                        <h5 class="text-xl">@lang('views.gifting')</h5>
-                        <span class="dark-gray">@lang('views.reward')</span>
+                        <h5 class="text-xl">@lang('donations.gifting')</h5>
+                        <span class="dark-gray">@lang('donations.reward')</span>
                     </div>
                     <div class="col main">
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <strong>@lang('views.reward'):</strong>
+                                    <strong>@lang('donations.reward'):</strong>
                                     <select name="gift_kind" class="selectpicker" title="@lang('views.choose')">
-                                        <option value="1">@lang('views.gift_kind_free_festival')</option>
-                                        <option value="2">@lang('views.gift_kind_free_other')</option>
-                                        <option value="3">@lang('views.gift_kind_fee')</option>
+                                        <option value="1">@lang('donations.gift_kind_free_festival')</option>
+                                        <option value="2">@lang('donations.gift_kind_free_other')</option>
+                                        <option value="3">@lang('donations.gift_kind_fee')</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-12">
                                 @include('partials.forms.textarea', [
-                                      'title' =>  __('views.gift_details'),
+                                      'title' =>  __('donations.gift_details'),
                                       'name' => 'gift_description',
                                       'placeholder' => '',
                                       'value' => old('gift_description')
@@ -238,27 +238,27 @@
                 <div class="row d-none donation-choice donation-choice-3">
                     <div class="col-12"><hr class="mt-3 mb-4"></div>
                     <div class="col form-sidebar">
-                        <h5 class="text-xl">@lang('views.volunteering')</h5>
-                        <p class="dark-gray">@lang('views.volunteering_thank_you')</p>
-                        <p class="dark-gray">@lang('views.volunteering_details')</p>
+                        <h5 class="text-xl">@lang('donations.volunteering')</h5>
+                        <p class="dark-gray">@lang('donations.volunteering_thank_you')</p>
+                        <p class="dark-gray">@lang('donations.volunteering_details')</p>
                     </div>
                     <div class="col main">
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <strong>@lang('views.volunteering_looking_for'):</strong>
+                                    <strong>@lang('donations.volunteering_looking_for'):</strong>
                                     <select name="group" class="selectpicker" title="@lang('views.choose')">
-                                        <option value="1">@lang('views.volunteering_kind_developers')</option>
-                                        <option value="2">@lang('views.volunteering_kind_fundrisers')</option>
-                                        <option value="3">@lang('views.volunteering_kind_translators')</option>
-                                        <option value="4">@lang('views.volunteering_kind_communicators')</option>
-                                        <option value="5">@lang('views.volunteering_kind_other')</option>
+                                        <option value="1">@lang('donations.volunteering_kind_developers')</option>
+                                        <option value="2">@lang('donations.volunteering_kind_fundrisers')</option>
+                                        <option value="3">@lang('donations.volunteering_kind_translators')</option>
+                                        <option value="4">@lang('donations.volunteering_kind_communicators')</option>
+                                        <option value="5">@lang('donations.volunteering_kind_other')</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-12">
                                 @include('partials.forms.textarea', [
-                                      'title' =>  __('views.volunteering_details_request'),
+                                      'title' =>  __('donations.volunteering_details_request'),
                                       'name' => 'volunteer_description',
                                       'placeholder' => '',
                                       'value' => old('volunteer_description')
@@ -272,14 +272,14 @@
                 <div class="row d-none donation-choice donation-choice-4">
                     <div class="col-12"><hr class="mt-3 mb-4"></div>
                     <div class="col form-sidebar">
-                        <h5 class="text-xl">@lang('views.other')</h5>
-                        <span class="dark-gray">@lang('views.other_description')</span>
+                        <h5 class="text-xl">@lang('donations.other')</h5>
+                        <span class="dark-gray">@lang('donations.other_description')</span>
                     </div>
                     <div class="col main">
                         <div class="row">
                             <div class="col-12">
                                 @include('partials.forms.textarea', [
-                                      'title' =>  __('views.other'),
+                                      'title' =>  __('donations.other'),
                                       'name' => 'other_description',
                                       'placeholder' => '',
                                       'value' => old('other_description')

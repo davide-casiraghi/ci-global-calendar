@@ -52,7 +52,7 @@
             <label class="form-check-label bg-white shadow-1 rounded px-1 py-2 w-100 h-100 @if(!empty($selected)) {{ $selected == 1 ? 'active' : '' }} @endif " for="offerFinancial">
                 <input id="offerFinancial" class="form-check-input d-none" type="radio" name="offer_kind" value="1" @if(!empty($selected)) {{ $selected == 1 ? 'checked' : '' }} @endif />
                 <i class="far fa-hand-holding-usd text-xl"></i>
-                <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('views.donation_kind_financial')</span>
+                <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('donations.donation_kind_financial')</span>
                 <div class="active-icon"></div>
             </label>
         </div>
@@ -61,7 +61,7 @@
             <label class="form-check-label bg-white shadow-1 rounded px-1 py-2 w-100 h-100 @if(!empty($selected)) {{ $selected == 2 ? 'active' : '' }} @endif "for="offerGift">
                 <input id="offerGift" class="form-check-input d-none" type="radio" name="offer_kind" value="2" @if(!empty($selected)) {{ $selected == 2 ? 'checked' : '' }} @endif />
                 <i class="far fa-gift text-xl"></i>
-                <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('views.donation_kind_gift')</span>
+                <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('donations.donation_kind_gift')</span>
                 <div class="active-icon"></div>
             </label>
         </div>
@@ -70,7 +70,7 @@
             <label class="form-check-label bg-white shadow-1 rounded px-1 py-2 w-100 h-100 @if(!empty($selected)) {{ $selected == 3 ? 'active' : '' }} @endif "for="offerVolunteer">
                 <input id="offerVolunteer" class="form-check-input d-none" type="radio" name="offer_kind" value="3" @if(!empty($selected)) {{ $selected == 3 ? 'checked' : '' }} @endif />
                 <i class="far fa-hands-helping text-xl"></i>
-                <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('views.donation_kind_volunteer')</span>
+                <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('donations.donation_kind_volunteer')</span>
                 <div class="active-icon"></div>
             </label>
         </div>
@@ -79,7 +79,7 @@
             <label class="form-check-label bg-white shadow-1 rounded px-1 py-2 w-100 h-100 @if(!empty($selected)) {{ $selected == 4 ? 'active' : '' }} @endif "for="offerOther">
                 <input id="offerOther" class="form-check-input d-none" type="radio" name="offer_kind" value="4" @if(!empty($selected)) {{ $selected == 4 ? 'checked' : '' }} @endif />
                 <i class="far fa-hands-heart text-xl"></i>
-                <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('views.donation_kind_other')</span>
+                <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('donations.donation_kind_other')</span>
                 <div class="active-icon"></div>
             </label>
         </div>
