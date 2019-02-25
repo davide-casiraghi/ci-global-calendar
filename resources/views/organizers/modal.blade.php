@@ -14,8 +14,8 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <div class="col-12 pt-4">
-            <h2>@lang('views.add_new_organizer')</h2>
+        <div class="col-12 pb-3">
+            <h4>@lang('views.add_new_organizer')</h4>
         </div>
     </div>
 
