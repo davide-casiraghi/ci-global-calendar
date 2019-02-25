@@ -43,7 +43,7 @@ class DonationOffer extends Model
       * Return the donation kind badge
       *
       * @param  int $offer_kind
-      * @return string $ret  - the donation kind string
+      * @return string $ret  - the status badge HTML
       */
       public static function getDonationStatusBadge($status){
           switch ($status) {
@@ -68,7 +68,7 @@ class DonationOffer extends Model
        * Return the donation status array
        *
        * @param  int $offer_kind
-       * @return string $ret  - the donation kind string
+       * @return array $ret  - the status array
        */
        public static function getStatusArray(){
            $ret = [
@@ -85,7 +85,7 @@ class DonationOffer extends Model
         * Return the gift kind array
         *
         * @param  int $offer_kind
-        * @return string $ret  - the donation kind string
+        * @return array $ret  - the gift kind array
         */
         public static function getGiftKindArray(){
             $ret = [
@@ -96,4 +96,45 @@ class DonationOffer extends Model
             
             return $ret;
         }
+        
+        /***************************************************************************/
+        /**
+         * Return the volunteering kind array
+         *
+         * @param  int $offer_kind
+         * @return array $ret  - the volunteering kind array
+         */
+         public static function getVolunteeringKindArray(){
+             $ret = [
+                  1 => __('donations.volunteering_kind_developer'),
+                  2 => __('donations.volunteering_kind_fundriser'),
+                  3 => __('donations.volunteering_kind_translator'),
+                  4 => __('donations.volunteering_kind_communicator'),
+                  5 => __('donations.volunteering_kind_other'),
+              ];
+             
+             return $ret;
+         }
+         
+         /***************************************************************************/
+         /**
+          * Return the volunteering kind array
+          *
+          * @param  int $offer_kind
+          * @return array $ret  - the volunteering kind array
+          */
+          public static function getVolunteeringKindDescriptionsArray(){
+              $ret = [
+                   1 => __('donations.volunteering_kind_developers'),
+                   2 => __('donations.volunteering_kind_fundrisers'),
+                   3 => __('donations.volunteering_kind_translators'),
+                   4 => __('donations.volunteering_kind_communicators'),
+                   5 => __('donations.volunteering_kind_others'),
+               ];
+              
+              return $ret;
+          }
+        
+        
+        
 }

@@ -200,23 +200,32 @@
                     <div class="col main">
                         <div class="row">
                             <div class="col-12">
-                                <div class="form-group">
-                                    <strong>@lang('donations.volunteering_looking_for'):</strong>
-                                    <select name="group" class="selectpicker" title="@lang('views.choose')">
-                                        <option value="1">@lang('donations.volunteering_kind_developers')</option>
-                                        <option value="2">@lang('donations.volunteering_kind_fundrisers')</option>
-                                        <option value="3">@lang('donations.volunteering_kind_translators')</option>
-                                        <option value="4">@lang('donations.volunteering_kind_communicators')</option>
-                                        <option value="5">@lang('donations.volunteering_kind_other')</option>
-                                    </select>
-                                </div>
+                                <strong>@lang('donations.volunteering_looking_for')</strong>
+                                <ul>
+                                    @foreach (App\DonationOffer::getVolunteeringKindDescriptionsArray() as $key => $value)
+                                        <li>{{$value}}</li>
+                                    @endforeach
+                                </ul>
                             </div>
+                            
+                            <div class="col-12">
+                                @include('partials.forms.select', [
+                                      'title' => __('donations.volunteering_apply_for'),
+                                      'name' => 'volunteer_kind',
+                                      'placeholder' => __('views.choose'), 
+                                      'records' => App\DonationOffer::getVolunteeringKindArray(),
+                                      'seleted' => $donationOffer->volunteer_kind,
+                                      'liveSearch' => 'false',
+                                      'mobileNativeMenu' => true,
+                                ])
+                            </div>
+                            
                             <div class="col-12">
                                 @include('partials.forms.textarea', [
                                       'title' =>  __('donations.volunteering_details_request'),
                                       'name' => 'volunteer_description',
                                       'placeholder' => '',
-                                      'value' => $donationOffer->volunteer_description
+                                      'value' => $donationOffer->volunteer_description,
                                 ])
                             </div>
                         </div>
