@@ -22,14 +22,17 @@ class CountryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-        $continents = Continent::pluck('name', 'id');
+        $continents = Continent::getContinents();
 
         $searchKeywords = $request->input('keywords');
         if ($searchKeywords){
-            $countries = Country::where('name', $request->input('keywords'))->orWhere('name', 'like', '%' . $request->input('keywords') . '%')->paginate(20);
+            $countries = Country::orderBy('name')
+                                ->where('name', 'like', '%' . $request->input('keywords') . '%')
+                                ->paginate(20);
         }
         else
-            $countries = Country::latest()->paginate(20);
+            $countries = Country::orderBy('name')
+                                ->paginate(20);
 
         return view('countries.index',compact('countries'))
             ->with('i', (request()->input('page', 1) - 1) * 20)->with('continents',$continents)->with('searchKeywords',$searchKeywords);
@@ -42,8 +45,8 @@ class CountryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        $continents = Continent::pluck('name', 'id');
-
+        $continents = Continent::getContinents();
+        
         return view('countries.create')->with('continents',$continents);
     }
 
@@ -96,7 +99,7 @@ class CountryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Country $country){
-        $continents = Continent::pluck('name', 'id');
+        $continents = Continent::getContinents();
 
         return view('countries.edit',compact('country'))->with('continents',$continents);
     }
