@@ -15,8 +15,9 @@
         
         <hr class="mt-3 mb-4">
         
-        <form action="{{ route('donationOffers.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('donationOffers.update',$donationOffer->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
 
             {{-- Basics --}}
                 <div class="row">
