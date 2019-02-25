@@ -15,7 +15,7 @@ class DonationOfferController extends Controller{
     
     /* Restrict the access to this resource just to logged in users except show and index view */
     public function __construct(){
-        $this->middleware('auth', ['except' => ['create']]);
+        $this->middleware('auth', ['except' => ['create','store']]);
     }
     
     /***************************************************************************/
@@ -79,14 +79,14 @@ class DonationOfferController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        $authorUserId = $this->getLoggedAuthorId();
+        //$authorUserId = $this->getLoggedAuthorId();
         $users = User::pluck('name', 'id');
         $countries = Country::getCountries();
 
         return view('donationOffers.create')
                 ->with('countries', $countries)
-                ->with('users', $users)
-                ->with('authorUserId',$authorUserId);
+                ->with('users', $users);
+                //->with('authorUserId',$authorUserId);
     }
 
     /***************************************************************************/
@@ -112,8 +112,15 @@ class DonationOfferController extends Controller{
 
         $this->saveOnDb($request, $donationOffer);
 
-        return redirect()->route('donationOffers.index')
-                        ->with('success',__('messages.donation_offer_added_successfully'));
+        if( User::loggedAsSuperAdmin() || User::loggedAsAdmin() ){
+            return redirect()->route('donationOffers.index')
+                            ->with('success',__('messages.donation_offer_added_successfully'));
+        }
+        else{
+            return redirect()->route('home')->with('message', __('donations.thank_you')." ".__('donations.thank_you_desc'));
+        }
+
+        
     }
 
     /***************************************************************************/

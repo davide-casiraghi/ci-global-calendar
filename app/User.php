@@ -87,10 +87,13 @@ class User extends Authenticatable
       */
      public static function loggedAsSuperAdmin(){
          $user = Auth::user();
-         if ($user->group == 1)
-             return true;
-         else
+         if(!$user)
              return false;
+         elseif ($user->group == 1)
+              return true;
+         else
+              return false;
+         
      }
 
      /***************************************************************************/
@@ -102,10 +105,15 @@ class User extends Authenticatable
       */
      public static function loggedAsAdmin(){
          $user = Auth::user();
-         if ($user->group == 2)
+         if(!$user)
+             return false;
+         elseif ($user->group == 2)
              return true;
          else
              return false;
+         
+             
+        
      }     
      
      

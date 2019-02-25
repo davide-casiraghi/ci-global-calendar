@@ -107,7 +107,7 @@
                             
                             
                             {{-- Show the created by field just to the admin and super admin --}}
-                            @if(empty($authorUserId))
+                            {{--@if(empty($authorUserId))
                                 <div class="col-12">
                                     @include('partials.forms.select', [
                                           'title' =>  __('views.created_by'), 
@@ -118,7 +118,7 @@
                                           'mobileNativeMenu' => false,
                                     ])
                                 </div>
-                            @endif
+                            @endif--}}
                             
                         </div>
                     </div>
