@@ -83,7 +83,7 @@ class EventSearchController extends Controller
             //dd($activeEvents);                
                             
                             
-        $countries = $activeEvents->unique('country_name')->pluck('country_name', 'country_id');
+        $countries = $activeEvents->unique('country_name')->sortBy('country_name')->pluck('country_name', 'country_id');
         //$cities = $activeEvents->unique('city')->toArray();
         
 
