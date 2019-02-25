@@ -32,23 +32,7 @@
         </div>
         <div class="col-12">
             <b>Offer Kind:</b>
-            @switch($donationOffer->offer_kind)
-                @case(1)
-                    @lang('views.donation_kind_financial')
-                @break
-
-                @case(2)
-                    @lang('views.donation_kind_gift')
-                @break
-
-                @case(3)
-                    @lang('views.donation_kind_volunteer')
-                @break
-                
-                @case(4)
-                    @lang('views.donation_kind_other')
-                @break
-            @endswitch
+            {{App\DonationOffer::getDonationKindArray()[$donationOffer->offer_kind]['label']}}
         </div>
         
         @if(!empty($donationOffer->gift_kind))

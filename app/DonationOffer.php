@@ -18,25 +18,31 @@ class DonationOffer extends Model
      * @param  int $offer_kind
      * @return array $ret  - the volunteering kind array
      */
-     public static function getDonationKindArray(){      
+     public static function getDonationKindArray(){    
           $ret = [
               1 =>[
                   'label'=> __('donations.donation_kind_financial'),
                   'icon'=> 'far fa-hand-holding-usd',
+                  'id' => 'offerFinancial',
               ],
               2 =>[                 
                   'label'=> __('donations.donation_kind_free_entrance'),
-                  'icon'=> 'far fa-ticket-alt',      
+                  'icon'=> 'far fa-ticket-alt',
+                  'id' => 'offerFreeEntrance',
               ],
               3 =>[
                   'label'=> __('donations.donation_kind_volunteer'),
                   'icon'=> 'far fa-hands-helping',
+                  'id' => 'offerVolunteer',
               ],
               4 =>[
                   'label'=> __('donations.donation_kind_other_gift'),
                   'icon'=> 'far fa-gift',
+                  'id' => 'offerOtherGift',
               ]
           ];
+          
+          return $ret;
       }
     
     /***************************************************************************/
@@ -52,13 +58,13 @@ class DonationOffer extends Model
                  $ret = __('donations.donation_kind_financial');
                  break;
              case 2:
-                 $ret = __('donations.donation_kind_gift');
+                 $ret = __('donations.donation_kind_free_entrance');
                  break;
              case 3:
                  $ret = __('donations.donation_kind_volunteer');
                  break;
              case 4:
-                 $ret = __('donations.donation_kind_other');
+                 $ret = __('donations.donation_kind_other_gift');
                  break;
              default:
                 $ret = "";
