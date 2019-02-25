@@ -237,14 +237,15 @@
                 <div class="row d-none donation-choice donation-choice-4">
                     <div class="col-12"><hr class="mt-3 mb-4"></div>
                     <div class="col form-sidebar">
-                        <h5 class="text-xl">@lang('donations.other')</h5>
-                        <span class="dark-gray">@lang('donations.other_description')</span>
+                        <h5 class="text-xl">@lang('donations.other_gift')</h5>
+                        <p class="dark-gray">@lang('donations.other_description')</p>
+                        <p class="dark-gray">@lang('donations.other_suggestion')</p>
                     </div>
                     <div class="col main">
                         <div class="row">
                             <div class="col-12">
                                 @include('partials.forms.textarea', [
-                                      'title' =>  __('donations.other'),
+                                      'title' =>  __('donations.describe_your_gift'),
                                       'name' => 'other_description',
                                       'placeholder' => '',
                                       'value' => $donationOffer->other_description

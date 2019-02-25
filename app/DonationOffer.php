@@ -44,34 +44,6 @@ class DonationOffer extends Model
           
           return $ret;
       }
-    
-    /***************************************************************************/
-    /**
-     * Return the donation kind string
-     *
-     * @param  int $offer_kind
-     * @return string $ret  - the donation kind string
-     */
-     public static function getDonationKindString($offer_kind){
-         switch ($offer_kind) {
-             case 1:
-                 $ret = __('donations.donation_kind_financial');
-                 break;
-             case 2:
-                 $ret = __('donations.donation_kind_free_entrance');
-                 break;
-             case 3:
-                 $ret = __('donations.donation_kind_volunteer');
-                 break;
-             case 4:
-                 $ret = __('donations.donation_kind_other_gift');
-                 break;
-             default:
-                $ret = "";
-                break;
-         }
-         return $ret;
-     }
      
      /***************************************************************************/
      /**
@@ -130,7 +102,6 @@ class DonationOffer extends Model
             $ret = [
                  1 => __('donations.gift_kind_free_festival'),
                  2 => __('donations.gift_kind_free_other'),
-                 3 => __('donations.gift_kind_fee'),
              ];
             
             return $ret;
