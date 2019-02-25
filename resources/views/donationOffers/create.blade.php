@@ -35,7 +35,7 @@
     <div class="container max-w-lg px-0">
         <div class="row pt-4">
             <div class="col-12">
-                <h4>@lang('donations.create_new_donation_offer')</h4>
+                <h4>@lang('donations.donation_form_title')</h4>
             </div>
         </div>
         

@@ -3,6 +3,7 @@
 return [
     'donation_offers_management' => 'Donation offers management',
     'create_new_donation_offer' => 'Create new donation offer',
+    'donation_form_title' => 'Donate for the CI Global Calendar',
     'edit_donation_offer' => 'Edit donation offer',
     'contact_through_skype_or_another_voip' => 'Contact through Skype or another VoIP',
     'language_spoken' => 'Language(s) you speak fluently',
