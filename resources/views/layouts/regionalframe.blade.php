@@ -1,4 +1,7 @@
-
+{{--
+    Layout used to display an IFRAME available at the address:
+    https://www.ciglobalcalendar.net/eventSearch/country/IT
+--}}
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
