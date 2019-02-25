@@ -46,15 +46,15 @@ class DonationOffer extends Model
       * @return string $ret  - the donation kind string
       */
       public static function getDonationStatusBadge($status){
-          switch ($offer_kind) {
+          switch ($status) {
               case 1:
-                  $ret = "<span class='badge badge-success float-right'>".__('donations.donation_status_available')."</span>";
+                  $ret = "<span class='badge badge-success float-right'>".__('donations.status_available')."</span>";
                   break;
               case 2:
-                  $ret = "<span class='badge badge-warning float-right'>".__('donations.donation_status_expired')."</span>";
+                  $ret = "<span class='badge badge-warning float-right'>".__('donations.status_expired')."</span>";
                   break;
               case 3:
-                  $ret = "<span class='badge badge-secondary float-right'>".__('donations.donation_status_used')."</span>";
+                  $ret = "<span class='badge badge-secondary float-right'>".__('donations.status_used')."</span>";
                   break;
               default:
                  $ret = "";

@@ -61,7 +61,14 @@
             @foreach ($donationOffers as $donationOffer)
                 <div class="row bg-white shadow-1 rounded mb-3 pb-2 pt-3 mx-1">
                     <div class="col-12 py-1 title">
-                        <h5 class="darkest-gray">{{ $donationOffer->name }} {{ $donationOffer->surname }}</h5>
+                        <div class="row">
+                            <div class="col-8">
+                                <h5 class="darkest-gray">{{ $donationOffer->name }} {{ $donationOffer->surname }}</h5>
+                            </div>
+                            <div class="col-4 pt-1">
+                                {!!App\DonationOffer::getDonationStatusBadge($donationOffer->status)!!}
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12 mb-4">
                         <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
