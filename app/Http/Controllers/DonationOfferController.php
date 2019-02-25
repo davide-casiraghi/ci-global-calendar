@@ -148,7 +148,7 @@ class DonationOfferController extends Controller{
             'surname' => 'required',
             'email' => 'required',
         ]);
-
+        
         $this->saveOnDb($request, $donationOffer);
 
         return redirect()->route('donationOffers.index')

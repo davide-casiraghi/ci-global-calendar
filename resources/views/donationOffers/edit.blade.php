@@ -40,15 +40,6 @@
                                           'liveSearch' => 'false',
                                           'mobileNativeMenu' => true,
                                     ])
-                                    
-                                    
-                                    <div class="form-group">
-                                        <strong>@lang('views.status'):</strong>
-                                        <select name="status" class="selectpicker" title="">
-                                            <option value="0" @if(empty($user->status)) {{ 'selected' }} @endif>@lang('views.disabled')</option>
-                                            <option value="1" @if(!empty($user->status)) {{ 'selected' }} @endif>@lang('views.enabled')</option>
-                                        </select>
-                                    </div>
                                 </div>
                             @endif
                             
@@ -269,11 +260,6 @@
                 </div>--}}
                 
             <hr class="mt-3 mb-5">
-            
-            @include('partials.forms.input-hidden', [
-                  'name' => 'status',
-                  'value' => 1
-            ])
 
             <div class="row mt-2">  
                 <div class="col-12 action">
