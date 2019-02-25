@@ -6,6 +6,7 @@
         $("#resetButton").click(function(){
             $("input[name=keywords]").val("");
             $("select[name=country_id] option").prop("selected", false).trigger('change');
+            $("select[name=donation_kind_filter] option").prop("selected", false).trigger('change');
             $('form.searchForm').submit();
         });
 @stop
@@ -32,14 +33,14 @@
         <form class="searchForm mt-3" action="{{ route('donationOffers.index') }}" method="GET">
             @csrf
             <div class="row">
-                <div class="col-12 col-sm-6 pr-sm-2">
+                <div class="col-12">
                     @include('partials.forms.input', [
                         'name' => 'keywords',
-                        'placeholder' => __('views.search_by_venue_name'),
+                        'placeholder' => __('views.search_by_user_name'),
                         'value' => $searchKeywords
                     ])
                 </div>
-                <div class="col-12 col-sm-6">
+                <div class="col-12 col-sm-6  pr-sm-2">
                     @include('partials.forms.select', [
                         'name' => 'country_id',
                         'placeholder' => __('views.filter_by_country'),
@@ -47,6 +48,16 @@
                         'seleted' => $searchCountry,
                         'liveSearch' => 'true',
                         'mobileNativeMenu' => false,
+                    ])
+                </div>
+                <div class="col-12 col-sm-6">
+                    @include('partials.forms.select', [
+                        'name' => 'donation_kind_filter',
+                        'placeholder' => __('donations.filter_by_donation_kind'),
+                        'records' => $donationKindArray,
+                        'seleted' => $searchDonationKind,
+                        'liveSearch' => 'false',
+                        'mobileNativeMenu' => true,
                     ])
                 </div>
                 <div class="col-12">

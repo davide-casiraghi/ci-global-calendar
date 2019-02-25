@@ -28,13 +28,20 @@ class DonationOfferController extends Controller{
         
         $countries = Country::getCountries();
         
+        $donationKindArray = array();
+        foreach (DonationOffer::getDonationKindArray() as $key => $value) {    
+            $donationKindArray[$key] = $value['label'];
+        }
+        
+        
         $searchKeywords = $request->input('keywords');
         $searchCountry = $request->input('country_id');
-
+        $searchDonationKind = $request->input('donation_kind_filter');
+            
         // Show just to the owner - Get created_by value if the user is not an admin or super admin
         $loggedUser = $this->getLoggedAuthorId();
         
-        if ($searchKeywords||$searchCountry){
+        if ($searchKeywords||$searchCountry||$searchDonationKind){
             $donationOffers = DonationOffer::
                 when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%' . $searchKeywords . '%');
@@ -44,6 +51,9 @@ class DonationOfferController extends Controller{
                 })
                 ->when($searchCountry, function ($query, $searchCountry) {
                     return $query->where('country_id', '=', $searchCountry);
+                })
+                ->when($searchDonationKind, function ($query, $searchDonationKind) {
+                    return $query->where('offer_kind', '=', $searchDonationKind);
                 })
                 ->orderBy('name')
                 ->paginate(20);
@@ -57,9 +67,10 @@ class DonationOfferController extends Controller{
         return view('donationOffers.index',compact('donationOffers'))
                     ->with('i', (request()->input('page', 1) - 1) * 20)
                     ->with('countries', $countries)
+                    ->with('donationKindArray', $donationKindArray)
                     ->with('searchKeywords',$searchKeywords)
-                    ->with('searchCountry',$searchCountry);
-        
+                    ->with('searchCountry',$searchCountry)
+                    ->with('searchDonationKind',$searchDonationKind);
     }
 
     /***************************************************************************/

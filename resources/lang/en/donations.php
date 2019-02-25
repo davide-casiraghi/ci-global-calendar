@@ -51,4 +51,5 @@ return [
     'status_used' => 'Used',
     'status_refused' => 'Refused',
     'voip' => 'VoIP',
+    'filter_by_donation_kind' => 'Filter by donation kind',
 ];
