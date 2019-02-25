@@ -74,8 +74,8 @@
                         <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
                         @if($donationOffer->country_id){{ $countries[$donationOffer->country_id] }}@endif
                             
-                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-hands-heart mr-1 ml-4 dark-gray" data-original-title="@lang('donations.donation_kind')"></i>
-                        {{App\DonationOffer::getDonationKindString($donationOffer->offer_kind)}}
+                        <i data-toggle="tooltip" data-placement="top" title="" class="{{App\DonationOffer::getDonationKindArray()[$donationOffer->offer_kind]['icon']}} mr-1 ml-4 dark-gray" data-original-title="@lang('donations.donation_kind')"></i>
+                        {{App\DonationOffer::getDonationKindArray()[$donationOffer->offer_kind]['label']}}
                     </div>
                     <div class="col-12 pb-2 action">
                         <form action="{{ route('donationOffers.destroy',$donationOffer->id) }}" method="POST">
