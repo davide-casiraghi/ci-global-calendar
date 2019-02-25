@@ -1,0 +1,30 @@
+ul{
+    &.customList{
+        list-style-type:none;
+        
+        li{
+            text-indent: 0.5rem;
+            &:before {
+                font-family: "Font Awesome 5 Pro";
+            }
+        }
+        &.customList-checkList{
+            li{
+                &:before {    
+                    content: '\f058';
+                    margin: 0 18px 0 -42px;
+                    color: $green-6;
+                }
+            }
+        }
+        &.customList-handList{
+            li{
+                &:before {    
+                    content: '\f0a4';
+                    margin: 0 18px 0 -42px;
+                    color: $green-6;
+                }
+            }
+        }
+    }
+}

@@ -209,7 +209,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <strong>@lang('donations.volunteering_looking_for')</strong>
-                                <ul>
+                                <ul class="customList customList-handList mt-2">
                                     @foreach (App\DonationOffer::getVolunteeringKindDescriptionsArray() as $key => $value)
                                         <li>{{$value}}</li>
                                     @endforeach

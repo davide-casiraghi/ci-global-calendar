@@ -9166,6 +9166,30 @@ readers do not read off random characters that represent icons */
   border-color: #8b6b2d;
 }
 
+ul.customList {
+  list-style-type: none;
+}
+
+ul.customList li {
+  text-indent: 0.5rem;
+}
+
+ul.customList li:before {
+  font-family: "Font Awesome 5 Pro";
+}
+
+ul.customList.customList-checkList li:before {
+  content: "\F058";
+  margin: 0 18px 0 -42px;
+  color: #247544;
+}
+
+ul.customList.customList-handList li:before {
+  content: "\F0A4";
+  margin: 0 18px 0 -42px;
+  color: #247544;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
