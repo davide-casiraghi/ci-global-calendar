@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources;
 
+use App\Country;
+
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class Continent extends JsonResource
@@ -18,6 +20,7 @@ class Continent extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'code' => $this->code,
+            'active_countries' => Country::getActiveCountriesByContinent($this->id),
         ];
     }
 }

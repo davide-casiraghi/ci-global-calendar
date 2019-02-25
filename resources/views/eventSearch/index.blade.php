@@ -125,7 +125,7 @@
                         
                         
                         
-                        <continents-countries-selects :activeContinentCountriesTree="{{ App\Country::activeContinentCountriesJsonTree()}}"></continents-countries-selects>
+                        {{--<continents-countries-selects :activeContinentCountriesTree="{{ App\Country::activeContinentCountriesJsonTree()}}"></continents-countries-selects>--}}
 
                         
                         @include('partials.forms.select', [

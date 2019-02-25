@@ -35,7 +35,7 @@ class Country extends Model
      * @param  none
      * @return JSON
      */    
-    public static function activeContinentCountriesJsonTree(){
+    public static function getActiveCountriesByContinent(){
         $minutes = 15;
         $ret = Cache::remember('active_continent_countries_json_tree', $minutes, function () {
             return Country::orderBy('name')->pluck('name', 'id');
@@ -43,6 +43,6 @@ class Country extends Model
         
         
         dd($ret);
-        return json_encode($ret);
+        return $ret;
     }
 }
