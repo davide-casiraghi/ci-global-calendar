@@ -11,30 +11,33 @@
 
 @section('javascript-document-ready')
     @parent
-    {{-- End date update after start date has changed, and doesn't allow to select a date before the start --}}
-    $("input[type=radio][name='offer_kind']").change(function(){
-        $( ".donation-choice" ).addClass('d-none');
-        
-        $('.radioCards label').removeClass('active');
-        $(this).parent('label').addClass('active');
-        
-        switch(this.value) {    
-            case '1':
-                $(".donation-choice-1").removeClass('d-none');
-            break;
-            case '2':
-                $(".donation-choice-2").removeClass('d-none');
-            break;
-            case '3':
-                $(".donation-choice-3").removeClass('d-none');
-            break;
-            case '4':
-                $(".donation-choice-4").removeClass('d-none');
-            break;
-        }
-        
-        
-    });
+    
+    {{-- Show the area corresponding to the card on opening --}}
+        var selectedOfferKind = $('input[name=offer_kind]:checked').val();
+        $(".donation-choice-" + selectedOfferKind).removeClass('d-none');
+    
+    {{-- Update radio Card background on click (Active state), and show the corresponding area. --}}
+        $("input[type=radio][name='offer_kind']").change(function(){
+            $( ".donation-choice" ).addClass('d-none');
+            
+            $('.radioCards label').removeClass('active');
+            $(this).parent('label').addClass('active');
+            
+            switch(this.value) {    
+                case '1':
+                    $(".donation-choice-1").removeClass('d-none');
+                break;
+                case '2':
+                    $(".donation-choice-2").removeClass('d-none');
+                break;
+                case '3':
+                    $(".donation-choice-3").removeClass('d-none');
+                break;
+                case '4':
+                    $(".donation-choice-4").removeClass('d-none');
+                break;
+            }
+        });
     
 @stop
 
