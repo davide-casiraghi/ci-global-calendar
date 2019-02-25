@@ -25,10 +25,8 @@ class DonationOfferController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-        $minutes = 15;    
-        $countries = Cache::remember('countries', $minutes, function () {
-            return Country::orderBy('name')->pluck('name', 'id');
-        });
+        
+        $countries = Country::getCountries();
         
         $searchKeywords = $request->input('keywords');
         $searchCountry = $request->input('country_id');
@@ -70,7 +68,7 @@ class DonationOfferController extends Controller{
     public function create(){
         $authorUserId = $this->getLoggedAuthorId();
         $users = User::pluck('name', 'id');
-        $countries = Country::pluck('name', 'id');
+        $countries = Country::getCountries();
 
         return view('donationOffers.create')
                 ->with('countries', $countries)
@@ -130,7 +128,7 @@ class DonationOfferController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function edit(DonationOffer $donationOffer){
-        $countries = Country::pluck('name', 'id');
+        $countries = Country::getCountries();
 
         return view('donationOffers.edit',compact('donationOffer'))
             ->with('countries', $countries);

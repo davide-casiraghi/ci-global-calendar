@@ -20768,6 +20768,17 @@ form .radioCards label.active {
   color: #1b503a;
   background-color: #e4fceb !important;
   border: 2px solid #1b503a;
+  position: relative;
+}
+
+form .radioCards label.active .active-icon:before {
+  content: "\F058";
+  /* this is your text. You can also use UTF-8 character codes as I do here */
+  font-family: "Font Awesome 5 Pro";
+  right: 6px;
+  position: absolute;
+  top: 2px;
+  color: #33995c;
 }
 
 ul.pagination {

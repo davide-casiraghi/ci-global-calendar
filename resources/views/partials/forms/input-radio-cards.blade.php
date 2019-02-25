@@ -53,6 +53,7 @@
                 <input id="offerFinancial" class="form-check-input d-none" type="radio" name="offer_kind" value="1" @if(!empty($selected)) {{ $selected == 1 ? 'checked' : '' }} @endif />
                 <i class="far fa-hand-holding-usd text-xl"></i>
                 <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('views.donation_kind_financial')</span>
+                <div class="active-icon"></div>
             </label>
         </div>
         <div class="col-6 col-sm-3 col-md-6 col-lg-3 mb-2 text-center form-check">
@@ -61,6 +62,7 @@
                 <input id="offerGift" class="form-check-input d-none" type="radio" name="offer_kind" value="2" @if(!empty($selected)) {{ $selected == 2 ? 'checked' : '' }} @endif />
                 <i class="far fa-gift text-xl"></i>
                 <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('views.donation_kind_gift')</span>
+                <div class="active-icon"></div>
             </label>
         </div>
         <div class="col-6 col-sm-3 col-md-6 col-lg-3 mb-2 text-center form-check">
@@ -69,6 +71,7 @@
                 <input id="offerVolunteer" class="form-check-input d-none" type="radio" name="offer_kind" value="3" @if(!empty($selected)) {{ $selected == 3 ? 'checked' : '' }} @endif />
                 <i class="far fa-hands-helping text-xl"></i>
                 <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('views.donation_kind_volunteer')</span>
+                <div class="active-icon"></div>
             </label>
         </div>
         <div class="col-6 col-sm-3 col-md-6 col-lg-3 mb-2 text-center form-check">
@@ -77,6 +80,7 @@
                 <input id="offerOther" class="form-check-input d-none" type="radio" name="offer_kind" value="4" @if(!empty($selected)) {{ $selected == 4 ? 'checked' : '' }} @endif />
                 <i class="far fa-hands-heart text-xl"></i>
                 <span class="dark-gray text-xs d-block text-uppercase mt-2">@lang('views.donation_kind_other')</span>
+                <div class="active-icon"></div>
             </label>
         </div>
     </div>
