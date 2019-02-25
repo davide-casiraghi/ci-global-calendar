@@ -39,6 +39,9 @@ class DonationOfferController extends Controller{
                 when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%' . $searchKeywords . '%');
                 })
+                ->when($searchKeywords, function ($query, $searchKeywords) {
+                    return $query->where('surname', $searchKeywords)->orWhere('surname', 'like', '%' . $searchKeywords . '%');
+                })
                 ->when($searchCountry, function ($query, $searchCountry) {
                     return $query->where('country_id', '=', $searchCountry);
                 })
@@ -180,8 +183,8 @@ class DonationOfferController extends Controller{
          $donationOffer->surname = $request->get('surname');
          $donationOffer->email = $request->get('email');
          $donationOffer->country_id = $request->get('country_id');
-         $donationOffer->contact_trough_voip = clean($request->get('contact_trough_voip'));
-         $donationOffer->language_spoken = clean($request->get('language_spoken'));
+         $donationOffer->contact_trough_voip = strip_tags($request->get('contact_trough_voip'));
+         $donationOffer->language_spoken = strip_tags($request->get('language_spoken'));
          $donationOffer->offer_kind = $request->get('offer_kind');
          $donationOffer->gift_kind = $request->get('gift_kind');
          $donationOffer->gift_description = $request->get('gift_description');

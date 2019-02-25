@@ -56,7 +56,7 @@
             </div>
         </form>
 
-        {{-- List of venues --}}
+        {{-- List of donations --}}
         <div class="venuesList my-4">
             @foreach ($donationOffers as $donationOffer)
                 <div class="row bg-white shadow-1 rounded mb-3 pb-2 pt-3 mx-1">
