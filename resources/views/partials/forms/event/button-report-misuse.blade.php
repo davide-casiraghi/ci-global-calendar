@@ -5,7 +5,7 @@
 {{-- Modal --}}
     <div class="modal fade text-left" id="reportMisuseModal" tabindex="-1" role="dialog" aria-labelledby="reportMisuseModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content light-gray-bg">
                 <div class="modal-header">
                     <h5 class="modal-title" id="reportMisuseModalLabel">@lang('misuse.report_misuse')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">

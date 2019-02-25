@@ -8791,235 +8791,235 @@ readers do not read off random characters that represent icons */
 /* WHITE */
 
 .white {
-  color: white;
+  color: white !important;
 }
 
 .white-bg {
-  background-color: white;
+  background-color: white !important;
 }
 
 /* GRAY Text */
 
 .darkest-gray {
-  color: #13263e;
+  color: #13263e !important;
 }
 
 .dark-gray {
-  color: #627691;
+  color: #627691 !important;
 }
 
 .gray {
-  color: #d2ddeb;
+  color: #d2ddeb !important;
 }
 
 .light-gray {
-  color: #edf1f5;
+  color: #edf1f5 !important;
 }
 
 .lightest-gray {
-  color: #f5f7fa;
+  color: #f5f7fa !important;
 }
 
 /* GRAY Background  */
 
 .darkest-gray-bg {
-  background-color: #13263e;
+  background-color: #13263e !important;
 }
 
 .dark-gray-bg {
-  background-color: #627691;
+  background-color: #627691 !important;
 }
 
 .gray-bg {
-  background-color: #d2ddeb;
+  background-color: #d2ddeb !important;
 }
 
 .light-gray-bg {
-  background-color: #edf1f5;
+  background-color: #edf1f5 !important;
 }
 
 .lightest-gray-bg {
-  background-color: #f5f7fa;
+  background-color: #f5f7fa !important;
 }
 
 /* GREEN Text */
 
 .green-1 {
-  color: #e4fceb;
+  color: #e4fceb !important;
 }
 
 .green-2 {
-  color: #acecc3;
+  color: #acecc3 !important;
 }
 
 .green-3 {
-  color: #7ad6a1;
+  color: #7ad6a1 !important;
 }
 
 .green-4 {
-  color: #46be78;
+  color: #46be78 !important;
 }
 
 .green-5 {
-  color: #33995c;
+  color: #33995c !important;
 }
 
 .green-6 {
-  color: #247544;
+  color: #247544 !important;
 }
 
 .green-7 {
-  color: #1b503a;
+  color: #1b503a !important;
 }
 
 /* GREEN Background */
 
 .green-bg-1 {
-  background-color: #e4fceb;
+  background-color: #e4fceb !important;
 }
 
 .green-bg-2 {
-  background-color: #acecc3;
+  background-color: #acecc3 !important;
 }
 
 .green-bg-3 {
-  background-color: #7ad6a1;
+  background-color: #7ad6a1 !important;
 }
 
 .green-bg-4 {
-  background-color: #46be78;
+  background-color: #46be78 !important;
 }
 
 .green-bg-5 {
-  background-color: #33995c;
+  background-color: #33995c !important;
 }
 
 .green-bg-6 {
-  background-color: #247544;
+  background-color: #247544 !important;
 }
 
 .green-bg-7 {
-  background-color: #1b503a;
+  background-color: #1b503a !important;
 }
 
 /* RED Text */
 
 .red-1 {
-  color: #fce8e8;
+  color: #fce8e8 !important;
 }
 
 .red-2 {
-  color: #f1acae;
+  color: #f1acae !important;
 }
 
 .red-3 {
-  color: #df686a;
+  color: #df686a !important;
 }
 
 .red-4 {
-  color: #d7333b;
+  color: #d7333b !important;
 }
 
 .red-5 {
-  color: #b3232b;
+  color: #b3232b !important;
 }
 
 .red-6 {
-  color: #851e22;
+  color: #851e22 !important;
 }
 
 .red-7 {
-  color: #601a1d;
+  color: #601a1d !important;
 }
 
 /* RED Background */
 
 .red-bg-1 {
-  background-color: #fce8e8;
+  background-color: #fce8e8 !important;
 }
 
 .red-bg-2 {
-  background-color: #f1acae;
+  background-color: #f1acae !important;
 }
 
 .red-bg-3 {
-  background-color: #df686a;
+  background-color: #df686a !important;
 }
 
 .red-bg-4 {
-  background-color: #d7333b;
+  background-color: #d7333b !important;
 }
 
 .red-bg-5 {
-  background-color: #b3232b;
+  background-color: #b3232b !important;
 }
 
 .red-bg-6 {
-  background-color: #851e22;
+  background-color: #851e22 !important;
 }
 
 .red-bg-7 {
-  background-color: #601a1d;
+  background-color: #601a1d !important;
 }
 
 /* YELLOW Text */
 
 .yellow-1 {
-  color: #fffcf5;
+  color: #fffcf5 !important;
 }
 
 .yellow-2 {
-  color: #fdf3d8;
+  color: #fdf3d8 !important;
 }
 
 .yellow-3 {
-  color: #f8dfa5;
+  color: #f8dfa5 !important;
 }
 
 .yellow-4 {
-  color: #f2c873;
+  color: #f2c873 !important;
 }
 
 .yellow-5 {
-  color: #c9a54f;
+  color: #c9a54f !important;
 }
 
 .yellow-6 {
-  color: #8b6b2d;
+  color: #8b6b2d !important;
 }
 
 .yellow-7 {
-  color: #5a471c;
+  color: #5a471c !important;
 }
 
 /* YELLOW Background */
 
 .yellow-bg-1 {
-  background-color: #fffcf5;
+  background-color: #fffcf5 !important;
 }
 
 .yellow-bg-2 {
-  background-color: #fdf3d8;
+  background-color: #fdf3d8 !important;
 }
 
 .yellow-bg-3 {
-  background-color: #f8dfa5;
+  background-color: #f8dfa5 !important;
 }
 
 .yellow-bg-4 {
-  background-color: #f2c873;
+  background-color: #f2c873 !important;
 }
 
 .yellow-bg-5 {
-  background-color: #c9a54f;
+  background-color: #c9a54f !important;
 }
 
 .yellow-bg-6 {
-  background-color: #8b6b2d;
+  background-color: #8b6b2d !important;
 }
 
 .yellow-bg-7 {
-  background-color: #5a471c;
+  background-color: #5a471c !important;
 }
 
 /* https://tailwindcss.com/docs/max-width/#app */
@@ -9182,6 +9182,7 @@ ul.customList {
 
 ul.customList li {
   text-indent: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 ul.customList li:before {
