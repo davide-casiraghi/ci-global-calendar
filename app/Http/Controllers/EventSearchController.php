@@ -12,6 +12,8 @@ use App\Continent;
 use App\Country;
 use App\BackgroundImage;
 
+use App\Http\Resources\Continent as ContinentResource;
+
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -38,7 +40,8 @@ class EventSearchController extends Controller
             $activeEvents = Event::getActiveEvents();                                
             $countries = $activeEvents->unique('country_name')->sortBy('country_name')->pluck('country_name', 'country_id');
             //$cities = $activeEvents->unique('city')->toArray();
-
+            $activeContinentsCountries = ContinentResource::collection(Continent::all());
+            
         $continents = Cache::rememberForever('continents', function () {
             return Continent::orderBy('name')->pluck('name', 'id');
         });
@@ -146,7 +149,8 @@ class EventSearchController extends Controller
             ->with('searchVenue',$searchVenue)
             ->with('searchStartDate',$request->input('startDate'))
             ->with('searchEndDate',$request->input('endDate'))
-            ->with('backgroundImages',$backgroundImages);
+            ->with('backgroundImages',$backgroundImages)
+            ->with('activeContinentsCountries',$activeContinentsCountries);
     }
 
     /**
