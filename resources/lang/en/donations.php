@@ -38,4 +38,7 @@ return [
     'other_description' => 'If you have other ideas and suggestions on how you could contribute to this project, please give us some details below.',
     'thank_you' => 'Thank you!',
     'thank_you_desc' => 'We will get back to you as soon as we can. We are volunteers so expect a few weeks of delay at times. Looking forward to our further exchanges!',
+    'status_available' => 'Available',
+    'status_expired' => 'Expired',
+    'status_used' => 'Used',
 ];

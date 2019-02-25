@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Illuminate\Support\Facades\Auth;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -74,6 +76,40 @@ class User extends Authenticatable
 
          return $ret;
      }
+     
+     
+     /***************************************************************************/
+     /**
+      * Return true if the user is logged as super admin 
+      *
+      * @param  none
+      * @return string $ret - true if the user is super admin
+      */
+     public static function loggedAsSuperAdmin(){
+         $user = Auth::user();
+         if ($user->group == 1)
+             return true;
+         else
+             return false;
+     }
+
+     /***************************************************************************/
+     /**
+      * Return true if the user is logged as admin 
+      *
+      * @param  none
+      * @return string $ret - true if the user is admin
+      */
+     public static function loggedAsAdmin(){
+         $user = Auth::user();
+         if ($user->group == 2)
+             return true;
+         else
+             return false;
+     }     
+     
+     
+     
     
     
 

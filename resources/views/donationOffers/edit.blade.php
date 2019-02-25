@@ -26,7 +26,32 @@
                         <span class="dark-gray">@lang('donations.your_contact_details_desc')</span>
                     </div>
                     <div class="col-12 col-md main">
+                        
                         <div class="row">
+                            
+                            @if( App\User::loggedAsSuperAdmin() || App\User::loggedAsAdmin() )
+                                <div class="col-12">
+                                    @include('partials.forms.select', [
+                                          'title' => __('views.status'),
+                                          'name' => 'status',
+                                          'placeholder' => __('views.choose'), 
+                                          'records' => App\DonationOffer::getDonationStatusArray(),
+                                          'seleted' => $donationOffer->status,
+                                          'liveSearch' => 'false',
+                                          'mobileNativeMenu' => true,
+                                    ])
+                                    
+                                    
+                                    <div class="form-group">
+                                        <strong>@lang('views.status'):</strong>
+                                        <select name="status" class="selectpicker" title="">
+                                            <option value="0" @if(empty($user->status)) {{ 'selected' }} @endif>@lang('views.disabled')</option>
+                                            <option value="1" @if(!empty($user->status)) {{ 'selected' }} @endif>@lang('views.enabled')</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            @endif
+                            
                             <div class="col-12">
                                 @include('partials.forms.input', [
                                       'title' => __('general.name'),
@@ -99,7 +124,7 @@
             
                 <hr class="mt-3 mb-4">
                 
-                {{-- How you want to help --}}
+                {{-- How you want to help - OFFER KIND --}}
                     <div class="row">
                         <div class="col form-sidebar">
                             <h5 class="text-xl">@lang('donations.i_want_to_help')</h5>
@@ -118,43 +143,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                    {{--
-                    <div class="row">
-                        <div class="col form-sidebar">
-                            <h5 class="text-xl">@lang('views.i_want_to_help')</h5>
-                            <span class="dark-gray">@lang('views.kind_of_help_description')</span>
-                        </div>
-                        <div class="col main">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="cc-selector">
-                                        <input id="offerFinancial" type="radio" name="offer_kind" value="1" />
-                                        <label class="bg-white shadow-1 rounded p-2" for="offerFinancial">
-                                            <i class="far fa-hand-holding-usd"></i>
-                                        </label>
-                                        <input id="offerGift" type="radio" name="offer_kind" value="2" />
-                                        <label class="bg-white shadow-1 rounded p-2"for="offerGift">
-                                            <i class="far fa-gift"></i>
-                                        </label>
-                                        <input id="offerVolunteer" type="radio" name="offer_kind" value="3" />
-                                        <label class="bg-white shadow-1 rounded p-2"for="offerVolunteer">
-                                            <i class="far fa-hands-helping"></i>
-                                        </label>
-                                        <input id="offerOther" type="radio" name="offer_kind" value="4" />
-                                        <label class="bg-white shadow-1 rounded p-2"for="offerOther">
-                                            <i class="far fa-hands-heart"></i>
-                                        </label>
-                                        
-                                        
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-        
-                    </div>
-                    --}}
             
             {{-- Financial contribution --}}
                 <div class="row d-none donation-choice donation-choice-1">

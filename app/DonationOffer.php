@@ -20,16 +20,16 @@ class DonationOffer extends Model
      public static function getDonationKindString($offer_kind){
          switch ($offer_kind) {
              case 1:
-                 $ret = __('views.donation_kind_financial');
+                 $ret = __('donations.donation_kind_financial');
                  break;
              case 2:
-                 $ret = __('views.donation_kind_gift');
+                 $ret = __('donations.donation_kind_gift');
                  break;
              case 3:
-                 $ret = __('views.donation_kind_volunteer');
+                 $ret = __('donations.donation_kind_volunteer');
                  break;
              case 4:
-                 $ret = __('views.donation_kind_other');
+                 $ret = __('donations.donation_kind_other');
                  break;
              default:
                 $ret = "";
@@ -48,13 +48,13 @@ class DonationOffer extends Model
       public static function getDonationStatusBadge($status){
           switch ($offer_kind) {
               case 1:
-                  $ret = "<span class='badge badge-success float-right'>".__('views.donation_status_available')."</span>";
+                  $ret = "<span class='badge badge-success float-right'>".__('donations.donation_status_available')."</span>";
                   break;
               case 2:
-                  $ret = "<span class='badge badge-warning float-right'>".__('views.donation_status_expired')."</span>";
+                  $ret = "<span class='badge badge-warning float-right'>".__('donations.donation_status_expired')."</span>";
                   break;
               case 3:
-                  $ret = "<span class='badge badge-secondary float-right'>".__('views.donation_status_used')."</span>";
+                  $ret = "<span class='badge badge-secondary float-right'>".__('donations.donation_status_used')."</span>";
                   break;
               default:
                  $ret = "";
@@ -62,6 +62,23 @@ class DonationOffer extends Model
           }
           return $ret;
       }
+      
+      /***************************************************************************/
+      /**
+       * Return the donation status array
+       *
+       * @param  int $offer_kind
+       * @return string $ret  - the donation kind string
+       */
+       public static function getDonationStatusArray(){
+           $ret = [
+                1 => __('donations.status_available'),
+                2 => __('donations.status_expired'),
+                3 => __('donations.status_used'),
+            ];
+           
+           return $ret;
+       }
      
      
 }
