@@ -33,7 +33,6 @@ class DonationOfferController extends Controller{
             $donationKindArray[$key] = $value['label'];
         }
         
-        
         $searchKeywords = $request->input('keywords');
         $searchCountry = $request->input('country_id');
         $searchDonationKind = $request->input('donation_kind_filter');
