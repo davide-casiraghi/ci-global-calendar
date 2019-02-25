@@ -4,11 +4,9 @@
 @section('content')
     <div class="container max-w-sm px-0">
         
-        <div class="row">
-            <div class="col-12 margin-tb">
-                <div class="pull-left">
-                    <h3>@lang('views.edit_user')</h3>
-                </div>
+        <div class="row mb-4">
+            <div class="col-12">
+                <h4>@lang('views.edit_user')</h4>
             </div>
         </div>
 

@@ -4,9 +4,9 @@
 @section('content')
     <div class="container max-w-sm px-0">
         
-        <div class="row">
+        <div class="row mb-4">
             <div class="col-12">
-                <h3>@lang('views.add_new_user')</h3>
+                <h4>@lang('views.add_new_user')</h4>
             </div>
         </div>
 

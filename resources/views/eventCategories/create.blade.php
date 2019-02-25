@@ -4,9 +4,9 @@
 @section('content')
     <div class="container max-w-md px-0">
     
-        <div class="row mb-3">
+        <div class="row mb-4">
             <div class="col-12 col-sm-8">
-                <h3>@lang('views.add_new_event_category')</h3>
+                <h4>@lang('views.add_new_event_category')</h4>
             </div>
             <div class="col-12 col-sm-4 text-right">
                 <span class="badge badge-secondary">English</span>
