@@ -127,6 +127,7 @@
                                     @include('partials.forms.input-radio-cards', [
                                         'title' =>  __('donations.i_can_offer'),
                                         'name' => 'offer_kind',
+                                        'records' => App\DonationOffer::getDonationKindArray(),
                                         'selected' => $donationOffer->offer_kind
                                     ])
                                 </div>

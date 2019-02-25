@@ -43,12 +43,7 @@
 
 <div class="form-group radioCards">
     <strong>{{$title}}</strong>
-    {{--<select name="offer_kind" class="selectpicker" title="@lang('views.choose')">
-        <option value="1">@lang('views.donation_kind_financial')</option>
-        <option value="2">@lang('views.donation_kind_gift')</option>
-        <option value="3">@lang('views.donation_kind_volunteer')</option>
-        <option value="4">@lang('views.donation_kind_other')</option>
-    </select>--}}
+    
     <div class="row mt-2">
         <div class="col-6 col-sm-3 col-md-6 col-lg-3 mb-2 text-center form-check">
             
