@@ -6,6 +6,7 @@ return [
     'edit_donation_offer' => 'Edit donation offer',
     'contact_through_skype_or_another_voip' => 'Contact through Skype or another VoIP',
     'language_spoken' => 'Language(s) you speak fluently',
+    'language_spoken_show' => 'Language(s) spoken',
     'your_contact_details' => 'Your contact details',
     'your_contact_details_desc' => 'Please provide some datas that will allow us to contact you if will be needed.',
     'i_want_to_help' => 'I want to help',
@@ -49,4 +50,5 @@ return [
     'status_expired' => 'Expired',
     'status_used' => 'Used',
     'status_refused' => 'Refused',
+    'voip' => 'VoIP',
 ];
