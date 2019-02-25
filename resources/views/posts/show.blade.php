@@ -12,7 +12,7 @@
     <div class="container max-w-md px-0">
         <div class="row m-0 p-4 white-bg rounded">
             <div class="postTitle col-12 mb-4 mt-4">
-                <h2>{{ $post->title }}</h2>
+                <h3>{{ $post->title }}</h3>
             </div>
             <div class="postBody col-12 text-base-longtext">
                 {!! $post->body !!}
