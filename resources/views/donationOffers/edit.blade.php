@@ -35,7 +35,7 @@
                                           'title' => __('views.status'),
                                           'name' => 'status',
                                           'placeholder' => __('views.choose'), 
-                                          'records' => App\DonationOffer::getDonationStatusArray(),
+                                          'records' => App\DonationOffer::getStatusArray(),
                                           'seleted' => $donationOffer->status,
                                           'liveSearch' => 'false',
                                           'mobileNativeMenu' => true,
@@ -166,15 +166,17 @@
                     <div class="col main">
                         <div class="row">
                             <div class="col-12">
-                                <div class="form-group">
-                                    <strong>@lang('donations.reward'):</strong>
-                                    <select name="gift_kind" class="selectpicker" title="@lang('views.choose')">
-                                        <option value="1">@lang('donations.gift_kind_free_festival')</option>
-                                        <option value="2">@lang('donations.gift_kind_free_other')</option>
-                                        <option value="3">@lang('donations.gift_kind_fee')</option>
-                                    </select>
-                                </div>
+                                @include('partials.forms.select', [
+                                      'title' => __('donations.reward'),
+                                      'name' => 'gift_kind',
+                                      'placeholder' => __('views.choose'), 
+                                      'records' => App\DonationOffer::getGiftKindArray(),
+                                      'seleted' => $donationOffer->gift_kind,
+                                      'liveSearch' => 'false',
+                                      'mobileNativeMenu' => true,
+                                ])
                             </div>
+                            
                             <div class="col-12">
                                 @include('partials.forms.textarea', [
                                       'title' =>  __('donations.gift_details'),

@@ -70,7 +70,7 @@ class DonationOffer extends Model
        * @param  int $offer_kind
        * @return string $ret  - the donation kind string
        */
-       public static function getDonationStatusArray(){
+       public static function getStatusArray(){
            $ret = [
                 1 => __('donations.status_available'),
                 2 => __('donations.status_expired'),
@@ -80,5 +80,20 @@ class DonationOffer extends Model
            return $ret;
        }
      
-     
+       /***************************************************************************/
+       /**
+        * Return the gift kind array
+        *
+        * @param  int $offer_kind
+        * @return string $ret  - the donation kind string
+        */
+        public static function getGiftKindArray(){
+            $ret = [
+                 1 => __('donations.gift_kind_free_festival'),
+                 2 => __('donations.gift_kind_free_other'),
+                 3 => __('donations.gift_kind_fee'),
+             ];
+            
+            return $ret;
+        }
 }
