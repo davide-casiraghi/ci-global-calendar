@@ -8727,8 +8727,18 @@ readers do not read off random characters that represent icons */
 
 .datepicker td,
 .datepicker th {
-  width: 1.5em;
-  height: 1.5em;
+  /*width: 1.5em;
+  height: 1.5em;*/
+}
+
+.datepicker td {
+  padding: 3px;
+}
+
+@media screen and (max-width: 400px) {
+  .datepicker td {
+    padding: 10px !important;
+  }
 }
 
 .bootstrap-timepicker-widget table tr td input {
