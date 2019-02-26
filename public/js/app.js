@@ -7407,11 +7407,9 @@ __webpack_require__.r(__webpack_exports__);
       console.log(continents);
       var j = 0;
       this.countries = [];
-      console.log("cippa_1");
 
-      if (typeof continents !== 'undefined') {
-        //console.log(continents);
-        for (var i = 0, len = continents.length; i < len; i++) {
+      for (var i = 0, len = continents.length; i < len; i++) {
+        if (!this.continent_selected) {
           console.log("No Continent selected");
 
           for (var key in continents[i].active_countries) {
@@ -7421,19 +7419,18 @@ __webpack_require__.r(__webpack_exports__);
             };
             j++;
           }
-        }
-      } else {
-        console.log("cippa_3");
-        console.log("continent selected: " + this.continent_selected);
-        console.log(this.countries);
+        } else {
+          console.log("continent selected: " + this.continent_selected);
 
-        for (var key in continents[i].active_countries) {
-          if (continents[i].id == this.continent_selected) {
-            this.countries[j] = {
-              id: continents[i].active_countries[key],
-              name: key
-            };
-            j++;
+          for (var key in continents[i].active_countries) {
+            if (continents[i].id == this.continent_selected) {
+              console.log("THE SAME");
+              this.countries[j] = {
+                id: continents[i].active_countries[key],
+                name: key
+              };
+              j++;
+            }
           }
         }
       }
