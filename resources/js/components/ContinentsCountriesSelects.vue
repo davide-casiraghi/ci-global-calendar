@@ -1,11 +1,24 @@
-<template>    
-    <div class="form-group continent_id">    
-        <select name="continent_id" id="continent_id" class="selectpicker" data-live-search="false" title="Pick one">
-            <option v-if="continents.length>0" v-for="continent in continents" v-bind:value="continent.id">
-                {{ continent.name }}
-            </option>
-        </select>
+<template>
+    <div class="">
+        
+    
+        <div class="form-group continent_id">    
+            <select name="continent_id" id="continent_id" class="selectpicker" data-live-search="false" title="Pick a continent">
+                <option v-if="continents.length>0" v-for="continent in continents" v-bind:value="continent.id">
+                    {{ continent.name }}
+                </option>
+            </select>
+        </div>
+        
+        <div class="form-group country_id">    
+            <select name="country_id" id="country_id" class="selectpicker" data-live-search="true" title="Pick a country">
+                <option v-if="countries.length>0" v-for="country in countries" v-bind:value="aa">
+                    aa {{ country }}
+                </option>
+            </select>
+        </div>
     </div>
+
         
 </template>
 
@@ -22,19 +35,23 @@
         
         data() {
             continents: '';
+            countries: '';
             return {
                 continents: [],
+                countries: [],
             }
        },
        
        methods: {
+           // https://github.com/axios/axios#request-config
             loadData: function() {
                 axios.get('/api/continents')
                 .then((response) => {
                     // handle success
-                    console.log(response.data.data);
+                    //console.log(response.data.data);
                     //now this refers to your vue instance and this can access you data property
                     this.continents = response.data.data;
+                    this.getAllCountries(response.data.data);
                 })
                 .catch((error) => {
                     // handle error
@@ -44,6 +61,21 @@
                     // always executed
                 });
             },
+            getAllCountries: function(continents) {
+                for (var i = 0, len = continents.length; i < len; i++) {
+                    //console.log(continents[i].name);
+                    //console.log(continents[i]);
+                    //console.log(continents[i].active_countries);
+                    
+                    for (var key in continents[i].active_countries) {
+                        //console.log(key, continents[i].active_countries[key]);
+                        this.countries[key] = continents[i].active_countries[key]; 
+                    }
+
+                }
+                console.log("countries after update");
+                console.log(this.countries);
+            }
             
         },
        

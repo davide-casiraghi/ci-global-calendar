@@ -7340,6 +7340,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -7350,24 +7363,48 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     continents: '';
 
+    countries: '';
+
     return {
-      continents: []
+      continents: [],
+      countries: []
     };
   },
   methods: {
+    // https://github.com/axios/axios#request-config
     loadData: function loadData() {
       var _this = this;
 
       axios.get('/api/continents').then(function (response) {
         // handle success
-        console.log(response.data.data); //now this refers to your vue instance and this can access you data property
-
+        //console.log(response.data.data);
+        //now this refers to your vue instance and this can access you data property
         _this.continents = response.data.data;
+
+        _this.getAllCountries(response.data.data);
       }).catch(function (error) {
         // handle error
         console.log(error);
       }).then(function () {// always executed
       });
+    },
+    getAllCountries: function getAllCountries(continents) {
+      for (var i = 0, len = continents.length; i < len; i++) {
+        //console.log(continents[i].name);
+        //console.log(continents[i]);
+        //console.log(continents[i].active_countries);
+        for (var key in continents[i].active_countries) {
+          //console.log(key, continents[i].active_countries[key]);
+          this.countries[key] = continents[i].active_countries[key];
+        }
+        /*for (var j = 0, len = continents[i].active_countries.length; j < len; j++) {
+            console.log(continents[i].active_countries[j].name);
+        }*/
+
+      }
+
+      console.log("countries after update");
+      console.log(this.countries);
     }
   }
 });
@@ -45881,27 +45918,54 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "form-group continent_id" }, [
-    _c(
-      "select",
-      {
-        staticClass: "selectpicker",
-        attrs: {
-          name: "continent_id",
-          id: "continent_id",
-          "data-live-search": "false",
-          title: "Pick one"
-        }
-      },
-      _vm._l(_vm.continents, function(continent) {
-        return _vm.continents.length > 0
-          ? _c("option", { domProps: { value: continent.id } }, [
-              _vm._v("\n            " + _vm._s(continent.name) + "\n        ")
-            ])
-          : _vm._e()
-      }),
-      0
-    )
+  return _c("div", {}, [
+    _c("div", { staticClass: "form-group continent_id" }, [
+      _c(
+        "select",
+        {
+          staticClass: "selectpicker",
+          attrs: {
+            name: "continent_id",
+            id: "continent_id",
+            "data-live-search": "false",
+            title: "Pick a continent"
+          }
+        },
+        _vm._l(_vm.continents, function(continent) {
+          return _vm.continents.length > 0
+            ? _c("option", { domProps: { value: continent.id } }, [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(continent.name) +
+                    "\n            "
+                )
+              ])
+            : _vm._e()
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group country_id" }, [
+      _c(
+        "select",
+        {
+          staticClass: "selectpicker",
+          attrs: {
+            name: "country_id",
+            id: "country_id",
+            "data-live-search": "true",
+            title: "Pick a country"
+          }
+        },
+        _vm._l(_vm.countries, function(country) {
+          return _c("option", [
+            _vm._v("\n                aa " + _vm._s(country) + "\n            ")
+          ])
+        }),
+        0
+      )
+    ])
   ])
 }
 var staticRenderFns = []
