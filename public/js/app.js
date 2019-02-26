@@ -7345,49 +7345,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
+    this.loadData();
   },
-  created: function created() {
-    axios.get('/api/continents').then(function (response) {
-      // handle success
-      console.log(response);
-      this.retrievedContinents = response.data;
-    }).catch(function (error) {
-      // handle error
-      console.log(error);
-    }).then(function () {// always executed
-    });
+  created: function created() {//this.loadData();
   },
   data: function data() {
-    retrievedContinents: {} //console.log(continents);
-
+    continents: '';
 
     return {
-      continents: this.retrievedContinents
+      continents: []
     };
+  },
+  methods: {
+    loadData: function loadData() {
+      var _this = this;
+
+      axios.get('/api/continents').then(function (response) {
+        // handle success
+        console.log(response.data.data); //now this refers to your vue instance and this can access you data property
+
+        _this.continents = response.data.data;
+      }).catch(function (error) {
+        // handle error
+        console.log(error);
+      }).then(function () {// always executed
+      });
+    }
   }
 });
-/*
-function getContinents(){
-    // Make a request for a user with a given ID
-     axios.get('/api/continents')
-       .then(function (response) {
-         // handle success
-         console.log(response);
-       })
-       .catch(function (error) {
-         // handle error
-         console.log(error);
-       })
-       .then(function () {
-         // always executed
-       });
-       
-       return "aaa";
-}
-*/
 
 /***/ }),
 
@@ -45898,32 +45896,40 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "card card-default" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v("Example Component")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _vm._v(
+              "\n                    I'm an example component.\n                    "
+            ),
+            _c(
+              "ul",
+              _vm._l(_vm.continents, function(continent) {
+                return _vm.continents.length > 0
+                  ? _c("li", [
+                      _vm._v(
+                        "\n                          " +
+                          _vm._s(continent.name) +
+                          "\n                        "
+                      )
+                    ])
+                  : _vm._e()
+              }),
+              0
+            )
           ])
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -7,62 +7,61 @@
 
                     <div class="card-body">
                         I'm an example component.
+                        <ul>
+                            <li v-if="continents.length>0" v-for="continent in continents">
+                              {{ continent.name }}
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
         </div>
+        
+        
+        
+        
     </div>
 </template>
 
 <script>
     export default {
+        
         mounted() {
             console.log('Component mounted.');
+            this.loadData();
         },
         created(){
-            axios.get('/api/continents')
-              .then(function (response) {
-                // handle success
-                console.log(response);
-                this.retrievedContinents = response.data;
-              })
-              .catch(function (error) {
-                // handle error
-                console.log(error);
-              })
-              .then(function () {
-                // always executed
-              });
+            //this.loadData();
         },
         
         data() {
-            retrievedContinents: {}
-            //console.log(continents);
-           
+            continents: '';
             return {
-                continents: this.retrievedContinents,
+                continents: [],
             }
+       },
+       
+       methods: {
+            loadData: function() {
+                axios.get('/api/continents')
+                .then((response) => {
+                    // handle success
+                    console.log(response.data.data);
+                    //now this refers to your vue instance and this can access you data property
+                    this.continents = response.data.data;
+                })
+                .catch((error) => {
+                    // handle error
+                    console.log(error);
+                })
+                .then(() => {
+                    // always executed
+                });
+            },
+            
+        },
+       
+    }
 
-       }
-    }
-    /*
-    function getContinents(){
-        // Make a request for a user with a given ID
-         axios.get('/api/continents')
-           .then(function (response) {
-             // handle success
-             console.log(response);
-           })
-           .catch(function (error) {
-             // handle error
-             console.log(error);
-           })
-           .then(function () {
-             // always executed
-           });
-           
-           return "aaa";
-    }
-    */
-    
 </script>
