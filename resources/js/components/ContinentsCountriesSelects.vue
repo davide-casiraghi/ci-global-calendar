@@ -13,7 +13,7 @@
         <div class="form-group country_id">    
             <select name="country_id" id="country_id" class="selectpicker" data-live-search="true" title="Pick a country">
                 <option  v-for="(country, index) in countries" >
-                    aa {{ country }}
+                    {{ country.name }}
                 </option>
             </select>
         </div>
@@ -66,21 +66,15 @@
                 });
             },
             getAllCountries: function(continents) {
+                //eg: //this.countries[1] = {name: 'apple', price: '10'};
+                var j = 0;
                 for (var i = 0, len = continents.length; i < len; i++) {
-                    //console.log(continents[i].name);
-                    //console.log(continents[i]);
-                    //console.log(continents[i].active_countries);
-                    
                     for (var key in continents[i].active_countries) {
-                        //console.log(key, continents[i].active_countries[key]);
-                        this.countries[key] = continents[i].active_countries[key]; 
+                        this.countries[j] = {id: continents[i].active_countries[key], name: key};
+                        j++;
                     }
-
                 }
-                //console.log("countries after update");
-                //console.log(this.countries);
             }
-            
         },
        
     }

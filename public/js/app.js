@@ -7393,17 +7393,18 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     getAllCountries: function getAllCountries(continents) {
-      for (var i = 0, len = continents.length; i < len; i++) {
-        //console.log(continents[i].name);
-        //console.log(continents[i]);
-        //console.log(continents[i].active_countries);
-        for (var key in continents[i].active_countries) {
-          //console.log(key, continents[i].active_countries[key]);
-          this.countries[key] = continents[i].active_countries[key];
-        }
-      } //console.log("countries after update");
-      //console.log(this.countries);
+      //eg: //this.countries[1] = {name: 'apple', price: '10'};
+      var j = 0;
 
+      for (var i = 0, len = continents.length; i < len; i++) {
+        for (var key in continents[i].active_countries) {
+          this.countries[j] = {
+            id: continents[i].active_countries[key],
+            name: key
+          };
+          j++;
+        }
+      }
     }
   }
 });
@@ -45959,7 +45960,9 @@ var render = function() {
         },
         _vm._l(_vm.countries, function(country, index) {
           return _c("option", [
-            _vm._v("\n                aa " + _vm._s(country) + "\n            ")
+            _vm._v(
+              "\n                " + _vm._s(country.name) + "\n            "
+            )
           ])
         }),
         0
