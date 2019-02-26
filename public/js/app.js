@@ -7369,11 +7369,16 @@ __webpack_require__.r(__webpack_exports__);
       country_selected: ''
     };
   },
-  computed: {
-    options: function options(event) {
-      return this.countries;
-    }
-  },
+
+  /*computed: {
+      get: function () {
+       return this.countries;
+       },
+       set: function (newValue) {
+           this.countries = newValue; 
+       }
+      
+   },*/
   methods: {
     // https://github.com/axios/axios#request-config
     loadData: function loadData() {
@@ -7425,7 +7430,7 @@ __webpack_require__.r(__webpack_exports__);
             }
           }
 
-          this.options = this.options;
+          this.options = this.countries;
         }
       }
     }

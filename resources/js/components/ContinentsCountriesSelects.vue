@@ -41,12 +41,15 @@
                 country_selected: '',
             }
        },
-       computed: {
-           options: function(event) {
-               return this.countries
-           }
+       /*computed: {
+           get: function () {
+            return this.countries;
+            },
+            set: function (newValue) {
+                this.countries = newValue; 
+            }
            
-        },
+        },*/
        
        
        methods: {
@@ -95,7 +98,7 @@
                                 j++;
                             }
                         }
-                        this.options = this.options;
+                        this.options = this.countries;
                     }
                     
                 }
