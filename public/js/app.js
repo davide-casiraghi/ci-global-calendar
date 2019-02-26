@@ -45959,7 +45959,7 @@ var render = function() {
           }
         },
         _vm._l(_vm.countries, function(country, index) {
-          return _c("option", [
+          return _c("option", { domProps: { value: country.id } }, [
             _vm._v(
               "\n                " + _vm._s(country.name) + "\n            "
             )
