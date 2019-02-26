@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="form-group continent_id">    
-            <select name="continent_id" v-model="continent_selected" id="continent_id" class="selectpicker" data-live-search="false" title="Pick a continent">
+            <select name="continent_id" v-model="continent_selected" id="continent_id" class="selectpicker" data-live-search="false" title="Pick a continent" v-on:change="getAllCountries(continents)">
                 <option v-if="continents.length>0" v-for="continent in continents" v-bind:value="continent.id">
                     {{ continent.name }}
                 </option>
@@ -15,9 +15,6 @@
                 </option>
             </select>
         </div>
-        
-        <span>Continent Selected: {{ continent_selected }}</span>
-        <span>Country Selected: {{ country_selected }}</span>
         
     </div>
     
@@ -36,7 +33,6 @@
         created(){
             //this.loadData();
         },
-        
         data() {
             return {
                 continents: [],
@@ -45,6 +41,19 @@
                 country_selected: '',
             }
        },
+       /*computed: {
+        // a computed getter
+            continent_selected: function () {
+                // `this` points to the vm instance
+                //console.log(continent_selected);
+                //continents = 
+                //return this.continent_selected + "ss";
+                
+                var map = this.getAllCountries(response.data.data, 1);
+                return map;
+            }
+        },*/
+       
        
        methods: {
            // https://github.com/axios/axios#request-config
@@ -55,7 +64,7 @@
                     //console.log(response.data.data);
                     //now this refers to your vue instance and this can access you data property
                     this.continents = response.data.data;
-                    this.getAllCountries(response.data.data);
+                    this.getAllCountries(this.continents);
                 })
                 .catch((error) => {
                     // handle error
@@ -67,11 +76,32 @@
             },
             getAllCountries: function(continents) {
                 //eg: //this.countries[1] = {name: 'apple', price: '10'};
+                console.log(this.continent_selected);
+                //console.log(continents);
+                console.log(continents);
+                
                 var j = 0;
-                for (var i = 0, len = continents.length; i < len; i++) {
+                this.countries = [];
+                console.log("cippa_1");
+                if (typeof continents !== 'undefined'){
+                    //console.log(continents);
+                    for (var i = 0, len = continents.length; i < len; i++) {
+                        console.log("No Continent selected");
+                        for (var key in continents[i].active_countries) {
+                            this.countries[j] = {id: continents[i].active_countries[key], name: key};
+                            j++;
+                        }
+                    }
+                }
+                else{
+                    console.log("cippa_3");
+                    console.log("continent selected: "+ this.continent_selected);
+                    console.log(this.countries);
                     for (var key in continents[i].active_countries) {
-                        this.countries[j] = {id: continents[i].active_countries[key], name: key};
-                        j++;
+                        if (continents[i].id == this.continent_selected){
+                            this.countries[j] = {id: continents[i].active_countries[key], name: key};
+                            j++;
+                        }
                     }
                 }
             }

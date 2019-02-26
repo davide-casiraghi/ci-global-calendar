@@ -7351,9 +7351,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -7368,10 +7365,23 @@ __webpack_require__.r(__webpack_exports__);
     return {
       continents: [],
       countries: [],
-      continents_selected: '',
+      continent_selected: '',
       country_selected: ''
     };
   },
+
+  /*computed: {
+   // a computed getter
+       continent_selected: function () {
+           // `this` points to the vm instance
+           //console.log(continent_selected);
+           //continents = 
+           //return this.continent_selected + "ss";
+           
+           var map = this.getAllCountries(response.data.data, 1);
+           return map;
+       }
+   },*/
   methods: {
     // https://github.com/axios/axios#request-config
     loadData: function loadData() {
@@ -7383,7 +7393,7 @@ __webpack_require__.r(__webpack_exports__);
         //now this refers to your vue instance and this can access you data property
         _this.continents = response.data.data;
 
-        _this.getAllCountries(response.data.data);
+        _this.getAllCountries(_this.continents);
       }).catch(function (error) {
         // handle error
         console.log(error);
@@ -7392,15 +7402,39 @@ __webpack_require__.r(__webpack_exports__);
     },
     getAllCountries: function getAllCountries(continents) {
       //eg: //this.countries[1] = {name: 'apple', price: '10'};
-      var j = 0;
+      console.log(this.continent_selected); //console.log(continents);
 
-      for (var i = 0, len = continents.length; i < len; i++) {
+      console.log(continents);
+      var j = 0;
+      this.countries = [];
+      console.log("cippa_1");
+
+      if (typeof continents !== 'undefined') {
+        //console.log(continents);
+        for (var i = 0, len = continents.length; i < len; i++) {
+          console.log("No Continent selected");
+
+          for (var key in continents[i].active_countries) {
+            this.countries[j] = {
+              id: continents[i].active_countries[key],
+              name: key
+            };
+            j++;
+          }
+        }
+      } else {
+        console.log("cippa_3");
+        console.log("continent selected: " + this.continent_selected);
+        console.log(this.countries);
+
         for (var key in continents[i].active_countries) {
-          this.countries[j] = {
-            id: continents[i].active_countries[key],
-            name: key
-          };
-          j++;
+          if (continents[i].id == this.continent_selected) {
+            this.countries[j] = {
+              id: continents[i].active_countries[key],
+              name: key
+            };
+            j++;
+          }
         }
       }
     }
@@ -45937,19 +45971,24 @@ var render = function() {
             title: "Pick a continent"
           },
           on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.continent_selected = $event.target.multiple
-                ? $$selectedVal
-                : $$selectedVal[0]
-            }
+            change: [
+              function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.continent_selected = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              },
+              function($event) {
+                _vm.getAllCountries(_vm.continents)
+              }
+            ]
           }
         },
         _vm._l(_vm.continents, function(continent) {
@@ -46011,13 +46050,7 @@ var render = function() {
         }),
         0
       )
-    ]),
-    _vm._v(" "),
-    _c("span", [
-      _vm._v("Continent Selected: " + _vm._s(_vm.continent_selected))
-    ]),
-    _vm._v(" "),
-    _c("span", [_vm._v("Country Selected: " + _vm._s(_vm.country_selected))])
+    ])
   ])
 }
 var staticRenderFns = []
