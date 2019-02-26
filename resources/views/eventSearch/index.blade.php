@@ -124,8 +124,8 @@
                         </p>
                         
                         
-                        
-                        <continents-countries-selects :activeContinentCountriesTree="{{ json_encode($activeContinentsCountries) }}"></continents-countries-selects>
+                        {{-- :activeContinentCountriesTree="{{ json_encode($activeContinentsCountries) }}" --}}
+                        <continents-countries-selects></continents-countries-selects>
 
                         
                         @include('partials.forms.select', [
