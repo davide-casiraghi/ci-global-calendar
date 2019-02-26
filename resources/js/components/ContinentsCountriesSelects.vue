@@ -1,27 +1,12 @@
-<template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card card-default">
-                    <div class="card-header">Example Component</div>
-
-                    <div class="card-body">
-                        I'm an example component.
-                        <ul>
-                            <li v-if="continents.length>0" v-for="continent in continents">
-                              {{ continent.name }}
-                            </li>
-                        </ul>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        
-        
-        
+<template>    
+    <div class="form-group continent_id">    
+        <select name="continent_id" id="continent_id" class="selectpicker" data-live-search="false" title="Pick one">
+            <option v-if="continents.length>0" v-for="continent in continents" v-bind:value="continent.id">
+                {{ continent.name }}
+            </option>
+        </select>
     </div>
+        
 </template>
 
 <script>
