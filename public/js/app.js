@@ -7365,13 +7365,11 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {//this.loadData();
   },
   data: function data() {
-    continents: '';
-
-    countries: '';
-
     return {
       continents: [],
-      countries: []
+      countries: [],
+      continents_selected: '',
+      country_selected: ''
     };
   },
   methods: {
@@ -45918,17 +45916,40 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {}, [
+  return _c("div", [
     _c("div", { staticClass: "form-group continent_id" }, [
       _c(
         "select",
         {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.continent_selected,
+              expression: "continent_selected"
+            }
+          ],
           staticClass: "selectpicker",
           attrs: {
             name: "continent_id",
             id: "continent_id",
             "data-live-search": "false",
             title: "Pick a continent"
+          },
+          on: {
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.continent_selected = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            }
           }
         },
         _vm._l(_vm.continents, function(continent) {
@@ -45950,12 +45971,35 @@ var render = function() {
       _c(
         "select",
         {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.country_selected,
+              expression: "country_selected"
+            }
+          ],
           staticClass: "selectpicker",
           attrs: {
             name: "country_id",
             id: "country_id",
             "data-live-search": "true",
             title: "Pick a country"
+          },
+          on: {
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.country_selected = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            }
           }
         },
         _vm._l(_vm.countries, function(country, index) {
@@ -45967,7 +46011,13 @@ var render = function() {
         }),
         0
       )
-    ])
+    ]),
+    _vm._v(" "),
+    _c("span", [
+      _vm._v("Continent Selected: " + _vm._s(_vm.continent_selected))
+    ]),
+    _vm._v(" "),
+    _c("span", [_vm._v("Country Selected: " + _vm._s(_vm.country_selected))])
   ])
 }
 var staticRenderFns = []

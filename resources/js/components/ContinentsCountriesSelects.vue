@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="form-group continent_id">    
-            <select name="continent_id" id="continent_id" class="selectpicker" data-live-search="false" title="Pick a continent">
+            <select name="continent_id" v-model="continent_selected" id="continent_id" class="selectpicker" data-live-search="false" title="Pick a continent">
                 <option v-if="continents.length>0" v-for="continent in continents" v-bind:value="continent.id">
                     {{ continent.name }}
                 </option>
@@ -9,12 +9,16 @@
         </div>
         
         <div class="form-group country_id">    
-            <select name="country_id" id="country_id" class="selectpicker" data-live-search="true" title="Pick a country">
+            <select name="country_id" v-model="country_selected" id="country_id" class="selectpicker" data-live-search="true" title="Pick a country">
                 <option  v-for="(country, index) in countries" v-bind:value="country.id" >
                     {{ country.name }}
                 </option>
             </select>
         </div>
+        
+        <span>Continent Selected: {{ continent_selected }}</span>
+        <span>Country Selected: {{ country_selected }}</span>
+        
     </div>
     
 </template>
@@ -34,11 +38,11 @@
         },
         
         data() {
-            continents: '';
-            countries: '';
             return {
                 continents: [],
                 countries: [],
+                continent_selected: '',
+                country_selected: '',
             }
        },
        
