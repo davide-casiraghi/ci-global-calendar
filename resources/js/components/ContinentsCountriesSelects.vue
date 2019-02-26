@@ -12,11 +12,12 @@
         
         <div class="form-group country_id">    
             <select name="country_id" id="country_id" class="selectpicker" data-live-search="true" title="Pick a country">
-                <option v-if="countries.length>0" v-for="country in countries" v-bind:value="aa">
+                <option  v-for="(country, index) in countries" >
                     aa {{ country }}
                 </option>
             </select>
         </div>
+        
     </div>
 
         
@@ -28,6 +29,9 @@
         mounted() {
             console.log('Component mounted.');
             this.loadData();
+            console.log('Loaded datas.');
+            console.log(this.continents);
+            console.log(this.countries);
         },
         created(){
             //this.loadData();
@@ -73,8 +77,8 @@
                     }
 
                 }
-                console.log("countries after update");
-                console.log(this.countries);
+                //console.log("countries after update");
+                //console.log(this.countries);
             }
             
         },

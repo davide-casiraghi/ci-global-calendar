@@ -7353,10 +7353,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
     this.loadData();
+    console.log('Loaded datas.');
+    console.log(this.continents);
+    console.log(this.countries);
   },
   created: function created() {//this.loadData();
   },
@@ -7397,14 +7401,9 @@ __webpack_require__.r(__webpack_exports__);
           //console.log(key, continents[i].active_countries[key]);
           this.countries[key] = continents[i].active_countries[key];
         }
-        /*for (var j = 0, len = continents[i].active_countries.length; j < len; j++) {
-            console.log(continents[i].active_countries[j].name);
-        }*/
+      } //console.log("countries after update");
+      //console.log(this.countries);
 
-      }
-
-      console.log("countries after update");
-      console.log(this.countries);
     }
   }
 });
@@ -45958,7 +45957,7 @@ var render = function() {
             title: "Pick a country"
           }
         },
-        _vm._l(_vm.countries, function(country) {
+        _vm._l(_vm.countries, function(country, index) {
           return _c("option", [
             _vm._v("\n                aa " + _vm._s(country) + "\n            ")
           ])
