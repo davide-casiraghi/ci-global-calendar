@@ -7369,19 +7369,11 @@ __webpack_require__.r(__webpack_exports__);
       country_selected: ''
     };
   },
-
-  /*computed: {
-   // a computed getter
-       continent_selected: function () {
-           // `this` points to the vm instance
-           //console.log(continent_selected);
-           //continents = 
-           //return this.continent_selected + "ss";
-           
-           var map = this.getAllCountries(response.data.data, 1);
-           return map;
-       }
-   },*/
+  computed: {
+    options: function options(event) {
+      return this.countries;
+    }
+  },
   methods: {
     // https://github.com/axios/axios#request-config
     loadData: function loadData() {
@@ -7433,7 +7425,7 @@ __webpack_require__.r(__webpack_exports__);
             }
           }
 
-          this.$forceUpdate();
+          this.options = this.options;
         }
       }
     }

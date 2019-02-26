@@ -41,18 +41,12 @@
                 country_selected: '',
             }
        },
-       /*computed: {
-        // a computed getter
-            continent_selected: function () {
-                // `this` points to the vm instance
-                //console.log(continent_selected);
-                //continents = 
-                //return this.continent_selected + "ss";
-                
-                var map = this.getAllCountries(response.data.data, 1);
-                return map;
-            }
-        },*/
+       computed: {
+           options: function(event) {
+               return this.countries
+           }
+           
+        },
        
        
        methods: {
@@ -101,7 +95,7 @@
                                 j++;
                             }
                         }
-                        
+                        this.options = this.options;
                     }
                     
                 }
