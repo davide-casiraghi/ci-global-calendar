@@ -52,6 +52,7 @@
                     console.log(newValue);
                     //this.optionCountries = newValue; 
                     this.countries = newValue;
+                    $("#country_id").selectpicker('refresh');
                 }
             } 
         },

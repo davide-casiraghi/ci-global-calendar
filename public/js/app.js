@@ -7329,7 +7329,7 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
+/* WEBPACK VAR INJECTION */(function($) {//
 //
 //
 //
@@ -7382,6 +7382,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(newValue); //this.optionCountries = newValue; 
 
         this.countries = newValue;
+        $("#country_id").selectpicker('refresh');
       }
     }
   },
@@ -7444,6 +7445,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 });
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
 
