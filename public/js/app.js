@@ -7456,11 +7456,14 @@ __webpack_require__.r(__webpack_exports__);
         return o.id === country_id;
       }); // Then pick its continent_id
       //console.log(obj.continent_id);
+      //console.log(this.continent_selected);
 
-      this.continent_selected = obj.continent_id;
-      setTimeout(function () {
-        jQuery('.selectpicker').selectpicker('refresh');
-      }, 200);
+      if (obj.continent_id != this.continent_selected) {
+        this.continent_selected = obj.continent_id;
+        setTimeout(function () {
+          jQuery('.selectpicker').selectpicker('refresh');
+        }, 200);
+      }
     }
   }
 });

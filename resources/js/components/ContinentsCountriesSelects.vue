@@ -122,10 +122,14 @@
                 
                 // Then pick its continent_id
                     //console.log(obj.continent_id);
-                    this.continent_selected = obj.continent_id;
-                    setTimeout(() => {
-                      jQuery('.selectpicker').selectpicker('refresh');
-                    }, 200);
+                    //console.log(this.continent_selected);
+                    
+                    if (obj.continent_id != this.continent_selected){
+                        this.continent_selected = obj.continent_id;
+                        setTimeout(() => {
+                          jQuery('.selectpicker').selectpicker('refresh');
+                        }, 200);
+                    }
             }
         },
        
