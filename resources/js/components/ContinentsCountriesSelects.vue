@@ -115,8 +115,17 @@
              * Select the continent that correspond to the selected country 
              * This function is called every time the countries dropdown change
              */
-            changeContinent(country){
-                console.log(country);
+            changeContinent(country_id){
+                
+                // Find the countries array find the one with the corresponding country_id
+                    let obj = this.countries.find(o => o.id === country_id);
+                
+                // Then pick its continent_id
+                    //console.log(obj.continent_id);
+                    this.continent_selected = obj.continent_id;
+                    setTimeout(() => {
+                      jQuery('.selectpicker').selectpicker('refresh');
+                    }, 200);
             }
         },
        

@@ -7433,7 +7433,6 @@ __webpack_require__.r(__webpack_exports__);
           //console.log("continent selected: "+ this.continent_selected);
           for (var key in continents[i].active_countries) {
             if (continents[i].id == this.continent_selected) {
-              console.log("THE SAME");
               this.countries[j] = {
                 id: continents[i].active_countries[key],
                 name: key
@@ -7448,11 +7447,20 @@ __webpack_require__.r(__webpack_exports__);
     },
 
     /**
-     * Select the continent tht correspond to the selected country 
+     * Select the continent that correspond to the selected country 
      * This function is called every time the countries dropdown change
      */
-    changeContinent: function changeContinent(country) {
-      console.log(country);
+    changeContinent: function changeContinent(country_id) {
+      // Find the countries array find the one with the corresponding country_id
+      var obj = this.countries.find(function (o) {
+        return o.id === country_id;
+      }); // Then pick its continent_id
+      //console.log(obj.continent_id);
+
+      this.continent_selected = obj.continent_id;
+      setTimeout(function () {
+        jQuery('.selectpicker').selectpicker('refresh');
+      }, 200);
     }
   }
 });
