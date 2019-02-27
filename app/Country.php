@@ -27,4 +27,22 @@ class Country extends Model
         
         return $ret;
     }
+    
+    /***************************************************************************/
+    /**
+     * Return active Continent and Countries Json Tree (for hp select filters, vue component)
+     *
+     * @param  none
+     * @return JSON
+     */    
+    public static function getActiveCountriesByContinent(){
+        $minutes = 15;
+        $ret = Cache::remember('active_continent_countries_json_tree', $minutes, function () {
+            return Country::orderBy('name')->pluck('name', 'id');
+        });
+        
+        
+        dd($ret);
+        return $ret;
+    }
 }

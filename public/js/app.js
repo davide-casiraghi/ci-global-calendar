@@ -7320,6 +7320,157 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ContinentsCountriesSelects.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ContinentsCountriesSelects.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(jQuery) {//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+    this.loadData();
+    console.log('Loaded datas.');
+    console.log(this.continents);
+    console.log(this.countries);
+  },
+  data: function data() {
+    return {
+      continents: [],
+      // in the console - $vm0.$children[0].$options.parent.$children[0].countries
+      countries: [],
+      continent_selected: '',
+      country_selected: ''
+    };
+  },
+  computed: {
+    optionCountries: {
+      // in the console - $vm0.$children[0].$options.parent.$children[0].optionCountries 
+      //    or - $vm0.$options.parent.$children[0].optionCountries
+      get: function get() {
+        //console.log("GET");
+        return this.countries;
+      },
+      set: function set(newValue) {
+        //console.log("SET");
+        //console.log(newValue);
+        this.countries = newValue;
+        setTimeout(function () {
+          jQuery('.selectpicker').selectpicker('refresh');
+        }, 500);
+      }
+    }
+  },
+  methods: {
+    /**
+     * Load continents and countries from /api/continents API trough axios - https://github.com/axios/axios#request-config
+     * Populate the continents array for the continents dropdown
+     */
+    loadData: function loadData() {
+      var _this = this;
+
+      // In the console - $vm0.$children[0].$options.parent.$children[0].loadData()
+      axios.get('/api/continents').then(function (response) {
+        // handle success
+        //console.log(response.data.data);
+        _this.continents = response.data.data;
+
+        _this.getAllCountries(_this.continents);
+      }).catch(function (error) {
+        // handle error
+        console.log(error);
+      }).then(function () {// always executed
+      });
+    },
+
+    /**
+     * Populate the countries array for the countries dropdown 
+     * this function is also called every time the continents dropdown change
+     */
+    getAllCountries: function getAllCountries(continents) {
+      //eg: //this.countries[1] = {name: 'apple', price: '10'};
+      //console.log(this.continent_selected);
+      //console.log(continents);
+      var j = 0;
+      this.countries = [];
+
+      for (var i = 0, len = continents.length; i < len; i++) {
+        if (!this.continent_selected) {
+          //console.log("No Continent selected");
+          for (var key in continents[i].active_countries) {
+            this.countries[j] = {
+              id: continents[i].active_countries[key],
+              name: key,
+              continent_id: continents[i].id
+            };
+            j++;
+          }
+        } else {
+          //console.log("continent selected: "+ this.continent_selected);
+          for (var key in continents[i].active_countries) {
+            if (continents[i].id == this.continent_selected) {
+              this.countries[j] = {
+                id: continents[i].active_countries[key],
+                name: key
+              };
+              j++;
+            }
+          }
+
+          this.optionCountries = this.countries;
+        }
+      }
+    },
+
+    /**
+     * Select the continent that correspond to the selected country 
+     * This function is called every time the countries dropdown change
+     */
+    changeContinent: function changeContinent(country_id) {
+      // Find the countries array find the one with the corresponding country_id
+      var obj = this.countries.find(function (o) {
+        return o.id === country_id;
+      }); // Then pick its continent_id
+      //console.log(obj.continent_id);
+      //console.log(this.continent_selected);
+
+      if (obj.continent_id != this.continent_selected) {
+        this.continent_selected = obj.continent_id;
+        setTimeout(function () {
+          jQuery('.selectpicker').selectpicker('refresh');
+        }, 200);
+      }
+    }
+  }
+});
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -45812,6 +45963,136 @@ var _initialiseProps = function _initialiseProps() {
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ContinentsCountriesSelects.vue?vue&type=template&id=0996faad&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ContinentsCountriesSelects.vue?vue&type=template&id=0996faad& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "form-group continent_id" }, [
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.continent_selected,
+              expression: "continent_selected"
+            }
+          ],
+          staticClass: "selectpicker",
+          attrs: {
+            name: "continent_id",
+            id: "continent_id",
+            "data-live-search": "false",
+            title: "Pick a continent"
+          },
+          on: {
+            change: [
+              function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.continent_selected = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              },
+              function($event) {
+                _vm.getAllCountries(_vm.continents)
+              }
+            ]
+          }
+        },
+        _vm._l(_vm.continents, function(continent) {
+          return _vm.continents.length > 0
+            ? _c("option", { domProps: { value: continent.id } }, [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(continent.name) +
+                    "\n            "
+                )
+              ])
+            : _vm._e()
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group country_id" }, [
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.country_selected,
+              expression: "country_selected"
+            }
+          ],
+          staticClass: "selectpicker",
+          attrs: {
+            name: "country_id",
+            id: "country_id",
+            "data-live-search": "true",
+            title: "Pick a country"
+          },
+          on: {
+            change: [
+              function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.country_selected = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              },
+              function($event) {
+                _vm.changeContinent(_vm.country_selected)
+              }
+            ]
+          }
+        },
+        _vm._l(_vm.optionCountries, function(country, index) {
+          return _c("option", { domProps: { value: country.id } }, [
+            _vm._v(
+              "\n                " + _vm._s(country.name) + "\n            "
+            )
+          ])
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
@@ -57883,9 +58164,10 @@ $(function () {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")); //Vue.component('ul-list-draggable', require('./components/UlListDraggable.vue').default);
-
-var app = new Vue({
+Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue"));
+Vue.component('continents-countries-selects', __webpack_require__(/*! ./components/ContinentsCountriesSelects.vue */ "./resources/js/components/ContinentsCountriesSelects.vue").default);
+window.myApp = new Vue({
+  // In this way the object myApp is accessible in the browser console for debugging purposes
   el: '#app'
 }); // Import Javascript Plugins
 
@@ -57968,6 +58250,75 @@ if (token) {
 //     encrypted: true
 // });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+/***/ }),
+
+/***/ "./resources/js/components/ContinentsCountriesSelects.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/ContinentsCountriesSelects.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ContinentsCountriesSelects_vue_vue_type_template_id_0996faad___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContinentsCountriesSelects.vue?vue&type=template&id=0996faad& */ "./resources/js/components/ContinentsCountriesSelects.vue?vue&type=template&id=0996faad&");
+/* harmony import */ var _ContinentsCountriesSelects_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ContinentsCountriesSelects.vue?vue&type=script&lang=js& */ "./resources/js/components/ContinentsCountriesSelects.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ContinentsCountriesSelects_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ContinentsCountriesSelects_vue_vue_type_template_id_0996faad___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ContinentsCountriesSelects_vue_vue_type_template_id_0996faad___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ContinentsCountriesSelects.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/ContinentsCountriesSelects.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/ContinentsCountriesSelects.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContinentsCountriesSelects_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ContinentsCountriesSelects.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ContinentsCountriesSelects.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContinentsCountriesSelects_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ContinentsCountriesSelects.vue?vue&type=template&id=0996faad&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/ContinentsCountriesSelects.vue?vue&type=template&id=0996faad& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContinentsCountriesSelects_vue_vue_type_template_id_0996faad___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ContinentsCountriesSelects.vue?vue&type=template&id=0996faad& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ContinentsCountriesSelects.vue?vue&type=template&id=0996faad&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContinentsCountriesSelects_vue_vue_type_template_id_0996faad___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContinentsCountriesSelects_vue_vue_type_template_id_0996faad___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 

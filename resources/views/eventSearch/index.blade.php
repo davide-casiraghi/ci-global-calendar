@@ -15,6 +15,16 @@
             }, 1300, 'swing');
             
         }
+    
+    {{-- Update Continent SELECT on change Country SELECT --}}
+        $("select[name='country_id']").on('change', function() {
+        //alert( this.value );
+        });
+
+    {{-- Update Country SELECT on change Continent SELECT --}}
+        $("select[name='continent_id']").on('change', function() {
+        //alert( this.value );
+        });
 
 @stop
 
@@ -112,6 +122,11 @@
                             <strong>@lang('homepage-serach.where')</strong>
                             <i class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="@lang('homepage-serach.where_tooltip')"></i>
                         </p>
+                        
+                        
+                        {{-- :activeContinentCountriesTree="{{ json_encode($activeContinentsCountries) }}" --}}
+                        <continents-countries-selects></continents-countries-selects>
+
                         
                         @include('partials.forms.select', [
                               'title' =>  '',

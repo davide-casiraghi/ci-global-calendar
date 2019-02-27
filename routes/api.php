@@ -70,6 +70,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::get('/continents', function () {
         return ContinentResource::collection(Continent::all());
     });
+    Route::get('/countries/activeContinentCountriesJsonTree', function () {
+        return ContinentResource::collection(Continent::all());
+    });
 
 /* Countries */
     Route::get('/country/{id}', function ($id) {

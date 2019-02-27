@@ -12,6 +12,8 @@ use App\Continent;
 use App\Country;
 use App\BackgroundImage;
 
+use App\Http\Resources\Continent as ContinentResource;
+
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -35,64 +37,11 @@ class EventSearchController extends Controller
         });
             
         // Get the countries with active events
-        /*$countries = Cache::remember('events_countries', $cacheExpireMinutes, function () {
+            $activeEvents = Event::getActiveEvents();                                
+            $countries = $activeEvents->unique('country_name')->sortBy('country_name')->pluck('country_name', 'country_id');
+            //$cities = $activeEvents->unique('city')->toArray();
+            $activeContinentsCountries = ContinentResource::collection(Continent::all());
             
-            date_default_timezone_set('Europe/Rome');
-            $searchStartDate = date('Y-m-d', time());
-            $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
-            
-            return DB::table('countries')
-                ->join('event_venues', 'countries.id', '=', 'event_venues.country_id')
-                ->join('events', 'event_venues.id', '=', 'events.venue_id')
-                ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
-                        $join->on('events.id', '=', 'event_repetitions.event_id');
-                    })
-                ->orderBy('countries.name')
-                ->pluck('countries.name', 'countries.id');
-        });*/
-        
-        
-        /*
-        date_default_timezone_set('Europe/Rome');
-        $searchStartDate = date('Y-m-d', time());
-        $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
-        $activeEvents = Event::
-                            join('event_venues', 'event_venues.id', '=', 'events.venue_id')
-                            ->join('countries', 'countries.id', '=', 'event_venues.country_id')
-                            ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
-                                    $join->on('events.id', '=', 'event_repetitions.event_id');
-                                })
-                            ->get();
-        */
-            
-                            
-        $activeEvents = Cache::remember('active_events', $cacheExpireMinutes, function () {                
-            date_default_timezone_set('Europe/Rome');
-            $searchStartDate = date('Y-m-d', time());
-            $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
-            
-            return Event::
-                        select('title','countries.name AS country_name','countries.id AS country_id','event_venues.city AS city')
-                        ->join('event_venues', 'event_venues.id', '=', 'events.venue_id')
-                        ->join('countries', 'countries.id', '=', 'event_venues.country_id')
-                        ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
-                                $join->on('events.id', '=', 'event_repetitions.event_id');
-                            })
-                        ->get();
-        });                
-            //dd($activeEvents);                
-                            
-                            
-        $countries = $activeEvents->unique('country_name')->sortBy('country_name')->pluck('country_name', 'country_id');
-        //$cities = $activeEvents->unique('city')->toArray();
-        
-
-        /*$countries = DB::table('countries')
-                ->join('event_venues', 'countries.id', '=', 'event_venues.country_id')
-                ->join('events', 'event_venues.id', '=', 'events.venue_id')
-                ->pluck('countries.name', 'countries.id');*/
-
-
         $continents = Cache::rememberForever('continents', function () {
             return Continent::orderBy('name')->pluck('name', 'id');
         });
@@ -200,7 +149,8 @@ class EventSearchController extends Controller
             ->with('searchVenue',$searchVenue)
             ->with('searchStartDate',$request->input('startDate'))
             ->with('searchEndDate',$request->input('endDate'))
-            ->with('backgroundImages',$backgroundImages);
+            ->with('backgroundImages',$backgroundImages)
+            ->with('activeContinentsCountries',$activeContinentsCountries);
     }
 
     /**
