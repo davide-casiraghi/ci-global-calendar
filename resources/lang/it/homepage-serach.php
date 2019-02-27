@@ -8,7 +8,7 @@ return [
     'criteria' => 'Utilizza un criterio di ricerca o più',
     'what' => 'Cosa',
     'when' => 'Quando',
-    'when_tooltip' => 'You can specify just one or both date fields',
+    'when_tooltip' => 'È possibile specificare nessuno, uno o entrambi i campi di ricerca',
     'where' => 'Dove',
     'where_tooltip' => 'Just the countries with available events are shown below',
     'who' => 'Chi',

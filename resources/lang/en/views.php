@@ -149,5 +149,10 @@ return [
     'menu_item_hide_name' => 'Hide the menu item name (show just the font awesome icon)',
     'menu_position' => 'Position',
     'menu_item_access' => 'Access',
-    'preview' => 'Preview'
+    'preview' => 'Preview',
+    'delete_translation' => 'Delete Translation',
+    'notice' => 'Notice',
+    'first_country_event_notice' => 'Please notice that if this is the first event inserted for your country it can take up to 15 minutes before your country appear in the homepage search filters.',
+    'people' => 'People',
+    'choose' => 'Choose...',
 ];

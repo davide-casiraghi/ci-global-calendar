@@ -13,11 +13,13 @@ use Validator;
 
 class PostTranslationController extends Controller
 {
+    /***************************************************************************/
     /* Restrict the access to this resource just to logged in users */
     public function __construct(){
         $this->middleware('admin');
     }
-
+    
+    /***************************************************************************/
     /**
     * Show the form for creating a new resource.
     *
@@ -33,8 +35,7 @@ class PostTranslationController extends Controller
                 ->with('selectedLocaleName',$selectedLocaleName);
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Show the form for editing the specified resource.
      *
@@ -55,8 +56,7 @@ class PostTranslationController extends Controller
                     ->with('selectedLocaleName',$selectedLocaleName);
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Store a newly created resource in storage.
      *
@@ -93,8 +93,7 @@ class PostTranslationController extends Controller
                         ->with('success','Translation created successfully.');
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Update the specified resource in storage.
      *
@@ -122,6 +121,19 @@ class PostTranslationController extends Controller
 
         return redirect()->route('posts.index')
                         ->with('success','Post updated successfully');
+    }
+    /***************************************************************************/
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\PostTranslation  $categoryTranslation
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($postTranslationId){
+        $postTranslation = PostTranslation::find($postTranslationId);
+        $postTranslation->delete();
+        return redirect()->route('posts.index')
+                        ->with('success',__('messages.post_translation_deleted_successfully'));
     }
     
 

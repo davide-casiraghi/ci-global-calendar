@@ -115,4 +115,18 @@ class MenuItemTranslationController extends Controller
                         ->with('success','Translation updated successfully');
     }
     
+    // **********************************************************************
+    
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\MenuItemTranslation  $menuItemTranslation
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($menuItemTranslationId, $selectedMenuId){
+        $menuItemTranslation = MenuItemTranslation::find($menuItemTranslationId);
+        $menuItemTranslation->delete();
+        return redirect()->route('menuItemsIndex', ['id' => $selectedMenuId] )
+                        ->with('success','Translation deleted successfully');
+    }
 }

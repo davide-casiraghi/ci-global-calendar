@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Event;
+use App\EventRepetition;
 use App\Teacher;
 use Illuminate\Support\Facades\DB;
 
@@ -65,18 +66,14 @@ class SitemapController extends Controller
      */
     public function events(){
         
-        // Get lastest event repetitions
+        // Get for each event the first event repetition in the near future
             date_default_timezone_set('Europe/Rome');
             $searchStartDate = date('Y-m-d', time());  // search start from today's date
+            $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
             
-            $lastestEventsRepetitions = DB::table('event_repetitions')
-                ->selectRaw('event_id, MIN(id) AS rp_id, start_repeat, end_repeat')
-                ->where('event_repetitions.start_repeat', '>=',$searchStartDate)
-                ->groupBy('event_id');
-                            
         // Retrieve the events 
             $events = DB::table('events')
-                ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) use ($searchStartDate) {
+                ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
                     $join->on('events.id', '=', 'event_repetitions.event_id');
                 })
                 ->orderBy('event_repetitions.start_repeat', 'asc')

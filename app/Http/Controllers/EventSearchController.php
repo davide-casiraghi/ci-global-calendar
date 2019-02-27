@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\EventRepetition;
 use App\EventCategory;
 use App\Teacher;
 use App\Organizer;
@@ -24,25 +25,21 @@ class EventSearchController extends Controller
      * @return view
      */
     public function index(Request $request){
-        /*$eventCategories = EventCategory::pluck('name', 'id');
-        $countries = Country::pluck('name', 'id');
-        $venues = EventVenue::pluck('name', 'id');*/
         
-        
-        $minutes = 15; // Set the duration time of the cache
+        $cacheExpireMinutes = 15; // Set the duration time of the cache
         
         $backgroundImages = BackgroundImage::all();
 
-        $eventCategories = Cache::remember('categories', $minutes, function () {
+        $eventCategories = Cache::remember('categories', $cacheExpireMinutes, function () {
             return EventCategory::orderBy('name')->pluck('name', 'id');
         });
             
         // Get the countries with active events
-        $countries = Cache::remember('events_countries', $minutes, function () {
+        /*$countries = Cache::remember('events_countries', $cacheExpireMinutes, function () {
             
             date_default_timezone_set('Europe/Rome');
             $searchStartDate = date('Y-m-d', time());
-            $lastestEventsRepetitionsQuery = $this->getLastestEventsRepetitionsQuery($searchStartDate, null);
+            $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
             
             return DB::table('countries')
                 ->join('event_venues', 'countries.id', '=', 'event_venues.country_id')
@@ -52,7 +49,43 @@ class EventSearchController extends Controller
                     })
                 ->orderBy('countries.name')
                 ->pluck('countries.name', 'countries.id');
-        });
+        });*/
+        
+        
+        /*
+        date_default_timezone_set('Europe/Rome');
+        $searchStartDate = date('Y-m-d', time());
+        $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
+        $activeEvents = Event::
+                            join('event_venues', 'event_venues.id', '=', 'events.venue_id')
+                            ->join('countries', 'countries.id', '=', 'event_venues.country_id')
+                            ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
+                                    $join->on('events.id', '=', 'event_repetitions.event_id');
+                                })
+                            ->get();
+        */
+            
+                            
+        $activeEvents = Cache::remember('active_events', $cacheExpireMinutes, function () {                
+            date_default_timezone_set('Europe/Rome');
+            $searchStartDate = date('Y-m-d', time());
+            $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
+            
+            return Event::
+                        select('title','countries.name AS country_name','countries.id AS country_id','event_venues.city AS city')
+                        ->join('event_venues', 'event_venues.id', '=', 'events.venue_id')
+                        ->join('countries', 'countries.id', '=', 'event_venues.country_id')
+                        ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
+                                $join->on('events.id', '=', 'event_repetitions.event_id');
+                            })
+                        ->get();
+        });                
+            //dd($activeEvents);                
+                            
+                            
+        $countries = $activeEvents->unique('country_name')->sortBy('country_name')->pluck('country_name', 'country_id');
+        //$cities = $activeEvents->unique('city')->toArray();
+        
 
         /*$countries = DB::table('countries')
                 ->join('event_venues', 'countries.id', '=', 'event_venues.country_id')
@@ -64,11 +97,11 @@ class EventSearchController extends Controller
             return Continent::orderBy('name')->pluck('name', 'id');
         });
 
-        $venues = Cache::remember('venues', $minutes, function () {
+        $venues = Cache::remember('venues', $cacheExpireMinutes, function () {
             return EventVenue::pluck('name', 'id');
         });
 
-        $teachers = Cache::remember('teachers', $minutes, function () {
+        $teachers = Cache::remember('teachers', $cacheExpireMinutes, function () {
             return Teacher::orderBy('name')->pluck('name', 'id');
         });
 
@@ -76,6 +109,7 @@ class EventSearchController extends Controller
             $searchKeywords = $request->input('keywords');
             $searchCategory = $request->input('category_id');
             $searchCountry = $request->input('country_id');
+            $searchCity = $request->input('city_name');
             $searchContinent = $request->input('continent_id');
             $searchTeacher = $request->input('teacher_id');
             $searchVenue = $request->input('venue_name');
@@ -99,14 +133,14 @@ class EventSearchController extends Controller
             }
         
         // Sub-Query Joins - https://laravel.com/docs/5.7/queries                        
-        $lastestEventsRepetitionsQuery = $this->getLastestEventsRepetitionsQuery($searchStartDate, $searchEndDate);
+        $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, $searchEndDate);
                                 
         // Retrieve the events that correspond to the selected filters
-        if ($searchKeywords||$searchCategory||$searchCountry||$searchContinent||$searchTeacher||$searchVenue||$searchStartDate||$searchEndDate){
+        if ($searchKeywords||$searchCategory||$searchCity||$searchCountry||$searchContinent||$searchTeacher||$searchVenue||$searchStartDate||$searchEndDate){
             //DB::enableQueryLog();
                 $events = Event::
                     when($searchKeywords, function ($query, $searchKeywords) {
-                        return $query->where('title', $searchKeywords)->orWhere('title', 'like', '%' . $searchKeywords . '%');
+                        return $query->where('title', 'like', '%' . $searchKeywords . '%');
                     })
                     ->when($searchCategory, function ($query, $searchCategory) {
                         return $query->where('category_id', '=', $searchCategory);
@@ -120,8 +154,11 @@ class EventSearchController extends Controller
                     ->when($searchContinent, function ($query, $searchContinent) {
                         return $query->where('sc_continent_id', '=', $searchContinent);
                     })
+                    ->when($searchCity, function ($query, $searchCity) {
+                        return $query->where('sc_city_name', 'like', '%' . $searchCity . '%');
+                    })
                     ->when($searchVenue, function ($query, $searchVenue) {
-                        return $query->where('title', $searchVenue)->orWhere('sc_venue_name', 'like', '%' . $searchVenue . '%');
+                        return $query->where('sc_venue_name', 'like', '%' . $searchVenue . '%');
                     })
                     ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate,$searchEndDate) {
                         $join->on('events.id', '=', 'event_repetitions.event_id');
@@ -133,16 +170,16 @@ class EventSearchController extends Controller
         // If no filter selected retrieve all the events
         else{
                 $events = Event::
-                 where('event_repetitions.start_repeat', '>=',$searchStartDate)
-                ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) {
-                    $join->on('events.id', '=', 'event_repetitions.event_id');
-                })
-                ->orderBy('event_repetitions.start_repeat', 'asc')
-                ->paginate(20);
+                             where('event_repetitions.start_repeat', '>=',$searchStartDate)
+                            ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) {
+                                $join->on('events.id', '=', 'event_repetitions.event_id');
+                            })
+                            ->orderBy('event_repetitions.start_repeat', 'asc')
+                            ->paginate(20);
 
                 // It works, but I don't use it now to develop
-                /*$minutes = 30;
-                $events = Cache::remember('all_events', $minutes, function () {
+                /*$cacheExpireMinutes = 30;
+                $events = Cache::remember('all_events', $cacheExpireMinutes, function () {
                     return DB::table('events')->latest()->paginate(20);
                 });*/
         }
@@ -158,6 +195,7 @@ class EventSearchController extends Controller
             ->with('searchCategory',$searchCategory)
             ->with('searchCountry',$searchCountry)
             ->with('searchContinent',$searchContinent)
+            ->with('searchCity',$searchCity)
             ->with('searchTeacher',$searchTeacher)
             ->with('searchVenue',$searchVenue)
             ->with('searchStartDate',$request->input('startDate'))
@@ -244,8 +282,8 @@ class EventSearchController extends Controller
                 
         $events = Event::where('sc_country_id', $country->id)->get();
         
-        $minutes = 15;  // Set the duration time of the cache
-        $eventCategories = Cache::remember('categories', $minutes, function () {
+        $cacheExpireMinutes = 15;  // Set the duration time of the cache
+        $eventCategories = Cache::remember('categories', $cacheExpireMinutes, function () {
             return EventCategory::orderBy('name')->pluck('name', 'id');
         });
         
@@ -253,29 +291,6 @@ class EventSearchController extends Controller
                 ->with('country', $country)
                 ->with('eventCategories',$eventCategories);
     }
-    
-    
-    /***************************************************************************/
-    /**
-     * Get lastest events repetitions
-     *
-     * @param  $searchStartDate - The start date of the interval
-     * @param  $searchEndDate - The end date of the interval
-     * @return \Illuminate\Http\Response
-     */
-     public function getLastestEventsRepetitionsQuery($searchStartDate, $searchEndDate){
-         $ret = DB::table('event_repetitions')
-                     ->selectRaw('event_id, MIN(id) AS rp_id, start_repeat, end_repeat')
-                     ->when($searchStartDate, function ($query, $searchStartDate) {
-                         return $query->where('event_repetitions.start_repeat', '>=',$searchStartDate);
-                     })
-                     ->when($searchEndDate, function ($query, $searchEndDate) {
-                         return $query->where('event_repetitions.end_repeat', '<=', $searchEndDate);
-                     })
-                     ->groupBy('event_id');
-         
-         return $ret;
-     }
     
      /***************************************************************************/
     

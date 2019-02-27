@@ -1,0 +1,18 @@
+.shadow{
+    
+}
+.shadow-1{ /*You might use a smaller shadow for something like a button, where you want the user to notice it but don’t want it to dominate the page:*/
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, .12), 0 5px 15px hsla(0, 0%, 0%, .24);
+}
+.shadow-2{ /* Medium shadows are useful for things like dropdowns; elements that need to sit a bit further above the rest of the UI */
+    box-shadow: 0 3px 6px hsla(0, 0%, 0%, .15), 0 2px 4px hsla(0, 0%, 0%, .12);
+}
+.shadow-3{ /* Large shadows are great for modal dialogs, where you really want to capture the user’s attention */
+    box-shadow: 0 10px 20px hsla(0, 0%, 0%, .15), 0 3px 6px hsla(0, 0%, 0%, .10);
+}
+.shadow-4{ /* Large shadows are great for modal dialogs, where you really want to capture the user’s attention */
+    box-shadow: 0 15px 25px hsla(0, 0%, 0%, .15), 0 5px 10px hsla(0, 0%, 0%, .5);
+}
+.shadow-5{ /* Large shadows are great for modal dialogs, where you really want to capture the user’s attention */
+    box-shadow: 0 20px 40px hsla(0, 0%, 0%, .2);
+}

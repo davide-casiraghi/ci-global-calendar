@@ -29,7 +29,6 @@ class EventVenueController extends Controller
     public function index(Request $request){
         
         $minutes = 15;    
-        //$countries = Country::orderBy('name')->pluck('name', 'id');
         $countries = Cache::remember('countries', $minutes, function () {
             return Country::orderBy('name')->pluck('name', 'id');
         });
@@ -51,17 +50,22 @@ class EventVenueController extends Controller
                 ->when($searchCountry, function ($query, $searchCountry) {
                     return $query->where('country_id', '=', $searchCountry);
                 })
+                ->orderBy('name')
                 ->paginate(20);
         }
         else
-            $eventVenues = EventVenue::latest()
-                ->when($loggedUser->id, function ($query, $loggedUserId) {
+            $eventVenues = EventVenue::
+                when($loggedUser->id, function ($query, $loggedUserId) {
                     return $query->where('created_by', $loggedUserId);
                 })
+                ->orderBy('name')
                 ->paginate(20);
 
         return view('eventVenues.index',compact('eventVenues'))
-            ->with('i', (request()->input('page', 1) - 1) * 20)->with('countries', $countries)->with('searchKeywords',$searchKeywords)->with('searchCountry',$searchCountry);
+                ->with('i', (request()->input('page', 1) - 1) * 20)
+                ->with('countries', $countries)
+                ->with('searchKeywords',$searchKeywords)
+                ->with('searchCountry',$searchCountry);
     }
 
     /***************************************************************************/
@@ -73,12 +77,12 @@ class EventVenueController extends Controller
     public function create(){
         $authorUserId = $this->getLoggedAuthorId();
         $users = User::pluck('name', 'id');
-        $countries = Country::pluck('name', 'id');
+        $countries = Country::getCountries();
 
         return view('eventVenues.create')
-            ->with('countries', $countries)
-            ->with('users', $users)
-            ->with('authorUserId',$authorUserId);
+                ->with('countries', $countries)
+                ->with('users', $users)
+                ->with('authorUserId',$authorUserId);
     }
 
     /***************************************************************************/
@@ -133,7 +137,7 @@ class EventVenueController extends Controller
         if (Auth::user()->id == $eventVenue->created_by || Auth::user()->isSuperAdmin()|| Auth::user()->isAdmin()){
             $authorUserId = $this->getLoggedAuthorId();
             $users = User::pluck('name', 'id');
-            $countries = Country::pluck('name', 'id');
+            $countries = Country::getCountries();
 
             return view('eventVenues.edit',compact('eventVenue'))
                 ->with('countries', $countries)
@@ -210,7 +214,7 @@ class EventVenueController extends Controller
      * @return view
      */
     public function modal(){
-        $countries = Country::pluck('name', 'id');
+        $countries = Country::getCountries();
         return view('eventVenues.modal')->with('countries', $countries);
     }
 

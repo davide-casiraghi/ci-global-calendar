@@ -23,7 +23,29 @@ form{
                 }
             }
         }
-
-
+    }
+    
+    .radioCards{
+        label{
+            &.active{
+                color: $green-7;
+                background-color: $green-1!important;
+                border: 2px solid $green-7;
+                
+                position:relative;
+                
+                .active-icon{
+                    
+                    &:before{
+                        content: "\f058";  /* this is your text. You can also use UTF-8 character codes as I do here */
+                        font-family: "Font Awesome 5 Pro";
+                        right: 6px;
+                        position: absolute;
+                        top: 2px;
+                        color: $green-5;
+                    }
+                }
+            }
+        }
     }
 }

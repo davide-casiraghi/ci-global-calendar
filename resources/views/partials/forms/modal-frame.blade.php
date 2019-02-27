@@ -24,7 +24,7 @@
 <div class="modal fade modalFrame" tabindex="-1"
     role="dialog" aria-labelledby="modalFrameLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content light-gray-bg">
             
             {{--
                 Here is injected the code from 

@@ -29,19 +29,25 @@
                     paste_as_text: true, //!important
                 
                 // Allow link target blank
-                    extended_valid_elements: 'a[href|target]',
+                    extended_valid_elements: 'a[href|target],pre[class],code',
                         
 				/*plugins : 'advlist autolink link image lists charmap print preview spellchecker media table',*/
 				plugins: [
 				 "advlist autolink lists link image charmap print preview hr anchor pagebreak",
 				 "searchreplace wordcount visualblocks visualchars code fullscreen",
 				 "insertdatetime media nonbreaking save table contextmenu directionality",
-				 "emoticons template paste textcolor colorpicker textpattern"
+				 "emoticons template paste textcolor colorpicker textpattern codesample"
 			   ],
 				theme: 'modern',
 				height: 400,
 				{{-- toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | blockquote | link image media  | hr', --}}
-                toolbar: 'bold italic | styleselect | bullist numlist | link image | hr | code',
+                codesample_languages: [
+            		{text: 'HTML/XML', value: 'markup'},
+            		{text: 'JavaScript', value: 'javascript'},
+            		{text: 'CSS', value: 'css'},
+            		{text: 'PHP', value: 'php'},
+            	],
+                toolbar: 'bold italic | styleselect | bullist numlist | link image | hr blockquote codesample | code ',
                 menubar: false,
                 path_absolute : "/",
 				relative_urls: false,

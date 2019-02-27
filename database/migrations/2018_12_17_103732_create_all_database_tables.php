@@ -255,6 +255,38 @@ class CreateAllDatabaseTables extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
         
+        Schema::create('event_category_translations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('event_category_id')->unsigned();
+            $table->string('name');
+            $table->string('slug');
+            $table->string('locale')->index();
+
+            $table->unique(['event_category_id','locale']);
+            $table->foreign('event_category_id')->references('id')->on('event_categories')->onDelete('cascade');
+        });
+        
+        Schema::create('donation_offers', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('surname');
+            $table->string('email');
+            $table->integer('created_by')->nullable();
+            $table->integer('country_id')->nullable();
+            $table->text('contact_trough_voip')->nullable();
+            $table->text('language_spoken')->nullable();
+            $table->integer('offer_kind')->nullable();
+            $table->integer('gift_kind')->nullable();
+            $table->text('gift_description')->nullable();
+            $table->integer('volunteer_kind')->nullable();
+            $table->text('volunteer_description')->nullable();
+            $table->text('other_description')->nullable();
+            $table->text('suggestions')->nullable();
+            $table->integer('status')->default(1);
+            $table->timestamps();
+        });
+        
+        
     }
 
     /**
@@ -268,7 +300,6 @@ class CreateAllDatabaseTables extends Migration
         Schema::dropIfExists('password_resets');
         Schema::dropIfExists('teachers');
         Schema::dropIfExists('events');
-        Schema::dropIfExists('event_categories');
         Schema::dropIfExists('event_repetitions');
         Schema::dropIfExists('event_venues');
         Schema::dropIfExists('continents');
@@ -296,5 +327,11 @@ class CreateAllDatabaseTables extends Migration
         Schema::dropIfExists('category_translations');
         Schema::dropIfExists('categories');
         
+        Schema::table('event_category_translations', function (Blueprint $table) {
+            $table->dropForeign('event_category_translations_event_category_id_foreign');
+        });
+        Schema::dropIfExists('event_category_translations');
+        Schema::dropIfExists('event_categories');
+        Schema::dropIfExists('donation_offers');
     }
 }

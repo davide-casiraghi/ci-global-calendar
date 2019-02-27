@@ -6,6 +6,7 @@ use App\Teacher;
 use App\Country;
 use App\User;
 use App\Event;
+use App\EventRepetition;
 use App\EventCategory;
 
 use Illuminate\Support\Facades\DB;
@@ -63,13 +64,15 @@ class TeacherController extends Controller
                 ->when($searchCountry, function ($query, $searchCountry) {
                     return $query->where('country_id', '=', $searchCountry);
                 })
+                ->orderBy('name')
                 ->paginate(20);
         }
         else
-            $teachers = Teacher::latest()
-            ->when($loggedUser->id, function ($query, $loggedUserId) {
+            $teachers = Teacher::
+            when($loggedUser->id, function ($query, $loggedUserId) {
                 return $query->where('created_by', $loggedUserId);
             })
+            ->orderBy('name')
             ->paginate(20);
 
         return view('teachers.index',compact('teachers'))
@@ -87,7 +90,7 @@ class TeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        $countries = Country::pluck('name', 'id');
+        $countries = Country::getCountries();
         $users = User::pluck('name', 'id');
         $authorUserId = $this->getLoggedAuthorId();
 
@@ -143,20 +146,16 @@ class TeacherController extends Controller
             return EventCategory::orderBy('name')->pluck('name', 'id');
         });
         
-        // Get lastest event repetitions
+        // Get for each event the first event repetition in the near future (JUST THE QUERY)
             date_default_timezone_set('Europe/Rome');
             $searchStartDate = date('Y-m-d', time()); // search start from today's date
-            
-            $lastestEventsRepetitions = DB::table('event_repetitions')
-                ->selectRaw('event_id, MIN(id) AS rp_id, start_repeat, end_repeat')
-                ->where('event_repetitions.start_repeat', '>=',$searchStartDate)
-                ->groupBy('event_id');
-        
+            $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
+                
         // Get the events where this teacher is teaching to
         //DB::enableQueryLog();
             $eventsTeacherWillTeach = $teacher->events()
                                               ->select('events.title','events.category_id','events.slug','events.sc_venue_name','events.sc_country_name','events.sc_city_name','events.sc_teachers_names','event_repetitions.start_repeat','event_repetitions.end_repeat')
-                                              ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) use ($searchStartDate) {
+                                              ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
                                                     $join->on('events.id', '=', 'event_repetitions.event_id');
                                                 })
                                               ->orderBy('event_repetitions.start_repeat', 'asc')
@@ -179,7 +178,7 @@ class TeacherController extends Controller
     public function edit(Teacher $teacher){
         $authorUserId = $this->getLoggedAuthorId();
         $users = User::pluck('name', 'id');
-        $countries = Country::pluck('name', 'id');
+        $countries = Country::getCountries();
 
         return view('teachers.edit',compact('teacher'))
             ->with('countries', $countries)
@@ -199,7 +198,7 @@ class TeacherController extends Controller
         request()->validate([
             'name' => 'required'
         ]);
-
+        //dd($request->profile);
         //$teacher->update($request->all());
         $this->saveOnDb($request, $teacher);
 
@@ -243,11 +242,14 @@ class TeacherController extends Controller
                  $imageName = $imageFile->hashName();
                  $imageSubdir = "teachers_profile";
                  $imageWidth = "968";
-                 $thumbWidth = "345";
+                 $thumbWidth = "300";
                  
                  $this->uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);    
                  $teacher->profile_picture = $imageName;
-            }
+             }
+             else{
+                 $teacher->profile_picture = $request->profile_picture;
+             }
 
          $teacher->website = $request->get('website');
          $teacher->facebook = $request->get('facebook');
@@ -266,7 +268,7 @@ class TeacherController extends Controller
      * @return view
      */
     public function modal(){
-        $countries = Country::pluck('name', 'id');
+        $countries = Country::getCountries();
         return view('teachers.modal')->with('countries', $countries);
     }
 

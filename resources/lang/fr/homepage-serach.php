@@ -4,7 +4,7 @@ return [
     'contact_improvisation' => 'Contact Improvisation',
     'global_calendar' => 'Calendrier Global',
     'find_information' => 'Trouver des informations sur le Contact Improvisation à l\'international (cours, jams, ateliers, festivals et plus encore)',
-    'under_costruction' => 'SITE EN COURS DE CREATION, nous sommes encore en phase de test. Mise en ligne définitive prévue pour janvier 2019',
+    'under_costruction' => 'SITE EN COURS DE CREATION, nous sommes encore en phase de test. Mise en ligne définitive prévue pour Avril 2, 2019',
     'criteria' => 'Utiliser un ou plusieurs critère-s de recherche',
     'what' => 'Quoi',
     'when' => 'Quand',

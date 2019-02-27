@@ -1,6 +1,14 @@
 .datepicker {
     td, th {
-        width: 1.5em;
-        height: 1.5em;
+        /*width: 1.5em;
+        height: 1.5em;*/
+        
+    }
+    td{
+        padding: 3px;
+        @media screen and (max-width: 400px){
+            padding: 10px!important;
+        }
+
     }
 }

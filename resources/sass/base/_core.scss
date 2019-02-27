@@ -1,6 +1,15 @@
 body{
     
-    font-family: Avenir Next,Arial,Helvetica,sans-serif;
+    /*font-family: Avenir Next,Arial,Helvetica,sans-serif;*/
+    font-family: "SF Pro Text Regular", Helvetica, sans-serif;
+    letter-spacing: -0.022em;
+    font-size: 16px;
+    line-height: 1.47059;
+    font-weight: 400;
+    color: $darkest-gray;
+    
+    -moz-osx-font-smoothing: grayscale;   /* Firefox */
+     -webkit-font-smoothing: antialiased; /* WebKit  */
     
     @media screen and (max-width: 400px) {	 // Just for MOBILE (to remove the 6rem that compensate the sticky navbar)
         margin-bottom: 0!important;
@@ -8,16 +17,80 @@ body{
     
     h1{
         margin: 2rem 0 3rem 0;
+        
     }
     h2{
         margin: 0 0 2rem 0;
+        font-family: "SF Pro Display", Helvetica, sans-serif;
+        font-size: 40px;
+        line-height: 1.1;
+        font-weight: 600;
+        letter-spacing: 0em;
     }
-    hr{
-        margin: 2rem 0;
+    h3{
+        font-family: "SF Pro Display", Helvetica, sans-serif;
+        font-size: 32px;
+        line-height: 1.125;
+        font-weight: 600;
+        letter-spacing: 0.0328em;
+        color: $darkest-gray;
+    }
+    h4{
+        font-family: "SF Pro Display", Helvetica, sans-serif;
+        font-size: 24px;
+        line-height: 1.125;
+        font-weight: 600;
+        letter-spacing: 0.004em;
+    }
+    h5{
+        font-family: "SF Pro Display Semibold", Helvetica, sans-serif;
+        font-size: 18px;
+        letter-spacing: 0.004em;
+        margin: 0 0 1rem 0;
+    }
+    h6{
+        
     }
     form{
         label{
             font-weight: bold;
+        }
+    }
+    blockquote{
+        border-left:5px solid #E7C297;
+        background:#FFD4A1;
+        text-align:left;
+        padding: 1.2rem 1.2rem 0.3rem 4rem;
+        
+        position: relative;
+        
+        &:before {
+            font-family: "Font Awesome 5 Pro";
+            content: '\f0a4'; /*quote left icon*/
+            display: block;
+
+            position: absolute;
+            left: 1rem;
+            top: 1.5rem;
+            color: #7a7a7a;
+            font-size: 2rem;
+        }
+    }
+    pre{
+        background: rgba(238, 238, 238, 0.35);
+        border-radius: 3px;
+        padding: 10px;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
+        line-height: 1.6;
+    }
+    table{
+        tr{
+            th, td{
+                border: 1px solid #dee0df;
+                padding: 10px;
+                text-align: left;
+            }
         }
     }
     .alternateColors{

@@ -43,4 +43,5 @@ return [
     'forgot_your_password' => 'Forgot your password?',
     'message' => 'Message',
     'user_name' => 'User name',
+    'surname' => 'Surname',
 ];

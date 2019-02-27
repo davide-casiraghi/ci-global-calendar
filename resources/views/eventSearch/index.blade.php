@@ -30,15 +30,21 @@
         
 
     {{-- HI-Light for the donations --}}
-    @include('partials.hilight', [
-        'title' =>  'Dear users: ',
-        'text' =>  'The CI Global Calendar is a non-profit project to support the CI global community. To protect our independence we don’t want to run ads. We take no government funds.
-                      If everyone reading this message gave the same amount that offer for a jam, our fundraiser would be done within a week.
-                      If the calendar is useful to you take one minute to help us keep it online another year.
-                      Thank you',
-          'linkText' => 'Donate',
-          'linkUrl'  => '/post/donate',
-    ])
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                @include('partials.hilight', [
+                    'title' =>  'Dear users: ',
+                    'text' =>  'The CI Global Calendar is a non-profit project to support the CI Global Community. 
+                                To protect our independence we don’t want to run ads. We have no governmental funds. 
+                                If the calendar is useful to you take one minute to help us keep it online another year. If everyone reading this message would give the same amount that you offer for a jam, our fundraiser would be done within a week. Thank you!',
+                      'linkText' => 'Donate',
+                      'linkUrl'  => '/post/donate',
+                ])
+            </div>
+        </div>
+    </div>
+    
     
 
 
@@ -127,7 +133,14 @@
                               'mobileNativeMenu' => false,
                         ])
                         
-                        <p class="mt-3"><strong class="text-white">@lang('homepage-serach.search_by_venue')</strong></p>
+                        @include('partials.forms.input', [
+                              'title' => '',
+                              'name' => 'city_name',
+                              'placeholder' => __('homepage-serach.search_by_city'),
+                              'value' => $searchCity
+                        ])
+                        
+                        {{--<p class="mt-3"><strong class="text-white">@lang('homepage-serach.search_by_venue')</strong></p>--}}
                         @include('partials.forms.input', [
                               'title' => '',
                               'name' => 'venue_name',

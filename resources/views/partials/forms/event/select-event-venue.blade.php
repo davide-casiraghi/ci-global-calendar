@@ -1,6 +1,6 @@
 
 <div class="row">
-    <div class="col-12 col-sm-6 col-md-6">
+    <div class="col-12">
         <div class="form-group" >
             <label>@lang('views.venues')</label>
             <select name="venue_id" class="selectpicker" title="@lang('views.select_one')" data-live-search="true">
@@ -10,7 +10,7 @@
             </select>
         </div>
     </div>
-    <div class="col-12 col-sm-6 col-md-6 mt-0 mt-sm-2">
-        <button type="button" data-toggle="modal" class="btn btn-primary mb-3 mb-sm-0 mt-sm-4" data-remote="{{ route('eventVenues.modal') }}" data-target=".modalFrame"><i class="fa fas fa-plus-circle "></i> @lang('views.create_new_venue')</button>
+    <div class="col-12 mb-1">
+        <button type="button" data-toggle="modal" class="btn btn-primary float-right" data-remote="{{ route('eventVenues.modal') }}" data-target=".modalFrame"><i class="fa fas fa-plus-circle "></i> @lang('views.create_new_venue')</button>
     </div>
 </div>

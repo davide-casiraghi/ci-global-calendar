@@ -7,7 +7,13 @@
     @import 'initialize/fonts';
     @import 'initialize/date';
     @import 'initialize/time';
-    @import 'initialize/pagination';
+    @import 'initialize/shadows';
+    @import 'initialize/colors';
+    @import 'initialize/max_widths';
+    @import 'initialize/text';
+    @import 'initialize/buttons';
+    @import 'initialize/badges';
+    @import 'initialize/lists';
 
 // Bootstrap
     @import '~bootstrap/scss/bootstrap';
@@ -25,6 +31,7 @@
     @import "~bootstrap-datepicker/dist/css/bootstrap-datepicker.css";
     @import "~bootstrap-timepicker/css/bootstrap-timepicker.css";
     @import "~cookieconsent/build/cookieconsent.min.css";
+    @import "~prismjs/themes/prism.css";
 
 // Base
     @import 'base/core';
@@ -32,6 +39,7 @@
     @import 'base/language_menu';
     @import 'base/footer';
     @import 'base/forms';
+    @import 'initialize/pagination';
 
 // Plugins
     @import 'plugins/accordion';

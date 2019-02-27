@@ -27,11 +27,13 @@ use Validator;
 
 class EventController extends Controller
 {
+    /***************************************************************************/
     /* Restrict the access to this resource just to logged in users except show view */
     public function __construct(){
         $this->middleware('auth', ['except' => ['show','reportMisuse','reportMisuseThankyou','mailToOrganizer','mailToOrganizerSent','eventBySlug', 'eventBySlugAndRepetition','EventsListByCountry']]);
     }
     
+    /***************************************************************************/
     /**
      * Display a listing of the resource.
      *
@@ -316,7 +318,7 @@ class EventController extends Controller
 
     function saveEventRepetitions($request, $event){
 
-        $this->deletePreviousRepetitions($event->id);
+        Event::deletePreviousRepetitions($event->id);
         
         // Saving repetitions - If it's a single event will be stored with just one repetition
             $timeStart = date("H:i:s", strtotime($request->get('time_start')));
@@ -404,7 +406,6 @@ class EventController extends Controller
     }
 
     /***************************************************************************/
-    
     /**
      * Save all the weekly repetitions inthe event_repetitions table
      * useful: http://thisinterestsme.com/php-get-first-monday-of-month/
@@ -486,7 +487,6 @@ class EventController extends Controller
     }
 
     /***************************************************************************/
-    
     /**
      * Save event repetition in the DB
      *
@@ -507,19 +507,6 @@ class EventController extends Controller
     }
 
     /***************************************************************************/
-    
-    /**
-     * Delete all the previous repetitions from the event_repetitions table
-     *
-     * @param  $eventId - Event id
-     * @return none
-     */
-    function deletePreviousRepetitions($eventId){
-        DB::table('event_repetitions')->where('event_id', $eventId)->delete();
-    }
-
-    /***************************************************************************/
-    
     /**
      * Send the Misuse mail
      *
@@ -561,8 +548,7 @@ class EventController extends Controller
 
     }
 
-    // **********************************************************************
-    
+    /***************************************************************************/
     /**
      * Send the mail to the Organizer (from the event modal in the event show view)
      *
@@ -583,7 +569,7 @@ class EventController extends Controller
         $message['event_id'] = $request->event_id;
 
          //Mail::to($request->user())->send(new ReportMisuse($report));
-         // aaaaaaaa
+    
          foreach ($eventOrganizers as $eventOrganizer){
             Mail::to($eventOrganizer->email)->send(new ContactOrganizer($message));
         };
@@ -592,8 +578,7 @@ class EventController extends Controller
 
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Display the thank you view after the mail to the organizer is sent (called by /mailToOrganizer/sent route)
      *
@@ -605,8 +590,7 @@ class EventController extends Controller
         return view('emails.contact.organizer-sent');
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Display the thank you view after the misuse report mail is sent (called by /misuse/thankyou route)
      *
@@ -619,7 +603,6 @@ class EventController extends Controller
     }
 
     /***************************************************************************/
-    
     /**
      * Set the Event attributes about repeating before store or update (repeat until field and multiple days)
      *
@@ -657,8 +640,7 @@ class EventController extends Controller
         return $event;
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Generate the HTML of the monthly select dropdown - inspired by - https://www.theindychannel.com/calendar
      * - Called by the AJAX in the event repeat view -
@@ -743,8 +725,7 @@ class EventController extends Controller
         return $onMonthlyKindSelect;
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * GET number of the specified weekday in this month (1 for the first)
      *
@@ -776,8 +757,7 @@ class EventController extends Controller
         return $weeks;
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * GET number of week from the end of the month - https://stackoverflow.com/questions/5853380/php-get-number-of-week-for-month
      * Week of the month = Week of the year - Week of the year of first day of month + 1
@@ -811,10 +791,11 @@ class EventController extends Controller
                 $weekFromTheEnd = 5;
                 break;
         }
+        
         return $weekFromTheEnd;
     }
 
-    // **********************************************************************
+    /***************************************************************************/
     /**
      * GET number of day from the end of the month
      *
@@ -829,14 +810,14 @@ class EventController extends Controller
         return $dayDifference;
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * GET the ordinal indicator - for the day of the month
      *
      * @param  int $number
      * @return string $ret - the ordinal indicator (st, nd, rd, th)
      */
+     
     function getOrdinalIndicator($number){
         switch ($number) {
             case  1:
@@ -852,30 +833,30 @@ class EventController extends Controller
                 $ret = "th";
                 break;
         }
+        
         return $ret;
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Decode the event repeat_weekly_on field - used in event.show
      *
-     * @param  string $number
+     * @param  string $repeatWeeklyOn
      * @return string $ret - a string like "Monday"
      */
 
     function decodeRepeatWeeklyOn($repeatWeeklyOn){
         $weekdayArray = ['','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
         $ret = $weekdayArray[$repeatWeeklyOn];
+        
         return $ret;
     }
 
-    // **********************************************************************
-
+    /***************************************************************************/
     /**
      * Decode the event on_monthly_kind field - used in event.show
      *
-     * @param  string $number
+     * @param  string $onMonthlyKindCode - 
      * @return string $ret - a string like "the 4th to last Thursday of the month"
      */
 
@@ -922,21 +903,20 @@ class EventController extends Controller
         }
 
         return $ret;
-
     }
 
     // **********************************************************************
-
     /**
      * Save/Update the record on DB
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Event $event 
      * @return string $ret - the ordinal indicator (st, nd, rd, th)
      */
 
     function saveOnDb($request, $event){
 
-        $countries = Country::pluck('name', 'id');
+        $countries = Country::getCountries();
         $teachers = Teacher::pluck('name', 'id');
 
         $venue = DB::table('event_venues')
@@ -1025,7 +1005,6 @@ class EventController extends Controller
     }
 
     // **********************************************************************
-
     /**
      * Get the current logged user id
      *
@@ -1042,8 +1021,8 @@ class EventController extends Controller
     /**
      * Get creator email
      *
-     * @param  none
-     * @return array $ret - the array with the organizers emails
+     * @param  int $created_by
+     * @return array $ret - the array with the creator emails
      */
     function getCreatorEmail($created_by){
     
@@ -1061,20 +1040,15 @@ class EventController extends Controller
     /**
      * Return the event by SLUG. (eg. http://websitename.com/event/xxxx)
      *
-     * @param  \App\Event  $post
+     * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
 
     public function eventBySlug($slug){
         
-        $event = Event::
-                where('slug', $slug)
-                ->first();
+        $event = Event::where('slug', $slug)->first();
 
-        $firstRpDates = DB::table('event_repetitions')
-                ->select('start_repeat','end_repeat')
-                ->where('event_id',$event->id)
-                ->first();
+        $firstRpDates = Event::getFirstEventRpDatesByEventId($event->id);
                     
         //dd($event);
         return $this->show($event, $firstRpDates);
@@ -1088,29 +1062,24 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function eventBySlugAndRepetition($slug, $repetition){
-        
-        $event = Event::
-                        where('slug', $slug)
-                        ->first();
+    public function eventBySlugAndRepetition($slug, $repetitionId){
                 
-        $firstRpDates = DB::table('event_repetitions')
-                            ->select('start_repeat','end_repeat')
-                            ->where('id',$repetition)
-                            ->first();
+        $event = Event::where('slug', $slug)->first();
+        $firstRpDates = Event::getFirstEventRpDatesByRepetitionId($repetitionId);  
         
+        /*$firstRpDates = DB::table('event_repetitions')
+                            ->select('start_repeat','end_repeat')
+                            ->where('id',$repetitionId)
+                            ->first();*/
+                      
         // If not found get the first repetion of the event in the future.
-            if (!$firstRpDates){
-                $firstRpDates = DB::table('event_repetitions')
-                        ->select('start_repeat','end_repeat')
-                        ->where('event_id',$event->id)
-                        ->first();
+            if (!$firstRpDates){        
+                $firstRpDates = Event::getFirstEventRpDatesByEventId($event->id);
             }
         
         return $this->show($event, $firstRpDates);
     }
-    
-    
+
     /***************************************************************************/
 
 }

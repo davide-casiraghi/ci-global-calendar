@@ -65,3 +65,4 @@ const app = new Vue({
 	import 'jquery.counterup';
     import 'sortablejs';
     import 'jquery.cookie';
+    import 'prismjs';
