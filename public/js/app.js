@@ -7329,7 +7329,7 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function($) {//
+/* WEBPACK VAR INJECTION */(function($, jQuery) {//
 //
 //
 //
@@ -7372,7 +7372,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     optionCountries: {
-      // in the console - $vm0.$children[0].$options.parent.$children[0].optionCountries
+      // in the console - $vm0.$children[0].$options.parent.$children[0].optionCountries 
+      //    or - $vm0.$options.parent.$children[0].optionCountries
       get: function get() {
         console.log("GET");
         return this.countries;
@@ -7383,6 +7384,9 @@ __webpack_require__.r(__webpack_exports__);
 
         this.countries = newValue;
         $("#country_id").selectpicker('refresh');
+        setTimeout(function () {
+          jQuery('.selectpicker').selectpicker('refresh');
+        }, 500);
       }
     }
   },
@@ -7445,7 +7449,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
 

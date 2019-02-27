@@ -42,7 +42,8 @@
             }
        },
        computed: {
-           optionCountries:{   // in the console - $vm0.$children[0].$options.parent.$children[0].optionCountries
+           optionCountries:{   // in the console - $vm0.$children[0].$options.parent.$children[0].optionCountries 
+                                        //    or - $vm0.$options.parent.$children[0].optionCountries
                get: function () {
                    console.log("GET");
                 return this.countries;
@@ -53,6 +54,10 @@
                     //this.optionCountries = newValue; 
                     this.countries = newValue;
                     $("#country_id").selectpicker('refresh');
+                    
+                    setTimeout(() => {
+                      jQuery('.selectpicker').selectpicker('refresh');
+                    }, 500);
                 }
             } 
         },
