@@ -9,7 +9,7 @@
         </div>
         
         <div class="form-group country_id">    
-            <select name="country_id" v-model="country_selected" id="country_id" class="selectpicker" data-live-search="true" title="Pick a country">
+            <select name="country_id" v-model="country_selected" id="country_id" class="selectpicker" data-live-search="true" title="Pick a country" v-on:change="changeContinent(country_selected)">
                 <option  v-for="(country, index) in optionCountries" v-bind:value="country.id" >
                     {{ country.name }}
                 </option>  
@@ -56,7 +56,11 @@
        
        
        methods: {
-           // https://github.com/axios/axios#request-config
+               
+            /**
+             * Load continents and countries from /api/continents API trough axios - https://github.com/axios/axios#request-config
+             * Populate the continents array for the continents dropdown
+             */
             loadData: function() {  // In the console - $vm0.$children[0].$options.parent.$children[0].loadData()
                 axios.get('/api/continents')
                 .then((response) => {
@@ -73,6 +77,10 @@
                     // always executed
                 });
             },
+            /**
+             * Populate the countries array for the countries dropdown 
+             * this function is also called every time the continents dropdown change
+             */
             getAllCountries: function(continents) {
                 //eg: //this.countries[1] = {name: 'apple', price: '10'};
                 //console.log(this.continent_selected);
@@ -86,7 +94,7 @@
                     if (!this.continent_selected){
                         //console.log("No Continent selected");
                         for (var key in continents[i].active_countries) {
-                            this.countries[j] = {id: continents[i].active_countries[key], name: key};
+                            this.countries[j] = {id: continents[i].active_countries[key], name: key, continent_id: continents[i].id};
                             j++;
                         }
                     }
@@ -102,6 +110,14 @@
                         this.optionCountries = this.countries;
                     }
                 }
+            },
+            
+            /**
+             * Select the continent tht correspond to the selected country 
+             * This function is called every time the countries dropdown change
+             */
+            changeContinent(country){
+                console.log(country);
             }
         },
        

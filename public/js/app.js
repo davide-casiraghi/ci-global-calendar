@@ -7386,7 +7386,10 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    // https://github.com/axios/axios#request-config
+    /**
+     * Load continents and countries from /api/continents API trough axios - https://github.com/axios/axios#request-config
+     * Populate the continents array for the continents dropdown
+     */
     loadData: function loadData() {
       var _this = this;
 
@@ -7403,6 +7406,11 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function () {// always executed
       });
     },
+
+    /**
+     * Populate the countries array for the countries dropdown 
+     * this function is also called every time the continents dropdown change
+     */
     getAllCountries: function getAllCountries(continents) {
       //eg: //this.countries[1] = {name: 'apple', price: '10'};
       //console.log(this.continent_selected);
@@ -7416,7 +7424,8 @@ __webpack_require__.r(__webpack_exports__);
           for (var key in continents[i].active_countries) {
             this.countries[j] = {
               id: continents[i].active_countries[key],
-              name: key
+              name: key,
+              continent_id: continents[i].id
             };
             j++;
           }
@@ -7436,6 +7445,14 @@ __webpack_require__.r(__webpack_exports__);
           this.optionCountries = this.countries;
         }
       }
+    },
+
+    /**
+     * Select the continent tht correspond to the selected country 
+     * This function is called every time the countries dropdown change
+     */
+    changeContinent: function changeContinent(country) {
+      console.log(country);
     }
   }
 });
@@ -46026,19 +46043,24 @@ var render = function() {
             title: "Pick a country"
           },
           on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.country_selected = $event.target.multiple
-                ? $$selectedVal
-                : $$selectedVal[0]
-            }
+            change: [
+              function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.country_selected = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              },
+              function($event) {
+                _vm.changeContinent(_vm.country_selected)
+              }
+            ]
           }
         },
         _vm._l(_vm.optionCountries, function(country, index) {
