@@ -17,21 +17,16 @@
         </div>
         
     </div>
-    
 </template>
 
 <script>
     export default {
-        
         mounted() {
             console.log('Component mounted.');
             this.loadData();
             console.log('Loaded datas.');
             console.log(this.continents);
             console.log(this.countries);
-        },
-        created(){
-            //this.loadData();
         },
         data() {
             return {
@@ -45,16 +40,13 @@
            optionCountries:{   // in the console - $vm0.$children[0].$options.parent.$children[0].optionCountries 
                                         //    or - $vm0.$options.parent.$children[0].optionCountries
                get: function () {
-                   console.log("GET");
+                   //console.log("GET");
                 return this.countries;
                 },
                 set: function (newValue) {
-                    console.log("SET");
-                    console.log(newValue);
-                    //this.optionCountries = newValue; 
+                    //console.log("SET");
+                    //console.log(newValue);
                     this.countries = newValue;
-                    $("#country_id").selectpicker('refresh');
-                    
                     setTimeout(() => {
                       jQuery('.selectpicker').selectpicker('refresh');
                     }, 500);
@@ -70,7 +62,6 @@
                 .then((response) => {
                     // handle success
                     //console.log(response.data.data);
-                    //now this refers to your vue instance and this can access you data property
                     this.continents = response.data.data;
                     this.getAllCountries(this.continents);
                 })
@@ -84,9 +75,8 @@
             },
             getAllCountries: function(continents) {
                 //eg: //this.countries[1] = {name: 'apple', price: '10'};
-                console.log(this.continent_selected);
+                //console.log(this.continent_selected);
                 //console.log(continents);
-                console.log(continents);
                 
                 var j = 0;
                 this.countries = [];
@@ -94,14 +84,14 @@
                 for (var i = 0, len = continents.length; i < len; i++) {
                     
                     if (!this.continent_selected){
-                        console.log("No Continent selected");
+                        //console.log("No Continent selected");
                         for (var key in continents[i].active_countries) {
                             this.countries[j] = {id: continents[i].active_countries[key], name: key};
                             j++;
                         }
                     }
                     else{
-                        console.log("continent selected: "+ this.continent_selected);
+                        //console.log("continent selected: "+ this.continent_selected);
                         for (var key in continents[i].active_countries) {
                             if (continents[i].id == this.continent_selected){
                                 console.log("THE SAME");
@@ -109,10 +99,8 @@
                                 j++;
                             }
                         }
-                        //this.options = this.countries;
                         this.optionCountries = this.countries;
                     }
-                    
                 }
             }
         },

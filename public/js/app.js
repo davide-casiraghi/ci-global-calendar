@@ -7329,8 +7329,7 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function($, jQuery) {//
-//
+/* WEBPACK VAR INJECTION */(function(jQuery) {//
 //
 //
 //
@@ -7359,8 +7358,6 @@ __webpack_require__.r(__webpack_exports__);
     console.log(this.continents);
     console.log(this.countries);
   },
-  created: function created() {//this.loadData();
-  },
   data: function data() {
     return {
       continents: [],
@@ -7375,15 +7372,13 @@ __webpack_require__.r(__webpack_exports__);
       // in the console - $vm0.$children[0].$options.parent.$children[0].optionCountries 
       //    or - $vm0.$options.parent.$children[0].optionCountries
       get: function get() {
-        console.log("GET");
+        //console.log("GET");
         return this.countries;
       },
       set: function set(newValue) {
-        console.log("SET");
-        console.log(newValue); //this.optionCountries = newValue; 
-
+        //console.log("SET");
+        //console.log(newValue);
         this.countries = newValue;
-        $("#country_id").selectpicker('refresh');
         setTimeout(function () {
           jQuery('.selectpicker').selectpicker('refresh');
         }, 500);
@@ -7399,7 +7394,6 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/api/continents').then(function (response) {
         // handle success
         //console.log(response.data.data);
-        //now this refers to your vue instance and this can access you data property
         _this.continents = response.data.data;
 
         _this.getAllCountries(_this.continents);
@@ -7411,16 +7405,14 @@ __webpack_require__.r(__webpack_exports__);
     },
     getAllCountries: function getAllCountries(continents) {
       //eg: //this.countries[1] = {name: 'apple', price: '10'};
-      console.log(this.continent_selected); //console.log(continents);
-
-      console.log(continents);
+      //console.log(this.continent_selected);
+      //console.log(continents);
       var j = 0;
       this.countries = [];
 
       for (var i = 0, len = continents.length; i < len; i++) {
         if (!this.continent_selected) {
-          console.log("No Continent selected");
-
+          //console.log("No Continent selected");
           for (var key in continents[i].active_countries) {
             this.countries[j] = {
               id: continents[i].active_countries[key],
@@ -7429,8 +7421,7 @@ __webpack_require__.r(__webpack_exports__);
             j++;
           }
         } else {
-          console.log("continent selected: " + this.continent_selected);
-
+          //console.log("continent selected: "+ this.continent_selected);
           for (var key in continents[i].active_countries) {
             if (continents[i].id == this.continent_selected) {
               console.log("THE SAME");
@@ -7440,8 +7431,7 @@ __webpack_require__.r(__webpack_exports__);
               };
               j++;
             }
-          } //this.options = this.countries;
-
+          }
 
           this.optionCountries = this.countries;
         }
@@ -7449,7 +7439,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
 
