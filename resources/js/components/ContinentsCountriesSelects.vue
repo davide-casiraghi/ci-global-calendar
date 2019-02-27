@@ -10,9 +10,9 @@
         
         <div class="form-group country_id">    
             <select name="country_id" v-model="country_selected" id="country_id" class="selectpicker" data-live-search="true" title="Pick a country">
-                <option  v-for="(country, index) in countries" v-bind:value="country.id" >
+                <option  v-for="(country, index) in optionCountries" v-bind:value="country.id" >
                     {{ country.name }}
-                </option>
+                </option>  
             </select>
         </div>
         
@@ -42,14 +42,16 @@
             }
        },
        computed: {
-           options:{   // in the console - $vm0.$children[0].$options.parent.$children[0].options
+           optionCountries:{   // in the console - $vm0.$children[0].$options.parent.$children[0].optionCountries
                get: function () {
                    console.log("GET");
                 return this.countries;
                 },
                 set: function (newValue) {
                     console.log("SET");
-                    this.countries = newValue; 
+                    console.log(newValue);
+                    //this.optionCountries = newValue; 
+                    this.countries = newValue;
                 }
             } 
         },
@@ -101,7 +103,8 @@
                                 j++;
                             }
                         }
-                        this.options = this.countries;
+                        //this.options = this.countries;
+                        this.optionCountries = this.countries;
                     }
                     
                 }

@@ -7364,19 +7364,23 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       continents: [],
+      // in the console - $vm0.$children[0].$options.parent.$children[0].countries
       countries: [],
       continent_selected: '',
       country_selected: ''
     };
   },
   computed: {
-    options: {
+    optionCountries: {
+      // in the console - $vm0.$children[0].$options.parent.$children[0].optionCountries
       get: function get() {
         console.log("GET");
         return this.countries;
       },
       set: function set(newValue) {
         console.log("SET");
+        console.log(newValue); //this.optionCountries = newValue; 
+
         this.countries = newValue;
       }
     }
@@ -7386,6 +7390,7 @@ __webpack_require__.r(__webpack_exports__);
     loadData: function loadData() {
       var _this = this;
 
+      // In the console - $vm0.$children[0].$options.parent.$children[0].loadData()
       axios.get('/api/continents').then(function (response) {
         // handle success
         //console.log(response.data.data);
@@ -7430,9 +7435,10 @@ __webpack_require__.r(__webpack_exports__);
               };
               j++;
             }
-          }
+          } //this.options = this.countries;
 
-          this.options = this.countries;
+
+          this.optionCountries = this.countries;
         }
       }
     }
@@ -46039,7 +46045,7 @@ var render = function() {
             }
           }
         },
-        _vm._l(_vm.countries, function(country, index) {
+        _vm._l(_vm.optionCountries, function(country, index) {
           return _c("option", { domProps: { value: country.id } }, [
             _vm._v(
               "\n                " + _vm._s(country.name) + "\n            "
@@ -58132,6 +58138,7 @@ $(function () {
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue"));
 Vue.component('continents-countries-selects', __webpack_require__(/*! ./components/ContinentsCountriesSelects.vue */ "./resources/js/components/ContinentsCountriesSelects.vue").default);
 window.myApp = new Vue({
+  // In this way the object myApp is accessible in the browser console for debugging purposes
   el: '#app'
 }); // Import Javascript Plugins
 
