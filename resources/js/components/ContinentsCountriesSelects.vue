@@ -35,26 +35,29 @@
         },
         data() {
             return {
-                continents: [],
+                continents: [],  // in the console - $vm0.$children[0].$options.parent.$children[0].countries
                 countries: [],
                 continent_selected: '',
                 country_selected: '',
             }
        },
-       /*computed: {
-           get: function () {
-            return this.countries;
-            },
-            set: function (newValue) {
-                this.countries = newValue; 
-            }
-           
-        },*/
+       computed: {
+           options:{   // in the console - $vm0.$children[0].$options.parent.$children[0].options
+               get: function () {
+                   console.log("GET");
+                return this.countries;
+                },
+                set: function (newValue) {
+                    console.log("SET");
+                    this.countries = newValue; 
+                }
+            } 
+        },
        
        
        methods: {
            // https://github.com/axios/axios#request-config
-            loadData: function() {
+            loadData: function() {  // In the console - $vm0.$children[0].$options.parent.$children[0].loadData()
                 axios.get('/api/continents')
                 .then((response) => {
                     // handle success

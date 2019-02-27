@@ -7369,16 +7369,18 @@ __webpack_require__.r(__webpack_exports__);
       country_selected: ''
     };
   },
-
-  /*computed: {
-      get: function () {
-       return this.countries;
-       },
-       set: function (newValue) {
-           this.countries = newValue; 
-       }
-      
-   },*/
+  computed: {
+    options: {
+      get: function get() {
+        console.log("GET");
+        return this.countries;
+      },
+      set: function set(newValue) {
+        console.log("SET");
+        this.countries = newValue;
+      }
+    }
+  },
   methods: {
     // https://github.com/axios/axios#request-config
     loadData: function loadData() {
@@ -58129,7 +58131,7 @@ $(function () {
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue"));
 Vue.component('continents-countries-selects', __webpack_require__(/*! ./components/ContinentsCountriesSelects.vue */ "./resources/js/components/ContinentsCountriesSelects.vue").default);
-var app = new Vue({
+window.myApp = new Vue({
   el: '#app'
 }); // Import Javascript Plugins
 
