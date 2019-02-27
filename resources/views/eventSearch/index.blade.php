@@ -127,7 +127,7 @@
                         {{-- :activeContinentCountriesTree="{{ json_encode($activeContinentsCountries) }}" --}}
                         <continents-countries-selects></continents-countries-selects>
 
-                        
+                        {{--
                         @include('partials.forms.select', [
                               'title' =>  '',
                               'name' => 'continent_id',
@@ -146,7 +146,7 @@
                               'seleted' => $searchCountry,
                               'liveSearch' => 'true',
                               'mobileNativeMenu' => false,
-                        ])
+                        ])--}}
                         
                         @include('partials.forms.input', [
                               'title' => '',

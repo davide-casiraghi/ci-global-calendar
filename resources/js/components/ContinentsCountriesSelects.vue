@@ -121,8 +121,8 @@
                     let obj = this.countries.find(o => o.id === country_id);
                 
                 // Then pick its continent_id
-                    //console.log(obj.continent_id);
-                    //console.log(this.continent_selected);
+                    console.log(obj.continent_id);
+                    console.log(this.continent_selected);
                     
                     if (obj.continent_id != this.continent_selected){
                         this.continent_selected = obj.continent_id;
