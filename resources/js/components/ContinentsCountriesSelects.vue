@@ -102,7 +102,6 @@
                         //console.log("continent selected: "+ this.continent_selected);
                         for (var key in continents[i].active_countries) {
                             if (continents[i].id == this.continent_selected){
-                                console.log("THE SAME");
                                 this.countries[j] = {id: continents[i].active_countries[key], name: key};
                                 j++;
                             }
@@ -113,7 +112,7 @@
             },
             
             /**
-             * Select the continent tht correspond to the selected country 
+             * Select the continent that correspond to the selected country 
              * This function is called every time the countries dropdown change
              */
             changeContinent(country){
