@@ -124,9 +124,9 @@
                         </p>
                         
                         
-                        {{--<continents-countries-selects v-bind:select_a_continent_placeholder="aaa" v-bind:select_a_country_placeholder="bbb"></continents-countries-selects>--}}
-                        <continents-countries-selects select_a_continent_placeholder="@lang('homepage-serach.select_a_continent')" select_a_country_placeholder="@lang('homepage-serach.select_a_country')" continent-selected="{{$searchContinent}}" country-selected="{{$searchCountry}}"></continents-countries-selects>
-                        {{--
+                        
+                        {{--<continents-countries-selects select_a_continent_placeholder="@lang('homepage-serach.select_a_continent')" select_a_country_placeholder="@lang('homepage-serach.select_a_country')" continent-selected="{{$searchContinent}}" country-selected="{{$searchCountry}}"></continents-countries-selects>--}}
+                        
                         @include('partials.forms.select', [
                               'title' =>  '',
                               'name' => 'continent_id',
@@ -145,7 +145,7 @@
                               'seleted' => $searchCountry,
                               'liveSearch' => 'true',
                               'mobileNativeMenu' => false,
-                        ])--}}
+                        ])
                         
                         @include('partials.forms.input', [
                               'title' => '',
