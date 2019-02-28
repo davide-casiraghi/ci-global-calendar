@@ -24,6 +24,8 @@
         props : [
            'select_a_continent_placeholder',
            'select_a_country_placeholder',
+           'continent-selected', 
+           'country-selected',
        ],
         mounted() {
             console.log('Component mounted.');
@@ -33,13 +35,14 @@
             //console.log(this.countries);
             console.log(this.select_a_continent_placeholder);
             console.log(this.select_a_country_placeholder);
+            jQuery('.selectpicker').selectpicker('refresh');  // Refresh the filters when the page is loaded to show $searchContinent and $searchCountry (after the search button get pressed) 
         },
         data() {
             return {
                 continents: [],  // in the console - $vm0.$children[0].$options.parent.$children[0].countries
                 countries: [],
-                continent_selected: '',
-                country_selected: '',
+                continent_selected: this.continentSelected, // continentSelected is the kebab case that correspond to continent-selected
+                country_selected: this.countrySelected,  // countrySelected is the kebab case that correspond to country-selected
             }
        },
        computed: {

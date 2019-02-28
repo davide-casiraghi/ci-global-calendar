@@ -7351,7 +7351,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['select_a_continent_placeholder', 'select_a_country_placeholder'],
+  props: ['select_a_continent_placeholder', 'select_a_country_placeholder', 'continent-selected', 'country-selected'],
   mounted: function mounted() {
     console.log('Component mounted.');
     this.loadData(); //console.log('Loaded datas.');
@@ -7360,14 +7360,15 @@ __webpack_require__.r(__webpack_exports__);
 
     console.log(this.select_a_continent_placeholder);
     console.log(this.select_a_country_placeholder);
+    jQuery('.selectpicker').selectpicker('refresh');
   },
   data: function data() {
     return {
       continents: [],
       // in the console - $vm0.$children[0].$options.parent.$children[0].countries
       countries: [],
-      continent_selected: '',
-      country_selected: ''
+      continent_selected: this.continentSelected,
+      country_selected: this.countrySelected
     };
   },
   computed: {
