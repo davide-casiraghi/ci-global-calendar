@@ -92,14 +92,15 @@
                 for (var i = 0, len = continents.length; i < len; i++) {
                     
                     if (!this.continent_selected){
-                        //console.log("No Continent selected");
+                        console.log("No Continent selected");
                         for (var key in continents[i].active_countries) {
+                            console.log(key);
                             this.countries[j] = {id: continents[i].active_countries[key], name: key, continent_id: continents[i].id};
                             j++;
                         }
                     }
                     else{
-                        //console.log("continent selected: "+ this.continent_selected);
+                        console.log("continent selected: "+ this.continent_selected);
                         for (var key in continents[i].active_countries) {
                             if (continents[i].id == this.continent_selected){
                                 this.countries[j] = {id: continents[i].active_countries[key], name: key};
