@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="form-group continent_id">    
-            <select name="continent_id" v-model="continent_selected" id="continent_id" class="selectpicker" data-live-search="false" title="Pick a continent" v-on:change="getAllCountries(continents)">
+            <select name="continent_id" v-model="continent_selected" id="continent_id" class="selectpicker" data-live-search="false" v-bind:title="select_a_continent_placeholder" v-on:change="getAllCountries(continents)">
                 <option v-if="continents.length>0" v-for="continent in continents" v-bind:value="continent.id">
                     {{ continent.name }}
                 </option>
@@ -9,7 +9,7 @@
         </div>
         
         <div class="form-group country_id">    
-            <select name="country_id" v-model="country_selected" id="country_id" class="selectpicker" data-live-search="true" title="Pick a country" v-on:change="changeContinent(country_selected)">
+            <select name="country_id" v-model="country_selected" id="country_id" class="selectpicker" data-live-search="true" v-bind:title="select_a_country_placeholder" v-on:change="changeContinent(country_selected)">
                 <option  v-for="(country, index) in optionCountries" v-bind:value="country.id" >
                     {{ country.name }}
                 </option>  
@@ -21,12 +21,18 @@
 
 <script>
     export default {
+        props : [
+           'select_a_continent_placeholder',
+           'select_a_country_placeholder',
+       ],
         mounted() {
             console.log('Component mounted.');
             this.loadData();
-            console.log('Loaded datas.');
-            console.log(this.continents);
-            console.log(this.countries);
+            //console.log('Loaded datas.');
+            //console.log(this.continents);
+            //console.log(this.countries);
+            console.log(this.select_a_continent_placeholder);
+            console.log(this.select_a_country_placeholder);
         },
         data() {
             return {
@@ -92,18 +98,18 @@
                 for (var i = 0, len = continents.length; i < len; i++) {
                     
                     if (!this.continent_selected){
-                        console.log("No Continent selected");
+                        //console.log("No Continent selected");
                         for (var key in continents[i].active_countries) {
-                            console.log(key);
+                            //console.log(key);
                             this.countries[j] = {id: continents[i].active_countries[key], name: key, continent_id: continents[i].id};
                             j++;
                         }
                     }
                     else{
-                        console.log("continent selected: "+ this.continent_selected);
+                        //console.log("continent selected: "+ this.continent_selected);
                         for (var key in continents[i].active_countries) {
                             if (continents[i].id == this.continent_selected){
-                                this.countries[j] = {id: continents[i].active_countries[key], name: key};
+                                this.countries[j] = {id: continents[i].active_countries[key], name: key, continent_id: continents[i].id};
                                 j++;
                             }
                         }
@@ -118,12 +124,12 @@
              */
             changeContinent(country_id){
                 
-                // Find the countries array find the one with the corresponding country_id
-                    let obj = this.countries.find(o => o.id === country_id);
-                
+                // Get from the countries array the country object that correspond to the selected country_id
+                    let obj = this.countries.find(o => o.id === country_id);  // https://stackoverflow.com/questions/12462318/find-a-value-in-an-array-of-objects-in-javascript
+                    //console.log(obj);
                 // Then pick its continent_id
-                    console.log(obj.continent_id);
-                    console.log(this.continent_selected);
+                    //console.log(obj.continent_id);
+                    //console.log(this.continent_selected);
                     
                     if (obj.continent_id != this.continent_selected){
                         this.continent_selected = obj.continent_id;
