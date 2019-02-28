@@ -40,9 +40,7 @@ class Country extends Model
         $ret = Cache::remember('active_continent_countries_json_tree', $minutes, function () {
             return Country::orderBy('name')->pluck('name', 'id');
         });
-        
-        
-        dd($ret);
+    
         return $ret;
     }
 }

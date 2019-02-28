@@ -7351,12 +7351,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['select_a_continent_placeholder', 'select_a_country_placeholder'],
   mounted: function mounted() {
     console.log('Component mounted.');
-    this.loadData();
-    console.log('Loaded datas.');
-    console.log(this.continents);
-    console.log(this.countries);
+    this.loadData(); //console.log('Loaded datas.');
+    //console.log(this.continents);
+    //console.log(this.countries);
+
+    console.log(this.select_a_continent_placeholder);
+    console.log(this.select_a_country_placeholder);
   },
   data: function data() {
     return {
@@ -7422,6 +7425,7 @@ __webpack_require__.r(__webpack_exports__);
         if (!this.continent_selected) {
           //console.log("No Continent selected");
           for (var key in continents[i].active_countries) {
+            //console.log(key);
             this.countries[j] = {
               id: continents[i].active_countries[key],
               name: key,
@@ -7435,7 +7439,8 @@ __webpack_require__.r(__webpack_exports__);
             if (continents[i].id == this.continent_selected) {
               this.countries[j] = {
                 id: continents[i].active_countries[key],
-                name: key
+                name: key,
+                continent_id: continents[i].id
               };
               j++;
             }
@@ -7451,10 +7456,12 @@ __webpack_require__.r(__webpack_exports__);
      * This function is called every time the countries dropdown change
      */
     changeContinent: function changeContinent(country_id) {
-      // Find the countries array find the one with the corresponding country_id
+      // Get from the countries array the country object that correspond to the selected country_id
       var obj = this.countries.find(function (o) {
         return o.id === country_id;
-      }); // Then pick its continent_id
+      }); // https://stackoverflow.com/questions/12462318/find-a-value-in-an-array-of-objects-in-javascript
+      //console.log(obj);
+      // Then pick its continent_id
       //console.log(obj.continent_id);
       //console.log(this.continent_selected);
 
@@ -45996,7 +46003,7 @@ var render = function() {
             name: "continent_id",
             id: "continent_id",
             "data-live-search": "false",
-            title: "Pick a continent"
+            title: _vm.select_a_continent_placeholder
           },
           on: {
             change: [
@@ -46051,7 +46058,7 @@ var render = function() {
             name: "country_id",
             id: "country_id",
             "data-live-search": "true",
-            title: "Pick a country"
+            title: _vm.select_a_country_placeholder
           },
           on: {
             change: [
