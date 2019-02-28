@@ -2,10 +2,10 @@
 
     GOOGLE ANALYTICS: Set up Analytics tracking
     
-    to activate when include this partial declare a property in the .env file 
-    with the tracking code, like:
-    GOOGLE_ANALYTICS_TRACKING_CODE=UA-XXXXXXX-XX
-    UA-3675475-42
+    When include this partial declare a property in the .env file 
+    with the tracking code, like:  GOOGLE_ANALYTICS_TRACKING_CODE=UA-XXXXXXX-XX
+    
+    Works just on the production environment.
 --}}
 
 
