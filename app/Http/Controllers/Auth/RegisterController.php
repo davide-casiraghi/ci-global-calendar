@@ -113,7 +113,7 @@ class RegisterController extends Controller
         ]);
         try {
             $validatedData['password'] = bcrypt(array_get($validatedData, 'password'));
-            $validatedData['activation_code'] = str_random(30).time();
+            $validatedData['activation_code'] = Str::random(30).time();
             $validatedData['country_id'] = $request->country_id;
             $validatedData['description'] = $request->description;
             $validatedData['accept_terms'] = ($request->accept_terms == "on") ? 1 : 0;

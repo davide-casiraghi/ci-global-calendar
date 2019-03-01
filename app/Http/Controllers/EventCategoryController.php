@@ -143,7 +143,7 @@ class EventCategoryController extends Controller
 
      function saveOnDb($request, $eventCategory){
          $eventCategory->name = $request->get('name');
-         $eventCategory->slug = str_slug($eventCategory->name, '-');
+         $eventCategory->slug = Str::slug($eventCategory->name, '-');
 
          $eventCategory->save();
      }

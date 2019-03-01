@@ -15,7 +15,7 @@ use Faker\Generator as Faker;
 $factory->define(App\Teacher::class, function (Faker $faker) {
     
     $teacher_name = $faker->name;
-    $slug = str_slug($teacher_name, '-').rand(10000, 100000);
+    $slug = Str::slug($teacher_name, '-').rand(10000, 100000);
     $year_starting_practice = $faker->numberBetween($min = 1972, $max = 2018);
     $year_starting_teach = $faker->numberBetween($min = $year_starting_practice, $max = 2018);
     
@@ -25,7 +25,7 @@ $factory->define(App\Teacher::class, function (Faker $faker) {
         'year_starting_practice' => $year_starting_practice,
         'year_starting_teach' => $year_starting_teach,
         'significant_teachers' => $faker->paragraph,
-        //'profile_picture' => str_random(10).".jpg",  //this can cause an error in the tests
+        //'profile_picture' => Str::random(10).".jpg",  //this can cause an error in the tests
         'website' => $faker->url,
         'facebook' => "https://www.facebook.com/".$faker->word,
         'created_by' => '1',

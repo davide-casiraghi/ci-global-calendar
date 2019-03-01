@@ -60,7 +60,7 @@ class EventCategoryTranslationController extends Controller
         $eventCategoryTranslation->locale = $request->get('language_code');
         
         $eventCategoryTranslation->name = $request->get('name');
-        $eventCategoryTranslation->slug = str_slug($eventCategoryTranslation->name, '-');
+        $eventCategoryTranslation->slug = Str::slug($eventCategoryTranslation->name, '-');
 
         $eventCategoryTranslation->save();
         
@@ -112,7 +112,7 @@ class EventCategoryTranslationController extends Controller
         $eventCategoryTranslation = EventCategoryTranslation::where ('id', $request->get('event_category_translation_id'));
 
         $event_category_t['name'] = $request->get('name');
-        $event_category_t['slug'] = str_slug($request->get('name'), '-');
+        $event_category_t['slug'] = Str::slug($request->get('name'), '-');
 
         $eventCategoryTranslation->update($event_category_t);
 

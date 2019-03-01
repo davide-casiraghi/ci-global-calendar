@@ -88,7 +88,7 @@ class EventTest extends TestCase
                 'category_id' => '3',
                 'description' => $this->faker->paragraph,
                 'created_by' => $this->user->id,
-                'slug' => str_slug($title, '-').rand(100000, 1000000),
+                'slug' => Str::slug($title, '-').rand(100000, 1000000),
                 'multiple_teachers' => $teachers_id,
                 'multiple_organizers' => '1,2',
                 'venue_id' => $this->venue->id,

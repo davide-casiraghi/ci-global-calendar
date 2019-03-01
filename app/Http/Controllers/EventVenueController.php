@@ -202,7 +202,7 @@ class EventVenueController extends Controller
          $eventVenue->website = $request->get('website');
 
          if (!$eventVenue->slug)
-            $eventVenue->slug = str_slug($eventVenue->name, '-').rand(10000, 100000);
+            $eventVenue->slug = Str::slug($eventVenue->name, '-').rand(10000, 100000);
          $eventVenue->created_by = \Auth::user()->id;
          $eventVenue->save();
      }

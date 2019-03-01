@@ -75,7 +75,7 @@ class CardsCarouselClass {
                       }
                       
                       $ret .= "<h3 class='mb-4'>".$postsData[$i]->title."</h3>";
-                      $ret .= "<div>".str_limit(strip_tags($postsData[$i]->body, '<br><p><b>'),$parameters['limit_chars'])."</div>";
+                      $ret .= "<div>".Str::limit(strip_tags($postsData[$i]->body, '<br><p><b>'),$parameters['limit_chars'])."</div>";
                       $ret .= "<p><a class='btn btn-secondary' href='/post/".$postsData[$i]->slug."' role='button'>View details »</a></p>";
                   $ret .= "</div>";
               }

@@ -256,7 +256,7 @@ class TeacherController extends Controller
 
          $teacher->created_by = \Auth::user()->id;
          if (!$teacher->slug)
-            $teacher->slug = str_slug($teacher->name, '-')."-".rand(10000, 100000);
+            $teacher->slug = Str::slug($teacher->name, '-')."-".rand(10000, 100000);
 
          $teacher->save();
      }

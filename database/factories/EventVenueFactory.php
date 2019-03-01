@@ -14,7 +14,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\EventVenue::class, function (Faker $faker) {
         $name = $faker->name;
-        $slug = str_slug($name, '-').rand(10000, 100000);
+        $slug = Str::slug($name, '-').rand(10000, 100000);
         
     return [
         'created_by' => 1,
