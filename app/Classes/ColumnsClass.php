@@ -8,6 +8,8 @@
 
 namespace App\Classes;
 
+use Illuminate\Support\Str;
+
 use App\Post;
 use App\Category;
 
