@@ -30,7 +30,7 @@ class PluginTest extends DuskTestCase
                             {slider=This is a test accordion} lorem ipsum {/slider}<br />
                             {# stats_donate coding_hours=[2400] pm_hours=[40] steering_commitee_meetings=[60] languages_number=[8] #}
                             {# columns category_id=[2] show_images=[0] round_images=[0] show_category_title=[1] #}
-                            {# card post_id=[1] img_alignment=[right] img_col_size=[3] bkg_color=[transparent] #}
+                            {# card post_id=[1] img_alignment=[right] img_col_size=[3] bkg_color=[#004400] text_color=[#212529] container_wrap=[false] #}
                             {# gallery src=[test_gallery] width=[400] height=[300] #}
                 ",
             ]);
