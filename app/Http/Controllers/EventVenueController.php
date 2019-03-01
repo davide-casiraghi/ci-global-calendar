@@ -28,8 +28,8 @@ class EventVenueController extends Controller
      */
     public function index(Request $request){
         
-        $minutes = 15;    
-        $countries = Cache::remember('countries', $minutes, function () {
+        $cacheExpireTime = 900; // Set the duration time of the cache (15 min - 900sec)
+        $countries = Cache::remember('countries', $cacheExpireTime, function () {
             return Country::orderBy('name')->pluck('name', 'id');
         });
                 

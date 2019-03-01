@@ -34,8 +34,8 @@ class TeacherController extends Controller
         $countries = Country::orderBy('countries.name')->pluck('name', 'id');
 
         // Get the countries with active teachers - BUG! IF I CACHE JUST A PART OF THE COUNTRIES WHEN I INSERT A NEW TEACHER WITH A COUNTRY THAT IS NOT IN THE CACHE I GET AN ERROR WHEN I'M BACK TO THE INDEX (eg.no index error)
-        /*    $minutes = 15; // Set the duration time of the cache
-            $countries = Cache::remember('teachers_countries', $minutes, function () {
+        /*    $cacheExpireTime = 900; // Set the duration time of the cache (15 min - 900sec)
+            $countries = Cache::remember('teachers_countries', cacheExpireTime, function () {
                 return DB::table('countries')
                     ->join('teachers', 'countries.id', '=', 'teachers.country_id')
                     ->orderBy('countries.name')
@@ -141,8 +141,8 @@ class TeacherController extends Controller
             ->where('id', $teacher->country_id)
             ->first();
             
-        $minutes = 15;
-        $eventCategories = Cache::remember('categories', $minutes, function () {
+        $cacheExpireTime = 900; // Set the duration time of the cache (15 min - 900sec)
+        $eventCategories = Cache::remember('categories', $cacheExpireTime, function () {
             return EventCategory::orderBy('name')->pluck('name', 'id');
         });
         
