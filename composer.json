@@ -20,7 +20,7 @@
     "require-dev": {
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
-        "laravel/dusk": "^4.0",
+        "laravel/dusk": "^5.0",
         "mews/purifier": "^2.1",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^2.0",
