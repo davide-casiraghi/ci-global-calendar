@@ -112,7 +112,7 @@ class RegisterController extends Controller
             'g-recaptcha-response' => 'required|captcha'
         ]);
         try {
-            $validatedData['password'] = bcrypt(array_get($validatedData, 'password'));
+            $validatedData['password'] = bcrypt(Arr::get($validatedData, 'password'));
             $validatedData['activation_code'] = Str::random(30).time();
             $validatedData['country_id'] = $request->country_id;
             $validatedData['description'] = $request->description;
