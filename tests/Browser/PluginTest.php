@@ -17,7 +17,7 @@ class PluginTest extends DuskTestCase
     /**
      * Populate test DB with seeds and dummy data 
      */
-    public function setUp(){
+    public function setUp(): void{
         Parent::setUp();
         
         // Seeders - /database/seeds (continetns, countries, post categories, event categories)
