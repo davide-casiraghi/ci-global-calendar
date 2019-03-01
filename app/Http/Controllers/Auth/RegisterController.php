@@ -12,6 +12,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 
 use App\Notifications\UserRegisteredSuccessfully;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\UserActivation;
