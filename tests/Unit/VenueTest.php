@@ -15,8 +15,7 @@ class VenueTest extends TestCase
     /**
      * Populate test DB with dummy data
      */ 
-    public function setUp()
-    {
+    public function setUp(): void{
         parent::setUp();
         // Seeders - /database/seeds
             $this->seed();

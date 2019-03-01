@@ -15,8 +15,7 @@ class EventTest extends TestCase
     /**
      * Populate test DB with dummy data
      */
-    function setUp()
-    {
+    function setUp(): void{
         parent::setUp();
         
         // Seeders - /database/seeds
