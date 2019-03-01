@@ -7363,13 +7363,11 @@ __webpack_require__.r(__webpack_exports__);
 
     if (this.continentSelected) {
       jQuery("select[name='continent_id']").selectpicker('refresh'); // Refresh the filters when the page is loaded to show $searchContinent and $searchCountry (after the search button get pressed) 
-
-      console.log("refresh continent dropdown");
+      //console.log("refresh continent dropdown");
     }
 
     if (this.countrySelected) {
-      jQuery("select[name='country_id']").selectpicker('refresh');
-      console.log("refresh countries dropdown");
+      jQuery("select[name='country_id']").selectpicker('refresh'); //console.log("refresh countries dropdown");
     }
   },
   data: function data() {

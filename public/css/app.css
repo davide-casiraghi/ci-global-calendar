@@ -9137,7 +9137,11 @@ readers do not read off random characters that represent icons */
   font-size: 72px;
 }
 
-.button-small {
+.btn.button-rounded {
+  border-radius: 1rem !important;
+}
+
+.btn.button-small {
   font-size: 0.875rem !important;
   padding: 0.2rem 0.6rem !important;
 }
