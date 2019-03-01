@@ -6,6 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class DonationOffer extends Model
 {
+    /***************************************************************************/
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'donation_offers';
+    
+    /***************************************************************************/
+    
     protected $fillable = [
         'name', 'surname', 'email', 'country_id', 'contact_trough_voip', 'language_spoken', 'offer_kind', 'gift_kind', 'gift_description', 'volunteer_kind', 'volunteer_description', 'other_description', 'suggestions', 'status'
     ];

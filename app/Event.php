@@ -7,6 +7,16 @@ use App\EventRepetition;
 
 class Event extends Model
 {
+    /***************************************************************************/
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'events';
+    
+    /***************************************************************************/
+    
     protected $fillable = [
         'title', 'description', 'organized_by', 'category_id', 'venue_id', 'image', 'facebook_event_link', 'website_event_link', 'status', 'repeat_type', 'repeat_until', 'repeat_weekly_on', 'repeat_monthly_on', 'on_monthly_kind'
     ];
