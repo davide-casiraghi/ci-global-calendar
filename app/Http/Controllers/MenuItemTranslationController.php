@@ -7,6 +7,7 @@ use App\MenuItem;
 use App\MenuItemTranslation;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use Validator;
 

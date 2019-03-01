@@ -6,6 +6,7 @@ use App\Category;
 use App\CategoryTranslation;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use Validator;
 

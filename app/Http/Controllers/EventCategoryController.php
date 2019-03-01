@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\EventCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 use Validator;

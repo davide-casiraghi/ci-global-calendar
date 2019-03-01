@@ -8,6 +8,7 @@ use App\PostTranslation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use Validator;
 
