@@ -6,6 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Teacher extends Model
 {
+    /***************************************************************************/
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'teachers';
+    
+    /***************************************************************************/
+    
     protected $fillable = [
         'name', 'bio', 'country_id', 'year_starting_practice', 'year_starting_teach', 'significant_teachers', 'profile_picture', 'website', 'facebook', 'created_by', 'slug'
     ];

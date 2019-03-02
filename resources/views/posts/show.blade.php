@@ -1,7 +1,7 @@
 @extends('posts.layout')
 
 @section('title'){{ $post->title }}@endsection
-@section('description'){{ str_limit(strip_tags($post->body), $limit = 150, $end = '...') }}@endsection
+@section('description'){{ Str::limit(strip_tags($post->body), $limit = 150, $end = '...') }}@endsection
     
 
 @section('beforeContent')

@@ -17,6 +17,7 @@ use App\Classes\CardsCarouselClass;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -294,7 +295,7 @@ class PostController extends Controller
          //$post->body = $request->get('body');
          $post->translateOrNew('en')->body = clean($request->get('body'));
          $post->created_by = \Auth::user()->id;
-         $post->translateOrNew('en')->slug = str_slug($post->title, '-');
+         $post->translateOrNew('en')->slug = Str::slug($post->title, '-');
          $post->category_id = $request->get('category_id');
          
          $post->status = $request->get('status');

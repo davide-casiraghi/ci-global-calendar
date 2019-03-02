@@ -6,6 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class EventRepetition extends Model
 {
+    /***************************************************************************/
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'event_repetitions';
+    
+    /***************************************************************************/
+    
     protected $fillable = [
         'event_id', 'start_repeat', 'end_repeat'
     ];

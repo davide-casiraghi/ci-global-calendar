@@ -19,8 +19,8 @@ $factory->define(App\Post::class, function (Faker $faker) {
         'created_by' => 1,
         'body' => $faker->text(1500),
         'category_id' => 2,
-        'introimage' => str_random(10).".jpg",
-        'slug' => str_slug($title, '-'),
+        'introimage' => Str::random(10).".jpg",
+        'slug' => Str::slug($title, '-'),
         'status' => 2, // 2 enabled, 1 disabled
     ];
 });

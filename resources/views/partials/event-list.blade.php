@@ -44,7 +44,7 @@
                 {{--<a href="{{ route('events.show',$event->id) }}">{{ $event->title }}</a>--}}
                 <a href="/event/{{$event->slug}}/{{$event->rp_id}}" @if($iframeLinkBlank)  onclick="window.parent.location.href='https://ciglobalcalendar.net/event/{{$event->slug}}/{{$event->rp_id}}';" @endif>
             {{--    {!! route('events.show', ['id'=>$event->id, 'rp_id'=>$event->rp_id])  !!}">--}}
-                    {{ str_limit($event->title, $limit = 50, $end = '...') }}
+                    {{ Str::limit($event->title, $limit = 50, $end = '...') }}
                 </a>
             </div>
             <div class="col-md-3 vcenter teachers">

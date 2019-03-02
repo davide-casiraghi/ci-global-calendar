@@ -6,7 +6,6 @@ use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-
 use App\Event;
 use App\User;
 
@@ -20,7 +19,7 @@ class EventsTest extends DuskTestCase
     /**
      * Populate test DB with seeds and dummy data 
      */
-    public function setUp(){
+    public function setUp(): void{
         Parent::setUp();
         
         // Seeders - /database/seeds (continetns, countries, post categories, event categories)
