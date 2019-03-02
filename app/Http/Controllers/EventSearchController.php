@@ -185,8 +185,11 @@ class EventSearchController extends Controller
                     return DB::table('events')->latest()->paginate(20);
                 });*/
         }
-
-        Carbon::setLocale('ru');
+        
+        //$dateTT = Carbon::now()->locale('ru_RU');
+        //dd($dateTT->monthName);
+        
+        //Carbon::setLocale('ru');
         
         return view('eventSearch.index',compact('events'))
             ->with('i', (request()->input('page', 1) - 1) * 20)
