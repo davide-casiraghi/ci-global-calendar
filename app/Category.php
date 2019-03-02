@@ -10,6 +10,16 @@ use App\CategoryTranslation;
 
 class Category extends Model
 {
+    /***************************************************************************/
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'categories';
+    
+    /***************************************************************************/
+    
     use Translatable;
     
     public $translatedAttributes = ['name', 'description', 'slug'];

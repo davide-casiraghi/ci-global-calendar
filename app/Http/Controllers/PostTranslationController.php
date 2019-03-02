@@ -8,6 +8,7 @@ use App\PostTranslation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use Validator;
 
@@ -82,7 +83,7 @@ class PostTranslationController extends Controller
         $postTranslation->title = $request->get('title');
         //$postTranslation->body = $request->get('body');
         $postTranslation->body = clean($request->get('body'));
-        $postTranslation->slug = str_slug($postTranslation->title, '-');
+        $postTranslation->slug = Str::slug($postTranslation->title, '-');
 
         $postTranslation->before_content = $request->get('before_content');
         $postTranslation->after_content = $request->get('after_content');
@@ -112,7 +113,7 @@ class PostTranslationController extends Controller
         $pt['title'] = $request->get('title');
         //$pt['body'] = $request->get('body');
         $pt['body'] = clean($request->get('body'));
-        $pt['slug'] = str_slug($request->get('title'), '-');
+        $pt['slug'] = Str::slug($request->get('title'), '-');
 
         $pt['before_content'] = $request->get('before_content');
         $pt['after_content'] = $request->get('after_content');

@@ -8,6 +8,16 @@ use Dimsav\Translatable\Translatable;
 
 class Post extends Model
 {
+    /***************************************************************************/
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'posts';
+    
+    /***************************************************************************/
+    
     use Translatable;
 
     public $translatedAttributes = ['title','body','slug','before_content','after_content','extra_field_trans_1','extra_field_trans_2'];

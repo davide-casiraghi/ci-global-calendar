@@ -7,6 +7,16 @@ use Illuminate\Support\Facades\Cache;
 
 class Country extends Model
 {
+    /***************************************************************************/
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'countries';
+    
+    /***************************************************************************/
+    
     protected $fillable = [
         'name', 'code', 'continent_id'
     ];

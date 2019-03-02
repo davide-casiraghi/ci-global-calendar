@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use Validator;
 
@@ -28,8 +29,8 @@ class EventVenueController extends Controller
      */
     public function index(Request $request){
         
-        $minutes = 15;    
-        $countries = Cache::remember('countries', $minutes, function () {
+        $cacheExpireTime = 900; // Set the duration time of the cache (15 min - 900sec)
+        $countries = Cache::remember('countries', $cacheExpireTime, function () {
             return Country::orderBy('name')->pluck('name', 'id');
         });
                 
@@ -202,7 +203,7 @@ class EventVenueController extends Controller
          $eventVenue->website = $request->get('website');
 
          if (!$eventVenue->slug)
-            $eventVenue->slug = str_slug($eventVenue->name, '-').rand(10000, 100000);
+            $eventVenue->slug = Str::slug($eventVenue->name, '-').rand(10000, 100000);
          $eventVenue->created_by = \Auth::user()->id;
          $eventVenue->save();
      }

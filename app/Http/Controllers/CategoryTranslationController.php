@@ -6,6 +6,7 @@ use App\Category;
 use App\CategoryTranslation;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use Validator;
 
@@ -85,7 +86,7 @@ class CategoryTranslationController extends Controller
         
         $categoryTranslation->name = $request->get('name');
         $categoryTranslation->description = $request->get('description');
-        $categoryTranslation->slug = str_slug($categoryTranslation->name, '-');
+        $categoryTranslation->slug = Str::slug($categoryTranslation->name, '-');
 
         $categoryTranslation->save();
         
@@ -122,7 +123,7 @@ class CategoryTranslationController extends Controller
 
         $category_t['name'] = $request->get('name');
         $category_t['description'] = $request->get('description');
-        $category_t['slug'] = str_slug($request->get('name'), '-');
+        $category_t['slug'] = Str::slug($request->get('name'), '-');
 
         $categoryTranslation->update($category_t);
 

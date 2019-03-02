@@ -6,6 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class EventCategory extends Model
 {
+    /***************************************************************************/
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'event_categories';
+    
+    /***************************************************************************/
+    
     use \Dimsav\Translatable\Translatable;
     
     public $translatedAttributes = ['name','slug'];

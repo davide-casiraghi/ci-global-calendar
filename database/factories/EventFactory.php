@@ -46,7 +46,7 @@ $factory->define(App\Event::class, function (Faker $faker) {
             'category_id' => '3',
             'description' => $this->faker->paragraph,
             'created_by' => $user->id,
-            'slug' => str_slug($title, '-').rand(100000, 1000000),
+            'slug' => Str::slug($title, '-').rand(100000, 1000000),
             //'multiple_teachers' => $teachers_id,
             //'multiple_organizers' => $organizers_id,
             'venue_id' => $venue->id,

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\EventCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 use Validator;
@@ -143,7 +144,7 @@ class EventCategoryController extends Controller
 
      function saveOnDb($request, $eventCategory){
          $eventCategory->name = $request->get('name');
-         $eventCategory->slug = str_slug($eventCategory->name, '-');
+         $eventCategory->slug = Str::slug($eventCategory->name, '-');
 
          $eventCategory->save();
      }

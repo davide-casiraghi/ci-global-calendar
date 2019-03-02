@@ -18,6 +18,7 @@ use App\Mail\ContactOrganizer;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use DateTime;
 use DateInterval;
@@ -929,7 +930,7 @@ class EventController extends Controller
         $event->description = clean($request->get('description'));
         $event->created_by = \Auth::user()->id;
         if (!$event->slug)
-            $event->slug = str_slug($event->title, '-')."-".rand(100000, 1000000);
+            $event->slug = Str::slug($event->title, '-')."-".rand(100000, 1000000);
         $event->category_id = $request->get('category_id');
         $event->venue_id = $request->get('venue_id');
         $event->image = $request->get('image');

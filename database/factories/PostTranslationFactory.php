@@ -17,7 +17,7 @@ $factory->define(App\PostTranslation::class, function (Faker $faker) {
     return [
         'title' => $title,
         'body' => $faker->text(1500),
-        'slug' => str_slug($title, '-'),
+        'slug' => Str::slug($title, '-'),
         /*'locale' => 'it',*/
     ];
 });

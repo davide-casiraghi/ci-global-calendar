@@ -7,6 +7,7 @@ use App\User;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 use Illuminate\Http\Request;
 use Validator;
@@ -177,7 +178,7 @@ class OrganizerController extends Controller
 
          $organizer->created_by = \Auth::user()->id;
          if (!$organizer->slug)
-            $organizer->slug = str_slug($organizer->name, '-')."-".rand(10000, 100000);
+            $organizer->slug = Str::slug($organizer->name, '-')."-".rand(10000, 100000);
 
          $organizer->save();
      }

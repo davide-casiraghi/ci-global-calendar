@@ -10,6 +10,16 @@ use App\MenuItemTranslation;
 
 class MenuItem extends Model
 {
+    /***************************************************************************/
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'menu_items';
+    
+    /***************************************************************************/
+    
     use Translatable;
     
     public $translatedAttributes = ['name','compact_name'];

@@ -19,7 +19,7 @@ class VenueTest extends DuskTestCase{
     /**
      * Populate test DB with seeds 
      */
-    public function setUp(){
+    public function setUp(): void{
         Parent::setUp();
         
         // Seeders - /database/seeds (continetns, countries, post categories, event categories)

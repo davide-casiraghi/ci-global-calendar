@@ -15,7 +15,7 @@ use Faker\Generator as Faker;
 $factory->define(App\Organizer::class, function (Faker $faker) {
     
     $organizer_name = $faker->name;
-    $slug = str_slug($organizer_name, '-').rand(10000, 100000);
+    $slug = Str::slug($organizer_name, '-').rand(10000, 100000);
     $year_starting_practice = $faker->numberBetween($min = 1972, $max = 2018);
     $year_starting_teach = $faker->numberBetween($min = $year_starting_practice, $max = 2018);
     
