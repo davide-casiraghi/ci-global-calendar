@@ -189,7 +189,7 @@ class EventSearchController extends Controller
         //$dateTT = Carbon::now()->locale('ru_RU');
         //dd($dateTT->monthName);
         
-        //Carbon::setLocale('ru');
+        
         
         return view('eventSearch.index',compact('events'))
             ->with('i', (request()->input('page', 1) - 1) * 20)
