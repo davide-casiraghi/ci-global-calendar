@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\App;
 
 use Illuminate\Support\Facades\View;
 
+use \Carbon\Carbon;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -26,12 +28,39 @@ class AppServiceProvider extends ServiceProvider
 
             $locale = App::getLocale();
             
-            \Carbon\Carbon::setUtf8(true);
-            \Carbon\Carbon::setLocale($locale);
+            Carbon::setUtf8(true);
+            Carbon::setLocale($locale);
             
             //$date = \Carbon\Carbon::parse('2018-06-15 17:34:15.984512', 'UTC')->getTranslatedMonthName('M');
             //dd($date);
             //dd($date->getTranslatedMonthName('Do MMMM')); // марта)
+            
+            
+            // Getting FROM date suffix string
+                $fromSuffixString = Carbon::getTranslator()->trans('period_start_date');
+                
+                if ($fromSuffixString != "period_start_date"){
+                    $fromSuffixArray = explode(" :", $fromSuffixString);
+                    $fromSuffix = $fromSuffixArray[0];
+                }
+                else{
+                    $fromSuffix = "";
+                }
+            
+            // Getting TO date suffix string
+                $toSuffixString = Carbon::getTranslator()->trans('period_end_date');
+                
+                if ($toSuffixString != "period_end_date"){
+                    $toSuffixArray = explode(" :", $toSuffixString);
+                    $toSuffix = "- ".$toSuffixArray[0];
+                }
+                else{
+                    $toSuffix = "-";
+                }
+            
+            $view
+                ->with('fromSuffix', $fromSuffix)
+                ->with('toSuffix', $toSuffix);
         });
         
         
