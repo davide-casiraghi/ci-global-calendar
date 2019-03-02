@@ -20,7 +20,7 @@
                     <div class='dateBox col text-center bg-secondary text-white px-2 vcenter' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
                         <strong>
                             @day($event->start_repeat)<br class="d-none d-lg-block"/>
-                            pp @month($event->start_repeat)
+                            @month($event->start_repeat)
                         </strong>
                     </div>
                 {{-- Many days event --}}
