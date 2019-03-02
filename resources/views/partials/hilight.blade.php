@@ -21,7 +21,7 @@
           
          {{-- On click of specified class (e.g. 'nothanks'), trigger cookie, which expires in 100 years --}}
          $(".donation.alert .close").click(function() {
-           $.cookie('donation_no_thanks', 'true', { expires: 1, path: '/' });  {{-- https://www.npmjs.com/package/jquery.cookie --}}
+           $.cookie('donation_no_thanks', 'true', { expires: 3, path: '/' });  {{-- COOKIE EXPIRE IN 3 DAYS - https://www.npmjs.com/package/jquery.cookie --}}
          });
     {{--@endif--}}
 @stop

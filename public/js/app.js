@@ -7360,15 +7360,25 @@ __webpack_require__.r(__webpack_exports__);
 
     console.log(this.select_a_continent_placeholder);
     console.log(this.select_a_country_placeholder);
-    jQuery('.selectpicker').selectpicker('refresh');
+
+    if (this.continentSelected) {
+      jQuery("select[name='continent_id']").selectpicker('refresh'); // Refresh the filters when the page is loaded to show $searchContinent and $searchCountry (after the search button get pressed) 
+      //console.log("refresh continent dropdown");
+    }
+
+    if (this.countrySelected) {
+      jQuery("select[name='country_id']").selectpicker('refresh'); //console.log("refresh countries dropdown");
+    }
   },
   data: function data() {
     return {
       continents: [],
-      // in the console - $vm0.$children[0].$options.parent.$children[0].countries
+      // in the console - $vm0.$options.parent.$children[0].countries
       countries: [],
       continent_selected: this.continentSelected,
-      country_selected: this.countrySelected
+      // continentSelected is the kebab case that correspond to continent-selected
+      country_selected: this.countrySelected // countrySelected is the kebab case that correspond to country-selected
+
     };
   },
   computed: {

@@ -1,1 +1,2 @@
-<a class="btn btn-primary" href="{{ $url }}">{{ $text }}</a>
+
+<a class="btn btn-primary @if($roundedCorners) button-rounded @endif" href="{{ $url }}">{{ $text }}</a>

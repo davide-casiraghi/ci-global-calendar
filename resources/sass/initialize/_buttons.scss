@@ -1,4 +1,9 @@
-.button-small{
-    font-size: .875rem!important;
-    padding: 0.2rem 0.6rem!important;
+.btn{
+    &.button-rounded{
+        border-radius: 1rem !important;
+    }
+    &.button-small{
+        font-size: .875rem!important;
+        padding: 0.2rem 0.6rem!important;
+    }
 }

@@ -71,6 +71,16 @@
                         @lang('homepage-serach.find_information')<br />
                         @lang('homepage-serach.under_costruction')
                     </p>
+                    <p>
+                    
+                    
+                    @include('partials.forms.button', [
+                          'text' =>  'Help us with the Global Fill-in',
+                          'name' => 'category_id',
+                          'url' => '/post/help-us-with-the-global-fill-in',
+                          'roundedCorners' => 'true',
+                    ])
+                    </p>
                     <p class="searchHere text-white mt-5">
                         @lang('homepage-serach.criteria')
                     </p>
@@ -124,9 +134,9 @@
                         </p>
                         
                         
-                        {{--<continents-countries-selects v-bind:select_a_continent_placeholder="aaa" v-bind:select_a_country_placeholder="bbb"></continents-countries-selects>--}}
-                        <continents-countries-selects select_a_continent_placeholder="@lang('homepage-serach.select_a_continent')" select_a_country_placeholder="@lang('homepage-serach.select_a_country')" continent-selected="{{$searchContinent}}" country-selected="{{$searchCountry}}"></continents-countries-selects>
                         {{--
+                        <continents-countries-selects select_a_continent_placeholder="@lang('homepage-serach.select_a_continent')" select_a_country_placeholder="@lang('homepage-serach.select_a_country')" continent-selected="{{$searchContinent}}" country-selected="{{$searchCountry}}"></continents-countries-selects>
+                        --}}
                         @include('partials.forms.select', [
                               'title' =>  '',
                               'name' => 'continent_id',
@@ -145,7 +155,7 @@
                               'seleted' => $searchCountry,
                               'liveSearch' => 'true',
                               'mobileNativeMenu' => false,
-                        ])--}}
+                        ])
                         
                         @include('partials.forms.input', [
                               'title' => '',
