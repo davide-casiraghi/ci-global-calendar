@@ -4,7 +4,7 @@ return [
     'contact_improvisation' => 'Contato Improvisação',
     'global_calendar' => 'Calendario Global',
     'find_information' => 'Encontre informações sobre eventos de Contato Improvisação mundo afora (aulas, jams, oficinas, festivais e mais)',
-    'under_costruction' => 'SITE EM CONSTRUÇÃO, O calendário está ainda na fase beta de testes, nós planejamos começar a operar plenamente a partir de Abril de 2019',
+    'under_costruction' => 'SITE EM CONSTRUÇÃO. O calendário está ainda na fase beta de testes, nós planejamos começar a operar plenamente a partir de Abril de 2019',
     'criteria' => 'Use um mais critérios de busca',
     'what' => 'O quê',
     'when' => 'Quando',

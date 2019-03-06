@@ -4,7 +4,7 @@ return [
     'contact_improvisation' => 'Kontakt Improwizacja',
     'global_calendar' => 'Globalny Kalendarz',
     'find_information' => 'Znajdź informacje o wydarzeniach Kontakt Improwizacji na na całym świecie (zajęcia, dżemy, warsztaty, festiwale i więcej)',
-    'under_costruction' => 'STRONA W BUDOWIE, kalendarz jest nadal w fazie testów, planujemy w pełni działać od stycznia Kwiecień 2019',
+    'under_costruction' => 'STRONA W BUDOWIE. Kalendarz jest nadal w fazie testów, planujemy w pełni działać od stycznia Kwiecień 2019',
     'criteria' => 'Użyj jednego kryterium wyszukiwania lub więcej',
     'what' => 'Co',
     'when' => 'Kiedy',

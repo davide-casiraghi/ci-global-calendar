@@ -4,7 +4,7 @@ return [
     'contact_improvisation' => 'Contact Improvisation',
     'global_calendar' => 'Calendario Globale',
     'find_information' => 'Tutte le informazioni su festival di Contact Improvisation (workshop, jam, corsi e altro)',
-    'under_costruction' => 'SITO IN COSTRUZIONE, il calendario è ancora in fase di test, contiamo di essere pienamente operativi da Gennaio 2019',
+    'under_costruction' => 'SITO IN COSTRUZIONE. Il calendario è ancora in fase di test, contiamo di essere pienamente operativi da Gennaio 2019',
     'criteria' => 'Utilizza un criterio di ricerca o più',
     'what' => 'Cosa',
     'when' => 'Quando',
