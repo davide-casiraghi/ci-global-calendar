@@ -38,8 +38,7 @@ class ColumnsClass {
          return $ret;
      }
 
-  // **********************************************************************
-
+     /* **********************************************************************/
      /**
       *  Turn array of the metches after preg_match_all function (taken from - https://secure.php.net/manual/en/function.preg-match-all.php)
       *  @param array $file_name        the file name

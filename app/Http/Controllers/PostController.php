@@ -13,6 +13,7 @@ use App\Classes\ColumnsClass;
 use App\Classes\StatsDonateClass;
 use App\Classes\CommunityGoalsClass;
 use App\Classes\CardsCarouselClass;
+use App\Classes\PaypalButtonClass;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
@@ -180,6 +181,10 @@ class PostController extends Controller
         // Stats Donate
             $communityGoalsClass = new CommunityGoalsClass();
             $post->body = $communityGoalsClass->getCommunityGoals($post->body);
+            
+        // Paypal Button
+            $paypalButton = new PaypalButtonClass();
+            $post->body = $paypalButton->getPaypalButton($post->body);
 
         // Gallery
             $storagePath = storage_path('app/public');
