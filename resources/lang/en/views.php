@@ -135,6 +135,8 @@ return [
     'please_write_in_english' => 'Please write your text in english',
     'select_one' => 'Select one',
     'select_one_or_more' => 'Select one or more',
+    'select_one_or_more_people' => 'Select one or more people, if you are adding one the page will reload.',
+    'select_venue' => 'Select the venue that will host the event, if you are adding one the page will reload.',
     'created_successfully' => ' created successfully',
     'updated_successfully' => ' updated successfully',
     'deleted_successfully' => ' deleted successfully',

@@ -81,6 +81,41 @@
             
             <hr class="mt-3 mb-4">
             
+            {{-- People --}}
+                <div class="row">
+                    <div class="col form-sidebar">
+                        <h5 class="text-xl">@lang('views.people')</h5>
+                        <span class="dark-gray">@lang('views.select_one_or_more_people')</span>
+                    </div>
+                    <div class="col main">
+                        <div class="row">
+                            <div class="col-12">
+                                @include('partials.forms.event.select-event-teacher')
+                                @include('partials.forms.event.select-event-organizer')
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <hr class="mt-3 mb-4">
+
+            {{-- Venue --}}
+                <div class="row">
+                    <div class="col form-sidebar">
+                        <h5 class="text-xl">Venue</h5>
+                        <span class="dark-gray">@lang('views.select_venue')</span>
+                    </div>
+                    <div class="col main">
+                        <div class="row">
+                            <div class="col-12">
+                                @include('partials.forms.event.select-event-venue')
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <hr class="mt-3 mb-4">
+                        
             {{-- Description --}}
                 <div class="row">
                     <div class="col form-sidebar">
@@ -96,41 +131,6 @@
                                       'placeholder' => 'Event description',
                                       'value' => $event->description
                                 ])
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            
-            <hr class="mt-3 mb-4">
-            
-            {{-- People --}}
-                <div class="row">
-                    <div class="col form-sidebar">
-                        <h5 class="text-xl">@lang('views.people')</h5>
-                        <span class="dark-gray">@lang('views.select_one_or_more')</span>
-                    </div>
-                    <div class="col main">
-                        <div class="row">
-                            <div class="col-12">
-                                @include('partials.forms.event.select-event-teacher')
-                                @include('partials.forms.event.select-event-organizer')
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            
-            <hr class="mt-3 mb-4">
-            
-            {{-- Venue --}}
-                <div class="row">
-                    <div class="col form-sidebar">
-                        <h5 class="text-xl">Venue</h5>
-                        
-                    </div>
-                    <div class="col main">
-                        <div class="row">
-                            <div class="col-12">
-                                @include('partials.forms.event.select-event-venue')
                             </div>
                         </div>
                     </div>
