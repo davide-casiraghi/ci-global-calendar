@@ -99,7 +99,7 @@ class StatsDonateClass {
     function prepareStatsDonate($parameters) {
           
           $ret = "<div class='statisticsDonate'>";
-              $ret .= "<h3 class='text-center mb-5'>Some numbers about the project</h3>";
+              $ret .= "<h3 class='text-center mb-2'>Some numbers about the project</h3>";
               
               $ret .= "<div class='row text-center'>";
                 $ret .= "<div class='col-12 col-sm-6 col-md-3'>";
