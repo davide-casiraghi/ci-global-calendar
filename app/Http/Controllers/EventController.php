@@ -127,7 +127,14 @@ class EventController extends Controller
                 'description' => 'required',
                 'category_id' => 'required',
                 'venue_id' => 'required',
+                'startDate' => 'required',
+                'endDate' => 'required',
             ]);
+            
+            $validator->sometimes('repeat_until', 'required', function ($input) {
+                return $input->repeat_type > 1;
+            });
+
             if ($validator->fails()) {
                 return back()->withErrors($validator)->withInput();
             }
@@ -278,6 +285,8 @@ class EventController extends Controller
             'description' => 'required',
             'category_id' => 'required',
             'venue_id' => 'required',
+            'startDate' => 'required',
+            'endDate' => 'required',
         ]);
 
         /*$event->update($request->all());*/
