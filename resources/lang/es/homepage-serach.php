@@ -17,6 +17,7 @@ return [
     'end_on' => 'Termina el (o antes)',
     'specify_one_or_both' => 'Puede especificar uno, uno o ambos campos de búsqueda',
     'search_by_venue' => 'Buscar por nombre del lugar',
+    'search_by_city' => 'Nombre de la ciudad',
     'select_a_continent' => 'Elige un continente',
     'select_a_country' => 'Elige un país',
     'select_a_city' => 'Elige una ciudad',
