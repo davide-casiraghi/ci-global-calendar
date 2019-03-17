@@ -961,7 +961,7 @@ class EventController extends Controller
                 $event->image = $imageName;
            }
            else{
-               $event->image = $request->get('image_name');
+               $event->image = $request->get('image');
            }
 
         // Support columns for homepage search (we need this to show events in HP with less use of resources)
