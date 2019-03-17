@@ -21,6 +21,10 @@ computer people, web designers, programmers, we need you!
 
 If you are skilled in this technologies and willing to collaborate fill [this form](https://ciglobalcalendar.net/donationOffers/create) as a volunteer.
 
+### How to contribute as developer
+
+[Read Tutorial and Documentation →](https://github.com/davide-casiraghi/ci-global-calendar/wiki)
+
 ## The technologies used to develop the calendar
 
 The project is developed using this technlogies:
