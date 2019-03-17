@@ -12,17 +12,17 @@ The calendar is still in beta testing phase and not yet available online, we pla
 For further info about the history of the project: [roundrobinproject.weebly.com](https://roundrobinproject.weebly.com/) 
 
 
-# Get Involved
+# Get Involved as a Web Developer
+
 The Round Robin Project brings together a collective of dancers involved in the practice of Contact Improvisation and led by the desire to share this dance form with a wider and wider audience.
 
-We are actively looking for people to support the Project, especially (but not only) in regard with:
+We are actively looking for people to support the development of the project: 
+computer people, web designers, programmers, we need you!
 
-- Developing/supporting the website: computer people, web designers, programmers, we need you!
-- Fundraising/inventing ways to support the further development and maintenance of this project
-- Advertising the project in whatever Contact Improvisation contexts you travel through
-- Using this website and recommending it to your students and partners
+If you are skilled in this technologies and willing to collaborate fill [this form](https://ciglobalcalendar.net/donationOffers/create) as a volunteer.
 
-# Contribute as web developer
+# The technologies used to develop the calendar
+
 The project is developed using this technlogies:
 - PHP framework: **Laravel 5.7**
 - Javascript framework: **jQuery**
