@@ -19,7 +19,7 @@ The Round Robin Project brings together a collective of dancers involved in the 
 We are actively looking for people to support the development of the project: 
 computer people, web designers, programmers, we need you!
 
-If you are skilled in this technologies and willing to collaborate fill [this form](https://ciglobalcalendar.net/donationOffers/create) as a volunteer.
+If you are skilled in the technologies reported below and willing to collaborate fill [this form](https://ciglobalcalendar.net/donationOffers/create) as a volunteer.
 
 ### How to contribute as developer
 
