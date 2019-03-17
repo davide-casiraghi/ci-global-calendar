@@ -37,9 +37,11 @@ The project is developed using this technlogies:
 ## Web developers team
 Davide Casiraghi
 
+The source code is developed and mantained by this [contributors](https://github.com/davide-casiraghi/ci-global-calendar/graphs/contributors).
+
 ## License
 The Global Contact Improvisation Calendar is free software distributed under the terms of the [MIT license](https://github.com/davide-casiraghi/ci-global-calendar/blob/master/LICENSE).   
-The source code is developed and mantained by this [contributors](https://github.com/davide-casiraghi/ci-global-calendar/graphs/contributors).
+
 
 
 
