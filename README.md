@@ -12,7 +12,7 @@ The calendar is still in beta testing phase and not yet available online, we pla
 For further info about the history of the project: [roundrobinproject.weebly.com](https://roundrobinproject.weebly.com/) 
 
 
-# Get Involved as a Web Developer
+## Get Involved as a Web Developer
 
 The Round Robin Project brings together a collective of dancers involved in the practice of Contact Improvisation and led by the desire to share this dance form with a wider and wider audience.
 
@@ -21,7 +21,7 @@ computer people, web designers, programmers, we need you!
 
 If you are skilled in this technologies and willing to collaborate fill [this form](https://ciglobalcalendar.net/donationOffers/create) as a volunteer.
 
-# The technologies used to develop the calendar
+## The technologies used to develop the calendar
 
 The project is developed using this technlogies:
 - PHP framework: **Laravel 5.7**
@@ -48,7 +48,7 @@ Below you can find informations about download the source code on your computer 
     - create an apache virtual host with the same url you set in the APP_URL parameter in .env
     - **php artisan cache:clear**
 
-# Developing tips
+## Developing tips
 - If you are adding or modifying CSS or JS files, run **npm run watch**. Every time you save, it will compress with Laravel Mix the css and js listed in **webpack.mix.js**.
 - If for security reasons you need to update an npm package:   
     - update the specific package or dependency version in **package-lock.json**
@@ -56,7 +56,7 @@ Below you can find informations about download the source code on your computer 
     - run **npm run dev**
     - run the tests
 
-# Tests
+## Tests
 In order to keep the code mantainable and improvable on the long term by a pool of developers, most of the functionalities of the calendar are tested by a series of unit test and browser test.
 For this reason a **TDD approach** is encouraged.
 
@@ -65,7 +65,7 @@ Before merge on the branch master please check the testsrunning in the project r
 - **./vendor/bin/phpunit**
 - **php artisan dusk**
 
-## Testing locally
+### Testing locally
 
 **How to setup the local test environment**
 Before running the tests you need to create another database that is used to create dummy datas by the test functions.
@@ -77,22 +77,22 @@ Before running the tests you need to create another database that is used to cre
 - create a copy of .env.testing and name it .env.dusk.local  (used by laravel dusk)
 - in **composer.json** remove temporary "laravel/dusk" from "dont-discover", run **composer update** and add "laravel/dusk" again in "dont-discover", this because laravel/dusk should not be insalled on the production and testing environments.
 
-## Testing environment 
+### Testing environment 
 
 It's also available for the developers a testing environment, parallel to the production environment where is possible to test fixes and releases before roll them out on the production environment.  
 This environment show the content of the branch **testing** that is almost aligned to the branch master and is reachable at this URL: 
 
-## Production environment
+### Production environment
 
 The production environment show the content of the branch **master** and is reachable at this URL: 
 
 Before deploying the branch master, compress with Laravel Mix the css and js listed in **webpack.mix.js** running:   
 **npm run production**
   
-# Web developers team
+## Web developers team
 Davide Casiraghi
 
-# License
+## License
 The Global Contact Improvisation Calendar is free software distributed under the terms of the [MIT license](https://opensource.org/licenses/mit-license.php).   
 The source code is developed and mantained by this [contributors](https://github.com/davide-casiraghi/ci-global-calendar/graphs/contributors).
 
