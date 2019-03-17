@@ -35,7 +35,6 @@ The project is developed using this technlogies:
 - Testing frameworks: **PHPUnit**, **Laravel Dusk**
 
 ## Web developers team
-Davide Casiraghi
 
 The source code is developed and mantained by this [contributors](https://github.com/davide-casiraghi/ci-global-calendar/graphs/contributors).
 
