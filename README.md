@@ -12,17 +12,21 @@ The calendar is still in beta testing phase and not yet available online, we pla
 For further info about the history of the project: [roundrobinproject.weebly.com](https://roundrobinproject.weebly.com/) 
 
 
-# Get Involved
+## Get Involved as a Web Developer
+
 The Round Robin Project brings together a collective of dancers involved in the practice of Contact Improvisation and led by the desire to share this dance form with a wider and wider audience.
 
-We are actively looking for people to support the Project, especially (but not only) in regard with:
+We are actively looking for people to support the development of the project: 
+computer people, web designers, programmers, we need you!
 
-- Developing/supporting the website: computer people, web designers, programmers, we need you!
-- Fundraising/inventing ways to support the further development and maintenance of this project
-- Advertising the project in whatever Contact Improvisation contexts you travel through
-- Using this website and recommending it to your students and partners
+If you are skilled in the technologies reported below and willing to collaborate fill [this form](https://ciglobalcalendar.net/donationOffers/create) as a volunteer.
 
-# Contribute as web developer
+### How to contribute as developer
+
+[Read Tutorial and Documentation →](https://github.com/davide-casiraghi/ci-global-calendar/wiki)
+
+## The technologies used to develop the calendar
+
 The project is developed using this technlogies:
 - PHP framework: **Laravel 5.7**
 - Javascript framework: **jQuery**
@@ -30,71 +34,13 @@ The project is developed using this technlogies:
 - Version control: **Git**  
 - Testing frameworks: **PHPUnit**, **Laravel Dusk**
 
-Below you can find informations about download the source code on your computer and join the developer team.
+## Web developers team
 
-# How to install
-
-1) Send to Davide your SSH Public Key ([check Github tutorial on SSH](https://help.github.com/articles/checking-for-existing-ssh-keys/))
-2) Clone the git branch 
-
-3) Procede with the installation: 
-    - **npm install**
-    - **composer install**
-    - **copy .env.example .env**
-    - **php artisan key:generate**
-    - create on your local machine a database called **CIGC-local**
-    - go to your .env file and set yours DB_USERNAME and DB_PASSWORD 
-    - import the database file in your mysql database (ask to Davide the most updated vesion)
-    - create an apache virtual host with the same url you set in the APP_URL parameter in .env
-    - **php artisan cache:clear**
-
-# Developing tips
-- If you are adding or modifying CSS or JS files, run **npm run watch**. Every time you save, it will compress with Laravel Mix the css and js listed in **webpack.mix.js**.
-- If for security reasons you need to update an npm package:   
-    - update the specific package or dependency version in **package-lock.json**
-    - run **npm install**
-    - run **npm run dev**
-    - run the tests
-
-# Tests
-In order to keep the code mantainable and improvable on the long term by a pool of developers, most of the functionalities of the calendar are tested by a series of unit test and browser test.
-For this reason a **TDD approach** is encouraged.
-
-Unit tests and browser tests are implemented using **PHPUnit** and **Laravel Dusk**.  
-Before merge on the branch master please check the testsrunning in the project root folder:
-- **./vendor/bin/phpunit**
-- **php artisan dusk**
-
-## Testing locally
-
-**How to setup the local test environment**
-Before running the tests you need to create another database that is used to create dummy datas by the test functions.
-- create on your local machine a database called **CIGC-local-test**
-- **php artisan migrate --database=testing**
-- create a file .env.testing in the root folder copying .env  (used by phpunit)
-  - DB_CONNECTION=testing  
-  - DB_DATABASE=CIGC-local-test
-- create a copy of .env.testing and name it .env.dusk.local  (used by laravel dusk)
-- in **composer.json** remove temporary "laravel/dusk" from "dont-discover", run **composer update** and add "laravel/dusk" again in "dont-discover", this because laravel/dusk should not be insalled on the production and testing environments.
-
-## Testing environment 
-
-It's also available for the developers a testing environment, parallel to the production environment where is possible to test fixes and releases before roll them out on the production environment.  
-This environment show the content of the branch **testing** that is almost aligned to the branch master and is reachable at this URL: 
-
-## Production environment
-
-The production environment show the content of the branch **master** and is reachable at this URL: 
-
-Before deploying the branch master, compress with Laravel Mix the css and js listed in **webpack.mix.js** running:   
-**npm run production**
-  
-# Web developers team
-Davide Casiraghi
-
-# License
-The Global Contact Improvisation Calendar is free software distributed under the terms of the [MIT license](https://opensource.org/licenses/mit-license.php).   
 The source code is developed and mantained by this [contributors](https://github.com/davide-casiraghi/ci-global-calendar/graphs/contributors).
+
+## License
+The Global Contact Improvisation Calendar is free software distributed under the terms of the [MIT license](https://github.com/davide-casiraghi/ci-global-calendar/blob/master/LICENSE).   
+
 
 
 
