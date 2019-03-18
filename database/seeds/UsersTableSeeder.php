@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
             array(
                     'id' => '1',
                     'name' => 'Davide Casiraghi',
-                    'email' => 'davide.casiraghi@gmail.com'
+                    'email' => 'davide.casiraghi@gmail.com',
                     'password' => '$2y$10$PRsgbgfF0bV3FsFjbjOIDOW3JMSQYUYNsRhoEhVMPC6vc0yfoVsfm',
                     'group' => '1',
                     'country_id' => '1',
