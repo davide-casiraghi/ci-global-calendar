@@ -79,7 +79,7 @@
       {{-- end - Right Nav --}}
       
       {{-- Language desktop --}}
-      <div class="navbar-brand d-none d-lg-block">
+      <div class="navbar-brand d-none d-lg-block ml-2">
           @include('partials.language-selector')
       </div>
       
