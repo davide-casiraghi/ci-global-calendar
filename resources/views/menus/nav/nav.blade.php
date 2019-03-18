@@ -51,9 +51,14 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-brand d-block d-md-none">
+        {{--<div class="navbar-brand d-block d-md-none">
+            @include('partials.language-selector')
+        </div>--}}
+        {{-- Language mobile/tablet --}}
+        <div class="navbar-brand d-block d-lg-none">
             @include('partials.language-selector')
         </div>
+        
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
  
@@ -72,7 +77,14 @@
           {{--@include('menus.nav.nav-right-items')--}}
       </ul>
       {{-- end - Right Nav --}}
-
+      
+      {{-- Language desktop --}}
+      <div class="navbar-brand d-none d-lg-block">
+          @include('partials.language-selector')
+      </div>
+      
+      
+      
       {{-- LOGOUT hidden form--}}
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               @csrf
