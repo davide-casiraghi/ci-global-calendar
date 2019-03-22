@@ -17,6 +17,7 @@ return [
     'end_on' => 'Endet am (oder davor)',
     'specify_one_or_both' => 'Du kannst keines, eines oder beide Suchfelder spezifizieren',
     'search_by_venue' => 'Suche nur nach Veranstaltungsort',
+    'search_by_city' => 'Stadtname',
     'select_a_continent' => 'Kontinent wählen',
     'select_a_country' => 'Land wählen',
     'select_a_city' => 'Stadt wählen',

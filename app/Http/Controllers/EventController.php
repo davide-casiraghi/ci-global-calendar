@@ -127,7 +127,14 @@ class EventController extends Controller
                 'description' => 'required',
                 'category_id' => 'required',
                 'venue_id' => 'required',
+                'startDate' => 'required',
+                'endDate' => 'required',
             ]);
+            
+            $validator->sometimes('repeat_until', 'required', function ($input) {
+                return $input->repeat_type > 1;
+            });
+
             if ($validator->fails()) {
                 return back()->withErrors($validator)->withInput();
             }
@@ -278,6 +285,8 @@ class EventController extends Controller
             'description' => 'required',
             'category_id' => 'required',
             'venue_id' => 'required',
+            'startDate' => 'required',
+            'endDate' => 'required',
         ]);
 
         /*$event->update($request->all());*/
@@ -952,7 +961,7 @@ class EventController extends Controller
                 $event->image = $imageName;
            }
            else{
-               $event->image = $request->get('image_name');
+               $event->image = $request->get('image');
            }
 
         // Support columns for homepage search (we need this to show events in HP with less use of resources)

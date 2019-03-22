@@ -39,44 +39,11 @@ class EventSearchController extends Controller
         });
             
         // Get the countries with active events
-        /*$countries = Cache::remember('events_countries', $cacheExpireTime, function () {
+            $activeEvents = Event::getActiveEvents();                                
+            $countries = $activeEvents->unique('country_name')->sortBy('country_name')->pluck('country_name', 'country_id');
+            //$cities = $activeEvents->unique('city')->toArray();
+            $activeContinentsCountries = ContinentResource::collection(Continent::all());
             
-            date_default_timezone_set('Europe/Rome');
-            $searchStartDate = date('Y-m-d', time());
-            $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
-            
-            return DB::table('countries')
-                ->join('event_venues', 'countries.id', '=', 'event_venues.country_id')
-                ->join('events', 'event_venues.id', '=', 'events.venue_id')
-                ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
-                        $join->on('events.id', '=', 'event_repetitions.event_id');
-                    })
-                ->orderBy('countries.name')
-                ->pluck('countries.name', 'countries.id');
-        });*/
-        
-        
-        /*
-        date_default_timezone_set('Europe/Rome');
-        $searchStartDate = date('Y-m-d', time());
-        $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
-        $activeEvents = Event::
-                            join('event_venues', 'event_venues.id', '=', 'events.venue_id')
-                            ->join('countries', 'countries.id', '=', 'event_venues.country_id')
-                            ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
-                                    $join->on('events.id', '=', 'event_repetitions.event_id');
-                                })
-                            ->get();
-        */
-            
-                            
-        $activeEvents = Event::getActiveEvents();                
-        $countries = $activeEvents->unique('country_name')->sortBy('country_name')->pluck('country_name', 'country_id');
-        //$cities = $activeEvents->unique('city')->toArray();
-        
-        $activeContinentsCountries = ContinentResource::collection(Continent::all());
-
-
         $continents = Cache::rememberForever('continents', function () {
             return Continent::orderBy('name')->pluck('name', 'id');
         });

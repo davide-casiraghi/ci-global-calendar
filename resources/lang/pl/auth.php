@@ -16,4 +16,5 @@ return [
     'failed' => 'Dane uwierzytelniające nie są zgodne z naszymi danymi.',
     'throttle' => 'Zbyt wiele prób logowania. Spróbuj ponownie za kilka sekund.',
     'successfully_registered' => 'Pomyślnie zarejestrowałeś się w Globalnym Kalendarzu KI. Otrzymasz wiadomość e-mail z potwierdzeniem, gdy twoje konto zostanie zatwierdzone przez administratora. Dziękujemy za rejestrację!',
+    'not_allowed_to_access' => 'Nie masz dostępu do tego zasobu',
 ];

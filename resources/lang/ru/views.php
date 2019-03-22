@@ -144,7 +144,7 @@ return [
     'preview' => 'предварительный просмотр',
     'delete_translation' => 'Удалить перевод',
     'notice' => 'yведомление',
-    'first_country_event_notice' => 'Please notice that if this is the first event inserted for your country it can take up to 15 minutes before your country appear in the homepage search filters.',
+    'first_country_event_notice' => 'Обратите внимание, что если это первое событие, вставленное в вашу страну, может пройти до 15 минут, прежде чем ваша страна появится в фильтрах поиска на главной странице. Сначала выберите учителя и место проведения, если вы не можете найти их в списке, сначала создайте их на этой странице.',
     'people' => 'люди',
     'choose' => 'выберите...',
 ];

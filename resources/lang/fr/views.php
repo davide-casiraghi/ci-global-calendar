@@ -144,7 +144,7 @@ return [
     'preview' => 'Aperçu',
     'delete_translation' => 'Supprimer la traduction',
     'notice' => 'Remarquer',
-    'first_country_event_notice' => 'Please notice that if this is the first event inserted for your country it can take up to 15 minutes before your country appear in the homepage search filters.',
+    'first_country_event_notice' => 'Veuillez noter que s\'il s\'agit du premier événement inséré pour votre pays, cela peut prendre jusqu\'à 15 minutes avant que votre pays apparaisse dans les filtres de recherche de page d\'accueil. S\'il vous plaît sélectionnez d\'abord le professeur/eusse et le lieu. Si vous ne les trouvez pas dans la liste, créez-les d\'abord sur cette page.',
     'people' => 'Persone',
     'choose' => 'Choisir...',
 ];

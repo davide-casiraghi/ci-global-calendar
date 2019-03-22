@@ -195,6 +195,19 @@ class MenuItemsTableSeeder extends Seeder
                     'hide_name' => '0'
                 ),
             array('id' => '15',
+                    'name' => 'Menus',
+                    'compact_name' => 'menus',
+                    'menu_id' => '4',
+                    'order' => '8',
+                    'access' => '4',
+                    'type' => '1',
+                    'parent_item_id' => '13',
+                    'url' => '',
+                    'route' => 'menus.index',
+                    'font_awesome_class' => 'fas fa-caret-circle-down',
+                    'hide_name' => '0'
+                ),
+            array('id' => '16',
                     'name' => 'Continents',
                     'compact_name' => 'continents',
                     'menu_id' => '4',
@@ -207,7 +220,7 @@ class MenuItemsTableSeeder extends Seeder
                     'font_awesome_class' => 'fas fa-globe-americas',
                     'hide_name' => '0'
                 ),
-            array('id' => '16',
+            array('id' => '17',
                     'name' => 'Countries',
                     'compact_name' => 'countries',
                     'menu_id' => '4',
@@ -218,19 +231,6 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '',
                     'route' => 'countries.index',
                     'font_awesome_class' => 'far fa-globe-americas',
-                    'hide_name' => '0'
-                ),
-            array('id' => '17',
-                    'name' => 'Menus',
-                    'compact_name' => 'menus',
-                    'menu_id' => '4',
-                    'order' => '8',
-                    'access' => '4',
-                    'type' => '1',
-                    'parent_item_id' => '13',
-                    'url' => '',
-                    'route' => 'menus.index',
-                    'font_awesome_class' => 'fas fa-caret-circle-down',
                     'hide_name' => '0'
                 ),
             array('id' => '18',
@@ -253,7 +253,7 @@ class MenuItemsTableSeeder extends Seeder
                     'order' => '1',
                     'access' => '3',
                     'type' => '3',
-                    'parent_item_id' => '18',
+                    'parent_item_id' => '16',
                     'url' => '',
                     'route' => '',
                     'font_awesome_class' => 'far fa-user-cog',
@@ -266,12 +266,27 @@ class MenuItemsTableSeeder extends Seeder
                     'order' => '2',
                     'access' => '3',
                     'type' => '4',
-                    'parent_item_id' => '18',
+                    'parent_item_id' => '16',
                     'url' => '',
                     'route' => 'logout',
                     'font_awesome_class' => 'fa fa-sign-out',
                     'hide_name' => '1'
                 ),
+            array('id' => '21',
+                    'name' => 'Login',
+                    'compact_name' => 'login',
+                    'menu_id' => '4',
+                    'order' => '4',
+                    'access' => '2',
+                    'type' => '1',
+                    'parent_item_id' => '0',
+                    'url' => '',
+                    'route' => 'login',
+                    'font_awesome_class' => 'fa fa-sign-in',
+                    'hide_name' => '0'
+                ),
+            
+            
            
        );
        
