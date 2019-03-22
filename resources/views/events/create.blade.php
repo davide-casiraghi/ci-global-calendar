@@ -139,7 +139,7 @@
                 <div class="row">
                     <div class="col form-sidebar">
                         <h5 class="text-xl">@lang('views.start_end_duration')</h5>
-                        
+                        <span class="dark-gray">@lang('views.please_use_repeat_until')</span>
                     </div>
                     <div class="col main">
                         {{-- Start date --}}
