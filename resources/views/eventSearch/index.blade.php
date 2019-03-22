@@ -61,6 +61,8 @@
     {{-- The event search interface in Homepage --}}
     <div class="eventSearch jumbotron">
         
+        @include('partials.jumboBackgroundChange')
+        
         <div class="container">
             <div class="row intro">
                 <div class="col-12 text-center">
@@ -189,8 +191,16 @@
                     </div>
                 </div>
                 
-                {{-- Background Change--}}
-                    {{--@include('partials.jumboBackgroundChange')--}}
+                {{-- Photo Credits--}}
+                <div class="row">
+                    <small class="col-12 credits mt-5">
+                        @lang('homepage-serach.photo_credits'):
+                        <span class="name">
+                            
+                        </span>
+                    </small>
+                </div>
+                    
                 
             </form>
 

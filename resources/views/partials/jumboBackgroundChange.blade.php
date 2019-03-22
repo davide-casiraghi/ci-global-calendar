@@ -19,7 +19,7 @@
         $(function() {
 
             var elementBackground = $('.eventSearch .background');
-            var elementCredits = $('.credits .name');
+            var elementCredits = $('.eventSearch .credits .name');
 
             // Create background array
                 var backgrounds = new Array();
@@ -65,11 +65,5 @@
     </script>
 
 @stop
-<small class="credits">
-    @lang('homepage-serach.photo_credits'):
-    <span class="name">
 
-    </span>
-
-</small>
 <div class="background"></div>
