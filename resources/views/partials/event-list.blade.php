@@ -25,17 +25,21 @@
                     </div>
                 {{-- Many days event --}}
                 @else
-                    <div class='col text-center bg-secondary text-white px-1 mr-1 d-table h-100' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
-                        <strong class="align-middle d-table-cell">
-                            @day($event->start_repeat)<br class="d-none d-lg-block"/>
-                            @month($event->start_repeat)
-                        </strong>
+                    <div class='col text-center bg-secondary text-white px-1 mr-1' data-toggle="tooltip" data-placement="top" title="@date($event->start_repeat)">
+                        <div class="d-table text-center h-100 w-100">
+                            <strong class="align-middle d-table-cell">
+                                @day($event->start_repeat)<br class="d-none d-lg-block"/>
+                                @month($event->start_repeat)
+                            </strong>
+                        </div>
                     </div>
-                    <div class='col text-center bg-secondary text-white px-1 d-table h-100' data-toggle="tooltip" data-placement="top" title="@date($event->end_repeat)">
-                        <strong class="align-middle d-table-cell">
-                            @day($event->end_repeat)<br class="d-none d-lg-block"/>
-                            @month($event->end_repeat)
-                        </strong>
+                    <div class='col bg-secondary text-white px-1' data-toggle="tooltip" data-placement="top" title="@date($event->end_repeat)">
+                        <div class="d-table text-center h-100 w-100">
+                            <strong class="align-middle d-table-cell">
+                                @day($event->end_repeat)<br class="d-none d-lg-block"/>
+                                @month($event->end_repeat)
+                            </strong>
+                        </div>
                     </div>
                 @endif
                 </div>
