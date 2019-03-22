@@ -21,7 +21,7 @@ computer people, web designers, programmers, we need you!
 
 If you are skilled in the technologies reported below and willing to collaborate fill [this form](https://ciglobalcalendar.net/donationOffers/create) as a volunteer.
 
-### How to contribute as developer
+### How to contribute
 
 [Read Tutorial and Documentation →](https://github.com/davide-casiraghi/ci-global-calendar/wiki)
 
