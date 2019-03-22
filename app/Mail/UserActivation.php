@@ -5,7 +5,6 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class UserActivation extends Mailable
 {
@@ -18,7 +17,6 @@ class UserActivation extends Mailable
      */
     protected $mailDatas;
 
-
     /**
      * Create a new message instance.
      *
@@ -26,7 +24,7 @@ class UserActivation extends Mailable
      */
     public function __construct($mailDatas)
     {
-         $this->mailDatas = $mailDatas;
+        $this->mailDatas = $mailDatas;
     }
 
     /**
@@ -34,11 +32,11 @@ class UserActivation extends Mailable
      *
      * @return $this
      */
-     public function build()
-     {
-         // Configure email parameters in .env file
+    public function build()
+    {
+        // Configure email parameters in .env file
 
-         return $this->markdown('emails.user-activation')
+        return $this->markdown('emails.user-activation')
                 ->to(env('ADMIN_MAIL'))
                 ->from('noreply@globalcalendar.com', 'Global CI Calendar')
                 ->replyTo('noreply@globalcalendar.com', 'Global CI Calendar')
@@ -48,7 +46,7 @@ class UserActivation extends Mailable
                     'email' => $this->mailDatas['email'],
                     'country' => $this->mailDatas['country'],
                     'description' => $this->mailDatas['description'],
-                    'activation_code' => $this->mailDatas['activation_code']
+                    'activation_code' => $this->mailDatas['activation_code'],
                 ]);
-     }
+    }
 }

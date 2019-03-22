@@ -5,7 +5,6 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class ReportMisuse extends Mailable
 {
@@ -18,7 +17,6 @@ class ReportMisuse extends Mailable
      */
     protected $report;
 
-
     /**
      * Create a new message instance.
      *
@@ -26,7 +24,7 @@ class ReportMisuse extends Mailable
      */
     public function __construct($report)
     {
-         $this->report = $report;
+        $this->report = $report;
     }
 
     /**
@@ -34,17 +32,15 @@ class ReportMisuse extends Mailable
      *
      * @return $this
      */
-     public function build()
-     {
-         // Configure email parameters in .env file
-         
-         
-         
-         switch ($this->report['reason']) {
-             
+    public function build()
+    {
+        // Configure email parameters in .env file
+
+        switch ($this->report['reason']) {
+
              /* Send email to the user that has created the event */
              case 'It is not translated in english':
-                
+
                 return $this->markdown('emails.misuse.organizer-event-not-english')
                  ->to($this->report['creatorEmail'])
                  ->from('noreply@globalcalendar.com', 'Global CI Calendar')
@@ -54,14 +50,14 @@ class ReportMisuse extends Mailable
                      'event_title' => $this->report['event_title'],
                      'event_id' => $this->report['event_id'],
                      'reason' => $this->report['reason'],
-                     'msg' => $this->report['message']
+                     'msg' => $this->report['message'],
                  ]);
-                 
+
                  break;
-             
+
              /* Send email to the administrator */
              default:
-                     
+
                 return $this->markdown('emails.misuse.administrator-report-misuse')
                     ->to($this->report['adminEmail'])
                     ->from('noreply@globalcalendar.com', 'Global CI Calendar')
@@ -71,12 +67,10 @@ class ReportMisuse extends Mailable
                         'event_title' => $this->report['event_title'],
                         'event_id' => $this->report['event_id'],
                         'reason' => $this->report['reason'],
-                        'msg' => $this->report['message']
+                        'msg' => $this->report['message'],
                     ]);
-                    
+
                  break;
          }
-         
-         
-     }
+    }
 }

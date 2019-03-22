@@ -2,34 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\EventCategory;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-
 use Validator;
+use App\EventCategory;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class EventCategoryController extends Controller
 {
     /* Restrict the access to this resource just to logged in users except show view */
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('admin', ['except' => ['show']]);
     }
-    
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
+    public function index()
+    {
         $eventCategories = EventCategory::latest()->paginate(20);
-        
-        // Countries available for translations
-            $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
 
-        return view('eventCategories.index',compact('eventCategories'))
+        // Countries available for translations
+        $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
+
+        return view('eventCategories.index', compact('eventCategories'))
             ->with('i', (request()->input('page', 1) - 1) * 20)
-            ->with('countriesAvailableForTranslations',$countriesAvailableForTranslations);
+            ->with('countriesAvailableForTranslations', $countriesAvailableForTranslations);
     }
 
     /**
@@ -37,7 +38,8 @@ class EventCategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(){
+    public function create()
+    {
         return view('eventCategories.create');
     }
 
@@ -47,22 +49,23 @@ class EventCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request){
-        
+    public function store(Request $request)
+    {
+
         // Validate form datas
-            $validator = Validator::make($request->all(), [
-                'name' => 'required'
+        $validator = Validator::make($request->all(), [
+                'name' => 'required',
             ]);
-            if ($validator->fails()) {
-                return back()->withErrors($validator)->withInput();
-            }
-        
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
         $eventCategory = new EventCategory();
 
         $this->saveOnDb($request, $eventCategory);
 
         return redirect()->route('eventCategories.index')
-                        ->with('success',__('messages.category_added_successfully'));
+                        ->with('success', __('messages.category_added_successfully'));
     }
 
     /**
@@ -71,8 +74,9 @@ class EventCategoryController extends Controller
      * @param  \App\EventCategory  $eventCategory
      * @return \Illuminate\Http\Response
      */
-    public function show(EventCategory $eventCategory){
-        return view('eventCategories.show',compact('eventCategory'));
+    public function show(EventCategory $eventCategory)
+    {
+        return view('eventCategories.show', compact('eventCategory'));
     }
 
     /**
@@ -81,9 +85,9 @@ class EventCategoryController extends Controller
      * @param  \App\EventCategory  $eventCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(EventCategory $eventCategory){
-
-        return view('eventCategories.edit',compact('eventCategory'));
+    public function edit(EventCategory $eventCategory)
+    {
+        return view('eventCategories.edit', compact('eventCategory'));
     }
 
     /**
@@ -93,15 +97,16 @@ class EventCategoryController extends Controller
      * @param  \App\EventCategory  $eventCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EventCategory $eventCategory){
+    public function update(Request $request, EventCategory $eventCategory)
+    {
         request()->validate([
-            'name' => 'required'
+            'name' => 'required',
         ]);
 
         $this->saveOnDb($request, $eventCategory);
 
         return redirect()->route('eventCategories.index')
-                        ->with('success',__('messages.category_updated_successfully'));
+                        ->with('success', __('messages.category_updated_successfully'));
     }
 
     /**
@@ -115,37 +120,38 @@ class EventCategoryController extends Controller
         $eventCategory->delete();
 
         return redirect()->route('eventCategories.index')
-                        ->with('success',__('messages.category_deleted_successfully'));
+                        ->with('success', __('messages.category_deleted_successfully'));
     }
 
     // **********************************************************************
 
     /**
-     * Return the single event category datas by cat id
+     * Return the single event category datas by cat id.
      *
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-     public function eventcategorydata($cat_id){
-         $ret = DB::table('event_categories')->where('id', $cat_id)->first();
-         //dump($ret);
+    public function eventcategorydata($cat_id)
+    {
+        $ret = DB::table('event_categories')->where('id', $cat_id)->first();
+        //dump($ret);
 
-         return $ret;
-     }
+        return $ret;
+    }
 
-     // **********************************************************************
+    // **********************************************************************
 
-     /**
-      * Save/Update the record on DB
-      *
-      * @param  \Illuminate\Http\Request  $request
-      * @return string $ret - the ordinal indicator (st, nd, rd, th)
-      */
+    /**
+     * Save/Update the record on DB.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return string $ret - the ordinal indicator (st, nd, rd, th)
+     */
+    public function saveOnDb($request, $eventCategory)
+    {
+        $eventCategory->name = $request->get('name');
+        $eventCategory->slug = Str::slug($eventCategory->name, '-');
 
-     function saveOnDb($request, $eventCategory){
-         $eventCategory->name = $request->get('name');
-         $eventCategory->slug = Str::slug($eventCategory->name, '-');
-
-         $eventCategory->save();
-     }
+        $eventCategory->save();
+    }
 }

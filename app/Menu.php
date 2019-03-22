@@ -13,10 +13,10 @@ class Menu extends Model
      * @var string
      */
     protected $table = 'menus';
-    
+
     /***************************************************************************/
-    
+
     protected $fillable = [
-        'name'
+        'name',
     ];
 }

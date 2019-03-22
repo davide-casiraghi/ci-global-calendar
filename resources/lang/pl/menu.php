@@ -26,5 +26,5 @@ return [
     'login' => 'Login',
     'logout' => 'Wyloguj się',
     'donate' => 'Darowizna',
-    'teachers_directory' => 'Informator nauczyciela'
+    'teachers_directory' => 'Informator nauczyciela',
 ];

@@ -26,5 +26,5 @@ return [
     'login' => 'Логин',
     'logout' => 'Выход',
     'donate' => 'Вклад',
-    'teachers_directory' => 'Учителя'
+    'teachers_directory' => 'Учителя',
 ];

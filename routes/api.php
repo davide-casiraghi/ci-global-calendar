@@ -1,20 +1,15 @@
 <?php
 
-use Illuminate\Http\Request;
-
-use App\EventRepetition;
-
-use App\Teacher;
-use App\Http\Resources\Teacher as TeacherResource;
-
 use App\Event;
-use App\Http\Resources\Event as EventResource;
-
-use App\Continent;
-use App\Http\Resources\Continent as ContinentResource;
-
 use App\Country;
+use App\Teacher;
+use App\Continent;
+use App\EventRepetition;
+use Illuminate\Http\Request;
+use App\Http\Resources\Event as EventResource;
 use App\Http\Resources\Country as CountryResource;
+use App\Http\Resources\Teacher as TeacherResource;
+use App\Http\Resources\Continent as ContinentResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,12 +47,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::get('/events/country/{countryId}', function ($countryId) {
         return EventResource::collection(Event::where('country_id', $countryId)->get());
     });
-    
+
     Route::get('/events/teacher/{id}', function ($id) {  // http://ciglobalcalendar.net/api/events/teacher/1
         date_default_timezone_set('Europe/Rome');
         $searchStartDate = date('Y-m-d', time());
         $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
-        
+
         return EventResource::collection(
             Teacher::eventsByTeacher(Teacher::find($id), $lastestEventsRepetitionsQuery, $searchStartDate)
         );

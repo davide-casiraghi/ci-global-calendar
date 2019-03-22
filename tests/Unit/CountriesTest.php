@@ -12,26 +12,28 @@ class CountriesTest extends TestCase
     use RefreshDatabase;  // empty the test DB
 
     /***************************************************************************/
+
     /**
-     * Populate test DB with dummy data
-     */ 
-    public function setUp(): void{
+     * Populate test DB with dummy data.
+     */
+    public function setUp(): void
+    {
         parent::setUp();
         $this->seed();
     }
 
     /***************************************************************************/
+
     /**
-     * Test that logged user can see countries index view
-     */  
-    public function test_logged_user_can_see_countries(){
+     * Test that logged user can see countries index view.
+     */
+    public function test_logged_user_can_see_countries()
+    {
         // Authenticate the admin
-            $this->authenticateAsAdmin();
-        
+        $this->authenticateAsAdmin();
+
         // Access to the page
-            $response = $this->get('/countries')
-                ->assertStatus(200);    
+        $response = $this->get('/countries')
+                ->assertStatus(200);
     }
-    
-    
 }

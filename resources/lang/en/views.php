@@ -60,7 +60,7 @@ return [
     'create_new_user' => 'Create new user',
     'create_new_category' => 'Create new category',
     'create_new_event_category' => 'Create new category',
-    'create_new_continent' => 'Create new continent',    
+    'create_new_continent' => 'Create new continent',
     'create_new_country' => 'Create new country',
     'create_new_background_image' => 'Create new background image',
     'create_new_menu' => 'Create new menu',

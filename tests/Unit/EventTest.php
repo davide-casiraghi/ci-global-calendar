@@ -3,88 +3,97 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
+use Illuminate\Support\Str;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-
-use Illuminate\Support\Str;
 
 class EventTest extends TestCase
 {
     use WithFaker;
     use RefreshDatabase; // empty the test DB
-    
+
     /***************************************************************************/
+
     /**
-     * Populate test DB with dummy data
+     * Populate test DB with dummy data.
      */
-    function setUp(): void{
+    public function setUp(): void
+    {
         parent::setUp();
-        
+
         // Seeders - /database/seeds
-            $this->seed(); 
-        
+        $this->seed();
+
         // Factories - /database/factories
-            $this->user = factory(\App\User::class)->create();
-            $this->venue = factory(\App\EventVenue::class)->create();
-            $this->teachers = factory(\App\Teacher::class,3)->create();
-            $this->organizers = factory(\App\Organizer::class,3)->create();
-            $this->event = factory(\App\Event::class)->create();
-    }
-    
-    /***************************************************************************/
-    /**
-     * Test that logged user can see events index view
-     */    
-    public function test_logged_user_can_see_events_index(){
-        // Authenticate the user
-            $this->authenticate();
-        
-        // Access to the page
-            $response = $this->get('/events')
-                             ->assertStatus(200);
-    }
-    
-    /***************************************************************************/
-    /**
-     * Test that the monthSelectOptions function return the right HTML
-     * This function is called trough ajax in the view - partial/repeat-event.blade.php 
-     * The html contain a select dropdown that change every time that start date is changed in the event create and edit view
-     */     
-    public function test_decode_on_monthly_kind_function(){
-        // Authenticate the user
-            $this->authenticate();
-            
-        // Access to the page
-            $response = $this->get('event/monthSelectOptions?day=10/01/2019')
-                 ->assertStatus(200);
-        
-        // Assert the value is the one aspected 
-            $codeToCompare = "<select name='on_monthly_kind' id='on_monthly_kind' class='selectpicker' title='Select repeat monthly kind'><option value='0|10'>the 10th day of the month</option><option value='1|2|4'>the 2nd Thursday of the month</option><option value='2|20'>the 21th to last day of the month</option><option value='3|3|4'>the 4th to last Thursday of the month</option></select>";
-            $this->assertSame($response->original, $codeToCompare);
+        $this->user = factory(\App\User::class)->create();
+        $this->venue = factory(\App\EventVenue::class)->create();
+        $this->teachers = factory(\App\Teacher::class, 3)->create();
+        $this->organizers = factory(\App\Organizer::class, 3)->create();
+        $this->event = factory(\App\Event::class)->create();
     }
 
     /***************************************************************************/
+
     /**
-     * Test that the logged user can create an event
-     */  
-    public function test_a_logged_user_can_create_event(){
-        
+     * Test that logged user can see events index view.
+     */
+    public function test_logged_user_can_see_events_index()
+    {
         // Authenticate the user
-            $this->authenticate();
-            
+        $this->authenticate();
+
+        // Access to the page
+        $response = $this->get('/events')
+                             ->assertStatus(200);
+    }
+
+    /***************************************************************************/
+
+    /**
+     * Test that the monthSelectOptions function return the right HTML
+     * This function is called trough ajax in the view - partial/repeat-event.blade.php
+     * The html contain a select dropdown that change every time that start date is changed in the event create and edit view.
+     */
+    public function test_decode_on_monthly_kind_function()
+    {
+        // Authenticate the user
+        $this->authenticate();
+
+        // Access to the page
+        $response = $this->get('event/monthSelectOptions?day=10/01/2019')
+                 ->assertStatus(200);
+
+        // Assert the value is the one aspected
+        $codeToCompare = "<select name='on_monthly_kind' id='on_monthly_kind' class='selectpicker' title='Select repeat monthly kind'><option value='0|10'>the 10th day of the month</option><option value='1|2|4'>the 2nd Thursday of the month</option><option value='2|20'>the 21th to last day of the month</option><option value='3|3|4'>the 4th to last Thursday of the month</option></select>";
+        $this->assertSame($response->original, $codeToCompare);
+    }
+
+    /***************************************************************************/
+
+    /**
+     * Test that the logged user can create an event.
+     */
+    public function test_a_logged_user_can_create_event()
+    {
+
+        // Authenticate the user
+        $this->authenticate();
+
         // Get the IDs of the 3 Teachers generated with the database factory, eg (3, 4, 5)
-            $teachers_id = "";
-            $i = 0; $len = count($this->teachers);
-            foreach ($this->teachers as $key => $teacher) {
-                $teachers_id .= $teacher->id;
-                if ($i != $len - 1)  // not last
-                    $teachers_id .= ",";
-                $i++;
+        $teachers_id = '';
+        $i = 0;
+        $len = count($this->teachers);
+        foreach ($this->teachers as $key => $teacher) {
+            $teachers_id .= $teacher->id;
+            if ($i != $len - 1) {  // not last
+                $teachers_id .= ',';
             }
-            
+            $i++;
+        }
+
         // Post datas to create event (we don't include created_by and slug becayse are generated by the store method )
-            $title = $this->faker->sentence($nbWords = 3);
-            $data = [
+        $title = $this->faker->sentence($nbWords = 3);
+        $data = [
                 'title' => $title,
                 'category_id' => '3',
                 'description' => $this->faker->paragraph,
@@ -98,73 +107,70 @@ class EventTest extends TestCase
                 'time_start' => '6:00 PM',
                 'time_end' => '8:00 PM',
                 'repeat_type' => '1',
-                'facebook_event_link' => "https://www.facebook.com/".$this->faker->word,
+                'facebook_event_link' => 'https://www.facebook.com/'.$this->faker->word,
                 'website_event_link' => $this->faker->url,
             ];
-            $response = $this
+        $response = $this
                             ->followingRedirects()
                             ->post('/events', $data);
-            
+
         // Assert in database
-            $this->assertDatabaseHas('events',['title' => $title]);
-            //dd($response);
-            $response
+        $this->assertDatabaseHas('events', ['title' => $title]);
+        //dd($response);
+        $response
                 ->assertStatus(200)
-                ->assertSee(__('messages.event_added_successfully'));    
+                ->assertSee(__('messages.event_added_successfully'));
     }
-    
-    
-    
-    
-    
+
     /***************************************************************************/
+
     /**
-     * Test that guest user can send a misuse report
-     */  
+     * Test that guest user can send a misuse report.
+     */
     public function test_a_guest_user_can_send_misuse_report()
     {
-    
+
         // Post a data to create teacher (I dont' post created_by and slub becayse are generated by the store method )
-            $data = [
+        $data = [
                 'reason' => 1,
                 'message' => $this->faker->paragraph,
                 'event_title' => $this->faker->sentence($nbWords = 3),
                 'event_id' => 3,
                 'created_by' => $this->user->id,
             ];
-            $response = $this
+        $response = $this
                         ->followingRedirects()
                         ->post('/misuse', $data);
         // Status
-            $response
+        $response
                     ->assertStatus(200)
-                    ->assertSee("Report sent");
+                    ->assertSee('Report sent');
     }
-    
+
     /***************************************************************************/
+
     /**
-     * Test that guest user can send email to all the event organizers
-     */  
+     * Test that guest user can send email to all the event organizers.
+     */
     public function test_a_guest_user_can_send_mail_to_event_organizers()
     {
 
         // Post a data to create teacher (I dont' post created_by and slub becayse are generated by the store method )
-            $data = [
+        $data = [
                 'user_name' => $this->user->name,
                 'user_email' => $this->user->email,
                 'message' => $this->faker->paragraph,
                 'event_title' => $this->faker->sentence($nbWords = 3),
                 'event_id' => $this->event->id,
             ];
-            $response = $this
+        $response = $this
                         ->followingRedirects()
                         ->post('/mailToOrganizer', $data);
-                        
-            //dd($response); // I have to create the event factory
+
+        //dd($response); // I have to create the event factory
         // Status
-            $response
+        $response
                     ->assertStatus(200)
-                    ->assertSee("Message sent to the organizers");
+                    ->assertSee('Message sent to the organizers');
     }
-    
 }

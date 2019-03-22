@@ -4,20 +4,17 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Country;
-
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
-
-use App\Notifications\UserRegisteredSuccessfully;
-use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-
-use Illuminate\Support\Facades\Mail;
 use App\Mail\UserActivation;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use App\Mail\UserActivationConfirmation;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Notifications\UserRegisteredSuccessfully;
 
 class RegisterController extends Controller
 {
@@ -65,7 +62,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'description' => 'required|string',
             'accept_terms' => 'accepted',
-            'g-recaptcha-response' => 'required|captcha'
+            'g-recaptcha-response' => 'required|captcha',
         ]);
     }
 
@@ -83,23 +80,24 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'country_id' => $data['country_id'],
             'description' => $data['description'],
-            'accept_terms' => 'accepted'
+            'accept_terms' => 'accepted',
         ]);
     }
 
     /**
-     * Show the application registration form. - OVERRIDE to default function
+     * Show the application registration form. - OVERRIDE to default function.
      *
      * @return \Illuminate\Http\Response
      */
     public function showRegistrationForm()
     {
         $countries = Country::getCountries();
+
         return view('auth.register', compact('countries'));
     }
 
     /**
-     * Register new account. - OVERRIDE to default function
+     * Register new account. - OVERRIDE to default function.
      *
      * @param Request $request
      * @return User
@@ -111,41 +109,40 @@ class RegisterController extends Controller
             'name'     => 'required|string|max:255',
             'email'    => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'g-recaptcha-response' => 'required|captcha'
+            'g-recaptcha-response' => 'required|captcha',
         ]);
         try {
             $validatedData['password'] = bcrypt(Arr::get($validatedData, 'password'));
             $validatedData['activation_code'] = Str::random(30).time();
             $validatedData['country_id'] = $request->country_id;
             $validatedData['description'] = $request->description;
-            $validatedData['accept_terms'] = ($request->accept_terms == "on") ? 1 : 0;
+            $validatedData['accept_terms'] = ($request->accept_terms == 'on') ? 1 : 0;
 
             // Create user
-                $user = app(User::class)->create($validatedData);
+            $user = app(User::class)->create($validatedData);
         } catch (\Exception $exception) {
             logger()->error($exception);
+
             return redirect()->back()->with('message', 'Unable to create new user.');
         }
         // this was the bugged version that send the activation button link to the user
-            //$user->notify(new UserRegisteredSuccessfully($user));
+        //$user->notify(new UserRegisteredSuccessfully($user));
 
-            $countries = Country::getCountries();
+        $countries = Country::getCountries();
 
-            $mailDatas['subject'] = "New user registration";
+        $mailDatas['subject'] = 'New user registration';
 
-            $mailDatas['name'] = $request->name;
-            $mailDatas['email'] = $request->email;
-            $mailDatas['country'] = $countries[$request->country_id];
-            $mailDatas['description'] = $request->description;
-            $mailDatas['activation_code'] = $validatedData['activation_code'];
+        $mailDatas['name'] = $request->name;
+        $mailDatas['email'] = $request->email;
+        $mailDatas['country'] = $countries[$request->country_id];
+        $mailDatas['description'] = $request->description;
+        $mailDatas['activation_code'] = $validatedData['activation_code'];
 
-
-            Mail::to(env('ADMIN_MAIL'))->send(new UserActivation($mailDatas));
-            // aaaaaaa - here send the email
+        Mail::to(env('ADMIN_MAIL'))->send(new UserActivation($mailDatas));
+        // aaaaaaa - here send the email
 
         return redirect()->back()->with('message', __('auth.successfully_registered'));
     }
-
 
     /**
      * Activate the user with given activation code.
@@ -156,58 +153,57 @@ class RegisterController extends Controller
     {
         try {
             $user = app(User::class)->where('activation_code', $activationCode)->first();
-            if (!$user) {
-                return "The code does not exist for any user in our system.";
+            if (! $user) {
+                return 'The code does not exist for any user in our system.';
             }
             $user->status = 1;
             $user->activation_code = null;
             $user->save();
             //auth()->login($user);
-            
+
             // Send to the user the confirmation about the activation of the account
-                $mailDatas = array();
-                    $mailDatas['senderEmail'] = "noreply@globalcicalendar.com";
-                    $mailDatas['senderName'] = "Global CI - Administrator";
-                    $mailDatas['subject'] = "Activation of your Global CI account";
-                    $mailDatas['emailTo'] = $user->email;
-                    $mailDatas['name'] = $user->name;
-                 
-                Mail::to($user->email)->send(new UserActivationConfirmation($mailDatas));
-            
+            $mailDatas = [];
+            $mailDatas['senderEmail'] = 'noreply@globalcicalendar.com';
+            $mailDatas['senderName'] = 'Global CI - Administrator';
+            $mailDatas['subject'] = 'Activation of your Global CI account';
+            $mailDatas['emailTo'] = $user->email;
+            $mailDatas['name'] = $user->name;
+
+            Mail::to($user->email)->send(new UserActivationConfirmation($mailDatas));
         } catch (\Exception $exception) {
             logger()->error($exception);
-            return "Whoops! something went wrong.";
+
+            return 'Whoops! something went wrong.';
         }
+
         return redirect()->to('/')->with('message', 'User succesfuly activated');
     }
 
     // **********************************************************************
 
     /**
-     * Send the User activation mail to the Admin
+     * Send the User activation mail to the Admin.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return redirect to route
      */
-    public function userActivationMailSend(Request $request){
-        $report = array();
+    public function userActivationMailSend(Request $request)
+    {
+        $report = [];
 
-        $report['senderEmail'] = "noreply@globalcicalendar.com";
-        $report['senderName'] = "Anonymus User";
-        $report['subject'] = "New user registration";
+        $report['senderEmail'] = 'noreply@globalcicalendar.com';
+        $report['senderName'] = 'Anonymus User';
+        $report['subject'] = 'New user registration';
         $report['emailTo'] = env('ADMIN_MAIL');
 
         $report['name'] = $request->name;
         $report['email'] = $request->email;
         $report['message'] = $request->message;
 
-         //Mail::to($request->user())->send(new ReportMisuse($report));
-         //Mail::to($report['emailTo'])->send(new ContactForm($report));
-         Mail::to($report['emailTo'])->send(new UserActivation($report));
+        //Mail::to($request->user())->send(new ReportMisuse($report));
+        //Mail::to($report['emailTo'])->send(new ContactForm($report));
+        Mail::to($report['emailTo'])->send(new UserActivation($report));
 
-         return redirect()->route('forms.contactform-thankyou');
-
-     }
-
-
+        return redirect()->route('forms.contactform-thankyou');
+    }
 }

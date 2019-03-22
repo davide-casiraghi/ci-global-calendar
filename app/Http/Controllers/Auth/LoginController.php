@@ -37,17 +37,14 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-
-
     /**
-         * Get the needed authorization credentials from the request. - OVERRIDE - //https://stackoverflow.com/questions/31015606/login-only-if-user-is-active-using-laravel
-         *
-         * @param  \Illuminate\Http\Request  $request
-         * @return array
-         */
-        protected function credentials(\Illuminate\Http\Request $request)
-        {
-            return ['email' => $request->email, 'password' => $request->password, 'status' => 1];
-        }
-
+     * Get the needed authorization credentials from the request. - OVERRIDE - //https://stackoverflow.com/questions/31015606/login-only-if-user-is-active-using-laravel.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    protected function credentials(\Illuminate\Http\Request $request)
+    {
+        return ['email' => $request->email, 'password' => $request->password, 'status' => 1];
+    }
 }

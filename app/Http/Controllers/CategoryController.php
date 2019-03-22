@@ -2,23 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
 use App\Category;
-
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-
-use Validator;
 
 class CategoryController extends Controller
 {
     /* Restrict the access to this resource just to logged in users */
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('admin');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -27,13 +26,13 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::latest()->paginate(5);
-        
-        // Countries available for translations
-            $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
 
-        return view('categories.index',compact('categories'))
+        // Countries available for translations
+        $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
+
+        return view('categories.index', compact('categories'))
             ->with('i', (request()->input('page', 1) - 1) * 5)
-            ->with('countriesAvailableForTranslations',$countriesAvailableForTranslations);
+            ->with('countriesAvailableForTranslations', $countriesAvailableForTranslations);
     }
 
     /**
@@ -41,8 +40,8 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(){
-            
+    public function create()
+    {
         return view('categories.create');
     }
 
@@ -52,25 +51,26 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request){
-        
+    public function store(Request $request)
+    {
+
         // Validate form datas
-            $validator = Validator::make($request->all(), [
-                'name' => 'required'
+        $validator = Validator::make($request->all(), [
+                'name' => 'required',
             ]);
-            if ($validator->fails()) {
-                return back()->withErrors($validator)->withInput();
-            }
-        
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
         $category = new Category();
 
         // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
-            App::setLocale('en');
-        
+        App::setLocale('en');
+
         $this->saveOnDb($request, $category);
 
         return redirect()->route('categories.index')
-                        ->with('success',__('messages.category_added_successfully'));
+                        ->with('success', __('messages.category_added_successfully'));
     }
 
     /**
@@ -81,7 +81,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('categories.show',compact('category'));
+        return view('categories.show', compact('category'));
     }
 
     /**
@@ -90,12 +90,13 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category){
-        
+    public function edit(Category $category)
+    {
+
         // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
-            //App::setLocale('en');
-        
-        return view('categories.edit',compact('category'));
+        //App::setLocale('en');
+
+        return view('categories.edit', compact('category'));
     }
 
     /**
@@ -105,18 +106,19 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category){
+    public function update(Request $request, Category $category)
+    {
         request()->validate([
-            'name' => 'required'
+            'name' => 'required',
         ]);
 
         // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
-            App::setLocale('en');
-        
+        App::setLocale('en');
+
         $this->saveOnDb($request, $category);
 
         return redirect()->route('categories.index')
-                        ->with('success',__('messages.category_updated_successfully'));
+                        ->with('success', __('messages.category_updated_successfully'));
     }
 
     /**
@@ -125,26 +127,28 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category){
+    public function destroy(Category $category)
+    {
         $category->delete();
+
         return redirect()->route('categories.index')
-                        ->with('success',__('messages.category_deleted_successfully'));
+                        ->with('success', __('messages.category_deleted_successfully'));
     }
 
-     /***************************************************************************/
-     /**
-      * Save/Update the record on DB
-      *
-      * @param  \Illuminate\Http\Request  $request
-      * @return string $ret - the ordinal indicator (st, nd, rd, th)
-      */
+    /***************************************************************************/
 
-     function saveOnDb($request, $category){
-         $category->name = $request->get('name');
-         $category->description = $request->get('description');
-         $category->slug = Str::slug($category->name, '-');
+    /**
+     * Save/Update the record on DB.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return string $ret - the ordinal indicator (st, nd, rd, th)
+     */
+    public function saveOnDb($request, $category)
+    {
+        $category->name = $request->get('name');
+        $category->description = $request->get('description');
+        $category->slug = Str::slug($category->name, '-');
 
-         $category->save();
-     }
-
+        $category->save();
+    }
 }

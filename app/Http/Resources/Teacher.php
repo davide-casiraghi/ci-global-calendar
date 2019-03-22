@@ -19,7 +19,7 @@ class Teacher extends JsonResource
             'name' => $this->name,
             'bio' => $this->bio,
             'website' => $this->website,
-            'facebook' => $this->facebook
+            'facebook' => $this->facebook,
         ];
     }
 }

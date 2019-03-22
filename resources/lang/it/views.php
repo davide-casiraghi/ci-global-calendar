@@ -83,7 +83,7 @@ return [
     'country' => 'Nazione',
     'zip_code' => 'CAP',
     'before_post_contents' => 'Prima del contenuto dell\'articolo',
-    'after_post_contents' => 'Dopo il contenuto dell\'articolo',  
+    'after_post_contents' => 'Dopo il contenuto dell\'articolo',
     'search_by_post_name' => 'Cerca per nome dell\'articolo',
     'search_by_event_name' => 'Cerca nome evento',
     'search_by_venue_name' => 'Cerca nome spazio',

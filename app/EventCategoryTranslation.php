@@ -13,10 +13,9 @@ class EventCategoryTranslation extends Model
      * @var string
      */
     protected $table = 'event_category_translations';
-    
+
     /***************************************************************************/
-    
-    
+
     public $timestamps = false;
-    protected $fillable = ['name','slug'];
+    protected $fillable = ['name', 'slug'];
 }
