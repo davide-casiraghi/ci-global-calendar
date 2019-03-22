@@ -25,5 +25,5 @@ return [
     'teacher_name' => 'Nome d@ professor@',
     'venue_name' => 'Nome do lugar',
     'organizer_name' => 'Nome do organizador',
-    'photo_credits' => 'Créditos da foto'
+    'photo_credits' => 'Créditos da foto',
 ];

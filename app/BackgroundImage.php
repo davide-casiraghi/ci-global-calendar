@@ -13,15 +13,15 @@ class BackgroundImage extends Model
      * @var string
      */
     protected $table = 'background_images';
-    
+
     /***************************************************************************/
 
     /**
-    * The attributes that are mass assignable.
-    *
-    * @var array
-    */
-   protected $fillable = [
-       'title', 'image_src', 'credits', 'orientation'
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+       'title', 'image_src', 'credits', 'orientation',
    ];
 }

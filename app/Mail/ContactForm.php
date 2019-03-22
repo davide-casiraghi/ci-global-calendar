@@ -5,7 +5,6 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class ContactForm extends Mailable
 {
@@ -18,7 +17,6 @@ class ContactForm extends Mailable
      */
     protected $report;
 
-
     /**
      * Create a new message instance.
      *
@@ -26,7 +24,7 @@ class ContactForm extends Mailable
      */
     public function __construct($report)
     {
-         $this->report = $report;
+        $this->report = $report;
     }
 
     /**
@@ -34,11 +32,11 @@ class ContactForm extends Mailable
      *
      * @return $this
      */
-     public function build()
-     {
-         // Configure email parameters in .env file
+    public function build()
+    {
+        // Configure email parameters in .env file
 
-         return $this->markdown('emails.contact.contactform')
+        return $this->markdown('emails.contact.contactform')
                 ->to($this->report['emailTo'])
                 ->from($this->report['email'], $this->report['name'])
                 ->replyTo($this->report['email'], $this->report['name'])
@@ -46,7 +44,7 @@ class ContactForm extends Mailable
                 ->with([
                     'sender_name' => $this->report['name'],
                     'sender_email' => $this->report['email'],
-                    'msg' => $this->report['message']
+                    'msg' => $this->report['message'],
                 ]);
-     }
+    }
 }

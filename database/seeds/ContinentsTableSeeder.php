@@ -20,16 +20,16 @@ class ContinentsTableSeeder extends Seeder
      */
     public function run()
     {
-        $continents = array(
-            array('id' => '1','name' => 'Africa','code' => 'AF'),
-            array('id' => '3','name' => 'North America','code' => 'NA'),
-            array('id' => '4','name' => 'Oceania','code' => 'OC'),
-            array('id' => '5','name' => 'Asia','code' => 'AS'),
-            array('id' => '6','name' => 'Europe','code' => 'EU'),
-            array('id' => '7','name' => 'South America','code' => 'SA'),
-        );
-        
-        foreach($continents as $key => $continent) {
+        $continents = [
+            ['id' => '1', 'name' => 'Africa', 'code' => 'AF'],
+            ['id' => '3', 'name' => 'North America', 'code' => 'NA'],
+            ['id' => '4', 'name' => 'Oceania', 'code' => 'OC'],
+            ['id' => '5', 'name' => 'Asia', 'code' => 'AS'],
+            ['id' => '6', 'name' => 'Europe', 'code' => 'EU'],
+            ['id' => '7', 'name' => 'South America', 'code' => 'SA'],
+        ];
+
+        foreach ($continents as $key => $continent) {
             DB::table('continents')->insert([
                 'id' => $continent['id'],
                 'name' => $continent['name'],

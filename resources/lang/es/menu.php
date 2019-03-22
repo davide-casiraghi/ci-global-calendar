@@ -26,5 +26,5 @@ return [
     'login' => 'Login',
     'logout' => 'Cierra la sesión',
     'donate' => 'Donación',
-    'teachers_directory' => 'Directorio de profesor@s'
+    'teachers_directory' => 'Directorio de profesor@s',
 ];

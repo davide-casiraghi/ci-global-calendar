@@ -11,8 +11,8 @@ class MenuItemsTableSeeder extends Seeder
      */
     public function run()
     {
-        $menuItems = array(
-           array('id' => '1',
+        $menuItems = [
+           ['id' => '1',
                     'name' => 'Home',
                     'compact_name' => 'home',
                     'menu_id' => '1',
@@ -23,9 +23,9 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '/',
                     'route' => '',
                     'font_awesome_class' => 'fa fa-home',
-                    'hide_name' => '0'
-                ),
-            array('id' => '2',
+                    'hide_name' => '0',
+                ],
+            ['id' => '2',
                      'name' => 'Manager',
                      'compact_name' => 'manager',
                      'menu_id' => '4',
@@ -36,9 +36,9 @@ class MenuItemsTableSeeder extends Seeder
                      'url' => '#',
                      'route' => '',
                      'font_awesome_class' => 'fa fas fa-edit',
-                     'hide_name' => '0'
-                 ),
-            array('id' => '3',
+                     'hide_name' => '0',
+                 ],
+            ['id' => '3',
                     'name' => 'New Event',
                     'compact_name' => 'new-event',
                     'menu_id' => '4',
@@ -49,9 +49,9 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '',
                     'route' => 'events.create',
                     'font_awesome_class' => 'fa fas fa-plus-circle',
-                    'hide_name' => '0'
-                ),
-            array('id' => '4',
+                    'hide_name' => '0',
+                ],
+            ['id' => '4',
                     'name' => 'My Events',
                     'compact_name' => 'my-events',
                     'menu_id' => '4',
@@ -62,9 +62,9 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '',
                     'route' => 'events.index',
                     'font_awesome_class' => 'far fa-calendar-alt',
-                    'hide_name' => '0'
-                ),
-            array('id' => '5',
+                    'hide_name' => '0',
+                ],
+            ['id' => '5',
                     'name' => 'My Venues',
                     'compact_name' => 'my-venues',
                     'menu_id' => '4',
@@ -75,9 +75,9 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '',
                     'route' => 'eventVenues.index',
                     'font_awesome_class' => 'far fa-map-marker-alt',
-                    'hide_name' => '0'
-                ),
-            array('id' => '6',
+                    'hide_name' => '0',
+                ],
+            ['id' => '6',
                     'name' => 'My Teachers',
                     'compact_name' => 'my-teachers',
                     'menu_id' => '4',
@@ -88,9 +88,9 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '',
                     'route' => 'teachers.index',
                     'font_awesome_class' => 'far fa-users',
-                    'hide_name' => '0'
-                ),
-            array('id' => '7',
+                    'hide_name' => '0',
+                ],
+            ['id' => '7',
                     'name' => 'My Organizers',
                     'compact_name' => 'my-organizers',
                     'menu_id' => '4',
@@ -101,9 +101,9 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '',
                     'route' => 'organizers.index',
                     'font_awesome_class' => 'fas fa-users',
-                    'hide_name' => '0'
-                ),
-            array('id' => '8',
+                    'hide_name' => '0',
+                ],
+            ['id' => '8',
                     'name' => 'Admin Tools',
                     'compact_name' => 'admin-tools',
                     'menu_id' => '4',
@@ -114,9 +114,9 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '#',
                     'route' => '',
                     'font_awesome_class' => 'far fa-cog',
-                    'hide_name' => '0'
-                ),
-            array('id' => '9',
+                    'hide_name' => '0',
+                ],
+            ['id' => '9',
                     'name' => 'Users',
                     'compact_name' => 'users',
                     'menu_id' => '4',
@@ -127,9 +127,9 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '',
                     'route' => 'users.index',
                     'font_awesome_class' => 'fas fa-user-alt',
-                    'hide_name' => '0'
-                ),
-            array('id' => '10',
+                    'hide_name' => '0',
+                ],
+            ['id' => '10',
                     'name' => 'Articles',
                     'compact_name' => 'articles',
                     'menu_id' => '4',
@@ -140,9 +140,9 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '',
                     'route' => 'posts.index',
                     'font_awesome_class' => 'far fa-file-alt',
-                    'hide_name' => '0'
-                ),
-            array('id' => '11',
+                    'hide_name' => '0',
+                ],
+            ['id' => '11',
                     'name' => 'Events Categories',
                     'compact_name' => 'events-categories',
                     'menu_id' => '4',
@@ -153,9 +153,9 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '',
                     'route' => 'eventCategories.index',
                     'font_awesome_class' => 'fas fa-tags',
-                    'hide_name' => '0'
-                ),
-            array('id' => '12',
+                    'hide_name' => '0',
+                ],
+            ['id' => '12',
                     'name' => 'Background Images',
                     'compact_name' => 'background-images',
                     'menu_id' => '4',
@@ -166,9 +166,9 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '',
                     'route' => 'backgroundImages.index',
                     'font_awesome_class' => 'far fa-images',
-                    'hide_name' => '0'
-                ),
-            array('id' => '13',
+                    'hide_name' => '0',
+                ],
+            ['id' => '13',
                     'name' => 'Settings',
                     'compact_name' => 'settings',
                     'menu_id' => '4',
@@ -179,9 +179,9 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '#',
                     'route' => '',
                     'font_awesome_class' => 'fas fa-cog',
-                    'hide_name' => '1'
-                ),
-            array('id' => '14',
+                    'hide_name' => '1',
+                ],
+            ['id' => '14',
                     'name' => 'Post Categories',
                     'compact_name' => 'post-categories',
                     'menu_id' => '4',
@@ -192,9 +192,9 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '',
                     'route' => 'categories.index',
                     'font_awesome_class' => 'far fa-tags',
-                    'hide_name' => '0'
-                ),
-            array('id' => '15',
+                    'hide_name' => '0',
+                ],
+            ['id' => '15',
                     'name' => 'Menus',
                     'compact_name' => 'menus',
                     'menu_id' => '4',
@@ -205,9 +205,9 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '',
                     'route' => 'menus.index',
                     'font_awesome_class' => 'fas fa-caret-circle-down',
-                    'hide_name' => '0'
-                ),
-            array('id' => '16',
+                    'hide_name' => '0',
+                ],
+            ['id' => '16',
                     'name' => 'Continents',
                     'compact_name' => 'continents',
                     'menu_id' => '4',
@@ -218,9 +218,9 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '',
                     'route' => 'continents.index',
                     'font_awesome_class' => 'fas fa-globe-americas',
-                    'hide_name' => '0'
-                ),
-            array('id' => '17',
+                    'hide_name' => '0',
+                ],
+            ['id' => '17',
                     'name' => 'Countries',
                     'compact_name' => 'countries',
                     'menu_id' => '4',
@@ -231,9 +231,9 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '',
                     'route' => 'countries.index',
                     'font_awesome_class' => 'far fa-globe-americas',
-                    'hide_name' => '0'
-                ),
-            array('id' => '18',
+                    'hide_name' => '0',
+                ],
+            ['id' => '18',
                     'name' => 'User tools',
                     'compact_name' => 'user-tools',
                     'menu_id' => '4',
@@ -244,9 +244,9 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '#',
                     'route' => '',
                     'font_awesome_class' => 'fas fa-user-circle',
-                    'hide_name' => '1'
-                ),
-            array('id' => '19',
+                    'hide_name' => '1',
+                ],
+            ['id' => '19',
                     'name' => 'My Profile',
                     'compact_name' => 'my-profile',
                     'menu_id' => '4',
@@ -257,9 +257,9 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '',
                     'route' => '',
                     'font_awesome_class' => 'far fa-user-cog',
-                    'hide_name' => '1'
-                ),
-            array('id' => '20',
+                    'hide_name' => '1',
+                ],
+            ['id' => '20',
                     'name' => 'Logout',
                     'compact_name' => 'logout',
                     'menu_id' => '4',
@@ -270,9 +270,9 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '',
                     'route' => 'logout',
                     'font_awesome_class' => 'fa fa-sign-out',
-                    'hide_name' => '1'
-                ),
-            array('id' => '21',
+                    'hide_name' => '1',
+                ],
+            ['id' => '21',
                     'name' => 'Login',
                     'compact_name' => 'login',
                     'menu_id' => '4',
@@ -283,15 +283,13 @@ class MenuItemsTableSeeder extends Seeder
                     'url' => '',
                     'route' => 'login',
                     'font_awesome_class' => 'fa fa-sign-in',
-                    'hide_name' => '0'
-                ),
-            
-            
-           
-       );
-       
-       foreach($menuItems as $key => $menuItem) {
-           DB::table('menu_items')->insert([
+                    'hide_name' => '0',
+                ],
+
+       ];
+
+        foreach ($menuItems as $key => $menuItem) {
+            DB::table('menu_items')->insert([
                'id' => $menuItem['id'],
                'name' => $menuItem['name'],
                'compact_name' => $menuItem['compact_name'],
@@ -305,6 +303,6 @@ class MenuItemsTableSeeder extends Seeder
                'font_awesome_class' => $menuItem['font_awesome_class'],
                'hide_name' => $menuItem['hide_name'],
            ]);
-       }
+        }
     }
 }

@@ -14,6 +14,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\PostTranslation::class, function (Faker $faker) {
     $title = $faker->name;
+
     return [
         'title' => $title,
         'body' => $faker->text(1500),

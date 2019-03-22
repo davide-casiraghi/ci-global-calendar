@@ -1,7 +1,7 @@
 <?php
 
 return [
-    
+
     'event_added_successfully' => 'Evento aggiunto con successo',
     'event_updated_successfully' => 'Evento aggiornato con successo ',
     'event_deleted_successfully' => 'Evento cancellato con successo ',

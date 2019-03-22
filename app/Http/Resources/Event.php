@@ -2,10 +2,9 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Resources\Json\JsonResource;
-
-use App\EventCategory;
 use App\EventVenue;
+use App\EventCategory;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class Event extends JsonResource
 {
@@ -24,7 +23,7 @@ class Event extends JsonResource
             'website_event_link' => $this->website_event_link,
             'facebook_event_link' => $this->facebook_event_link,
             'category' => EventCategory::getCategoryName($this->category_id),
-            'teachers' => $this->teachers()->pluck('name','id'),
+            'teachers' => $this->teachers()->pluck('name', 'id'),
             'venue' => EventVenue::getVenueName($this->venue_id),
         ];
     }

@@ -12,8 +12,8 @@ class EventRepetitionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-
+    public function index()
+    {
     }
 
     /**
@@ -21,7 +21,8 @@ class EventRepetitionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(){
+    public function create()
+    {
         //return view('eventCategories.create');
     }
 
@@ -31,7 +32,8 @@ class EventRepetitionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         /*request()->validate([
             'name' => 'required'
         ]);
@@ -48,7 +50,8 @@ class EventRepetitionController extends Controller
      * @param  \App\EventRepetition  $eventRepetition
      * @return \Illuminate\Http\Response
      */
-    public function show(EventRepetition $eventRepetition){
+    public function show(EventRepetition $eventRepetition)
+    {
         //return view('eventCategories.show',compact('eventCategory'));
     }
 
@@ -58,7 +61,8 @@ class EventRepetitionController extends Controller
      * @param  \App\EventRepetition  $eventCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(EventRepetition $eventRepetition){
+    public function edit(EventRepetition $eventRepetition)
+    {
         //return view('eventCategories.edit',compact('eventCategory'));
     }
 
@@ -69,7 +73,8 @@ class EventRepetitionController extends Controller
      * @param  \App\EventRepetition  $eventRepetition
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EventRepetition $eventRepetition){
+    public function update(Request $request, EventRepetition $eventRepetition)
+    {
         /*request()->validate([
             'name' => 'required'
         ]);
@@ -94,6 +99,4 @@ class EventRepetitionController extends Controller
     }
 
     // **********************************************************************
-
-
 }

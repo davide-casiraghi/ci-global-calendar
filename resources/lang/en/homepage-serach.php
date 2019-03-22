@@ -25,5 +25,5 @@ return [
     'teacher_name' => 'Teacher name',
     'venue_name' => 'Venue name',
     'organizer_name' => 'Organizer name',
-    'photo_credits' => 'Photo credits'
+    'photo_credits' => 'Photo credits',
 ];

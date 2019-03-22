@@ -41,5 +41,5 @@ return [
     'login' => 'Accedi',
     'forgot_your_password' => 'Dimenticato la password?',
     'message' => 'Messaggio',
-    'user_name' => 'Nome utente',        
+    'user_name' => 'Nome utente',
 ];

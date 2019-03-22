@@ -27,5 +27,5 @@ return [
     'organizer_name' => 'Nome dell\'organizzatore',
     'venue_name' => 'Nome dello spazio o sala di danza',
     'organizer_name' => 'Nome dell\'organizzatore',
-    'photo_credits' => 'Foto di'
+    'photo_credits' => 'Foto di',
 ];

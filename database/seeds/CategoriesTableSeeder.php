@@ -20,13 +20,13 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        $categories = array(
-            array('id' => '1','name' => 'Uncategorized','slug' => 'uncategorized'),
-            array('id' => '2','name' => 'Global Calendar contents','slug' => 'global-calendar-contents'),
-            array('id' => '3','name' => 'News','slug' => 'news'),
-        );
-        
-        foreach($categories as $key => $category) {
+        $categories = [
+            ['id' => '1', 'name' => 'Uncategorized', 'slug' => 'uncategorized'],
+            ['id' => '2', 'name' => 'Global Calendar contents', 'slug' => 'global-calendar-contents'],
+            ['id' => '3', 'name' => 'News', 'slug' => 'news'],
+        ];
+
+        foreach ($categories as $key => $category) {
             DB::table('categories')->insert([
                 'id' => $category['id'],
                 'name' => $category['name'],
