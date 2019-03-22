@@ -653,7 +653,7 @@ class EventController extends Controller
             //dd($repeat_weekly_on_day);
             $i = 0;
             $len = count($repeat_weekly_on_day); // to put "," to all items except the last
-                $event->repeat_weekly_on = '';
+            $event->repeat_weekly_on = '';
             foreach ($repeat_weekly_on_day as $key => $weeek_day) {
                 $event->repeat_weekly_on .= $weeek_day;
                 if ($i != $len - 1) {  // not last
