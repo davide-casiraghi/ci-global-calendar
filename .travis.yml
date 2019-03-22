@@ -2,6 +2,12 @@ language: php
 php: 
     - 7.2
     - 7.3
+    
+before_install:
+  -  chmod +x ./scripts/* 
+  - ./script/travis_mysql_5.7.sh
+  - ./script/mysql-reset-root-password.sh
+      
 # if the command fails for any reason it should retry it
 # before executing our code execute a composer update so that the autoload is in place and make that Phpunit 
 # is available
