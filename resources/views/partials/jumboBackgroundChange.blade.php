@@ -19,7 +19,7 @@
         $(function() {
 
             var elementBackground = $('.eventSearch .background');
-            var elementCredits = $('.eventSearch .credits .name');
+            var elementCredits = $('.credits .name');
 
             // Create background array
                 var backgrounds = new Array();

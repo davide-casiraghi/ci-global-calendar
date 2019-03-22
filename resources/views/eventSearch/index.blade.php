@@ -60,7 +60,7 @@
 
     {{-- The event search interface in Homepage --}}
     <div class="eventSearch jumbotron">
-        @include('partials.jumboBackgroundChange')
+        
         <div class="container">
             <div class="row intro">
                 <div class="col-12 text-center">
@@ -188,6 +188,9 @@
                         <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right">
                     </div>
                 </div>
+                
+                {{-- Background Change--}}
+                    {{--@include('partials.jumboBackgroundChange')--}}
                 
             </form>
 
