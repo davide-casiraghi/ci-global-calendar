@@ -34,8 +34,8 @@ class TeacherTest extends TestCase
             $this->authenticate();
         
         // Access to the page (teacher.index)
-            $response = $this->get('/teachers')->dump();
-//                             ->assertStatus(200);
+            $response = $this->get('/teachers')
+                             ->assertStatus(200);
     }
     
     /***************************************************************************/
