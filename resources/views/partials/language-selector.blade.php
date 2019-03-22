@@ -1,8 +1,8 @@
 
 
 <div class="dropdown show languages" style="min-width:38px;"> {{--btn-group dropleft--}}
-  <a class="btn btn-link dropdown-toggle p-0 mt-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Change language">
-      <img src="/storage/flags/{{ Config::get('app.locale') }}.gif" alt="">
+  <a class="btn btn-link dropdown-toggle p-0 d-inline-block" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Change language">
+      <img class="mb-1" src="/storage/flags/{{ Config::get('app.locale') }}.gif" alt="">
     {{--Change language--}}
   </a>
 
