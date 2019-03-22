@@ -74,7 +74,7 @@ class AppServiceProvider extends ServiceProvider
             return "<?php echo date('g.i a', strtotime($expression))?>";
         });
         
-        Schema::defaultStringLength(191); // fix for - https://laravel-news.com/laravel-5-4-key-too-long-error/
+        //Schema::defaultStringLength(191); // fix for - https://laravel-news.com/laravel-5-4-key-too-long-error/
     }
 
     /**
