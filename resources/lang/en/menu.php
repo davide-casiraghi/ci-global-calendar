@@ -28,6 +28,6 @@ return [
     'donate' => 'Donate',
     'teachers_directory' => 'Teachers directory',
     'menus' => 'Menus',
-    'menu_items' => 'Menu items'
-    
+    'menu_items' => 'Menu items',
+
 ];

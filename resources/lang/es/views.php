@@ -57,7 +57,7 @@ return [
     'create_new_user' => 'Crear un/a nuevo/a usuario/a',
     'create_new_category' => 'Create new category',
     'create_new_event_category' => 'Create una nueva categoría',
-    'create_new_continent' => 'Create un nuevo continente',    
+    'create_new_continent' => 'Create un nuevo continente',
     'create_new_country' => 'Create un nuevo país',
     'create_new_background_image' => 'Create una nueva imagen de fondo',
     'edit_post' => 'Editar la entrada',

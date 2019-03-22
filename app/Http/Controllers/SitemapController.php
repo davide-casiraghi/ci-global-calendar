@@ -4,53 +4,50 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Event;
-use App\EventRepetition;
 use App\Teacher;
+use App\EventRepetition;
 use Illuminate\Support\Facades\DB;
 
-use Illuminate\Http\Request;
-
-
 /**
-*    Created using this tutorial: https://laravel-news.com/laravel-sitemap
-**/
-
-
+ *    Created using this tutorial: https://laravel-news.com/laravel-sitemap.
+ **/
 class SitemapController extends Controller
 {
-    
     /***************************************************************************/
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-        
-      $post = Post::orderBy('updated_at', 'desc')->first();
-      $event = Event::orderBy('updated_at', 'desc')->first();
-      $teacher = Teacher::orderBy('updated_at', 'desc')->first();
+    public function index()
+    {
+        $post = Post::orderBy('updated_at', 'desc')->first();
+        $event = Event::orderBy('updated_at', 'desc')->first();
+        $teacher = Teacher::orderBy('updated_at', 'desc')->first();
 
-      return response()->view('sitemap.index', [
+        return response()->view('sitemap.index', [
           'post' => $post,
           'event' => $event,
           'teacher' => $teacher,
       ])->header('Content-Type', 'text/xml');
     }
-    
+
     /***************************************************************************/
+
     /**
-     * Generate the posts XML sitemap 
+     * Generate the posts XML sitemap.
      *
      * @return \Illuminate\Http\Response
      */
-    public function posts(){
+    public function posts()
+    {
         //$posts = Post::where('category_id', 6)->get();
-        
-        $posts =  DB::table('posts')
+
+        $posts = DB::table('posts')
                        ->join('post_translations', 'posts.id', '=', 'post_translations.post_id')
                        ->select('posts.*', 'post_translations.locale', 'post_translations.slug')->get();
-        
+
         //dd($posts);
         return response()->view('sitemap.posts', [
             'posts' => $posts,
@@ -58,58 +55,63 @@ class SitemapController extends Controller
     }
 
     /***************************************************************************/
+
     /**
-     * Generate the events XML sitemap 
+     * Generate the events XML sitemap
      * every event show the link to the closest repetition related to today.
      *
      * @return \Illuminate\Http\Response
      */
-    public function events(){
-        
+    public function events()
+    {
+
         // Get for each event the first event repetition in the near future
-            date_default_timezone_set('Europe/Rome');
-            $searchStartDate = date('Y-m-d', time());  // search start from today's date
-            $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
-            
-        // Retrieve the events 
-            $events = DB::table('events')
+        date_default_timezone_set('Europe/Rome');
+        $searchStartDate = date('Y-m-d', time());  // search start from today's date
+        $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
+
+        // Retrieve the events
+        $events = DB::table('events')
                 ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
                     $join->on('events.id', '=', 'event_repetitions.event_id');
                 })
                 ->orderBy('event_repetitions.start_repeat', 'asc')
                 ->get();
-                    
+
         return response()->view('sitemap.events', [
             'events' => $events,
         ])->header('Content-Type', 'text/xml');
     }
-    
+
     /***************************************************************************/
+
     /**
-     * Generate the teachers XML sitemap 
+     * Generate the teachers XML sitemap.
      *
      * @return \Illuminate\Http\Response
      */
-    public function teachers(){
+    public function teachers()
+    {
         $teachers = Teacher::orderBy('updated_at', 'desc')->get();
+
         return response()->view('sitemap.teachers', [
             'teachers' => $teachers,
         ])->header('Content-Type', 'text/xml');
     }
-        
+
     /***************************************************************************/
+
     /**
      * Display the specified resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(){        
+    public function show()
+    {
         $sitemap = $this->generateSitemapXML();
-        return view('sitemap.show',['sitemap' => $sitemap]);
+
+        return view('sitemap.show', ['sitemap' => $sitemap]);
     }
-    
+
     /***************************************************************************/
- 
-    
-    
 }

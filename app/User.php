@@ -2,10 +2,9 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
-use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -16,10 +15,9 @@ class User extends Authenticatable
      * @var string
      */
     protected $table = 'users';
-    
+
     /***************************************************************************/
-    
-    
+
     use Notifiable;
 
     /**
@@ -28,7 +26,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'group', 'country_id', 'description', 'status','activation_code','accept_terms',
+        'name', 'email', 'password', 'group', 'country_id', 'description', 'status', 'activation_code', 'accept_terms',
     ];
 
     /**
@@ -40,7 +38,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
     /*
         To recognize admin - https://laracasts.com/discuss/channels/laravel/user-admin-authentication
     */
@@ -48,88 +45,88 @@ class User extends Authenticatable
         'group' => 'int',
     ];
 
-    public function isSuperAdmin(){
-        if ($this->group == 1)
+    public function isSuperAdmin()
+    {
+        if ($this->group == 1) {
             return true;
-        else
+        } else {
             return false;
+        }
     }
 
-    public function isAdmin(){
-        if ($this->group == 2)
+    public function isAdmin()
+    {
+        if ($this->group == 2) {
             return true;
-        else
+        } else {
             return false;
+        }
     }
-    
+
     /***************************************************************************/
+
     /**
-     * Return the user group string
+     * Return the user group string.
      *
      * @param  \App\User  $post
      * @return string $ret - the user role description string
      */
-     public static function getUserGroupString($group_id){
-    
-         switch ($group_id) {
+    public static function getUserGroupString($group_id)
+    {
+        switch ($group_id) {
              case null:
-                 $ret = "Manager";
+                 $ret = 'Manager';
                  break;
-             
+
              case 2:
-                 $ret = "Administrator";
+                 $ret = 'Administrator';
                  break;
-                 
+
              case 1:
-                 $ret = "Super Administrator";
+                 $ret = 'Super Administrator';
                  break;
          }
 
-         return $ret;
-     }
-     
-     
-     /***************************************************************************/
-     /**
-      * Return true if the user is logged as super admin 
-      *
-      * @param  none
-      * @return string $ret - true if the user is super admin
-      */
-     public static function loggedAsSuperAdmin(){
-         $user = Auth::user();
-         if(!$user)
-             return false;
-         elseif ($user->group == 1)
-              return true;
-         else
-              return false;
-         
-     }
+        return $ret;
+    }
 
-     /***************************************************************************/
-     /**
-      * Return true if the user is logged as admin 
-      *
-      * @param  none
-      * @return string $ret - true if the user is admin
-      */
-     public static function loggedAsAdmin(){
-         $user = Auth::user();
-         if(!$user)
-             return false;
-         elseif ($user->group == 2)
-             return true;
-         else
-             return false;
-         
-             
-        
-     }     
-     
-     
-     
-    
-    
+    /***************************************************************************/
 
+    /**
+     * Return true if the user is logged as super admin.
+     *
+     * @param  none
+     * @return string $ret - true if the user is super admin
+     */
+    public static function loggedAsSuperAdmin()
+    {
+        $user = Auth::user();
+        if (! $user) {
+            return false;
+        } elseif ($user->group == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /***************************************************************************/
+
+    /**
+     * Return true if the user is logged as admin.
+     *
+     * @param  none
+     * @return string $ret - true if the user is admin
+     */
+    public static function loggedAsAdmin()
+    {
+        $user = Auth::user();
+        if (! $user) {
+            return false;
+        } elseif ($user->group == 2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

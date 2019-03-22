@@ -3,77 +3,78 @@
 namespace App\Http\Controllers;
 
 use App\Post;
-use App\PostTranslation;
-
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\App;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-
 use Validator;
+use App\PostTranslation;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class PostTranslationController extends Controller
 {
     /***************************************************************************/
     /* Restrict the access to this resource just to logged in users */
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('admin');
     }
-    
+
     /***************************************************************************/
+
     /**
-    * Show the form for creating a new resource.
-    *
-    * @return \Illuminate\Http\Response
-    */
-    public function create($postId, $languageCode){
-        
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create($postId, $languageCode)
+    {
         $selectedLocaleName = $this->getSelectedLocaleName($languageCode);
 
         return view('postTranslations.create')
-                ->with('postId',$postId)
-                ->with('languageCode',$languageCode)
-                ->with('selectedLocaleName',$selectedLocaleName);
+                ->with('postId', $postId)
+                ->with('languageCode', $languageCode)
+                ->with('selectedLocaleName', $selectedLocaleName);
     }
 
     /***************************************************************************/
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\PostTranslation  $postTranslation
      * @return \Illuminate\Http\Response
      */
-    public function edit($postId, $languageCode){
-        
+    public function edit($postId, $languageCode)
+    {
         $postTranslation = PostTranslation::where('post_id', $postId)
                         ->where('locale', $languageCode)
                         ->first();
-                        
+
         $selectedLocaleName = $this->getSelectedLocaleName($languageCode);
 
-        return view('postTranslations.edit',compact('postTranslation'))
-                    ->with('postId',$postId)
-                    ->with('languageCode',$languageCode)
-                    ->with('selectedLocaleName',$selectedLocaleName);
+        return view('postTranslations.edit', compact('postTranslation'))
+                    ->with('postId', $postId)
+                    ->with('languageCode', $languageCode)
+                    ->with('selectedLocaleName', $selectedLocaleName);
     }
 
     /***************************************************************************/
+
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request){
-        
+    public function store(Request $request)
+    {
+
         // Validate form datas
-            $validator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
                 'title' => 'required',
                 'body' => 'required',
             ]);
-            if ($validator->fails()) {
-                return back()->withErrors($validator)->withInput();
-            }
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
 
         $postTranslation = new PostTranslation();
 
@@ -87,14 +88,15 @@ class PostTranslationController extends Controller
 
         $postTranslation->before_content = $request->get('before_content');
         $postTranslation->after_content = $request->get('after_content');
-        
+
         $postTranslation->save();
 
         return redirect()->route('posts.index')
-                        ->with('success','Translation created successfully.');
+                        ->with('success', 'Translation created successfully.');
     }
 
     /***************************************************************************/
+
     /**
      * Update the specified resource in storage.
      *
@@ -102,13 +104,14 @@ class PostTranslationController extends Controller
      * @param  \App\PostTranslation  $postTranslation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request){
+    public function update(Request $request)
+    {
         request()->validate([
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
         ]);
 
-        $postTranslation = PostTranslation::where ('id', $request->get('post_translation_id'));
+        $postTranslation = PostTranslation::where('id', $request->get('post_translation_id'));
 
         $pt['title'] = $request->get('title');
         //$pt['body'] = $request->get('body');
@@ -121,21 +124,23 @@ class PostTranslationController extends Controller
         $postTranslation->update($pt);
 
         return redirect()->route('posts.index')
-                        ->with('success','Post updated successfully');
+                        ->with('success', 'Post updated successfully');
     }
+
     /***************************************************************************/
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\PostTranslation  $categoryTranslation
      * @return \Illuminate\Http\Response
      */
-    public function destroy($postTranslationId){
+    public function destroy($postTranslationId)
+    {
         $postTranslation = PostTranslation::find($postTranslationId);
         $postTranslation->delete();
-        return redirect()->route('posts.index')
-                        ->with('success',__('messages.post_translation_deleted_successfully'));
-    }
-    
 
+        return redirect()->route('posts.index')
+                        ->with('success', __('messages.post_translation_deleted_successfully'));
+    }
 }

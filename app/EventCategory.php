@@ -13,24 +13,26 @@ class EventCategory extends Model
      * @var string
      */
     protected $table = 'event_categories';
-    
+
     /***************************************************************************/
-    
+
     use \Dimsav\Translatable\Translatable;
-    
-    public $translatedAttributes = ['name','slug'];
+
+    public $translatedAttributes = ['name', 'slug'];
     protected $fillable = [];
-    
+
     /***************************************************************************/
+
     /**
-     * Return the category name
+     * Return the category name.
      *
      * @param  int  category id
      * @return string the category name
      */
-    public static function getCategoryName($categoryId){
-        $ret = EventCategory::find($categoryId)->name;
-                
+    public static function getCategoryName($categoryId)
+    {
+        $ret = self::find($categoryId)->name;
+
         return $ret;
     }
 }
