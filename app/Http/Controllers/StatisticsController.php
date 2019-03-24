@@ -14,10 +14,10 @@ use Illuminate\Http\Request;
 
 class StatisticsController extends Controller
 {
-    /* Restrict the access to this resource just to logged in users */
+    /* Restrict the access to this resource just to admin, the store method is called by Laravel Forge Deamon */
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('admin', ['except' => ['store']]);
     }
     
     /***************************************************************************/
@@ -30,12 +30,6 @@ class StatisticsController extends Controller
     public function index(Request $request)
     {
         $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
-        /*$statsDatas = [
-            'registeredUsersNumber' => 33,
-            'organizersNumber' => 11,
-            'teachersNumber' => 22,
-            'activeEventsNumber' => 88,
-        ];*/
     
         return view('stats.index')
             ->with('statsDatas', $lastUpdateStatistic);    
