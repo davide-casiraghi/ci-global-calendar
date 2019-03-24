@@ -16,7 +16,7 @@
     
     {{-- USERS --}}
     <div class="row">
-        <div class="col-6 col-lg-3">
+        <div class="col-12 col-sm-6 col-lg-3">
             <div class="card mb-2">
                 <div class="card-body">
                     <div class="card-text py-3">
@@ -37,7 +37,7 @@
         </div>
         
         {{-- Orgenizers --}}
-        <div class="col-6 col-lg-3">
+        <div class="col-12 col-sm-6 col-lg-3">
             <div class="card mb-2">
                 <div class="card-body">
                     <div class="card-text py-3">
@@ -58,7 +58,7 @@
         </div>
         
         {{-- Teachers --}}
-        <div class="col-6 col-lg-3">
+        <div class="col-12 col-sm-6 col-lg-3">
             <div class="card mb-2">
                 <div class="card-body">
                     <div class="card-text py-3">
@@ -79,7 +79,7 @@
         </div>
         
         {{-- Active events --}}
-        <div class="col-6 col-lg-3">
+        <div class="col-12 col-sm-6 col-lg-3">
             <div class="card mb-2">
                 <div class="card-body">
                     <div class="card-text py-3">
