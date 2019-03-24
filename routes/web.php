@@ -140,6 +140,9 @@ function () {
     Route::get('/contactForm/compose/{recipient}', 'ContactFormController@contactForm')->name('forms.contactform');
     Route::post('/contactForm/send', 'ContactFormController@contactFormSend')->name('forms.contactform-send');
     Route::get('/contactForm/thankyou', 'ContactFormController@contactFormThankyou')->name('forms.contactform-thankyou');
+
+    Route::get('/stats', 'StatsController@index')->name('stats');
+
 });
 
 /* OTHER PAGES THAT SHOULD NOT BE LOCALIZED **/
