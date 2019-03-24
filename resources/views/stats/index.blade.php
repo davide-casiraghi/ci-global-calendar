@@ -47,7 +47,7 @@
                             <div class="col max-w-70-px">
                                 <i class="fas fa-users text-5xl blue-5 pt-2"></i>
                             </div>
-                            <div class="col pl-4">
+                            <div class="col pl-3">
                                 <div class="text-3xl font-weight-bolder">
                                     {{$statsDatas->organizers_number}}
                                 </div>
