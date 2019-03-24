@@ -2,26 +2,17 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
 use App\Statistic;
 
 use Carbon\Carbon;
 
 // DELETE THIS, WERE USED FOR THE STORE METHOD
 use DB;
-=======
->>>>>>> b37331255e04211acb2c867c33d29bdc7e5bc0d3
 use App\User;
-use App\Event;
 use App\Teacher;
 use App\Organizer;
-<<<<<<< HEAD
 use App\Event;
 
-=======
-use App\Statistic;
-use Carbon\Carbon;
->>>>>>> b37331255e04211acb2c867c33d29bdc7e5bc0d3
 use Illuminate\Http\Request;
 
 class StatisticsController extends Controller
@@ -31,7 +22,7 @@ class StatisticsController extends Controller
     {
         $this->middleware('admin', ['except' => ['store']]);
     }
-
+    
     /***************************************************************************/
 
     /**
@@ -42,11 +33,11 @@ class StatisticsController extends Controller
     public function index(Request $request)
     {
         $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
-
+    
         return view('stats.index')
-            ->with('statsDatas', $lastUpdateStatistic);
+            ->with('statsDatas', $lastUpdateStatistic);    
     }
-
+    
     /***************************************************************************/
 
 
@@ -63,8 +54,8 @@ class StatisticsController extends Controller
         $todayDate = Carbon::now()->format('d-m-Y');
         $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
         $lastUpdateDate = ($lastUpdateStatistic != null) ? $lastUpdateStatistic->created_at->format('d-m-Y') : null;
-
-        if ($lastUpdateDate != $todayDate) {
+        
+        if ($lastUpdateDate != $todayDate){
             $statistics = new Statistic();
             $statistics->registered_users_number = User::count();
             $statistics->organizers_number = Organizer::count();
@@ -73,11 +64,8 @@ class StatisticsController extends Controller
 
             $statistics->save();
 
-            dd('statistics updated');
-        } else {
-            dd('the statistics have been already updated today');
+            dd("statistics updated");
         }
-<<<<<<< HEAD
         else{
             dd("the statistics have been already updated today");
         }
@@ -86,27 +74,5 @@ class StatisticsController extends Controller
     
     
     
-<<<<<<< HEAD
-=======
     
->>>>>>> statsGeneral
-=======
-    }
-
-    /***************************************************************************/
-
-    /*
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    /*public static function postRegisteredUsersNumber(Request $request)
-    {
-
-        $registeredUsersNumber = User::count();
-
-
-        return $ret;
-    }*/
->>>>>>> b37331255e04211acb2c867c33d29bdc7e5bc0d3
 }
