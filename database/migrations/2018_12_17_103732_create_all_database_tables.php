@@ -285,7 +285,7 @@ class CreateAllDatabaseTables extends Migration
             $table->integer('status')->default(1);
             $table->timestamps();
         });
-        
+
         Schema::create('statistics', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('registered_users_number')->nullable();

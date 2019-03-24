@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
 class Statistic extends Model
 {
     /***************************************************************************/
@@ -20,8 +19,4 @@ class Statistic extends Model
     protected $fillable = [
         'registered_users_number', 'organizers_number', 'teachers_number', 'active_events_number',
     ];
-
-
-
-    
 }
