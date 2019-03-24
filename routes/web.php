@@ -141,7 +141,8 @@ function () {
     Route::post('/contactForm/send', 'ContactFormController@contactFormSend')->name('forms.contactform-send');
     Route::get('/contactForm/thankyou', 'ContactFormController@contactFormThankyou')->name('forms.contactform-thankyou');
 
-    Route::get('/stats', 'StatsController@index')->name('stats');
+    /* Statistics */
+    Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 
 });
 
