@@ -285,6 +285,15 @@ class CreateAllDatabaseTables extends Migration
             $table->integer('status')->default(1);
             $table->timestamps();
         });
+        
+        Schema::create('statistics', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('registered_users_number')->nullable();
+            $table->integer('organizers_number')->nullable();
+            $table->integer('teachers_number')->nullable();
+            $table->integer('active_events_number')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -331,5 +340,6 @@ class CreateAllDatabaseTables extends Migration
         Schema::dropIfExists('event_category_translations');
         Schema::dropIfExists('event_categories');
         Schema::dropIfExists('donation_offers');
+        Schema::dropIfExists('statistics');
     }
 }
