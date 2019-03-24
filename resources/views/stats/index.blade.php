@@ -51,7 +51,7 @@
                                 <div class="text-3xl font-weight-bolder">
                                     {{$statsDatas->organizers_number}}
                                 </div>
-                                <div class="text-xs text-uppercase dark-gray font-weight-bold letter-spacing-wide">Organier profiles</div>
+                                <div class="text-xs text-uppercase dark-gray font-weight-bold letter-spacing-wide">Organizer profiles</div>
                             </div>
                         </div>
                     </div>
