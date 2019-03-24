@@ -66,20 +66,4 @@ class StatisticsController extends Controller
     }    
     
     
-    /***************************************************************************/
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    /*public static function postRegisteredUsersNumber(Request $request)
-    {
-        
-        $registeredUsersNumber = User::count();
-
-
-        return $ret;   
-    }*/
-    
 }
