@@ -4,15 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-<<<<<<< HEAD
-=======
 use DB;
 use App\User;
 use App\Teacher;
 use App\Organizer;
 use App\Event;
 
->>>>>>> statsGeneral
 class Statistic extends Model
 {
     /***************************************************************************/
@@ -28,8 +25,6 @@ class Statistic extends Model
     protected $fillable = [
         'registered_users_number', 'organizers_number', 'teachers_number', 'active_events_number',
     ];
-<<<<<<< HEAD
-=======
 
 
     public static function updateStatistics()
@@ -49,7 +44,4 @@ class Statistic extends Model
         }
     }
 
-
-    
->>>>>>> statsGeneral
 }
