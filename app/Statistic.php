@@ -21,5 +21,7 @@ class Statistic extends Model
         'registered_users_number', 'organizers_number', 'teachers_number', 'active_events_number',
     ];
 
+
+
     
 }

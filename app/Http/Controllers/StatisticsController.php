@@ -7,6 +7,8 @@ use App\User;
 use App\Teacher;
 use App\Organizer;
 use App\Event;
+use DB;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 
@@ -27,15 +29,16 @@ class StatisticsController extends Controller
      */
     public function index(Request $request)
     {
-        $statsDatas = [
+        $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
+        /*$statsDatas = [
             'registeredUsersNumber' => 33,
             'organizersNumber' => 11,
             'teachersNumber' => 22,
             'activeEventsNumber' => 88,
-        ];
-        
+        ];*/
+    
         return view('stats.index')
-            ->with('statsDatas', $statsDatas);    
+            ->with('statsDatas', $lastUpdateStatistic);    
     }
     
     /***************************************************************************/
@@ -48,19 +51,24 @@ class StatisticsController extends Controller
      */
     public function store()
     {
+        $todayDate = Carbon::now()->format('d-m-Y');
+        $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
+        $lastUpdateDate = $lastUpdateStatistic->created_at->format('d-m-Y');
+        
+        if ($lastUpdateDate != $todayDate){
+            $statistics = new Statistic();
+            $statistics->registered_users_number = User::count();
+            $statistics->organizers_number = Organizer::count();
+            $statistics->teachers_number = Teacher::count();
+            $statistics->active_events_number = Event::getActiveEvents()->count();
 
-        $statistics = new Statistic();
-        $statistics->registered_users_number = User::count();
-        $statistics->organizers_number = Organizer::count();
-        $statistics->teachers_number = Teacher::count();
-        $statistics->active_events_number = Event::getActiveEvents()::count();
+            $statistics->save();
 
-
-        $statistics->save();
-
-        dd("statistics updated");
-        /*return redirect()->route('countries.index')
-                        ->with('success', __('messages.country_added_successfully'));*/
+            dd("statistics updated");
+        }
+        else{
+            dd("the statistics have been already updated today");
+        }
     }    
     
     

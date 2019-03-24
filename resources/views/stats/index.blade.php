@@ -27,7 +27,7 @@
                             <div class="col pl-4">
                                 <div class="text-xs text-uppercase dark-gray font-weight-bold letter-spacing-wide">Registered users</div>
                                 <div class="text-3xl font-weight-bolder">
-                                    {{$statsDatas['registeredUsersNumber']}}
+                                    {{$statsDatas->registered_users_number}}
                                 </div>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                             <div class="col pl-4">
                                 <div class="text-xs text-uppercase dark-gray font-weight-bold letter-spacing-wide">Organier profiles</div>
                                 <div class="text-3xl font-weight-bolder">
-                                    {{$statsDatas['organizersNumber']}}
+                                    {{$statsDatas->organizers_number}}
                                 </div>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                             <div class="col pl-4">
                                 <div class="text-xs text-uppercase dark-gray font-weight-bold letter-spacing-wide">Teacher profiles</div>
                                 <div class="text-3xl font-weight-bolder">
-                                    {{$statsDatas['teachersNumber']}}
+                                    {{$statsDatas->teachers_number}}
                                 </div>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                             <div class="col pl-4">
                                 <div class="text-xs text-uppercase dark-gray font-weight-bold letter-spacing-wide">Active events</div>
                                 <div class="text-3xl font-weight-bolder">
-                                    {{$statsDatas['activeEventsNumber']}}
+                                    {{$statsDatas->active_events_number}}
                                 </div>
                             </div>
                         </div>
