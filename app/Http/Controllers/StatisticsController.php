@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Statistic;
+
+use Carbon\Carbon;
+
+// DELETE THIS, WERE USED FOR THE STORE METHOD
+use DB;
 use App\User;
 use App\Teacher;
 use App\Organizer;
 use App\Event;
-use DB;
-use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 
@@ -37,6 +40,9 @@ class StatisticsController extends Controller
     
     /***************************************************************************/
 
+
+    // REMOVE THIS METHOD - HAS BEEN SUBSTITUTED BY THE STATIC METHOD UPDATE STATISTICS IN THE STATISTIC MODEL
+
     /**
      * Store a newly created resource in storage.
      *
@@ -63,23 +69,10 @@ class StatisticsController extends Controller
         else{
             dd("the statistics have been already updated today");
         }
-    }    
+    }
     
     
-    /***************************************************************************/
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    /*public static function postRegisteredUsersNumber(Request $request)
-    {
-        
-        $registeredUsersNumber = User::count();
-
-
-        return $ret;   
-    }*/
+    
+    
     
 }
