@@ -5,7 +5,6 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class UserActivationConfirmation extends Mailable
 {
@@ -18,7 +17,6 @@ class UserActivationConfirmation extends Mailable
      */
     protected $mailDatas;
 
-
     /**
      * Create a new message instance.
      *
@@ -26,7 +24,7 @@ class UserActivationConfirmation extends Mailable
      */
     public function __construct($mailDatas)
     {
-         $this->mailDatas = $mailDatas;
+        $this->mailDatas = $mailDatas;
     }
 
     /**
@@ -36,7 +34,6 @@ class UserActivationConfirmation extends Mailable
      */
     public function build()
     {
-        
         return $this->markdown('emails.user-activation-confirmation')
                ->to($this->mailDatas['emailTo'])
                ->from('noreply@globalcalendar.com', 'noReply - Global CI Calendar')

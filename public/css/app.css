@@ -1910,6 +1910,11 @@ pre[class*="language-"] {
 /* Yellow */
 
 /* Red */
+<<<<<<< HEAD
+=======
+
+/* Blue - still to improve hsl*/
+>>>>>>> statsGeneral
 
 /*!
  * Font Awesome Pro 5.3.1 by @fontawesome - https://fontawesome.com
@@ -9022,6 +9027,69 @@ readers do not read off random characters that represent icons */
   background-color: #5a471c !important;
 }
 
+<<<<<<< HEAD
+=======
+/* BLUE Text */
+
+.blue-1 {
+  color: #eff8ff !important;
+}
+
+.blue-2 {
+  color: #abd4f4 !important;
+}
+
+.blue-3 {
+  color: #66a4d6 !important;
+}
+
+.blue-4 {
+  color: #3685c6 !important;
+}
+
+.blue-5 {
+  color: #2769a0 !important;
+}
+
+.blue-6 {
+  color: #1d4b70 !important;
+}
+
+.blue-7 {
+  color: #213d53 !important;
+}
+
+/* BLUE Background */
+
+.blue-bg-1 {
+  background-color: #eff8ff !important;
+}
+
+.blue-bg-2 {
+  background-color: #abd4f4 !important;
+}
+
+.blue-bg-3 {
+  background-color: #66a4d6 !important;
+}
+
+.blue-bg-4 {
+  background-color: #3685c6 !important;
+}
+
+.blue-bg-5 {
+  background-color: #2769a0 !important;
+}
+
+.blue-bg-6 {
+  background-color: #1d4b70 !important;
+}
+
+.blue-bg-7 {
+  background-color: #213d53 !important;
+}
+
+>>>>>>> statsGeneral
 /* https://tailwindcss.com/docs/max-width/#app */
 
 .max-w-xs {
@@ -9064,6 +9132,33 @@ readers do not read off random characters that represent icons */
   max-width: 100% !important;
 }
 
+<<<<<<< HEAD
+=======
+.max-w-50-px {
+  max-width: 50px !important;
+}
+
+.max-w-60-px {
+  max-width: 60px !important;
+}
+
+.max-w-70-px {
+  max-width: 70px !important;
+}
+
+.max-w-80-px {
+  max-width: 80px !important;
+}
+
+.max-w-90-px {
+  max-width: 90px !important;
+}
+
+.max-w-100-px {
+  max-width: 100px !important;
+}
+
+>>>>>>> statsGeneral
 .form-sidebar {
   flex: 0 0 18rem !important;
 }
@@ -9075,6 +9170,7 @@ readers do not read off random characters that represent icons */
   }
 }
 
+<<<<<<< HEAD
 /*.text-xs{font-size: .75rem;}
 .text-sm{font-size: .875rem;}
 .text-base{font-size: 1rem;}
@@ -9087,6 +9183,9 @@ readers do not read off random characters that represent icons */
 .text-5xl{font-size: 3rem;}*/
 
 /* Type scale p.105*/
+=======
+/* FONT SIZE - Type scale p.105*/
+>>>>>>> statsGeneral
 
 .text-xs {
   font-size: 12px;
@@ -9137,6 +9236,23 @@ readers do not read off random characters that represent icons */
   font-size: 72px;
 }
 
+<<<<<<< HEAD
+=======
+/* LETTER SPACING */
+
+.letter-spacing-tight {
+  letter-spacing: -0.05em;
+}
+
+.letter-spacing-normal {
+  letter-spacing: 0;
+}
+
+.letter-spacing-wide {
+  letter-spacing: 0.05em;
+}
+
+>>>>>>> statsGeneral
 .btn.button-rounded {
   border-radius: 1rem !important;
 }
@@ -21166,10 +21282,17 @@ ul.pagination {
 }
 
 .eventSearch .credits {
+<<<<<<< HEAD
   /*z-index: 2;
   position: absolute;
   top: 4rem;
   right: 1rem;*/
+=======
+  z-index: 2;
+  position: absolute;
+  top: 4rem;
+  right: 1rem;
+>>>>>>> statsGeneral
   color: #bbbbbb;
 }
 

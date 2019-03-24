@@ -211,7 +211,7 @@
                 <div class="row mt-5">
                     <div class="col-7 col-md-9"></div>
                     <div class="col-5 col-md-3 bg-light text-right py-1">
-                        <small>{{$events->total()}} Results found</small>
+                        <small>{{$events->total()}} @lang('homepage-serach.results_found')</small>
                     </div>
                 </div>
                 

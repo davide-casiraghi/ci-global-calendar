@@ -1,7 +1,7 @@
 <?php
 
 return [
-    
+
     'event_added_successfully' => 'Wydarzenie zostało dodane',
     'event_updated_successfully' => 'Wydarzenie zostało zaktualizowane',
     'event_deleted_successfully' => 'Wydarzenie zostało usunięte',

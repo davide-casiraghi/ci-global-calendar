@@ -42,10 +42,10 @@ class CreateAllDatabaseTables extends Migration
 
             $table->string('status')->default('2');
             $table->boolean('featured')->default(0);
-            
+
             $table->text('before_content')->nullable();
             $table->text('after_content')->nullable();
-            
+
             $table->string('introimage')->nullable();
             $table->string('introimage_alt')->nullable();
 
@@ -94,13 +94,13 @@ class CreateAllDatabaseTables extends Migration
             $table->string('website_event_link')->nullable();
             $table->string('facebook_event_link')->nullable();
             $table->string('status')->default('2')->nullable();
-            
+
             $table->integer('repeat_type');
             $table->dateTime('repeat_until')->nullable();
             $table->string('repeat_weekly_on')->nullable();
             $table->string('repeat_monthly_on')->nullable();
             $table->string('on_monthly_kind')->nullable();
-            
+
             $table->integer('sc_country_id')->nullable();
             $table->string('sc_country_name')->nullable();
             $table->string('sc_city_name')->nullable();
@@ -199,7 +199,7 @@ class CreateAllDatabaseTables extends Migration
 
             $table->string('locale')->index();
 
-            $table->unique(['post_id','locale']);
+            $table->unique(['post_id', 'locale']);
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
         });
         Schema::create('menus', function (Blueprint $table) {
@@ -225,7 +225,7 @@ class CreateAllDatabaseTables extends Migration
             $table->integer('access')->nullable();
             $table->timestamps();
         });
-        
+
         Schema::create('menu_item_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('menu_item_id')->unsigned();
@@ -235,26 +235,26 @@ class CreateAllDatabaseTables extends Migration
 
             $table->string('locale')->index();
 
-            $table->unique(['menu_item_id','locale']);
+            $table->unique(['menu_item_id', 'locale']);
             $table->foreign('menu_item_id')->references('id')->on('menu_items')->onDelete('cascade');
-        
+
             $table->timestamps();
         });
-        
+
         Schema::create('category_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('category_id')->unsigned();
-            
+
             $table->string('name');
             $table->text('description')->nullable();
             $table->string('slug');
-            
+
             $table->string('locale')->index();
-            
-            $table->unique(['category_id','locale']);
+
+            $table->unique(['category_id', 'locale']);
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
-        
+
         Schema::create('event_category_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('event_category_id')->unsigned();
@@ -262,10 +262,10 @@ class CreateAllDatabaseTables extends Migration
             $table->string('slug');
             $table->string('locale')->index();
 
-            $table->unique(['event_category_id','locale']);
+            $table->unique(['event_category_id', 'locale']);
             $table->foreign('event_category_id')->references('id')->on('event_categories')->onDelete('cascade');
         });
-        
+
         Schema::create('donation_offers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
@@ -286,7 +286,14 @@ class CreateAllDatabaseTables extends Migration
             $table->timestamps();
         });
         
-        
+        Schema::create('statistics', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('registered_users_number')->nullable();
+            $table->integer('organizers_number')->nullable();
+            $table->integer('teachers_number')->nullable();
+            $table->integer('active_events_number')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -314,24 +321,25 @@ class CreateAllDatabaseTables extends Migration
         Schema::dropIfExists('post_translations');
         Schema::dropIfExists('posts');
         Schema::dropIfExists('menus');
-        
+
         Schema::table('menu_item_translations', function (Blueprint $table) {
             $table->dropForeign('menu_item_translations_menu_item_id_foreign');
         });
         Schema::dropIfExists('menu_item_translations');
         Schema::dropIfExists('menu_items');
-        
+
         Schema::table('category_translations', function (Blueprint $table) {
             $table->dropForeign('category_translations_category_id_foreign');
         });
         Schema::dropIfExists('category_translations');
         Schema::dropIfExists('categories');
-        
+
         Schema::table('event_category_translations', function (Blueprint $table) {
             $table->dropForeign('event_category_translations_event_category_id_foreign');
         });
         Schema::dropIfExists('event_category_translations');
         Schema::dropIfExists('event_categories');
         Schema::dropIfExists('donation_offers');
+        Schema::dropIfExists('statistics');
     }
 }

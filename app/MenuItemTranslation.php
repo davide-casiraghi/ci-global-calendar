@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MenuItemTranslation extends Model {
-    
+class MenuItemTranslation extends Model
+{
     /***************************************************************************/
     /**
      * The table associated with the model.
@@ -13,10 +13,9 @@ class MenuItemTranslation extends Model {
      * @var string
      */
     protected $table = 'menu_item_translations';
-    
+
     /***************************************************************************/
-    
+
     public $timestamps = false;
     protected $fillable = ['name', 'description', 'slug'];
-
 }

@@ -2,131 +2,139 @@
 
 namespace App\Http\Controllers;
 
-use App\Organizer;
 use App\User;
-
+use Validator;
+use App\Organizer;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
-
-use Illuminate\Http\Request;
-use Validator;
 
 class OrganizerController extends Controller
 {
     /* Restrict the access to this resource just to logged in users except show view */
-    public function __construct(){
-        $this->middleware('auth', ['except' => ['show','organizerBySlug']]);
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['show', 'organizerBySlug']]);
     }
-    
+
     /***************************************************************************/
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         // Show just to the owner - Get created_by value if the user is not an admin or super admin
         $loggedUser = $this->getLoggedAuthorId();
 
         $searchKeywords = $request->input('keywords');
 
-        if ($searchKeywords){
+        if ($searchKeywords) {
             $organizers = DB::table('organizers')
                 ->when($loggedUser->id, function ($query, $loggedUserId) {
                     return $query->where('created_by', $loggedUserId);
                 })
                 ->when($searchKeywords, function ($query, $searchKeywords) {
-                    return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%' . $searchKeywords . '%');
+                    return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%'.$searchKeywords.'%');
                 })
                 ->paginate(20);
-        }
-        else
+        } else {
             $organizers = DB::table('organizers')
             ->when($loggedUser->id, function ($query, $loggedUserId) {
                 return $query->where('created_by', $loggedUserId);
             })
             ->paginate(20);
+        }
 
-        return view('organizers.index',compact('organizers'))
+        return view('organizers.index', compact('organizers'))
             ->with('i', (request()->input('page', 1) - 1) * 20)
-            ->with('searchKeywords',$searchKeywords);
+            ->with('searchKeywords', $searchKeywords);
     }
-    
+
     /***************************************************************************/
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(){
+    public function create()
+    {
         $users = User::pluck('name', 'id');
         $authorUserId = $this->getLoggedAuthorId();
 
         return view('organizers.create')
             ->with('users', $users)
-            ->with('authorUserId',$authorUserId);
+            ->with('authorUserId', $authorUserId);
     }
 
     /***************************************************************************/
+
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         // Validate form datas
-            $validator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
                 'name' => 'required',
-                'email' => 'required'
+                'email' => 'required',
             ]);
-            if ($validator->fails()) {
-                return back()->withErrors($validator)->withInput();
-            }
-        
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
         $organizer = new Organizer();
-        
+
         $this->saveOnDb($request, $organizer);
 
         return redirect()->route('organizers.index')
-                        ->with('success',__('messages.organizer_added_successfully'));
+                        ->with('success', __('messages.organizer_added_successfully'));
     }
 
     /***************************************************************************/
+
     /**
      * Display the specified resource.
      *
      * @param  \App\Organizer  $organizer
      * @return \Illuminate\Http\Response
      */
-    public function show(Organizer $organizer){
-        return view('organizers.show',compact('organizer'));
+    public function show(Organizer $organizer)
+    {
+        return view('organizers.show', compact('organizer'));
     }
 
     /***************************************************************************/
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Organizer  $organizer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Organizer $organizer){
-        
-        if (Auth::user()->id == $organizer->created_by || Auth::user()->isSuperAdmin()|| Auth::user()->isAdmin()){
+    public function edit(Organizer $organizer)
+    {
+        if (Auth::user()->id == $organizer->created_by || Auth::user()->isSuperAdmin() || Auth::user()->isAdmin()) {
             $authorUserId = $this->getLoggedAuthorId();
             $users = User::pluck('name', 'id');
 
-            return view('organizers.edit',compact('organizer'))
+            return view('organizers.edit', compact('organizer'))
                 ->with('users', $users)
-                ->with('authorUserId',$authorUserId);
-        }
-        else{
+                ->with('authorUserId', $authorUserId);
+        } else {
             return redirect()->route('home')->with('message', __('auth.not_allowed_to_access'));
         }
     }
 
     /***************************************************************************/
+
     /**
      * Update the specified resource in storage.
      *
@@ -134,76 +142,86 @@ class OrganizerController extends Controller
      * @param  \App\Organizer  $organizer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Organizer $organizer){
+    public function update(Request $request, Organizer $organizer)
+    {
         request()->validate([
             'name' => 'required',
-            'email' => 'required'
+            'email' => 'required',
         ]);
 
         //$organizer->update($request->all());
         $this->saveOnDb($request, $organizer);
 
         return redirect()->route('organizers.index')
-                        ->with('success',__('messages.organizer_updated_successfully'));
+                        ->with('success', __('messages.organizer_updated_successfully'));
     }
 
     /***************************************************************************/
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Organizer  $organizer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Organizer $organizer){
+    public function destroy(Organizer $organizer)
+    {
         $organizer->delete();
+
         return redirect()->route('organizers.index')
-                        ->with('success',__('messages.organizer_deleted_successfully'));
+                        ->with('success', __('messages.organizer_deleted_successfully'));
     }
 
     /***************************************************************************/
+
     /**
-     * Save the record on DB
+     * Save the record on DB.
      *
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-     public function saveOnDb($request, $organizer){
-         
-         $organizer->name = $request->get('name');
-         //$organizer->description = $request->get('description');
-         $organizer->description = clean($request->get('description'));
-         $organizer->website = $request->get('website');
-         $organizer->email = $request->get('email');
-         $organizer->phone = $request->get('phone');
+    public function saveOnDb($request, $organizer)
+    {
+        $organizer->name = $request->get('name');
+        //$organizer->description = $request->get('description');
+        $organizer->description = clean($request->get('description'));
+        $organizer->website = $request->get('website');
+        $organizer->email = $request->get('email');
+        $organizer->phone = $request->get('phone');
 
-         $organizer->created_by = \Auth::user()->id;
-         if (!$organizer->slug)
-            $organizer->slug = Str::slug($organizer->name, '-')."-".rand(10000, 100000);
+        $organizer->created_by = \Auth::user()->id;
+        if (! $organizer->slug) {
+            $organizer->slug = Str::slug($organizer->name, '-').'-'.rand(10000, 100000);
+        }
 
-         $organizer->save();
-     }
-     
+        $organizer->save();
+    }
+
     /***************************************************************************/
+
     /**
-     * Open a modal in the event view when create organizer is clicked
+     * Open a modal in the event view when create organizer is clicked.
      *
      * @return view
      */
-    public function modal(){
+    public function modal()
+    {
         return view('organizers.modal');
     }
 
     /***************************************************************************/
+
     /**
      * Store a newly created organizer from the create event view modal in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeFromModal(Request $request){
+    public function storeFromModal(Request $request)
+    {
         $organizer = new Organizer();
         request()->validate([
-            'name' => 'required'
+            'name' => 'required',
         ]);
 
         $this->saveOnDb($request, $organizer);
@@ -214,20 +232,19 @@ class OrganizerController extends Controller
     }
 
     /***************************************************************************/
+
     /**
-     * Return the organizer by SLUG. (eg. http://websitename.com/organizer/xxxxx)
+     * Return the organizer by SLUG. (eg. http://websitename.com/organizer/xxxxx).
      *
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-
-    public function organizerBySlug($slug){
+    public function organizerBySlug($slug)
+    {
         $organizer = Organizer::
                 where('slug', $slug)
                 ->first();
+
         return $this->show($organizer);
     }
-
-
-
 }

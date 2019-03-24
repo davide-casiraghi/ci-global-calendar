@@ -2,37 +2,39 @@
 
 namespace Tests\Browser;
 
+use App\User;
+use App\Teacher;
 use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
+use Tests\Browser\Pages\LoginPage;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-use App\Teacher;
-use App\User;
-
-use Tests\Browser\Pages\LoginPage;
-
-class TeachersTest extends DuskTestCase{
-
+class TeachersTest extends DuskTestCase
+{
     use DatabaseMigrations;
 
     /***************************************************************************/
+
     /**
-     * Populate test DB with seeds 
+     * Populate test DB with seeds.
      */
-    public function setUp(): void{
+    public function setUp(): void
+    {
         Parent::setUp();
-        
+
         // Seeders - /database/seeds (continetns, countries, post categories, event categories)
-            $this->seed();
+        $this->seed();
     }
-    
+
     /***************************************************************************/
+
     /**
-    * Verify if the teachers list is showing
-    *
-    * @return void
-    */
-    public function test_teachers_list_is_showing(){
+     * Verify if the teachers list is showing.
+     *
+     * @return void
+     */
+    public function test_teachers_list_is_showing()
+    {
         $this->browse(function (Browser $browser) {
             $browser->on(new LoginPage)
                     ->loginUser()
@@ -41,35 +43,39 @@ class TeachersTest extends DuskTestCase{
                     ->logoutUser();
         });
     }
-    
+
     /*******************************************************************************/
+
     /**
-     * Open the Create teacher form
+     * Open the Create teacher form.
      *
      * @return void
      */
-      public function test_open_create_teacher(){
-          $this->browse(function (Browser $browser) {
-              $browser->on(new LoginPage)
+    public function test_open_create_teacher()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->on(new LoginPage)
                       ->loginUser()
                       ->visit('/teachers')   //dusk don't like to visit page /teachers/create, so let's go there clicking
                       ->click('a.create-new')
                       ->assertSee('Year of starting to practice')
                       ->logoutUser();
-          });  
-      }    
-    
-      /*******************************************************************************/
-      /**
-      * Create a new teacher.
-      *
-      * @param  \Laravel\Dusk\Browser  $browser
-      * @param  string  $name
-      * @return void
-      */
-     public function test_create_new_teacher(){
-         $this->browse(function (Browser $browser) {
-             $browser->on(new LoginPage)
+        });
+    }
+
+    /*******************************************************************************/
+
+    /**
+     * Create a new teacher.
+     *
+     * @param  \Laravel\Dusk\Browser  $browser
+     * @param  string  $name
+     * @return void
+     */
+    public function test_create_new_teacher()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->on(new LoginPage)
                      ->loginUser()
                      ->visit('/teachers')
                      ->click('a.create-new')
@@ -84,10 +90,9 @@ class TeachersTest extends DuskTestCase{
                      ->resize(1920, 3000)
                      ->press('Submit')
                      ->assertSee(__('messages.teacher_added_successfully'))
-                     ->logoutUser();                   
-         });
-     }
-     
-     /***************************************************************************/
-    
+                     ->logoutUser();
+        });
+    }
+
+    /***************************************************************************/
 }

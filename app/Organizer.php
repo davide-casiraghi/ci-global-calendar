@@ -13,10 +13,10 @@ class Organizer extends Model
      * @var string
      */
     protected $table = 'organizers';
-    
+
     /***************************************************************************/
-    
+
     protected $fillable = [
-        'name', 'description', 'website', 'created_by', 'slug', 'email', 'phone'
+        'name', 'description', 'website', 'created_by', 'slug', 'email', 'phone',
     ];
 }

@@ -2,11 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Dimsav\Translatable\Translatable;
-
-use App\MenuItemTranslation;
+use Illuminate\Database\Eloquent\Model;
 
 class MenuItem extends Model
 {
@@ -17,134 +15,139 @@ class MenuItem extends Model
      * @var string
      */
     protected $table = 'menu_items';
-    
+
     /***************************************************************************/
-    
+
     use Translatable;
-    
-    public $translatedAttributes = ['name','compact_name'];
-    
+
+    public $translatedAttributes = ['name', 'compact_name'];
+
     protected $fillable = [
-        'name', 'compact_name', 'parent_item_id', 'url', 'font_awesome_class', 'route', 'type', 'menu_id', 'order'
+        'name', 'compact_name', 'parent_item_id', 'url', 'font_awesome_class', 'route', 'type', 'menu_id', 'order',
     ];
-    
+
     /***************************************************************************/
+
     /**
      * Return the items of the menu in a tree format (multidimensional array)
-     * https://stackoverflow.com/questions/4196157/create-array-tree-from-array-list
+     * https://stackoverflow.com/questions/4196157/create-array-tree-from-array-list.
      *
      * @param  $menuId - the menu id (if 0 return all the items)
      * @return array $ret - the multidimensional array with the tree
      */
-
-    public static function getItemsTree($menuId){
-                        
-        $menuItems = MenuItem::            
+    public static function getItemsTree($menuId)
+    {
+        $menuItems = self::
                         when($menuId, function ($query, $menuId) {
                             return $query->where('menu_id', $menuId);
                         })
-                        ->orderBy('order','ASC')
-                        ->get();          
-                                
-        $new = array();
-        foreach ($menuItems as $menuItem){
+                        ->orderBy('order', 'ASC')
+                        ->get();
+
+        $new = [];
+        foreach ($menuItems as $menuItem) {
             $new[$menuItem['parent_item_id']][] = $menuItem;
         }
-        if(!empty($new)){
-            $ret = MenuItem::createTree($new, $new[0]); 
-        }
-        else{
+        if (! empty($new)) {
+            $ret = self::createTree($new, $new[0]);
+        } else {
             $ret = [];
         }
         //dump($ret);
-        
+
         return $ret;
     }
-    
-    
+
     /***************************************************************************/
+
     /**
      * Create array tree from array list - it support more than 1 parentid[0] element
-     * https://stackoverflow.com/questions/4196157/create-array-tree-from-array-list
+     * https://stackoverflow.com/questions/4196157/create-array-tree-from-array-list.
      *
      * @param  $list
      * @param  $parent
      * @return string $key - the index of the parent item
      */
-
-    public static function createTree(&$list, $parent){
-        $tree = array();
-        foreach ($parent as $k=>$l){
-            if(isset($list[$l['id']])){
-                $l['children'] = MenuItem::createTree($list, $list[$l['id']]);
+    public static function createTree(&$list, $parent)
+    {
+        $tree = [];
+        foreach ($parent as $k=>$l) {
+            if (isset($list[$l['id']])) {
+                $l['children'] = self::createTree($list, $list[$l['id']]);
             }
             $tree[] = $l;
-        } 
+        }
+
         return $tree;
     }
-    
+
     /***************************************************************************/
+
     /**
      * Return the access level name
-     * https://stackoverflow.com/questions/4196157/create-array-tree-from-array-list
+     * https://stackoverflow.com/questions/4196157/create-array-tree-from-array-list.
      *
      * @param  $accessId
-     * @return string $ret - the string that describe the access 
+     * @return string $ret - the string that describe the access
      */
-
-    public static function getAccessName($accessId){
+    public static function getAccessName($accessId)
+    {
         $accessLevels = [
             '1' => 'Public',
             '2' => 'Guest',
             '3' => 'Manager',
-            '4' => 'Administrator',  
+            '4' => 'Administrator',
             '5' => 'Super Administrator',
         ];
-        
+
         $ret = $accessLevels[$accessId];
+
         return $ret;
     }
-    
+
     /***************************************************************************/
+
     /**
-     * Check if the user group with the access level and return true if the user is authorized to see the menu item
+     * Check if the user group with the access level and return true if the user is authorized to see the menu item.
      *
      * @param  $accessId
-     * @return string $ret - the string that describe the access 
+     * @return string $ret - the string that describe the access
      */
-    public function authorized(){
+    public function authorized()
+    {
         $ret = false;
         $user = Auth::user();
-        
+
         switch ($this->access) {
-            case '1':   // Public 
+            case '1':   // Public
                 $ret = true;
                 break;
-            case '2':   // Guest - not authenticated user 
-                if (!$user)
+            case '2':   // Guest - not authenticated user
+                if (! $user) {
                     $ret = true;
+                }
                 break;
             case '3':   // Manager
-                if ($user){
+                if ($user) {
                     $ret = true;
                 }
                 break;
             case '4':   // Admin
-                if ($user){
-                    if($user->isSuperAdmin()||$user->isAdmin()){
+                if ($user) {
+                    if ($user->isSuperAdmin() || $user->isAdmin()) {
                         $ret = true;
                     }
                 }
                 break;
             case '5':   // Super Admin
-                if ($user){
-                    if($user->isSuperAdmin()){
+                if ($user) {
+                    if ($user->isSuperAdmin()) {
                         $ret = true;
                     }
                 }
                 break;
-        }    
+        }
+
         return $ret;
     }
-    
 }

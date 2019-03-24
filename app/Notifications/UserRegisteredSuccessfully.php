@@ -6,10 +6,8 @@ namespace App\Notifications;
 
 use App\User;
 use App\Country;
-
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
 class UserRegisteredSuccessfully extends Notification
@@ -29,7 +27,7 @@ class UserRegisteredSuccessfully extends Notification
      */
     public function __construct(User $user)
     {
-         $this->user = $user;
+        $this->user = $user;
     }
 
     /**

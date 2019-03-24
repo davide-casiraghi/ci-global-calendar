@@ -11,8 +11,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $users = array(
-            array(
+        $users = [
+            [
                     'id' => '1',
                     'name' => 'Davide Casiraghi',
                     'email' => 'davide.casiraghi@gmail.com',
@@ -20,10 +20,10 @@ class UsersTableSeeder extends Seeder
                     'group' => '1',
                     'country_id' => '1',
                     'status' => '1',
-                ),
-        );
-        
-        foreach($users as $key => $user) {
+                ],
+        ];
+
+        foreach ($users as $key => $user) {
             DB::table('users')->insert([
                 'id' => $user['id'],
                 'name' => $user['name'],
