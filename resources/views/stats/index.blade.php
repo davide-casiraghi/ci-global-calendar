@@ -9,7 +9,7 @@
     
     <div class="row mb-3">
         <div class="col-12 col-sm-6">
-            <h3>CIGC statitics</h3>
+            <h3>CIGC Statistics</h3>
         </div>
     </div>
     
