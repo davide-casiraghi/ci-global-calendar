@@ -4,12 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-use DB;
-use App\User;
-use App\Teacher;
-use App\Organizer;
-use App\Event;
-
 class Statistic extends Model
 {
     /***************************************************************************/
