@@ -30,7 +30,7 @@ If you are skilled in the technologies reported below and willing to collaborate
 ## The technologies used to develop the calendar
 
 The project is developed using this technlogies:
-- PHP framework: **Laravel 5.7**
+- PHP framework: **Laravel 5.8**
 - Javascript framework: **jQuery**
 - CSS framework: **Bootstrap 4**
 - Version control: **Git**  
