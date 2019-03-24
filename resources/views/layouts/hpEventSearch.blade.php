@@ -53,7 +53,7 @@
             'paddingX' => '',
             'backgroundColor' => $barsBackground,
             'transparentBarInHp' => true,
-            'stickyFooter' => true,
+            'stickyFooter' => false,
             'items' => App\MenuItem::getItemsTree(3),
         ])
         

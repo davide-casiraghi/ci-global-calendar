@@ -65,11 +65,5 @@
     </script>
 
 @stop
-<small class="credits">
-    @lang('homepage-serach.photo_credits'):
-    <span class="name">
 
-    </span>
-
-</small>
 <div class="background"></div>
