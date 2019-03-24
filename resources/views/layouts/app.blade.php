@@ -60,7 +60,7 @@
             'container' => true,
             'paddingX' => '',
             'backgroundColor' => $barsBackground,
-            'stickyFooter' => false,
+            'stickyFooter' => true,
             'items' => App\MenuItem::getItemsTree(3),
         ])
         
