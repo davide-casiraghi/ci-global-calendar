@@ -143,7 +143,7 @@ function () {
 
     /* Statistics */
     Route::get('/statistics', 'StatisticsController@index')->name('statistics');
-
+    Route::get('/statistics/update', 'StatisticsController@store');
 });
 
 /* OTHER PAGES THAT SHOULD NOT BE LOCALIZED **/

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Statistics;
-use App\Users;
+use App\Statistic;
+use App\User;
+use App\Teacher;
+use App\Organizer;
+use App\Event;
 
 use Illuminate\Http\Request;
-
-
-
 
 class StatisticsController extends Controller
 {
@@ -49,10 +49,12 @@ class StatisticsController extends Controller
     public function store()
     {
 
-        $statistics = new Statistics();
-        $statistics->name = User::count();
-        //$country->code = $request->get('code');
-        //$country->continent_id = $request->get('continent_id');
+        $statistics = new Statistic();
+        $statistics->registered_users_number = User::count();
+        $statistics->organizers_number = Organizer::count();
+        $statistics->teachers_number = Teacher::count();
+        $statistics->active_events_number = Event::getActiveEvents()::count();
+
 
         $statistics->save();
 
