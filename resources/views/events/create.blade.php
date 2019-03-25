@@ -54,6 +54,7 @@
                                           'records' => $users,
                                           'liveSearch' => 'true',
                                           'mobileNativeMenu' => false,
+                                          'seleted' => old('created_by'),
                                     ])
                                 </div>
                             @endif
@@ -66,6 +67,7 @@
                                       'records' => $eventCategories,
                                       'liveSearch' => 'true',
                                       'mobileNativeMenu' => false,
+                                      'seleted' => old('category_id'),
                                 ])
                             </div>
                             
@@ -149,7 +151,7 @@
                                       'title' =>  __('views.date_start'),
                                       'name' => 'startDate',
                                       'placeholder' => __('views.select_date'),
-                                      'value' => old('startDate')
+                                      'value' => old('startDate'),
                                 ])
                             </div>
 
@@ -158,7 +160,8 @@
                                       'title' =>  __('views.time_start'),
                                       'name' => 'time_start',
                                       'placeholder' => __('views.select_time'),
-                                      'value' => '6:00 PM'
+                                      'value' => old('time_end'),
+                                      //'value' => '6:00 PM'
                                 ])
                             </div>
                         </div>
@@ -178,7 +181,8 @@
                                       'title' =>  __('views.time_end'),
                                       'name' => 'time_end',
                                       'placeholder' => __('views.select_time'),
-                                      'value' => '8:00 PM'
+                                      'value' => old('time_end'),
+                                      //'value' => '8:00 PM',
                                 ])
                             </div>
                         </div>
