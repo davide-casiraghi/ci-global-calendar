@@ -7,6 +7,7 @@ use App\Event;
 use Validator;
 use App\Country;
 use App\Teacher;
+use Carbon\Carbon;
 use App\EventCategory;
 use App\EventRepetition;
 use Illuminate\Support\Str;
@@ -15,8 +16,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Validation\Rule;
-use Carbon\Carbon;
 
 class TeacherController extends Controller
 {
@@ -339,14 +338,14 @@ class TeacherController extends Controller
     public function teachersValidator($request)
     {
         $maxYear = Carbon::now()->year;
-        
+
         $rules = [
             'name' => 'required',
-            'year_starting_practice' => 'required|integer|min:1972|max:'. ($maxYear),
-            'year_starting_teach' => 'required|integer|min:1972|max:'. ($maxYear),
+            'year_starting_practice' => 'required|integer|min:1972|max:'.($maxYear),
+            'year_starting_teach' => 'required|integer|min:1972|max:'.($maxYear),
             'facebook' => 'nullable|url',
             'website' => 'nullable|url',
-            
+
             // 'required_with:end_page|integer|min:1|digits_between: 1,5',  // https://stackoverflow.com/questions/32036882/laravel-validate-an-integer-field-that-needs-to-be-greater-than-another
         ];
         $messages = [];
