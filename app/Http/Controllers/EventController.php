@@ -141,8 +141,7 @@ class EventController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-
-        /*
+*/
         $rules = [
             'title' => 'required',
             'description' => 'required',
@@ -150,9 +149,10 @@ class EventController extends Controller
             'venue_id' => 'required',
             'startDate' => 'required',
             'endDate' => 'required',
-            'repeat_until' => 'required_if:repeat_type,2',
-            'repeat_weekly_on_day[]' => 'required_if:repeat_type,2'
-        ];
+            'repeat_until' => Rule::requiredIf($request->repeat_type > 1),
+            'repeat_weekly_on_day[]' => Rule::requiredIf($request->repeat_type == 2), 
+            'on_monthly_kind' => Rule::requiredIf($request->repeat_type == 3),
+        ];    
         $messages = [
             'repeat_weekly_on_day[].required' => 'Please specify which day of the week is repeting the event.'
         ];
@@ -161,10 +161,9 @@ class EventController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        */
-
+        
+        
         $event = new Event();
-
         $this->saveOnDb($request, $event);
 
         return redirect()->route('events.index')
