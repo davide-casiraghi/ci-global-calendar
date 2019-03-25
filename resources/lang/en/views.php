@@ -126,7 +126,7 @@ return [
     'select_owner' => 'Select owner',
     'select_country' => 'Select country',
     'please_insert_english_translation' => 'Please insert also an english translation of your event below the description, even short.',
-    'please_use_repeat_until' => 'Please notice, if the event is 2 hour long and repeat every week for one year, the start date and the end date are the same. Select the one year later date in the Repeat until field.',
+    'please_use_repeat_until' => 'Please notice, if you are creating a repetitive event, the start date and the end date should be the one of the first repetition and be the same.',
     'continent_code' => 'Continent code',
     'country_code' => 'Country code',
     'background_image' => 'Background image',
