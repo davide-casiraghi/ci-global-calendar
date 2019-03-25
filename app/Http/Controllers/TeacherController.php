@@ -344,6 +344,8 @@ class TeacherController extends Controller
             'name' => 'required',
             'year_starting_practice' => 'required|integer|min:1972|max:'. ($maxYear),
             'year_starting_teach' => 'required|integer|min:1972|max:'. ($maxYear),
+            'facebook' => 'nullable|url',
+            'website' => 'nullable|url',
             
             // 'required_with:end_page|integer|min:1|digits_between: 1,5',  // https://stackoverflow.com/questions/32036882/laravel-validate-an-integer-field-that-needs-to-be-greater-than-another
         ];

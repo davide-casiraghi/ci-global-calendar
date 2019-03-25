@@ -257,7 +257,8 @@ class OrganizerController extends Controller
     {
         $rules = [
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
+            'website' => 'nullable|url',
         ];
         $messages = [];
 
