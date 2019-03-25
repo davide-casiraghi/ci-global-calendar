@@ -82,16 +82,12 @@ class OrganizerController extends Controller
     public function store(Request $request)
     {
         // Validate form datas
-        $validator = Validator::make($request->all(), [
-                'name' => 'required',
-                'email' => 'required',
-            ]);
+        $validator = $this->organizersValidator($request);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-
+        
         $organizer = new Organizer();
-
         $this->saveOnDb($request, $organizer);
 
         return redirect()->route('organizers.index')
@@ -144,12 +140,12 @@ class OrganizerController extends Controller
      */
     public function update(Request $request, Organizer $organizer)
     {
-        request()->validate([
-            'name' => 'required',
-            'email' => 'required',
-        ]);
+        // Validate form datas
+        $validator = $this->organizersValidator($request);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
 
-        //$organizer->update($request->all());
         $this->saveOnDb($request, $organizer);
 
         return redirect()->route('organizers.index')
@@ -246,5 +242,26 @@ class OrganizerController extends Controller
                 ->first();
 
         return $this->show($organizer);
+    }
+    
+    /***************************************************************************/
+
+    /**
+     * Return the validator with all the defined constraint
+     *
+     * @param  \App\Event  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function organizersValidator($request)
+    {
+        $rules = [
+            'name' => 'required',
+            'email' => 'required',
+        ];
+        $messages = [];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        return $validator;
     }
 }
