@@ -34,6 +34,8 @@ return [
     'event_url' => 'Event URL',
     'email_for_more_info' => 'Email for more info',
     'email_for_more_info_placeholder' => 'This email will receive the info requests',
+    'write_for_more_info' => 'Write for more info',
+    'write_for_more_info_details' => 'You are sending an email to the organizer of this event',
     'translations' => 'Translations',
     'action' => 'Action',
     'view' => 'View',
