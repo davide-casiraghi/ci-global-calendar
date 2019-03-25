@@ -1134,6 +1134,9 @@ class EventController extends Controller
             'repeat_until' => Rule::requiredIf($request->repeat_type > 1),
             'repeat_weekly_on_day' => Rule::requiredIf($request->repeat_type == 2),
             'on_monthly_kind' => Rule::requiredIf($request->repeat_type == 3),
+            'contact_email' => 'nullable|email',
+            'facebook_event_link' => 'nullable|url',
+            'website_event_link' => 'nullable|url',
         ];
         $messages = [
             'repeat_weekly_on_day[].required' => 'Please specify which day of the week is repeting the event.',
