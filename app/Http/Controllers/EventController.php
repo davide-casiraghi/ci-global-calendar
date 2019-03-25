@@ -124,7 +124,6 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-
         // Validate form datas
         $rules = [
             'title' => 'required',
@@ -146,7 +145,6 @@ class EventController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        
         
         $event = new Event();
         $this->saveOnDb($request, $event);
