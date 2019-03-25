@@ -86,7 +86,7 @@ class OrganizerController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        
+
         $organizer = new Organizer();
         $this->saveOnDb($request, $organizer);
 
@@ -243,11 +243,11 @@ class OrganizerController extends Controller
 
         return $this->show($organizer);
     }
-    
+
     /***************************************************************************/
 
     /**
-     * Return the validator with all the defined constraint
+     * Return the validator with all the defined constraint.
      *
      * @param  \App\Event  $post
      * @return \Illuminate\Http\Response

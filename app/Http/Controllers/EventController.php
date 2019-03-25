@@ -1117,7 +1117,7 @@ class EventController extends Controller
     /***************************************************************************/
 
     /**
-     * Return the validator with all the defined constraint
+     * Return the validator with all the defined constraint.
      *
      * @param  \App\Event  $post
      * @return \Illuminate\Http\Response
