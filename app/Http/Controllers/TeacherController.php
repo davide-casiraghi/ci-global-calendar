@@ -116,18 +116,12 @@ class TeacherController extends Controller
     public function store(Request $request)
     {
         // Validate form datas
-        $validator = Validator::make($request->all(), [
-                'name' => 'required',
-                'year_starting_practice' => 'required',
-                'year_starting_teach' => 'required',
-            ]);
-
+        $validator = $this->teachersValidator($request);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
 
         $teacher = new Teacher();
-
         $this->saveOnDb($request, $teacher);
 
         return redirect()->route('teachers.index')
@@ -207,11 +201,12 @@ class TeacherController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
-        request()->validate([
-            'name' => 'required',
-        ]);
-        //dd($request->profile);
-        //$teacher->update($request->all());
+        // Validate form datas
+        $validator = $this->teachersValidator($request);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+        
         $this->saveOnDb($request, $teacher);
 
         return redirect()->route('teachers.index')
@@ -332,4 +327,25 @@ class TeacherController extends Controller
     }
 
     /***************************************************************************/
+
+    /**
+     * Return the validator with all the defined constraint
+     *
+     * @param  \App\Event  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function teachersValidator($request)
+    {
+        $rules = [
+            'name' => 'required',
+            'year_starting_practice' => 'required',
+            'year_starting_teach' => 'required',
+        ];
+        $messages = [];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        return $validator;
+    }
+    
 }
