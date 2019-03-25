@@ -124,6 +124,8 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        
+        //dd($request->repeat_weekly_on_day);
         // Validate form datas
         $rules = [
             'title' => 'required',
@@ -147,6 +149,11 @@ class EventController extends Controller
         $validator->sometimes('endDate', 'same:startDate', function ($input) {
             return $input->repeat_type > 1;
         });
+        
+        //aaaaaaaa
+        /*$validator->sometimes('repeat_weekly_on_day', 'required|in:1,2,3,4,5,6,7', function ($input) {
+            return $input->repeat_type == 2;
+        });*/
 
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
