@@ -400,7 +400,12 @@ class EventController extends Controller
      */
     public function isWeekDay($date, $dayOfTheWeek)
     {
-        return date('w', strtotime($date)) === $dayOfTheWeek;
+        
+        // Fix the bug that was avoiding to save Sunday. Date 'w' identify sunday as 0 and not 7. 
+        if ($dayOfTheWeek == 7) 
+            $dayOfTheWeek = 0;
+    
+        return date('w', strtotime($date)) == $dayOfTheWeek;
     }
 
     /***************************************************************************/
@@ -888,7 +893,7 @@ class EventController extends Controller
      */
     public function decodeRepeatWeeklyOn($repeatWeeklyOn)
     {
-        $weekdayArray = ['', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        $weekdayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', ''];
         $ret = $weekdayArray[$repeatWeeklyOn];
 
         return $ret;
