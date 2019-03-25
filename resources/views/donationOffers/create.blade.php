@@ -94,6 +94,7 @@
                                       'records' => $countries,
                                       'liveSearch' => 'true',
                                       'mobileNativeMenu' => false,
+                                      'seleted' => old('country_id'),
                                 ])
                             </div>
                             <div class="col-12">
@@ -184,6 +185,7 @@
                                       'records' => App\DonationOffer::getGiftKindArray(),
                                       'liveSearch' => 'false',
                                       'mobileNativeMenu' => true,
+                                      'seleted' => old('gift_kind'),
                                 ])
                             </div>
                             <div class="col-12">
@@ -224,6 +226,7 @@
                                       'records' => App\DonationOffer::getVolunteeringKindArray(),
                                       'liveSearch' => 'false',
                                       'mobileNativeMenu' => true,
+                                      'seleted' => old('volunteer_kind'),
                                 ])
                             </div>
                             <div class="col-12">
