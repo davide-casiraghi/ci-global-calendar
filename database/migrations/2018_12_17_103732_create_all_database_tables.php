@@ -91,6 +91,7 @@ class CreateAllDatabaseTables extends Migration
             $table->string('image')->nullable();
             $table->integer('venue_id');
             $table->integer('organized_by')->nullable();
+            $table->string('contact_email')->nullable();
             $table->string('website_event_link')->nullable();
             $table->string('facebook_event_link')->nullable();
             $table->string('status')->default('2')->nullable();

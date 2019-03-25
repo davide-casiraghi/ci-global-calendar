@@ -1,13 +1,15 @@
 
-{{-- Button --}}
-    <button type="button" class="btn btn-primary button-small" data-toggle="modal" data-target="#writeToOrganizerModal" data-whatever="@getbootstrap">Write to the organizer</button>
-
+{{-- Button - Write for more info --}}
+    @if(!empty($event->contact_email))
+        <button type="button" class="btn btn-primary button-small" data-toggle="modal" data-target="#writeToOrganizerModal" data-whatever="@getbootstrap">@lang('views.write_for_more_info')</button>
+    @endif
+    
 {{-- Modal --}}
     <div class="modal fade text-left" id="writeToOrganizerModal" tabindex="-1" role="dialog" aria-labelledby="writeToOrganizerModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content light-gray-bg">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="writeToOrganizerModalLabel">Write to the organizer</h5>
+                    <h5 class="modal-title" id="writeToOrganizerModalLabel">@lang('views.write_for_more_info')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -15,7 +17,7 @@
                 <form action="{{ route('events.organizer-message') }}" method="POST">
                     <div class="modal-body">
                              @csrf
-                             <p>You are sending an email to the organizer of this event</a><br></p>
+                             <p>@lang('views.write_for_more_info_details')</p>
                              @include('partials.forms.input', [
                                    'title' => 'Your name',
                                    'name' => 'user_name',
@@ -40,6 +42,11 @@
                              @include('partials.forms.input-hidden', [
                                    'name' => 'event_id',
                                    'value' => $event->id
+                             ])
+                             
+                             @include('partials.forms.input-hidden', [
+                                   'name' => 'contact_email',
+                                   'value' => $event->contact_email
                              ])
 
                     </div>

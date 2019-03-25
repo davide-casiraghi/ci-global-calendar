@@ -203,6 +203,14 @@
                         <div class="row">
                             <div class="col-12">
                                 @include('partials.forms.input', [
+                                      'title' =>  __('views.email_for_more_info'),
+                                      'name' => 'contact_email',  
+                                      'placeholder' => '', //__('views.email_for_more_info_placeholder')
+                                      'value' => old('contact_email')
+                                ])
+                            </div>
+                            <div class="col-12">
+                                @include('partials.forms.input', [
                                       'title' =>  __('views.facebook_event'),
                                       'name' => 'facebook_event_link',
                                       'placeholder' => 'https://www.facebook.com/events/...',
