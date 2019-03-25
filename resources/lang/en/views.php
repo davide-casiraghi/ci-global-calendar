@@ -32,6 +32,8 @@ return [
     'upload_profile_picture' => 'Upload profile picture',
     'upload_event_teaser_image' => 'Upload event teaser image',
     'event_url' => 'Event URL',
+    'email_for_more_info' => 'Email for more info',
+    'email_for_more_info_placeholder' => 'This email will receive the info requests',
     'translations' => 'Translations',
     'action' => 'Action',
     'view' => 'View',
