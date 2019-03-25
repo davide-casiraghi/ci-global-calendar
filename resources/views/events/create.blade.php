@@ -190,7 +190,6 @@
                         {{-- Repetitions --}}
                             @include('partials.forms.event.repeat-event')
                         
-                        
                     </div>
                 </div>
             
