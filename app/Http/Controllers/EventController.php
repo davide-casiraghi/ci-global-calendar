@@ -400,11 +400,12 @@ class EventController extends Controller
      */
     public function isWeekDay($date, $dayOfTheWeek)
     {
-        
-        // Fix the bug that was avoiding to save Sunday. Date 'w' identify sunday as 0 and not 7. 
-        if ($dayOfTheWeek == 7) 
+
+        // Fix the bug that was avoiding to save Sunday. Date 'w' identify sunday as 0 and not 7.
+        if ($dayOfTheWeek == 7) {
             $dayOfTheWeek = 0;
-    
+        }
+
         return date('w', strtotime($date)) == $dayOfTheWeek;
     }
 
@@ -427,7 +428,7 @@ class EventController extends Controller
         $endPeriod = new DateTime($repeatUntilDate);
         $interval = DateInterval::createFromDateString('1 day');
         $period = new DatePeriod($beginPeriod, $interval, $endPeriod);
-        
+
         foreach ($period as $day) {  // Iterate for each day of the period
             foreach ($weekDays as $weekDayNumber) { // Iterate for every day of the week (1:Monday, 2:Tuesday, 3:Wednesday ...)
                 if ($this->isWeekDay($day->format('Y-m-d'), $weekDayNumber)) {
