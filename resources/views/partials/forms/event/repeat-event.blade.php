@@ -149,7 +149,7 @@
                     <input type="checkbox" name="repeat_weekly_on_day[]" value="6" autocomplete="off"> S
                 </label>
                 <label class="btn btn-primary" id="day_7">
-                    <input type="checkbox" name="repeat_weekly_on_day[]" value="7" autocomplete="off"> S
+                    <input type="checkbox" name="repeat_weekly_on_day[]" value="0" autocomplete="off"> S
                 </label>
             </div>
             <input type="hidden" name="repeat_weekly_on" id="repeat_weekly_on" @if(!empty($event->repeat_weekly_on))  value="{{$event->repeat_weekly_on}}" @endif/>

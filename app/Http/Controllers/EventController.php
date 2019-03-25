@@ -369,7 +369,6 @@ class EventController extends Controller
 
                     // Calculate repeat until day
                         $repeatUntilDate = implode('-', array_reverse(explode('/', $request->get('repeat_until'))));
-
                         $this->saveWeeklyRepeatDates($event, $request->get('repeat_weekly_on_day'), $startDate, $repeatUntilDate, $timeStart, $timeEnd);
 
                     break;
@@ -423,7 +422,7 @@ class EventController extends Controller
         $endPeriod = new DateTime($repeatUntilDate);
         $interval = DateInterval::createFromDateString('1 day');
         $period = new DatePeriod($beginPeriod, $interval, $endPeriod);
-
+        
         foreach ($period as $day) {  // Iterate for each day of the period
             foreach ($weekDays as $weekDayNumber) { // Iterate for every day of the week (1:Monday, 2:Tuesday, 3:Wednesday ...)
                 if ($this->isWeekDay($day->format('Y-m-d'), $weekDayNumber)) {
