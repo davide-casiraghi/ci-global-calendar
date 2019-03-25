@@ -133,7 +133,7 @@ class EventController extends Controller
             'startDate' => 'required',
             'endDate' => 'required',
             'repeat_until' => Rule::requiredIf($request->repeat_type > 1),
-            //'repeat_weekly_on_day[]' => Rule::requiredIf($request->repeat_type == 2), 
+            //'repeat_weekly_on_day[]' => Rule::requiredIf($request->repeat_type == 2),
             'on_monthly_kind' => Rule::requiredIf($request->repeat_type == 3),
         ];
         $messages = [
