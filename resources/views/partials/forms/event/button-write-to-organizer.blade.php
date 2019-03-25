@@ -1,7 +1,9 @@
 
 {{-- Button - Write for more info --}}
-    <button type="button" class="btn btn-primary button-small" data-toggle="modal" data-target="#writeToOrganizerModal" data-whatever="@getbootstrap">@lang('views.write_for_more_info')</button>
-
+    @if(!empty($event->contact_email))
+        <button type="button" class="btn btn-primary button-small" data-toggle="modal" data-target="#writeToOrganizerModal" data-whatever="@getbootstrap">@lang('views.write_for_more_info')</button>
+    @endif
+    
 {{-- Modal --}}
     <div class="modal fade text-left" id="writeToOrganizerModal" tabindex="-1" role="dialog" aria-labelledby="writeToOrganizerModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -40,6 +42,11 @@
                              @include('partials.forms.input-hidden', [
                                    'name' => 'event_id',
                                    'value' => $event->id
+                             ])
+                             
+                             @include('partials.forms.input-hidden', [
+                                   'name' => 'contact_email',
+                                   'value' => $event->contact_email
                              ])
 
                     </div>

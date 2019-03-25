@@ -581,8 +581,6 @@ class EventController extends Controller
      */
     public function mailToOrganizer(Request $request)
     {
-        $eventOrganizers = Event::find($request->event_id)->organizers;
-
         $message = [];
         $message['senderEmail'] = $request->user_email;
         $message['senderName'] = $request->user_name;
@@ -593,11 +591,12 @@ class EventController extends Controller
         $message['event_title'] = $request->event_title;
         $message['event_id'] = $request->event_id;
 
-        //Mail::to($request->user())->send(new ReportMisuse($report));
-
+        /*
+        $eventOrganizers = Event::find($request->event_id)->organizers;
         foreach ($eventOrganizers as $eventOrganizer) {
             Mail::to($eventOrganizer->email)->send(new ContactOrganizer($message));
-        }
+        }*/
+        Mail::to($request->contact_email)->send(new ContactOrganizer($message));
 
         return redirect()->route('events.organizer-sent');
     }
@@ -970,6 +969,7 @@ class EventController extends Controller
         $event->category_id = $request->get('category_id');
         $event->venue_id = $request->get('venue_id');
         $event->image = $request->get('image');
+        $event->contact_email = $request->get('contact_email');
         $event->website_event_link = $request->get('website_event_link');
         $event->facebook_event_link = $request->get('facebook_event_link');
         $event->status = $request->get('status');
