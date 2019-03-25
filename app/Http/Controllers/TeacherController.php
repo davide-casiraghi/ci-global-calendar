@@ -206,7 +206,7 @@ class TeacherController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        
+
         $this->saveOnDb($request, $teacher);
 
         return redirect()->route('teachers.index')
@@ -329,7 +329,7 @@ class TeacherController extends Controller
     /***************************************************************************/
 
     /**
-     * Return the validator with all the defined constraint
+     * Return the validator with all the defined constraint.
      *
      * @param  \App\Event  $post
      * @return \Illuminate\Http\Response
@@ -347,5 +347,4 @@ class TeacherController extends Controller
 
         return $validator;
     }
-    
 }
