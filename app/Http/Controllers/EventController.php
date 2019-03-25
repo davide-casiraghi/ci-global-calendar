@@ -125,10 +125,10 @@ class EventController extends Controller
     public function store(Request $request)
     {
         // Validate form datas
-            $validator = $this->eventsValidator($request);
-            if ($validator->fails()) {
-                return back()->withErrors($validator)->withInput();
-            }
+        $validator = $this->eventsValidator($request);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
 
         $event = new Event();
         $this->saveOnDb($request, $event);
@@ -282,10 +282,10 @@ class EventController extends Controller
     public function update(Request $request, Event $event)
     {
         // Validate form datas
-            $validator = $this->eventsValidator($request);
-            if ($validator->fails()) {
-                return back()->withErrors($validator)->withInput();
-            }
+        $validator = $this->eventsValidator($request);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
 
         $this->saveOnDb($request, $event);
 
@@ -1115,8 +1115,9 @@ class EventController extends Controller
     }
 
     /***************************************************************************/
-    
-    public function eventsValidator($request){
+
+    public function eventsValidator($request)
+    {
         $rules = [
             'title' => 'required',
             'description' => 'required',
@@ -1133,16 +1134,14 @@ class EventController extends Controller
             'on_monthly_kind.required' => 'Please specify the kind of monthly repetion',
             'endDate.same' => 'If the event is repetitive the start date and end date must match',
         ];
-        
+
         $validator = Validator::make($request->all(), $rules, $messages);
-        
+
         // End date and start date must match if the event is repetitive
         $validator->sometimes('endDate', 'same:startDate', function ($input) {
             return $input->repeat_type > 1;
         });
-        
+
         return $validator;
     }
-    
-    
 }
