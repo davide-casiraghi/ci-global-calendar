@@ -199,8 +199,7 @@
             {{-- Links --}}
                 <div class="row">
                     <div class="col form-sidebar">
-                        <h5 class="text-xl">Links</h5>
-                        
+                        <h5 class="text-xl">@lang('views.contacts_and_links')</h5>
                     </div>
                     <div class="col main">
                         <div class="row">

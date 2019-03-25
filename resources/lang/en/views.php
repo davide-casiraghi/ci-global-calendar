@@ -31,6 +31,7 @@ return [
     'website' => 'Website',
     'upload_profile_picture' => 'Upload profile picture',
     'upload_event_teaser_image' => 'Upload event teaser image',
+    'contacts_and_links' => 'Contacts and Links',
     'event_url' => 'Event URL',
     'email_for_more_info' => 'Email for more info',
     'email_for_more_info_placeholder' => 'This email will receive the info requests',
