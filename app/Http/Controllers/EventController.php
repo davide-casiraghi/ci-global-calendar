@@ -18,11 +18,10 @@ use App\Mail\ReportMisuse;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Mail\ContactOrganizer;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-
-use Illuminate\Validation\Rule;
 
 class EventController extends Controller
 {
@@ -135,17 +134,14 @@ class EventController extends Controller
                 'startDate' => 'required',
                 'endDate' => 'required',
                 'repeat_until' => Rule::requiredIf($request->repeat_type > 1),
-                'repeat_weekly_on_day[]' => Rule::requiredIf($request->repeat_type = 2), 
+                'repeat_weekly_on_day[]' => Rule::requiredIf($request->repeat_type = 2),
                 'on_monthly_kind' => Rule::requiredIf($request->repeat_type = 3),
             ]);
 
-        
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        
-        
-        
+
         /*
         $rules = [
             'title' => 'required',
@@ -156,20 +152,16 @@ class EventController extends Controller
             'endDate' => 'required',
             'repeat_until' => 'required_if:repeat_type,2',
             'repeat_weekly_on_day[]' => 'required_if:repeat_type,2'
-        ];    
+        ];
         $messages = [
             'repeat_weekly_on_day[].required' => 'Please specify which day of the week is repeting the event.'
         ];
         $validator = Validator::make( $request->all(), $rules, $messages );
-        
+
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
         */
-        
-        
-        
-        
 
         $event = new Event();
 
