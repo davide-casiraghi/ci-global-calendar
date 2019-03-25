@@ -196,7 +196,7 @@ class EventController extends Controller
                     break;
                 case '2': // repeatWeekly
                     $repeatUntil = new DateTime($event->repeat_until);
-                    
+
                     // Get the name of the weekly day when the event repeat, if two days, return like "Thursday and Sunday"
                         $repetitonWeekdayNumbersArray = explode(',', $event->repeat_weekly_on);
                         $repetitonWeekdayNamesArray = [];
@@ -204,8 +204,8 @@ class EventController extends Controller
                             $repetitonWeekdayNamesArray[] = $this->decodeRepeatWeeklyOn($repetitonWeekdayNumber);
                         }
                         // create from an array a string with all the values divided by " and "
-                        $nameOfTheRepetitionWeekDays = implode (" and ", $repetitonWeekdayNamesArray);
-                    
+                        $nameOfTheRepetitionWeekDays = implode(' and ', $repetitonWeekdayNamesArray);
+
                     $repetition_text = 'The event happens every '.$nameOfTheRepetitionWeekDays.' until '.$repeatUntil->format('d/m/Y');
                     break;
                 case '3': //repeatMonthly
