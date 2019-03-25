@@ -135,14 +135,14 @@ class EventController extends Controller
             'repeat_until' => Rule::requiredIf($request->repeat_type > 1),
             //'repeat_weekly_on_day[]' => Rule::requiredIf($request->repeat_type == 2), 
             'on_monthly_kind' => Rule::requiredIf($request->repeat_type == 3),
-        ];    
+        ];
         $messages = [
             'repeat_weekly_on_day[].required' => 'Please specify which day of the week is repeting the event.',
             'on_monthly_kind.required' => 'Please specify the kind of monthly repetion',
             'endDate.same' => 'If the event is repetitive the start date and end date must match',
         ];
-        $validator = Validator::make( $request->all(), $rules, $messages );
-        
+        $validator = Validator::make($request->all(), $rules, $messages);
+
         // End date and start date must match if the event is repetitive
         $validator->sometimes('endDate', 'same:startDate', function ($input) {
             return $input->repeat_type > 1;
@@ -151,7 +151,7 @@ class EventController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        
+
         $event = new Event();
         $this->saveOnDb($request, $event);
 
