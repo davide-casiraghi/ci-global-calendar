@@ -37,7 +37,7 @@ class DonationOfferController extends Controller
         $searchDonationKind = $request->input('donation_kind_filter');
 
         // Show just to the owner - Get created_by value if the user is not an admin or super admin
-        $loggedUser = $this->getLoggedAuthorId();
+        // $loggedUser = $this->getLoggedAuthorId();
 
         if ($searchKeywords || $searchCountry || $searchDonationKind) {
             $donationOffers = DonationOffer::

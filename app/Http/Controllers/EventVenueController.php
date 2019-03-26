@@ -39,6 +39,8 @@ class EventVenueController extends Controller
 
         // Show just to the owner - Get created_by value if the user is not an admin or super admin
         $loggedUser = $this->getLoggedUser();
+        //dd($loggedUser);
+        //DB::enableQueryLog();
 
         if ($searchKeywords || $searchCountry) {
             $eventVenues = DB::table('event_venues')
@@ -61,6 +63,8 @@ class EventVenueController extends Controller
                 ->orderBy('name')
                 ->paginate(20);
         }
+        //dd(DB::getQueryLog());
+
 
         return view('eventVenues.index', compact('eventVenues'))
                 ->with('i', (request()->input('page', 1) - 1) * 20)
