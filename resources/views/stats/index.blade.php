@@ -105,7 +105,9 @@
     
     <div class="row mt-1">
         <div class="col-12 dark-gray text-xs">
-            The statistics are updated every day at midnight.
+            The statistics are updated every day at midnight.<br />
+            Last update: {{Carbon\Carbon::parse($statsDatas->created_at)->format('d-m-Y')}}
+
         </div>
     </div>
 
