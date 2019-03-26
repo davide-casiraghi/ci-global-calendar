@@ -181,7 +181,7 @@ class TeacherController extends Controller
      */
     public function edit(Teacher $teacher)
     {
-        $authorUserId = $this->getLoggedUser();
+        $authorUserId = $this->getLoggedAuthorId();
         $users = User::pluck('name', 'id');
         $countries = Country::getCountries();
 

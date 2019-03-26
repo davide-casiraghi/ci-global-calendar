@@ -118,7 +118,7 @@ class OrganizerController extends Controller
     public function edit(Organizer $organizer)
     {
         if (Auth::user()->id == $organizer->created_by || Auth::user()->isSuperAdmin() || Auth::user()->isAdmin()) {
-            $authorUserId = $this->getLoggedUser();
+            $authorUserId = $this->getLoggedAuthorId();
             $users = User::pluck('name', 'id');
 
             return view('organizers.edit', compact('organizer'))

@@ -146,7 +146,7 @@ class EventVenueController extends Controller
     public function edit(EventVenue $eventVenue)
     {
         if (Auth::user()->id == $eventVenue->created_by || Auth::user()->isSuperAdmin() || Auth::user()->isAdmin()) {
-            $authorUserId = $this->getLoggedUser();
+            $authorUserId = $this->getLoggedAuthorId();
             $users = User::pluck('name', 'id');
             $countries = Country::getCountries();
 
