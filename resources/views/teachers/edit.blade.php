@@ -24,7 +24,8 @@
                         'title' => __('general.name'),
                         'name' => 'name',
                          'placeholder' => __('homepage-serach.teacher_name'),
-                        'value' => $teacher->name
+                        'value' => $teacher->name,
+                        'required' => true,
                     ])
                 </div>
 
@@ -39,6 +40,7 @@
                               'seleted' => $teacher->created_by,
                               'liveSearch' => 'true',
                               'mobileNativeMenu' => false,
+                              'required' => false,
                         ])
                     </div>
                 @endif
@@ -52,6 +54,7 @@
                           'seleted' => $teacher->country_id,
                           'liveSearch' => 'true',
                           'mobileNativeMenu' => false,
+                          'required' => false,
                     ])
                 </div>
 
@@ -59,7 +62,8 @@
                     @include('partials.forms.textarea', [
                          'title' =>  __('views.bio'),
                           'name' => 'bio',
-                          'value' => $teacher->bio
+                          'value' => $teacher->bio,
+                          'required' => false,
                     ])
                 </div>
                 <div class="col-12">
@@ -68,6 +72,7 @@
                           'name' => 'year_starting_practice',
                           'placeholder' => 'AAAA',
                           'value' => $teacher->year_starting_practice,
+                          'required' => true,
                     ])
                 </div>
                 <div class="col-12">
@@ -76,6 +81,7 @@
                           'name' => 'year_starting_teach',
                           'placeholder' => 'AAAA',
                           'value' => $teacher->year_starting_teach,
+                          'required' => true,
                     ])
                 </div>
                 
@@ -84,6 +90,7 @@
                           'title' =>  __('views.significant_teachers'),
                           'name' => 'significant_teachers',
                           'value' => $teacher->significant_teachers,
+                          'required' => true,
                     ])
                 </div>
                 
@@ -93,6 +100,7 @@
                           'name' => 'facebook',
                           'placeholder' => 'https://...',
                           'value' => $teacher->facebook ,
+                          'required' => false,
                     ])
                 </div>
                 <div class="col-12">
@@ -100,7 +108,8 @@
                           'title' => __('views.website'),
                           'name' => 'website',
                           'placeholder' => 'https://...',
-                          'value' => $teacher->website ,
+                          'value' => $teacher->website,
+                          'required' => false,
                     ])
                 </div>
 

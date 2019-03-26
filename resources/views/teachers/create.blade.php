@@ -52,6 +52,7 @@
                           'liveSearch' => 'true',
                           'mobileNativeMenu' => false,
                           'seleted' => old('country_id'),
+                          'required' => false,
                     ])
                 </div>
 
