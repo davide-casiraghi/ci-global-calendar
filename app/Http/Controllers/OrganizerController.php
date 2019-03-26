@@ -27,15 +27,15 @@ class OrganizerController extends Controller
      */
     public function index(Request $request)
     {
-        // Show just to the owner - Get created_by value if the user is not an admin or super admin
-        $loggedUser = $this->getLoggedUser();
+        // To show just the organizers created by the the user - If admin or super admin is set to null show all the organizers
+        $authorUserId = ($this->getLoggedAuthorId()) ? $this->getLoggedAuthorId() : null; // if is 0 (super admin or admin) it's setted to null to avoid include it in the query
 
         $searchKeywords = $request->input('keywords');
 
         if ($searchKeywords) {
             $organizers = DB::table('organizers')
-                ->when($loggedUser->id, function ($query, $loggedUserId) {
-                    return $query->where('created_by', $loggedUserId);
+                ->when($authorUserId, function ($query, $authorUserId) {
+                    return $query->where('created_by', $authorUserId);
                 })
                 ->when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%'.$searchKeywords.'%');
@@ -43,8 +43,8 @@ class OrganizerController extends Controller
                 ->paginate(20);
         } else {
             $organizers = DB::table('organizers')
-            ->when($loggedUser->id, function ($query, $loggedUserId) {
-                return $query->where('created_by', $loggedUserId);
+            ->when($authorUserId, function ($query, $authorUserId) {
+                return $query->where('created_by', $authorUserId);
             })
             ->paginate(20);
         }

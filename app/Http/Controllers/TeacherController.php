@@ -49,8 +49,8 @@ class TeacherController extends Controller
         $searchKeywords = $request->input('keywords');
         $searchCountry = $request->input('country_id');
 
-        // To retrieve just the teachers created by this user - We will compare it with the created_by value in the teacher table
-        $loggedUser = $this->getLoggedUser();
+        // To show just the teachers created by the the user - If admin or super admin is set to null show all the teachers
+        $authorUserId = ($this->getLoggedAuthorId()) ? $this->getLoggedAuthorId() : null; // if is 0 (super admin or admin) it's setted to null to avoid include it in the query
 
         // To retrieve all the teachers when the route is teacher.directory, we set the logged user id to null
         if (Route::currentRouteName() == 'teachers.directory') {
@@ -59,8 +59,8 @@ class TeacherController extends Controller
 
         if ($searchKeywords || $searchCountry) {
             $teachers = DB::table('teachers')
-                ->when($loggedUser->id, function ($query, $loggedUserId) {
-                    return $query->where('created_by', $loggedUserId);
+                ->when($authorUserId, function ($query, $authorUserId) {
+                    return $query->where('created_by', $authorUserId);
                 })
                 ->when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%'.$searchKeywords.'%');
@@ -72,8 +72,8 @@ class TeacherController extends Controller
                 ->paginate(20);
         } else {
             $teachers = Teacher::
-            when($loggedUser->id, function ($query, $loggedUserId) {
-                return $query->where('created_by', $loggedUserId);
+            when($authorUserId, function ($query, $authorUserId) {
+                return $query->where('created_by', $authorUserId);
             })
             ->orderBy('name')
             ->paginate(20);
@@ -84,7 +84,7 @@ class TeacherController extends Controller
             ->with('countries', $countries)
             ->with('searchKeywords', $searchKeywords)
             ->with('searchCountry', $searchCountry)
-            ->with('loggedUser', $loggedUser);
+            ->with('loggedUser', $authorUserId);
     }
 
     /***************************************************************************/
