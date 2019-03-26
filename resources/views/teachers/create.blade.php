@@ -23,7 +23,8 @@
                           'title' => __('general.name'),
                           'name' => 'name',
                           'placeholder' => __('homepage-serach.teacher_name'),
-                          'value' => old('name')
+                          'value' => old('name'),
+                          'required' => true,
                     ])
                 </div>
 
@@ -58,7 +59,8 @@
                     @include('partials.forms.textarea-plain', [
                           'title' =>  __('views.bio'),
                           'name' => 'bio',
-                          'value' => old('bio')
+                          'value' => old('bio'),
+                          'required' => true,
                     ])
                 </div>
 
@@ -67,7 +69,8 @@
                           'title' => __('views.year_of_starting_to_practice'),
                           'name' => 'year_starting_practice',
                           'placeholder' => 'AAAA',
-                          'value' => old('year_starting_practice')
+                          'value' => old('year_starting_practice'),
+                          'required' => true,
                     ])
                 </div>
 
@@ -76,7 +79,8 @@
                           'title' => __('views.year_of_starting_to_teach'),
                           'name' => 'year_starting_teach',
                           'placeholder' => 'AAAA',
-                          'value' => old('year_starting_teach')
+                          'value' => old('year_starting_teach'),
+                          'required' => true,
                     ])
                 </div>
 
@@ -84,7 +88,8 @@
                     @include('partials.forms.textarea-plain', [
                           'title' =>  __('views.significant_teachers'),
                           'name' => 'significant_teachers',
-                          'value' => old('significant_teachers')
+                          'value' => old('significant_teachers'),
+                          'required' => true,
                     ])
                 </div>
 
@@ -93,7 +98,8 @@
                           'title' => __('views.facebook_profile'),
                           'name' => 'facebook',
                           'placeholder' => 'https://...',
-                          'value' => old('facebook')
+                          'value' => old('facebook'),
+                          'required' => false,
                     ])
                 </div>
 
@@ -102,7 +108,8 @@
                           'title' => __('views.website'),
                           'name' => 'website',
                           'placeholder' => 'https://...',
-                          'value' => old('facebook')
+                          'value' => old('facebook'),
+                          'required' => false,
                     ])
                 </div>
 

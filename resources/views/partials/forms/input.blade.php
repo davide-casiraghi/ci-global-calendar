@@ -13,7 +13,7 @@
 
 <div class="form-group {{ $name }}" @if( !empty($hide)) style="display:none;" @endif>
     @if(!empty($title))
-        <label for="{{ $name }}">{{ $title }}</label>
+        <label for="{{ $name }}">{{ $title }}@if($required) <span data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span>@endif</label>
         @if(!empty($tooltip))<i class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="{{ $tooltip }}"></i>@endif
     @endif
 
