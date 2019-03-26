@@ -22,7 +22,7 @@ class Controller extends BaseController
      * @param  none
      * @return bool $ret - the current logged user id, if admin or super admin 0
      */
-    public function getLoggedAuthorId()
+    public function getLoggedUser()
     {
         $user = Auth::user();
 

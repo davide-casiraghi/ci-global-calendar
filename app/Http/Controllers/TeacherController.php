@@ -50,7 +50,7 @@ class TeacherController extends Controller
         $searchCountry = $request->input('country_id');
 
         // To retrieve just the teachers created by this user - We will compare it with the created_by value in the teacher table
-        $loggedUser = $this->getLoggedAuthorId();
+        $loggedUser = $this->getLoggedUser();
 
         // To retrieve all the teachers when the route is teacher.directory, we set the logged user id to null
         if (Route::currentRouteName() == 'teachers.directory') {
@@ -98,7 +98,7 @@ class TeacherController extends Controller
     {
         $countries = Country::getCountries();
         $users = User::pluck('name', 'id');
-        $authorUserId = $this->getLoggedAuthorId();
+        $authorUserId = $this->getLoggedUser();
 
         return view('teachers.create')
             ->with('countries', $countries)
@@ -181,7 +181,7 @@ class TeacherController extends Controller
      */
     public function edit(Teacher $teacher)
     {
-        $authorUserId = $this->getLoggedAuthorId();
+        $authorUserId = $this->getLoggedUser();
         $users = User::pluck('name', 'id');
         $countries = Country::getCountries();
 

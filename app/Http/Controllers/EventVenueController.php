@@ -38,7 +38,7 @@ class EventVenueController extends Controller
         $searchCountry = $request->input('country_id');
 
         // Show just to the owner - Get created_by value if the user is not an admin or super admin
-        $loggedUser = $this->getLoggedAuthorId();
+        $loggedUser = $this->getLoggedUser();
 
         if ($searchKeywords || $searchCountry) {
             $eventVenues = DB::table('event_venues')
@@ -78,7 +78,7 @@ class EventVenueController extends Controller
      */
     public function create()
     {
-        $authorUserId = $this->getLoggedAuthorId();
+        $authorUserId = $this->getLoggedUser();
         $users = User::pluck('name', 'id');
         $countries = Country::getCountries();
 
@@ -144,7 +144,7 @@ class EventVenueController extends Controller
     public function edit(EventVenue $eventVenue)
     {
         if (Auth::user()->id == $eventVenue->created_by || Auth::user()->isSuperAdmin() || Auth::user()->isAdmin()) {
-            $authorUserId = $this->getLoggedAuthorId();
+            $authorUserId = $this->getLoggedUser();
             $users = User::pluck('name', 'id');
             $countries = Country::getCountries();
 

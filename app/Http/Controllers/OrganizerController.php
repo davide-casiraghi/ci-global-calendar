@@ -28,7 +28,7 @@ class OrganizerController extends Controller
     public function index(Request $request)
     {
         // Show just to the owner - Get created_by value if the user is not an admin or super admin
-        $loggedUser = $this->getLoggedAuthorId();
+        $loggedUser = $this->getLoggedUser();
 
         $searchKeywords = $request->input('keywords');
 
@@ -64,7 +64,7 @@ class OrganizerController extends Controller
     public function create()
     {
         $users = User::pluck('name', 'id');
-        $authorUserId = $this->getLoggedAuthorId();
+        $authorUserId = $this->getLoggedUser();
 
         return view('organizers.create')
             ->with('users', $users)
@@ -118,7 +118,7 @@ class OrganizerController extends Controller
     public function edit(Organizer $organizer)
     {
         if (Auth::user()->id == $organizer->created_by || Auth::user()->isSuperAdmin() || Auth::user()->isAdmin()) {
-            $authorUserId = $this->getLoggedAuthorId();
+            $authorUserId = $this->getLoggedUser();
             $users = User::pluck('name', 'id');
 
             return view('organizers.edit', compact('organizer'))
