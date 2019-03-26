@@ -99,7 +99,7 @@ class TeacherController extends Controller
         $countries = Country::getCountries();
         $users = User::pluck('name', 'id');
         $authorUserId = $this->getLoggedUser();
-
+        
         return view('teachers.create')
             ->with('countries', $countries)
             ->with('users', $users)

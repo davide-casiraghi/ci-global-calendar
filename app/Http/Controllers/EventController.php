@@ -1034,22 +1034,6 @@ class EventController extends Controller
         }
     }
 
-    // **********************************************************************
-
-    /**
-     * Get the current logged user id.
-     *
-     * @param  none
-     * @return bool $ret - the current logged user id, if admin or super admin 0
-     */
-    public function getLoggedAuthorId()
-    {
-        $user = Auth::user();
-        $ret = (! $user->isSuperAdmin() && ! $user->isAdmin()) ? $user->id : 0;
-
-        return $ret;
-    }
-
     /***********************************************************************/
 
     /**
