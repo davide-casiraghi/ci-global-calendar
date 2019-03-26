@@ -38,7 +38,7 @@ class EventVenueController extends Controller
         $searchCountry = $request->input('country_id');
 
         // To show just the veues created by the the user - If admin or super admin is set to null show all the venues
-        $authorUserId = ($this->getLoggedAuthorId()) ? $this->getLoggedAuthorId() : null; 
+        $authorUserId = ($this->getLoggedAuthorId()) ? $this->getLoggedAuthorId() : null;
 
         if ($searchKeywords || $searchCountry) {
             $eventVenues = DB::table('event_venues')
@@ -62,7 +62,6 @@ class EventVenueController extends Controller
                 ->paginate(20);
         }
         //dd(DB::getQueryLog());
-
 
         return view('eventVenues.index', compact('eventVenues'))
                 ->with('i', (request()->input('page', 1) - 1) * 20)
