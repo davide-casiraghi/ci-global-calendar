@@ -29,7 +29,8 @@
                              @include('partials.forms.textarea-plain', [
                                    'title' => __('misuse.message'),
                                    'name' => 'message',
-                                   'placeholder' => __('misuse.include_all_details')
+                                   'placeholder' => __('misuse.include_all_details'),
+                                   'required' => true,
                              ])
 
                              @include('partials.forms.input-hidden', [

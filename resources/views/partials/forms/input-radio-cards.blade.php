@@ -42,7 +42,7 @@
 @stop
 
 <div class="form-group radioCards">
-    <strong>{{$title}}@if($required) <span data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span>@endif</strong>
+    <strong>{{$title}}@if($required) <span class="dark-gray" data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span>@endif</strong>
     
     <div class="row mt-2">
         @foreach ($records as $value => $record)

@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-12">
         <div class="form-group" >
-            <label>@lang('views.venues') <span data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span></label>
+            <label>@lang('views.venues') <span class="dark-gray" data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span></label>
             <select name="venue_id" class="selectpicker" title="@lang('views.select_one')" data-live-search="true">
                 @foreach ($venues as $value => $venue)
                     <option value="{{$venue->id}}" @if(!empty($event->venue_id)) {{ $event->venue_id == $venue->id ? 'selected' : '' }} @endif>{!! $venue->name !!} - {!! $venue->city !!}</option>
