@@ -23,7 +23,8 @@
                           'title' => __('general.name'),
                           'name' => 'name',
                           'placeholder' => '',
-                          'value' => old('name')
+                          'value' => old('name'),
+                          'required' => true,
                     ])
                 </div>
 
@@ -31,21 +32,24 @@
                     @include('partials.forms.input', [
                           'title' => __('general.email_address'),
                           'name' => 'email',
-                          'value' => old('email')
+                          'value' => old('email'),
+                          'required' => true,
                     ])
                 </div>
 
                 <div class="col-12">
                     @include('partials.forms.password', [
                           'title' => __('general.password'),
-                          'name' => 'password'
+                          'name' => 'password',
+                          'required' => true,
                     ])
                 </div>
 
                 <div class="col-12">
                     @include('partials.forms.password', [
                           'title' => __('general.confirm_password'),
-                          'name' => 'password_confirmation'
+                          'name' => 'password_confirmation',
+                          'required' => true,
                     ])
                 </div>
 
@@ -78,6 +82,7 @@
                           'records' => $countries,
                           'liveSearch' => 'true',
                           'mobileNativeMenu' => false,
+                          'required' => true,
                     ])
                 </div>
 
@@ -86,7 +91,8 @@
                           'title' => __('general.description'),
                           'name' => 'description',
                           'placeholder' => __('general.to_be_approved'), 
-                          'value' => old('description')
+                          'value' => old('description'),
+                          'required' => true,
                     ])
                 </div>
             </div>

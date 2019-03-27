@@ -25,7 +25,8 @@
                     @include('partials.forms.input', [
                           'title' => __('general.name'),
                           'name' => 'name',
-                          'placeholder' => 'Event category name'
+                          'placeholder' => 'Event category name',
+                          'required' => true,
                     ])
                 </div>
             </div>

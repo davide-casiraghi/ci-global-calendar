@@ -26,7 +26,8 @@
                         'title' => __('views.title'),
                         'name' => 'title',
                         'placeholder' => 'Event title',
-                        'value' => $post->translate('en')->title
+                        'value' => $post->translate('en')->title,
+                        'required' => true,
                     ])
                 </div>
             </div>
@@ -59,6 +60,7 @@
                         'seleted' => $post->category_id,
                         'liveSearch' => 'false',
                         'mobileNativeMenu' => true,
+                        'required' => true,
                     ])
                 </div>
                 <div class="col-12">
@@ -66,6 +68,7 @@
                         'title' =>  __('views.before_post_contents'),
                         'name' => 'before_content',
                         'value' => $post->translate('en')->before_content,
+                        'required' => false,
                     ])
                 </div>
                 <div class="col-12">
@@ -73,7 +76,8 @@
                         'title' => 'Text',
                         'name' => 'body',
                         'placeholder' => 'Post text',
-                        'value' => $post->translate('en')->body
+                        'value' => $post->translate('en')->body,
+                        'required' => true,
                     ])
                 </div>
                 <div class="col-12">
@@ -81,6 +85,7 @@
                         'title' =>  __('views.after_post_contents'),
                         'name' => 'after_content',
                         'value' => $post->translate('en')->after_content,
+                        'required' => false,
                     ])
                 </div>
                 

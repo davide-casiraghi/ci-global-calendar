@@ -61,7 +61,8 @@
                                       'title' => __('general.name'),
                                       'name' => 'name',
                                       'placeholder' => '',
-                                      'value' => old('name')
+                                      'value' => old('name'),
+                                      'required' => true,
                                 ])
                             </div>
                             <div class="col-12">
@@ -69,21 +70,24 @@
                                       'title' => __('general.surname'),
                                       'name' => 'surname',
                                       'placeholder' => '',
-                                      'value' => old('surname')
+                                      'value' => old('surname'),
+                                      'required' => true,
                                 ])
                             </div>
                             <div class="col-12">
                                 @include('partials.forms.input', [
                                       'title' => __('general.email_address'),
                                       'name' => 'email',
-                                      'value' => old('email')
+                                      'value' => old('email'),
+                                      'required' => true,
                                 ])
                             </div>
                             <div class="col-12">
                                 @include('partials.forms.textarea-plain', [
                                     'title' =>  __('donations.contact_through_skype_or_another_voip'),
                                     'name' => 'contact_trough_voip',
-                                    'value' => old('contact_trough_voip')
+                                    'value' => old('contact_trough_voip'),
+                                    'required' => false,
                                 ])
                             </div>
                             <div class="col-12">
@@ -95,13 +99,15 @@
                                       'liveSearch' => 'true',
                                       'mobileNativeMenu' => false,
                                       'seleted' => old('country_id'),
+                                      'required' => false,
                                 ])
                             </div>
                             <div class="col-12">
                                 @include('partials.forms.textarea-plain', [
                                     'title' =>  __('donations.language_spoken'),
                                     'name' => 'language_spoken',
-                                    'value' => old('language_spoken')
+                                    'value' => old('language_spoken'),
+                                    'required' => true,
                                 ])
                             </div>
                             
@@ -140,6 +146,7 @@
                                         'title' =>  __('donations.i_can_offer'),
                                         'name' => 'offer_kind',
                                         'records' => App\DonationOffer::getDonationKindArray(),
+                                        'required' => true,
                                     ])
                                 </div>
                                                                     
@@ -186,6 +193,7 @@
                                       'liveSearch' => 'false',
                                       'mobileNativeMenu' => true,
                                       'seleted' => old('gift_kind'),
+                                      'required' => true,
                                 ])
                             </div>
                             <div class="col-12">
@@ -193,7 +201,8 @@
                                       'title' =>  __('donations.gift_details'),
                                       'name' => 'gift_description',
                                       'placeholder' => '',
-                                      'value' => old('gift_description')
+                                      'value' => old('gift_description'),
+                                      'required' => true,
                                 ])
                             </div>
                         </div>
@@ -227,6 +236,7 @@
                                       'liveSearch' => 'false',
                                       'mobileNativeMenu' => true,
                                       'seleted' => old('volunteer_kind'),
+                                      'required' => true,
                                 ])
                             </div>
                             <div class="col-12">
@@ -234,7 +244,8 @@
                                       'title' =>  __('donations.volunteering_details_request'),
                                       'name' => 'volunteer_description',
                                       'placeholder' => '',
-                                      'value' => old('volunteer_description')
+                                      'value' => old('volunteer_description'),
+                                      'required' => true,
                                 ])
                             </div>
                         </div>
@@ -256,7 +267,8 @@
                                       'title' =>  __('donations.describe_your_gift'),
                                       'name' => 'other_description',
                                       'placeholder' => '',
-                                      'value' => old('other_description')
+                                      'value' => old('other_description'),
+                                      'required' => true,
                                 ])
                             </div>
                         </div>

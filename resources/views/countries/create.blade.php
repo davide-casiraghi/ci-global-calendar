@@ -23,14 +23,16 @@
                       'title' => __('general.name'),
                       'name' => 'name',
                       'placeholder' => '',
-                      'value' => old('name')
+                      'value' => old('name'),
+                      'required' => true,
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => __('views.country_code'),
                       'name' => 'code',
-                      'value' => old('code')
+                      'value' => old('code'),
+                      'required' => true,
                 ])
             </div>
 
@@ -43,6 +45,7 @@
                       'liveSearch' => 'false',
                       'mobileNativeMenu' => true,
                       'seleted' => old('continent_id'),
+                      'required' => true,
                 ])
             </div>
         </div>

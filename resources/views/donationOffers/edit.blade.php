@@ -39,6 +39,7 @@
                                           'seleted' => $donationOffer->status,
                                           'liveSearch' => 'false',
                                           'mobileNativeMenu' => true,
+                                          'required' => false,
                                     ])
                                 </div>
                             @endif
@@ -48,7 +49,8 @@
                                       'title' => __('general.name'),
                                       'name' => 'name',
                                       'placeholder' => '',
-                                      'value' => $donationOffer->name
+                                      'value' => $donationOffer->name,
+                                      'required' => true,
                                 ])
                             </div>
                             <div class="col-12">
@@ -56,21 +58,24 @@
                                       'title' => __('general.surname'),
                                       'name' => 'surname',
                                       'placeholder' => '',
-                                      'value' => $donationOffer->surname
+                                      'value' => $donationOffer->surname,
+                                      'required' => true,
                                 ])
                             </div>
                             <div class="col-12">
                                 @include('partials.forms.input', [
                                       'title' => __('general.email_address'),
                                       'name' => 'email',
-                                      'value' => $donationOffer->email
+                                      'value' => $donationOffer->email,
+                                      'required' => true,
                                 ])
                             </div>
                             <div class="col-12">
                                 @include('partials.forms.textarea-plain', [
                                     'title' =>  __('donations.contact_through_skype_or_another_voip'),
                                     'name' => 'contact_trough_voip',
-                                    'value' => $donationOffer->contact_trough_voip
+                                    'value' => $donationOffer->contact_trough_voip,
+                                    'required' => false,
                                 ])
                             </div>
                             <div class="col-12">
@@ -82,13 +87,15 @@
                                       'seleted' => $donationOffer->country_id,
                                       'liveSearch' => 'true',
                                       'mobileNativeMenu' => false,
+                                      'required' => false,
                                 ])
                             </div>
                             <div class="col-12">
                                 @include('partials.forms.textarea-plain', [
                                     'title' =>  __('donations.language_spoken'),
                                     'name' => 'language_spoken',
-                                    'value' => $donationOffer->language_spoken
+                                    'value' => $donationOffer->language_spoken,
+                                    'required' => true,
                                 ])
                             </div>
                             
@@ -128,7 +135,8 @@
                                         'title' =>  __('donations.i_can_offer'),
                                         'name' => 'offer_kind',
                                         'records' =>  App\DonationOffer::getDonationKindArray(),
-                                        'selected' => $donationOffer->offer_kind
+                                        'selected' => $donationOffer->offer_kind,
+                                        'required' => true,
                                     ])
                                 </div>
                                                                     
@@ -175,6 +183,7 @@
                                       'seleted' => $donationOffer->gift_kind,
                                       'liveSearch' => 'false',
                                       'mobileNativeMenu' => true,
+                                      'required' => true,
                                 ])
                             </div>
                             
@@ -183,7 +192,8 @@
                                       'title' =>  __('donations.gift_details'),
                                       'name' => 'gift_description',
                                       'placeholder' => '',
-                                      'value' => $donationOffer->gift_description
+                                      'value' => $donationOffer->gift_description,
+                                      'required' => true,
                                 ])
                             </div>
                         </div>
@@ -218,6 +228,7 @@
                                       'seleted' => $donationOffer->volunteer_kind,
                                       'liveSearch' => 'false',
                                       'mobileNativeMenu' => true,
+                                      'required' => true,
                                 ])
                             </div>
                             
@@ -227,6 +238,7 @@
                                       'name' => 'volunteer_description',
                                       'placeholder' => '',
                                       'value' => $donationOffer->volunteer_description,
+                                      'required' => true,
                                 ])
                             </div>
                         </div>
@@ -248,7 +260,8 @@
                                       'title' =>  __('donations.describe_your_gift'),
                                       'name' => 'other_description',
                                       'placeholder' => '',
-                                      'value' => $donationOffer->other_description
+                                      'value' => $donationOffer->other_description,
+                                      'required' => true,
                                 ])
                             </div>
                         </div>

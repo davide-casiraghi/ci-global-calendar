@@ -7,6 +7,6 @@
 --}}
 
 <div class="form-group">
-    <label for="{{ $name }}">{{ $title }}</label>
+    <label for="{{ $name }}">{{ $title }}@if($required) <span data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span>@endif</label>
     <input type="password" name="{{ $name }}" class="form-control">
 </div>

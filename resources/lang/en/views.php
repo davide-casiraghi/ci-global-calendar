@@ -23,6 +23,7 @@ return [
     'repeat_type' => 'Repeat type',
     'no_repeat' => 'No Repeat',
     'weekly' => 'Weekly',
+    'weekly_on' => 'Weekly on',
     'monthly' => 'Monthly',
     'repeat_until' => 'Repeat until',
     'max_until' => 'It\'s possible to set maximimum one year of repetition from today',

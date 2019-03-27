@@ -26,7 +26,8 @@
                         'title' => __('views.title'),
                         'name' => 'title',
                         'placeholder' => 'Post title',
-                        'value' => old('title')
+                        'value' => old('title'),
+                        'required' => true,
                     ])
                 </div>
                 
@@ -38,6 +39,7 @@
                         'records' => $categories,
                         'liveSearch' => 'false',
                         'mobileNativeMenu' => true,
+                        'required' => true,
                     ])
                 </div>
                 <div class="col-12">
@@ -54,7 +56,8 @@
                     @include('partials.forms.textarea-plain', [
                         'title' =>  __('views.before_post_contents'),
                         'name' => 'before_content',
-                        'value' => old('before_content')
+                        'value' => old('before_content'),
+                        'required' => false,
                     ])
                 </div>
                 <div class="col-12">
@@ -62,14 +65,16 @@
                         'title' => 'Text',
                         'name' => 'body',
                         'placeholder' => 'Post text',
-                        'value' => old('body')
+                        'value' => old('body'),
+                        'required' => true,
                     ])
                 </div>
                 <div class="col-12">
                     @include('partials.forms.textarea-plain', [
                         'title' =>  __('views.after_post_contents'),
                         'name' => 'after_content',
-                        'value' => old('after_content')
+                        'value' => old('after_content'),
+                        'required' => false,
                     ])
                 </div>
                 

@@ -23,6 +23,7 @@ return [
     'repeat_type' => 'Tipo di ripetizione',
     'no_repeat' => 'Nessuna Ripetizione',
     'weekly' => 'Settimanale',
+    'weekly_on' => 'Giorno/i della settimana',
     'monthly' => 'Mensile',
     'repeat_until' => 'Ripeti fino al',
     'max_until' => 'E\' possibile impostare al massimo un anno di ripetizione da oggi',

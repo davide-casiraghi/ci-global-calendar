@@ -24,7 +24,8 @@
                       'title' => 'Title',
                       'name' => 'title',
                       'placeholder' => 'Event title',
-                      'value' => $backgroundImage->title
+                      'value' => $backgroundImage->title,
+                      'required' => true,
                 ])
             </div>
         </div>
@@ -41,7 +42,8 @@
                       'title' => __('homepage-serach.photo_credits'), 
                       'name' => 'credits',
                       'placeholder' => 'Who took the photo?',
-                      'value' => $backgroundImage->credits
+                      'value' => $backgroundImage->credits,
+                      'required' => false,
                 ])
             </div>
         </div>
@@ -49,7 +51,7 @@
         <div class="row mt-2">
             <div class="col-12">
                 <div class="form-group">
-                    <strong>@lang('views.orientation'):</strong>
+                    <strong>@lang('views.orientation') *</strong>
                     <select name="orientation" class="selectpicker" title="Select orientation">
                             <option value="1" @if($backgroundImage->orientation == 1) {{ 'selected' }}@endif>@lang('views.horizontal')</option>
                             <option value="2" @if($backgroundImage->orientation == 2) {{ 'selected' }}@endif>@lang('views.vertical')</option>

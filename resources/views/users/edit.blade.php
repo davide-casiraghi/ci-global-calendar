@@ -24,28 +24,32 @@
                           'title' => __('general.name'),
                           'name' => 'name',
                           'placeholder' => __('views.user_name'),
-                          'value' => $user->name
+                          'value' => $user->name,
+                          'required' => true,
                     ])
                 </div>
                 <div class="col-12">
                     @include('partials.forms.input', [
                           'title' => __('general.email_address'),
                           'name' => 'email',
-                          'value' => $user->email
+                          'value' => $user->email,
+                          'required' => true,
                     ])
                 </div>
 
                 <div class="col-12">
                     @include('partials.forms.password', [
                           'title' => __('general.password'),
-                          'name' => 'password'
+                          'name' => 'password',
+                          'required' => true,
                     ])
                 </div>
 
                 <div class="col-12">
                     @include('partials.forms.password', [
                           'title' => __('general.confirm_password'),
-                          'name' => 'password_confirmation'
+                          'name' => 'password_confirmation',
+                          'required' => true,
                     ])
                 </div>
 
@@ -83,6 +87,7 @@
                           'seleted' => $user->country_id,
                           'liveSearch' => 'true',
                           'mobileNativeMenu' => false,
+                          'required' => true,
                     ])
                 </div>
 
@@ -91,7 +96,8 @@
                           'title' => __('general.description'),
                           'name' => 'description',
                           'placeholder' => __('general.to_be_approved'), 
-                          'value' => $user->description
+                          'value' => $user->description,
+                          'required' => true,
                     ])
                 </div>
 

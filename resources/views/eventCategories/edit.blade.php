@@ -27,7 +27,8 @@
                           'title' => __('general.name'),
                           'name' => 'name',
                           'placeholder' => 'Event category name',
-                          'value' => $eventCategory->translate('en')->name
+                          'value' => $eventCategory->translate('en')->name,
+                          'required' => true,
                     ])
                 </div>
             </div>

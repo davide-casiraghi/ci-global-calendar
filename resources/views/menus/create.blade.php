@@ -23,7 +23,8 @@
                       'title' => __('general.name'),
                       'name' => 'name',
                       'placeholder' => 'Menu Name',
-                      'value' => old('name')
+                      'value' => old('name'),
+                      'required' => true,
                 ])
             </div>
             

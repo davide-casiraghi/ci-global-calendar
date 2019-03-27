@@ -24,7 +24,8 @@
                       'title' => __('general.name'),
                       'name' => 'name',
                       'placeholder' => 'menu Name',
-                      'value' => $menu->name
+                      'value' => $menu->name,
+                      'required' => true,
                 ])
             </div>
             

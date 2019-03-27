@@ -128,7 +128,7 @@
     
     <div class="row">
         <div id="onWeekly" class="onFrequency col-12 col-xl-7" style="display:none">
-            <label>@lang('views.weekly') - On:</label><br/>
+            <label>@lang('views.weekly_on') <span data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span></label><br/>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-primary" id="day_1" >
                     <input type="checkbox" name="repeat_weekly_on_day[]" value="1" autocomplete="off"> M
@@ -172,6 +172,7 @@
                   'value' => $dateTime['repeatUntil'],
                   'tooltipFontAwesomeClass' => 'fa fa-info-circle',
                   'tooltipText' => __('views.max_until'),
+                  'required' => true,
             ])
 
         </div>

@@ -31,7 +31,7 @@
 @stop
 
 <div class="@if(!empty($value)) col-12 col-sm-8 col-md-8 @else col-12 col-sm-12 col-md-12 @endif ">
-    @if(!empty($title))<label for="{{ $name }}">{{ $title }}:</label>@endif
+    @if(!empty($title))<label for="{{ $name }}">{{ $title }}</label>@endif
     <div class="form-group">
         <div class="custom-file">
             <input type="file" name="{{ $name }}" @if(!empty($value)) value="{{ $value }}" @endif class="custom-file-input">

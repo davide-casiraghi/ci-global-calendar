@@ -23,14 +23,16 @@
                       'title' => __('general.name'),
                       'name' => 'name',
                       'placeholder' => 'Continent Name',
-                      'value' => old('name')
+                      'value' => old('name'),
+                      'required' => true,
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => __('views.continent_code'),
                       'name' => 'code',
-                      'value' => old('code')
+                      'value' => old('code'),
+                      'required' => true,
                 ])
             </div>
         </div>

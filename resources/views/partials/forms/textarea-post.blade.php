@@ -78,6 +78,6 @@
 @stop
 
 <div class="form-group {{ $name }}">
-    <label for="{{ $name }}">{{ $title }}</label>
+    <label for="{{ $name }}">{{ $title }}@if($required) <span data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span>@endif</label>
     <textarea class="form-control" style="height:150px" name="{{ $name }}" placeholder="{{ $placeholder }}" id="bodyTextarea">@if(!empty($value)){!! $value !!} @endif</textarea>
 </div>
