@@ -21,17 +21,20 @@
                              @include('partials.forms.input', [
                                    'title' => 'Your name',
                                    'name' => 'user_name',
+                                   'required' => true,
                              ])
 
                              @include('partials.forms.input', [
                                    'title' => 'Your email',
                                    'name' => 'user_email',
+                                   'required' => true,
                              ])
 
                              @include('partials.forms.textarea-plain', [
                                    'title' => 'Message',
                                    'name' => 'message',
-                                   'placeholder' => 'the text of your message'
+                                   'placeholder' => 'the text of your message',
+                                   'required' => true,
                              ])
 
                              @include('partials.forms.input-hidden', [

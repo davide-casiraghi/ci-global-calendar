@@ -10,7 +10,7 @@
 --}}
 
 <div class="form-group {{ $name }}">
-    @if(!empty($title))<label for="{{ $name }}">{{ $title }}@if($required) <span data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span>@endif</label>@endif
+    @if(!empty($title))<label for="{{ $name }}">{{ $title }}@if($required) <span class="dark-gray" data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span>@endif</label>@endif
     <textarea   class="form-control{{ $errors->has($name) ? ' is-invalid' : '' }}" 
                 style="height: @if(!empty($height)){{ $height }}@else{{'9rem'}}@endif" 
                 name="{{ $name }}" 
