@@ -23,7 +23,8 @@
                         'title' => __('general.name'),
                         'name' => 'name',
                         'placeholder' => __('homepage-serach.organizer_name'),
-                        'value' => $organizer->name
+                        'value' => $organizer->name,
+                        'required' => true,
                     ])
                 </div>
 
@@ -38,6 +39,7 @@
                               'seleted' => $organizer->created_by,
                               'liveSearch' => 'true',
                               'mobileNativeMenu' => false,
+                              'required' => false,
                         ])
                     </div>
                 @endif
@@ -46,14 +48,16 @@
                     @include('partials.forms.input', [
                         'title' => __('general.email_address'),
                         'name' => 'email',
-                        'value' => $organizer->email
+                        'value' => $organizer->email,
+                        'required' => true,
                     ])
                 </div>
                 <div class="col-12">
                     @include('partials.forms.input', [
                         'title' => __('general.phone'),
                         'name' => 'phone',
-                        'value' => $organizer->phone
+                        'value' => $organizer->phone,
+                        'required' => false,
                     ])
                 </div>
                 <div class="col-12">
@@ -61,7 +65,8 @@
                         'title' => __('views.website'),
                         'name' => 'website',
                         'placeholder' => 'https://...',
-                        'value' => $organizer->website
+                        'value' => $organizer->website,
+                        'required' => false,
                     ])
                 </div>
                 <div class="col-12">
@@ -69,7 +74,8 @@
                           'title' => __('general.description'),
                           'name' => 'description',
                           'placeholder' => '',
-                          'value' => $organizer->description
+                          'value' => $organizer->description,
+                          'required' => false,
                     ])
                 </div>
             </div>

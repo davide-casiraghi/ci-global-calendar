@@ -22,7 +22,8 @@
                         'title' => __('general.name'),
                         'name' => 'name',
                         'placeholder' => __('homepage-serach.venue_name'),
-                        'value' => old('name')
+                        'value' => old('name'),
+                        'required' => true,
                     ])
                 </div>
 
@@ -36,6 +37,7 @@
                             'records' => $users,
                             'liveSearch' => 'true',
                             'mobileNativeMenu' => false,
+                            'required' => false,
                         ])
                     </div>
                 @endif
@@ -45,7 +47,8 @@
                         'title' => __('views.street'),
                         'name' => 'address',
                         'placeholder' => '',
-                        'value' => old('address')
+                        'value' => old('address'),
+                        'required' => false,
                     ])
                 </div>
                 <div class="col-12">
@@ -53,7 +56,8 @@
                         'title' => __('views.city'),
                         'name' => 'city',
                         'placeholder' => '',
-                        'value' => old('city')
+                        'value' => old('city'),
+                        'required' => true,
                     ])
                 </div>
                 <div class="col-12">
@@ -61,7 +65,8 @@
                         'title' => __('views.state_province'),
                         'name' => 'state_province',
                         'placeholder' => '',
-                        'value' => old('state_province')
+                        'value' => old('state_province'),
+                        'required' => false,
                     ])
                 </div>
                 <div class="col-12">
@@ -72,6 +77,7 @@
                           'records' => $countries,
                           'liveSearch' => 'true',
                           'mobileNativeMenu' => false,
+                          'required' => true,
                     ])
                 </div>
                 <div class="col-12">
@@ -79,7 +85,8 @@
                         'title' => __('views.zip_code'),
                         'name' => 'zip_code',
                         'placeholder' => '',
-                        'value' => old('zip_code')
+                        'value' => old('zip_code'),
+                        'required' => false,
                     ])
                 </div>
                 <div class="col-12">
@@ -87,7 +94,8 @@
                         'title' => __('views.website'),
                         'name' => 'website',
                         'placeholder' => 'https://...',
-                        'value' => old('website')
+                        'value' => old('website'),
+                        'required' => false,
                     ])
                 </div>
                 <div class="col-12">
@@ -95,7 +103,8 @@
                         'title' => __('general.description'),
                         'name' => 'description',
                         'placeholder' => '',
-                        'value' => old('description')
+                        'value' => old('description'),
+                        'required' => false,
                     ])
                 </div>
             </div>

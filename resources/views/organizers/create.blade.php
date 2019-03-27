@@ -22,7 +22,8 @@
                         'title' => __('general.name'),
                         'name' => 'name',
                         'placeholder' => __('homepage-serach.organizer_name'), 
-                        'value' => old('name')
+                        'value' => old('name'),
+                        'required' => true,
                     ])
                 </div>
 
@@ -37,6 +38,7 @@
                               'liveSearch' => 'true',
                               'mobileNativeMenu' => false,
                               'seleted' => old('created_by'),
+                              'required' => false,
                         ])
                     </div>
                 @endif
@@ -45,14 +47,16 @@
                     @include('partials.forms.input', [
                         'title' => __('general.email_address'),
                         'name' => 'email',
-                        'value' => old('email')
+                        'value' => old('email'),
+                        'required' => true,
                     ])
                 </div>
                 <div class="col-12">
                     @include('partials.forms.input', [
                         'title' => __('general.phone'),
                         'name' => 'phone',
-                        'value' => old('phone')
+                        'value' => old('phone'),
+                        'required' => false,
                     ])
                 </div>
                 <div class="col-12">
@@ -60,7 +64,8 @@
                         'title' => __('views.website'),
                         'name' => 'website',
                         'placeholder' => 'https://...',
-                        'value' => old('website')
+                        'value' => old('website'),
+                        'required' => false,
                     ])
                 </div>
                 <div class="col-12">
@@ -68,7 +73,8 @@
                           'title' => __('general.description'),
                           'name' => 'description',
                           'placeholder' => '',
-                          'value' => old('description')
+                          'value' => old('description'),
+                          'required' => false,
                     ])
                 </div>
             </div>

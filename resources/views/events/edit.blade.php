@@ -40,7 +40,8 @@
                                      'title' => 'Title',
                                      'name' => 'title',
                                      'placeholder' => 'Event title',
-                                     'value' => $event->title
+                                     'value' => $event->title,
+                                     'required' => true,
                                ])
                            </div>
 
@@ -55,6 +56,7 @@
                                          'seleted' => $event->created_by,
                                          'liveSearch' => 'true',
                                          'mobileNativeMenu' => false,
+                                         'required' => false,
                                    ])
                                </div>
                            @endif
@@ -68,6 +70,7 @@
                                      'seleted' => $event->category_id,
                                      'liveSearch' => 'true',
                                      'mobileNativeMenu' => false,
+                                     'required' => true,
                                ])
                            </div>
 
@@ -129,7 +132,8 @@
                                       'title' => 'Description',
                                       'name' => 'description',
                                       'placeholder' => 'Event description',
-                                      'value' => $event->description
+                                      'value' => $event->description,
+                                      'required' => true,
                                 ])
                             </div>
                         </div>
@@ -153,6 +157,7 @@
                                       'name' => 'startDate',
                                       'placeholder' => __('views.select_date'),
                                       'value' => $dateTime['dateStart'],
+                                      'required' => true,
                                 ])
                             </div>
 
@@ -161,7 +166,8 @@
                                       'title' =>  __('views.time_start'),
                                       'name' => 'time_start',
                                       'placeholder' => __('views.select_time'),
-                                      'value' => $dateTime['timeStart']
+                                      'value' => $dateTime['timeStart'],
+                                      'required' => true,
                                 ])
                             </div>
                         </div>
@@ -174,6 +180,7 @@
                                       'name' => 'endDate',
                                       'placeholder' => __('views.select_date'),
                                       'value' => $dateTime['dateEnd'],
+                                      'required' => true,
                                 ])
                             </div>
                             <div class="col-6">
@@ -181,7 +188,8 @@
                                       'title' =>  __('views.time_end'),
                                       'name' => 'time_end',
                                       'placeholder' => __('views.select_time'),
-                                      'value' => $dateTime['timeEnd']
+                                      'value' => $dateTime['timeEnd'],
+                                      'required' => true,
                                 ])
                             </div>
                         </div>
@@ -208,7 +216,8 @@
                                       'title' =>  __('views.email_for_more_info'),
                                       'name' => 'contact_email',
                                       'placeholder' => '', //__('views.email_for_more_info_placeholder')
-                                      'value' => $event->contact_email
+                                      'value' => $event->contact_email,
+                                      'required' => false,
                                 ])
                             </div>
                             <div class="col-12">
@@ -216,7 +225,8 @@
                                       'title' =>  __('views.facebook_event'),
                                       'name' => 'facebook_event_link',
                                       'placeholder' => 'https://www.facebook.com/events/...',
-                                      'value' => $event->facebook_event_link
+                                      'value' => $event->facebook_event_link,
+                                      'required' => false,
                                 ])
                             </div>
                             <div class="col-12">
@@ -224,7 +234,8 @@
                                       'title' => __('views.event_url'),
                                       'name' => 'website_event_link',
                                       'placeholder' => 'https://www...',
-                                      'value' => $event->website_event_link
+                                      'value' => $event->website_event_link,
+                                      'required' => false,
                                 ])
                             </div>
                         </div>

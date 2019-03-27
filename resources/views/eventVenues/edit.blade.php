@@ -23,7 +23,8 @@
                         'title' => __('general.name'),
                         'name' => 'name',
                         'placeholder' => __('homepage-serach.venue_name'),
-                        'value' => $eventVenue->name
+                        'value' => $eventVenue->name,
+                        'required' => true,
                     ])
                 </div>
 
@@ -38,6 +39,7 @@
                             'seleted' => $eventVenue->created_by,
                             'liveSearch' => 'true',
                             'mobileNativeMenu' => false,
+                            'required' => false,
                         ])
                     </div>
                 @endif
@@ -46,21 +48,24 @@
                     @include('partials.forms.input', [
                         'title' => __('views.street'),
                         'name' => 'address',
-                        'value' => $eventVenue->address
+                        'value' => $eventVenue->address,
+                        'required' => false,
                     ])
                 </div>
                 <div class="col-12">
                     @include('partials.forms.input', [
                         'title' => __('views.city'),
                         'name' => 'city',
-                        'value' => $eventVenue->city
+                        'value' => $eventVenue->city,
+                        'required' => true,
                     ])
                 </div>
                 <div class="col-12">
                     @include('partials.forms.input', [
                         'title' => __('views.state_province'),
                         'name' => 'state_province',
-                        'value' => $eventVenue->state_province
+                        'value' => $eventVenue->state_province,
+                        'required' => false,
                     ])
                 </div>
                 <div class="col-12">
@@ -72,6 +77,7 @@
                           'seleted' => $eventVenue->country_id,
                           'liveSearch' => 'true',
                           'mobileNativeMenu' => false,
+                          'required' => true,
                     ])
                 </div>
                 <div class="col-12">
@@ -79,7 +85,8 @@
                         'title' => __('views.zip_code'),
                         'name' => 'zip_code',
                         'placeholder' => '',
-                        'value' => $eventVenue->zip_code
+                        'value' => $eventVenue->zip_code,
+                        'required' => false,
                     ])
                 </div>
                 <div class="col-12">
@@ -87,7 +94,8 @@
                         'title' => __('views.website'),
                         'name' => 'website',
                         'placeholder' => 'https://...',
-                        'value' => $eventVenue->website
+                        'value' => $eventVenue->website,
+                        'required' => false,
                     ])
                 </div>
                 <div class="col-12">
@@ -95,7 +103,8 @@
                         'title' => __('general.description'),
                         'name' => 'description',
                         'placeholder' => '',
-                        'value' => $eventVenue->description
+                        'value' => $eventVenue->description,
+                        'required' => false,
                     ])
                 </div>
             </div>
