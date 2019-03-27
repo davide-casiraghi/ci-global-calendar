@@ -25,12 +25,15 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $filePath = storage_path('logs/schedule.log');
         // $schedule->command('inspire')
         //          ->hourly();
 
         $schedule->call(function () {
             Statistic::updateStatistics();
-        })->daily();
+        })->daily()
+        ->appendOutputTo($filePath)
+        ->emailOutputTo(env('WEBMASTER_MAIL'));
     }
 
     /**
