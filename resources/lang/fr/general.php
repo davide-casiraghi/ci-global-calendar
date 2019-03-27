@@ -26,7 +26,7 @@ return [
     'country' => 'Pays',
     'city' => 'Ville',
     'privacy_policy' => 'Pour plus d\'informations, veuillez consulter la Politique de Confidentialité',
-    'accept_terms_of_use' => 'Je déclare que j\'ai lu et que j\'accepte les Termes et Conditions d\'Utilisation',
+    'accept_terms_of_use' => 'Je déclare que j\'ai lu et que j\'accepte les Termes et Conditions d\'Utilisation *',
     'admin_account_approval' => 'Votre compte doit être approuvé par l\'administrateur-trice et cela peut prendre un certain temps (jours) pour obtenir la confirmation. La prochaine fois, vous n\'aurez qu\'à vous connecter et entrer votre nouvelle entrée.',
     'to_be_approved' => 'Pour être approuvé comme rédacteur-trice du CI Global Calendar, veuillez décrire votre rôle au sein de la communauté de Contact Improvisation. (ceci est nécessaire pour éviter les spams sur le site web)',
     'name' => 'Nom',

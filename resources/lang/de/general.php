@@ -26,7 +26,7 @@ return [
     'country' => 'Land',
     'city' => 'Stadt',
     'privacy_policy' => 'Weitere Informationen siehe Datenschutzerklärung',
-    'accept_terms_of_use' => 'Ich erkläre, dass ich die Allgemeinen Geschäftsbedingungen gelesen habe und akzeptiere',
+    'accept_terms_of_use' => 'Ich erkläre, dass ich die Allgemeinen Geschäftsbedingungen gelesen habe und akzeptiere *',
     'admin_account_approval' => 'Dein Konto muss vom Administrator genehmigt werden und es kann einige Zeit (Tage) dauern, bis Du die Bestätigung erhältst. Nächstes Mal musst du dich nur noch anmelden und deinen neuen Eintrag eingeben.',
     'to_be_approved' => 'Um als Redakteur*in des CI Global Calendar zugelassen zu werden, beschreibe bitte deine Rolle in der Contact Improvisation Community. (dies ist notwendig, um Spam-Inhalte auf der Website zu verhindern)',
     'name' => 'Name',

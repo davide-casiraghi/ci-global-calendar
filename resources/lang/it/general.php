@@ -26,7 +26,7 @@ return [
     'country' => 'Stato',
     'city' => 'Città',
     'privacy_policy' => 'Per maggiori informazioni per favore consulta l\'informativa sulla privacy',
-    'accept_terms_of_use' => 'Dichiaro di aver letto e di accettare i Termini e Condizioni d’Uso',
+    'accept_terms_of_use' => 'Dichiaro di aver letto e di accettare i Termini e Condizioni d’Uso *',
     'admin_account_approval' => 'Il tuo account deve essere approvato dall\'amministratote e può essere necessario un po\' di tempo (giorni) per avere la conferma. La prossima volta dovrai solo autenticarti per inserire i tuoi eventi.',
     'to_be_approved' => 'Per essere approvato come un autore del CI Global Calendar, per favore descrivi il tuo ruolo nella comunità della Contact Improvisation. (questo è necessario per prevenire lo spam nei contenuti del sito)',
     'name' => 'Nome',

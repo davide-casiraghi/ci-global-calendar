@@ -26,7 +26,7 @@ return [
     'country' => 'Kraj',
     'city' => 'Miasto',
     'privacy_policy' => 'Aby uzyskać więcej informacji zapoznaj się z  Polityką Prywatności',
-    'accept_terms_of_use' => 'Oświadczam, że przeczytałem i akceptuję Warunki Użytkowania',
+    'accept_terms_of_use' => 'Oświadczam, że przeczytałem i akceptuję Warunki Użytkowania *',
     'admin_account_approval' => 'Twoje konto musi zastać zatwierdzone przez administratora i może to potrwać kilka dni. Następnym razem wystarczy się zalogować i wprowadzić nowy wpis.',
     'to_be_approved' => 'Aby zostać zatwierdzonym jako redaktor Globalnego kalendarza KI, opisz swoją rolę w społeczności Kontact Improwizacji (jest to konieczne, aby zapobiec umieszczaniu spamu na stronie internetowej)',
     'name' => 'Imię i nazwisko',

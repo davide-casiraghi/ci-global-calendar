@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-12">
                     <div class="form-group">
-                        <strong>Status:</strong>
+                        <strong>Status</strong>
                         <select name="status" class="form-control">
                             <option value="2" selected>Published</option>
                             <option value="1">Unpublished</option>

@@ -22,7 +22,7 @@
 
                         {{--  NAME --}}
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">@lang('general.name')</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">@lang('general.name') *</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
@@ -37,7 +37,7 @@
 
                         {{-- MAIL --}}
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">@lang('general.email_address')</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">@lang('general.email_address') *</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
@@ -52,7 +52,7 @@
 
                         {{--  PASSWORD --}}
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">@lang('general.password')</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">@lang('general.password') *</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
@@ -67,7 +67,7 @@
 
                         {{-- confirm PASSWORD --}}
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">@lang('general.confirm_password')</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">@lang('general.confirm_password') *</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
@@ -93,14 +93,14 @@
 
                         {{-- DESCRIPTION --}}
                         <div class="form-group row">
-                            <label for="description" class="col-md-4 col-form-label text-md-right">@lang('general.description')</label>
+                            <label for="description" class="col-md-4 col-form-label text-md-right">@lang('general.description') *</label>
 
                             <div class="col-md-6">
                                 @include('partials.forms.textarea-plain', [
                                       'title' => '',
                                       'name' => 'description',
                                       'placeholder' => __('general.to_be_approved'),
-                                      'height' => '11rem'
+                                      'height' => '11rem',
                                 ])
                             </div>
                         </div>
