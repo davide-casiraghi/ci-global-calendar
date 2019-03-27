@@ -40,6 +40,7 @@
                         'name' => 'name',
                         'placeholder' => 'Category name',
                         'value' => $categoryTranslation->name,
+                        'required' => true,
                     ])
                 </div>
                 
@@ -49,6 +50,7 @@
                           'name' => 'description',
                           'placeholder' => 'Description',
                           'value' => $categoryTranslation->description,
+                          'required' => false,
                     ])
                 </div>
             </div>

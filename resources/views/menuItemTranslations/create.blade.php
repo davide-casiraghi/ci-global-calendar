@@ -38,7 +38,8 @@
                     'title' => 'Name',
                     'name' => 'name',
                     'placeholder' => 'Menu item name',
-                    'value' => old('name')
+                    'value' => old('name'),
+                    'required' => true,
                 ])
             </div>
         </div>

@@ -58,7 +58,8 @@
                       'title' => __('general.name'),
                       'name' => 'name',
                       'placeholder' => 'Menu item name',
-                      'value' => $menuItem->translate('en')->name
+                      'value' => $menuItem->translate('en')->name,
+                      'required' => true,
                 ])
             </div>
             <div class="col-12">
@@ -70,6 +71,7 @@
                     'seleted' => $menuItem->menu_id,
                     'liveSearch' => 'false',
                     'mobileNativeMenu' => true,
+                    'required' => true,
                 ])
             </div>
             
@@ -83,12 +85,13 @@
                     'liveSearch' => 'false',
                     'mobileNativeMenu' => true,
                     'item_id' => $menuItem->id,
+                    'required' => false,
                 ])
             </div>
             
             <div class="col-12">
                 <div class="form-group">
-                    <strong>@lang('views.menu_item_type'):</strong>
+                    <strong>@lang('views.menu_item_type')</strong>
                     <select name="type" class="selectpicker" title="Route or Url">
                         <option value="1" @if(empty($menuItem->type)) {{'selected'}} @endif @if(!empty($menuItem->type)) {{  $menuItem->type == '1' ? 'selected' : '' }} @endif>Route</option>
                         <option value="2" @if(!empty($menuItem->type)) {{  $menuItem->type == '2' ? 'selected' : '' }} @endif>Url</option>
@@ -103,7 +106,8 @@
                       'title' => __('views.menu_item_route'),
                       'name' => 'route',
                       'placeholder' => 'Route',
-                      'value' => $menuItem->route
+                      'value' => $menuItem->route,
+                      'required' => false,
                 ])
             </div>
             <div class="col-12">
@@ -113,11 +117,12 @@
                       'placeholder' => 'The relative url - eg: /post/about',
                       'value' => $menuItem->url,
                       'hide' => true,
+                      'required' => false,
                 ])
             </div>
             <div class="col-12">
                 <div class="form-group">
-                    <strong>@lang('views.menu_item_access'):</strong>
+                    <strong>@lang('views.menu_item_access')</strong>
                     <select name="access" class="selectpicker" title="Access">
                         <option value="1" @if(empty($menuItem->access)) {{'selected'}} @endif @if(!empty($menuItem->access)) {{  $menuItem->access == '1' ? 'selected' : '' }} @endif>Public</option>
                         <option value="2" @if(!empty($menuItem->access)) {{  $menuItem->access == '2' ? 'selected' : '' }} @endif>Guest</option>
@@ -137,6 +142,7 @@
                     'tooltip' => "The menu item will be placed in the menu after the selected menu item.",
                     'liveSearch' => 'false',
                     'mobileNativeMenu' => true,
+                    'required' => false,
                 ])
             </div>
             <div class="col-12">
@@ -144,14 +150,16 @@
                       'title' => __('views.menu_item_font_awesome_class'),
                       'name' => 'font_awesome_class',
                       'placeholder' => __('views.menu_item_font_awesome_class'),
-                      'value' => $menuItem->font_awesome_class
+                      'value' => $menuItem->font_awesome_class,
+                      'required' => false,
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.checkbox', [
                       'name' => 'hide_name',
                       'description' => __('views.menu_item_hide_name'),
-                      'value' => $menuItem->hide_name
+                      'value' => $menuItem->hide_name,
+                      'required' => false,
                 ])
             </div>
         </div>

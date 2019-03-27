@@ -56,7 +56,8 @@
                       'title' => __('general.name'),
                       'name' => 'name',
                       'placeholder' => 'Menu item name',
-                      'value' => old('name')
+                      'value' => old('name'),
+                      'required' => false,
                 ])
             </div>
             <div class="col-12">
@@ -68,6 +69,7 @@
                     'seleted' => $selectedMenuId,
                     'liveSearch' => 'false',
                     'mobileNativeMenu' => true,
+                    'required' => true,
                 ])
             </div>
             <div class="col-12">
@@ -78,11 +80,12 @@
                     'records' => $menuItemsTree,
                     'liveSearch' => 'false',
                     'mobileNativeMenu' => true,
+                    'required' => false,
                 ])
             </div>
             <div class="col-12">
                 <div class="form-group">
-                    <strong>@lang('views.menu_item_type'):</strong>
+                    <strong>@lang('views.menu_item_type')</strong>
                     <select name="type" class="selectpicker" title="Route or Url">
                         <option value="1" {{'selected'}}>Route</option>
                         <option value="2">Url</option>
@@ -108,6 +111,7 @@
                     'records' => $routeNames,
                     'liveSearch' => 'true',
                     'mobileNativeMenu' => false,
+                    'required' => false,
                 ])
             </div>
             <div class="col-12">
@@ -115,12 +119,13 @@
                       'title' => 'Url',
                       'name' => 'url',
                       'placeholder' => 'The relative url - eg: /post/about',
-                      'value' => old('url')
+                      'value' => old('url'),
+                      'required' => false,
                 ])
             </div>
             <div class="col-12">
                 <div class="form-group">
-                    <strong>@lang('views.menu_item_access'):</strong>
+                    <strong>@lang('views.menu_item_access')</strong>
                     <select name="access" class="selectpicker" title="Access">
                         <option value="1" {{'selected'}}>Public</option>
                         <option value="2">Guest</option>
@@ -135,14 +140,16 @@
                       'title' => __('views.menu_item_font_awesome_class'),
                       'name' => 'font_awesome_class',
                       'placeholder' => 'Font awesome icon class',
-                      'value' => old('font_awesome_class')
+                      'value' => old('font_awesome_class'),
+                      'required' => false,
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.checkbox', [
                       'name' => 'hide_name',
                       'description' => __('views.menu_item_hide_name'),
-                      'value' => ''
+                      'value' => '',
+                      'required' => false,
                 ])
             </div>
         </div>

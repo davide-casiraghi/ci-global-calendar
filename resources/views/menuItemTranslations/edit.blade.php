@@ -44,6 +44,7 @@
                     'name' => 'name',
                     'placeholder' => 'Menu item name',
                     'value' => $menuItemTranslation->name,
+                    'required' => true,
                 ])
             </div>
         </div>

@@ -34,6 +34,7 @@
                     'name' => 'name',
                     'placeholder' => 'Event Category name',
                     'value' => old('name'),
+                    'required' => true,
                 ])
             </div>
             

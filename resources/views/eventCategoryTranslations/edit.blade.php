@@ -40,6 +40,7 @@
                     'name' => 'name',
                     'placeholder' => 'Event Category name',
                     'value' => $eventCategoryTranslation->name,
+                    'required' => true,
                 ])
             </div>
             

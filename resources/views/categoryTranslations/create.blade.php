@@ -34,6 +34,7 @@
                         'name' => 'name',
                         'placeholder' => 'Category name',
                         'value' => old('name'),
+                        'required' => true,
                     ])
                 </div>
                 
@@ -42,7 +43,8 @@
                           'title' => __('general.description'),
                           'name' => 'description',
                           'placeholder' => 'Description',
-                          'value' => old('description')
+                          'value' => old('description'),
+                          'required' => false,
                     ])
                 </div>
             </div>

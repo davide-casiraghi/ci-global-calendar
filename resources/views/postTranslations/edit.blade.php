@@ -41,7 +41,8 @@
                         'title' => 'Title',
                         'name' => 'title',
                         'placeholder' => 'Post title',
-                        'value' => $postTranslation->title
+                        'value' => $postTranslation->title,
+                        'required' => true,
                     ])
                 </div>
                 <div class="col-12">
@@ -49,6 +50,7 @@
                         'title' =>  __('views.before_post_contents'),
                         'name' => 'before_content',
                         'value' => $postTranslation->before_content,
+                        'required' => false,
                     ])
                 </div>
                 <div class="col-12">
@@ -56,7 +58,8 @@
                         'title' => 'Text',
                         'name' => 'body',
                         'placeholder' => 'Post text',
-                        'value' => $postTranslation->body
+                        'value' => $postTranslation->body,
+                        'required' => true,
                     ])
                 </div>
                 <div class="col-12">
@@ -64,6 +67,7 @@
                         'title' =>  __('views.after_post_contents'),
                          'name' => 'after_content',
                          'value' => $postTranslation->after_content,
+                         'required' => false,
                     ])
                 </div>
             </div>
