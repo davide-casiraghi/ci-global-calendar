@@ -121,7 +121,7 @@ class StatsDonateClass
         $ret .= "<div class='col-12 col-sm-6 col-md-3'>";
         $ret .= "<h4 class='mb-2'><i class='far fa-users'></i></h4>";
         $ret .= "<h5 class='mt-2 mb-2 counter'><strong>".$parameters['steering_commitee_meetings'].'</strong></h5>';
-        $ret .= 'Steering commitee meetings';
+        $ret .= 'Hours spent by the Steering Committee since 2008';
         $ret .= '</div>';
         $ret .= "<div class='col-12 col-sm-6 col-md-3'>";
         $ret .= "<h4 class='mb-2'><i class='far fa-globe'></i></h4>";
