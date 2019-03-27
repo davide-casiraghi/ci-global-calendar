@@ -49,11 +49,12 @@ class Controller extends BaseController
     public function getLoggedAuthorId()
     {
         $user = Auth::user();
-        
-        $ret  = null;
+
+        $ret = null;
         if ($user) {
             $ret = (! $user->isSuperAdmin() && ! $user->isAdmin()) ? $user->id : 0;
         }
+
         return $ret;
     }
 
