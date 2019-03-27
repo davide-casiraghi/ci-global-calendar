@@ -43,7 +43,7 @@ class EventController extends Controller
     {
         // To show just the events created by the the user - If admin or super admin is set to null show all the events
         $authorUserId = ($this->getLoggedAuthorId()) ? $this->getLoggedAuthorId() : null; // if is 0 (super admin or admin) it's setted to null to avoid include it in the query
-        
+
         $eventCategories = EventCategory::orderBy('name')->pluck('name', 'id');
         $countries = Country::orderBy('name')->pluck('name', 'id');
         $venues = EventVenue::pluck('country_id', 'id');
