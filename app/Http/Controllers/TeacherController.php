@@ -51,10 +51,10 @@ class TeacherController extends Controller
 
         // To show just the teachers created by the the user - If admin or super admin is set to null show all the teachers
         $authorUserId = ($this->getLoggedAuthorId()) ? $this->getLoggedAuthorId() : null; // if is 0 (super admin or admin) it's setted to null to avoid include it in the query
-
+        
         // To retrieve all the teachers when the route is teacher.directory, we set the logged user id to null
         if (Route::currentRouteName() == 'teachers.directory') {
-            $loggedUser->id = null;
+            $authorUserId = null;
         }
 
         if ($searchKeywords || $searchCountry) {
