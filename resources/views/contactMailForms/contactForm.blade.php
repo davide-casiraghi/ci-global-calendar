@@ -39,7 +39,8 @@
                @include('partials.forms.input', [
                      'title' => __('general.name'),
                      'name' => 'name',
-                     'placeholder' => ''
+                     'placeholder' => '',
+                     'required' => true,
                ])
             </div>
 
@@ -47,7 +48,8 @@
                @include('partials.forms.input', [
                      'title' => __('general.email_address'),
                      'name' => 'email',
-                     'placeholder' => ''
+                     'placeholder' => '',
+                     'required' => true,
                ])
            </div>
 
@@ -55,7 +57,8 @@
                @include('partials.forms.textarea-plain', [
                      'title' => __('general.message'),
                      'name' => 'message',
-                     'placeholder' => ''
+                     'placeholder' => '',
+                     'required' => true,
                ])
            </div>
            
