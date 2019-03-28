@@ -21,6 +21,7 @@ script:
 
 
 
+
 # if the command fails for any reason it should retry it
 # before executing our code execute a composer update so that the autoload is in place and make that Phpunit 
 # is available
