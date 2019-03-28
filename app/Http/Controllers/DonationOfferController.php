@@ -224,11 +224,11 @@ class DonationOfferController extends Controller
 
         $donationOffer->save();
     }
-    
+
     /***************************************************************************/
 
     /**
-     * Display a listing of the resource - the public list
+     * Display a listing of the resource - the public list.
      *
      * @return \Illuminate\Http\Response
      */
@@ -279,7 +279,4 @@ class DonationOfferController extends Controller
                     ->with('searchCountry', $searchCountry)
                     ->with('searchDonationKind', $searchDonationKind);
     }
-    
-    
-    
 }
