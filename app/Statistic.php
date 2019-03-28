@@ -40,9 +40,9 @@ class Statistic extends Model
 
             $statistics->save();
 
-            return 'statistics updated';
+            echo 'statistics updated';
         } else {
-            return 'the statistics have been already updated today';
+            echo 'the statistics have been already updated today';
         }
     }
 
