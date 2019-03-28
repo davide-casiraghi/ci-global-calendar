@@ -31,7 +31,8 @@
                 @include('partials.forms.input', [
                     'title' => __('general.name'),
                     'name' => 'name',
-                    'placeholder' => 'Name'
+                    'placeholder' => 'Name',
+                    'required' => true,
                 ])
             </div>
             
@@ -39,21 +40,24 @@
                 @include('partials.forms.input', [
                     'title' => __('views.street'),
                     'name' => 'address',
-                    'placeholder' => ''
+                    'placeholder' => '',
+                    'required' => false,
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
                     'title' => __('views.city'),
                     'name' => 'city',
-                    'placeholder' => ''
+                    'placeholder' => '',
+                    'required' => true,
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.input', [
                     'title' => __('views.state_province'),
                     'name' => 'state_province',
-                    'placeholder' => ''
+                    'placeholder' => '',
+                    'required' => false,
                 ])
             </div>
             <div class="col-12">
@@ -64,6 +68,7 @@
                       'records' => $countries,
                       'liveSearch' => 'true',
                       'mobileNativeMenu' => false,
+                      'required' => true,
                 ])
             </div>
             <div class="col-12">
@@ -71,7 +76,8 @@
                     'title' => __('views.zip_code'),
                     'name' => 'zip_code',
                     'placeholder' => '',
-                    'value' => ''
+                    'value' => '',
+                    'required' => false,
                 ])
             </div>
             <div class="col-12">
@@ -79,14 +85,16 @@
                     'title' => __('views.website'),
                     'name' => 'website',
                     'placeholder' => 'https://...',
-                    'value' => ''
+                    'value' => '',
+                    'required' => false,
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.textarea', [
                     'title' => __('general.description'),
                     'name' => 'description',
-                    'placeholder' => 'Event description'
+                    'placeholder' => 'Event description',
+                    'required' => false,
                 ])
             </div>
        </div>

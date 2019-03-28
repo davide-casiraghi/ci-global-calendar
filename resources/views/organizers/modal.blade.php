@@ -31,35 +31,40 @@
                @include('partials.forms.input', [
                    'title' => __('general.name'),
                    'name' => 'name',
-                   'placeholder' => 'Name'
+                   'placeholder' => 'Name',
+                   'required' => true,
                ])
            </div>
            
            <div class="col-12">
                @include('partials.forms.input', [
                    'title' => __('general.email_address'),
-                   'name' => 'email'
+                   'name' => 'email',
+                   'required' => true,
                ])
            </div>
            <div class="col-12">
                @include('partials.forms.input', [
                    'title' => __('general.phone'),
                    'name' => 'phone',
-                   'placeholder' => ''
+                   'placeholder' => '',
+                   'required' => false,
                ])
            </div>
            <div class="col-12">
                @include('partials.forms.input', [
                    'title' => __('views.website'),
                    'name' => 'website',
-                   'placeholder' => 'https://...'
+                   'placeholder' => 'https://...',
+                   'required' => false,
                ])
            </div>
            <div class="col-12">
                @include('partials.forms.textarea', [
                      'title' => __('general.description'),
                      'name' => 'description',
-                     'placeholder' => 'Organizer description'
+                     'placeholder' => 'Organizer description',
+                     'required' => false,
                ])
            </div>
        </div>

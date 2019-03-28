@@ -33,7 +33,8 @@
                 @include('partials.forms.input', [
                       'title' => __('general.name'),
                       'name' => 'name',
-                      'placeholder' => 'Teacher name'
+                      'placeholder' => 'Teacher name',
+                      'required' => true,
                 ])
             </div>
 
@@ -45,6 +46,7 @@
                       'records' => $countries,
                       'liveSearch' => 'true',
                       'mobileNativeMenu' => false,
+                      'required' => false,
                 ])
             </div>
 
@@ -52,6 +54,7 @@
                 @include('partials.forms.textarea-plain', [
                       'title' =>  __('views.bio'),
                       'name' => 'bio',
+                      'required' => true,
                 ])
             </div>
             <div class="col-12">
@@ -59,7 +62,8 @@
                       'title' => __('views.year_of_starting_to_practice'),
                       'name' => 'year_starting_practice',
                       'placeholder' => 'AAAA',
-                      'value' => ''
+                      'value' => '',
+                      'required' => true,
                 ])
             </div>
             <div class="col-12">
@@ -67,13 +71,15 @@
                       'title' => __('views.year_of_starting_to_teach'),
                       'name' => 'year_starting_teach',
                       'placeholder' => 'AAAA',
-                      'value' => ''
+                      'value' => '',
+                      'required' => true,
                 ])
             </div>
             <div class="col-12">
                 @include('partials.forms.textarea-plain', [
                       'title' =>  __('views.significant_teachers'),
                       'name' => 'significant_teachers',
+                      'required' => true,
                 ])
             </div>
             <div class="col-12">
@@ -81,7 +87,8 @@
                       'title' => __('views.facebook_profile'),
                       'name' => 'facebook',
                       'placeholder' => 'https://...',
-                      'value' => ''
+                      'value' => '',
+                      'required' => false,
                 ])
             </div>
             <div class="col-12">
@@ -89,7 +96,8 @@
                       'title' => __('views.website'),
                       'name' => 'website',
                       'placeholder' => 'https://...',
-                      'value' => ''
+                      'value' => '',
+                      'required' => false,
                 ])
             </div>
             
