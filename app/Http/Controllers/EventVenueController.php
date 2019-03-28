@@ -100,7 +100,7 @@ class EventVenueController extends Controller
     public function store(Request $request)
     {
 
-        // Validate form datas 
+        // Validate form datas
         $validator = $this->eventsVenueValidator($request);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
@@ -167,7 +167,7 @@ class EventVenueController extends Controller
      */
     public function update(Request $request, EventVenue $eventVenue)
     {
-        // Validate form datas 
+        // Validate form datas
         $validator = $this->eventsVenueValidator($request);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
@@ -258,7 +258,7 @@ class EventVenueController extends Controller
 
         return redirect()->back()->with('message', __('messages.venue_added_successfully'));
     }
-    
+
     /***************************************************************************/
 
     /**
