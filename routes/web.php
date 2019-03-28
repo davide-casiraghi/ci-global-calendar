@@ -114,6 +114,7 @@ function () {
 
     /* Donation Offers */
     Route::resource('donationOffers', 'DonationOfferController');
+    Route::get('/donationOffersPublic/', 'DonationOfferController@indexPublic')->name('donationOffers.public');
 
     /* Authentication */
     //Auth::routes();

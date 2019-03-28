@@ -224,4 +224,62 @@ class DonationOfferController extends Controller
 
         $donationOffer->save();
     }
+    
+    /***************************************************************************/
+
+    /**
+     * Display a listing of the resource - the public list
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexPublic(Request $request)
+    {
+        $countries = Country::getCountries();
+
+        $donationKindArray = [];
+        foreach (DonationOffer::getDonationKindArray() as $key => $value) {
+            $donationKindArray[$key] = $value['label'];
+        }
+
+        $searchKeywords = $request->input('keywords');
+        $searchCountry = $request->input('country_id');
+        $searchDonationKind = $request->input('donation_kind_filter');
+
+        // Show just to the owner - Get created_by value if the user is not an admin or super admin
+        // $loggedUser = $this->getLoggedAuthorId();
+
+        if ($searchKeywords || $searchCountry || $searchDonationKind) {
+            $donationOffers = DonationOffer::
+                when($searchKeywords, function ($query, $searchKeywords) {
+                    return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%'.$searchKeywords.'%');
+                })
+                ->when($searchKeywords, function ($query, $searchKeywords) {
+                    return $query->where('surname', $searchKeywords)->orWhere('surname', 'like', '%'.$searchKeywords.'%');
+                })
+                ->when($searchCountry, function ($query, $searchCountry) {
+                    return $query->where('country_id', '=', $searchCountry);
+                })
+                ->when($searchDonationKind, function ($query, $searchDonationKind) {
+                    return $query->where('offer_kind', '=', $searchDonationKind);
+                })
+                ->orderBy('name')
+                ->paginate(20);
+        } else {
+            $donationOffers = DonationOffer::
+                orderBy('name')
+                ->paginate(20);
+        }
+
+        //dd($donationOffers);
+        return view('donationOffers.indexPublic', compact('donationOffers'))
+                    ->with('i', (request()->input('page', 1) - 1) * 20)
+                    ->with('countries', $countries)
+                    ->with('donationKindArray', $donationKindArray)
+                    ->with('searchKeywords', $searchKeywords)
+                    ->with('searchCountry', $searchCountry)
+                    ->with('searchDonationKind', $searchDonationKind);
+    }
+    
+    
+    
 }

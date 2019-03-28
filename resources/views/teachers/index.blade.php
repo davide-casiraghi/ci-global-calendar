@@ -84,6 +84,7 @@
                                 <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
                                 @if($teacher->country_id){{ $countries[$teacher->country_id] }}@endif
                             </div>
+                            {{-- Teachers index - Manager --}}
                             @if(Route::current()->getName() == 'teachers.index') 
                                 <div class="col-12 pb-2 action">
                                     <form action="{{ route('teachers.destroy',$teacher->id) }}" method="POST">
@@ -97,6 +98,7 @@
                                         <button type="submit" class="btn btn-link pl-0">@lang('views.delete')</button>
                                     </form>
                                 </div>
+                            {{-- Teachers directory  --}}
                             @else
                                 <div class="col-12 pb-2 action">
                                     <a class="btn btn-primary float-right" href="{{ route('teachers.show',$teacher->id) }}">@lang('views.view')</a>
@@ -107,32 +109,6 @@
                     
                 </div>
                 
-                {{--
-                <div class="row p-1 {{ $loop->index % 2 ? 'bg-light': 'bg-white' }}">
-                    <div class="col-12 col-md-6 col-lg-7 py-3 title">
-                        <a href="/teacher/{{ $teacher->slug }}">{{ $teacher->name }}</a>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3 pb-3 py-md-3 country">
-                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-2" data-original-title="@lang('general.country')"></i>
-                        @if($teacher->country_id){{ $countries[$teacher->country_id] }}@endif
-                    </div>
-
-                    <p> Show the edit and delete console just to the owner or the administrators </p>
-                    @if(Route::current()->getName() == 'teachers.index') 
-                        <div class="col-12 pb-2 action">
-                            <form action="{{ route('teachers.destroy',$teacher->id) }}" method="POST">
-
-                                <a class="btn btn-info mr-2" href="{{ route('teachers.show',$teacher->id) }}">@lang('views.view')</a>
-                                <a class="btn btn-primary" href="{{ route('teachers.edit',$teacher->id) }}">@lang('views.edit')</a>
-
-                                @csrf
-                                @method('DELETE')
-
-                                <button type="submit" class="btn btn-danger float-right">@lang('views.delete')</button>
-                            </form>
-                        </div>
-                    @endif
-                </div>--}}
             @endforeach 
         </div>
 

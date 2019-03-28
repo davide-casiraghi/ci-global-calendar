@@ -2,6 +2,7 @@
 
 return [
     'donation_offers_management' => 'Donation offers management',
+    'gift_list' => 'Gifts list',
     'create_new_donation_offer' => 'Create new donation offer',
     'donation_form_title' => 'Donate for the CI Global Calendar',
     'edit_donation_offer' => 'Edit donation offer',

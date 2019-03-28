@@ -21,5 +21,14 @@
     <php>
         <ini name="display_errors" value="On" />
         <ini name="display_startup_errors" value="On" />
+        
+        <env name="APP_ENV" value="testing"/>
+        <env name="BCRYPT_ROUNDS" value="4"/>
+        <env name="CACHE_DRIVER" value="array"/>
+        <env name="SESSION_DRIVER" value="file"/>
+        <env name="QUEUE_DRIVER" value="sync"/>
+        <env name="MAIL_DRIVER" value="array"/>
+        
+        <env name="DB_CONNECTION" value="testing"/>
     </php>
 </phpunit>
