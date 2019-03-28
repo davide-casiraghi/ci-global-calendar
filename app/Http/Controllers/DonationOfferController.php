@@ -13,7 +13,7 @@ class DonationOfferController extends Controller
     /* Restrict the access to this resource just to logged in users except show and index view */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['create', 'store']]);
+        $this->middleware('auth', ['except' => ['create', 'store', 'indexPublic']]);
     }
 
     /***************************************************************************/
