@@ -31,7 +31,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->call(function () {
             Statistic::updateStatistics();
-        })->daily()
+        })->everyMinute()
         ->appendOutputTo($filePath)
         ->emailOutputTo(env('WEBMASTER_MAIL'));
     }
