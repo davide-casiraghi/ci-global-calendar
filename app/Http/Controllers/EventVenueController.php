@@ -100,10 +100,8 @@ class EventVenueController extends Controller
     public function store(Request $request)
     {
 
-        // Validate form datas
-        $validator = Validator::make($request->all(), [
-                'name' => 'required',
-            ]);
+        // Validate form datas 
+        $validator = $this->eventsVenueValidator($request);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
@@ -169,9 +167,11 @@ class EventVenueController extends Controller
      */
     public function update(Request $request, EventVenue $eventVenue)
     {
-        request()->validate([
-            'name' => 'required',
-        ]);
+        // Validate form datas 
+        $validator = $this->eventsVenueValidator($request);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
 
         //$eventVenue->update($request->all());
         $this->saveOnDb($request, $eventVenue);
@@ -258,6 +258,26 @@ class EventVenueController extends Controller
 
         return redirect()->back()->with('message', __('messages.venue_added_successfully'));
     }
+    
+    /***************************************************************************/
 
-    // **********************************************************************
+    /**
+     * Return the Venue validator with all the defined constraint.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function eventsVenueValidator($request)
+    {
+        $rules = [
+            'name' => 'required',
+            'city' => 'required',
+            'country_id' => 'required',
+            'website' => 'nullable|url',
+        ];
+        $messages = [];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        return $validator;
+    }
 }
