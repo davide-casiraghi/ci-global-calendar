@@ -96,25 +96,24 @@ class EventTest extends DuskTestCase
             $browser->driver->executeScript("document.getElementsByName('startDate').value = '10/10/2023';");
             $browser->driver->executeScript("document.getElementsByName('endDate').value = '12/10/2023';");
 
-            
             $browser->type('facebook_event_link', 'http://www.facebook.com/2342fsdfadc')
                     ->type('website_event_link', 'http://www.testwebsite.com');
 
             $browser->resize(1920, 3000);
-            
+
             $browser->click('#startDate input');
             $browser->waitFor('.datepicker-dropdown');
             $browser->click('th.next')->pause(500);
             $browser->click('.datepicker-dropdown .datepicker-days table tr:nth-child(2)  td.day:nth-child(2)')->click();
-            
+
             $browser->click('#endDate input');
             $browser->waitFor('.datepicker-dropdown');
             $browser->click('th.next')->pause(500);
             $browser->click('.datepicker-dropdown .datepicker-days table tr:nth-child(2)  td.day:nth-child(4)')->click();
-            
+
             //https://www.5balloons.info/understanding-selectors-laravel-dusk-browser-testing/
-        
-                      $browser->press('Submit')
+
+            $browser->press('Submit')
                       ->assertSee(__('messages.event_added_successfully'))
                       ->logoutUser();
         });
