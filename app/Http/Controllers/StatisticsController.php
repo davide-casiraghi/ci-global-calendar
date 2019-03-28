@@ -47,8 +47,7 @@ class StatisticsController extends Controller
     public function store()
     {
         Statistic::updateStatistics();
-        
-        
+
         /*$todayDate = Carbon::now()->format('d-m-Y');
         $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
         $lastUpdateDate = ($lastUpdateStatistic != null) ? $lastUpdateStatistic->created_at->format('d-m-Y') : null;
