@@ -250,7 +250,7 @@ class DonationOfferController extends Controller
 
         if ($searchKeywords || $searchCountry || $searchDonationKind) {
             $donationOffers = DonationOffer::
-                where('offer_kind','2')
+                where('offer_kind', '2')
                 ->when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%'.$searchKeywords.'%');
                 })
@@ -267,7 +267,7 @@ class DonationOfferController extends Controller
                 ->paginate(20);
         } else {
             $donationOffers = DonationOffer::
-                where('offer_kind','2')
+                where('offer_kind', '2')
                 ->orderBy('name')
                 ->paginate(20);
         }
