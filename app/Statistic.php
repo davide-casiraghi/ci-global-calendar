@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 
 class Statistic extends Model
 {
@@ -36,9 +37,11 @@ class Statistic extends Model
 
             $statistics->save();
 
-            echo 'statistics updated';
+            Log::notice('statistics updated');
+            //echo 'statistics updated';
         } else {
-            echo 'the statistics have been already updated today';
+            Log::notice('the statistics have been already updated today');
+            //echo 'the statistics have been already updated today';
         }
     }
 }
