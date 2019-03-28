@@ -116,6 +116,8 @@
                                       'description' => __('general.accept_terms_of_use'),
                                       'value' => ''
                                 ])
+                                <a href="/post/terms-of-use">@lang('menu.terms_of_use') ></a>
+                                
                             </div>
                         </div>
                         
