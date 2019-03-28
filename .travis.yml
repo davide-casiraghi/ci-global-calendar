@@ -13,6 +13,7 @@ before_script:
 
 script:
     - vendor/bin/phpunit
+    - php artisan dusk
 
 
 # if the command fails for any reason it should retry it
