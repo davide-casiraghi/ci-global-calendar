@@ -3,7 +3,7 @@ php:
     - 7.2
     - 7.3
 
-before_script:
+install:
     - cp .env.travis .env
     - mysql -e 'create database testing;'
     - composer self-update
@@ -11,9 +11,14 @@ before_script:
     - php artisan key:generate
     - php artisan migrate --seed
 
+before_script:
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  - php artisan serve &
+
 script:
-    - vendor/bin/phpunit
     - php artisan dusk
+    - vendor/bin/phpunit
+
 
 
 # if the command fails for any reason it should retry it
