@@ -112,8 +112,12 @@
                 --}}
             @endforeach    
         </div>
+        
+        {!! $eventVenues->appends([
+            'keywords' => $searchKeywords,
+            'country_id' => $searchCountry,
+        ])->links() !!}
 
-        {!! $eventVenues->links() !!}
     </div>
 
 @endsection

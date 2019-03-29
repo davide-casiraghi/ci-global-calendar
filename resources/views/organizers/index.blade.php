@@ -88,8 +88,9 @@
             @endforeach 
         </div>
 
-
-        {!! $organizers->links() !!}
+        {!! $organizers->appends([
+            'keywords' => $searchKeywords,
+        ])->links() !!}
 
     </div>
 @endsection
