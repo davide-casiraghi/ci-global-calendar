@@ -3,6 +3,9 @@ php:
     - 7.2
     - 7.3
 
+addons:
+  chrome: stable
+  
 before_script:
     - cp .env.travis .env
     - mysql -e 'create database testing;'
