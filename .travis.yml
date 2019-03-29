@@ -13,9 +13,12 @@ before_script:
     - composer install --no-interaction
     - php artisan key:generate
     - php artisan migrate --seed
+    - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+    - php artisan serve &
 
 script:
     - vendor/bin/phpunit
+    - php artisan dusk
 
 
 # if the command fails for any reason it should retry it
