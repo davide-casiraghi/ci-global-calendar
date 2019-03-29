@@ -15,7 +15,7 @@ class UserController extends Controller
     /* Restrict the access to this resource just to logged in users */
     public function __construct(User $user)
     {
-        $this->middleware('admin', ['except' => ['edit']]);
+        $this->middleware('admin', ['except' => ['edit', 'update']]);
 
         //$user = $this->auth->user()  // null
     }
@@ -165,7 +165,13 @@ class UserController extends Controller
         //$user->update();
         $user->save();
 
-        return redirect()->route('users.index')
+        if (Auth::user()->isSuperAdmin() || Auth::user()->isAdmin()) {
+            $route = 'users.index';
+        }
+        else{
+            $route = 'home';
+        }
+        return redirect()->route($route)
                         ->with('success', __('messages.user_updated_successfully'));
     }
 
