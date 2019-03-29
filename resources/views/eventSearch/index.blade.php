@@ -220,7 +220,19 @@
                       'iframeLinkBlank' => false,
                 ])
 
-                {!! $events->links() !!}
+                {{--{!! $events->links() !!}--}}
+                
+                {!! $events->appends([
+                    'category_id' => $searchCategory,
+                    'continent_id' => $searchContinent,
+                    'country_id' => $searchCountry,
+                    'city_name' => $searchCity,
+                    'venue_name' => $searchVenue,
+                    'startDate' => $searchStartDate,
+                    'endDate' => $searchEndDate,
+                ])->links() !!}
+                
+                
             @endif   
         </div>
         <div class="bg-overlay"></div>
