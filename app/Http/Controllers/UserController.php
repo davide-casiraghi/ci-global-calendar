@@ -167,10 +167,10 @@ class UserController extends Controller
 
         if (Auth::user()->isSuperAdmin() || Auth::user()->isAdmin()) {
             $route = 'users.index';
-        }
-        else{
+        } else {
             $route = 'home';
         }
+
         return redirect()->route($route)
                         ->with('success', __('messages.user_updated_successfully'));
     }
