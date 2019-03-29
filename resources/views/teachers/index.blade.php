@@ -111,8 +111,11 @@
                 
             @endforeach 
         </div>
-
-        {!! $teachers->links() !!}
+        
+        {!! $teachers->appends([
+            'country_id' => $searchCountry,
+            'keywords' => $searchKeywords,
+        ])->links() !!}
     </div>
 
 @endsection

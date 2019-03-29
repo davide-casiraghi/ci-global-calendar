@@ -3,6 +3,7 @@
 {{--
 
 Iframe to embed in the regional websites:
+https://ciglobalcalendar.net/it/post/direct-access-to-countryregional-contents
 
 EG.
 

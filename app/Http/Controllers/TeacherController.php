@@ -48,7 +48,7 @@ class TeacherController extends Controller
         // Search keywords
         $searchKeywords = $request->input('keywords');
         $searchCountry = $request->input('country_id');
-
+        
         // To show just the teachers created by the the user - If admin or super admin is set to null show all the teachers
         $authorUserId = ($this->getLoggedAuthorId()) ? $this->getLoggedAuthorId() : null; // if is 0 (super admin or admin) it's setted to null to avoid include it in the query
 
