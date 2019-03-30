@@ -70,10 +70,17 @@
                         </div>
                     </div>
                     <div class="col-12 mb-4 order-2">
-                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
-                        @if(!empty($user->country_id)){{ $countries[$user->country_id] }}@endif    
-                        <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-key mr-1 ml-4 dark-gray" data-original-title="@lang('general.country')"></i>
-                        {{ App\User::getUserGroupString($user->group)}}    
+                        <div class="row">
+                            <div class="col-6">
+                                <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
+                                @if(!empty($user->country_id)){{ $countries[$user->country_id] }}@endif    
+                                <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-key mr-1 ml-4 dark-gray" data-original-title="@lang('general.country')"></i>
+                                {{ App\User::getUserGroupString($user->group)}}    
+                            </div>
+                            <div class="col-6 dark-gray text-right">
+                                <i class="far fa-envelope mr-1 dark-gray"></i>{{$user->email}}
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12 pb-2 action order-3">
                         <form action="{{ route('users.destroy',$user->id) }}" method="POST">
