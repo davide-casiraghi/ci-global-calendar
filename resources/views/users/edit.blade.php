@@ -76,6 +76,11 @@
                             </select>
                         </div>
                     </div>
+                @else
+                    @include('partials.forms.input-hidden', [
+                          'name' => 'status',
+                          'value' => $user->status,
+                    ])
                 @endif
 
                 <div class="col-12">
