@@ -15,6 +15,7 @@
 
     {{-- SET the repeat values, show and hide the repeat options - when the edit view is open --}}
         setRepeatValues();
+            
 
     {{-- ON CHANGE --}}
 
@@ -72,32 +73,24 @@
                 }
         }
 
-    {{-- UPDATE the select month options --}}
+    {{-- POPULATE the select "Monthly on" options - when the edit view is open --}}
         function updateMonthlySelectOptions(){
-
+            
+            var montlyOnSelected = $("input[name='on_monthly_kind_value']").val();
+            
             var request = $.ajax({
                 url: "/event/monthSelectOptions",
                 data: {
                     day: $("input[name='startDate']").val()
                 },
                 success: function( data ) {
-                    $("#on_monthly_kind").html(data).selectpicker('refresh');
+                    $("#on_monthly_kind").html(data);
+                    $("#on_monthly_kind").selectpicker('refresh');
+                    $("#on_monthly_kind").selectpicker('val', montlyOnSelected);
                 }
             });
 
         }
-
-            /*
-
-            if (radioVal =="noRepeat"){
-                var today = new Date();
-
-                $('#datepicker_end_date input').datepicker({
-                    format: 'dd/mm/yyyy',
-                    startDate: today
-                });
-            }
-            */
 
 @stop
 
@@ -156,10 +149,11 @@
         </div>
 
         <div id="onMonthly" class="onFrequency col-12 col-xl-7" style="display:none">
-            <label>@lang('views.monthly') - On:</label>
+            <label>@lang('views.monthly')</label>
             <select name="on_monthly_kind" id="on_monthly_kind" class="selectpicker" title="Select repeat monthly kind">
                 <option value="1">1</option>
             </select>
+            <input type="hidden" name="on_monthly_kind_value" @if(!empty($event->on_monthly_kind))  value="{{$event->on_monthly_kind}}" @endif/>
         </div>
 
         <div class="col-12 col-xl-5 mt-3 mt-xl-0">
