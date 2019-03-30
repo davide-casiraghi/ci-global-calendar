@@ -24,7 +24,7 @@ return [
     'no_repeat' => 'No Repeat',
     'weekly' => 'Weekly',
     'weekly_on' => 'Weekly on',
-    'monthly' => 'Monthly',
+    'monthly' => 'Monthly on',
     'repeat_until' => 'Repeat until',
     'max_until' => 'It\'s possible to set maximimum one year of repetition from today',
     'facebook_event' => 'Facebook event',

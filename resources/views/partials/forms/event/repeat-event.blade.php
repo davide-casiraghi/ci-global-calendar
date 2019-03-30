@@ -149,7 +149,7 @@
         </div>
 
         <div id="onMonthly" class="onFrequency col-12 col-xl-7" style="display:none">
-            <label>@lang('views.monthly')</label>
+            <label>@lang('views.monthly') *</label>
             <select name="on_monthly_kind" id="on_monthly_kind" class="selectpicker" title="Select repeat monthly kind">
                 <option value="1">1</option>
             </select>
