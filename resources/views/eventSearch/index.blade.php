@@ -108,7 +108,7 @@
                 </div>--}}
 
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 order-2 order-sm-1">
                         
                         {{-- WHAT --}}
                             <p><strong class="text-white">@lang('homepage-serach.what')</strong></p>
@@ -129,7 +129,7 @@
                             @include('partials.forms.event-search.select-teacher')
                             
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 order-1 order-sm-2">
                         <p class="text-white">
                             <strong>@lang('homepage-serach.where')</strong>
                             <i class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="@lang('homepage-serach.where_tooltip')"></i>
@@ -174,7 +174,7 @@
                               'value' => $searchVenue
                         ])
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 order-3">
                         <p class="text-white">
                             <strong>@lang('homepage-serach.when')</strong>
                             <i class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="@lang('homepage-serach.when_tooltip')"></i>
