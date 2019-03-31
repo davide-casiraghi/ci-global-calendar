@@ -6,13 +6,10 @@ use App\Event;
 use App\Country;
 use App\Teacher;
 use App\Continent;
-use Carbon\Carbon;
 use App\EventVenue;
 use App\EventCategory;
 use App\BackgroundImage;
-use App\EventRepetition;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 use App\Http\Resources\Continent as ContinentResource;
 
@@ -169,7 +166,7 @@ class EventSearchController extends Controller
                 where('code', $code)
                 ->first();
 
-        //$events = Event::where('sc_country_id', $country->id)->get();    
+        //$events = Event::where('sc_country_id', $country->id)->get();
         $events = Event::getEvents(null, null, null, $country->id, null, null, null, null, null);
 
         $cacheExpireTime = 900; // Set the duration time of the cache (15 min - 900sec)
