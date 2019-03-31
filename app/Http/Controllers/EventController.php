@@ -1128,7 +1128,9 @@ class EventController extends Controller
             'repeat_weekly_on_day[].required' => 'Please specify which day of the week is repeting the event.',
             'on_monthly_kind.required' => 'Please specify the kind of monthly repetion',
             'endDate.same' => 'If the event is repetitive the start date and end date must match',
-            'profile_picture.max' => 'The maximum image size is 3MB. If you need to scale it you can use: www.simpleimageresizer.com',
+            'facebook_event_link.url' => 'The facebook link is invalid. It should start with https://',
+            'website_event_link.url' => 'The website link is invalid. It should start with https://',
+            'image.max' => 'The maximum image size is 3MB. If you need to scale it you can use: www.simpleimageresizer.com',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);

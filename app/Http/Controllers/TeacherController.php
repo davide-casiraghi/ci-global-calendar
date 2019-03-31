@@ -349,6 +349,8 @@ class TeacherController extends Controller
             // 'required_with:end_page|integer|min:1|digits_between: 1,5',  // https://stackoverflow.com/questions/32036882/laravel-validate-an-integer-field-that-needs-to-be-greater-than-another
         ];
         $messages = [
+            'facebook.url' => 'The facebook link is invalid. It should start with https://',
+            'website.url' => 'The website link is invalid. It should start with https://',
             'profile_picture.max' => 'The maximum image size is 3MB. If you need to scale it you can use: www.simpleimageresizer.com',
         ];
 
