@@ -1122,11 +1122,13 @@ class EventController extends Controller
             'contact_email' => 'nullable|email',
             'facebook_event_link' => 'nullable|url',
             'website_event_link' => 'nullable|url',
+            'image' => 'nullable|image|mimes:jpeg,jpg,png|max:3000',
         ];
         $messages = [
             'repeat_weekly_on_day[].required' => 'Please specify which day of the week is repeting the event.',
             'on_monthly_kind.required' => 'Please specify the kind of monthly repetion',
             'endDate.same' => 'If the event is repetitive the start date and end date must match',
+            'profile_picture.max' => 'The maximum image size is 3MB. If you need to scale it you can use: www.simpleimageresizer.com',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
