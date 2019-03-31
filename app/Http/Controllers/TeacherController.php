@@ -345,10 +345,12 @@ class TeacherController extends Controller
             'year_starting_teach' => 'required|integer|min:1972|max:'.($maxYear),
             'facebook' => 'nullable|url',
             'website' => 'nullable|url',
-
+            'profile_picture' => 'nullable|image|max:3000',
             // 'required_with:end_page|integer|min:1|digits_between: 1,5',  // https://stackoverflow.com/questions/32036882/laravel-validate-an-integer-field-that-needs-to-be-greater-than-another
         ];
-        $messages = [];
+        $messages = [
+            'profile_picture.max' => 'The maximum image size is 3MB. If you need to scale it you can use: www.simpleimageresizer.com',
+        ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
 
