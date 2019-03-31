@@ -28,13 +28,10 @@ class MenuItemController extends Controller
      */
     public function index($id)
     {
-
-        // Countries available for translations
         $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
 
         $selectedMenuName = Menu::find($id)->name;
         $menuItemsTree = MenuItem::getItemsTree($id);
-        //dump($menuItemsTree);
 
         return view('menuItems.index', compact('menuItemsTree'))
                     ->with('selectedMenuId', $id)
@@ -82,7 +79,6 @@ class MenuItemController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate form datas
         $validator = Validator::make($request->all(), [
                 'name' => 'required',
             ]);

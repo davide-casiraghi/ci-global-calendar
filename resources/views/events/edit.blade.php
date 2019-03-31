@@ -25,8 +25,6 @@
             @csrf
             @method('PUT')
             
-        
-                    
             {{-- Basics --}}
                 <div class="row">
                     <div class="col-12 col-md form-sidebar">
@@ -77,7 +75,6 @@
                            <div class="col-12">
                                @include('partials.forms.event.select-event-status')
                            </div>
-                           
                        </div>
                     </div>
                 </div>
@@ -263,7 +260,6 @@
                 </div>
                     
             <hr class="mt-3 mb-5">
-                  
                     
             {{-- used to not update the slug --}}
             @include('partials.forms.input-hidden', [
