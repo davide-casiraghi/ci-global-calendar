@@ -129,7 +129,7 @@ class Event extends Model
 
         return $ret;
     }
-    
+
     /***************************************************************************/
 
     /**
@@ -142,12 +142,12 @@ class Event extends Model
     {
         // Sub-Query Joins - https://laravel.com/docs/5.7/queries
         $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($startDate, $endDate);
-        
+
         // Retrieve the events that correspond to the selected filters
         if ($keywords || $category || $city || $country || $continent || $teacher || $venue || $endDate) {
             //dd($keywords." - ".$category." - ".$city." - ".$country." - ".$continent." - ".$teacher." - ".$venue." - ".$startDate." - ".$endDate);
             //DB::enableQueryLog();
-            $ret = Event::
+            $ret = self::
                     when($keywords, function ($query, $keywords) {
                         return $query->where('title', 'like', '%'.$keywords.'%');
                     })
@@ -178,8 +178,7 @@ class Event extends Model
         }
         // If no filter selected retrieve all the events
         else {
-            
-            $ret = Event::
+            $ret = self::
                          where('event_repetitions.start_repeat', '>=', $startDate)
                         ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) {
                             $join->on('events.id', '=', 'event_repetitions.event_id');
@@ -196,12 +195,12 @@ class Event extends Model
 
         return $ret;
     }
-    
+
     /***************************************************************************/
 
     /**
      * Format the start date to be used in the search query.
-     * If the start date is null return today's date
+     * If the start date is null return today's date.
      *
      * @param  int  event id
      * @return \App\Event the active events collection
@@ -216,10 +215,10 @@ class Event extends Model
             date_default_timezone_set('Europe/Rome');
             $ret = date('Y-m-d', time());
         }
-        
+
         return $ret;
     }
-    
+
     /***************************************************************************/
 
     /**
@@ -236,9 +235,7 @@ class Event extends Model
         } else {
             $ret = null;
         }
-        
+
         return $ret;
     }
-    
-    
 }
