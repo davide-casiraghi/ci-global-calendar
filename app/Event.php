@@ -141,8 +141,7 @@ class Event extends Model
     public static function getEvents($keywords, $category, $city, $country, $continent, $teacher, $venue, $startDate, $endDate)
     {
         // Sub-Query Joins - https://laravel.com/docs/5.7/queries
-        $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($startDate, $startDate);
-        //dd($lastestEventsRepetitionsQuery);
+        $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($startDate, $endDate);
         
         // Retrieve the events that correspond to the selected filters
         if ($keywords || $category || $city || $country || $continent || $teacher || $venue || $endDate) {
@@ -179,8 +178,7 @@ class Event extends Model
         }
         // If no filter selected retrieve all the events
         else {
-            //dd("bbb");
-            dd($startDate);
+            
             $ret = Event::
                          where('event_repetitions.start_repeat', '>=', $startDate)
                         ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) {
