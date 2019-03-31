@@ -53,7 +53,6 @@ class EventSearchController extends Controller
             return Teacher::orderBy('name')->pluck('name', 'id');
         });
 
-        // Get selected attributes from the search form
         $searchKeywords = $request->input('keywords');
         $searchCategory = $request->input('category_id');
         $searchCountry = $request->input('country_id');
@@ -170,7 +169,8 @@ class EventSearchController extends Controller
                 where('code', $code)
                 ->first();
 
-        $events = Event::where('sc_country_id', $country->id)->get();
+        //$events = Event::where('sc_country_id', $country->id)->get();    
+        $events = Event::getEvents(null, null, null, $country->id, null, null, null, null, null);
 
         $cacheExpireTime = 900; // Set the duration time of the cache (15 min - 900sec)
         $eventCategories = Cache::remember('categories', $cacheExpireTime, function () {
