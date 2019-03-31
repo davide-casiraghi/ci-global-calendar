@@ -165,9 +165,7 @@ class EventSearchController extends Controller
      */
     public function EventsListByCountry($code)
     {
-        $country = Country::
-                where('code', $code)
-                ->first();
+        $country = Country::where('code', $code)->first();
 
         //$events = Event::where('sc_country_id', $country->id)->get();    
         $events = Event::getEvents(null, null, null, $country->id, null, null, null, null, null);
