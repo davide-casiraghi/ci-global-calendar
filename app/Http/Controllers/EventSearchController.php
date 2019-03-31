@@ -62,76 +62,10 @@ class EventSearchController extends Controller
         $searchTeacher = $request->input('teacher_id');
         $searchVenue = $request->input('venue_name');
 
-        if ($request->input('startDate')) {
-            list($tid, $tim, $tiy) = explode('/', $request->input('startDate'));
-            $searchStartDate = "$tiy-$tim-$tid";
-        } else {
-            // If no start date selected the search start from today's date
-            date_default_timezone_set('Europe/Rome');
-            $searchStartDate = date('Y-m-d', time());
-        }
+        $searchStartDate = Event::prepareStartDate($request->input('startDate'));
+        $searchEndDate = Event::prepareEndDate($request->input('endDate'));
 
-        if ($request->input('endDate')) {
-            list($tid, $tim, $tiy) = explode('/', $request->input('endDate'));
-            $searchEndDate = "$tiy-$tim-$tid";
-        } else {
-            $searchEndDate = null;
-        }
-
-        // Sub-Query Joins - https://laravel.com/docs/5.7/queries
-        $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, $searchEndDate);
-
-        // Retrieve the events that correspond to the selected filters
-        if ($searchKeywords || $searchCategory || $searchCity || $searchCountry || $searchContinent || $searchTeacher || $searchVenue || $searchStartDate || $searchEndDate) {
-            //DB::enableQueryLog();
-            $events = Event::
-                    when($searchKeywords, function ($query, $searchKeywords) {
-                        return $query->where('title', 'like', '%'.$searchKeywords.'%');
-                    })
-                    ->when($searchCategory, function ($query, $searchCategory) {
-                        return $query->where('category_id', '=', $searchCategory);
-                    })
-                    ->when($searchTeacher, function ($query, $searchTeacher) {
-                        return $query->whereRaw('json_contains(sc_teachers_id, \'["'.$searchTeacher.'"]\')');
-                    })
-                    ->when($searchCountry, function ($query, $searchCountry) {
-                        return $query->where('sc_country_id', '=', $searchCountry);
-                    })
-                    ->when($searchContinent, function ($query, $searchContinent) {
-                        return $query->where('sc_continent_id', '=', $searchContinent);
-                    })
-                    ->when($searchCity, function ($query, $searchCity) {
-                        return $query->where('sc_city_name', 'like', '%'.$searchCity.'%');
-                    })
-                    ->when($searchVenue, function ($query, $searchVenue) {
-                        return $query->where('sc_venue_name', 'like', '%'.$searchVenue.'%');
-                    })
-                    ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate,$searchEndDate) {
-                        $join->on('events.id', '=', 'event_repetitions.event_id');
-                    })
-                    ->orderBy('event_repetitions.start_repeat', 'asc')
-                    ->paginate(20);
-        //dd(DB::getQueryLog());
-        }
-        // If no filter selected retrieve all the events
-        else {
-            $events = Event::
-                             where('event_repetitions.start_repeat', '>=', $searchStartDate)
-                            ->joinSub($lastestEventsRepetitions, 'event_repetitions', function ($join) {
-                                $join->on('events.id', '=', 'event_repetitions.event_id');
-                            })
-                            ->orderBy('event_repetitions.start_repeat', 'asc')
-                            ->paginate(20);
-
-            // It works, but I don't use it now to develop
-                /*$cacheExpireMinutes = 30;
-                $events = Cache::remember('all_events', $cacheExpireTime, function () {
-                    return DB::table('events')->latest()->paginate(20);
-                });*/
-        }
-
-        //$dateTT = Carbon::now()->locale('ru_RU');
-        //dd($dateTT->monthName);
+        $events = Event::getEvents($searchKeywords, $searchCategory, $searchCity, $searchCountry, $searchContinent, $searchTeacher, $searchVenue, $searchStartDate, $searchEndDate);
 
         return view('eventSearch.index', compact('events'))
             ->with('i', (request()->input('page', 1) - 1) * 20)

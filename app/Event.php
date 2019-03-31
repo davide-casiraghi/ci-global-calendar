@@ -103,10 +103,10 @@ class Event extends Model
     /***************************************************************************/
 
     /**
-     * Return the active events collection.
+     * Return the all the active events.
      *
      * @param  int  event id
-     * @return \App\Event the active events
+     * @return \App\Event the active events collection
      */
     public static function getActiveEvents()
     {
@@ -129,4 +129,118 @@ class Event extends Model
 
         return $ret;
     }
+    
+    /***************************************************************************/
+
+    /**
+     * Return the active events based on the search keys provided.
+     *
+     * @param  int  event id
+     * @return \App\Event the active events collection
+     */
+    public static function getEvents($keywords, $category, $city, $country, $continent, $teacher, $venue, $startDate, $endDate)
+    {
+        // Sub-Query Joins - https://laravel.com/docs/5.7/queries
+        $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($startDate, $startDate);
+        //dd($lastestEventsRepetitionsQuery);
+        
+        // Retrieve the events that correspond to the selected filters
+        if ($keywords || $category || $city || $country || $continent || $teacher || $venue || $endDate) {
+            //dd($keywords." - ".$category." - ".$city." - ".$country." - ".$continent." - ".$teacher." - ".$venue." - ".$startDate." - ".$endDate);
+            //DB::enableQueryLog();
+            $ret = Event::
+                    when($keywords, function ($query, $keywords) {
+                        return $query->where('title', 'like', '%'.$keywords.'%');
+                    })
+                    ->when($category, function ($query, $category) {
+                        return $query->where('category_id', '=', $category);
+                    })
+                    ->when($teacher, function ($query, $teacher) {
+                        return $query->whereRaw('json_contains(sc_teachers_id, \'["'.$teacher.'"]\')');
+                    })
+                    ->when($country, function ($query, $country) {
+                        return $query->where('sc_country_id', '=', $country);
+                    })
+                    ->when($continent, function ($query, $continent) {
+                        return $query->where('sc_continent_id', '=', $continent);
+                    })
+                    ->when($city, function ($query, $city) {
+                        return $query->where('sc_city_name', 'like', '%'.$city.'%');
+                    })
+                    ->when($venue, function ($query, $venue) {
+                        return $query->where('sc_venue_name', 'like', '%'.$venue.'%');
+                    })
+                    ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($startDate,$endDate) {
+                        $join->on('events.id', '=', 'event_repetitions.event_id');
+                    })
+                    ->orderBy('event_repetitions.start_repeat', 'asc')
+                    ->paginate(20);
+        //dd(DB::getQueryLog());
+        }
+        // If no filter selected retrieve all the events
+        else {
+            //dd("bbb");
+            dd($startDate);
+            $ret = Event::
+                         where('event_repetitions.start_repeat', '>=', $startDate)
+                        ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) {
+                            $join->on('events.id', '=', 'event_repetitions.event_id');
+                        })
+                        ->orderBy('event_repetitions.start_repeat', 'asc')
+                        ->paginate(20);
+
+            // It works, but I don't use it now to develop
+                /*$cacheExpireMinutes = 30;
+                $events = Cache::remember('all_events', $cacheExpireTime, function () {
+                    return DB::table('events')->latest()->paginate(20);
+                });*/
+        }
+
+        return $ret;
+    }
+    
+    /***************************************************************************/
+
+    /**
+     * Format the start date to be used in the search query.
+     * If the start date is null return today's date
+     *
+     * @param  int  event id
+     * @return \App\Event the active events collection
+     */
+    public static function prepareStartDate($DatePickerStartDate)
+    {
+        if ($DatePickerStartDate) {
+            list($tid, $tim, $tiy) = explode('/', $DatePickerStartDate);
+            $ret = "$tiy-$tim-$tid";
+        } else {
+            // If no start date selected the search start from today's date
+            date_default_timezone_set('Europe/Rome');
+            $ret = date('Y-m-d', time());
+        }
+        
+        return $ret;
+    }
+    
+    /***************************************************************************/
+
+    /**
+     * Format the edn date to be used in the search query.
+     *
+     * @param  int  event id
+     * @return \App\Event the active events collection
+     */
+    public static function prepareEndDate($DatePickerEndDate)
+    {
+        if ($DatePickerEndDate) {
+            list($tid, $tim, $tiy) = explode('/', $DatePickerEndDate);
+            $ret = "$tiy-$tim-$tid";
+        } else {
+            $ret = null;
+        }
+        
+        return $ret;
+    }
+    
+    
 }
