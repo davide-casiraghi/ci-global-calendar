@@ -259,7 +259,9 @@ class OrganizerController extends Controller
             'email' => 'required|email',
             'website' => 'nullable|url',
         ];
-        $messages = [];
+        $messages = [
+            'website.url' => 'The website link is invalid. It should start with https://',
+        ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
 
