@@ -7,7 +7,7 @@
                 <h4>@lang('views.edit_event')</h4>
             </div>
             <div class="col-4 text-right">
-                <form action="{{ route('events.destroy',$event->id) }}" method="POST">
+                <form action="{{ route('events.destroy',$event->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-link pr-0">@lang('views.delete_event')</button>

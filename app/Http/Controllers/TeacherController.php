@@ -345,7 +345,7 @@ class TeacherController extends Controller
             'year_starting_teach' => 'required|integer|min:1972|max:'.($maxYear),
             'facebook' => 'nullable|url',
             'website' => 'nullable|url',
-            // 'profile_picture' => 'nullable|image|mimes:jpeg,jpg,png|max:3000',   // BUG create problems to validate on edit. Fix this after the rollout 
+            'profile_picture' => 'nullable|image|mimes:jpeg,jpg,png|max:3000',   // BUG create problems to validate on edit. Fix this after the rollout 
             // 'required_with:end_page|integer|min:1|digits_between: 1,5',  // https://stackoverflow.com/questions/32036882/laravel-validate-an-integer-field-that-needs-to-be-greater-than-another
         ];
         $messages = [
