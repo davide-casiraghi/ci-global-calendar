@@ -1122,7 +1122,7 @@ class EventController extends Controller
             'contact_email' => 'nullable|email',
             'facebook_event_link' => 'nullable|url',
             'website_event_link' => 'nullable|url',
-            // 'image' => 'nullable|image|mimes:jpeg,jpg,png|max:3000', // BUG create problems to validate on edit. Fix this after the rollout 
+            // 'image' => 'nullable|image|mimes:jpeg,jpg,png|max:3000', // BUG create problems to validate on edit. Fix this after the rollout
         ];
         $messages = [
             'repeat_weekly_on_day[].required' => 'Please specify which day of the week is repeting the event.',
