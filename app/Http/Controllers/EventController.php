@@ -1069,9 +1069,8 @@ class EventController extends Controller
      */
     public function eventBySlug($slug)
     {
-
         $event = Event::where('slug', $slug)->first();
-                
+
         $firstRpDates = Event::getFirstEventRpDatesByEventId($event->id);
 
         //dd($event);
