@@ -53,9 +53,9 @@ class EventController extends Controller
         $searchCountry = $request->input('country_id');
 
         if ($searchKeywords || $searchCategory || $searchCountry) {
-            $events = DB::table('events')
+            $events = Event::
                 // Show only the events owned by the user, if the user is an admin or super admin show all the events
-                ->when(isset($authorUserId), function ($query, $authorUserId) {
+                when(isset($authorUserId), function ($query, $authorUserId) {
                     return $query->where('created_by', $authorUserId);
                 })
                 ->when($searchKeywords, function ($query, $searchKeywords) {
@@ -67,7 +67,10 @@ class EventController extends Controller
                 ->when($searchCountry, function ($query, $searchCountry) {
                     return $query->join('event_venues', 'events.venue_id', '=', 'event_venues.id')->where('event_venues.country_id', '=', $searchCountry);
                 })
+                ->select('*','events.id as id') // To keep in the join the id of the Events table - https://stackoverflow.com/questions/28062308/laravel-eloquent-getting-id-field-of-joined-tables-in-eloquent
                 ->paginate(20);
+                
+                //dd($events);
         } else {
             $events = Event::latest()
                 ->when($authorUserId, function ($query, $authorUserId) {
