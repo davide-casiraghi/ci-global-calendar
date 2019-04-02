@@ -67,7 +67,7 @@ class EventController extends Controller
                 ->when($searchCountry, function ($query, $searchCountry) {
                     return $query->join('event_venues', 'events.venue_id', '=', 'event_venues.id')->where('event_venues.country_id', '=', $searchCountry);
                 })
-                ->select('*','events.id as id', 'events.slug as slug', 'events.image as image') // To keep in the join the id of the Events table - https://stackoverflow.com/questions/28062308/laravel-eloquent-getting-id-field-of-joined-tables-in-eloquent
+                ->select('*', 'events.id as id', 'events.slug as slug', 'events.image as image') // To keep in the join the id of the Events table - https://stackoverflow.com/questions/28062308/laravel-eloquent-getting-id-field-of-joined-tables-in-eloquent
                 ->paginate(20);
 
         //dd($events);
