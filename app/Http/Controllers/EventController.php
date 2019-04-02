@@ -1108,7 +1108,7 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function eventsValidator($request)
-    {    
+    {
         $rules = [
             'title' => 'required',
             'description' => 'required',
@@ -1127,7 +1127,7 @@ class EventController extends Controller
         if ($request->hasFile('image')) {
             $rules['image'] = 'nullable|image|mimes:jpeg,jpg,png|max:5000';
         }
-        
+
         $messages = [
             'repeat_weekly_on_day[].required' => 'Please specify which day of the week is repeting the event.',
             'on_monthly_kind.required' => 'Please specify the kind of monthly repetion',
