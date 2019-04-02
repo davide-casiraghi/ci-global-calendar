@@ -71,7 +71,7 @@
                     <h4 class="text-uppercase"><strong>- @lang('homepage-serach.global_calendar') -</strong></h4>
                     <p class="subtitle text-white">
                         @lang('homepage-serach.find_information')<br />
-                        @lang('homepage-serach.under_costruction')
+                        {{--@lang('homepage-serach.under_costruction')--}}
                     </p>
                     <p>
                     
