@@ -76,12 +76,12 @@
                     <p>
                     
                     
-                    @include('partials.forms.button', [
+                    {{--@include('partials.forms.button', [
                           'text' =>  'Help us with the Global Fill-in',
                           'name' => 'category_id',
                           'url' => '/post/help-us-with-the-global-fill-in',
                           'roundedCorners' => 'true',
-                    ])
+                    ])--}}
                     </p>
                     <p class="searchHere text-white mt-5">
                         @lang('homepage-serach.criteria')
