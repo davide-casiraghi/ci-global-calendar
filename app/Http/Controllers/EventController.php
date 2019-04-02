@@ -1122,6 +1122,7 @@ class EventController extends Controller
             'contact_email' => 'nullable|email',
             'facebook_event_link' => 'nullable|url',
             'website_event_link' => 'nullable|url',
+            // 'image' => 'nullable|image|mimes:jpeg,jpg,png|max:3000', // BUG create problems to validate on edit. Fix this after the rollout
         ];
         if ($request->hasFile('image')) {
             $rules['image'] = 'nullable|image|mimes:jpeg,jpg,png|max:5000';
@@ -1133,7 +1134,7 @@ class EventController extends Controller
             'endDate.same' => 'If the event is repetitive the start date and end date must match',
             'facebook_event_link.url' => 'The facebook link is invalid. It should start with https://',
             'website_event_link.url' => 'The website link is invalid. It should start with https://',
-            'image.max' => 'The maximum image size is 3MB. If you need to resize it you can use: www.simpleimageresizer.com',
+            'image.max' => 'The maximum image size is 5MB. If you need to resize it you can use: www.simpleimageresizer.com',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
