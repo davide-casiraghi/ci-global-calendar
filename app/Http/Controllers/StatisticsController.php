@@ -2,13 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Event;
-// DELETE THIS, WERE USED FOR THE STORE METHOD
-use App\Teacher;
-use App\Organizer;
 use App\Statistic;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class StatisticsController extends Controller
@@ -36,7 +30,7 @@ class StatisticsController extends Controller
 
     /***************************************************************************/
 
-    // REMOVE THIS METHOD - HAS BEEN SUBSTITUTED BY THE STATIC METHOD UPDATE STATISTICS IN THE STATISTIC MODEL
+    // THIS METHOD - HAS BEEN SUBSTITUTED BY THE STATIC METHOD UPDATE STATISTICS IN THE STATISTIC MODEL
 
     /**
      * Store a newly created resource in storage.
@@ -47,23 +41,5 @@ class StatisticsController extends Controller
     public function store()
     {
         Statistic::updateStatistics();
-
-        /*$todayDate = Carbon::now()->format('d-m-Y');
-        $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
-        $lastUpdateDate = ($lastUpdateStatistic != null) ? $lastUpdateStatistic->created_at->format('d-m-Y') : null;
-
-        if ($lastUpdateDate != $todayDate) {
-            $statistics = new Statistic();
-            $statistics->registered_users_number = User::count();
-            $statistics->organizers_number = Organizer::count();
-            $statistics->teachers_number = Teacher::count();
-            $statistics->active_events_number = Event::getActiveEvents()->count();
-
-            $statistics->save();
-
-            dd('statistics updated');
-        } else {
-            dd('the statistics have been already updated today');
-        }*/
     }
 }
