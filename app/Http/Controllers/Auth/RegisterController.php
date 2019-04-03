@@ -12,9 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\UserActivationConfirmation;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use App\Notifications\UserRegisteredSuccessfully;
 
 class RegisterController extends Controller
 {
@@ -83,7 +81,7 @@ class RegisterController extends Controller
 
         return view('auth.register', compact('countries'));
     }
-    
+
     // **********************************************************************
 
     /**

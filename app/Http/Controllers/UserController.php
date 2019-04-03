@@ -134,6 +134,7 @@ class UserController extends Controller
     }
 
     /***************************************************************************/
+
     /**
      * Update the specified resource in storage.
      *
@@ -142,13 +143,13 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
-    {        
+    {
         // Validate form datas
         $validator = $this->usersValidator($request);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        
+
         $user->name = $request->get('name');
         $user->email = $request->get('email');
         if ($request->get('password')) {
@@ -174,6 +175,7 @@ class UserController extends Controller
     }
 
     /***************************************************************************/
+
     /**
      * Remove the specified resource from storage.
      *
@@ -187,7 +189,7 @@ class UserController extends Controller
         return redirect()->route('users.index')
                         ->with('success', __('messages.user_deleted_successfully'));
     }
-    
+
     /***************************************************************************/
 
     /**
@@ -198,7 +200,6 @@ class UserController extends Controller
      */
     public function usersValidator($request)
     {
-
         $rules = [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
@@ -206,7 +207,7 @@ class UserController extends Controller
             'country_id' => 'required|integer',
             'description' => 'required',
         ];
-        
+
         $messages = [];
 
         $validator = Validator::make($request->all(), $rules, $messages);
