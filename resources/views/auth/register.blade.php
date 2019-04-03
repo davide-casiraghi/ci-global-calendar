@@ -86,6 +86,7 @@
                                       'placeholder' => __('general.select_country'),
                                       'records' => $countries,
                                       'liveSearch' => 'true',
+                                      'seleted' => old('country_id'),
                                       'mobileNativeMenu' => false,
                                 ])
                             </div>
@@ -102,6 +103,7 @@
                                       'name' => 'description',
                                       'placeholder' => __('general.to_be_approved'),
                                       'height' => '11rem',
+                                      'value' => old('description'),
                                 ])
                             </div>
                         </div>
