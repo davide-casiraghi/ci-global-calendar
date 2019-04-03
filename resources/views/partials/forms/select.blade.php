@@ -33,4 +33,9 @@
             <option value="{{$value}}" @if(!empty($seleted)) {{  $seleted == $value ? 'selected' : '' }}@endif>{{ $record }}</option>
         @endforeach
     </select>
+    @if ($errors->has($name))
+        <span class="invalid-feedback" role="alert" style="display:block;">
+            <strong>{{ $errors->first($name) }}</strong>
+        </span>
+    @endif
 </div>

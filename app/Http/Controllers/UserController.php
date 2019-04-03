@@ -70,11 +70,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         // Validate form datas
-        $validator = Validator::make($request->all(), [
-                'name' => 'required|string|max:255',
-                'email' => 'required|string|email|max:255|unique:users',
-                'password' => 'required|string|min:6|confirmed',
-            ]);
+        $validator = $this->usersValidator($request);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
@@ -137,6 +133,7 @@ class UserController extends Controller
         }
     }
 
+    /***************************************************************************/
     /**
      * Update the specified resource in storage.
      *
@@ -145,12 +142,13 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
-    {
-        request()->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-        ]);
-
+    {        
+        // Validate form datas
+        $validator = $this->usersValidator($request);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+        
         $user->name = $request->get('name');
         $user->email = $request->get('email');
         if ($request->get('password')) {
@@ -175,6 +173,7 @@ class UserController extends Controller
                         ->with('success', __('messages.user_updated_successfully'));
     }
 
+    /***************************************************************************/
     /**
      * Remove the specified resource from storage.
      *
@@ -187,5 +186,31 @@ class UserController extends Controller
 
         return redirect()->route('users.index')
                         ->with('success', __('messages.user_deleted_successfully'));
+    }
+    
+    /***************************************************************************/
+
+    /**
+     * Return the validator with all the defined constraint.
+     *
+     * @param  \App\User  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function usersValidator($request)
+    {
+
+        $rules = [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'password' => 'required|string|min:6|confirmed',
+            'country_id' => 'required|integer',
+            'description' => 'required',
+        ];
+        
+        $messages = [];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        return $validator;
     }
 }
