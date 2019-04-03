@@ -126,7 +126,6 @@ class UserController extends Controller
     }
 
     /***************************************************************************/
-
     /**
      * Update the specified resource in storage.
      *
@@ -135,39 +134,17 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
-<<<<<<< HEAD
-    {
-=======
     {        
         $callingMethod = "update";
         
->>>>>>> userValidator
         // Validate form datas
         $validator = $this->usersValidator($request, $callingMethod);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-<<<<<<< HEAD
-
-        $user->name = $request->get('name');
-        $user->email = $request->get('email');
-        if ($request->get('password')) {
-            $user->password = Hash::make($request->get('password'));
-        }
-
-        $user->group = $request->get('group');
-        $user->status = $request->get('status');
-        $user->country_id = $request->get('country_id');
-        $user->description = $request->get('description');
-
-        //$user->update();
-        $user->save();
-
-=======
         
         $this->saveOnDb($request, $user);
         
->>>>>>> userValidator
         if (Auth::user()->isSuperAdmin() || Auth::user()->isAdmin()) {
             $route = 'users.index';
         } else {
@@ -179,7 +156,6 @@ class UserController extends Controller
     }
 
     /***************************************************************************/
-
     /**
      * Remove the specified resource from storage.
      *
@@ -194,8 +170,6 @@ class UserController extends Controller
                         ->with('success', __('messages.user_deleted_successfully'));
     }
 
-<<<<<<< HEAD
-=======
     /***************************************************************************/
 
     /**
@@ -219,7 +193,6 @@ class UserController extends Controller
         $user->save();
     }
     
->>>>>>> userValidator
     /***************************************************************************/
 
     /**
@@ -236,9 +209,6 @@ class UserController extends Controller
             'country_id' => 'required|integer',
             'description' => 'required',
         ];
-<<<<<<< HEAD
-
-=======
         
         if ($callingMethod == "store"){
             $rules['password'] = 'required|string|min:6|confirmed';
@@ -247,7 +217,6 @@ class UserController extends Controller
             $rules['password'] = 'nullable|string|min:6|confirmed';
         }
         
->>>>>>> userValidator
         $messages = [];
 
         $validator = Validator::make($request->all(), $rules, $messages);
