@@ -69,26 +69,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $callingMethod = "store";
+        
         // Validate form datas
-        $validator = $this->usersValidator($request);
+        $validator = $this->usersValidator($request, $callingMethod);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
 
         $user = new User();
-
-        $user->name = $request->get('name');
-        $user->email = $request->get('email');
-        $user->password = Hash::make($request->get('password'));
-
-        $user->group = $request->get('group');
-        $user->status = $request->get('status');
-        $user->country_id = $request->get('country_id');
-        //$user->description = $request->get('description');
-        $user->description = clean($request->get('description'));
-
-        $user->save();
-
+        
+        $this->saveOnDb($request, $user);
+        
         return redirect()->route('users.index')
                         ->with('success', __('messages.user_added_successfully'));
     }
@@ -143,12 +135,19 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
+<<<<<<< HEAD
     {
+=======
+    {        
+        $callingMethod = "update";
+        
+>>>>>>> userValidator
         // Validate form datas
-        $validator = $this->usersValidator($request);
+        $validator = $this->usersValidator($request, $callingMethod);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
+<<<<<<< HEAD
 
         $user->name = $request->get('name');
         $user->email = $request->get('email');
@@ -164,6 +163,11 @@ class UserController extends Controller
         //$user->update();
         $user->save();
 
+=======
+        
+        $this->saveOnDb($request, $user);
+        
+>>>>>>> userValidator
         if (Auth::user()->isSuperAdmin() || Auth::user()->isAdmin()) {
             $route = 'users.index';
         } else {
@@ -190,6 +194,32 @@ class UserController extends Controller
                         ->with('success', __('messages.user_deleted_successfully'));
     }
 
+<<<<<<< HEAD
+=======
+    /***************************************************************************/
+
+    /**
+     * Save the record on DB.
+     *
+     * @param  \App\Teacher  $teacher
+     * @return \Illuminate\Http\Response
+     */
+    public function saveOnDb($request, $user)
+    {
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        if ($request->get('password')) {
+            $user->password = Hash::make($request->get('password'));
+        }
+        $user->group = $request->get('group');
+        $user->status = $request->get('status');
+        $user->country_id = $request->get('country_id');
+        $user->description = clean($request->get('description'));
+            
+        $user->save();
+    }
+    
+>>>>>>> userValidator
     /***************************************************************************/
 
     /**
@@ -198,16 +228,26 @@ class UserController extends Controller
      * @param  \App\User  $post
      * @return \Illuminate\Http\Response
      */
-    public function usersValidator($request)
+    public function usersValidator($request, $callingMethod)
     {
         $rules = [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
-            'password' => 'required|string|min:6|confirmed',
             'country_id' => 'required|integer',
             'description' => 'required',
         ];
+<<<<<<< HEAD
 
+=======
+        
+        if ($callingMethod == "store"){
+            $rules['password'] = 'required|string|min:6|confirmed';
+        }
+        else{
+            $rules['password'] = 'nullable|string|min:6|confirmed';
+        }
+        
+>>>>>>> userValidator
         $messages = [];
 
         $validator = Validator::make($request->all(), $rules, $messages);
