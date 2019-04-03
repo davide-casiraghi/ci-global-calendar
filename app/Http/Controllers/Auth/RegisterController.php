@@ -38,6 +38,8 @@ class RegisterController extends Controller
      */
     protected $redirectTo = '/';
 
+    // **********************************************************************
+
     /**
      * Create a new controller instance.
      *
@@ -48,23 +50,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-            'description' => 'required|string',
-            'accept_terms' => 'accepted',
-            'g-recaptcha-response' => 'required|captcha',
-        ]);
-    }
+    // **********************************************************************
 
     /**
      * Create a new user instance after a valid registration.
@@ -84,6 +70,8 @@ class RegisterController extends Controller
         ]);
     }
 
+    // **********************************************************************
+
     /**
      * Show the application registration form. - OVERRIDE to default function.
      *
@@ -95,6 +83,8 @@ class RegisterController extends Controller
 
         return view('auth.register', compact('countries'));
     }
+    
+    // **********************************************************************
 
     /**
      * Register new account. - OVERRIDE to default function.
@@ -128,8 +118,6 @@ class RegisterController extends Controller
 
             return redirect()->back()->with('message', 'Unable to create new user.');
         }
-        // this was the bugged version that send the activation button link to the user
-        //$user->notify(new UserRegisteredSuccessfully($user));
 
         $countries = Country::getCountries();
 
@@ -142,10 +130,11 @@ class RegisterController extends Controller
         $mailDatas['activation_code'] = $validatedData['activation_code'];
 
         Mail::to(env('ADMIN_MAIL'))->send(new UserActivation($mailDatas));
-        // aaaaaaa - here send the email
 
         return redirect()->back()->with('message', __('auth.successfully_registered'));
     }
+
+    // **********************************************************************
 
     /**
      * Activate the user with given activation code.
