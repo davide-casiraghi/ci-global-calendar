@@ -69,26 +69,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $callingMethod = "store";
+        
         // Validate form datas
-        $validator = $this->usersValidator($request);
+        $validator = $this->usersValidator($request, $callingMethod);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
 
         $user = new User();
-
-        $user->name = $request->get('name');
-        $user->email = $request->get('email');
-        $user->password = Hash::make($request->get('password'));
-
-        $user->group = $request->get('group');
-        $user->status = $request->get('status');
-        $user->country_id = $request->get('country_id');
-        //$user->description = $request->get('description');
-        $user->description = clean($request->get('description'));
-
-        $user->save();
-
+        
+        $this->saveOnDb($request, $user);
+        
         return redirect()->route('users.index')
                         ->with('success', __('messages.user_added_successfully'));
     }
@@ -143,26 +135,16 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {        
+        $callingMethod = "update";
+        
         // Validate form datas
-        $validator = $this->usersValidator($request);
+        $validator = $this->usersValidator($request, $callingMethod);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
         
-        $user->name = $request->get('name');
-        $user->email = $request->get('email');
-        if ($request->get('password')) {
-            $user->password = Hash::make($request->get('password'));
-        }
-
-        $user->group = $request->get('group');
-        $user->status = $request->get('status');
-        $user->country_id = $request->get('country_id');
-        $user->description = $request->get('description');
-
-        //$user->update();
-        $user->save();
-
+        $this->saveOnDb($request, $user);
+        
         if (Auth::user()->isSuperAdmin() || Auth::user()->isAdmin()) {
             $route = 'users.index';
         } else {
@@ -187,6 +169,29 @@ class UserController extends Controller
         return redirect()->route('users.index')
                         ->with('success', __('messages.user_deleted_successfully'));
     }
+
+    /***************************************************************************/
+
+    /**
+     * Save the record on DB.
+     *
+     * @param  \App\Teacher  $teacher
+     * @return \Illuminate\Http\Response
+     */
+    public function saveOnDb($request, $user)
+    {
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        if ($request->get('password')) {
+            $user->password = Hash::make($request->get('password'));
+        }
+        $user->group = $request->get('group');
+        $user->status = $request->get('status');
+        $user->country_id = $request->get('country_id');
+        $user->description = clean($request->get('description'));
+            
+        $user->save();
+    }
     
     /***************************************************************************/
 
@@ -196,16 +201,21 @@ class UserController extends Controller
      * @param  \App\User  $post
      * @return \Illuminate\Http\Response
      */
-    public function usersValidator($request)
+    public function usersValidator($request, $callingMethod)
     {
-
         $rules = [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
-            'password' => 'required|string|min:6|confirmed',
             'country_id' => 'required|integer',
             'description' => 'required',
         ];
+        
+        if ($callingMethod == "store"){
+            $rules['password'] = 'required|string|min:6|confirmed';
+        }
+        else{
+            $rules['password'] = 'nullable|string|min:6|confirmed';
+        }
         
         $messages = [];
 
