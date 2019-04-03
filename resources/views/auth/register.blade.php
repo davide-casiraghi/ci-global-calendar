@@ -117,7 +117,7 @@
                                 @include('partials.forms.checkbox', [
                                       'name' => 'accept_terms',
                                       'description' => __('general.accept_terms_of_use'),
-                                      'value' => ''
+                                      'value' => old('accept_terms'),
                                 ])
                                 <a href="/post/terms-of-use">@lang('menu.terms_of_use') ></a>
                                 
