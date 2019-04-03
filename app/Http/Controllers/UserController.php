@@ -69,8 +69,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $callingMethod = "store";
-        
+        $callingMethod = 'store';
+
         // Validate form datas
         $validator = $this->usersValidator($request, $callingMethod);
         if ($validator->fails()) {
@@ -78,9 +78,9 @@ class UserController extends Controller
         }
 
         $user = new User();
-        
+
         $this->saveOnDb($request, $user);
-        
+
         return redirect()->route('users.index')
                         ->with('success', __('messages.user_added_successfully'));
     }
@@ -126,6 +126,7 @@ class UserController extends Controller
     }
 
     /***************************************************************************/
+
     /**
      * Update the specified resource in storage.
      *
@@ -134,17 +135,17 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
-    {        
-        $callingMethod = "update";
-        
+    {
+        $callingMethod = 'update';
+
         // Validate form datas
         $validator = $this->usersValidator($request, $callingMethod);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        
+
         $this->saveOnDb($request, $user);
-        
+
         if (Auth::user()->isSuperAdmin() || Auth::user()->isAdmin()) {
             $route = 'users.index';
         } else {
@@ -156,6 +157,7 @@ class UserController extends Controller
     }
 
     /***************************************************************************/
+
     /**
      * Remove the specified resource from storage.
      *
@@ -189,10 +191,10 @@ class UserController extends Controller
         $user->status = $request->get('status');
         $user->country_id = $request->get('country_id');
         $user->description = clean($request->get('description'));
-            
+
         $user->save();
     }
-    
+
     /***************************************************************************/
 
     /**
@@ -209,14 +211,13 @@ class UserController extends Controller
             'country_id' => 'required|integer',
             'description' => 'required',
         ];
-        
-        if ($callingMethod == "store"){
+
+        if ($callingMethod == 'store') {
             $rules['password'] = 'required|string|min:6|confirmed';
-        }
-        else{
+        } else {
             $rules['password'] = 'nullable|string|min:6|confirmed';
         }
-        
+
         $messages = [];
 
         $validator = Validator::make($request->all(), $rules, $messages);
