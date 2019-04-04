@@ -65,3 +65,6 @@ window.myApp = new Vue({  // In this way the object myApp is accessible in the b
     import 'sortablejs';
     import 'jquery.cookie';
     import 'prismjs';
+    import 'chart.js';
+    
+    

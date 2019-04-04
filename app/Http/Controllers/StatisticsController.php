@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Statistic;
 use Illuminate\Http\Request;
 
+use App\Charts\LatestUsers;
+
 class StatisticsController extends Controller
 {
     /* Restrict the access to this resource just to admin, the store method is called by Laravel Forge Deamon */
@@ -23,9 +25,17 @@ class StatisticsController extends Controller
     public function index(Request $request)
     {
         $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
+    
+
+        $chart = new LatestUsers;
+        $chart->labels(['One', 'Two', 'Three', 'Four']);
+        $chart->dataset('My dataset', 'line', [1, 2, 3, 4]);
+        $chart->dataset('My dataset 2', 'line', [4, 3, 2, 1]);
+
 
         return view('stats.index')
-            ->with('statsDatas', $lastUpdateStatistic);
+            ->with('statsDatas', $lastUpdateStatistic)
+            ->with('chart', $chart);
     }
 
     /***************************************************************************/

@@ -101,6 +101,10 @@
                 </div>
             </div>
         </div>
+        
+        <div class="col-12">
+            {!! $chart->container() !!}
+        </div>
     </div>
     
     <div class="row mt-1">
