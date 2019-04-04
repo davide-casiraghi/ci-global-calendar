@@ -29,7 +29,7 @@ class StatisticsController extends Controller
 
         $chart = new LatestUsers;
         $chart->labels(['One', 'Two', 'Three', 'Four']);
-        $chart->dataset('My dataset', 'line', [1, 2, 3, 4]);
+        $chart->dataset('My dataset', 'line', [1, 2, 3, 7]);
         $chart->dataset('My dataset 2', 'line', [4, 3, 2, 1]);
 
 

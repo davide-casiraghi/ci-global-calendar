@@ -1,8 +1,8 @@
 @extends('stats.layout')
 
-@section('javascript-document-ready')
+@section('javascript')
     @parent
-    
+    {!! $chart->script() !!}
 @stop
 
 @section('content')
