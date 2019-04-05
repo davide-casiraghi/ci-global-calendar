@@ -31,35 +31,10 @@ class StatisticsController extends Controller
         $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
 
         $usersNumberchart = $this->createUsersNumberchart(12);
-        
-        $usersByCountryChart = 
+        $usersByCountryChart = $this->createUsersByCountryChart();
         
         
 
-        /********************************************************/
-        /* USERS BY COUNTRY */
-            $usersByCountry = User::
-                            leftJoin('countries', 'users.country_id', '=', 'countries.id')
-                            ->select(DB::raw('count(*) as user_count, countries.name as country_name'))
-                            ->where('status', '<>', 0)
-                            ->groupBy('country_id')
-                            ->get();
-            
-            $data = collect([]); 
-            $labels = array();
-            foreach ($usersByCountry as $key => $userByCountry) {
-                $data->push($userByCountry->user_count);
-                $labels[] = $userByCountry->country_name;
-            }
-            
-            $usersByCountryChart = new LatestUsers;
-            $usersByCountryChart->labels($labels);
-            $usersByCountryChartDataset = $usersByCountryChart->dataset('Users by Country', 'bar', $data);
-            
-            //https://www.chartjs.org/docs/latest/charts/line.html
-            $usersByCountryChartDataset->options([
-                'borderColor' => '#2669A0',
-            ]);
         
         /********************************************************/
         /* TEACHERS BY COUNTRY */
@@ -119,31 +94,68 @@ class StatisticsController extends Controller
     
     public function createUsersNumberchart($daysRange){
         
-            $lastIDUpdatedStats = \DB::table('statistics')->max('id');
+        $lastIDUpdatedStats = \DB::table('statistics')->max('id');
+    
+        $data = collect([]); // Could also be an array
+        $labels = array();
+        for ($days_backwards = $daysRange; $days_backwards >= 0; $days_backwards--) {
+            $dayStat = Statistic::find($lastIDUpdatedStats-$days_backwards);
+            $data->push($dayStat->registered_users_number);
+            $labels[] = Carbon::parse($dayStat->created_at)->format('d/m');
+        }
         
-            $data = collect([]); // Could also be an array
-            $labels = array();
-            for ($days_backwards = $daysRange; $days_backwards >= 0; $days_backwards--) {
-                $dayStat = Statistic::find($lastIDUpdatedStats-$days_backwards);
-                $data->push($dayStat->registered_users_number);
-                $labels[] = Carbon::parse($dayStat->created_at)->format('d/m');
-            }
-            
-            $ret = new LatestUsers;
-            $ret->labels($labels);
-            $dataset = $ret->dataset('Users number', 'line', $data);
-            /*$chart->labels(['One', 'Two', 'Three', 'Four']);
-            $chart->dataset('My dataset', 'line', [1, 2, 3, 7]);
-            $chart->dataset('My dataset 2', 'line', [4, 3, 2, 1]);*/
+        $ret = new LatestUsers;
+        $ret->labels($labels);
+        $dataset = $ret->dataset('Users number', 'line', $data);
+        /*$chart->labels(['One', 'Two', 'Three', 'Four']);
+        $chart->dataset('My dataset', 'line', [1, 2, 3, 7]);
+        $chart->dataset('My dataset 2', 'line', [4, 3, 2, 1]);*/
+    
+    
+        //https://www.chartjs.org/docs/latest/charts/line.html
+        $dataset->options([
+            'borderColor' => '#2669A0',
+        ]);
         
-        
-            //https://www.chartjs.org/docs/latest/charts/line.html
-            $dataset->options([
-                'borderColor' => '#2669A0',
-            ]);
-            
-            return $ret;
+        return $ret;
     }
+    
+    
+    /***************************************************************************/
+    /**
+     * Create a BAR chart showing the number of users by country
+     *
+     * @return App\Charts
+     */
+    
+    public function createUsersByCountryChart(){
+        $usersByCountry = User::
+                        leftJoin('countries', 'users.country_id', '=', 'countries.id')
+                        ->select(DB::raw('count(*) as user_count, countries.name as country_name'))
+                        ->where('status', '<>', 0)
+                        ->groupBy('country_id')
+                        ->get();
+        
+        $data = collect([]); 
+        $labels = array();
+        foreach ($usersByCountry as $key => $userByCountry) {
+            $data->push($userByCountry->user_count);
+            $labels[] = $userByCountry->country_name;
+        }
+        
+        $ret = new LatestUsers;
+        $ret->labels($labels);
+        $dataset = $ret->dataset('Users by Country', 'bar', $data);
+        
+        //https://www.chartjs.org/docs/latest/charts/line.html
+        $dataset->options([
+            'borderColor' => '#2669A0',
+        ]);
+    
+        return $ret;
+    
+    }
+    
     
     
     
