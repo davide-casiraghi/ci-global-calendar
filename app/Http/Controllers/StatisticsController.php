@@ -30,7 +30,10 @@ class StatisticsController extends Controller
     {
         $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
 
-        $usersNumberchart = $this->createUsersNumberchart();
+        $usersNumberchart = $this->createUsersNumberchart(12);
+        
+        $usersByCountryChart = 
+        
         
 
         /********************************************************/
@@ -108,15 +111,19 @@ class StatisticsController extends Controller
     }
     
     /***************************************************************************/
-
-    public function createUsersNumberchart(){
-        /********************************************************/
-        /* USERS NUMBER */
+    /**
+     * Create a LINE chart showing the number of users in the last x days
+     *
+     * @return App\Charts
+     */
+    
+    public function createUsersNumberchart($daysRange){
+        
             $lastIDUpdatedStats = \DB::table('statistics')->max('id');
         
             $data = collect([]); // Could also be an array
             $labels = array();
-            for ($days_backwards = 12; $days_backwards >= 0; $days_backwards--) {
+            for ($days_backwards = $daysRange; $days_backwards >= 0; $days_backwards--) {
                 $dayStat = Statistic::find($lastIDUpdatedStats-$days_backwards);
                 $data->push($dayStat->registered_users_number);
                 $labels[] = Carbon::parse($dayStat->created_at)->format('d/m');
@@ -137,5 +144,9 @@ class StatisticsController extends Controller
             
             return $ret;
     }
+    
+    
+    
+    
 
 }
