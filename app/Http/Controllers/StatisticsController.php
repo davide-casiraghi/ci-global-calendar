@@ -222,7 +222,8 @@ class StatisticsController extends Controller
         $eventsByCountries = $grouped->map(function ($item, $key) {
             return collect($item)->count();
         });
-
+        $eventsByCountries = $eventsByCountries->sortKeys();
+        
         $data = collect([]); 
         $labels = array();
         foreach ($eventsByCountries as $key => $eventsByCountry) {
