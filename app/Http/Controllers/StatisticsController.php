@@ -72,7 +72,7 @@ class StatisticsController extends Controller
             
             $usersByCountryChart = new LatestUsers;
             $usersByCountryChart->labels($labels);
-            $usersByCountryChartDataset = $usersByCountryChart->dataset('Users number', 'line', $data);
+            $usersByCountryChartDataset = $usersByCountryChart->dataset('Users by Country', 'bar', $data);
             
             //https://www.chartjs.org/docs/latest/charts/line.html
             $usersByCountryChartDataset->options([
