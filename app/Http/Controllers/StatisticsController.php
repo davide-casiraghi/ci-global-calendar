@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Statistic;
-use App\Users;
+use App\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 use App\Charts\LatestUsers;
 
@@ -28,33 +29,39 @@ class StatisticsController extends Controller
     {
         $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
 
-        $lastIDUpdatedStats = \DB::table('statistics')->max('id');
-        
-        $data = collect([]); // Could also be an array
-        $labels = array();
-        for ($days_backwards = 12; $days_backwards >= 0; $days_backwards--) {
-            $dayStat = Statistic::find($lastIDUpdatedStats-$days_backwards);
-            $data->push($dayStat->registered_users_number);
-            $labels[] = Carbon::parse($dayStat->created_at)->format('d/m');
-        }
-        
-        
 
-
-        $chart = new LatestUsers;
+        /* USERS NUMBER */
+            $lastIDUpdatedStats = \DB::table('statistics')->max('id');
         
-        /*$chart->labels(['One', 'Two', 'Three', 'Four']);
-        $chart->dataset('My dataset', 'line', [1, 2, 3, 7]);
-        $chart->dataset('My dataset 2', 'line', [4, 3, 2, 1]);*/
-
-        $chart->labels($labels);
-        $dataset = $chart->dataset('Users number', 'line', $data);
+            $data = collect([]); // Could also be an array
+            $labels = array();
+            for ($days_backwards = 12; $days_backwards >= 0; $days_backwards--) {
+                $dayStat = Statistic::find($lastIDUpdatedStats-$days_backwards);
+                $data->push($dayStat->registered_users_number);
+                $labels[] = Carbon::parse($dayStat->created_at)->format('d/m');
+            }
+            $chart = new LatestUsers;
         
-        //https://www.chartjs.org/docs/latest/charts/line.html
-        $dataset->options([
-            'borderColor' => '#2669A0',
-        ]);
+            /*$chart->labels(['One', 'Two', 'Three', 'Four']);
+            $chart->dataset('My dataset', 'line', [1, 2, 3, 7]);
+            $chart->dataset('My dataset 2', 'line', [4, 3, 2, 1]);*/
 
+            $chart->labels($labels);
+            $dataset = $chart->dataset('Users number', 'line', $data);
+        
+            //https://www.chartjs.org/docs/latest/charts/line.html
+            $dataset->options([
+                'borderColor' => '#2669A0',
+            ]);
+
+        /* USERS BY COUNTRY */
+            $usersByCountry = User::
+                            leftJoin('countries', 'users.country_id', '=', 'countries.id')
+                            ->select(DB::raw('count(*) as user_count, countries.name'))
+                            ->where('status', '<>', 0)
+                            ->groupBy('country_id')
+                            ->get();
+            dd($usersByCountry);
 
 
         return view('stats.index')
