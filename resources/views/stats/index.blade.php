@@ -3,6 +3,7 @@
 @section('javascript')
     @parent
     {!! $usersNumberchart->script() !!}
+    {!! $usersByCountryChart->script() !!}
 @stop
 
 @section('content')
@@ -104,6 +105,9 @@
         
         <div class="col-12">
             {!! $usersNumberchart->container() !!}
+        </div>
+        <div class="col-12">
+            {!! $usersByCountryChart->container() !!}
         </div>
     </div>
     

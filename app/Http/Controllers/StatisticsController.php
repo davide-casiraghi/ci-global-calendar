@@ -55,7 +55,7 @@ class StatisticsController extends Controller
             ]);
 
         /* USERS BY COUNTRY */
-        /*    $usersByCountry = User::
+            $usersByCountry = User::
                             leftJoin('countries', 'users.country_id', '=', 'countries.id')
                             ->select(DB::raw('count(*) as user_count, countries.name as country_name'))
                             ->where('status', '<>', 0)
@@ -69,15 +69,23 @@ class StatisticsController extends Controller
                 $data->push($userByCountry->user_count);
                 $labels[] = $userByCountry->country_name;
             }
-            $chart = new LatestUsers;
-            */
+            
+            $usersByCountryChart = new LatestUsers;
+            $usersByCountryChart->labels($labels);
+            $usersByCountryChartDataset = $usersByCountryChart->dataset('Users number', 'line', $data);
+            
+            //https://www.chartjs.org/docs/latest/charts/line.html
+            $usersByCountryChartDataset->options([
+                'borderColor' => '#2669A0',
+            ]);
             
             
 
 
         return view('stats.index')
             ->with('statsDatas', $lastUpdateStatistic)
-            ->with('usersNumberchart', $usersNumberchart);
+            ->with('usersNumberchart', $usersNumberchart)
+            ->with('usersByCountryChart', $usersByCountryChart);
     }
 
     /***************************************************************************/
