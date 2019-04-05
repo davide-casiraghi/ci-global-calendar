@@ -3,7 +3,7 @@
     @foreach ($teachers as $teacher)
         <url>
             <loc>{{env('APP_URL')}}teacher/{{ $teacher->slug }}</loc>
-            <lastmod>{{ $teacher->updated_at }}</lastmod>
+            <lastmod>{{Carbon\Carbon::parse($teacher->updated_at)->format('Y-m-d')}}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.6</priority>
         </url>

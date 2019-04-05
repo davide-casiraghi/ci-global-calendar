@@ -3,14 +3,14 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <sitemap>
         <loc>https://laravel-news.com/sitemap/posts</loc>
-        <lastmod>{{ $post->updated_at }}</lastmod>
+        <lastmod>{{Carbon\Carbon::parse($post->updated_at)->format('Y-m-d')}}</lastmod>
     </sitemap>
     <sitemap>
         <loc>https://laravel-news.com/sitemap/categories</loc>
-        <lastmod>{{ $post->updated_at }}</lastmod>
+        <lastmod>{{Carbon\Carbon::parse($post->updated_at)->format('Y-m-d')}}</lastmod>
     </sitemap>
     <sitemap>
         <loc>https://laravel-news.com/sitemap/podcasts</loc>
-        <lastmod>{{ $event->updated_at }}</lastmod>
+        <lastmod>{{Carbon\Carbon::parse($event->updated_at)->format('Y-m-d')}}</lastmod>
     </sitemap>
 </sitemapindex>

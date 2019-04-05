@@ -3,7 +3,7 @@
     @foreach ($posts as $post)
         <url>
             <loc>{{env('APP_URL')}}{{ $post->locale }}/post/{{ $post->slug }}</loc>
-            <lastmod>{{ $post->updated_at }}</lastmod>
+            <lastmod>{{Carbon\Carbon::parse($post->updated_at)->format('Y-m-d')}}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.6</priority>
         </url>

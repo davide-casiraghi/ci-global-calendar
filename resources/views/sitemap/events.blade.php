@@ -3,7 +3,7 @@
     @foreach ($events as $event)
         <url>
             <loc>{{env('APP_URL')}}event/{{ $event->slug }}/{{$event->rp_id}}</loc>
-            <lastmod>{{ $event->updated_at }}</lastmod>
+            <lastmod>{{Carbon\Carbon::parse($event->updated_at)->format('Y-m-d')}}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.6</priority>
         </url>
