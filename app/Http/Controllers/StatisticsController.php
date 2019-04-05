@@ -32,36 +32,7 @@ class StatisticsController extends Controller
 
         $usersNumberchart = $this->createUsersNumberchart(12);
         $usersByCountryChart = $this->createUsersByCountryChart();
-        
-        
-
-        
-        /********************************************************/
-        /* TEACHERS BY COUNTRY */
-            $teachersByCountries = Teacher::
-                            leftJoin('countries', 'teachers.country_id', '=', 'countries.id')
-                            ->select(DB::raw('count(*) as teacher_count, countries.name as country_name'))
-                            ->groupBy('country_id')
-                            ->get();
-            
-            $data = collect([]); 
-            $labels = array();
-            foreach ($teachersByCountries as $key => $teachersByCountry) {
-                $data->push($teachersByCountry->user_count);
-                $labels[] = $teachersByCountry->country_name;
-            }
-            
-            $teachersByCountriesChart = new LatestUsers;
-            $teachersByCountriesChart->labels($labels);
-            $teachersByCountriesDataset = $teachersByCountriesChart->dataset('Users by Country', 'bar', $data);
-            
-            //https://www.chartjs.org/docs/latest/charts/line.html
-            $teachersByCountriesDataset->options([
-                'borderColor' => '#2669A0',
-            ]);
-            
-            
-
+        $teachersByCountriesChart = $this->createTeachersByCountriesChart();
 
         return view('stats.index')
             ->with('statsDatas', $lastUpdateStatistic)
@@ -155,6 +126,42 @@ class StatisticsController extends Controller
         return $ret;
     
     }
+    
+    /***************************************************************************/
+    /**
+     * Create a BAR chart showing the number of users by country
+     *
+     * @return App\Charts
+     */
+    
+    public function createTeachersByCountriesChart(){
+    
+        $teachersByCountries = Teacher::
+                        leftJoin('countries', 'teachers.country_id', '=', 'countries.id')
+                        ->select(DB::raw('count(*) as teacher_count, countries.name as country_name'))
+                        ->groupBy('country_id')
+                        ->get();
+        
+        $data = collect([]); 
+        $labels = array();
+        foreach ($teachersByCountries as $key => $teachersByCountry) {
+            $data->push($teachersByCountry->teacher_count);
+            $labels[] = $teachersByCountry->country_name;
+        }
+        
+        $ret = new LatestUsers;
+        $ret->labels($labels);
+        $dataset = $ret->dataset('Teachers by Country', 'bar', $data);
+        
+        //https://www.chartjs.org/docs/latest/charts/line.html
+        $dataset->options([
+            'borderColor' => '#2669A0',
+        ]);
+    
+        return $ret;
+    }
+    
+    
     
     
     
