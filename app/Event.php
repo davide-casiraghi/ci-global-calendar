@@ -179,8 +179,7 @@ class Event extends Model
         }
         // If no filter selected retrieve all the events
         else {
-            if (!$startDate)
-                $startDate = Carbon::now()->format('Y-m-d');
+            if (!$startDate) $startDate = Carbon::now()->format('Y-m-d');
                 
             $ret = self::
                          where('event_repetitions.start_repeat', '>=', $startDate)
