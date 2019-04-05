@@ -28,14 +28,13 @@ class StatisticsController extends Controller
     {
         $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
 
-
         $lastIDUpdatedStats = \DB::table('statistics')->max('id');
         
         $data = collect([]); // Could also be an array
         $labels = array();
-        for ($days_backwards = 7; $days_backwards >= 0; $days_backwards--) {
+        for ($days_backwards = 12; $days_backwards >= 0; $days_backwards--) {
             $dayStat = Statistic::find($lastIDUpdatedStats-$days_backwards);
-            $data->push($dayStat->active_events_number);
+            $data->push($dayStat->registered_users_number);
             $labels[] = Carbon::parse($dayStat->created_at)->format('d/m');
         }
         
@@ -49,7 +48,15 @@ class StatisticsController extends Controller
         $chart->dataset('My dataset 2', 'line', [4, 3, 2, 1]);*/
 
         $chart->labels($labels);
-        $chart->dataset('Users number', 'line', $data);
+        $dataset = $chart->dataset('Users number', 'line', $data);
+        
+        //$dataset->backgroundColor(collect(['#7158e2','#3ae374', '#ff3838']));
+        //$dataset->color(collect(['#7d5fff','#32ff7e', '#ff4d4d']));
+        $dataset->options([
+            'borderColor' => '#2669A0',
+        ]);
+
+
 
         return view('stats.index')
             ->with('statsDatas', $lastUpdateStatistic)
