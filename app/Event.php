@@ -2,9 +2,9 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
 
 class Event extends Model
 {
@@ -179,8 +179,10 @@ class Event extends Model
         }
         // If no filter selected retrieve all the events
         else {
-            if (!$startDate) $startDate = Carbon::now()->format('Y-m-d');
-                
+            if (! $startDate) {
+                $startDate = Carbon::now()->format('Y-m-d');
+            }
+
             $ret = self::
                          where('event_repetitions.start_repeat', '>=', $startDate)
                         ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) {
