@@ -2,7 +2,7 @@
 
 @section('javascript')
     @parent
-    {!! $chart->script() !!}
+    {!! $usersNumberchart->script() !!}
 @stop
 
 @section('content')
@@ -103,7 +103,7 @@
         </div>
         
         <div class="col-12">
-            {!! $chart->container() !!}
+            {!! $usersNumberchart->container() !!}
         </div>
     </div>
     

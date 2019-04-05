@@ -40,14 +40,14 @@ class StatisticsController extends Controller
                 $data->push($dayStat->registered_users_number);
                 $labels[] = Carbon::parse($dayStat->created_at)->format('d/m');
             }
-            $chart = new LatestUsers;
-        
+            
+            $usersNumberchart = new LatestUsers;
+            $usersNumberchart->labels($labels);
+            $dataset = $usersNumberchart->dataset('Users number', 'line', $data);
             /*$chart->labels(['One', 'Two', 'Three', 'Four']);
             $chart->dataset('My dataset', 'line', [1, 2, 3, 7]);
             $chart->dataset('My dataset 2', 'line', [4, 3, 2, 1]);*/
-
-            $chart->labels($labels);
-            $dataset = $chart->dataset('Users number', 'line', $data);
+        
         
             //https://www.chartjs.org/docs/latest/charts/line.html
             $dataset->options([
@@ -55,18 +55,29 @@ class StatisticsController extends Controller
             ]);
 
         /* USERS BY COUNTRY */
-            $usersByCountry = User::
+        /*    $usersByCountry = User::
                             leftJoin('countries', 'users.country_id', '=', 'countries.id')
-                            ->select(DB::raw('count(*) as user_count, countries.name'))
+                            ->select(DB::raw('count(*) as user_count, countries.name as country_name'))
                             ->where('status', '<>', 0)
                             ->groupBy('country_id')
                             ->get();
-            dd($usersByCountry);
+            //dd($usersByCountry);
+            
+            $data = collect([]); // Could also be an array
+            $labels = array();
+            foreach ($usersByCountry as $key => $userByCountry) {
+                $data->push($userByCountry->user_count);
+                $labels[] = $userByCountry->country_name;
+            }
+            $chart = new LatestUsers;
+            */
+            
+            
 
 
         return view('stats.index')
             ->with('statsDatas', $lastUpdateStatistic)
-            ->with('chart', $chart);
+            ->with('usersNumberchart', $usersNumberchart);
     }
 
     /***************************************************************************/
