@@ -105,6 +105,7 @@ class StatisticsController extends Controller
                         ->select(DB::raw('count(*) as user_count, countries.name as country_name'))
                         ->where('status', '<>', 0)
                         ->groupBy('country_id')
+                        ->orderBy('country_name')
                         ->get();
         
         $data = collect([]); 
@@ -140,6 +141,7 @@ class StatisticsController extends Controller
                         leftJoin('countries', 'teachers.country_id', '=', 'countries.id')
                         ->select(DB::raw('count(*) as teacher_count, countries.name as country_name'))
                         ->groupBy('country_id')
+                        ->orderBy('country_name')
                         ->get();
         
         $data = collect([]); 
