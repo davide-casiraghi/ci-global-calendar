@@ -30,7 +30,7 @@ class StatisticsController extends Controller
     {
         $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
 
-
+        /********************************************************/
         /* USERS NUMBER */
             $lastIDUpdatedStats = \DB::table('statistics')->max('id');
         
@@ -55,6 +55,7 @@ class StatisticsController extends Controller
                 'borderColor' => '#2669A0',
             ]);
 
+        /********************************************************/
         /* USERS BY COUNTRY */
             $usersByCountry = User::
                             leftJoin('countries', 'users.country_id', '=', 'countries.id')
@@ -79,6 +80,7 @@ class StatisticsController extends Controller
                 'borderColor' => '#2669A0',
             ]);
         
+        /********************************************************/
         /* TEACHERS BY COUNTRY */
             $teachersByCountries = Teacher::
                             leftJoin('countries', 'teachers.country_id', '=', 'countries.id')
@@ -126,4 +128,11 @@ class StatisticsController extends Controller
     {
         Statistic::updateStatistics();
     }
+    
+    /***************************************************************************/
+
+    public function createUsersNumberchart(){
+        
+    }
+
 }
