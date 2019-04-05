@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Statistic;
 use App\User;
 use App\Teacher;
+use App\Event;
+use App\Organizer;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -33,12 +35,16 @@ class StatisticsController extends Controller
         $usersNumberchart = $this->createUsersNumberchart(12);
         $usersByCountryChart = $this->createUsersByCountryChart();
         $teachersByCountriesChart = $this->createTeachersByCountriesChart();
+        $eventsByCountriesChart = $this->createEventsByCountriesChart();
+        //$organizersByCountriesChart = $this->createOrganizersByCountriesChart();
 
         return view('stats.index')
             ->with('statsDatas', $lastUpdateStatistic)
             ->with('usersNumberchart', $usersNumberchart)
             ->with('usersByCountryChart', $usersByCountryChart)
-            ->with('teachersByCountriesChart', $teachersByCountriesChart);
+            ->with('teachersByCountriesChart', $teachersByCountriesChart)
+            ->with('eventsByCountriesChart', $eventsByCountriesChart);
+            //->with('organizersByCountriesChart', $organizersByCountriesChart);
     }
 
     /***************************************************************************/
@@ -94,7 +100,7 @@ class StatisticsController extends Controller
     
     /***************************************************************************/
     /**
-     * Create a BAR chart showing the number of users by country
+     * Create a BAR chart showing the number of Users by country
      *
      * @return App\Charts
      */
@@ -130,7 +136,7 @@ class StatisticsController extends Controller
     
     /***************************************************************************/
     /**
-     * Create a BAR chart showing the number of users by country
+     * Create a BAR chart showing the number of Teachers by country
      *
      * @return App\Charts
      */
@@ -163,9 +169,56 @@ class StatisticsController extends Controller
         return $ret;
     }
     
+    /***************************************************************************/
+    /**
+     * Create a BAR chart showing the number of Organizers by country
+     *
+     * @return App\Charts
+     */
     
+    public function createOrganizersByCountriesChart(){
     
+        $organizersByCountries = Organizer::
+                        leftJoin('countries', 'organizers.country_id', '=', 'countries.id')
+                        ->select(DB::raw('count(*) as organizer_count, countries.name as country_name'))
+                        ->groupBy('country_id')
+                        ->orderBy('country_name')
+                        ->get();
+        dd($organizersByCountries);
+        $data = collect([]); 
+        $labels = array();
+        foreach ($teachersByCountries as $key => $teachersByCountry) {
+            $data->push($teachersByCountry->teacher_count);
+            $labels[] = $teachersByCountry->country_name;
+        }
+        
+        $ret = new LatestUsers;
+        $ret->labels($labels);
+        $dataset = $ret->dataset('Teachers by Country', 'bar', $data);
+        
+        //https://www.chartjs.org/docs/latest/charts/line.html
+        $dataset->options([
+            'borderColor' => '#2669A0',
+        ]);
     
+        return $ret;
+    }
+    
+    /***************************************************************************/
+    /**
+     * Create a BAR chart showing the number of Events by country
+     *
+     * @return App\Charts
+     */
+    
+    public function createEventsByCountriesChart(){
+        //$eventsByCountries = Event::getActiveEvents();
+        
+        $eventsByCountries = Event::getEvents(null, null, null, null, null, null, null, null, null);
+        dd($eventsByCountries);
+    
+        return $ret;
+    }
     
     
     
