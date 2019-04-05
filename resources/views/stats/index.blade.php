@@ -5,8 +5,8 @@
     {!! $usersNumberchart->script() !!}
     {!! $usersByCountryChart->script() !!}
     {!! $teachersByCountriesChart->script() !!}
+    {!! $eventsByCountriesChart->script() !!}
     
-    $teachersByCountriesChart
 @stop
 
 @section('content')
@@ -115,6 +115,11 @@
         <div class="col-12">
             {!! $teachersByCountriesChart->container() !!}
         </div>
+        <div class="col-12">
+            {!! $eventsByCountriesChart->container() !!}
+        </div>
+        
+        
     </div>
     
     <div class="row mt-1">

@@ -61,7 +61,7 @@ class EventSearchController extends Controller
         $searchStartDate = Event::prepareStartDate($request->input('startDate'));
         $searchEndDate = Event::prepareEndDate($request->input('endDate'));
 
-        $events = Event::getEvents($searchKeywords, $searchCategory, $searchCity, $searchCountry, $searchContinent, $searchTeacher, $searchVenue, $searchStartDate, $searchEndDate, $itemPerPage);
+        $events = Event::getEvents($searchKeywords, $searchCategory, $searchCity, $searchCountry, $searchContinent, $searchTeacher, $searchVenue, $searchStartDate, $searchEndDate, 20);
 
         return view('eventSearch.index', compact('events'))
             ->with('i', (request()->input('page', 1) - 1) * 20)

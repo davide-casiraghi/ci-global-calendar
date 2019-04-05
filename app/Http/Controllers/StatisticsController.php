@@ -37,6 +37,7 @@ class StatisticsController extends Controller
         $teachersByCountriesChart = $this->createTeachersByCountriesChart();
         $eventsByCountriesChart = $this->createEventsByCountriesChart();
         //$organizersByCountriesChart = $this->createOrganizersByCountriesChart();
+        
 
         return view('stats.index')
             ->with('statsDatas', $lastUpdateStatistic)
@@ -184,7 +185,7 @@ class StatisticsController extends Controller
                         ->groupBy('country_id')
                         ->orderBy('country_name')
                         ->get();
-        dd($organizersByCountries);
+        //dd($organizersByCountries);
         $data = collect([]); 
         $labels = array();
         foreach ($teachersByCountries as $key => $teachersByCountry) {
@@ -214,9 +215,30 @@ class StatisticsController extends Controller
     public function createEventsByCountriesChart(){
         //$eventsByCountries = Event::getActiveEvents();
         
-        $eventsByCountries = Event::getEvents(null, null, null, null, null, null, null, null, null, null);
-        dd($eventsByCountries);
-    
+        $activeEvents = Event::getEvents(null, null, null, null, null, null, null, null, null, 10000);
+        $grouped = $activeEvents->groupBy(function ($item, $key) {
+            return $item['sc_country_name'];
+        });
+        $eventsByCountries = $grouped->map(function ($item, $key) {
+            return collect($item)->count();
+        });
+
+        $data = collect([]); 
+        $labels = array();
+        foreach ($eventsByCountries as $key => $eventsByCountry) {
+            $data->push($eventsByCountry);
+            $labels[] = $key;
+        }
+        
+        $ret = new LatestUsers;
+        $ret->labels($labels);
+        $dataset = $ret->dataset('Events by Country', 'bar', $data);
+        
+        //https://www.chartjs.org/docs/latest/charts/line.html
+        $dataset->options([
+            'borderColor' => '#2669A0',
+        ]);
+
         return $ret;
     }
     
