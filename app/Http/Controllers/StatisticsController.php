@@ -214,7 +214,7 @@ class StatisticsController extends Controller
     public function createEventsByCountriesChart(){
         //$eventsByCountries = Event::getActiveEvents();
         
-        $eventsByCountries = Event::getEvents(null, null, null, null, null, null, null, null, null);
+        $eventsByCountries = Event::getEvents(null, null, null, null, null, null, null, null, null, null);
         dd($eventsByCountries);
     
         return $ret;

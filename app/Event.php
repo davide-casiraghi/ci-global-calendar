@@ -139,7 +139,7 @@ class Event extends Model
      * @param  int  event id
      * @return \App\Event the active events collection
      */
-    public static function getEvents($keywords, $category, $city, $country, $continent, $teacher, $venue, $startDate, $endDate)
+    public static function getEvents($keywords, $category, $city, $country, $continent, $teacher, $venue, $startDate, $endDate, $itemPerPage)
     {
         // Sub-Query Joins - https://laravel.com/docs/5.7/queries
         $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($startDate, $endDate);
@@ -174,7 +174,7 @@ class Event extends Model
                         $join->on('events.id', '=', 'event_repetitions.event_id');
                     })
                     ->orderBy('event_repetitions.start_repeat', 'asc')
-                    ->paginate(20);
+                    ->paginate($itemPerPage);
         //dd(DB::getQueryLog());
         }
         // If no filter selected retrieve all the events
@@ -187,7 +187,7 @@ class Event extends Model
                             $join->on('events.id', '=', 'event_repetitions.event_id');
                         })
                         ->orderBy('event_repetitions.start_repeat', 'asc')
-                        ->paginate(20);
+                        ->paginate($itemPerPage);
 
             // It works, but I don't use it now to develop
                 /*$cacheExpireMinutes = 30;
