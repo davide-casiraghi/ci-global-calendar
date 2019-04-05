@@ -30,30 +30,8 @@ class StatisticsController extends Controller
     {
         $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
 
-        /********************************************************/
-        /* USERS NUMBER */
-            $lastIDUpdatedStats = \DB::table('statistics')->max('id');
+        $usersNumberchart = $this->createUsersNumberchart();
         
-            $data = collect([]); // Could also be an array
-            $labels = array();
-            for ($days_backwards = 12; $days_backwards >= 0; $days_backwards--) {
-                $dayStat = Statistic::find($lastIDUpdatedStats-$days_backwards);
-                $data->push($dayStat->registered_users_number);
-                $labels[] = Carbon::parse($dayStat->created_at)->format('d/m');
-            }
-            
-            $usersNumberchart = new LatestUsers;
-            $usersNumberchart->labels($labels);
-            $usersNumberchartDataset = $usersNumberchart->dataset('Users number', 'line', $data);
-            /*$chart->labels(['One', 'Two', 'Three', 'Four']);
-            $chart->dataset('My dataset', 'line', [1, 2, 3, 7]);
-            $chart->dataset('My dataset 2', 'line', [4, 3, 2, 1]);*/
-        
-        
-            //https://www.chartjs.org/docs/latest/charts/line.html
-            $usersNumberchartDataset->options([
-                'borderColor' => '#2669A0',
-            ]);
 
         /********************************************************/
         /* USERS BY COUNTRY */
@@ -132,7 +110,32 @@ class StatisticsController extends Controller
     /***************************************************************************/
 
     public function createUsersNumberchart(){
+        /********************************************************/
+        /* USERS NUMBER */
+            $lastIDUpdatedStats = \DB::table('statistics')->max('id');
         
+            $data = collect([]); // Could also be an array
+            $labels = array();
+            for ($days_backwards = 12; $days_backwards >= 0; $days_backwards--) {
+                $dayStat = Statistic::find($lastIDUpdatedStats-$days_backwards);
+                $data->push($dayStat->registered_users_number);
+                $labels[] = Carbon::parse($dayStat->created_at)->format('d/m');
+            }
+            
+            $ret = new LatestUsers;
+            $ret->labels($labels);
+            $dataset = $ret->dataset('Users number', 'line', $data);
+            /*$chart->labels(['One', 'Two', 'Three', 'Four']);
+            $chart->dataset('My dataset', 'line', [1, 2, 3, 7]);
+            $chart->dataset('My dataset 2', 'line', [4, 3, 2, 1]);*/
+        
+        
+            //https://www.chartjs.org/docs/latest/charts/line.html
+            $dataset->options([
+                'borderColor' => '#2669A0',
+            ]);
+            
+            return $ret;
     }
 
 }
