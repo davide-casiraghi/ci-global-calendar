@@ -106,16 +106,16 @@
             </div>
         </div>
         
-        <div class="col-12">
+        <div class="col-12 mt-2">
             {!! $usersNumberchart->container() !!}
         </div>
-        <div class="col-12">
+        <div class="col-12 mt-2">
             {!! $usersByCountryChart->container() !!}
         </div>
-        <div class="col-12">
+        <div class="col-12 mt-2">
             {!! $teachersByCountriesChart->container() !!}
         </div>
-        <div class="col-12">
+        <div class="col-12 mt-2">
             {!! $eventsByCountriesChart->container() !!}
         </div>
         
