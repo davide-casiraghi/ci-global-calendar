@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Statistic;
+use App\Users;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 use App\Charts\LatestUsers;
 
@@ -25,13 +27,29 @@ class StatisticsController extends Controller
     public function index(Request $request)
     {
         $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
-    
+
+
+        $lastIDUpdatedStats = \DB::table('statistics')->max('id');
+        
+        $data = collect([]); // Could also be an array
+        $labels = array();
+        for ($days_backwards = 7; $days_backwards >= 0; $days_backwards--) {
+            $dayStat = Statistic::find($lastIDUpdatedStats-$days_backwards);
+            $data->push($dayStat->active_events_number);
+            $labels[] = Carbon::parse($dayStat->created_at)->format('d/m');
+        }
+        
+        
+
 
         $chart = new LatestUsers;
-        $chart->labels(['One', 'Two', 'Three', 'Four']);
+        
+        /*$chart->labels(['One', 'Two', 'Three', 'Four']);
         $chart->dataset('My dataset', 'line', [1, 2, 3, 7]);
-        $chart->dataset('My dataset 2', 'line', [4, 3, 2, 1]);
+        $chart->dataset('My dataset 2', 'line', [4, 3, 2, 1]);*/
 
+        $chart->labels($labels);
+        $chart->dataset('Users number', 'line', $data);
 
         return view('stats.index')
             ->with('statsDatas', $lastUpdateStatistic)
