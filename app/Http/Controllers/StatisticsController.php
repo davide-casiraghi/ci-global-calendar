@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Statistic;
 use App\User;
+use App\Teacher;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -43,14 +44,14 @@ class StatisticsController extends Controller
             
             $usersNumberchart = new LatestUsers;
             $usersNumberchart->labels($labels);
-            $dataset = $usersNumberchart->dataset('Users number', 'line', $data);
+            $usersNumberchartDataset = $usersNumberchart->dataset('Users number', 'line', $data);
             /*$chart->labels(['One', 'Two', 'Three', 'Four']);
             $chart->dataset('My dataset', 'line', [1, 2, 3, 7]);
             $chart->dataset('My dataset 2', 'line', [4, 3, 2, 1]);*/
         
         
             //https://www.chartjs.org/docs/latest/charts/line.html
-            $dataset->options([
+            $usersNumberchartDataset->options([
                 'borderColor' => '#2669A0',
             ]);
 
@@ -61,9 +62,8 @@ class StatisticsController extends Controller
                             ->where('status', '<>', 0)
                             ->groupBy('country_id')
                             ->get();
-            //dd($usersByCountry);
             
-            $data = collect([]); // Could also be an array
+            $data = collect([]); 
             $labels = array();
             foreach ($usersByCountry as $key => $userByCountry) {
                 $data->push($userByCountry->user_count);
@@ -78,6 +78,29 @@ class StatisticsController extends Controller
             $usersByCountryChartDataset->options([
                 'borderColor' => '#2669A0',
             ]);
+        
+        /* TEACHERS BY COUNTRY */
+            $teachersByCountries = Teacher::
+                            leftJoin('countries', 'teachers.country_id', '=', 'countries.id')
+                            ->select(DB::raw('count(*) as teacher_count, countries.name as country_name'))
+                            ->groupBy('country_id')
+                            ->get();
+            
+            $data = collect([]); 
+            $labels = array();
+            foreach ($teachersByCountries as $key => $teachersByCountry) {
+                $data->push($teachersByCountry->user_count);
+                $labels[] = $teachersByCountry->country_name;
+            }
+            
+            $teachersByCountriesChart = new LatestUsers;
+            $teachersByCountriesChart->labels($labels);
+            $teachersByCountriesDataset = $teachersByCountriesChart->dataset('Users by Country', 'bar', $data);
+            
+            //https://www.chartjs.org/docs/latest/charts/line.html
+            $teachersByCountriesDataset->options([
+                'borderColor' => '#2669A0',
+            ]);
             
             
 
@@ -85,7 +108,8 @@ class StatisticsController extends Controller
         return view('stats.index')
             ->with('statsDatas', $lastUpdateStatistic)
             ->with('usersNumberchart', $usersNumberchart)
-            ->with('usersByCountryChart', $usersByCountryChart);
+            ->with('usersByCountryChart', $usersByCountryChart)
+            ->with('teachersByCountriesChart', $teachersByCountriesChart);
     }
 
     /***************************************************************************/
