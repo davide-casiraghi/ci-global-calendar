@@ -50,8 +50,7 @@ class StatisticsController extends Controller
         $chart->labels($labels);
         $dataset = $chart->dataset('Users number', 'line', $data);
         
-        //$dataset->backgroundColor(collect(['#7158e2','#3ae374', '#ff3838']));
-        //$dataset->color(collect(['#7d5fff','#32ff7e', '#ff4d4d']));
+        //https://www.chartjs.org/docs/latest/charts/line.html
         $dataset->options([
             'borderColor' => '#2669A0',
         ]);
