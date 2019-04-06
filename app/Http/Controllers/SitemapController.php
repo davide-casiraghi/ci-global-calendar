@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Event;
 use App\Teacher;
+use App\MenuItem;
 use App\EventRepetition;
 use Illuminate\Support\Facades\DB;
 
@@ -22,14 +23,14 @@ class SitemapController extends Controller
      */
     public function index()
     {
-        $post = Post::orderBy('updated_at', 'desc')->first();
+        /*$post = Post::orderBy('updated_at', 'desc')->first();
         $event = Event::orderBy('updated_at', 'desc')->first();
-        $teacher = Teacher::orderBy('updated_at', 'desc')->first();
-
+        $teacher = Teacher::orderBy('updated_at', 'desc')->first();*/
+        
+        $menuItems = MenuItem::where('access',1)->get();
+        
         return response()->view('sitemap.index', [
-          'post' => $post,
-          'event' => $event,
-          'teacher' => $teacher,
+          'menuItems' => $menuItems,
       ])->header('Content-Type', 'text/xml');
     }
 
@@ -71,15 +72,16 @@ class SitemapController extends Controller
         $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
 
         // Retrieve the events
-        $events = DB::table('events')
+        /*$events = DB::table('events')
                 ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
                     $join->on('events.id', '=', 'event_repetitions.event_id');
                 })
                 ->orderBy('event_repetitions.start_repeat', 'asc')
-                ->get();
-
+                ->get();*/
+        $activeEvents = Event::getEvents(null, null, null, null, null, null, null, null, null, 10000);
+        
         return response()->view('sitemap.events', [
-            'events' => $events,
+            'events' => $activeEvents,
         ])->header('Content-Type', 'text/xml');
     }
 
