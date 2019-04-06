@@ -31,7 +31,10 @@ class StatisticsController extends Controller
     {
         $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
 
-        $usersNumberchart = $this->createUsersNumberchart(12);
+        $registeredUsersChart = $this->createUsersNumberchart(12);
+        
+        
+        
         $usersByCountryChart = $this->createUsersByCountryChart();
         $teachersByCountriesChart = $this->createTeachersByCountriesChart();
         $eventsByCountriesChart = $this->createEventsByCountriesChart();
@@ -39,7 +42,7 @@ class StatisticsController extends Controller
 
         return view('stats.index')
             ->with('statsDatas', $lastUpdateStatistic)
-            ->with('usersNumberchart', $usersNumberchart)
+            ->with('registeredUsersChart', $registeredUsersChart)
             ->with('usersByCountryChart', $usersByCountryChart)
             ->with('teachersByCountriesChart', $teachersByCountriesChart)
             ->with('eventsByCountriesChart', $eventsByCountriesChart);

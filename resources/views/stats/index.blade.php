@@ -2,7 +2,7 @@
 
 @section('javascript')
     @parent
-    {!! $usersNumberchart->script() !!}
+    {!! $registeredUsersChart->script() !!}
     {!! $usersByCountryChart->script() !!}
     {!! $teachersByCountriesChart->script() !!}
     {!! $eventsByCountriesChart->script() !!}
@@ -107,7 +107,7 @@
         </div>
         
         <div class="col-12 mt-2">
-            {!! $usersNumberchart->container() !!}
+            {!! $registeredUsersChart->container() !!}
         </div>
         <div class="col-12 mt-2">
             {!! $usersByCountryChart->container() !!}
