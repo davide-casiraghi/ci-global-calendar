@@ -30,9 +30,14 @@ class StatisticsController extends Controller
     public function index(Request $request)
     {
         $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
-
-        $registeredUsersChart = $this->createRegisteredUsersChart(12);
         
+        
+        
+        
+        $registeredUsersChart = $this->createLinesChart(12, 'registered_users_number');
+        $organizerProfilesChart = $this->createLinesChart(12, 'organizers_number');
+        $teacherProfilesChart = $this->createLinesChart(12, 'teachers_number');
+        $activeEventsProfilesChart = $this->createLinesChart(12, 'active_events_number');
         
         
         $usersByCountryChart = $this->createUsersByCountryChart();
@@ -43,6 +48,9 @@ class StatisticsController extends Controller
         return view('stats.index')
             ->with('statsDatas', $lastUpdateStatistic)
             ->with('registeredUsersChart', $registeredUsersChart)
+            ->with('organizerProfilesChart', $organizerProfilesChart)
+            ->with('teacherProfilesChart', $teacherProfilesChart)
+            ->with('activeEventsProfilesChart', $activeEventsProfilesChart)
             ->with('usersByCountryChart', $usersByCountryChart)
             ->with('teachersByCountriesChart', $teachersByCountriesChart)
             ->with('eventsByCountriesChart', $eventsByCountriesChart);
@@ -71,21 +79,26 @@ class StatisticsController extends Controller
      *
      * @return App\Charts
      */
-    public function createRegisteredUsersChart($daysRange)
+    public function createLinesChart($daysRange, $variableToRepresent)
     {
         $lastIDUpdatedStats = \DB::table('statistics')->max('id');
+        
+        /* Registered Users */
+            $data = collect([]); 
+            $labels = [];
+            for ($days_backwards = $daysRange; $days_backwards >= 0; $days_backwards--) {
+                $dayStat = Statistic::find($lastIDUpdatedStats - $days_backwards);
+                $data->push($dayStat->$variableToRepresent);
+                $labels[] = Carbon::parse($dayStat->created_at)->format('d/m');
+            }
 
-        $data = collect([]); // Could also be an array
-        $labels = [];
-        for ($days_backwards = $daysRange; $days_backwards >= 0; $days_backwards--) {
-            $dayStat = Statistic::find($lastIDUpdatedStats - $days_backwards);
-            $data->push($dayStat->registered_users_number);
-            $labels[] = Carbon::parse($dayStat->created_at)->format('d/m');
-        }
-
-        $ret = new LatestUsers;
-        $ret->labels($labels);
-        $dataset = $ret->dataset('Registered Users', 'line', $data);
+            $ret = new LatestUsers;
+            $ret->labels($labels);
+            $dataset = $ret->dataset('Registered Users', 'line', $data);
+        
+        
+        
+        
         /*$chart->labels(['One', 'Two', 'Three', 'Four']);
         $chart->dataset('My dataset', 'line', [1, 2, 3, 7]);
         $chart->dataset('My dataset 2', 'line', [4, 3, 2, 1]);*/
