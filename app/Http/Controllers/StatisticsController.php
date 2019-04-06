@@ -79,29 +79,44 @@ class StatisticsController extends Controller
         $lastIDUpdatedStats = \DB::table('statistics')->max('id');
         
         /* Registered users*/
-        $data = collect([]); 
+        $dataRegisteredUsers = collect([]); 
+        $dataOrganizerProfiles = collect([]); 
+        $dataTeacherProfiles = collect([]); 
+        $dataActiveEvents = collect([]); 
+        
         $labels = [];
         for ($days_backwards = $daysRange; $days_backwards >= 0; $days_backwards--) {
             $dayStat = Statistic::find($lastIDUpdatedStats - $days_backwards);
-            $data->push($dayStat->registered_users_number);
+            $dataRegisteredUsers->push($dayStat->registered_users_number);
+            $dataOrganizerProfiles->push($dayStat->organizers_number);
+            $dataTeacherProfiles->push($dayStat->teachers_number);
+            $dataActiveEvents->push($dayStat->active_events_number);
             $labels[] = Carbon::parse($dayStat->created_at)->format('d/m');
         }
 
         $ret = new LatestUsers;
         
         $ret->labels($labels);
-        $dataset = $ret->dataset('Registered Users', 'line', $data)
+        $dataset = $ret->dataset('Registered Users', 'line', $dataRegisteredUsers)
             ->options([
                 'borderColor' => '#2669A0',
             ]);
         
-        
-        
-        
-        $ret->dataset('Organizer Profiles', 'line', [4, 3, 2, 1])
+        $ret->dataset('Organizer Profiles', 'line', $dataOrganizerProfiles)
             ->options([
                 'borderColor' => '#325213',
             ]);
+            
+        $ret->dataset('Teacher Profiles', 'line', $dataTeacherProfiles)
+            ->options([
+                'borderColor' => '#FF0000',
+            ]);
+            
+        $ret->dataset('Active Events', 'line', $dataActiveEvents)
+            ->options([
+                'borderColor' => '#447700',
+            ]);    
+            
         /*$chart->labels(['One', 'Two', 'Three', 'Four']);
         $chart->dataset('My dataset', 'line', [1, 2, 3, 7]);
         $chart->dataset('My dataset 2', 'line', [4, 3, 2, 1]);*/
