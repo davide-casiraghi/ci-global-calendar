@@ -144,7 +144,7 @@ class Event extends Model
         if (! $startDate) {
             $startDate = Carbon::now()->format('Y-m-d');
         }
-        
+
         // Sub-Query Joins - https://laravel.com/docs/5.7/queries
         $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($startDate, $endDate);
 
@@ -189,7 +189,7 @@ class Event extends Model
                         })
                         ->orderBy('event_repetitions.start_repeat', 'asc')
                         ->paginate($itemPerPage);
-                        
+
             // It works, but I don't use it now to develop
                 /*$cacheExpireMinutes = 15;
                 $events = Cache::remember('all_events', $cacheExpireTime, function () {
