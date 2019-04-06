@@ -221,7 +221,7 @@ class StatisticsController extends Controller
             return collect($item)->count();
         });
         $eventsByCountries = $eventsByCountries->sortKeys();
-        dd($eventsByCountries);
+        
         $data = collect([]);
         $labels = [];
         foreach ($eventsByCountries as $key => $eventsByCountry) {
