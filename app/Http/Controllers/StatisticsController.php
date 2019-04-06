@@ -31,7 +31,7 @@ class StatisticsController extends Controller
     {
         $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
 
-        $registeredUsersChart = $this->createUsersNumberchart(12);
+        $registeredUsersChart = $this->createRegisteredUsersChart(12);
         
         
         
@@ -71,7 +71,7 @@ class StatisticsController extends Controller
      *
      * @return App\Charts
      */
-    public function createUsersNumberchart($daysRange)
+    public function createRegisteredUsersChart($daysRange)
     {
         $lastIDUpdatedStats = \DB::table('statistics')->max('id');
 
