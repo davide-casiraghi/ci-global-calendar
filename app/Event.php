@@ -191,7 +191,7 @@ class Event extends Model
                         ->paginate($itemPerPage);
                         
             // It works, but I don't use it now to develop
-                /*$cacheExpireMinutes = 30;
+                /*$cacheExpireMinutes = 15;
                 $events = Cache::remember('all_events', $cacheExpireTime, function () {
                     return DB::table('events')->latest()->paginate(20);
                 });*/
