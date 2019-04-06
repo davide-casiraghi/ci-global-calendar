@@ -30,12 +30,11 @@ class StatisticsController extends Controller
     public function index(Request $request)
     {
         $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
-
+        
+                
         $registeredUsersChart = $this->createLinesChart(12);
-        //$organizerProfilesChart = $this->createOrganizerProfilesChart(12, $lastIDUpdatedStats);
-        //$teacherProfilesChart = $this->createTeacherProfilesChart(12, $lastIDUpdatedStats);
-        //$activeEventsProfilesChart = $this->createActiveEventsProfilesChart(12, $lastIDUpdatedStats);
-
+        
+        
         $usersByCountryChart = $this->createUsersByCountryChart();
         $teachersByCountriesChart = $this->createTeachersByCountriesChart();
         $eventsByCountriesChart = $this->createEventsByCountriesChart();
@@ -75,13 +74,13 @@ class StatisticsController extends Controller
     public function createLinesChart($daysRange)
     {
         $lastIDUpdatedStats = \DB::table('statistics')->max('id');
-
+        
         /* Registered users*/
-        $dataRegisteredUsers = collect([]);
-        $dataOrganizerProfiles = collect([]);
-        $dataTeacherProfiles = collect([]);
-        $dataActiveEvents = collect([]);
-
+        $dataRegisteredUsers = collect([]); 
+        $dataOrganizerProfiles = collect([]); 
+        $dataTeacherProfiles = collect([]); 
+        $dataActiveEvents = collect([]); 
+        
         $labels = [];
         for ($days_backwards = $daysRange; $days_backwards >= 0; $days_backwards--) {
             $dayStat = Statistic::find($lastIDUpdatedStats - $days_backwards);
@@ -93,33 +92,34 @@ class StatisticsController extends Controller
         }
 
         $ret = new LatestUsers;
-
+        
         $ret->labels($labels);
         $dataset = $ret->dataset('Registered Users', 'line', $dataRegisteredUsers)
             ->options([
                 'borderColor' => '#2669A0',
             ]);
-
+        
         $ret->dataset('Organizer Profiles', 'line', $dataOrganizerProfiles)
             ->options([
                 'borderColor' => '#a12d97',
             ]);
-
+            
         $ret->dataset('Teacher Profiles', 'line', $dataTeacherProfiles)
             ->options([
                 'borderColor' => '#e8af17',
             ]);
-
+            
         $ret->dataset('Active Events', 'line', $dataActiveEvents)
             ->options([
                 'borderColor' => '#297446',
-            ]);
-
+            ]);    
+            
         /*$chart->labels(['One', 'Two', 'Three', 'Four']);
         $chart->dataset('My dataset', 'line', [1, 2, 3, 7]);
         $chart->dataset('My dataset 2', 'line', [4, 3, 2, 1]);*/
 
         //https://www.chartjs.org/docs/latest/charts/line.html
+        
 
         return $ret;
     }
