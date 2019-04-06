@@ -31,13 +31,11 @@ class StatisticsController extends Controller
     {
         $lastUpdateStatistic = Statistic::find(\DB::table('statistics')->max('id'));
         
-        
-        
-        
-        $registeredUsersChart = $this->createLinesChart(12, 'registered_users_number');
-        $organizerProfilesChart = $this->createLinesChart(12, 'organizers_number');
-        $teacherProfilesChart = $this->createLinesChart(12, 'teachers_number');
-        $activeEventsProfilesChart = $this->createLinesChart(12, 'active_events_number');
+                
+        $registeredUsersChart = $this->createLinesChart(12);
+        //$organizerProfilesChart = $this->createOrganizerProfilesChart(12, $lastIDUpdatedStats);
+        //$teacherProfilesChart = $this->createTeacherProfilesChart(12, $lastIDUpdatedStats);
+        //$activeEventsProfilesChart = $this->createActiveEventsProfilesChart(12, $lastIDUpdatedStats);
         
         
         $usersByCountryChart = $this->createUsersByCountryChart();
@@ -48,9 +46,6 @@ class StatisticsController extends Controller
         return view('stats.index')
             ->with('statsDatas', $lastUpdateStatistic)
             ->with('registeredUsersChart', $registeredUsersChart)
-            ->with('organizerProfilesChart', $organizerProfilesChart)
-            ->with('teacherProfilesChart', $teacherProfilesChart)
-            ->with('activeEventsProfilesChart', $activeEventsProfilesChart)
             ->with('usersByCountryChart', $usersByCountryChart)
             ->with('teachersByCountriesChart', $teachersByCountriesChart)
             ->with('eventsByCountriesChart', $eventsByCountriesChart);
@@ -79,34 +74,40 @@ class StatisticsController extends Controller
      *
      * @return App\Charts
      */
-    public function createLinesChart($daysRange, $variableToRepresent)
+    public function createLinesChart($daysRange)
     {
         $lastIDUpdatedStats = \DB::table('statistics')->max('id');
         
-        /* Registered Users */
-            $data = collect([]); 
-            $labels = [];
-            for ($days_backwards = $daysRange; $days_backwards >= 0; $days_backwards--) {
-                $dayStat = Statistic::find($lastIDUpdatedStats - $days_backwards);
-                $data->push($dayStat->$variableToRepresent);
-                $labels[] = Carbon::parse($dayStat->created_at)->format('d/m');
-            }
+        /* Registered users*/
+        $data = collect([]); 
+        $labels = [];
+        for ($days_backwards = $daysRange; $days_backwards >= 0; $days_backwards--) {
+            $dayStat = Statistic::find($lastIDUpdatedStats - $days_backwards);
+            $data->push($dayStat->registered_users_number);
+            $labels[] = Carbon::parse($dayStat->created_at)->format('d/m');
+        }
 
-            $ret = new LatestUsers;
-            $ret->labels($labels);
-            $dataset = $ret->dataset('Registered Users', 'line', $data);
+        $ret = new LatestUsers;
+        
+        $ret->labels($labels);
+        $dataset = $ret->dataset('Registered Users', 'line', $data)
+            ->options([
+                'borderColor' => '#2669A0',
+            ]);
         
         
         
         
+        $ret->dataset('Organizer Profiles', 'line', [4, 3, 2, 1])
+            ->options([
+                'borderColor' => '#325213',
+            ]);
         /*$chart->labels(['One', 'Two', 'Three', 'Four']);
         $chart->dataset('My dataset', 'line', [1, 2, 3, 7]);
         $chart->dataset('My dataset 2', 'line', [4, 3, 2, 1]);*/
 
         //https://www.chartjs.org/docs/latest/charts/line.html
-        $dataset->options([
-            'borderColor' => '#2669A0',
-        ]);
+        
 
         return $ret;
     }
