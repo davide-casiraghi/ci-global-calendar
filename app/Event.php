@@ -141,6 +141,10 @@ class Event extends Model
      */
     public static function getEvents($keywords, $category, $city, $country, $continent, $teacher, $venue, $startDate, $endDate, $itemPerPage)
     {
+        if (! $startDate) {
+            $startDate = Carbon::now()->format('Y-m-d');
+        }
+        
         // Sub-Query Joins - https://laravel.com/docs/5.7/queries
         $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($startDate, $endDate);
 
@@ -179,18 +183,13 @@ class Event extends Model
         }
         // If no filter selected retrieve all the events
         else {
-            if (! $startDate) {
-                $startDate = Carbon::now()->format('Y-m-d');
-            }
-
             $ret = self::
-                         where('event_repetitions.start_repeat', '>=', $startDate)
-                        ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) {
+                        joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) {
                             $join->on('events.id', '=', 'event_repetitions.event_id');
                         })
                         ->orderBy('event_repetitions.start_repeat', 'asc')
                         ->paginate($itemPerPage);
-
+                        
             // It works, but I don't use it now to develop
                 /*$cacheExpireMinutes = 30;
                 $events = Cache::remember('all_events', $cacheExpireTime, function () {

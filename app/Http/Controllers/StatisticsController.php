@@ -213,6 +213,7 @@ class StatisticsController extends Controller
         //$eventsByCountries = Event::getActiveEvents();
 
         $activeEvents = Event::getEvents(null, null, null, null, null, null, null, null, null, 10000);
+        
         $grouped = $activeEvents->groupBy(function ($item, $key) {
             return $item['sc_country_name'];
         });
@@ -220,7 +221,7 @@ class StatisticsController extends Controller
             return collect($item)->count();
         });
         $eventsByCountries = $eventsByCountries->sortKeys();
-
+        dd($eventsByCountries);
         $data = collect([]);
         $labels = [];
         foreach ($eventsByCountries as $key => $eventsByCountry) {
