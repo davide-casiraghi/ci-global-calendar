@@ -82,7 +82,7 @@ class StatisticsController extends Controller
 
         $ret = new LatestUsers;
         $ret->labels($labels);
-        $dataset = $ret->dataset('Users number', 'line', $data);
+        $dataset = $ret->dataset('Registered Users', 'line', $data);
         /*$chart->labels(['One', 'Two', 'Three', 'Four']);
         $chart->dataset('My dataset', 'line', [1, 2, 3, 7]);
         $chart->dataset('My dataset 2', 'line', [4, 3, 2, 1]);*/
