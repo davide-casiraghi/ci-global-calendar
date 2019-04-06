@@ -26,9 +26,9 @@ class SitemapController extends Controller
         /*$post = Post::orderBy('updated_at', 'desc')->first();
         $event = Event::orderBy('updated_at', 'desc')->first();
         $teacher = Teacher::orderBy('updated_at', 'desc')->first();*/
-        
-        $menuItems = MenuItem::where('access',1)->get();
-        
+
+        $menuItems = MenuItem::where('access', 1)->get();
+
         return response()->view('sitemap.index', [
           'menuItems' => $menuItems,
       ])->header('Content-Type', 'text/xml');
@@ -79,7 +79,7 @@ class SitemapController extends Controller
                 ->orderBy('event_repetitions.start_repeat', 'asc')
                 ->get();*/
         $activeEvents = Event::getEvents(null, null, null, null, null, null, null, null, null, 10000);
-        
+
         return response()->view('sitemap.events', [
             'events' => $activeEvents,
         ])->header('Content-Type', 'text/xml');
