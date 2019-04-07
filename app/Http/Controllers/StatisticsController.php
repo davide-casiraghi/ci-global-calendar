@@ -245,8 +245,8 @@ class StatisticsController extends Controller
     public function createEventsByCountriesChart()
     {
         //$eventsByCountries = Event::getActiveEvents();
-        
-        $filters['keywords'] = $filters['category'] = $filters['country'] = $filters['city'] = $filters['continent'] =  $filters['teacher'] = $filters['venue'] = $filters['startDate'] = $filters['endDate'] = null; 
+
+        $filters['keywords'] = $filters['category'] = $filters['country'] = $filters['city'] = $filters['continent'] = $filters['teacher'] = $filters['venue'] = $filters['startDate'] = $filters['endDate'] = null;
         $activeEvents = Event::getEvents($filters, 10000);
 
         $grouped = $activeEvents->groupBy(function ($item, $key) {

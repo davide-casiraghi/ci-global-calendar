@@ -139,7 +139,7 @@ class Event extends Model
      * @param  int  event id
      * @return \App\Event the active events collection
      */
-     //$keywords, $category, $city, $country, $continent, $teacher, $venue, $startDate, $endDate,
+    //$keywords, $category, $city, $country, $continent, $teacher, $venue, $startDate, $endDate,
     public static function getEvents($filters, $itemPerPage)
     {
         if (! $filters['startDate']) {
@@ -151,7 +151,7 @@ class Event extends Model
 
         // Retrieve the events that correspond to the selected filters
         if ($filters['keywords'] || $filters['category'] || $filters['city'] || $filters['country'] || $filters['continent'] || $filters['teacher'] || $filters['venue'] || $filters['endDate']) {
-            
+
             //DB::enableQueryLog();
             $ret = self::
                     when($filters['keywords'], function ($query, $keywords) {
