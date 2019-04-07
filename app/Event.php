@@ -142,7 +142,7 @@ class Event extends Model
      //$keywords, $category, $city, $country, $continent, $teacher, $venue, $startDate, $endDate,
     public static function getEvents($filters, $itemPerPage)
     {
-        if (! $startDate) {
+        if (! $filters['startDate']) {
             $filters['startDate'] = Carbon::now()->format('Y-m-d');
         }
 
@@ -154,28 +154,28 @@ class Event extends Model
             
             //DB::enableQueryLog();
             $ret = self::
-                    when($filters['keywords'], function ($query, $filters['keywords']) {
-                        return $query->where('title', 'like', '%'.$filters['keywords'].'%');
+                    when($filters['keywords'], function ($query, $keywords) {
+                        return $query->where('title', 'like', '%'.$keywords.'%');
                     })
-                    ->when($filters['category'], function ($query, $filters['category']) {
-                        return $query->where('category_id', '=', $filters['category']);
+                    ->when($filters['category'], function ($query, $category) {
+                        return $query->where('category_id', '=', $category);
                     })
-                    ->when($filters['teacher'], function ($query, $filters['teacher']) {
-                        return $query->whereRaw('json_contains(sc_teachers_id, \'["'.$filters['teacher'].'"]\')');
+                    ->when($filters['teacher'], function ($query, $teacher) {
+                        return $query->whereRaw('json_contains(sc_teachers_id, \'["'.$teacher.'"]\')');
                     })
-                    ->when($filters['country'], function ($query, $filters['country']) {
-                        return $query->where('sc_country_id', '=', $filters['country']);
+                    ->when($filters['country'], function ($query, $country) {
+                        return $query->where('sc_country_id', '=', $country);
                     })
-                    ->when($filters['continent'], function ($query, $filters['continent']) {
-                        return $query->where('sc_continent_id', '=', $filters['continent']);
+                    ->when($filters['continent'], function ($query, $continent) {
+                        return $query->where('sc_continent_id', '=', $continent);
                     })
-                    ->when($filters['city'], function ($query, $filters['city']) {
-                        return $query->where('sc_city_name', 'like', '%'.$filters['city'].'%');
+                    ->when($filters['city'], function ($query, $city) {
+                        return $query->where('sc_city_name', 'like', '%'.$city.'%');
                     })
-                    ->when($filters['venue'], function ($query, $filters['venue']) {
-                        return $query->where('sc_venue_name', 'like', '%'.$filters['venue'].'%');
+                    ->when($filters['venue'], function ($query, $venue) {
+                        return $query->where('sc_venue_name', 'like', '%'.$venue.'%');
                     })
-                    ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($filters['startDate'],$filters['endDate']) {
+                    ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) {
                         $join->on('events.id', '=', 'event_repetitions.event_id');
                     })
                     ->orderBy('event_repetitions.start_repeat', 'asc')
