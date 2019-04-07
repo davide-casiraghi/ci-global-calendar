@@ -78,7 +78,7 @@ class SitemapController extends Controller
                 })
                 ->orderBy('event_repetitions.start_repeat', 'asc')
                 ->get();*/
-        $activeEvents = Event::getEvents(null, null, null, null, null, null, null, null, null, 10000);
+        $activeEvents = Event::getEvents(null, 10000);
 
         return response()->view('sitemap.events', [
             'events' => $activeEvents,

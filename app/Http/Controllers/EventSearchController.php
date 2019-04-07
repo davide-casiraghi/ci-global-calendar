@@ -164,8 +164,8 @@ class EventSearchController extends Controller
     {
         $country = Country::where('code', $code)->first();
 
-        //$events = Event::where('sc_country_id', $country->id)->get();
-        $events = Event::getEvents(null, null, null, $country->id, null, null, null, null, null);
+        $filters['country'] = $country->id;
+        $events = Event::getEvents($filters, null);
 
         $cacheExpireTime = 900; // Set the duration time of the cache (15 min - 900sec)
         $eventCategories = Cache::remember('categories', $cacheExpireTime, function () {
