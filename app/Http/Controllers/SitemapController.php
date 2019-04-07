@@ -78,8 +78,8 @@ class SitemapController extends Controller
                 })
                 ->orderBy('event_repetitions.start_repeat', 'asc')
                 ->get();*/
-        
-        $filters['keywords'] = $filters['category'] = $filters['country'] = $filters['city'] = $filters['continent'] =  $filters['teacher'] = $filters['venue'] = $filters['startDate'] = $filters['endDate'] = null;
+
+        $filters['keywords'] = $filters['category'] = $filters['country'] = $filters['city'] = $filters['continent'] = $filters['teacher'] = $filters['venue'] = $filters['startDate'] = $filters['endDate'] = null;
         $activeEvents = Event::getEvents($filters, 10000);
 
         return response()->view('sitemap.events', [
