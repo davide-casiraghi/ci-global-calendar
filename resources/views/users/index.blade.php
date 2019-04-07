@@ -123,7 +123,10 @@
             @endforeach 
         </div>
         
-        {!! $users->links() !!}
+        {!! $users->appends([
+            'country_id' => $searchCountry,
+            'keywords' => $searchKeywords,
+        ])->links() !!}
     </div>
 
 @endsection
