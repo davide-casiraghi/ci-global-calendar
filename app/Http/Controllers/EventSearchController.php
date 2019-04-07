@@ -57,7 +57,6 @@ class EventSearchController extends Controller
         $filters['continent'] = $request->input('continent_id');
         $filters['teacher'] = $request->input('teacher_id');
         $filters['venue'] = $request->input('venue_name');
-
         $filters['startDate'] = Event::prepareStartDate($request->input('startDate'));
         $filters['endDate'] = Event::prepareEndDate($request->input('endDate'));
 
@@ -164,7 +163,7 @@ class EventSearchController extends Controller
     {
         $country = Country::where('code', $code)->first();
         
-        //$filters = [];
+        $filters['keywords'] = $filters['category'] = $filters['city'] = $filters['continent'] =  $filters['teacher'] = $filters['venue'] = $filters['startDate'] = $filters['endDate'] = null;
         $filters['country'] = $country->id;
         $events = Event::getEvents($filters, null);
 
