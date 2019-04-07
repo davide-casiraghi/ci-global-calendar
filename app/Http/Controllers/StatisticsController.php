@@ -95,21 +95,25 @@ class StatisticsController extends Controller
         $dataset = $ret->dataset('Registered Users', 'line', $dataRegisteredUsers)
             ->options([
                 'borderColor' => '#2669A0',
+                'fill' => false,
             ]);
 
         $ret->dataset('Organizer Profiles', 'line', $dataOrganizerProfiles)
             ->options([
                 'borderColor' => '#a12d97',
+                'fill' => false,
             ]);
 
         $ret->dataset('Teacher Profiles', 'line', $dataTeacherProfiles)
             ->options([
                 'borderColor' => '#e8af17',
+                'fill' => false,
             ]);
 
         $ret->dataset('Active Events', 'line', $dataActiveEvents)
             ->options([
                 'borderColor' => '#297446',
+                'fill' => false,
             ]);
 
         /*$chart->labels(['One', 'Two', 'Three', 'Four']);
