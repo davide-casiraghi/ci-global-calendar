@@ -24,7 +24,7 @@ class EventSearchController extends Controller
      */
     public function index(Request $request)
     {
-        $cacheExpireTime = 900; // Set the duration time of the cache (15 min - 900sec)
+        $cacheExpireTime = 900; // expressed in seconds (15 min)
 
         $backgroundImages = BackgroundImage::all();
 
@@ -50,18 +50,18 @@ class EventSearchController extends Controller
             return Teacher::orderBy('name')->pluck('name', 'id');
         });
 
-        $searchKeywords = $request->input('keywords');
-        $searchCategory = $request->input('category_id');
-        $searchCountry = $request->input('country_id');
-        $searchCity = $request->input('city_name');
-        $searchContinent = $request->input('continent_id');
-        $searchTeacher = $request->input('teacher_id');
-        $searchVenue = $request->input('venue_name');
+        $filters['keywords'] = $request->input('keywords');
+        $filters['category'] = $request->input('category_id');
+        $filters['country'] = $request->input('country_id');
+        $filters['city'] = $request->input('city_name');
+        $filters['continent'] = $request->input('continent_id');
+        $filters['teacher'] = $request->input('teacher_id');
+        $filters['venue'] = $request->input('venue_name');
 
-        $searchStartDate = Event::prepareStartDate($request->input('startDate'));
-        $searchEndDate = Event::prepareEndDate($request->input('endDate'));
+        $filters['startDate'] = Event::prepareStartDate($request->input('startDate'));
+        $filters['endDate'] = Event::prepareEndDate($request->input('endDate'));
 
-        $events = Event::getEvents($searchKeywords, $searchCategory, $searchCity, $searchCountry, $searchContinent, $searchTeacher, $searchVenue, $searchStartDate, $searchEndDate, 20);
+        $events = Event::getEvents($filters, 20);
 
         return view('eventSearch.index', compact('events'))
             ->with('i', (request()->input('page', 1) - 1) * 20)
@@ -70,13 +70,13 @@ class EventSearchController extends Controller
             ->with('countries', $countries)
             ->with('venues', $venues)
             ->with('teachers', $teachers)
-            ->with('searchKeywords', $searchKeywords)
-            ->with('searchCategory', $searchCategory)
-            ->with('searchCountry', $searchCountry)
-            ->with('searchContinent', $searchContinent)
-            ->with('searchCity', $searchCity)
-            ->with('searchTeacher', $searchTeacher)
-            ->with('searchVenue', $searchVenue)
+            ->with('searchKeywords', $filters['keywords'])
+            ->with('searchCategory', $filters['category'])
+            ->with('searchCountry', $filters['country'])
+            ->with('searchContinent', $filters['continent'])
+            ->with('searchCity', $filters['city'])
+            ->with('searchTeacher', $filters['teacher'])
+            ->with('searchVenue', $filters['venue'])
             ->with('searchStartDate', $request->input('startDate'))
             ->with('searchEndDate', $request->input('endDate'))
             ->with('backgroundImages', $backgroundImages)
