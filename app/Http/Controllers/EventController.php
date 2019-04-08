@@ -1045,7 +1045,7 @@ class EventController extends Controller
      * Get creator email.
      *
      * @param  int $created_by
-     * @return \App\Users
+     * @return Users
      */
     public function getCreatorEmail($created_by)
     {
