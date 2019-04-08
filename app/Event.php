@@ -47,7 +47,7 @@ class Event extends Model
     /**
      * Get the organizers for the event.
      */
-    public function eventRepetitions($type = null)
+    public function eventRepetitions()
     {
         return $this->hasMany('App\EventRepetition', 'event_id');
     }
@@ -122,7 +122,7 @@ class Event extends Model
                         select('title', 'countries.name AS country_name', 'countries.id AS country_id', 'countries.continent_id AS continent_id', 'event_venues.city AS city')
                         ->join('event_venues', 'event_venues.id', '=', 'events.venue_id')
                         ->join('countries', 'countries.id', '=', 'event_venues.country_id')
-                        ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
+                        ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) {
                             $join->on('events.id', '=', 'event_repetitions.event_id');
                         })
                         ->get();
