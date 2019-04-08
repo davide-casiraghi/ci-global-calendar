@@ -71,7 +71,7 @@ class Event extends Model
      * Return Start and End dates of the first repetition of an event - By Event ID.
      *
      * @param int $eventId
-     * @return \App\EventRepetition 
+     * @return \App\EventRepetition
      */
     public static function getFirstEventRpDatesByEventId($eventId)
     {
@@ -89,7 +89,7 @@ class Event extends Model
      * Return Start and End dates of the first repetition of an event - By Repetition ID.
      *
      * @param int $repetitionId
-     * @return \App\EventRepetition 
+     * @return \App\EventRepetition
      */
     public static function getFirstEventRpDatesByRepetitionId($repetitionId)
     {
@@ -106,7 +106,7 @@ class Event extends Model
     /**
      * Return the all the active events.
      *
-     * @return \App\Event 
+     * @return \App\Event
      */
     public static function getActiveEvents()
     {
@@ -137,7 +137,7 @@ class Event extends Model
      *
      * @param array $filters
      * @param int $itemPerPage
-     * @return \App\Event 
+     * @return \App\Event
      */
     //$keywords, $category, $city, $country, $continent, $teacher, $venue, $startDate, $endDate,
     public static function getEvents($filters, $itemPerPage)
