@@ -23,7 +23,7 @@
                         // If there is ONE <br>
                             if(jQuery(this).next().is('br')) {
                                 if(jQuery(this).nextAll("*:lt(2)").is('.accordion')) {
-                                    console.log("remove");
+                                    //console.log("remove");
                                     jQuery(this).next().remove();
                                 }
                             }
