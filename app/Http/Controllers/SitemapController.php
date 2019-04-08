@@ -6,7 +6,6 @@ use App\Post;
 use App\Event;
 use App\Teacher;
 use App\MenuItem;
-use App\EventRepetition;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -66,7 +65,7 @@ class SitemapController extends Controller
     public function events()
     {
         // Retrieve all the active events
-        $filters = array();
+        $filters = [];
         $filters['keywords'] = $filters['category'] = $filters['country'] = $filters['city'] = $filters['continent'] = $filters['teacher'] = $filters['venue'] = $filters['startDate'] = $filters['endDate'] = null;
         $activeEvents = Event::getEvents($filters, 10000);
 
