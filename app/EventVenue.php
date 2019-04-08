@@ -25,8 +25,8 @@ class EventVenue extends Model
     /**
      * Return the venue name.
      *
-     * @param  int  venue id
-     * @return string the venue name
+     * @param int - The venue id
+     * @return string - The venue name
      */
     public static function getVenueName($venueId)
     {
