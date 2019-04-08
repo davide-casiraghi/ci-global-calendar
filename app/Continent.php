@@ -26,7 +26,7 @@ class Continent extends Model
     /**
      * Return all the continents ordered by name.
      *
-     * @return \App\Continent 
+     * @return \App\Continent
      */
     public static function getContinents()
     {

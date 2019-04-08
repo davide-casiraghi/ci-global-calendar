@@ -129,7 +129,7 @@ class EventCategoryController extends Controller
      * Return the single event category datas by cat id.
      *
      * @param  int $cat_id
-     * @return \App\EventCategory 
+     * @return \App\EventCategory
      */
     public function eventcategorydata($cat_id)
     {

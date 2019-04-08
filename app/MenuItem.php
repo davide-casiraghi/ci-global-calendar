@@ -33,7 +33,7 @@ class MenuItem extends Model
      * If $menuId is 0 return all the items.
      * https://stackoverflow.com/questions/4196157/create-array-tree-from-array-list.
      *
-     * @param  $menuId 
+     * @param  $menuId
      * @return array
      */
     public static function getItemsTree($menuId)
@@ -67,7 +67,7 @@ class MenuItem extends Model
      *
      * @param  array $list
      * @param  array $parent
-     * @return array 
+     * @return array
      */
     public static function createTree(&$list, $parent)
     {
@@ -89,7 +89,7 @@ class MenuItem extends Model
      * https://stackoverflow.com/questions/4196157/create-array-tree-from-array-list.
      *
      * @param  int $accessId
-     * @return string 
+     * @return string
      */
     public static function getAccessName($accessId)
     {
@@ -111,7 +111,7 @@ class MenuItem extends Model
     /**
      * Check if the user group with the access level and return true if the user is authorized to see the menu item.
      *
-     * @return boolean
+     * @return bool
      */
     public function authorized()
     {
