@@ -148,9 +148,9 @@ class EventController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Event  $event
-     * @param  \Illuminate\Http\Request  $request
+     * @param  $firstRpDates
      * @return \Illuminate\Http\Response
-     */
+     */ 
     public function show(Event $event, $firstRpDates)
     {
         $category = EventCategory::find($event->category_id);
@@ -326,7 +326,7 @@ class EventController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Event  $event
-     * @return none
+     * @return void
      */
     public function saveEventRepetitions($request, $event)
     {
@@ -511,13 +511,15 @@ class EventController extends Controller
 
     /**
      * Save event repetition in the DB.
+     * $dateStart and $dateEnd are in the format Y-m-d
+     * $timeStart and $timeEnd are in the format H:i:s
      *
-     * @param  int - Event id - The event associated to this repetition
-     * @param  string - Date Start - in the format Y-m-d
-     * @param  string - Date End - in the format Y-m-d
-     * @param  string - Time Start - in the format H:i:s
-     * @param  string - Time End - in the format H:i:s
-     * @return none
+     * @param  int $eventId
+     * @param  string $dateStart
+     * @param  string $dateEnd
+     * @param  string $timeStart
+     * @param  string $timeEnd
+     * @return void
      */
     public function saveEventRepetitionOnDB($eventId, $dateStart, $dateEnd, $timeStart, $timeEnd)
     {
@@ -535,7 +537,7 @@ class EventController extends Controller
      * Send the Misuse mail.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return redirect to route
+     * @return \Illuminate\Http\Response
      */
     public function reportMisuse(Request $request)
     {
@@ -578,7 +580,7 @@ class EventController extends Controller
      * Send the mail to the Organizer (from the event modal in the event show view).
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return redirect to route
+     * @return \Illuminate\Http\Response
      */
     public function mailToOrganizer(Request $request)
     {
@@ -608,7 +610,7 @@ class EventController extends Controller
      * Display the thank you view after the mail to the organizer is sent (called by /mailToOrganizer/sent route).
      *
      * @param  \App\Event  $event
-     * @return view
+     * @return \Illuminate\Http\Response
      */
     public function mailToOrganizerSent()
     {
@@ -619,9 +621,7 @@ class EventController extends Controller
 
     /**
      * Display the thank you view after the misuse report mail is sent (called by /misuse/thankyou route).
-     *
-     * @param  \App\Event  $event
-     * @return view
+     * @return \Illuminate\Http\Response
      */
     public function reportMisuseThankyou()
     {
@@ -757,10 +757,12 @@ class EventController extends Controller
 
     /**
      * GET number of the specified weekday in this month (1 for the first).
-     *
-     * @param  string $dateTimestamp - unix timestramp of the date specified
-     * @param  string $dayOfWeekValue -  1 (for Monday) through 7 (for Sunday)
-     * @return int the number of the week in the month of the weekday specified
+     * $dateTimestamp - unix timestramp of the date specified
+     * $dayOfWeekValue -  1 (for Monday) through 7 (for Sunday)
+     * Return the number of the week in the month of the weekday specified
+     * @param  string $dateTimestamp 
+     * @param  string $dayOfWeekValue
+     * @return int 
      */
     public function weekdayNumberOfMonth($dateTimestamp, $dayOfWeekValue)
     {
@@ -791,9 +793,11 @@ class EventController extends Controller
     /**
      * GET number of week from the end of the month - https://stackoverflow.com/questions/5853380/php-get-number-of-week-for-month
      * Week of the month = Week of the year - Week of the year of first day of month + 1.
+     * Return the number of the week in the month of the day specified
+     * $when - unix timestramp of the date specified
      *
-     * @param  string $when - unix timestramp of the date specified
-     * @return int the number of the week in the month of the day specified
+     * @param  string $when 
+     * @return int 
      */
     public function weekOfMonthFromTheEnd($when = null)
     {
@@ -830,9 +834,11 @@ class EventController extends Controller
 
     /**
      * GET number of day from the end of the month.
+     * $when - unix timestramp of the date specified
+     * Return the number of day of the month from end
      *
-     * @param  string $when - unix timestramp of the date specified
-     * @return int the number of day of the month from end
+     * @param  string $when 
+     * @return int 
      */
     public function dayOfMonthFromTheEnd($when = null)
     {
@@ -847,9 +853,9 @@ class EventController extends Controller
 
     /**
      * GET the ordinal indicator - for the day of the month.
-     *
+     * Return the ordinal indicator (st, nd, rd, th)
      * @param  int $number
-     * @return string $ret - the ordinal indicator (st, nd, rd, th)
+     * @return string 
      */
     public function getOrdinalIndicator($number)
     {
@@ -875,9 +881,10 @@ class EventController extends Controller
 
     /**
      * Decode the event repeat_weekly_on field - used in event.show.
+     * Return a string like "Monday"
      *
      * @param  string $repeatWeeklyOn
-     * @return string $ret - a string like "Monday"
+     * @return string 
      */
     public function decodeRepeatWeeklyOn($repeatWeeklyOn)
     {
@@ -891,9 +898,10 @@ class EventController extends Controller
 
     /**
      * Decode the event on_monthly_kind field - used in event.show.
+     * Return a string like "the 4th to last Thursday of the month"
      *
-     * @param  string $onMonthlyKindCode -
-     * @return string $ret - a string like "the 4th to last Thursday of the month"
+     * @param  string $onMonthlyKindCode
+     * @return string 
      */
     public function decodeOnMonthlyKind($onMonthlyKindCode)
     {
@@ -1045,7 +1053,7 @@ class EventController extends Controller
      * Get creator email.
      *
      * @param  int $created_by
-     * @return \App\User
+     * @return \App\User 
      */
     public function getCreatorEmail($created_by)
     {
