@@ -42,10 +42,10 @@ class Country extends Model
     /***************************************************************************/
 
     /**
-     * Return active Continent and Countries Json Tree (for hp select filters, vue component).
+     * Return active Continent and Countries JSON Tree (for hp select filters, vue component).
      *
      * @param  none
-     * @return JSON
+     * @return string - JSON
      */
     public static function getActiveCountriesByContinent()
     {
