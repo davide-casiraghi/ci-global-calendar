@@ -57,7 +57,7 @@ class Event extends Model
     /**
      * Delete all the previous repetitions from the event_repetitions table.
      *
-     * @param  $eventId - Event id
+     * @param  int - Event id
      * @return none
      */
     public static function deletePreviousRepetitions($eventId)

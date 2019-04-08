@@ -512,11 +512,11 @@ class EventController extends Controller
     /**
      * Save event repetition in the DB.
      *
-     * @param  $eventId - Event id  (event associated to this repetition)
-     * @param  $dateStart - in the format Y-m-d
-     * @param  $dateEnd - in the format Y-m-d
-     * @param  $timeStart - in the format H:i:s
-     * @param  $timeEnd - in the format H:i:s
+     * @param  int - Event id - The event associated to this repetition
+     * @param  string - Date Start - in the format Y-m-d
+     * @param  string - Date End - in the format Y-m-d
+     * @param  string - Time Start - in the format H:i:s
+     * @param  string - Time End - in the format H:i:s
      * @return none
      */
     public function saveEventRepetitionOnDB($eventId, $dateStart, $dateEnd, $timeStart, $timeEnd)
