@@ -128,8 +128,8 @@ class EventCategoryController extends Controller
     /**
      * Return the single event category datas by cat id.
      *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
+     * @param  int $cat_id
+     * @return \App\EventCategory 
      */
     public function eventcategorydata($cat_id)
     {
@@ -145,7 +145,8 @@ class EventCategoryController extends Controller
      * Save/Update the record on DB.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return string $ret - the ordinal indicator (st, nd, rd, th)
+     * @param \App\EventCategory $eventCategory
+     * @return void
      */
     public function saveOnDb($request, $eventCategory)
     {

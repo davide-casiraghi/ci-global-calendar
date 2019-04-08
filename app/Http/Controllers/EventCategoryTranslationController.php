@@ -27,7 +27,8 @@ class EventCategoryTranslationController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * @param int $eventCategoryId
+     * @param int $languageCode
      * @return \Illuminate\Http\Response
      */
     public function create($eventCategoryId, $languageCode)
@@ -82,8 +83,8 @@ class EventCategoryTranslationController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  \App\EventCategoryTranslation  $eventCategoryTranslation
+     * @param int $eventCategoryId
+     * @param int $languageCode
      * @return \Illuminate\Http\Response
      */
     public function edit($eventCategoryId, $languageCode)
@@ -104,7 +105,6 @@ class EventCategoryTranslationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\EventCategoryTranslation  $eventCategoryTranslation
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)

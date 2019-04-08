@@ -22,7 +22,7 @@ class UserController extends Controller
 
     /**
      * Display a listing of the resource.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
@@ -177,8 +177,9 @@ class UserController extends Controller
     /**
      * Save the record on DB.
      *
-     * @param  \App\Teacher  $teacher
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\User
+     * @return void
      */
     public function saveOnDb($request, $user)
     {
@@ -199,9 +200,9 @@ class UserController extends Controller
 
     /**
      * Return the validator with all the defined constraint.
-     *
-     * @param  \App\User  $post
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string $callingMethod
+     * @return Validator
      */
     public function usersValidator($request, $callingMethod)
     {

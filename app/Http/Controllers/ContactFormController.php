@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\Validator;
 class ContactFormController extends Controller
 {
     /**
-     * Display the contact form.
-     * eg. /contactForm/administrator.
-     * @param  string  $recipient can be [administrator, project-manager, webmaster, test]
+     * Display the contact form. - Eg. /contactForm/administrator.
+     * $recipient can be: "administrator" | "project-manager" | "webmaster" | "test"
+     * @param  string  $recipient 
      * @return \Illuminate\Http\Response
      */
     public function contactForm($recipient)
@@ -27,7 +27,7 @@ class ContactFormController extends Controller
      * Send the Contact Admin mail.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return redirect to route
+     * @return \Illuminate\Http\Response
      */
     public function contactFormSend(Request $request)
     {
@@ -79,8 +79,7 @@ class ContactFormController extends Controller
     /**
      * Display the thank you view after the misuse report mail is sent (called by /misuse/thankyou route).
      *
-     * @param  \App\Event  $event
-     * @return view
+     * @return \Illuminate\Http\Response
      */
     public function contactFormThankyou()
     {

@@ -200,7 +200,8 @@ class DonationOfferController extends Controller
     /**
      * Save the record on DB.
      *
-     * @param  \App\Teacher  $teacher
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\DonationOffer  $donationOffer
      * @return \Illuminate\Http\Response
      */
     public function saveOnDb($request, $donationOffer)
@@ -229,7 +230,7 @@ class DonationOfferController extends Controller
 
     /**
      * Display a listing of the resource - the public list.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function indexPublic(Request $request)

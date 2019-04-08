@@ -36,7 +36,7 @@ class EventController extends Controller
 
     /**
      * Display a listing of the resource.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
@@ -1045,7 +1045,7 @@ class EventController extends Controller
      * Get creator email.
      *
      * @param  int $created_by
-     * @return array $ret - the array with the creator emails
+     * @return \App\Users
      */
     public function getCreatorEmail($created_by)
     {
@@ -1081,8 +1081,8 @@ class EventController extends Controller
 
     /**
      * Return the event by SLUG. (eg. http://websitename.com/event/xxxx/300).
-     *
-     * @param  \App\Event  $post
+     * @param  string $slug
+     * @param  int $repetitionId     
      * @return \Illuminate\Http\Response
      */
     public function eventBySlugAndRepetition($slug, $repetitionId)
@@ -1107,7 +1107,7 @@ class EventController extends Controller
 
     /**
      * Return the Event validator with all the defined constraint.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function eventsValidator($request)

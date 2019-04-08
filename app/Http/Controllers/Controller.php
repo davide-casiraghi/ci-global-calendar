@@ -17,10 +17,10 @@ class Controller extends BaseController
     // **********************************************************************
 
     /**
-     * Get the current logged user id.
+     * Get the current logged user ID.
+     * If user is admin or super admin return 0.
      *
-     * @param  none
-     * @return bool $ret - the current logged user id, if admin or super admin 0
+     * @return int $ret
      */
     public function getLoggedUser()
     {
@@ -43,7 +43,6 @@ class Controller extends BaseController
     /**
      * Get the current logged user id.
      *
-     * @param  none
      * @return bool $ret - the current logged user id, if admin or super admin 0
      */
     public function getLoggedAuthorId()
@@ -66,7 +65,7 @@ class Controller extends BaseController
      * @param  $imageFile - the file to upload
      * @param  $imageName - the file name
      * @param  $imageSubdir - the subdir in /storage/app/public/images/..
-     * @return none
+     * @return void
      */
     public function uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth)
     {
@@ -101,8 +100,8 @@ class Controller extends BaseController
     /**
      * Get the language name from language code.
      *
-     * @param  $postTranslation string - the country code
-     * @return string the country name
+     * @param  string $languageCode
+     * @return string 
      */
     public function getSelectedLocaleName($languageCode)
     {

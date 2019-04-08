@@ -23,7 +23,7 @@ class MenuItemController extends Controller
 
     /**
      * Display a listing of the resource.
-     * @param  $id - the menu id
+     * @param int $id 
      * @return \Illuminate\Http\Response
      */
     public function index($id)
@@ -43,7 +43,7 @@ class MenuItemController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
@@ -187,6 +187,7 @@ class MenuItemController extends Controller
      * Save/Update the record on DB.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\MenuItem
      * @return string $ret - the ordinal indicator (st, nd, rd, th)
      */
     public function saveOnDb($request, $menuItem)
@@ -221,11 +222,11 @@ class MenuItemController extends Controller
     /**
      * Update the menu items order on DB.
      *
-     * @param  $menuId - the menu id
-     * @param  $parentItemId - the parent item id (update the order just of the elements on this level)
-     * @param  $itemId - the id of the element that has been saved
-     * @param  $position - (first, last or the id of the menu item we want to place this one after)
-     * @return none
+     * @param int $menuId - the menu id
+     * @param int  $parentItemId - the parent item id (update the order just of the elements on this level)
+     * @param int $itemId - the id of the element that has been saved
+     * @param string $position - (first, last or the id of the menu item we want to place this one after)
+     * @return void
      */
     public function updateOrder($menuId, $parentItemId, $itemId, $position)
     {
@@ -292,7 +293,7 @@ class MenuItemController extends Controller
      * @param int $menuId - the menu id
      * @param  int $parentItemId - the parent menu item id
      * @param  int $kind 1 (retun the pluck) - 0 (return the items)
-     * @return array $ret;
+     * @return array 
      */
     public function getItemsSameMenuAndLevel($menuId, $parentItemId, $kind)
     {

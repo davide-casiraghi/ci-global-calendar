@@ -172,9 +172,9 @@ class OrganizerController extends Controller
 
     /**
      * Save the record on DB.
-     *
-     * @param  \App\Teacher  $teacher
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Organizer  $organizer
+     * @return void
      */
     public function saveOnDb($request, $organizer)
     {
@@ -232,7 +232,7 @@ class OrganizerController extends Controller
     /**
      * Return the organizer by SLUG. (eg. http://websitename.com/organizer/xxxxx).
      *
-     * @param  \App\Post  $post
+     * @param  string $slug
      * @return \Illuminate\Http\Response
      */
     public function organizerBySlug($slug)
@@ -249,8 +249,8 @@ class OrganizerController extends Controller
     /**
      * Return the validator with all the defined constraint.
      *
-     * @param  \App\Event  $post
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request  $request
+     * @return Validator
      */
     public function organizersValidator($request)
     {

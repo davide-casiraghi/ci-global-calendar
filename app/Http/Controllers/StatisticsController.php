@@ -24,7 +24,7 @@ class StatisticsController extends Controller
 
     /**
      * Display a listing of the resource.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
@@ -54,8 +54,7 @@ class StatisticsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function store()
     {
@@ -66,7 +65,7 @@ class StatisticsController extends Controller
 
     /**
      * Create a LINE chart showing the number of users in the last x days.
-     *
+     * @param int $daysRange
      * @return App\Charts
      */
     public function createLinesChart($daysRange)
