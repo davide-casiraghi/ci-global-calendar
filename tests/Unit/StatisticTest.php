@@ -24,7 +24,7 @@ class StatisticTest extends TestCase
         $this->seed();
 
         // Factories - /database/factories
-        $this->teacher = factory(\App\Statistic::class)->create();
+        $this->statistic = factory(\App\Statistic::class, 50)->create();
     }
 
     /***************************************************************************/
