@@ -20,8 +20,8 @@ class StatsDonateClass
 
     /**
      *  Substitute in the post HTML, the activation string with the stats HTML.
-     *  @param array $postBody     
-     *  @return string 
+     *  @param array $postBody
+     *  @return string
      **/
     public function getStatsDonate($postBody)
     {
@@ -74,9 +74,9 @@ class StatsDonateClass
 
     /**
      *  Returns the parameters from the activation string
-     *  The $matches come from the regular expression on the string from the article
-     *  @param array $matches       
-     *  @return array         
+     *  The $matches come from the regular expression on the string from the article.
+     *  @param array $matches
+     *  @return array
      **/
     public function getParameters($matches)
     {
@@ -99,10 +99,10 @@ class StatsDonateClass
 
     /**
      *  Return the stats HTML ready to be rendered.
-     *  Parameters array: [coding_hours, pm_hours, steering_commitee_meetings, languages_number]
+     *  Parameters array: [coding_hours, pm_hours, steering_commitee_meetings, languages_number].
      *
-     *  @param array $parameters        
-     *  @return string          
+     *  @param array $parameters
+     *  @return string
      **/
     public function prepareStatsDonate($parameters)
     {

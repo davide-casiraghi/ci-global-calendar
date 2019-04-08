@@ -15,8 +15,8 @@ class PaypalButtonClass
 
     /**
      *  Substitute in the post HTML, the activation string with the Paypal HTML.
-     *  @param array $postBody 
-     *  @return string 
+     *  @param array $postBody
+     *  @return string
      **/
     public function getPaypalButton($postBody)
     {
@@ -68,10 +68,10 @@ class PaypalButtonClass
     /* **********************************************************************/
 
     /**
-    *  Returns the parameters from the activation string
-    *  The $matches come from the regular expression on the string from the article
-    *  @param array $matches       
-    *  @return array  
+     *  Returns the parameters from the activation string
+     *  The $matches come from the regular expression on the string from the article.
+     *  @param array $matches
+     *  @return array
      **/
     public function getParameters($matches)
     {
@@ -90,8 +90,8 @@ class PaypalButtonClass
     /**
      *  Return the Paypal HTML ready to be rendered.
      *
-     *  @param array $parameters        
-     *  @return string          
+     *  @param array $parameters
+     *  @return string
      **/
     public function preparePaypalButton($parameters)
     {

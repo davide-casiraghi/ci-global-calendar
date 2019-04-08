@@ -26,7 +26,7 @@ class Country extends Model
     /**
      * Return all the countries ordered by name.
      *
-     * @return \App\Country 
+     * @return \App\Country
      */
     public static function getCountries()
     {

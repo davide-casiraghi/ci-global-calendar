@@ -19,7 +19,7 @@ class MenuItemTranslationController extends Controller
      * Show the form for creating a new resource.
      * @param int $menuItemId
      * @param string $languageCode
-     * @param int $menuId     
+     * @param int $menuId
      * @return \Illuminate\Http\Response
      */
     public function create($menuItemId, $languageCode, $menuId)
@@ -39,7 +39,7 @@ class MenuItemTranslationController extends Controller
      * Show the form for editing the specified resource.
      * @param int $menuItemId
      * @param string $languageCode
-     * @param int $menuId     
+     * @param int $menuId
      * @return \Illuminate\Http\Response
      */
     public function edit($menuItemId, $languageCode, $menuId)
@@ -123,7 +123,7 @@ class MenuItemTranslationController extends Controller
     /**
      * Remove the specified resource from storage.
      * @param int $menuItemTranslationId
-     * @param int $selectedMenuId     
+     * @param int $selectedMenuId
      * @return \Illuminate\Http\Response
      */
     public function destroy($menuItemTranslationId, $selectedMenuId)

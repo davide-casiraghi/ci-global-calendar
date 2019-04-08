@@ -1082,7 +1082,7 @@ class EventController extends Controller
     /**
      * Return the event by SLUG. (eg. http://websitename.com/event/xxxx/300).
      * @param  string $slug
-     * @param  int $repetitionId     
+     * @param  int $repetitionId
      * @return \Illuminate\Http\Response
      */
     public function eventBySlugAndRepetition($slug, $repetitionId)

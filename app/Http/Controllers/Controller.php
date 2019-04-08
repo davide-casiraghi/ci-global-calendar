@@ -101,7 +101,7 @@ class Controller extends BaseController
      * Get the language name from language code.
      *
      * @param  string $languageCode
-     * @return string 
+     * @return string
      */
     public function getSelectedLocaleName($languageCode)
     {

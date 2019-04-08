@@ -23,7 +23,7 @@ class MenuItemController extends Controller
 
     /**
      * Display a listing of the resource.
-     * @param int $id 
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function index($id)
@@ -293,7 +293,7 @@ class MenuItemController extends Controller
      * @param int $menuId - the menu id
      * @param  int $parentItemId - the parent menu item id
      * @param  int $kind 1 (retun the pluck) - 0 (return the items)
-     * @return array 
+     * @return array
      */
     public function getItemsSameMenuAndLevel($menuId, $parentItemId, $kind)
     {

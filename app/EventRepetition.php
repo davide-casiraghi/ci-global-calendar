@@ -33,7 +33,7 @@ class EventRepetition extends Model
      * Return the query string,.
      * @param  string $searchStartDate
      * @param  string $searchEndDate
-     * @return string 
+     * @return string
      */
     public static function getLastestEventsRepetitionsQuery($searchStartDate, $searchEndDate)
     {
