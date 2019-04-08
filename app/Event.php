@@ -57,8 +57,8 @@ class Event extends Model
     /**
      * Delete all the previous repetitions from the event_repetitions table.
      *
-     * @param  int - Event id
-     * @return none
+     * @param int $eventId
+     * @return void
      */
     public static function deletePreviousRepetitions($eventId)
     {
@@ -70,8 +70,8 @@ class Event extends Model
     /**
      * Return Start and End dates of the first repetition of an event - By Event ID.
      *
-     * @param  int  event id
-     * @return \App\EventRepetition the event repetition Start and End repeat dates
+     * @param int $eventId
+     * @return \App\EventRepetition 
      */
     public static function getFirstEventRpDatesByEventId($eventId)
     {
@@ -88,8 +88,8 @@ class Event extends Model
     /**
      * Return Start and End dates of the first repetition of an event - By Repetition ID.
      *
-     * @param  int  event id
-     * @return \App\EventRepetition the event repetition Start and End repeat dates
+     * @param int $repetitionId
+     * @return \App\EventRepetition 
      */
     public static function getFirstEventRpDatesByRepetitionId($repetitionId)
     {
@@ -106,8 +106,7 @@ class Event extends Model
     /**
      * Return the all the active events.
      *
-     * @param  int  event id
-     * @return \App\Event the active events collection
+     * @return \App\Event 
      */
     public static function getActiveEvents()
     {
@@ -136,8 +135,9 @@ class Event extends Model
     /**
      * Return the active events based on the search keys provided.
      *
-     * @param  int  event id
-     * @return \App\Event the active events collection
+     * @param array $filters
+     * @param int $itemPerPage
+     * @return \App\Event 
      */
     //$keywords, $category, $city, $country, $continent, $teacher, $venue, $startDate, $endDate,
     public static function getEvents($filters, $itemPerPage)
@@ -207,8 +207,8 @@ class Event extends Model
      * Format the start date to be used in the search query.
      * If the start date is null return today's date.
      *
-     * @param  int  event id
-     * @return \App\Event the active events collection
+     * @param string $DatePickerStartDate
+     * @return string
      */
     public static function prepareStartDate($DatePickerStartDate)
     {
@@ -227,10 +227,10 @@ class Event extends Model
     /***************************************************************************/
 
     /**
-     * Format the edn date to be used in the search query.
+     * Format the end date to be used in the search query.
      *
-     * @param  int  event id
-     * @return \App\Event the active events collection
+     * @param string $DatePickerEndDate
+     * @return string
      */
     public static function prepareEndDate($DatePickerEndDate)
     {

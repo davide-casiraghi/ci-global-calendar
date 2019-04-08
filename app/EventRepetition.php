@@ -29,10 +29,11 @@ class EventRepetition extends Model
 
     /**
      * Get for each event the first event repetition in the near future (JUST THE QUERY to use as SUBQUERY).
-     *
-     * @param  string - Start date of the interval
-     * @param  string - End date of the interval
-     * @return string - The query string
+     * Parameters are Start date and End date of the interval
+     * Return the query string, 
+     * @param  string $searchStartDate
+     * @param  string $searchStartDate
+     * @return string $searchEndDate
      */
     public static function getLastestEventsRepetitionsQuery($searchStartDate, $searchEndDate)
     {
