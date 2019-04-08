@@ -50,6 +50,7 @@ class EventSearchController extends Controller
             return Teacher::orderBy('name')->pluck('name', 'id');
         });
 
+        $filters = array();
         $filters['keywords'] = $request->input('keywords');
         $filters['category'] = $request->input('category_id');
         $filters['country'] = $request->input('country_id');
@@ -163,6 +164,7 @@ class EventSearchController extends Controller
     {
         $country = Country::where('code', $code)->first();
 
+        $filters = array();
         $filters['keywords'] = $filters['category'] = $filters['city'] = $filters['continent'] = $filters['teacher'] = $filters['venue'] = $filters['startDate'] = $filters['endDate'] = null;
         $filters['country'] = $country->id;
         $events = Event::getEvents($filters, null);

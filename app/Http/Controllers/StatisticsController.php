@@ -246,6 +246,7 @@ class StatisticsController extends Controller
     {
         //$eventsByCountries = Event::getActiveEvents();
 
+        $filters = array();
         $filters['keywords'] = $filters['category'] = $filters['country'] = $filters['city'] = $filters['continent'] = $filters['teacher'] = $filters['venue'] = $filters['startDate'] = $filters['endDate'] = null;
         $activeEvents = Event::getEvents($filters, 10000);
 
