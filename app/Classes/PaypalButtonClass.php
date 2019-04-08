@@ -14,10 +14,9 @@ class PaypalButtonClass
     /* **********************************************************************/
 
     /**
-     *  Substitute the activation string with the HTML.
-     *  @param array $postBody        the post html
-     *
-     *  @return string $ret             the HTML to print on screen
+     *  Substitute in the post HTML, the activation string with the Paypal HTML.
+     *  @param array $postBody 
+     *  @return string 
      **/
     public function getPaypalButton($postBody)
     {
@@ -27,12 +26,12 @@ class PaypalButtonClass
 
         if (preg_match_all($ptn, $postBody, $matches)) {
 
-                // Trasform the matches array in a way that can be used
+            // Trasform the matches array in a way that can be used
             $matches = $this->turn_array($matches);
 
             foreach ($matches as $key => $paypal_button_matches) {
 
-                        // Get plugin parameters array
+                // Get plugin parameters array
                 $parameters = $this->getParameters($paypal_button_matches);
 
                 // Prepare Stats HTML
@@ -69,15 +68,14 @@ class PaypalButtonClass
     /* **********************************************************************/
 
     /**
-     *  Returns the plugin parameters.
-     *  @param array $matches       result from the regular expression on the string from the article
-     *  @return array $ret          the array containing the parameters
+    *  Returns the parameters from the activation string
+    *  The $matches come from the regular expression on the string from the article
+    *  @param array $matches       
+    *  @return array  
      **/
     public function getParameters($matches)
     {
         $ret = [];
-
-        //dump($matches);
 
         // Get activation string parameters (from article)
         $ret['token'] = $matches[0];
@@ -90,9 +88,10 @@ class PaypalButtonClass
     /* **********************************************************************/
 
     /**
-     *  Prepare the stats HTML.
-     *  @param array $parameters        parameters array [coding_hours, pm_hours, steering_commitee_meetings, languages_number]
-     *  @return string $ret             the HTML to print on screen
+     *  Return the Paypal HTML ready to be rendered.
+     *
+     *  @param array $parameters        
+     *  @return string          
      **/
     public function preparePaypalButton($parameters)
     {

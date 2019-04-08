@@ -19,10 +19,9 @@ class StatsDonateClass
     /* **********************************************************************/
 
     /**
-     *  Substitute the activation string with the HTML.
-     *  @param array $postBody        the post html
-     *
-     *  @return string $ret             the HTML to print on screen
+     *  Substitute in the post HTML, the activation string with the stats HTML.
+     *  @param array $postBody     
+     *  @return string 
      **/
     public function getStatsDonate($postBody)
     {
@@ -32,12 +31,12 @@ class StatsDonateClass
 
         if (preg_match_all($ptn, $postBody, $matches)) {
 
-                // Trasform the matches array in a way that can be used
+            // Trasform the matches array in a way that can be used
             $matches = $this->turn_array($matches);
 
             foreach ($matches as $key => $single_category_column_matches) {
 
-                        // Get plugin parameters array
+                // Get plugin parameters array
                 $parameters = $this->getParameters($single_category_column_matches);
 
                 // Prepare Stats HTML
@@ -74,9 +73,10 @@ class StatsDonateClass
     /* **********************************************************************/
 
     /**
-     *  Returns the plugin parameters.
-     *  @param array $matches       result from the regular expression on the string from the article
-     *  @return array $ret          the array containing the parameters
+     *  Returns the parameters from the activation string
+     *  The $matches come from the regular expression on the string from the article
+     *  @param array $matches       
+     *  @return array         
      **/
     public function getParameters($matches)
     {
@@ -98,9 +98,11 @@ class StatsDonateClass
     /* **********************************************************************/
 
     /**
-     *  Prepare the stats HTML.
-     *  @param array $parameters        parameters array [coding_hours, pm_hours, steering_commitee_meetings, languages_number]
-     *  @return string $ret             the HTML to print on screen
+     *  Return the stats HTML ready to be rendered.
+     *  Parameters array: [coding_hours, pm_hours, steering_commitee_meetings, languages_number]
+     *
+     *  @param array $parameters        
+     *  @return string          
      **/
     public function prepareStatsDonate($parameters)
     {
