@@ -65,20 +65,7 @@ class SitemapController extends Controller
      */
     public function events()
     {
-
-        // Get for each event the first event repetition in the near future
-        date_default_timezone_set('Europe/Rome');
-        $searchStartDate = date('Y-m-d', time());  // search start from today's date
-        $lastestEventsRepetitionsQuery = EventRepetition::getLastestEventsRepetitionsQuery($searchStartDate, null);
-
-        // Retrieve the events
-        /*$events = DB::table('events')
-                ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
-                    $join->on('events.id', '=', 'event_repetitions.event_id');
-                })
-                ->orderBy('event_repetitions.start_repeat', 'asc')
-                ->get();*/
-        
+        // Retrieve all the active events
         $filters = array();
         $filters['keywords'] = $filters['category'] = $filters['country'] = $filters['city'] = $filters['continent'] = $filters['teacher'] = $filters['venue'] = $filters['startDate'] = $filters['endDate'] = null;
         $activeEvents = Event::getEvents($filters, 10000);
