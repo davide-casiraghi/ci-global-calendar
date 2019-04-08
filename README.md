@@ -1,6 +1,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
 <a href="https://travis-ci.com/davide-casiraghi/ci-global-calendar"><img src="https://travis-ci.com/davide-casiraghi/ci-global-calendar.svg" alt="Build Status"></a>
 [![StyleCI](https://styleci.io/repos/161606778/shield?style=flat-square)](https://styleci.io/repos/161606778)
+[![Quality Score](https://img.shields.io/scrutinizer/g/davide-casiraghi/laravel-responsive-gallery.svg?style=flat-square)](https://scrutinizer-ci.com/g/davide-casiraghi/laravel-responsive-gallery)
 [![GitHub last commit](https://img.shields.io/github/last-commit/davide-casiraghi/ci-global-calendar.svg)](https://github.com/davide-casiraghi/ci-global-calendar) 
 
 # Global Contact Improvisation Calendar
