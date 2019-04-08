@@ -26,7 +26,7 @@ class DonationOffer extends Model
      * Return the donation kind array.
      *
      * @param  int $offer_kind
-     * @return array $ret  - the volunteering kind array
+     * @return array 
      */
     public static function getDonationKindArray()
     {
@@ -59,10 +59,10 @@ class DonationOffer extends Model
     /***************************************************************************/
 
     /**
-     * Return the donation kind badge.
+     * Return the donation kind badge HTML.
      *
-     * @param  int $offer_kind
-     * @return string $ret  - the status badge HTML
+     * @param  int $status
+     * @return string 
      */
     public static function getDonationStatusBadge($status)
     {
@@ -92,8 +92,7 @@ class DonationOffer extends Model
     /**
      * Return the donation status array.
      *
-     * @param  int $offer_kind
-     * @return array $ret  - the status array
+     * @return array
      */
     public static function getStatusArray()
     {
@@ -112,8 +111,7 @@ class DonationOffer extends Model
     /**
      * Return the gift kind array.
      *
-     * @param  int $offer_kind
-     * @return array $ret  - the gift kind array
+     * @return array 
      */
     public static function getGiftKindArray()
     {
@@ -130,8 +128,7 @@ class DonationOffer extends Model
     /**
      * Return the volunteering kind array.
      *
-     * @param  int $offer_kind
-     * @return array $ret  - the volunteering kind array
+     * @return array
      */
     public static function getVolunteeringKindArray()
     {
@@ -151,8 +148,7 @@ class DonationOffer extends Model
     /**
      * Return the volunteering kind array.
      *
-     * @param  int $offer_kind
-     * @return array $ret  - the volunteering kind array
+     * @return array
      */
     public static function getVolunteeringKindDescriptionsArray()
     {

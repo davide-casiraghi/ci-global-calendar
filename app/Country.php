@@ -24,10 +24,9 @@ class Country extends Model
     /***************************************************************************/
 
     /**
-     * Return Start and End dates of the first repetition of an event - By Event ID.
+     * Return all the countries ordered by name.
      *
-     * @param  none
-     * @return \App\Country the collection containing all the countries
+     * @return \App\Country 
      */
     public static function getCountries()
     {
@@ -44,8 +43,7 @@ class Country extends Model
     /**
      * Return active Continent and Countries JSON Tree (for hp select filters, vue component).
      *
-     * @param  none
-     * @return string - JSON
+     * @return string
      */
     public static function getActiveCountriesByContinent()
     {

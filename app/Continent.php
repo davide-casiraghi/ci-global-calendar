@@ -24,10 +24,9 @@ class Continent extends Model
     /***************************************************************************/
 
     /**
-     * Return Start and End dates of the first repetition of an event - By Event ID.
+     * Return all the continents ordered by name.
      *
-     * @param  none
-     * @return \App\Continent the collection containing all the countries
+     * @return \App\Continent 
      */
     public static function getContinents()
     {

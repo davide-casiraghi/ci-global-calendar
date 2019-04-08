@@ -65,8 +65,8 @@ class MenuItem extends Model
      * Create array tree from array list - it support more than 1 parentid[0] element
      * https://stackoverflow.com/questions/4196157/create-array-tree-from-array-list.
      *
-     * @param  array
-     * @param  array
+     * @param  array $list
+     * @param  array $parent
      * @return array 
      */
     public static function createTree(&$list, $parent)
@@ -88,7 +88,7 @@ class MenuItem extends Model
      * Return the access level name
      * https://stackoverflow.com/questions/4196157/create-array-tree-from-array-list.
      *
-     * @param  int
+     * @param  int $accessId
      * @return string 
      */
     public static function getAccessName($accessId)

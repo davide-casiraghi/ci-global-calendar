@@ -29,8 +29,8 @@ class Post extends Model
     /**
      * Return all the posts by category id in the language specified.
      *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
+     * @param  int $cat_id
+     * @return \App\Post
      */
     public static function postsByCategory($cat_id)
     {

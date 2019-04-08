@@ -31,8 +31,8 @@ class Category extends Model
     /**
      * Return the single category datas by cat id.
      *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
+     * @param  int $cat_id
+     * @return \App\Category
      */
     public static function categorydata($cat_id)
     {
@@ -49,15 +49,11 @@ class Category extends Model
      * and get the category name translated or the relative fallbacks.
      * (otherwise the pluck has empty names because doesn't fallback).
      *
-     * @param  none
-     * @return \Illuminate\Http\Response
+     * @return array
      */
     public static function getCategoriesArray()
     {
-
-        //$ret = Category::pluck('name', 'id');
         $ret = [];
-
         $categories = self::get();
 
         foreach ($categories as $key => $category) {
