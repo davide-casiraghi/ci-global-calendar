@@ -150,7 +150,7 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @param  $firstRpDates
      * @return \Illuminate\Http\Response
-     */ 
+     */
     public function show(Event $event, $firstRpDates)
     {
         $category = EventCategory::find($event->category_id);
@@ -512,7 +512,7 @@ class EventController extends Controller
     /**
      * Save event repetition in the DB.
      * $dateStart and $dateEnd are in the format Y-m-d
-     * $timeStart and $timeEnd are in the format H:i:s
+     * $timeStart and $timeEnd are in the format H:i:s.
      *
      * @param  int $eventId
      * @param  string $dateStart
@@ -759,10 +759,10 @@ class EventController extends Controller
      * GET number of the specified weekday in this month (1 for the first).
      * $dateTimestamp - unix timestramp of the date specified
      * $dayOfWeekValue -  1 (for Monday) through 7 (for Sunday)
-     * Return the number of the week in the month of the weekday specified
-     * @param  string $dateTimestamp 
+     * Return the number of the week in the month of the weekday specified.
+     * @param  string $dateTimestamp
      * @param  string $dayOfWeekValue
-     * @return int 
+     * @return int
      */
     public function weekdayNumberOfMonth($dateTimestamp, $dayOfWeekValue)
     {
@@ -794,10 +794,10 @@ class EventController extends Controller
      * GET number of week from the end of the month - https://stackoverflow.com/questions/5853380/php-get-number-of-week-for-month
      * Week of the month = Week of the year - Week of the year of first day of month + 1.
      * Return the number of the week in the month of the day specified
-     * $when - unix timestramp of the date specified
+     * $when - unix timestramp of the date specified.
      *
-     * @param  string $when 
-     * @return int 
+     * @param  string $when
+     * @return int
      */
     public function weekOfMonthFromTheEnd($when = null)
     {
@@ -835,10 +835,10 @@ class EventController extends Controller
     /**
      * GET number of day from the end of the month.
      * $when - unix timestramp of the date specified
-     * Return the number of day of the month from end
+     * Return the number of day of the month from end.
      *
-     * @param  string $when 
-     * @return int 
+     * @param  string $when
+     * @return int
      */
     public function dayOfMonthFromTheEnd($when = null)
     {
@@ -853,9 +853,9 @@ class EventController extends Controller
 
     /**
      * GET the ordinal indicator - for the day of the month.
-     * Return the ordinal indicator (st, nd, rd, th)
+     * Return the ordinal indicator (st, nd, rd, th).
      * @param  int $number
-     * @return string 
+     * @return string
      */
     public function getOrdinalIndicator($number)
     {
@@ -881,10 +881,10 @@ class EventController extends Controller
 
     /**
      * Decode the event repeat_weekly_on field - used in event.show.
-     * Return a string like "Monday"
+     * Return a string like "Monday".
      *
      * @param  string $repeatWeeklyOn
-     * @return string 
+     * @return string
      */
     public function decodeRepeatWeeklyOn($repeatWeeklyOn)
     {
@@ -898,10 +898,10 @@ class EventController extends Controller
 
     /**
      * Decode the event on_monthly_kind field - used in event.show.
-     * Return a string like "the 4th to last Thursday of the month"
+     * Return a string like "the 4th to last Thursday of the month".
      *
      * @param  string $onMonthlyKindCode
-     * @return string 
+     * @return string
      */
     public function decodeOnMonthlyKind($onMonthlyKindCode)
     {
@@ -1053,7 +1053,7 @@ class EventController extends Controller
      * Get creator email.
      *
      * @param  int $created_by
-     * @return \App\User 
+     * @return \App\User
      */
     public function getCreatorEmail($created_by)
     {
