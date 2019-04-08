@@ -30,7 +30,7 @@ class EventRepetition extends Model
     /**
      * Get for each event the first event repetition in the near future (JUST THE QUERY to use as SUBQUERY).
      * Parameters are Start date and End date of the interval
-     * Return the query string, 
+     * Return the query string,.
      * @param  string $searchStartDate
      * @param  string $searchStartDate
      * @return string $searchEndDate
