@@ -30,7 +30,7 @@ class StatisticTest extends TestCase
     /***************************************************************************/
 
     /**
-     * Test that logged admin can SEE the statistics
+     * Test that logged admin can SEE the statistics.
      */
     public function test_a_logged_admin_can_see_statistics_index()
     {
@@ -41,7 +41,4 @@ class StatisticTest extends TestCase
         $response = $this->get('/statistics')
                              ->assertStatus(200);
     }
-
-    
-
 }
