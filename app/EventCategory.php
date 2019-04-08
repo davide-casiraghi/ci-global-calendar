@@ -26,8 +26,8 @@ class EventCategory extends Model
     /**
      * Return the category name.
      *
-     * @param  int  category id
-     * @return string the category name
+     * @param  int  $categoryId
+     * @return string 
      */
     public static function getCategoryName($categoryId)
     {

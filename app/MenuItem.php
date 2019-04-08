@@ -30,10 +30,11 @@ class MenuItem extends Model
 
     /**
      * Return the items of the menu in a tree format (multidimensional array)
+     * If $menuId is 0 return all the items.
      * https://stackoverflow.com/questions/4196157/create-array-tree-from-array-list.
      *
-     * @param  $menuId - the menu id (if 0 return all the items)
-     * @return array $ret - the multidimensional array with the tree
+     * @param  $menuId 
+     * @return array
      */
     public static function getItemsTree($menuId)
     {
@@ -64,9 +65,9 @@ class MenuItem extends Model
      * Create array tree from array list - it support more than 1 parentid[0] element
      * https://stackoverflow.com/questions/4196157/create-array-tree-from-array-list.
      *
-     * @param  $list
-     * @param  $parent
-     * @return string $key - the index of the parent item
+     * @param  array
+     * @param  array
+     * @return array 
      */
     public static function createTree(&$list, $parent)
     {
@@ -87,8 +88,8 @@ class MenuItem extends Model
      * Return the access level name
      * https://stackoverflow.com/questions/4196157/create-array-tree-from-array-list.
      *
-     * @param  $accessId
-     * @return string $ret - the string that describe the access
+     * @param  int
+     * @return string 
      */
     public static function getAccessName($accessId)
     {
@@ -110,8 +111,7 @@ class MenuItem extends Model
     /**
      * Check if the user group with the access level and return true if the user is authorized to see the menu item.
      *
-     * @param  $accessId
-     * @return string $ret - the string that describe the access
+     * @return boolean
      */
     public function authorized()
     {
