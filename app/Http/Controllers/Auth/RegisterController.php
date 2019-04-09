@@ -119,7 +119,7 @@ class RegisterController extends Controller
 
         $countries = Country::getCountries();
 
-        $mailDatas = array();
+        $mailDatas = [];
         $mailDatas['subject'] = 'New user registration';
         $mailDatas['name'] = $request->name;
         $mailDatas['email'] = $request->email;
