@@ -106,8 +106,8 @@ class EventController extends Controller
         //$venues = EventVenue::pluck('name', 'id');
         $venues = DB::table('event_venues')
                 ->select('id', 'name', 'city')->get();
-        
-        $dateTime = array();
+
+        $dateTime = [];
         $dateTime['repeatUntil'] = null;
 
         return view('events.create')
@@ -238,8 +238,8 @@ class EventController extends Controller
                     ->select('id', 'start_repeat', 'end_repeat')
                     ->where('event_id', '=', $event->id)
                     ->first();
-            
-            $dateTime = array();
+
+            $dateTime = [];
             $dateTime['dateStart'] = (isset($eventFirstRepetition->start_repeat)) ? date('d/m/Y', strtotime($eventFirstRepetition->start_repeat)) : '';
             $dateTime['dateEnd'] = (isset($eventFirstRepetition->end_repeat)) ? date('d/m/Y', strtotime($eventFirstRepetition->end_repeat)) : '';
             $dateTime['timeStart'] = (isset($eventFirstRepetition->start_repeat)) ? date('g:i A', strtotime($eventFirstRepetition->start_repeat)) : '';
@@ -404,13 +404,13 @@ class EventController extends Controller
      * Save all the weekly repetitions in the event_repetitions table.
      * $dateStart and $dateEnd are in the format Y-m-d
      * $timeStart and $timeEnd are in the format H:i:s.
-     * $weekDays - $request->get('repeat_weekly_on_day')
+     * $weekDays - $request->get('repeat_weekly_on_day').
      * @param  \App\Event  $event
-     * @param  string  $weekDays 
-     * @param  string  $startDate 
-     * @param  string  $repeatUntilDate 
-     * @param  string  $timeStart 
-     * @param  string  $timeEnd 
+     * @param  string  $weekDays
+     * @param  string  $startDate
+     * @param  string  $repeatUntilDate
+     * @param  string  $timeStart
+     * @param  string  $timeEnd
      * @return void
      */
     public function saveWeeklyRepeatDates($event, $weekDays, $startDate, $repeatUntilDate, $timeStart, $timeEnd)
