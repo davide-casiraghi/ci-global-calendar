@@ -26,7 +26,7 @@ class PostController extends Controller
     /**
      * Constructor.
      *
-     * @return none
+     * @return void
      */
     public function __construct()
     {
@@ -318,7 +318,7 @@ class PostController extends Controller
         if ($request->file('introimage')) {
             $introImagePictureFile = $request->file('introimage');
             $imageName = $introImagePictureFile->hashName();
-            $path = $introImagePictureFile->store('public/images/posts_intro_images');
+            //$path = $introImagePictureFile->store('public/images/posts_intro_images');
             $post->introimage = $imageName;
         }
 
