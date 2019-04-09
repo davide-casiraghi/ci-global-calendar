@@ -32,7 +32,7 @@ build:
                 override:
                     - php-scrutinizer-run
                     - js-scrutinizer-run
-        unittests: 
+        coverage: 
             tests:
                 override:
                   - command: './vendor/bin/phpunit --coverage-clover=build/logs/clover.xml'
