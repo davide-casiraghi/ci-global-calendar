@@ -159,7 +159,7 @@ class TeacherController extends Controller
         //DB::enableQueryLog();
         $eventsTeacherWillTeach = $teacher->events()
                                               ->select('events.title', 'events.category_id', 'events.slug', 'events.sc_venue_name', 'events.sc_country_name', 'events.sc_city_name', 'events.sc_teachers_names', 'event_repetitions.start_repeat', 'event_repetitions.end_repeat')
-                                              ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) use ($searchStartDate) {
+                                              ->joinSub($lastestEventsRepetitionsQuery, 'event_repetitions', function ($join) {
                                                   $join->on('events.id', '=', 'event_repetitions.event_id');
                                               })
                                               ->orderBy('event_repetitions.start_repeat', 'asc')
