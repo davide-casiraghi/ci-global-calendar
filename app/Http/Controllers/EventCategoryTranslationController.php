@@ -20,10 +20,10 @@ class EventCategoryTranslationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    /*public function index()
     {
         //
-    }
+    }*/
 
     /**
      * Show the form for creating a new resource.
@@ -76,10 +76,10 @@ class EventCategoryTranslationController extends Controller
      * @param  \App\EventCategoryTranslation  $eventCategoryTranslation
      * @return \Illuminate\Http\Response
      */
-    public function show(EventCategoryTranslation $eventCategoryTranslation)
+    /*public function show(EventCategoryTranslation $eventCategoryTranslation)
     {
         //
-    }
+    }*/
 
     /**
      * Show the form for editing the specified resource.

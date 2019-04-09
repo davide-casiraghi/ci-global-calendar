@@ -445,7 +445,7 @@ class EventController extends Controller
      * @param  string  $repeatUntilDate (Y-m-d)
      * @param  string  $timeStart (H:i:s)
      * @param  string  $timeEnd (H:i:s)
-     * @return none
+     * @return void
      */
     public function saveMonthlyRepeatDates($event, $monthRepeatDatas, $startDate, $repeatUntilDate, $timeStart, $timeEnd)
     {

@@ -202,7 +202,7 @@ class UserController extends Controller
      * Return the validator with all the defined constraint.
      * @param  \Illuminate\Http\Request  $request
      * @param  string $callingMethod
-     * @return Validator
+     * @return \Illuminate\Validation\Validator
      */
     public function usersValidator($request, $callingMethod)
     {

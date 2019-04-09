@@ -23,10 +23,10 @@ class CategoryTranslationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    /*public function index()
     {
         //
-    }
+    }*/
 
     /***************************************************************************/
 
@@ -109,10 +109,10 @@ class CategoryTranslationController extends Controller
      * @param  \App\CategoryTranslation  $categoryTranslation
      * @return \Illuminate\Http\Response
      */
-    public function show(CategoryTranslation $categoryTranslation)
+    /*public function show(CategoryTranslation $categoryTranslation)
     {
         //
-    }
+    }*/
 
     /***************************************************************************/
 
