@@ -113,12 +113,11 @@ class PostTranslationController extends Controller
         ]);
 
         $postTranslation = PostTranslation::where('id', $request->get('post_translation_id'));
-
+        
+        $pt = array();
         $pt['title'] = $request->get('title');
-        //$pt['body'] = $request->get('body');
         $pt['body'] = clean($request->get('body'));
         $pt['slug'] = Str::slug($request->get('title'), '-');
-
         $pt['before_content'] = $request->get('before_content');
         $pt['after_content'] = $request->get('after_content');
 
