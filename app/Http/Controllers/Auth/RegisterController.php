@@ -119,8 +119,8 @@ class RegisterController extends Controller
 
         $countries = Country::getCountries();
 
+        $mailDatas = array();
         $mailDatas['subject'] = 'New user registration';
-
         $mailDatas['name'] = $request->name;
         $mailDatas['email'] = $request->email;
         $mailDatas['country'] = $countries[$request->country_id];
@@ -175,7 +175,7 @@ class RegisterController extends Controller
      * Send the User activation mail to the Admin.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return redirect to route
+     * @return \Illuminate\Http\Response
      */
     public function userActivationMailSend(Request $request)
     {

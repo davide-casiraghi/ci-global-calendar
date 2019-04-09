@@ -6,6 +6,7 @@ use Validator;
 use App\EventCategory;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class EventCategoryController extends Controller

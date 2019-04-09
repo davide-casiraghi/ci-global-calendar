@@ -130,6 +130,7 @@ class CategoryTranslationController extends Controller
 
         $categoryTranslation = CategoryTranslation::where('id', $request->get('category_translation_id'));
 
+        $category_t = array();
         $category_t['name'] = $request->get('name');
         $category_t['description'] = $request->get('description');
         $category_t['slug'] = Str::slug($request->get('name'), '-');
