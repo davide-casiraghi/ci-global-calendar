@@ -278,7 +278,7 @@ class TeacherController extends Controller
     /**
      * Open a modal in the event view when create teachers is clicked.
      *
-     * @return view
+     * @return \Illuminate\Http\Response
      */
     public function modal()
     {
@@ -332,7 +332,7 @@ class TeacherController extends Controller
     /**
      * Return the validator with all the defined constraint.
      *
-     * @param  \App\Event  $post
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function teachersValidator($request)
