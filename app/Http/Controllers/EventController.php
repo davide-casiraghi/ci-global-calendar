@@ -383,7 +383,7 @@ class EventController extends Controller
      *
      * @param  \App\Event  $event
      * @param  string $date
-     * @param  int $dayOfTheWeek 
+     * @param  int $dayOfTheWeek
      * @return void
      */
     public function isWeekDay($date, $dayOfTheWeek)
@@ -678,7 +678,7 @@ class EventController extends Controller
      * - The HTML contain a <select></select> with four <options></options>.
      *
      * @param  \Illuminate\Http\Request  $request  - Just the day
-     * @return string 
+     * @return string
      */
     public function calculateMonthlySelectOptions(Request $request)
     {
