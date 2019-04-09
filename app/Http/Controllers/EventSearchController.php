@@ -93,6 +93,7 @@ class EventSearchController extends Controller
     public function show(Event $event, $id)
     {
         $event = Event::where('id', $id)->first();
+
         return view('eventSearch.show', compact('event'));
     }
 
