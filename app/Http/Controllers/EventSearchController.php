@@ -20,7 +20,7 @@ class EventSearchController extends Controller
     /**
      * Display the event search results in Global Calendar Homepage.
      * @param  \Illuminate\Http\Request  $request
-     * @return view
+     * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
@@ -84,71 +84,16 @@ class EventSearchController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Event  $event
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show(Event $event, $id)
     {
         $event = Event::where('id', $id)->first();
-
         return view('eventSearch.show', compact('event'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Event $event)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Event $event)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Event $event)
-    {
-        //
     }
 
     /***************************************************************************/
@@ -157,7 +102,7 @@ class EventSearchController extends Controller
      * Return and HTML with all the events of a specific country by country CODE. (eg. http://websitename.com/eventSearch/country/SI)
      * this should be included in the IFRAME for the regional websites.
      *
-     * @param  $slug - The code of the country
+     * @param  string $code
      * @return \Illuminate\Http\Response
      */
     public function EventsListByCountry($code)
