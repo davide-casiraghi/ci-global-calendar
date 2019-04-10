@@ -35,32 +35,34 @@
         @endif
 
         {{-- Search form --}}
-        <form class="searchForm mt-3" action="@if(Route::current()->getName() == 'teachers.index') {{ route('teachers.index') }} @else {{ route('teachers.directory') }} @endif" method="GET">
-            @csrf
-            <div class="row">
-                <div class="col-12 col-sm-6 pr-sm-2">
-                    @include('partials.forms.input', [
-                        'name' => 'keywords',
-                        'placeholder' => __('views.search_by_teacher_name'),
-                        'value' => $searchKeywords
-                    ])
+        @if($teachers->count() > 0) 
+            <form class="searchForm mt-3" action="@if(Route::current()->getName() == 'teachers.index') {{ route('teachers.index') }} @else {{ route('teachers.directory') }} @endif" method="GET">
+                @csrf
+                <div class="row">
+                    <div class="col-12 col-sm-6 pr-sm-2">
+                        @include('partials.forms.input', [
+                            'name' => 'keywords',
+                            'placeholder' => __('views.search_by_teacher_name'),
+                            'value' => $searchKeywords
+                        ])
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        @include('partials.forms.select', [
+                            'name' => 'country_id',
+                            'placeholder' => __('views.filter_by_country'),
+                            'records' => $countries,
+                            'seleted' => $searchCountry,
+                            'liveSearch' => 'true',
+                            'mobileNativeMenu' => false,
+                        ])
+                    </div>
+                    <div class="col-12">
+                        <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right ml-2">
+                        <a id="resetButton" class="btn btn-outline-primary float-right" href="#">@lang('general.reset')</a>
+                    </div>
                 </div>
-                <div class="col-12 col-sm-6">
-                    @include('partials.forms.select', [
-                        'name' => 'country_id',
-                        'placeholder' => __('views.filter_by_country'),
-                        'records' => $countries,
-                        'seleted' => $searchCountry,
-                        'liveSearch' => 'true',
-                        'mobileNativeMenu' => false,
-                    ])
-                </div>
-                <div class="col-12">
-                    <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right ml-2">
-                    <a id="resetButton" class="btn btn-outline-primary float-right" href="#">@lang('general.reset')</a>
-                </div>
-            </div>
-        </form>
+            </form>
+        @endif
 
         {{-- List of teachers --}}
         <div class="teachersList my-4">
