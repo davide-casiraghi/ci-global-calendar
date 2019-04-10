@@ -26,6 +26,7 @@ build:
     environment:
         php:
             version: 7.2
+        mysql: 5.5
     nodes:
         analysis:
             tests:
