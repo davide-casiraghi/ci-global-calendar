@@ -5,6 +5,12 @@
 
 @section('fb-tags')
     <meta property="og:title" content="{{ $teacher->name }}" />
+    
+    @if(!empty($teacher->profile_picture))
+        <meta property="og:image" content="/storage/images/teachers_profile/thumb_{{ $teacher->profile_picture }}" />
+    @else
+        <meta property="og:image" content="/storage/logo/fb_logo_cigc_red.jpg" />
+    @endif
 @endsection    
 
 @section('content')
