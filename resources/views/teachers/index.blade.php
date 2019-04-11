@@ -12,30 +12,33 @@
 
 @section('content')
     <div class="container max-w-md px-0">
-        <div class="row">
-            <div class="col-12 col-sm-7">
+        
+        
+        @if($teachers->count() > 0) 
+            
+            <div class="row">
+                <div class="col-12 col-sm-7">
+                    @if(Route::current()->getName() == 'teachers.index') 
+                        <h3>@lang('views.teachers_management')</h3>
+                    @elseif(Route::current()->getName() == 'teachers.directory') 
+                        <h3>@lang('views.teachers_directory')</h3>
+                    @endif
+                </div>
+                
                 @if(Route::current()->getName() == 'teachers.index') 
-                    <h3>@lang('views.teachers_management')</h3>
-                @elseif(Route::current()->getName() == 'teachers.directory') 
-                    <h3>@lang('views.teachers_directory')</h3>
+                    <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right">
+                        <a class="btn btn-success create-new" href="{{ route('teachers.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_teacher')</a>
+                    </div>
                 @endif
             </div>
-            
-            @if(Route::current()->getName() == 'teachers.index') 
-                <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right">
-                    <a class="btn btn-success create-new" href="{{ route('teachers.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_teacher')</a>
+
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success mt-4">
+                    <p>{{ $message }}</p>
                 </div>
             @endif
-        </div>
-
-        @if ($message = Session::get('success'))
-            <div class="alert alert-success mt-4">
-                <p>{{ $message }}</p>
-            </div>
-        @endif
-
-        {{-- Search form --}}
-        @if($teachers->count() > 0) 
+            
+            {{-- Search form --}}
             <form class="searchForm mt-3" action="@if(Route::current()->getName() == 'teachers.index') {{ route('teachers.index') }} @else {{ route('teachers.directory') }} @endif" method="GET">
                 @csrf
                 <div class="row">
@@ -62,6 +65,30 @@
                     </div>
                 </div>
             </form>
+        @else    
+            
+            <div class="row">
+                <div class="col-12 mt-5 max-w-sm">
+                    <h2>Create a teacher profile</h2>
+                    
+                    <span class="dark-gray">
+                        In this page teachers can add their own teacher profile.<br /><br />
+                        
+                        If you are and organizer and don’t find the teacher you are organizing for you can add it.
+                        It will be deleted when the teacher will create his/her own profile.<br />
+                    </span>
+                </div>
+                
+                
+            </div>
+            
+            <div class="row">    
+                @if(Route::current()->getName() == 'teachers.index') 
+                    <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right">
+                        <a class="btn btn-success create-new" href="{{ route('teachers.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_teacher')</a>
+                    </div>
+                @endif
+            </div>
         @endif
 
         {{-- List of teachers --}}
