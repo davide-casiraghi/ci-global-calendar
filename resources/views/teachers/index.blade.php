@@ -67,28 +67,27 @@
             </form>
         @else    
             
-            <div class="row">
-                <div class="col-12 mt-5 max-w-sm">
-                    <h2>Create a teacher profile</h2>
-                    
-                    <span class="dark-gray">
-                        In this page teachers can add their own teacher profile.<br /><br />
+            <div class="wrap empty-page empty-page-teacher">
+                <div class="row inner">
+                    <div class="col-12 mt-5 max-w-sm">
+                        <h3 class="mb-4">Create a teacher profile</h3>
                         
-                        If you are and organizer and don’t find the teacher you are organizing for you can add it.
-                        It will be deleted when the teacher will create his/her own profile.<br />
-                    </span>
+                        <span class="dark-gray">
+                            In this page teachers can add their own teacher profile.<br /><br />
+                            
+                            If you are and organizer and don’t find the teacher you are organizing for you can add it.
+                            It will be deleted when the teacher will create his/her own profile.<br />
+                        </span>
+                    </div>
+                    
+                    @if(Route::current()->getName() == 'teachers.index') 
+                        <div class="col-12">
+                            <a class="btn blue-bg-4 create-new white mt-4" href="{{ route('teachers.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_teacher')</a>
+                        </div>
+                    @endif
                 </div>
-                
-                
             </div>
             
-            <div class="row">    
-                @if(Route::current()->getName() == 'teachers.index') 
-                    <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right">
-                        <a class="btn btn-success create-new" href="{{ route('teachers.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_teacher')</a>
-                    </div>
-                @endif
-            </div>
         @endif
 
         {{-- List of teachers --}}

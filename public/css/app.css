@@ -21324,3 +21324,32 @@ ul.pagination {
   line-height: 2rem;*/
 }
 
+.empty-page.wrap {
+  position: relative;
+}
+
+.empty-page.wrap.empty-page-teacher:after {
+  content: "\F007";
+  font-family: "Font Awesome 5 Pro";
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  position: fixed;
+  font-size: 400px;
+  color: #d2ddeb;
+  bottom: 10px;
+  right: 40px;
+  z-index: 1;
+}
+
+@media screen and (max-width: 400px) {
+  .empty-page.wrap.empty-page-teacher:after {
+    font-size: 200px;
+  }
+}
+
+.empty-page.wrap .inner {
+  position: relative;
+  z-index: 2;
+}
+
