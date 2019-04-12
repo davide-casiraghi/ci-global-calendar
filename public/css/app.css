@@ -21344,7 +21344,8 @@ ul.pagination {
 
 @media screen and (max-width: 400px) {
   .empty-page.wrap.empty-page-teacher:after {
-    font-size: 200px;
+    font-size: 250px;
+    right: 10px;
   }
 }
 

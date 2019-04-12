@@ -67,7 +67,7 @@
             </form>
         @else    
             
-            <div class="wrap empty-page empty-page-teacher">
+            <div class="wrap empty-page empty-page-teacher min-vh-100">
                 <div class="row inner">
                     <div class="col-12 mt-5 max-w-sm">
                         <h3 class="mb-4">Create a teacher profile</h3>
@@ -75,8 +75,8 @@
                         <span class="dark-gray">
                             In this page teachers can add their own teacher profile.<br /><br />
                             
-                            If you are and organizer and don’t find the teacher you are organizing for you can add it.
-                            It will be deleted when the teacher will create his/her own profile.<br />
+                            If you are an organizer and you don’t find the teachers you are organizing for you can add them.
+                            They will be deleted when they will create their own profile.<br />
                         </span>
                     </div>
                     
