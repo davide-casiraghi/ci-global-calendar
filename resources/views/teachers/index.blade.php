@@ -75,8 +75,8 @@
                         <span class="dark-gray">
                             In this page teachers can add their own teacher profile.<br /><br />
                             
-                            If you are an organizer and you don’t find the teachers you are organizing for you can add them.
-                            They will be deleted when they will create their own profile.<br />
+                            If you are an organizer and you don’t find the teachers you are organizing for you can add them here.
+                            They will be deleted when the teachers will create their own profile.<br />
                         </span>
                     </div>
                     
