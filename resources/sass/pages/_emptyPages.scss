@@ -1,29 +1,39 @@
 .empty-page{
-    &.wrap{
-         position: relative;
-        &.empty-page-teacher{
-            &:after{
-                content: "\f007"; 
-                font-family: "Font Awesome 5 Pro";
-                font-style: normal;
-                font-weight: normal;
-                text-decoration: inherit;
-                position: fixed;
-                font-size: 400px;
-                color: $gray;
-                bottom: 10px;
-                right: 40px;
-                z-index: 1;
-                
-                @media screen and (max-width: 400px){
-                    font-size: 250px;
-                    right: 10px;
-               }
-            }
+    position: relative;
+    &:after{
+        font-family: "Font Awesome 5 Pro";
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        position: fixed;
+        font-size: 400px;
+        color: $gray;
+        bottom: 10px;
+        right: 40px;
+        z-index: 1;
+        
+        @media screen and (max-width: 400px){
+            font-size: 250px;
+            right: 10px;
+       }
+    }
+    &.empty-page-teacher{
+        &:after{
+            content: "\f007";     
         }
-        .inner{
-            position: relative;
-            z-index: 2;
+    }
+    &.empty-page-organizer{
+        &:after{
+            content: "\f007";     
         }
+    }
+    &.empty-page-venues{
+        &:after{
+            content: "\f007";     
+        }
+    }
+    .inner{
+        position: relative;
+        z-index: 2;
     }
 }

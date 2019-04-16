@@ -21324,12 +21324,11 @@ ul.pagination {
   line-height: 2rem;*/
 }
 
-.empty-page.wrap {
+.empty-page {
   position: relative;
 }
 
-.empty-page.wrap.empty-page-teacher:after {
-  content: "\F007";
+.empty-page:after {
   font-family: "Font Awesome 5 Pro";
   font-style: normal;
   font-weight: normal;
@@ -21343,13 +21342,17 @@ ul.pagination {
 }
 
 @media screen and (max-width: 400px) {
-  .empty-page.wrap.empty-page-teacher:after {
+  .empty-page:after {
     font-size: 250px;
     right: 10px;
   }
 }
 
-.empty-page.wrap .inner {
+.empty-page.empty-page-teacher:after {
+  content: "\F007";
+}
+
+.empty-page .inner {
   position: relative;
   z-index: 2;
 }
