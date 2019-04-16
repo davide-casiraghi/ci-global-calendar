@@ -64,9 +64,9 @@
                         <h3 class="mb-4">Create a venue</h3>
                         
                         <span class="dark-gray">
-                            In this page organizers can create a new venue. <br />
-                            The venue can be slected by any organizer but the only one able to modify the venues datas is the venue creator.
-                            <br /><br />
+                            In this page organizers can create a new venue. <br /><br />
+                            The venue can be selected by any organizer but the only one able to modify the venues datas is the venue creator.
+                            <br />
                         </span>
                     </div>
                     

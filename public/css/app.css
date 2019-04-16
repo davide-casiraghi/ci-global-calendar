@@ -21360,6 +21360,10 @@ ul.pagination {
   content: "\F3C5";
 }
 
+.empty-page.empty-page-event:after {
+  content: "\F073";
+}
+
 .empty-page .inner {
   position: relative;
   z-index: 2;

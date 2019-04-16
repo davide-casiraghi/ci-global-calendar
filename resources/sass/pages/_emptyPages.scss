@@ -32,6 +32,11 @@
             content: "\f3c5";     
         }
     }
+    &.empty-page-event{
+        &:after{
+            content: "\f073";     
+        }
+    }
     .inner{
         position: relative;
         z-index: 2;
