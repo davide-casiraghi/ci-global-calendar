@@ -21352,6 +21352,14 @@ ul.pagination {
   content: "\F007";
 }
 
+.empty-page.empty-page-organizer:after {
+  content: "\F0C0";
+}
+
+.empty-page.empty-page-venue:after {
+  content: "\F3C5";
+}
+
 .empty-page .inner {
   position: relative;
   z-index: 2;

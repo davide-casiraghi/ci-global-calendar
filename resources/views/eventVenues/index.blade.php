@@ -12,49 +12,75 @@
 
 @section('content')
     <div class="container max-w-md px-0">
-        <div class="row">
-            <div class="col-12 col-sm-7">
-                <h4>@lang('views.events_venue_management')</h4>
+        
+        @if($eventVenues->count() > 0)
+            <div class="row">
+                <div class="col-12 col-sm-7">
+                    <h4>@lang('views.events_venue_management')</h4>
+                </div>
+                <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right">
+                    <a class="btn btn-success create-new" href="{{ route('eventVenues.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_venue')</a>
+                </div>
             </div>
-            <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right">
-                <a class="btn btn-success create-new" href="{{ route('eventVenues.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_venue')</a>
-            </div>
-        </div>
 
-        @if ($message = Session::get('success'))
-            <div class="alert alert-success mt-4">
-                <p>{{ $message }}</p>
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success mt-4">
+                    <p>{{ $message }}</p>
+                </div>
+            @endif
+
+            {{-- Search form --}}
+            <form class="searchForm mt-3" action="{{ route('eventVenues.index') }}" method="GET">
+                @csrf
+                <div class="row">
+                    <div class="col-12 col-sm-6 pr-sm-2">
+                        @include('partials.forms.input', [
+                            'name' => 'keywords',
+                            'placeholder' => __('views.search_by_venue_name'),
+                            'value' => $searchKeywords
+                        ])
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        @include('partials.forms.select', [
+                            'name' => 'country_id',
+                            'placeholder' => __('views.filter_by_country'),
+                            'records' => $countries,
+                            'seleted' => $searchCountry,
+                            'liveSearch' => 'true',
+                            'mobileNativeMenu' => false,
+                        ])
+                    </div>
+                    <div class="col-12">
+                        <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right ml-2">
+                        <a id="resetButton" class="btn btn-outline-primary float-right" href="#">@lang('general.reset')</a>
+                    </div>
+                </div>
+            </form>
+        @else
+            {{--  Empty Page --}}
+            <div class="wrap empty-page empty-page-venue min-vh-100">
+                <div class="row inner">
+                    <div class="col-12 mt-5 max-w-sm">
+                        <h3 class="mb-4">Create a venue</h3>
+                        
+                        <span class="dark-gray">
+                            In this page organizers can create a new venue. <br />
+                            The venue can be slected by any organizer but the only one able to modify the venues datas is the venue creator.
+                            <br /><br />
+                        </span>
+                    </div>
+                    
+                    @if(Route::current()->getName() == 'eventVenues.index') 
+                        <div class="col-12">
+                            <a class="btn blue-bg-4 create-new white mt-4" href="{{ route('eventVenues.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_venue')</a>
+                        </div>
+                    @endif
+                </div>
             </div>
         @endif
-
-
-        {{-- Search form --}}
-        <form class="searchForm mt-3" action="{{ route('eventVenues.index') }}" method="GET">
-            @csrf
-            <div class="row">
-                <div class="col-12 col-sm-6 pr-sm-2">
-                    @include('partials.forms.input', [
-                        'name' => 'keywords',
-                        'placeholder' => __('views.search_by_venue_name'),
-                        'value' => $searchKeywords
-                    ])
-                </div>
-                <div class="col-12 col-sm-6">
-                    @include('partials.forms.select', [
-                        'name' => 'country_id',
-                        'placeholder' => __('views.filter_by_country'),
-                        'records' => $countries,
-                        'seleted' => $searchCountry,
-                        'liveSearch' => 'true',
-                        'mobileNativeMenu' => false,
-                    ])
-                </div>
-                <div class="col-12">
-                    <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right ml-2">
-                    <a id="resetButton" class="btn btn-outline-primary float-right" href="#">@lang('general.reset')</a>
-                </div>
-            </div>
-        </form>
+            
+            
+        
 
         {{-- List of venues --}}
         <div class="venuesList my-4">

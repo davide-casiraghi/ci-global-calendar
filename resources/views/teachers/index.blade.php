@@ -66,7 +66,7 @@
                 </div>
             </form>
         @else    
-            
+            {{--  Empty Page --}}
             <div class="wrap empty-page empty-page-teacher min-vh-100">
                 <div class="row inner">
                     <div class="col-12 mt-5 max-w-sm">
