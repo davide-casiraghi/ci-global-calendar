@@ -37,6 +37,9 @@ build:
                     - js-scrutinizer-run
         coverage: 
             tests:
+                before:
+                    - 'cp .env.travis .env'
+                    - command: 'cp .env.travis .env'
                 override:
                   - command: './vendor/bin/phpunit --coverage-clover=build/logs/clover.xml'
                     coverage:
