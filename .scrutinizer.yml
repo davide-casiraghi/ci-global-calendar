@@ -39,6 +39,8 @@ build:
             tests:
                 before:
                   - command: 'cp .env.travis .env'
+                  - command: "mysql -e 'create database testing;'"
+                 
                 override:
                   - command: './vendor/bin/phpunit --coverage-clover=build/logs/clover.xml'
                     coverage:
