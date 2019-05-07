@@ -9226,6 +9226,11 @@ readers do not read off random characters that represent icons */
   letter-spacing: 0.05em;
 }
 
+.btn {
+  white-space: normal !important;
+  word-wrap: break-word;
+}
+
 .btn.button-rounded {
   border-radius: 1rem !important;
 }
