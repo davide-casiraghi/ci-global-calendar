@@ -9,6 +9,7 @@
         "anhskohbo/no-captcha": "^3.0",
         "beyondcode/laravel-self-diagnosis": "^1.2",
         "consoletvs/charts": "6.*",
+        "davide-casiraghi/laravel-events-calendar": "^1.0",
         "dimsav/laravel-translatable": "^9.2",
         "doctrine/dbal": "^2.8",
         "fideloper/proxy": "^4.0",
