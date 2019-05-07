@@ -280,16 +280,16 @@
         },
         {
             "name": "davide-casiraghi/laravel-events-calendar",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davide-casiraghi/laravel-events-calendar.git",
-                "reference": "cac014e954d456c11933c587cd2fe6518985b603"
+                "reference": "51f73dd62a56ea1e6b8094d3fc94bba659f342fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/cac014e954d456c11933c587cd2fe6518985b603",
-                "reference": "cac014e954d456c11933c587cd2fe6518985b603",
+                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/51f73dd62a56ea1e6b8094d3fc94bba659f342fd",
+                "reference": "51f73dd62a56ea1e6b8094d3fc94bba659f342fd",
                 "shasum": ""
             },
             "require": {
@@ -339,7 +339,7 @@
                 "davide-casiraghi",
                 "laravel-events-calendar"
             ],
-            "time": "2019-05-07T11:23:03+00:00"
+            "time": "2019-05-07T14:38:34+00:00"
         },
         {
             "name": "dimsav/laravel-translatable",
@@ -1471,16 +1471,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.8.15",
+            "version": "v5.8.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "8a34004aed6ff0aa4072360e3e5bd875edebc223"
+                "reference": "83d57f9f9162ab476c43b9ec00d463ff12c578fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/8a34004aed6ff0aa4072360e3e5bd875edebc223",
-                "reference": "8a34004aed6ff0aa4072360e3e5bd875edebc223",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/83d57f9f9162ab476c43b9ec00d463ff12c578fd",
+                "reference": "83d57f9f9162ab476c43b9ec00d463ff12c578fd",
                 "shasum": ""
             },
             "require": {
@@ -1614,7 +1614,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-04-30T14:05:03+00:00"
+            "time": "2019-05-07T14:37:11+00:00"
         },
         {
             "name": "laravel/tinker",

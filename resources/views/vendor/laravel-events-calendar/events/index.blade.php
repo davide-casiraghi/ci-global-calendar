@@ -40,7 +40,7 @@
                     ])
                 </div>
                 <div class="col-12 col-sm-6 order-4 order-sm-2">
-                    <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right ml-2">
+                    <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right ml-2" style="white-space: normal;">
                     <a id="resetButton" class="btn btn-outline-primary float-right" href="#">@lang('general.reset')</a>
                 </div>
             
