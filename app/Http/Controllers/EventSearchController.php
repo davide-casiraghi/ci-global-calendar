@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Event;
+/*use App\Event;
 use App\Country;
 use App\Teacher;
 use App\Continent;
 use App\EventVenue;
-use App\EventCategory;
+use App\EventCategory;*/
+
+use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Teacher;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Continent;
+use DavideCasiraghi\LaravelEventsCalendar\Models\EventVenue;
+use DavideCasiraghi\LaravelEventsCalendar\Models\EventCategory;
+
 use App\BackgroundImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
