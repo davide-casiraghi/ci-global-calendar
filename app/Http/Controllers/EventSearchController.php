@@ -9,6 +9,10 @@ use App\Continent;
 use App\EventVenue;
 use App\EventCategory;*/
 
+use App\BackgroundImage;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use App\Http\Resources\Continent as ContinentResource;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Teacher;
@@ -16,11 +20,6 @@ use DavideCasiraghi\LaravelEventsCalendar\Models\Continent;
 use DavideCasiraghi\LaravelEventsCalendar\Models\EventVenue;
 use DavideCasiraghi\LaravelEventsCalendar\Models\EventCategory;
 use DavideCasiraghi\LaravelEventsCalendar\Facades\LaravelEventsCalendar;
-
-use App\BackgroundImage;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
-use App\Http\Resources\Continent as ContinentResource;
 
 class EventSearchController extends Controller
 {
@@ -42,7 +41,7 @@ class EventSearchController extends Controller
         });
 
         // Get the countries with active events
-        $activeEvents = Event::getActiveEvents(); 
+        $activeEvents = Event::getActiveEvents();
         $countries = $activeEvents->unique('country_name')->sortBy('country_name')->pluck('country_name', 'country_id');
         //$cities = $activeEvents->unique('city')->toArray();
         $activeContinentsCountries = ContinentResource::collection(Continent::all());
@@ -50,15 +49,15 @@ class EventSearchController extends Controller
         $continents = Cache::rememberForever('continents', function () {
             return Continent::orderBy('name')->pluck('name', 'id');
         });
-        
+
         $venues = Cache::remember('venues', $cacheExpireTime, function () {
             return EventVenue::pluck('name', 'id');
         });
-        
+
         $teachers = Cache::remember('teachers', $cacheExpireTime, function () {
             return Teacher::orderBy('name')->pluck('name', 'id');
         });
-        
+
         $filters = [];
         $filters['keywords'] = $request->input('keywords');
         $filters['category'] = $request->input('category_id');
@@ -69,9 +68,9 @@ class EventSearchController extends Controller
         $filters['venue'] = $request->input('venue_name');
         $filters['startDate'] = LaravelEventsCalendar::formatDatePickerDateForMysql($request->input('startDate'), 1);
         $filters['endDate'] = LaravelEventsCalendar::formatDatePickerDateForMysql($request->input('endDate'));
-        
+
         $events = Event::getEvents($filters, 20);
-        
+
         return view('eventSearch.index', compact('events'))
             ->with('i', (request()->input('page', 1) - 1) * 20)
             ->with('eventCategories', $eventCategories)
