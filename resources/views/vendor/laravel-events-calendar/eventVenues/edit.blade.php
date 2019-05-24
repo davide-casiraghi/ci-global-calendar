@@ -5,7 +5,7 @@
     <div class="container max-w-md px-0">
         <div class="row mb-4">
             <div class="col-lg-12">
-                <h4>@lang('views.edit_venue')</h4>
+                <h4>@lang('laravel-events-calendar::eventVenue.edit_venue')</h4>
             </div>
         </div>
 
@@ -20,9 +20,9 @@
              <div class="row">
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.input', [
-                        'title' => __('general.name'),
+                        'title' => __('laravel-events-calendar::general.name'),
                         'name' => 'name',
-                        'placeholder' => __('homepage-serach.venue_name'),
+                        'placeholder' => __('laravel-events-calendar::eventVenue.venue_name'),
                         'value' => $eventVenue->name,
                         'required' => true,
                     ])
@@ -32,9 +32,9 @@
                 @if(empty($authorUserId))
                     <div class="col-12">
                         @include('laravel-events-calendar::partials.select', [
-                            'title' => __('views.created_by'),
+                            'title' => __('laravel-events-calendar::general.created_by'),
                             'name' => 'created_by',
-                            'placeholder' => __('views.select_owner'),
+                            'placeholder' => __('laravel-events-calendar.select_owner'),
                             'records' => $users,
                             'seleted' => $eventVenue->created_by,
                             'liveSearch' => 'true',
@@ -46,7 +46,7 @@
 
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.input', [
-                        'title' => __('views.street'),
+                        'title' => __('laravel-events-calendar::eventVenue.street'),
                         'name' => 'address',
                         'value' => $eventVenue->address,
                         'required' => false,
@@ -54,7 +54,7 @@
                 </div>
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.input', [
-                        'title' => __('views.city'),
+                        'title' => __('laravel-events-calendar::eventVenue.city'),
                         'name' => 'city',
                         'value' => $eventVenue->city,
                         'required' => true,
@@ -62,7 +62,7 @@
                 </div>
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.input', [
-                        'title' => __('views.state_province'),
+                        'title' => __('laravel-events-calendar::eventVenue.state_province'),
                         'name' => 'state_province',
                         'value' => $eventVenue->state_province,
                         'required' => false,
@@ -70,9 +70,9 @@
                 </div>
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.select', [
-                          'title' => __('views.country'),
+                          'title' => __('laravel-events-calendar::general.country'),
                           'name' => 'country_id',
-                          'placeholder' => __('views.select_country'), 
+                          'placeholder' => __('laravel-events-calendar::general.select_country'), 
                           'records' => $countries,
                           'seleted' => $eventVenue->country_id,
                           'liveSearch' => 'true',
@@ -82,7 +82,7 @@
                 </div>
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.input', [
-                        'title' => __('views.zip_code'),
+                        'title' => __('laravel-events-calendar::eventVenue.zip_code'),
                         'name' => 'zip_code',
                         'placeholder' => '',
                         'value' => $eventVenue->zip_code,
@@ -91,7 +91,7 @@
                 </div>
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.input', [
-                        'title' => __('views.website'),
+                        'title' => __('laravel-events-calendar::general.website'),
                         'name' => 'website',
                         'placeholder' => 'https://...',
                         'value' => $eventVenue->website,
@@ -100,7 +100,7 @@
                 </div>
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.textarea', [
-                        'title' => __('general.description'),
+                        'title' => __('laravel-events-calendar::general.description'),
                         'name' => 'description',
                         'placeholder' => '',
                         'value' => $eventVenue->description,

@@ -40,7 +40,7 @@
                                     <i class="far fa-clock dark-gray d-table-cell align-middle text-center pr-2" data-toggle="tooltip" data-placement="top" title="Date & Time" style="width: 20px;"></i>
                                     <div class="date ml-1">
                                         <div class="bigdate">@date_monthname($datesTimes->start_repeat) @if(!$sameDateStartEnd)-&nbsp; @date_monthname($datesTimes->end_repeat)@endif</div>
-                                        <small class="smalldate text-black-50">{{--{{$fromSuffix}}--}} @date_monthname($datesTimes->start_repeat) @ @time_am_pm($datesTimes->start_repeat) {{--{{$toSuffix}}--}} @if(!$sameDateStartEnd)@date_monthname($datesTimes->end_repeat) @ @endif @time_am_pm($datesTimes->end_repeat)</small>
+                                        <small class="smalldate text-black-50">{{-- FROM --}} @date_monthname($datesTimes->start_repeat) @ @time_am_pm($datesTimes->start_repeat) {{-- toSuffix --}} @if(!$sameDateStartEnd)@date_monthname($datesTimes->end_repeat) @ @endif @time_am_pm($datesTimes->end_repeat)</small>
                                     </div>
                                 </div>
                                 <div class="col-12 mt-2 d-table">

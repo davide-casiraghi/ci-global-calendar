@@ -1,7 +1,7 @@
 
 {{-- Button - Write for more info --}}
     @if(!empty($event->contact_email))
-        <button type="button" class="btn btn-primary button-small" data-toggle="modal" data-target="#writeToOrganizerModal" data-whatever="@getbootstrap">@lang('views.write_for_more_info')</button>
+        <button type="button" class="btn btn-primary button-small" data-toggle="modal" data-target="#writeToOrganizerModal" data-whatever="@getbootstrap">@lang('laravel-events-calendar::event.write_for_more_info')</button>
     @endif
     
 {{-- Modal --}}
@@ -9,7 +9,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content light-gray-bg">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="writeToOrganizerModalLabel">@lang('views.write_for_more_info')</h5>
+                    <h5 class="modal-title" id="writeToOrganizerModalLabel">@lang('laravel-events-calendar::event.write_for_more_info')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -17,7 +17,7 @@
                 <form action="{{ route('events.organizer-message') }}" method="POST">
                     <div class="modal-body">
                              @csrf
-                             <p>@lang('views.write_for_more_info_details')</p>
+                             <p>@lang('laravel-events-calendar::event.write_for_more_info_details')</p>
                              @include('laravel-events-calendar::partials.input', [
                                    'title' => 'Your name',
                                    'name' => 'user_name',

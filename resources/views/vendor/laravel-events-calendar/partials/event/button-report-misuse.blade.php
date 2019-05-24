@@ -17,7 +17,7 @@
                              @csrf 
                              <p>@lang('misuse.report_violation') <a href="/posts/19" target="_blank"><i class="far fa-link"></i></a><br></p>
                              <div class="form-group">
-                                 <strong>@lang('misuse.reason') <span class="dark-gray" data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span></strong>
+                                 <strong>@lang('misuse.reason') <span class="dark-gray" data-toggle="tooltip" data-placement="top" title="@lang('laravel-events-calendar::general.required')">*</span></strong>
                                  <select name="reason" class="selectpicker" title="@lang('misuse.select_one_option')">
                                      <option value="1">@lang('misuse.not_about_ci')</option>
                                      <option value="2">@lang('misuse.contains_wrong_info')</option>

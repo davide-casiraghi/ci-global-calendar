@@ -36,10 +36,10 @@
                     <div class="col-12 mt-2">
                         <div class="row">
                             <div class="col-6">
-                                @if(!empty($teacher->year_starting_practice))<b>@lang('views.year_of_starting_to_practice')<br /> </b>{{ $teacher->year_starting_practice }}@endif
+                                @if(!empty($teacher->year_starting_practice))<b>@lang('laravel-events-calendar::teacher.year_of_starting_to_practice')<br /> </b>{{ $teacher->year_starting_practice }}@endif
                             </div>
                             <div class="col-6">
-                                @if(!empty($teacher->year_starting_teach))<b>@lang('views.year_of_starting_to_teach')<br /> </b>{{ $teacher->year_starting_teach }}@endif
+                                @if(!empty($teacher->year_starting_teach))<b>@lang('laravel-events-calendar::teacher.year_of_starting_to_teach')<br /> </b>{{ $teacher->year_starting_teach }}@endif
                             </div>
                         </div>
                         
@@ -49,13 +49,13 @@
                             @if(!empty($teacher->facebook))
                                 <div class="col-6">
                                     <i title="" class="fab fa-facebook-square mr-1 dark-gray"></i>
-                                    <a href="{{ $teacher->facebook }}" target="_blank">@lang('views.facebook_profile')</a>
+                                    <a href="{{ $teacher->facebook }}" target="_blank">@lang('laravel-events-calendar::teacher.facebook_profile')</a>
                                 </div>
                             @endif
                             @if(!empty($teacher->website))
                                 <div class="col-6">
                                     <i class="fas fa-globe mr-1 dark-gray"></i>
-                                    <a href="{{ $teacher->website }}" target="_blank">@lang('views.website')</a>
+                                    <a href="{{ $teacher->website }}" target="_blank">@lang('laravel-events-calendar::teacher.website')</a>
                                 </div> 
                             @endif 
                         </div>
@@ -73,7 +73,7 @@
                         </div>
                         <div class="col-12 mt-3">
                             @if(!empty($teacher->significant_teachers))
-                                <h5>@lang('views.significant_teachers')</h5>
+                                <h5>@lang('laravel-events-calendar::teacher.significant_teachers')</h5>
                                 {{$teacher->significant_teachers}}
                             @endif
                         </div>

@@ -13,10 +13,10 @@
     <div class="container max-w-md px-0">
         <div class="row">
             <div class="col-12 col-sm-6">
-                <h3>@lang('views.countries_management')</h3>
+                <h3>@lang('laravel-events-calendar::country.countries_management')</h3>
             </div>
             <div class="col-12 col-sm-6 mt-4 mt-sm-0 text-right">
-                <a class="btn btn-success create-new" href="{{ route('countries.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_country')</a>
+                <a class="btn btn-success create-new" href="{{ route('countries.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('laravel-events-calendar::country.create_new_country')</a>
             </div>
         </div>
 
@@ -33,13 +33,13 @@
                 <div class="col-12 col-sm-7 pr-sm-2">
                     @include('laravel-events-calendar::partials.input', [
                         'name' => 'keywords',
-                        'placeholder' => __('views.search_by_country_name'),
+                        'placeholder' => __('laravel-events-calendar::country.search_by_country_name'),
                         'value' => $searchKeywords
                     ])
                 </div>
                 <div class="col-12 col-sm-5 mt-2 mt-sm-0">
-                    <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right ml-2" style="white-space: normal;">
-                    <a id="resetButton" class="btn btn-outline-primary float-right" href="#">@lang('general.reset')</a>
+                    <input type="submit" value="@lang('laravel-events-calendar::general.search')" class="btn btn-primary float-right ml-2" style="white-space: normal;">
+                    <a id="resetButton" class="btn btn-outline-primary float-right" href="#">@lang('laravel-events-calendar::general.reset')</a>
                 </div>
             </div>
         </form>
@@ -52,21 +52,21 @@
                         <h5 class="darkest-gray">{{ $country->name }}</h5>
                     </div>
                     <div class="col-12 mb-4">        
-                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-barcode-alt mr-1 dark-gray" data-original-title="@lang('general.code')"></i>
+                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-barcode-alt mr-1 dark-gray" data-original-title="@lang('laravel-events-calendar::general.code')"></i>
                         {{ $country->code }} 
                         
-                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 ml-4 dark-gray" data-original-title="@lang('general.continent')"></i>
+                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 ml-4 dark-gray" data-original-title="@lang('laravel-events-calendar::general.continent')"></i>
                         @if($country->continent_id){{ $continents[$country->continent_id] }}@endif
                     </div>
                     
                     <div class="col-12 pb-2 action">
                         <form action="{{ route('countries.destroy',$country->id) }}" method="POST">
-                            <a class="btn btn-primary float-right" href="{{ route('countries.edit',$country->id) }}">@lang('views.edit')</a>
+                            <a class="btn btn-primary float-right" href="{{ route('countries.edit',$country->id) }}">@lang('laravel-events-calendar::general.edit')</a>
                             
                             @csrf
                             @method('DELETE')
 
-                            <button type="submit" class="btn btn-link pl-0">@lang('views.delete')</button>
+                            <button type="submit" class="btn btn-link pl-0">@lang('laravel-events-calendar::general.delete')</button>
                         </form>
                     </div>
                 </div>

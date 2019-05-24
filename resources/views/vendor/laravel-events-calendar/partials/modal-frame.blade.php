@@ -4,7 +4,7 @@
     used in event create and edit view.
     it get populated on a click on the button like:
     <button type="button" data-toggle="modal" class="btn btn-primary mb-3 mb-sm-0 mt-sm-4" data-remote="{{ route('teachers.modal') }}" data-target=".modalFrame">
-        <i class="fa fas fa-plus-circle "></i> @lang('views.create_new_teacher')
+        <i class="fa fas fa-plus-circle "></i> @lang('laravel-events-calendar::teacher.create_new_teacher')
     </button>
 
 

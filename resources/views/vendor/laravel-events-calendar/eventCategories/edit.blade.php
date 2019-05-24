@@ -6,7 +6,7 @@
     
         <div class="row mb-4">
             <div class="col-12 col-sm-6">
-                <h4>@lang('views.edit_event_category')</h4>
+                <h4>@lang('laravel-events-calendar::eventCategory.edit_event_category')</h4>
             </div>
             <div class="col-12 col-sm-6 text-right">
                 <span class="badge badge-secondary">English</span>
@@ -24,7 +24,7 @@
              <div class="row">
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.input', [
-                          'title' => __('general.name'),
+                          'title' => __('laravel-events-calendar::general.name'),
                           'name' => 'name',
                           'placeholder' => 'Event category name',
                           'value' => $eventCategory->translate('en')->name,

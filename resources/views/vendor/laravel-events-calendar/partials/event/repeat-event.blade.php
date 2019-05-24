@@ -97,7 +97,7 @@
 
 <div class="row">
     <div class="col-12">
-        <h5>@lang('views.repeat_type')</h5>
+        <h5>@lang('laravel-events-calendar::event.repeat_type')</h5>
     </div>
 </div>
 
@@ -105,13 +105,13 @@
     <div class="col-12">
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-primary @if(!empty($event->repeat_type)) {{ $event->repeat_type == 1 ? 'active' : '' }} @else {{'active'}} @endif ">
-                <input type="radio" name="repeat_type" value="1" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 1 ? 'checked' : '' }} @else {{'checked'}} @endif> @lang('views.no_repeat')
+                <input type="radio" name="repeat_type" value="1" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 1 ? 'checked' : '' }} @else {{'checked'}} @endif> @lang('laravel-events-calendar::event.no_repeat')
             </label>
             <label class="btn btn-primary @if(!empty($event->repeat_type)) {{ $event->repeat_type == 2 ? 'active' : '' }} @endif ">
-                <input type="radio" name="repeat_type" value="2" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 2 ? 'checked' : '' }}@endif> @lang('views.weekly')
+                <input type="radio" name="repeat_type" value="2" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 2 ? 'checked' : '' }}@endif> @lang('laravel-events-calendar::event.weekly')
             </label>
             <label class="btn btn-primary @if(!empty($event->repeat_type)) {{ $event->repeat_type == 3 ? 'active' : '' }} @endif ">
-                <input type="radio" name="repeat_type" value="3" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 3 ? 'checked' : '' }}@endif> @lang('views.monthly')
+                <input type="radio" name="repeat_type" value="3" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 3 ? 'checked' : '' }}@endif> @lang('laravel-events-calendar::event.monthly')
             </label>
         </div>
     </div>
@@ -121,7 +121,7 @@
     
     <div class="row">
         <div id="onWeekly" class="onFrequency col-12 col-xl-7" style="display:none">
-            <label>@lang('views.weekly_on') <span data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span></label><br/>
+            <label>@lang('laravel-events-calendar::event.weekly_on') <span data-toggle="tooltip" data-placement="top" title="@lang('laravel-events-calendar::general.required')">*</span></label><br/>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-primary" id="day_1" >
                     <input type="checkbox" name="repeat_weekly_on_day[]" value="1" autocomplete="off"> M
@@ -149,7 +149,7 @@
         </div>
 
         <div id="onMonthly" class="onFrequency col-12 col-xl-7" style="display:none">
-            <label>@lang('views.monthly') *</label>
+            <label>@lang('laravel-events-calendar::event.monthly') *</label>
             <select name="on_monthly_kind" id="on_monthly_kind" class="selectpicker" title="Select repeat monthly kind">
                 <option value="1">1</option>
             </select>
@@ -159,13 +159,13 @@
         <div class="col-12 col-xl-5 mt-3 mt-xl-0">
 
             @include('laravel-events-calendar::partials.input-date', [
-                  'title' => __('views.repeat_until'),
+                  'title' => __('laravel-events-calendar::event.repeat_until'),
                   'name' => 'repeat_until',
-                  'placeholder' => __('views.select_date'),
+                  'placeholder' => __('laravel-events-calendar::general.select_date'),
                   'endDate' => '+1y',
                   'value' => $dateTime['repeatUntil'],
                   'tooltipFontAwesomeClass' => 'fa fa-info-circle',
-                  'tooltipText' => __('views.max_until'),
+                  'tooltipText' => __('laravel-events-calendar::event.max_until'),
                   'required' => true,
             ])
 

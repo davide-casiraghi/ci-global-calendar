@@ -6,10 +6,10 @@
         
         <div class="row">
             <div class="col-12 col-sm-6">
-                <h3>@lang('views.continents_management')</h3>
+                <h3>@lang('laravel-events-calendar::continent.continents_management')</h3>
             </div>
             <div class="col-12 col-sm-6 mt-4 mt-sm-0 text-right">
-                <a class="btn btn-success create-new" href="{{ route('continents.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_continent')</a>
+                <a class="btn btn-success create-new" href="{{ route('continents.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('laravel-events-calendar::continent.create_new_continent')</a>
             </div>
         </div>
 
@@ -29,18 +29,18 @@
                     </div>
                     
                     <div class="col-6 mb-4 order-2 pt-1">
-                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-barcode-alt mr-1 ml-4 dark-gray" data-original-title="@lang('general.code')"></i>
+                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-barcode-alt mr-1 ml-4 dark-gray" data-original-title="@lang('laravel-events-calendar::general.code')"></i>
                         {{ $continent->code }}
                     </div>
                     
                     <div class="col-12 pb-2 action order-3">
                         <form action="{{ route('continents.destroy',$continent->id) }}" method="POST">
-                            <a class="btn btn-primary float-right" href="{{ route('continents.edit',$continent->id) }}">@lang('views.edit')</a>
+                            <a class="btn btn-primary float-right" href="{{ route('continents.edit',$continent->id) }}">@lang('laravel-events-calendar::general.edit')</a>
                             
                             @csrf
                             @method('DELETE')
 
-                            <button type="submit" class="btn btn-link pl-0">@lang('views.delete')</button>
+                            <button type="submit" class="btn btn-link pl-0">@lang('laravel-events-calendar::general.delete')</button>
                         </form>
                     </div>
                     

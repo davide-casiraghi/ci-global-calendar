@@ -17,7 +17,7 @@
             </button>
         </div>
         <div class="col-12 pb-3">
-            <h4>@lang('views.add_new_teacher')</h4>
+            <h4>@lang('laravel-events-calendar::teacher.add_new_teacher')</h4>
         </div>
     </div>
 
@@ -31,7 +31,7 @@
          <div class="row">
             <div class="col-12">
                 @include('laravel-events-calendar::partials.input', [
-                      'title' => __('general.name'),
+                      'title' => __('laravel-events-calendar::general.name'),
                       'name' => 'name',
                       'placeholder' => 'Teacher name',
                       'required' => true,
@@ -40,7 +40,7 @@
 
             <div class="col-12">
                 @include('laravel-events-calendar::partials.select', [
-                      'title' => __('general.country'),
+                      'title' => __('laravel-events-calendar::general.country'),
                       'name' => 'country_id',
                       'placeholder' => 'Select country',
                       'records' => $countries,
@@ -52,14 +52,14 @@
 
             <div class="col-12">
                 @include('laravel-events-calendar::partials.textarea-plain', [
-                      'title' =>  __('views.bio'),
+                      'title' =>  __('laravel-events-calendar::teacher.bio'),
                       'name' => 'bio',
                       'required' => true,
                 ])
             </div>
             <div class="col-12">
                 @include('laravel-events-calendar::partials.input', [
-                      'title' => __('views.year_of_starting_to_practice'),
+                      'title' => __('laravel-events-calendar::teacher.year_of_starting_to_practice'),
                       'name' => 'year_starting_practice',
                       'placeholder' => 'AAAA',
                       'value' => '',
@@ -68,7 +68,7 @@
             </div>
             <div class="col-12">
                 @include('laravel-events-calendar::partials.input', [
-                      'title' => __('views.year_of_starting_to_teach'),
+                      'title' => __('laravel-events-calendar::teacher.year_of_starting_to_teach'),
                       'name' => 'year_starting_teach',
                       'placeholder' => 'AAAA',
                       'value' => '',
@@ -77,14 +77,14 @@
             </div>
             <div class="col-12">
                 @include('laravel-events-calendar::partials.textarea-plain', [
-                      'title' =>  __('views.significant_teachers'),
+                      'title' =>  __('laravel-events-calendar::teacher.significant_teachers'),
                       'name' => 'significant_teachers',
                       'required' => true,
                 ])
             </div>
             <div class="col-12">
                 @include('laravel-events-calendar::partials.input', [
-                      'title' => __('views.facebook_profile'),
+                      'title' => __('laravel-events-calendar::teacher.facebook_profile'),
                       'name' => 'facebook',
                       'placeholder' => 'https://...',
                       'value' => '',
@@ -93,7 +93,7 @@
             </div>
             <div class="col-12">
                 @include('laravel-events-calendar::partials.input', [
-                      'title' => __('views.website'),
+                      'title' => __('laravel-events-calendar::teacher.website'),
                       'name' => 'website',
                       'placeholder' => 'https://...',
                       'value' => '',
@@ -102,7 +102,7 @@
             </div>
             
             @include('laravel-events-calendar::partials.upload-image', [
-                  'title' => __('views.upload_profile_picture'), 
+                  'title' => __('laravel-events-calendar::teacher.upload_profile_picture'), 
                   'name' => 'profile_picture',
                   'value' => ''
             ])
@@ -110,10 +110,10 @@
 
         <div class="row mt-5">
             <div class="col-6 pull-left">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">@lang('general.close')</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">@lang('laravel-events-calendar::general.close')</button>
             </div>
             <div class="col-6 pull-right">
-              <button type="submit" class="btn btn-primary float-right">@lang('general.submit')</button>
+              <button type="submit" class="btn btn-primary float-right">@lang('laravel-events-calendar::general.submit')</button>
             </div>
         </div>
 

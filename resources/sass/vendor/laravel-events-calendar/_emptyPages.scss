@@ -1,0 +1,115 @@
+$backgroundImageColor: #e0e8ee;
+
+.empty-page{
+    position: relative;
+    
+    .inner{
+        position: relative;
+        z-index: 1;
+    }
+    
+    .inner-background{
+        position: absolute;
+        background-color: $backgroundImageColor;
+        z-index: 0;
+    }
+    
+    &.empty-page-venue {
+        .inner-background{
+        width: 263px;
+        height: 350px;
+        top: 100px;
+        right: 0;
+         -webkit-mask-image: url(/vendor/laravel-events-calendar/images/regular/map-marker-alt.svg);
+        mask-image: url(/vendor/laravel-events-calendar/images/regular/map-marker-alt.svg);
+        }
+    }
+    
+    &.empty-page-event {
+        .inner-background{
+        width: 263px;
+        height: 300px;
+        top: 100px;
+        right: 0;
+         -webkit-mask-image: url(/vendor/laravel-events-calendar/images/regular/calendar-alt.svg);
+        mask-image: url(/vendor/laravel-events-calendar/images/regular/calendar-alt.svg);
+        }
+    }
+    
+    &.empty-page-teacher {
+        .inner-background{
+        width: 263px;
+        height: 215px;
+        top: 100px;
+        right: 0;
+         -webkit-mask-image: url(/vendor/laravel-events-calendar/images/regular/users.svg);
+        mask-image: url(/vendor/laravel-events-calendar/images/regular/users.svg);
+        }
+    }
+    
+    &.empty-page-organizer {
+        .inner-background{
+        width: 263px;
+        height: 263px;
+        top: 100px;
+        right: 0;
+         -webkit-mask-image: url(/vendor/laravel-events-calendar/images/regular/user-alt.svg);
+        mask-image: url(/vendor/laravel-events-calendar/images/regular/user-alt.svg);
+        }
+    }
+    
+    /*
+    &.empty-page-venue{
+        top: 10px;
+        right: 10px;
+        
+        background-color: $backgroundImageColor;
+	    -webkit-mask-image: url(/vendor/laravel-events-calendar/images/map-marker-alt.svg);
+	    mask-image: url(/vendor/laravel-events-calendar/images/map-marker-alt.svg);
+	    width: 30px;
+	    height: 30px;
+    }
+    */
+    
+    /*&:after{
+        font-family: "Font Awesome 5 Pro";
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        position: fixed;
+        font-size: 400px;
+        color: $gray;
+        bottom: 10px;
+        right: 40px;
+        z-index: 1;
+        
+        @media screen and (max-width: 400px){
+            font-size: 250px;
+            right: 10px;
+       }
+    }
+    &.empty-page-teacher{
+        &:after{
+            content: "\f007";     
+        }
+    }
+    &.empty-page-organizer{
+        &:after{
+            content: "\f0c0";     
+        }
+    }
+    &.empty-page-venue{
+        &:after{
+            content: "\f3c5";     
+        }
+    }
+    &.empty-page-event{
+        &:after{
+            content: "\f073";     
+        }
+    }
+    .inner{
+        position: relative;
+        z-index: 2;
+    }*/
+}
