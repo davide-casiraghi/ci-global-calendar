@@ -213,7 +213,7 @@ class Event extends Model
     public static function prepareStartDate($DatePickerStartDate)
     {
         if ($DatePickerStartDate) {
-            list($tid, $tim, $tiy) = explode('/', $DatePickerStartDate);
+            [$tid, $tim, $tiy] = explode('/', $DatePickerStartDate);
             $ret = "$tiy-$tim-$tid";
         } else {
             // If no start date selected the search start from today's date
@@ -235,7 +235,7 @@ class Event extends Model
     public static function prepareEndDate($DatePickerEndDate)
     {
         if ($DatePickerEndDate) {
-            list($tid, $tim, $tiy) = explode('/', $DatePickerEndDate);
+            [$tid, $tim, $tiy] = explode('/', $DatePickerEndDate);
             $ret = "$tiy-$tim-$tid";
         } else {
             $ret = null;
