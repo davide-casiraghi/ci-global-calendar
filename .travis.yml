@@ -13,7 +13,7 @@ before_script:
     - composer install --no-interaction
     - php artisan key:generate
     - php artisan migrate --seed
-    - chromedriver-update 73.0.3683.68
+    - bundle exec chromedriver-update 73.0.3683.68
     - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
     - php artisan serve &
 
