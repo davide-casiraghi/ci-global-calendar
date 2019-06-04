@@ -32,4 +32,5 @@ return [
     'write_for_more_info_details' => 'Вы отправляете сообщение организатору события',
     'search_by_event_name' => 'Поиск по названию события',
     'filter_by_category' => 'Сортировать по категориям',
+    'delete_event' => 'Удалить событие',
 ];

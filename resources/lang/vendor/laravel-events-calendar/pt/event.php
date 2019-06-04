@@ -32,4 +32,5 @@ return [
     'write_for_more_info_details' => 'Você está enviando um e-mail para o organizador desse evento',
     'search_by_event_name' => 'Procurar pelo nome do evento',
     'filter_by_category' => 'Filtrar por categoria',
+    'delete_event' => 'Deletar evento',
 ];

@@ -28,4 +28,7 @@ return [
     'choose' => 'Choose...',
     'select_one' => 'Select one',
     'filter_by_country' => 'Filter by country',
+    'status' => 'Status',
+    'published' => 'Published',
+    'unpublished' => 'Unpublished',
 ];

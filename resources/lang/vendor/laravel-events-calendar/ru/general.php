@@ -28,4 +28,7 @@ return [
     'choose' => 'выберите...',
     'select_one' => 'Выберите один',
     'filter_by_country' => 'Сортировать по странам',
+    'status' => 'Статус',
+    'published' => 'Опубликовано',
+    'unpublished' => 'Неопубликовано',
 ];

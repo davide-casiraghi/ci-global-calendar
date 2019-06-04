@@ -28,4 +28,7 @@ return [
     'choose' => 'Wähle...',
     'select_one' => 'Wähle ein/es aus',
     'filter_by_country' => 'Nach Land filtern',
+    'status' => 'Status',
+    'published' => 'Veröffentlicht',
+    'unpublished' => 'Unveröffentlicht',
 ];
