@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>@lang('views.edit_country')</h2>
+                <h2>@lang('laravel-events-calendar::country.edit_country')</h2>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
          <div class="row">
             <div class="col-12">
                 @include('laravel-events-calendar::partials.input', [
-                      'title' => __('general.name'),
+                      'title' => __('laravel-events-calendar::general.name'),
                       'name' => 'name',
                       'placeholder' => '',
                       'value' => $country->name,
@@ -32,7 +32,7 @@
             </div>
             <div class="col-12">
                 @include('laravel-events-calendar::partials.input', [
-                      'title' => __('views.country_code'),
+                      'title' => __('laravel-events-calendar::general.code'),
                       'name' => 'code',
                       'value' => $country->code,
                       'required' => true,
@@ -40,9 +40,9 @@
             </div>
             <div class="col-12">
                 @include('laravel-events-calendar::partials.select', [
-                      'title' => __('general.continent'),
+                      'title' => __('laravel-events-calendar::general.continent'),
                       'name' => 'continent_id',
-                      'placeholder' => __('general.select_continent'),
+                      'placeholder' => __('laravel-events-calendar::general.select_continent'),
                       'records' => $continents,
                       'seleted' => $country->continent_id,
                       'liveSearch' => 'false',

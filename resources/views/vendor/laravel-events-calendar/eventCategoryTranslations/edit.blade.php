@@ -4,7 +4,7 @@
     
     <div class="row py-4">
         <div class="col-12 col-sm-9">
-            <h4>@lang('views.edit_translation')</h4>
+            <h4>@lang('laravel-events-calendar::general.edit_translation')</h4>
         </div>
         <div class="col-12 col-sm-3 text-right">
             <span class="badge badge-secondary">{{$selectedLocaleName}}</span>
@@ -56,7 +56,7 @@
                 <form action="{{ route('eventCategoryTranslations.destroy',$eventCategoryTranslation->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-link pl-0">@lang('views.delete_translation')</button>
+                    <button type="submit" class="btn btn-link pl-0">@lang('laravel-events-calendar::general.delete_translation')</button>
                 </form>
             </div>
         </div>

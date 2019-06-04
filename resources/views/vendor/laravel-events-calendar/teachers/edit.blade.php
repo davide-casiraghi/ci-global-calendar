@@ -6,7 +6,7 @@
         
         <div class="row mb-4">
             <div class="col-12">
-                <h4>@lang('views.edit_teacher')</h4>
+                <h4>@lang('laravel-events-calendar::teacher.edit_teacher')</h4>
             </div>
         </div>
 
@@ -21,9 +21,9 @@
              <div class="row">
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.input', [
-                        'title' => __('general.name'),
+                        'title' => __('laravel-events-calendar::general.name'),
                         'name' => 'name',
-                         'placeholder' => __('homepage-serach.teacher_name'),
+                        'placeholder' => '',
                         'value' => $teacher->name,
                         'required' => true,
                     ])
@@ -33,9 +33,9 @@
                 @if(empty($authorUserId))
                     <div class="col-12">
                         @include('laravel-events-calendar::partials.select', [
-                              'title' => __('views.created_by'),
+                              'title' => __('laravel-events-calendar::general.created_by'),
                               'name' => 'created_by',
-                              'placeholder' => __('views.select_owner'),
+                              'placeholder' => __('laravel-events-calendar.select_owner'),
                               'records' => $users,
                               'seleted' => $teacher->created_by,
                               'liveSearch' => 'true',
@@ -47,9 +47,9 @@
 
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.select', [
-                          'title' => __('general.country'),
+                          'title' => __('laravel-events-calendar::general.country'),
                           'name' => 'country_id',
-                          'placeholder' => __('views.select_country'),
+                          'placeholder' => __('laravel-events-calendar::general.select_country'),
                           'records' => $countries,
                           'seleted' => $teacher->country_id,
                           'liveSearch' => 'true',
@@ -60,7 +60,7 @@
 
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.textarea', [
-                         'title' =>  __('views.bio'),
+                         'title' =>  __('laravel-events-calendar::teacher.bio'),
                           'name' => 'bio',
                           'value' => $teacher->bio,
                           'required' => false,
@@ -68,7 +68,7 @@
                 </div>
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.input', [
-                          'title' => __('views.year_of_starting_to_practice'),
+                          'title' => __('laravel-events-calendar::teacher.year_of_starting_to_practice'),
                           'name' => 'year_starting_practice',
                           'placeholder' => 'AAAA',
                           'value' => $teacher->year_starting_practice,
@@ -77,7 +77,7 @@
                 </div>
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.input', [
-                          'title' => __('views.year_of_starting_to_teach'),
+                          'title' => __('laravel-events-calendar::teacher.year_of_starting_to_teach'),
                           'name' => 'year_starting_teach',
                           'placeholder' => 'AAAA',
                           'value' => $teacher->year_starting_teach,
@@ -87,7 +87,7 @@
                 
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.textarea-plain', [
-                          'title' =>  __('views.significant_teachers'),
+                          'title' =>  __('laravel-events-calendar::teacher.significant_teachers'),
                           'name' => 'significant_teachers',
                           'value' => $teacher->significant_teachers,
                           'required' => true,
@@ -96,7 +96,7 @@
                 
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.input', [
-                          'title' => __('views.facebook_profile'),
+                          'title' => __('laravel-events-calendar::teacher.facebook_profile'),
                           'name' => 'facebook',
                           'placeholder' => 'https://...',
                           'value' => $teacher->facebook ,
@@ -105,7 +105,7 @@
                 </div>
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.input', [
-                          'title' => __('views.website'),
+                          'title' => __('laravel-events-calendar::general.website'),
                           'name' => 'website',
                           'placeholder' => 'https://...',
                           'value' => $teacher->website,
@@ -114,7 +114,7 @@
                 </div>
 
                 @include('laravel-events-calendar::partials.upload-image', [
-                      'title' => __('views.upload_profile_picture'), 
+                      'title' => __('laravel-events-calendar::teacher.upload_profile_picture'), 
                       'name' => 'profile_picture',
                       'folder' => 'teachers_profile',
                       'value' => $teacher->profile_picture,

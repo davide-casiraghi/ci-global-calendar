@@ -5,7 +5,7 @@
     <div class="container max-w-md px-0">
         <div class="row mb-4">
             <div class="col-12">
-                <h4>@lang('views.add_new_organizer')</h4>
+                <h4>@lang('laravel-events-calendar::organizer.add_new_organizer')</h4>
             </div>
         </div>
 
@@ -19,9 +19,9 @@
              <div class="row">
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.input', [
-                        'title' => __('general.name'),
+                        'title' => __('laravel-events-calendar::general.name'),
                         'name' => 'name',
-                        'placeholder' => __('homepage-serach.organizer_name'), 
+                        'placeholder' => '', 
                         'value' => old('name'),
                         'required' => true,
                     ])
@@ -31,9 +31,9 @@
                 @if(empty($authorUserId))
                     <div class="col-12">
                         @include('laravel-events-calendar::partials.select', [
-                              'title' => __('views.created_by'),
+                              'title' => __('laravel-events-calendar::general.created_by'),
                               'name' => 'created_by',
-                              'placeholder' => __('views.select_owner'),
+                              'placeholder' => __('laravel-events-calendar.select_owner'),
                               'records' => $users,
                               'liveSearch' => 'true',
                               'mobileNativeMenu' => false,
@@ -45,7 +45,7 @@
 
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.input', [
-                        'title' => __('general.email_address'),
+                        'title' => __('laravel-events-calendar::general.email_address'),
                         'name' => 'email',
                         'value' => old('email'),
                         'required' => true,
@@ -53,7 +53,7 @@
                 </div>
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.input', [
-                        'title' => __('general.phone'),
+                        'title' => __('laravel-events-calendar::general.phone'),
                         'name' => 'phone',
                         'value' => old('phone'),
                         'required' => false,
@@ -61,7 +61,7 @@
                 </div>
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.input', [
-                        'title' => __('views.website'),
+                        'title' => __('laravel-events-calendar::general.website'),
                         'name' => 'website',
                         'placeholder' => 'https://...',
                         'value' => old('website'),
@@ -70,7 +70,7 @@
                 </div>
                 <div class="col-12">
                     @include('laravel-events-calendar::partials.textarea', [
-                          'title' => __('general.description'),
+                          'title' => __('laravel-events-calendar::general.description'),
                           'name' => 'description',
                           'placeholder' => '',
                           'value' => old('description'),

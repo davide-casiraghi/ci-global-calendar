@@ -15,7 +15,7 @@
             </button>
         </div>
         <div class="col-12 pb-3">
-            <h4>@lang('views.add_new_organizer')</h4>
+            <h4>@lang('laravel-events-calendar::organizer.add_new_organizer')</h4>
         </div>
     </div>
 
@@ -29,7 +29,7 @@
         <div class="row">
            <div class="col-12">
                @include('laravel-events-calendar::partials.input', [
-                   'title' => __('general.name'),
+                   'title' => __('laravel-events-calendar::general.name'),
                    'name' => 'name',
                    'placeholder' => 'Name',
                    'required' => true,
@@ -38,14 +38,14 @@
            
            <div class="col-12">
                @include('laravel-events-calendar::partials.input', [
-                   'title' => __('general.email_address'),
+                   'title' => __('laravel-events-calendar::general.email_address'),
                    'name' => 'email',
                    'required' => true,
                ])
            </div>
            <div class="col-12">
                @include('laravel-events-calendar::partials.input', [
-                   'title' => __('general.phone'),
+                   'title' => __('laravel-events-calendar::general.phone'),
                    'name' => 'phone',
                    'placeholder' => '',
                    'required' => false,
@@ -53,7 +53,7 @@
            </div>
            <div class="col-12">
                @include('laravel-events-calendar::partials.input', [
-                   'title' => __('views.website'),
+                   'title' => __('laravel-events-calendar::general.website'),
                    'name' => 'website',
                    'placeholder' => 'https://...',
                    'required' => false,
@@ -61,7 +61,7 @@
            </div>
            <div class="col-12">
                @include('laravel-events-calendar::partials.textarea', [
-                     'title' => __('general.description'),
+                     'title' => __('laravel-events-calendar::general.description'),
                      'name' => 'description',
                      'placeholder' => 'Organizer description',
                      'required' => false,
@@ -71,10 +71,10 @@
 
         <div class="row mt-5">
             <div class="col-6 pull-left">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">@lang('general.close')</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">@lang('laravel-events-calendar::general.close')</button>
             </div>
             <div class="col-6 pull-right">
-              <button type="submit" class="btn btn-primary float-right">@lang('general.submit')</button>
+              <button type="submit" class="btn btn-primary float-right">@lang('laravel-events-calendar::general.submit')</button>
             </div>
         </div>
 

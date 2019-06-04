@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>@lang('views.add_new_continent')</h2>
+                <h2>@lang('laravel-events-calendar::continent.add_new_continent')</h2>
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
          <div class="row">
             <div class="col-12">
                 @include('laravel-events-calendar::partials.input', [
-                      'title' => __('general.name'),
+                      'title' => __('laravel-events-calendar::general.name'),
                       'name' => 'name',
                       'placeholder' => 'Continent Name',
                       'value' => old('name'),
@@ -29,7 +29,7 @@
             </div>
             <div class="col-12">
                 @include('laravel-events-calendar::partials.input', [
-                      'title' => __('views.continent_code'),
+                      'title' => __('laravel-events-calendar::general.code'),
                       'name' => 'code',
                       'value' => old('code'),
                       'required' => true,

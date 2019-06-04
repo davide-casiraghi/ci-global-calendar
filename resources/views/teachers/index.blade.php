@@ -12,55 +12,83 @@
 
 @section('content')
     <div class="container max-w-md px-0">
-        <div class="row">
-            <div class="col-12 col-sm-7">
+        
+        
+        @if($teachers->count() > 0) 
+            
+            <div class="row">
+                <div class="col-12 col-sm-7">
+                    @if(Route::current()->getName() == 'teachers.index') 
+                        <h3>@lang('views.teachers_management')</h3>
+                    @elseif(Route::current()->getName() == 'teachers.directory') 
+                        <h3>@lang('views.teachers_directory')</h3>
+                    @endif
+                </div>
+                
                 @if(Route::current()->getName() == 'teachers.index') 
-                    <h3>@lang('views.teachers_management')</h3>
-                @elseif(Route::current()->getName() == 'teachers.directory') 
-                    <h3>@lang('views.teachers_directory')</h3>
+                    <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right">
+                        <a class="btn btn-success create-new" href="{{ route('teachers.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_teacher')</a>
+                    </div>
                 @endif
             </div>
-            
-            @if(Route::current()->getName() == 'teachers.index') 
-                <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right">
-                    <a class="btn btn-success create-new" href="{{ route('teachers.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_teacher')</a>
+
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success mt-4">
+                    <p>{{ $message }}</p>
                 </div>
             @endif
-        </div>
-
-        @if ($message = Session::get('success'))
-            <div class="alert alert-success mt-4">
-                <p>{{ $message }}</p>
+            
+            {{-- Search form --}}
+            <form class="searchForm mt-3" action="@if(Route::current()->getName() == 'teachers.index') {{ route('teachers.index') }} @else {{ route('teachers.directory') }} @endif" method="GET">
+                @csrf
+                <div class="row">
+                    <div class="col-12 col-sm-6 pr-sm-2">
+                        @include('partials.forms.input', [
+                            'name' => 'keywords',
+                            'placeholder' => __('views.search_by_teacher_name'),
+                            'value' => $searchKeywords
+                        ])
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        @include('partials.forms.select', [
+                            'name' => 'country_id',
+                            'placeholder' => __('views.filter_by_country'),
+                            'records' => $countries,
+                            'seleted' => $searchCountry,
+                            'liveSearch' => 'true',
+                            'mobileNativeMenu' => false,
+                        ])
+                    </div>
+                    <div class="col-12">
+                        <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right ml-2">
+                        <a id="resetButton" class="btn btn-outline-primary float-right" href="#">@lang('general.reset')</a>
+                    </div>
+                </div>
+            </form>
+        @else    
+            {{--  Empty Page --}}
+            <div class="wrap empty-page empty-page-teacher min-vh-100">
+                <div class="row inner">
+                    <div class="col-12 mt-5 max-w-sm">
+                        <h3 class="mb-4">Create a teacher profile</h3>
+                        
+                        <span class="dark-gray">
+                            In this page teachers can add their own teacher profile.<br /><br />
+                            
+                            If you are an organizer and you don’t find the teachers you are organizing for you can add them here.
+                            They will be deleted when the teachers will create their own profile.<br />
+                        </span>
+                    </div>
+                    
+                    @if(Route::current()->getName() == 'teachers.index') 
+                        <div class="col-12">
+                            <a class="btn blue-bg-4 create-new white mt-4" href="{{ route('teachers.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('views.create_new_teacher')</a>
+                        </div>
+                    @endif
+                </div>
             </div>
+            
         @endif
-
-        {{-- Search form --}}
-        <form class="searchForm mt-3" action="@if(Route::current()->getName() == 'teachers.index') {{ route('teachers.index') }} @else {{ route('teachers.directory') }} @endif" method="GET">
-            @csrf
-            <div class="row">
-                <div class="col-12 col-sm-6 pr-sm-2">
-                    @include('partials.forms.input', [
-                        'name' => 'keywords',
-                        'placeholder' => __('views.search_by_teacher_name'),
-                        'value' => $searchKeywords
-                    ])
-                </div>
-                <div class="col-12 col-sm-6">
-                    @include('partials.forms.select', [
-                        'name' => 'country_id',
-                        'placeholder' => __('views.filter_by_country'),
-                        'records' => $countries,
-                        'seleted' => $searchCountry,
-                        'liveSearch' => 'true',
-                        'mobileNativeMenu' => false,
-                    ])
-                </div>
-                <div class="col-12">
-                    <input type="submit" value="@lang('general.search')" class="btn btn-primary float-right ml-2">
-                    <a id="resetButton" class="btn btn-outline-primary float-right" href="#">@lang('general.reset')</a>
-                </div>
-            </div>
-        </form>
 
         {{-- List of teachers --}}
         <div class="teachersList my-4">

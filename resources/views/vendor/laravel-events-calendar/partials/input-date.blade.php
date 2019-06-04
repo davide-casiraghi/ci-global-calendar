@@ -26,7 +26,7 @@
 @stop
 
 <div class="form-group">
-    <label for="{{ $name }}">{{ $title }}@if($required) <span class="dark-gray" data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span>@endif</label>
+    <label for="{{ $name }}">{{ $title }}@if($required) <span class="dark-gray" data-toggle="tooltip" data-placement="top" title="@lang('laravel-events-calendar::general.required')">*</span>@endif</label>
 
     {{-- Tooltip --}}
     @if(!empty($tooltipFontAwesomeClass) && !empty($tooltipText))

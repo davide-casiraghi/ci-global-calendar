@@ -1,0 +1,44 @@
+.empty-page{
+    position: relative;
+    &:after{
+        font-family: "Font Awesome 5 Pro";
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        position: fixed;
+        font-size: 400px;
+        color: $gray;
+        bottom: 10px;
+        right: 40px;
+        z-index: 1;
+        
+        @media screen and (max-width: 400px){
+            font-size: 250px;
+            right: 10px;
+       }
+    }
+    &.empty-page-teacher{
+        &:after{
+            content: "\f007";     
+        }
+    }
+    &.empty-page-organizer{
+        &:after{
+            content: "\f0c0";     
+        }
+    }
+    &.empty-page-venue{
+        &:after{
+            content: "\f3c5";     
+        }
+    }
+    &.empty-page-event{
+        &:after{
+            content: "\f073";     
+        }
+    }
+    .inner{
+        position: relative;
+        z-index: 2;
+    }
+}
