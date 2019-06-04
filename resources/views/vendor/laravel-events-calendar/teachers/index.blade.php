@@ -13,6 +13,11 @@
 @section('content')
     <div class="container max-w-md px-0">
         
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success mt-4">
+                <p>{{ $message }}</p>
+            </div>
+        @endif
         
         @if($teachers->count() > 0) 
             <div class="row">
@@ -30,12 +35,6 @@
                     </div>
                 @endif
             </div>
-
-            @if ($message = Session::get('success'))
-                <div class="alert alert-success mt-4">
-                    <p>{{ $message }}</p>
-                </div>
-            @endif
             
             {{-- Search form --}}
             <form class="searchForm mt-3" action="@if(Route::current()->getName() == 'teachers.index') {{ route('teachers.index') }} @else {{ route('teachers.directory') }} @endif" method="GET">

@@ -13,6 +13,12 @@
 @section('content')
     <div class="container max-w-md px-0">
         
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success mt-4">
+                <p>{{ $message }}</p>
+            </div>
+        @endif
+        
         @if($eventVenues->count() > 0)
             <div class="row">
                 <div class="col-12 col-sm-7">
@@ -22,12 +28,6 @@
                     <a class="btn btn-success create-new" href="{{ route('eventVenues.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('laravel-events-calendar::eventVenue.create_new_venue')</a>
                 </div>
             </div>
-
-            @if ($message = Session::get('success'))
-                <div class="alert alert-success mt-4">
-                    <p>{{ $message }}</p>
-                </div>
-            @endif
 
             {{-- Search form --}}
             <form class="searchForm mt-3" action="{{ route('eventVenues.index') }}" method="GET">

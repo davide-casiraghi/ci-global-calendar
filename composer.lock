@@ -280,16 +280,16 @@
         },
         {
             "name": "davide-casiraghi/laravel-events-calendar",
-            "version": "1.1.27",
+            "version": "1.1.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davide-casiraghi/laravel-events-calendar.git",
-                "reference": "24095fb721a8e14c61eacf3f08f1d67ec0a86ab1"
+                "reference": "2edc543817bfa6994839bd0fec146414ad6c22f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/24095fb721a8e14c61eacf3f08f1d67ec0a86ab1",
-                "reference": "24095fb721a8e14c61eacf3f08f1d67ec0a86ab1",
+                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/2edc543817bfa6994839bd0fec146414ad6c22f6",
+                "reference": "2edc543817bfa6994839bd0fec146414ad6c22f6",
                 "shasum": ""
             },
             "require": {
@@ -339,7 +339,7 @@
                 "davide-casiraghi",
                 "laravel-events-calendar"
             ],
-            "time": "2019-06-03T18:46:04+00:00"
+            "time": "2019-06-04T08:50:21+00:00"
         },
         {
             "name": "dimsav/laravel-translatable",

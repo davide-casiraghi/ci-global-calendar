@@ -12,6 +12,12 @@
 @section('content')
     <div class="container max-w-md px-0">
         
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success mt-4">
+                <p>{{ $message }}</p>
+            </div>
+        @endif
+        
         @if($organizers->count() > 0)
             
             <div class="row">
@@ -22,12 +28,6 @@
                     <a class="btn btn-success create-new" href="{{ route('organizers.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('laravel-events-calendar::organizer.create_new_organizer')</a>
                 </div>
             </div>
-
-            @if ($message = Session::get('success'))
-                <div class="alert alert-success mt-4">
-                    <p>{{ $message }}</p>
-                </div>
-            @endif
 
             {{-- Search form --}}
             <form class="searchForm mt-3" action="{{ route('organizers.index') }}" method="GET">
