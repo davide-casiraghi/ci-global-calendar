@@ -96,7 +96,7 @@ class EventTest extends TestCase
         $title = $this->faker->sentence($nbWords = 3);
         $data = [
                 'title' => $title,
-                'category_id' => '3',
+                'category_id' => '100',
                 'description' => $this->faker->paragraph,
                 'created_by' => $this->user->id,
                 'slug' => Str::slug($title, '-').rand(100000, 1000000),
