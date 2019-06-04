@@ -124,7 +124,7 @@ class OrganizerTest extends TestCase
         $response = $this
                         ->followingRedirects()
                         //->delete('/organizers/'.$this->organizer->id, $this->organizer->toArray())
-                        ->delete("/organizers/".$this->organizer->id)
+                        ->delete('/organizers/'.$this->organizer->id)
                         ->assertSee('Organizer deleted successfully');
 
         // Check the update on DB
