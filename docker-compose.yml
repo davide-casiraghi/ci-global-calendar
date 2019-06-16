@@ -1,0 +1,27 @@
+version: '2'
+services:
+  mariadb:
+    image: 'bitnami/mariadb:10.1'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=homestead
+      - MARIADB_DATABASE=CIGC-local
+      - MARIADB_PASSWORD=secret
+
+  myapp:
+    tty: true
+    build: .
+    environment:
+      - DB_HOST=mariadb
+      - DB_USERNAME=homestead
+      - DB_DATABASE=CIGC-local
+      - DB_PASSWORD=secret
+    depends_on:
+      - mariadb
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/app
+
+  redis:
+    image: 'redis'
