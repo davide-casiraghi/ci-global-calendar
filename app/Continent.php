@@ -32,7 +32,7 @@ class Continent extends Model
     {
         $minutes = 15;
         $ret = Cache::remember('continents_list', $minutes, function () {
-            return Continent::orderBy('name')->pluck('name', 'id');
+            return self::orderBy('name')->pluck('name', 'id');
         });
 
         return $ret;
