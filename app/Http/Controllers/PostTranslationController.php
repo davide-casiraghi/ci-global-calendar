@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
 use Validator;
 use App\PostTranslation;
 use Illuminate\Support\Str;
