@@ -26,7 +26,7 @@ require('./plugins/cards_carousel');  // community_goals.js
 require('./plugins/laravel-filemanager/lfm');  // lfm.js
 require('./plugins/laravel-filemanager/editPostImageFilemanager');  // editPostImageFilemanager.js
 
-// Load Bootrap tooltip everywhere in the website
+// Load Bootstrap tooltip everywhere in the website
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
