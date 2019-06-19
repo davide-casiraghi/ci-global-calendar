@@ -19,7 +19,13 @@ class TeacherTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
+        
+        //$this->withFactories(base_path('davide-casiraghi/laravel-events-calendar/database/factories'));
 
+        //dd(base_path('davide-casiraghi/laravel-events-calendar/database/factories'));
+
+        // \DavideCasiraghi\LaravelEventsCalendar\Models\
+        
         // Seeders - /database/seeds
         $this->seed();
 
