@@ -45,7 +45,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     });*/
 
     Route::get('/events/country/{countryId}', function ($countryId) {
-        return EventResource::collection(Event::where('country_id', $countryId)->get());
+        return EventResource::collection(Event::join('event_venues', 'event_venues.id', '=', 'events.venue_id')
+            ->join('countries', 'countries.id', '=', 'event_venues.country_id')->where('country_id', $countryId)->get());
     });
 
     Route::get('/events/teacher/{id}', function ($id) {  // http://ciglobalcalendar.net/api/events/teacher/1
