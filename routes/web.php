@@ -116,7 +116,11 @@ function () {
     /* Donation Offers */
     Route::resource('donationOffers', 'DonationOfferController');
     Route::get('/donationOffersPublic/', 'DonationOfferController@indexPublic')->name('donationOffers.public');
-
+    
+    Route::get('/donationOffersGifts/', 'DonationOfferController@index')->name('donationOffers.gifts');
+    Route::get('/donationOffersFinancial/', 'DonationOfferController@index')->name('donationOffers.financial');
+    Route::get('/donationOffersVolunteers/', 'DonationOfferController@index')->name('donationOffers.volunteers');
+    
     /* Authentication */
     //Auth::routes();
     // Authentication Routes... https://stackoverflow.com/questions/42336115/how-can-i-pass-variable-to-register-view
