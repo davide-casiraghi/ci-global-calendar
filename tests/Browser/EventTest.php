@@ -3,7 +3,7 @@
 namespace Tests\Browser;
 
 use App\User;
-use App\Event;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
 use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Tests\Browser\Pages\LoginPage;
