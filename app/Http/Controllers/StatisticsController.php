@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Event;
-use App\Teacher;
-use App\Organizer;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Teacher;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Organizer;
 use App\Statistic;
 use Carbon\Carbon;
 use App\Charts\LatestUsers;
