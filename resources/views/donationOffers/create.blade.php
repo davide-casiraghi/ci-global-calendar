@@ -262,6 +262,27 @@
                     </div>
                     <div class="col main">
                         <div class="row">
+                            
+                            <div class="col-12">
+                                @include('partials.forms.input', [
+                                      'title' => __('donations.gift_title'),
+                                      'name' => 'gift_title',
+                                      'placeholder' => '',
+                                      'value' => old('gift_title'),
+                                      'required' => true,
+                                ])
+                            </div>
+                            
+                            <div class="col-12">
+                                @include('partials.forms.input', [
+                                      'title' => __('donations.gift_donater'),
+                                      'name' => 'gift_donater',
+                                      'placeholder' => '',
+                                      'value' => old('gift_donater'),
+                                      'required' => true,
+                                ])
+                            </div>
+                            
                             <div class="col-12">
                                 @include('partials.forms.textarea', [
                                       'title' =>  __('donations.describe_your_gift'),
@@ -271,6 +292,32 @@
                                       'required' => true,
                                 ])
                             </div>
+                            
+                            <div class="col-12">
+                                @include('partials.forms.input', [
+                                      'title' => __('donations.gift_economic_value'),
+                                      'name' => 'gift_economic_value',
+                                      'placeholder' => '',
+                                      'value' => old('gift_economic_value'),
+                                      'required' => true,
+                                ])
+                            </div>
+                            
+                            <div class="col-12">
+                                @include('partials.forms.select', [
+                                      'title' => __('donations.gift_country_of'),
+                                      'name' => 'gift_country_of',
+                                      'placeholder' => __('views.select_country'), 
+                                      'records' => $countries,
+                                      'liveSearch' => 'true',
+                                      'mobileNativeMenu' => false,
+                                      'seleted' => old('gift_country_of'),
+                                      'required' => false,
+                                ])
+                            </div>
+                            
+                            
+                            
                         </div>
                     </div>
                 </div>
