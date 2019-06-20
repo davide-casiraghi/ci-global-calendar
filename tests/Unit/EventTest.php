@@ -78,7 +78,7 @@ class EventTest extends TestCase
     /**
      * Test that the logged user can create an event.
      */
-    /*public function test_a_logged_user_can_create_event()
+    public function test_a_logged_user_can_create_event()
     {
         // Authenticate the user
         $this->authenticate();
@@ -116,7 +116,7 @@ class EventTest extends TestCase
             ];
         $response = $this
                             ->followingRedirects()
-                            ->post('/events', $data)->dump();
+                            ->post('/events', $data);
 
         // Assert in database
         $this->assertDatabaseHas('events', ['title' => $title]);
@@ -124,7 +124,7 @@ class EventTest extends TestCase
         $response
                 ->assertStatus(200)
                 ->assertSee(__('messages.event_added_successfully'));
-    }*/
+    }
 
     /***************************************************************************/
 
