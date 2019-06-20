@@ -280,16 +280,16 @@
         },
         {
             "name": "davide-casiraghi/laravel-events-calendar",
-            "version": "1.1.31",
+            "version": "1.1.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davide-casiraghi/laravel-events-calendar.git",
-                "reference": "cb8fb698a4eef7840b1ace730f9ef657cce0bc1e"
+                "reference": "9a9e74fa01118fb358e729b7a58e60cd62bab480"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/cb8fb698a4eef7840b1ace730f9ef657cce0bc1e",
-                "reference": "cb8fb698a4eef7840b1ace730f9ef657cce0bc1e",
+                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/9a9e74fa01118fb358e729b7a58e60cd62bab480",
+                "reference": "9a9e74fa01118fb358e729b7a58e60cd62bab480",
                 "shasum": ""
             },
             "require": {
@@ -339,7 +339,7 @@
                 "davide-casiraghi",
                 "laravel-events-calendar"
             ],
-            "time": "2019-06-20T06:13:08+00:00"
+            "time": "2019-06-20T07:28:23+00:00"
         },
         {
             "name": "dimsav/laravel-translatable",
@@ -3012,16 +3012,16 @@
         },
         {
             "name": "symfony/event-dispatcher-contracts",
-            "version": "v1.1.4",
+            "version": "v1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher-contracts.git",
-                "reference": "04e22670b5827c9608d0e2b14290edc41842fab6"
+                "reference": "c61766f4440ca687de1084a5c00b08e167a2575c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/04e22670b5827c9608d0e2b14290edc41842fab6",
-                "reference": "04e22670b5827c9608d0e2b14290edc41842fab6",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/c61766f4440ca687de1084a5c00b08e167a2575c",
+                "reference": "c61766f4440ca687de1084a5c00b08e167a2575c",
                 "shasum": ""
             },
             "require": {
@@ -3066,7 +3066,7 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2019-06-17T11:53:04+00:00"
+            "time": "2019-06-20T06:46:26+00:00"
         },
         {
             "name": "symfony/finder",
@@ -3801,7 +3801,7 @@
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v1.1.4",
+            "version": "v1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/service-contracts.git",
@@ -3935,7 +3935,7 @@
         },
         {
             "name": "symfony/translation-contracts",
-            "version": "v1.1.4",
+            "version": "v1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation-contracts.git",

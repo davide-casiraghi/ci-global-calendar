@@ -115,7 +115,9 @@
                                 {{ $eventCategories[$event->category_id] }}
                                 
                                 <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 ml-4 dark-gray" data-original-title="@lang('laravel-events-calendar::general.country')"></i>
-                                {{ $countries[$venues[$event->venue_id]] }}
+                                @if(isset($countries[$venues[$event->venue_id]]))
+                                    {{ $countries[$venues[$event->venue_id]] }}
+                                @endif
                             </div>
                             <div class="col-12 pb-2 action">
                                 <form action="{{ route('events.destroy',$event->id) }}" method="POST">
