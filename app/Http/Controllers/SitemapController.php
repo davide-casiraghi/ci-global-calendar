@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Post;
-use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
-use DavideCasiraghi\LaravelEventsCalendar\Models\Teacher;
 use App\MenuItem;
 use Illuminate\Support\Facades\DB;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Teacher;
 
 /**
  *    Created using this tutorial: https://laravel-news.com/laravel-sitemap.
