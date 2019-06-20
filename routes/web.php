@@ -118,7 +118,7 @@ function () {
     Route::get('/donationOffersPublic/', 'DonationOfferController@indexPublic')->name('donationOffers.public');
     
     Route::get('/donationOffersFreeEntrances/', 'DonationOfferController@index')->name('donationOffers.freeEntrances');
-    Route::get('/donationOffersOtherGifts/', 'DonationOfferController@index')->name('donationOffers.otherGifts');
+    Route::get('/donationOffersOtherGifts/', 'DonationOfferController@indexOtherGifts')->name('donationOffers.otherGifts');
     Route::get('/donationOffersFinancial/', 'DonationOfferController@index')->name('donationOffers.financial');
     Route::get('/donationOffersVolunteers/', 'DonationOfferController@index')->name('donationOffers.volunteers');
     

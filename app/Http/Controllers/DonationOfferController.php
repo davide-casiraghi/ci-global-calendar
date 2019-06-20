@@ -220,6 +220,14 @@ class DonationOfferController extends Controller
         $donationOffer->other_description = $request->get('other_description');
         $donationOffer->suggestions = $request->get('suggestions');
         $donationOffer->status = $request->get('status');
+        $donationOffer->gift_donater = $request->get('gift_donater');
+        $donationOffer->gift_economic_value = $request->get('gift_economic_value');
+        $donationOffer->gift_volunteer_time_value = $request->get('gift_volunteer_time_value');
+        $donationOffer->gift_given_to = $request->get('gift_given_to');
+        $donationOffer->gift_given_when = $request->get('gift_given_when');
+        $donationOffer->gift_country_of = $request->get('gift_country_of');
+        $donationOffer->admin_notes = $request->get('admin_notes');
+        $donationOffer->gift_title = $request->get('gift_title');
 
         //dd($donationOffer);
 
@@ -275,6 +283,63 @@ class DonationOfferController extends Controller
 
         //dd($donationOffers);
         return view('donationOffers.indexPublic', compact('donationOffers'))
+                    ->with('i', (request()->input('page', 1) - 1) * 20)
+                    ->with('countries', $countries)
+                    ->with('donationKindArray', $donationKindArray)
+                    ->with('searchKeywords', $searchKeywords)
+                    ->with('searchCountry', $searchCountry)
+                    ->with('searchDonationKind', $searchDonationKind);
+    }
+    
+    /***************************************************************************/
+
+    /**
+     * Display a listing of the resource - the public list.
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function indexOtherGifts(Request $request)
+    {
+        $countries = Country::getCountries();
+
+        $donationKindArray = [];
+        foreach (DonationOffer::getDonationKindArray() as $key => $value) {
+            $donationKindArray[$key] = $value['label'];
+        }
+
+        $searchKeywords = $request->input('keywords');
+        $searchCountry = $request->input('country_id');
+        $searchDonationKind = $request->input('donation_kind_filter');
+
+        // Show just to the owner - Get created_by value if the user is not an admin or super admin
+        // $loggedUser = $this->getLoggedAuthorId();
+
+        if ($searchKeywords || $searchCountry || $searchDonationKind) {
+            $donationOffers = DonationOffer::
+                where('offer_kind', '4')
+                ->when($searchKeywords, function ($query, $searchKeywords) {
+                    return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%'.$searchKeywords.'%');
+                })
+                ->when($searchKeywords, function ($query, $searchKeywords) {
+                    return $query->where('surname', $searchKeywords)->orWhere('surname', 'like', '%'.$searchKeywords.'%');
+                })
+                ->when($searchCountry, function ($query, $searchCountry) {
+                    return $query->where('country_id', '=', $searchCountry);
+                })
+                ->when($searchDonationKind, function ($query, $searchDonationKind) {
+                    return $query->where('offer_kind', '=', $searchDonationKind);
+                })
+                ->orderBy('name')
+                ->paginate(20);
+        } else {
+            $donationOffers = DonationOffer::
+                where('offer_kind', '4')
+                ->orderBy('name')
+                ->paginate(20);
+        }
+
+        //dd($donationOffers);
+        return view('donationOffers.indexOtherGifts', compact('donationOffers'))
                     ->with('i', (request()->input('page', 1) - 1) * 20)
                     ->with('countries', $countries)
                     ->with('donationKindArray', $donationKindArray)

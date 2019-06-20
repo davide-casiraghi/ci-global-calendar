@@ -99,23 +99,6 @@
                                 ])
                             </div>
                             
-                            
-                            
-                            {{-- Show the created by field just to the admin and super admin --}}
-                            {{--@if(empty($authorUserId))
-                                <div class="col-12">
-                                    @include('partials.forms.select', [
-                                          'title' =>  __('views.created_by'), 
-                                          'name' => 'created_by',
-                                          'placeholder' => __('views.select_owner'),
-                                          'records' => $users,
-                                          'liveSearch' => 'true',
-                                          'mobileNativeMenu' => false,
-                                    ])
-                                </div>
-                            @endif
-                            --}}
-                            
                         </div>
                     </div>
                 </div>
@@ -123,6 +106,11 @@
                 <hr class="mt-3 mb-4">
                 
                 {{-- How you want to help - OFFER KIND --}}
+                    @include('partials.forms.input-hidden', [
+                          'name' => 'offer_kind',
+                          'value' => $donationOffer->offer_kind,
+                    ])
+                    
                     <div class="row">
                         <div class="col form-sidebar">
                             <h5 class="text-xl">@lang('donations.i_want_to_help')</h5>
