@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use App\Mail\UserActivation;
@@ -13,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\UserActivationConfirmation;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
 
 class RegisterController extends Controller
 {

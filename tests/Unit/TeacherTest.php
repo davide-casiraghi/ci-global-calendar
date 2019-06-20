@@ -19,11 +19,11 @@ class TeacherTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        
+
         // Seeders - /database/seeds
         $this->seed();
 
-        // Factories 
+        // Factories
         $this->withFactories(base_path('vendor/davide-casiraghi/laravel-events-calendar/database/factories'));
         $this->teacher = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\Teacher::class)->create();
     }
