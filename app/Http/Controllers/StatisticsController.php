@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
-use DavideCasiraghi\LaravelEventsCalendar\Models\Teacher;
-use DavideCasiraghi\LaravelEventsCalendar\Models\Organizer;
 use App\Statistic;
 use Carbon\Carbon;
 use App\Charts\LatestUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Teacher;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Organizer;
 
 class StatisticsController extends Controller
 {
