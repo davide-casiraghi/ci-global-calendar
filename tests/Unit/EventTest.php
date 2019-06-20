@@ -29,7 +29,7 @@ class EventTest extends TestCase
         $this->user = factory(\App\User::class)->create();
         $this->venue = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\EventVenue::class)->create();
         $this->teachers = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\Teacher::class, 3)->create();
-        $this->organizers = factory(\App\Organizer::class, 3)->create();
+        $this->organizers = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\Organizer::class, 3)->create();
         $this->eventCategory = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\EventCategory::class)->create(['id'=>'100']);
         $this->event = factory(\App\Event::class)->create(['category_id'=>'100']);
     }
