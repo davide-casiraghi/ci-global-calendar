@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Validator;
-use App\Country;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
 use App\DonationOffer;
 use Illuminate\Http\Request;
 
