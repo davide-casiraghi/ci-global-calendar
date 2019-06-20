@@ -21,9 +21,10 @@ class VenueTest extends TestCase
         parent::setUp();
         // Seeders - /database/seeds
         $this->seed();
-
-        // Factories - /database/factories
-        $this->venue = factory(\App\EventVenue::class)->create();
+                
+        // Factories
+        $this->withFactories(base_path('vendor/davide-casiraghi/laravel-events-calendar/database/factories'));
+        $this->venue = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\EventVenue::class)->create();
     }
 
     /***************************************************************************/

@@ -23,7 +23,8 @@ class OrganizerTest extends TestCase
         $this->seed();
 
         // Factories - /database/factories
-        $this->organizer = factory(\App\Organizer::class)->create();
+        $this->withFactories(base_path('vendor/davide-casiraghi/laravel-events-calendar/database/factories'));
+        $this->organizer = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\Organizer::class)->create();
     }
 
     /***************************************************************************/
