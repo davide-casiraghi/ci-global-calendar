@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use App\Country;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use App\Mail\UserActivation;
