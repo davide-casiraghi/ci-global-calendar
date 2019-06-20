@@ -14,18 +14,6 @@
         </div>
     @endif
 
-
-
-    @if(Route::current()->getName() == 'donationOffers.gifts') 
-        @include('partials.donationOffers.gifts-list')
-    @endif
-
-
-
-
-
-
-
     {{-- Search form --}}
     <form class="searchForm mt-3" action="{{ route('donationOffers.index') }}" method="GET">
         @csrf
