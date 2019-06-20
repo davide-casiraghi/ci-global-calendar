@@ -174,7 +174,6 @@
                     </div>
                 </div>
                 
-            
             {{-- Gifting --}}
                 <div class="row d-none donation-choice donation-choice-2">
                     <div class="col-12"><hr class="mt-3 mb-4"></div>
@@ -316,28 +315,9 @@
                                 ])
                             </div>
                             
-                            
-                            
                         </div>
                     </div>
                 </div>
-            
-            {{-- Thank you --}}
-                {{--<div class="row">
-                    <div class="col form-sidebar">
-                        
-                    </div>
-                    <div class="col main">
-                        <div class="row">
-                            <div class="col-12">
-                                <h4>@lang('views.thank_you')</h4>
-                                <p class="dark-gray">
-                                    @lang('views.thank_you_desc')
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>--}}
                 
             <hr class="mt-3 mb-5">
             

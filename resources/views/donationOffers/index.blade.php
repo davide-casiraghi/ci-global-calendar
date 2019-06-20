@@ -12,8 +12,11 @@
 @stop
 
 @section('content')
+        @if(Route::current()->getName() == 'donationOffers.freeEntrances') 
+            @include('partials.donationOffers.freeEntrances-list')
+        @endif
     
-        @if(Route::current()->getName() == 'donationOffers.gifts') 
+        @if(Route::current()->getName() == 'donationOffers.otherGifts') 
             @include('partials.donationOffers.gifts-list')
         @endif
         

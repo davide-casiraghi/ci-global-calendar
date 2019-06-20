@@ -3,6 +3,7 @@
 return [
     'donation_offers_management' => 'Donation offers management',
     'gift_list' => 'Gifts list',
+    'free_entrances_list' => 'Free entrances list',
     'gift_title' => 'Gift title',
     'gift_economic_value' => 'Gift economic value',
     'gift_country_of' => 'Country of the gift',
