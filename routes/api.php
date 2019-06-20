@@ -1,10 +1,10 @@
 <?php
 
-use App\Event;
-use App\Country;
-use App\Teacher;
-use App\Continent;
-use App\EventRepetition;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Teacher;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Continent;
+use DavideCasiraghi\LaravelEventsCalendar\Models\EventRepetition;
 use Illuminate\Http\Request;
 use App\Http\Resources\Event as EventResource;
 use App\Http\Resources\Country as CountryResource;

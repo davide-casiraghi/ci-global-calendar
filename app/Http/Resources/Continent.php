@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources;
 
-use App\Event;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class Continent extends JsonResource

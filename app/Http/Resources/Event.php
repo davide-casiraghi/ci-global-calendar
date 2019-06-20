@@ -2,8 +2,8 @@
 
 namespace App\Http\Resources;
 
-use App\EventVenue;
-use App\EventCategory;
+use DavideCasiraghi\LaravelEventsCalendar\Models\EventVenue;
+use DavideCasiraghi\LaravelEventsCalendar\Models\EventCategory;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class Event extends JsonResource
