@@ -20,17 +20,14 @@ class TeacherTest extends TestCase
     {
         parent::setUp();
         
-        //$this->withFactories(base_path('davide-casiraghi/laravel-events-calendar/database/factories'));
-
-        //dd(base_path('davide-casiraghi/laravel-events-calendar/database/factories'));
-
-        // \DavideCasiraghi\LaravelEventsCalendar\Models\
+        //dd(base_path('vendor/davide-casiraghi/laravel-events-calendar/database/factories'));
+        $this->withFactories(base_path('vendor/davide-casiraghi/laravel-events-calendar/database/factories'));
         
         // Seeders - /database/seeds
         $this->seed();
 
         // Factories - /database/factories
-        $this->teacher = factory(\App\Teacher::class)->create();
+        $this->teacher = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\Teacher::class)->create();
     }
 
     /***************************************************************************/
