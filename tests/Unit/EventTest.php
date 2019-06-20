@@ -22,7 +22,7 @@ class EventTest extends TestCase
         parent::setUp();
 
         // Seeders - /database/seeds
-        //$this->seed();
+        $this->seed();
 
         // Factories
         $this->withFactories(base_path('vendor/davide-casiraghi/laravel-events-calendar/database/factories'));
