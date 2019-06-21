@@ -100,7 +100,6 @@ class DonationOfferController extends Controller
         $this->saveOnDb($request, $donationOffer);
 
         return redirect()->route('home')->with('message', __('donations.thank_you').' '.__('donations.thank_you_desc'));
-        
     }
 
     /***************************************************************************/
