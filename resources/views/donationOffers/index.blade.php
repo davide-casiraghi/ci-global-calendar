@@ -12,7 +12,30 @@
 @stop
 
 @section('content')
-        @if(Route::current()->getName() == 'donationOffers.freeEntrances') 
+                
+        @switch($page_kind)
+            @case('other_gifts')
+                @include('partials.donationOffers.other-gifts-list')
+            @break
+
+            @case('free_entrances')
+                @include('partials.donationOffers.free-entrances-list')
+            @break
+
+            @case('financial')
+                @include('partials.donationOffers.financial-contributions-list')
+            @break
+                
+            @case('volunteers')
+                @include('partials.donationOffers.volunteers-list')
+            @break
+            
+            @case('public')
+                @include('partials.donationOffers.public-list')
+            @break
+        @endswitch
+
+        {{--@if(Route::current()->getName() == 'donationOffers.freeEntrances') 
             @include('partials.donationOffers.freeEntrances-list')
         @endif
     
@@ -27,5 +50,7 @@
         @if(Route::current()->getName() == 'donationOffers.volunteers') 
             @include('partials.donationOffers.volunteers-list')
         @endif
+        
+        --}}
 
 @endsection

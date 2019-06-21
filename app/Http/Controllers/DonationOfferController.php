@@ -24,22 +24,12 @@ class DonationOfferController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
+    {    
         $countries = Country::getCountries();
-
-        $donationKindArray = [];
-        foreach (DonationOffer::getDonationKindArray() as $key => $value) {
-            $donationKindArray[$key] = $value['label'];
-        }
-
         $searchKeywords = $request->input('keywords');
         $searchCountry = $request->input('country_id');
-        $searchDonationKind = $request->input('donation_kind_filter');
 
-        // Show just to the owner - Get created_by value if the user is not an admin or super admin
-        // $loggedUser = $this->getLoggedAuthorId();
-
-        if ($searchKeywords || $searchCountry || $searchDonationKind) {
+        if ($searchKeywords || $searchCountry) {
             $donationOffers = DonationOffer::
                 when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%'.$searchKeywords.'%');
@@ -50,9 +40,6 @@ class DonationOfferController extends Controller
                 ->when($searchCountry, function ($query, $searchCountry) {
                     return $query->where('country_id', '=', $searchCountry);
                 })
-                ->when($searchDonationKind, function ($query, $searchDonationKind) {
-                    return $query->where('offer_kind', '=', $searchDonationKind);
-                })
                 ->orderBy('name')
                 ->paginate(20);
         } else {
@@ -60,15 +47,13 @@ class DonationOfferController extends Controller
                 orderBy('name')
                 ->paginate(20);
         }
-
-        //dd($donationOffers);
+        
         return view('donationOffers.index', compact('donationOffers'))
-                    ->with('i', (request()->input('page', 1) - 1) * 20)
-                    ->with('countries', $countries)
-                    ->with('donationKindArray', $donationKindArray)
-                    ->with('searchKeywords', $searchKeywords)
-                    ->with('searchCountry', $searchCountry)
-                    ->with('searchDonationKind', $searchDonationKind);
+            ->with('i', (request()->input('page', 1) - 1) * 20)
+            ->with('page_kind', $request->page_kind)
+            ->with('countries', $countries)
+            ->with('searchKeywords', $searchKeywords)
+            ->with('searchCountry', $searchCountry);
     }
 
     /***************************************************************************/
