@@ -19,22 +19,28 @@
     {{-- Update radio Card background on click (Active state), and show the corresponding area. --}}
         $("input[type=radio][name='offer_kind']").change(function(){
             $( ".donation-choice" ).addClass('d-none');
+            $( ".entrance-bar-visibility" ).addClass('d-none');
+            $( ".other-gift-bar-visibility" ).addClass('d-none');
+            $( ".entrance-kind-visibility" ).addClass('d-none');
             
             $('.radioCards label').removeClass('active');
             $(this).parent('label').addClass('active');
             
             switch(this.value) {    
-                case '1':
+                case '1': // Financial
                     $(".donation-choice-1").removeClass('d-none');
                 break;
-                case '2':
+                case '2': // Free entrance
+                    $(".donation-choice-3").removeClass('d-none');
+                    $( ".entrance-bar-visibility" ).removeClass('d-none');
+                    $( ".entrance-kind-visibility" ).removeClass('d-none');            
+                break;
+                case '3': // Volunteer
                     $(".donation-choice-2").removeClass('d-none');
                 break;
-                case '3':
+                case '4': // Other gift
                     $(".donation-choice-3").removeClass('d-none');
-                break;
-                case '4':
-                    $(".donation-choice-4").removeClass('d-none');
+                    $( ".other-gift-bar-visibility" ).removeClass('d-none');
                 break;
             }
         });

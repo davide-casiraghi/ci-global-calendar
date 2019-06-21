@@ -151,45 +151,8 @@
                     </div>
                 </div>
                 
-            
-            
-            {{-- Gifting --}}
-                <div class="row d-none donation-choice donation-choice-2">
-                    <div class="col-12"><hr class="mt-3 mb-4"></div>
-                    <div class="col form-sidebar">
-                        <h5 class="text-xl">@lang('donations.gifting')</h5>
-                        <span class="dark-gray">@lang('donations.reward')</span>
-                    </div>
-                    <div class="col main">
-                        <div class="row">
-                            <div class="col-12">
-                                @include('partials.forms.select', [
-                                      'title' => __('donations.reward'),
-                                      'name' => 'gift_kind',
-                                      'placeholder' => __('views.choose'), 
-                                      'records' => App\DonationOffer::getGiftKindArray(),
-                                      'seleted' => $donationOffer->gift_kind,
-                                      'liveSearch' => 'false',
-                                      'mobileNativeMenu' => true,
-                                      'required' => true,
-                                ])
-                            </div>
-                            
-                            <div class="col-12">
-                                @include('partials.forms.textarea', [
-                                      'title' =>  __('donations.gift_details'),
-                                      'name' => 'gift_description',
-                                      'placeholder' => '',
-                                      'value' => $donationOffer->gift_description,
-                                      'required' => true,
-                                ])
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            
             {{-- Volunteering --}}
-                <div class="row d-none donation-choice donation-choice-3">
+                <div class="row d-none donation-choice donation-choice-2">
                     <div class="col-12"><hr class="mt-3 mb-4"></div>
                     <div class="col form-sidebar">
                         <h5 class="text-xl">@lang('donations.volunteering')</h5>
@@ -233,13 +196,19 @@
                     </div>
                 </div>
             
-            {{-- Other --}}
-                <div class="row d-none donation-choice donation-choice-4">
+            {{-- Free Entrance / Other Gift --}}
+                <div class="row d-none donation-choice donation-choice-3">
                     <div class="col-12"><hr class="mt-3 mb-4"></div>
                     <div class="col form-sidebar">
-                        <h5 class="text-xl">@lang('donations.other_gift')</h5>
-                        <p class="dark-gray">@lang('donations.other_description')</p>
-                        <p class="dark-gray">@lang('donations.other_suggestion')</p>
+                        <div class="other-gift-bar-visibility">
+                            <h5 class="text-xl">@lang('donations.other_gift')</h5>
+                            <p class="dark-gray">@lang('donations.other_description')</p>
+                            <p class="dark-gray">@lang('donations.other_suggestion')</p>
+                        </div>
+                        <div class="entrance-bar-visibility">
+                            <h5 class="text-xl">@lang('donations.donation_kind_free_entrance')</h5>
+                            <span class="dark-gray">@lang('donations.gift_kind_free_festival')</span>
+                        </div>
                     </div>
                     <div class="col main">
                         <div class="row">
@@ -250,6 +219,19 @@
                                       'name' => 'gift_title',
                                       'placeholder' => '',
                                       'value' => $donationOffer->gift_title,
+                                      'required' => true,
+                                ])
+                            </div>
+                            
+                            <div class="col-12 entrance-kind-visibility">
+                            @include('partials.forms.select', [
+                                      'title' => __('donations.entrance_kind'),
+                                      'name' => 'gift_kind',
+                                      'placeholder' => __('views.choose'), 
+                                      'records' => App\DonationOffer::getGiftKindArray(),
+                                      'seleted' => $donationOffer->gift_kind,
+                                      'liveSearch' => 'false',
+                                      'mobileNativeMenu' => true,
                                       'required' => true,
                                 ])
                             </div>
@@ -265,14 +247,14 @@
                             </div>
                             
                             <div class="col-12">
-                                @include('partials.forms.textarea', [
-                                      'title' =>  __('donations.describe_your_gift'),
-                                      'name' => 'other_description',
-                                      'placeholder' => '',
-                                      'value' => $donationOffer->other_description,
-                                      'required' => true,
-                                ])
-                            </div>
+                               @include('partials.forms.textarea', [
+                                     'title' =>  __('donations.gift_details'),
+                                     'name' => 'gift_description',
+                                     'placeholder' => '',
+                                     'value' => $donationOffer->gift_description,
+                                     'required' => true,
+                               ])
+                           </div>
                             
                             <div class="col-12">
                                 @include('partials.forms.input', [

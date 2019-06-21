@@ -35,7 +35,7 @@ return [
     'donation_kind_other_gift' => 'Other gift',
     'financial_contribution_description' => 'Please check out the dedicatd page on our website where you can donate through our Paypal account.',
     'gifting' => 'Gifting',
-    'reward' => 'Would you like to reward our volunteers with',
+    'entrance_kind' => 'Entrance kind',
     'gift_kind_free_festival' => 'A reduced or full entrance fee for your CI-related festival',
     'gift_kind_free_other' => 'Free entrance to a workshop, a lab, a shorter or longer event',
     'gift_specification' => 'Please specify as much as you can: location, time of the year & duration, booking conditions, specific website for your event/practice (if relevant), how many places/items you could gift away...',
