@@ -27,7 +27,7 @@
         @endif
 
         {{-- List of gifts --}}
-        <div class="giftsList row my-4">
+        <div class="giftsList my-4">
             @foreach ($donationOffers as $key => $donationOffer)
                 
             @if($donationOffer->offer_kind == 4)
@@ -48,7 +48,16 @@
                         @if($donationOffer->country_id){{ $countries[$donationOffer->country_id] }}@endif
                             
                         <i data-toggle="tooltip" data-placement="top" title="" class="{{App\DonationOffer::getDonationKindArray()[$donationOffer->offer_kind]['icon']}} mr-1 ml-4 dark-gray" data-original-title="@lang('donations.donation_kind')"></i>
-                        {{App\DonationOffer::getDonationKindArray()[$donationOffer->offer_kind]['label']}}
+                        {{$donationOffer->gift_economic_value}}
+                        
+                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-clock mr-1 ml-4 dark-gray" data-original-title="@lang('donations.volunteer_time_value')"></i>
+                        {{$donationOffer->gift_volunteer_time_value}}
+                        
+                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-user mr-1 ml-4 dark-gray" data-original-title="@lang('donations.assigned_to')"></i>
+                        {{$donationOffer->gift_given_to}}
+                        
+                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-calendar-alt mr-1 ml-4 dark-gray" data-original-title="@lang('donations.assigned_when')"></i>
+                        {{$donationOffer->gift_given_when}}
                     </div>
                     <div class="col-12 pb-2 action">
                         <form action="{{ route('donationOffers.destroy',$donationOffer->id) }}" method="POST">

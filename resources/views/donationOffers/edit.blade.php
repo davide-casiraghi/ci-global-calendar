@@ -316,12 +316,15 @@
                                           'required' => true,
                                     ])
                                 </div>
-                                <div class="col-12">
-                                    @include('partials.forms.input', [
-                                          'title' => __('donations.gift_given_when'),
+                                <div class="col-12">    
+                                    @include('partials.forms.input-date', [
+                                          'title' =>  __('donations.gift_given_when'),
                                           'name' => 'gift_given_when',
-                                          'placeholder' => '',
+                                          'placeholder' => __('views.select_date'),
+                                          'endDate' => '+1y',
                                           'value' => $donationOffer->gift_given_when,
+                                          'tooltipFontAwesomeClass' => 'fa fa-info-circle',
+                                          'tooltipText' => __('views.max_until'),
                                           'required' => true,
                                     ])
                                 </div>
