@@ -99,12 +99,8 @@ class DonationOfferController extends Controller
 
         $this->saveOnDb($request, $donationOffer);
 
-        if (User::loggedAsSuperAdmin() || User::loggedAsAdmin()) {
-            return redirect()->route('donationOffers.index')
-                            ->with('success', __('messages.donation_offer_added_successfully'));
-        } else {
-            return redirect()->route('home')->with('message', __('donations.thank_you').' '.__('donations.thank_you_desc'));
-        }
+        return redirect()->route('home')->with('message', __('donations.thank_you').' '.__('donations.thank_you_desc'));
+        
     }
 
     /***************************************************************************/
