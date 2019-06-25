@@ -114,24 +114,9 @@ function () {
     Route::resource('backgroundImages', 'BackgroundImageController');
 
     /* Donation Offers */
-    /*Route::get('/donationOffersOtherGifts', 'DonationOfferController@index')->defaults('page_kind', 'other_gifts');
-    Route::get('/donationOffersFreeEntrances', 'DonationOfferController@index')->defaults('page_kind', 'free_entrances');
-    Route::get('/donationOffersFinancial', 'DonationOfferController@index')->defaults('page_kind', 'financial');
-    Route::get('/donationOffersVolunteers', 'DonationOfferController@index')->defaults('page_kind', 'volunteers');*/
     Route::get('/donationOffersPublic', 'DonationOfferController@index')->defaults('page_kind', 'public')->defaults('pippo', '2');
-    
-    
-    //Route::get('donationOffers/{pageKind}', 'DonationOfferController@index');
-    
-    
     Route::resource('donationOffers', 'DonationOfferController');
     //Route::get('/donationOffersPublic/', 'DonationOfferController@indexPublic')->name('donationOffers.public');
-    
-    //Route::get('/donationOffersFreeEntrances/', 'DonationOfferController@indexFreeEntrances')->name('donationOffers.freeEntrances');
-    //Route::get('/donationOffersOtherGifts/', 'DonationOfferController@indexOtherGifts')->name('donationOffers.otherGifts');
-    
-    Route::get('/donationOffersFinancial/', 'DonationOfferController@indexFinancial')->name('donationOffers.financial');
-    Route::get('/donationOffersVolunteers/', 'DonationOfferController@indexVolunteers')->name('donationOffers.volunteers');
     
     /* Authentication */
     //Auth::routes();
