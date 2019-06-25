@@ -132,6 +132,7 @@ class DonationOfferController extends Controller
      */
     public function edit(DonationOffer $donationOffer)
     {
+        
         $countries = Country::getCountries();
 
         return view('donationOffers.edit', compact('donationOffer'))

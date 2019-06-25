@@ -338,7 +338,11 @@
             <div class="row mt-2">  
                 <div class="col-12 action">
                     @include('partials.forms.buttons-back-submit', [
-                        'route' => 'donationOffers.index'  
+                        'route' => 'donationOffers.index',
+                        'routeParameter' => [
+                            'page_kind' => $donationOffer->offer_kind,
+                        ]
+                    
                     ])
                     {{--@include('partials.forms.buttons-back-submit', [
                         'url' => 'donationOffers',

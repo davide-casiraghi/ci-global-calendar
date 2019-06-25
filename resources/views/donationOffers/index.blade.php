@@ -14,19 +14,19 @@
 @section('content')
                 
         @switch($page_kind)
-            @case('other_gifts')
+            @case(4) {{-- other_gifts --}}
                 @include('partials.donationOffers.other-gifts-list')
             @break
 
-            @case('free_entrances')
+            @case(2) {{-- free_entrances --}}
                 @include('partials.donationOffers.free-entrances-list')
             @break
 
-            @case('financial')
+            @case(1) {{-- financial --}}
                 @include('partials.donationOffers.financial-contributions-list')
             @break
                 
-            @case('volunteers')
+            @case(3) {{-- volunteers --}} 
                 @include('partials.donationOffers.volunteers-list')
             @break
             

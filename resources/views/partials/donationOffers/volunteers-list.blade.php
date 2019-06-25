@@ -1,11 +1,14 @@
 <div class="container max-w-md px-0">
     <div class="row">
         <div class="col-12 col-sm-7">
-            <h4>@lang('donations.donation_offers_management')</h4>
+            <h4>
+                <i data-toggle="tooltip" data-placement="top" title="" class="far fa-hands-helping ml-2 mr-2 dark-gray"></i>
+                @lang('donations.volunteers_list')
+            </h4>
         </div>
-        <div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right">
+        {{--<div class="col-12 col-sm-5 mt-4 mt-sm-0 text-right">
             <a class="btn btn-success create-new" href="{{ route('donationOffers.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('donations.create_new_donation_offer')</a>
-        </div>
+        </div>--}}
     </div>
 
     @if ($message = Session::get('success'))
@@ -18,14 +21,14 @@
     <form class="searchForm mt-3" action="{{ route('donationOffers.index') }}" method="GET">
         @csrf
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 col-sm-6">
                 @include('partials.forms.input', [
                     'name' => 'keywords',
                     'placeholder' => __('views.search_by_user_name'),
                     'value' => $searchKeywords
                 ])
             </div>
-            <div class="col-12 col-sm-6  pr-sm-2">
+            <div class="col-12 col-sm-6">
                 @include('partials.forms.select', [
                     'name' => 'country_id',
                     'placeholder' => __('views.filter_by_country'),
@@ -33,16 +36,6 @@
                     'seleted' => $searchCountry,
                     'liveSearch' => 'true',
                     'mobileNativeMenu' => false,
-                ])
-            </div>
-            <div class="col-12 col-sm-6">
-                @include('partials.forms.select', [
-                    'name' => 'donation_kind_filter',
-                    'placeholder' => __('donations.filter_by_donation_kind'),
-                    'records' => $donationKindArray,
-                    'seleted' => $searchDonationKind,
-                    'liveSearch' => 'false',
-                    'mobileNativeMenu' => true,
                 ])
             </div>
             <div class="col-12">
@@ -70,8 +63,8 @@
                     <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
                     @if($donationOffer->country_id){{ $countries[$donationOffer->country_id] }}@endif
                         
-                    <i data-toggle="tooltip" data-placement="top" title="" class="{{App\DonationOffer::getDonationKindArray()[$donationOffer->offer_kind]['icon']}} mr-1 ml-4 dark-gray" data-original-title="@lang('donations.donation_kind')"></i>
-                    {{App\DonationOffer::getDonationKindArray()[$donationOffer->offer_kind]['label']}}
+                    {{--<i data-toggle="tooltip" data-placement="top" title="" class="{{App\DonationOffer::getDonationKindArray()[$donationOffer->offer_kind]['icon']}} mr-1 ml-4 dark-gray" data-original-title="@lang('donations.donation_kind')"></i>
+                    {{App\DonationOffer::getDonationKindArray()[$donationOffer->offer_kind]['label']}}--}}
                 </div>
                 <div class="col-12 pb-2 action">
                     <form action="{{ route('donationOffers.destroy',$donationOffer->id) }}" method="POST">
