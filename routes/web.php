@@ -114,10 +114,10 @@ function () {
     Route::resource('backgroundImages', 'BackgroundImageController');
 
     /* Donation Offers */
-    Route::get('/donationOffersOtherGifts', 'DonationOfferController@index')->defaults('page_kind', 'other_gifts');
+    /*Route::get('/donationOffersOtherGifts', 'DonationOfferController@index')->defaults('page_kind', 'other_gifts');
     Route::get('/donationOffersFreeEntrances', 'DonationOfferController@index')->defaults('page_kind', 'free_entrances');
     Route::get('/donationOffersFinancial', 'DonationOfferController@index')->defaults('page_kind', 'financial');
-    Route::get('/donationOffersVolunteers', 'DonationOfferController@index')->defaults('page_kind', 'volunteers');
+    Route::get('/donationOffersVolunteers', 'DonationOfferController@index')->defaults('page_kind', 'volunteers');*/
     Route::get('/donationOffersPublic', 'DonationOfferController@index')->defaults('page_kind', 'public')->defaults('pippo', '2');
     
     
