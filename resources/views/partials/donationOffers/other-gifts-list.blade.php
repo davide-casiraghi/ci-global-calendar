@@ -43,7 +43,7 @@
                     {{$donationOffer->gift_given_to}}
                     
                     <i data-toggle="tooltip" data-placement="top" title="" class="far fa-calendar-alt mr-1 ml-4 dark-gray" data-original-title="@lang('donations.assigned_when')"></i>
-                    {{$donationOffer->gift_given_when}}
+                    @date($donationOffer->gift_given_when)
                 </div>
                 <div class="col-12 pb-2 action">
                     <form action="{{ route('donationOffers.destroy',$donationOffer->id) }}" method="POST">
