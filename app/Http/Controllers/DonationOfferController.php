@@ -206,7 +206,7 @@ class DonationOfferController extends Controller
         $donationOffer->gift_economic_value = $request->get('gift_economic_value');
         $donationOffer->gift_volunteer_time_value = $request->get('gift_volunteer_time_value');
         $donationOffer->gift_given_to = $request->get('gift_given_to');
-        $donationOffer->gift_given_when = $request->get('gift_given_when');
+        $donationOffer->gift_given_when = implode('-', array_reverse(explode('/', $request->get('gift_given_when'))));
         $donationOffer->gift_country_of = $request->get('gift_country_of');
         $donationOffer->admin_notes = $request->get('admin_notes');
         $donationOffer->gift_title = $request->get('gift_title');
