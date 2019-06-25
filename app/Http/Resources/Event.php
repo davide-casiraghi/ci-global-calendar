@@ -34,6 +34,8 @@ class Event extends JsonResource
             'repeat_type' => $this->repeat_type,
             'repeat_until' => $this->repeat_until,
             'repeat_monthly_on' => $this->repeat_monthly_on,
+            'repeat_weekly_on' => $this->repeat_weekly_on,
+            'on_monthly_kind' => $this->on_monthly_kind,
             'city' => $this->sc_city_name,
             'venue_address' => $venue->address,
             'zip_code' => $venue->zip_code,
