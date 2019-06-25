@@ -23,7 +23,21 @@ class MenuItem extends Model
     public $translatedAttributes = ['name', 'compact_name'];
 
     protected $fillable = [
-        'name', 'compact_name', 'parent_item_id', 'url', 'font_awesome_class', 'route', 'type', 'menu_id', 'order',
+        'name', 
+        'compact_name', 
+        'parent_item_id', 
+        'url', 
+        'font_awesome_class', 
+        'route', 
+        'route_param_name_1',
+        'route_param_name_2',
+        'route_param_name_3',
+        'route_param_value_1',
+        'route_param_value_2',
+        'route_param_value_3',
+        'type', 
+        'menu_id', 
+        'order',
     ];
 
     /***************************************************************************/

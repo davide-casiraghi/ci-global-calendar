@@ -3,7 +3,16 @@
     {{-- Get the links --}}
     @switch($item->type)
         @case(1) {{-- ROUTE --}} 
-            @php ($url = route($item->route) )
+            @php 
+                $routeParams = array();
+                
+                $routeParams[$item->route_param_name_1] = $item->route_param_value_1;
+                $routeParams[$item->route_param_name_2] = $item->route_param_value_2;
+                $routeParams[$item->route_param_name_3] = $item->route_param_value_3;
+                
+                //array_push($routeParams, $item->param_1, $item->param_2, $item->param_3);
+                $url = route($item->route,$routeParams);
+            @endphp
         @break
 
         @case(2) {{-- URL --}}

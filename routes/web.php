@@ -118,7 +118,10 @@ function () {
     Route::get('/donationOffersFreeEntrances', 'DonationOfferController@index')->defaults('page_kind', 'free_entrances');
     Route::get('/donationOffersFinancial', 'DonationOfferController@index')->defaults('page_kind', 'financial');
     Route::get('/donationOffersVolunteers', 'DonationOfferController@index')->defaults('page_kind', 'volunteers');
-    Route::get('/donationOffersPublic', 'DonationOfferController@index')->defaults('page_kind', 'public');
+    Route::get('/donationOffersPublic', 'DonationOfferController@index')->defaults('page_kind', 'public')->defaults('pippo', '2');
+    
+    
+    //Route::get('donationOffers/{pageKind}', 'DonationOfferController@index');
     
     
     Route::resource('donationOffers', 'DonationOfferController');

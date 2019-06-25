@@ -16,16 +16,16 @@
              switch($("select[name='type']").val()) {
                  case "1":
                      $(".form-group.url").hide();
-                     $(".form-group.route").show();
-                     $(".form-group.route").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+                     $(".routeFields").show();
+                     $(".routeFields").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
                  break;
                  case "2":
-                     $(".form-group.route").hide();
+                     $(".routeFields").hide();
                      $(".form-group.url").show();
                      $(".form-group.url").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
                  break; 
                  case "3":
-                     $(".form-group.route").hide();
+                     $(".routeFields").hide();
                      $(".form-group.url").hide();
                  break;    
              }
@@ -101,7 +101,7 @@
                 </div>
             </div>
             
-            <div class="col-12">
+            {{--<div class="col-12">
                 @include('partials.forms.input', [
                       'title' => __('views.menu_item_route'),
                       'name' => 'route',
@@ -109,7 +109,27 @@
                       'value' => $menuItem->route,
                       'required' => false,
                 ])
+            </div>--}}
+            
+            <div class="col-12">
+                @include('partials.forms.select-menu-items-route', [
+                    'title' => __('views.menu_item_route'),
+                    'name' => 'route',
+                    'placeholder' => __('views.menu_item_route'),
+                    'records' => $routeNames,
+                    'liveSearch' => 'true',
+                    'seleted' => $menuItem->route,
+                    'mobileNativeMenu' => false,
+                    'required' => false,
+                    'route_param_name_1' => $menuItem->route_param_name_1,
+                    'route_param_name_2' => $menuItem->route_param_name_2,
+                    'route_param_name_3' => $menuItem->route_param_name_3,
+                    'route_param_value_1' => $menuItem->route_param_value_1,
+                    'route_param_value_2' => $menuItem->route_param_value_2,
+                    'route_param_value_3' => $menuItem->route_param_value_3,
+                ])
             </div>
+            
             <div class="col-12">
                 @include('partials.forms.input', [
                       'title' => 'Url',

@@ -341,7 +341,8 @@
                         'route' => 'donationOffers.index'  
                     ])--}}
                     @include('partials.forms.buttons-back-submit', [
-                        'url' => 'donationOffers.index'  
+                        'url' => 'donationOffers',
+                        'urlParameterString' => 'pageKind=4',
                     ])
                 </div>
             </div>

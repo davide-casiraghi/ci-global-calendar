@@ -25,6 +25,8 @@ class DonationOfferController extends Controller
      */
     public function index(Request $request)
     {    
+        //dd($request);
+        //dd($request->ww);
         $countries = Country::getCountries();
         $searchKeywords = $request->input('keywords');
         $searchCountry = $request->input('country_id');
