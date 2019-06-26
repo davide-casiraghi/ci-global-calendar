@@ -304,7 +304,7 @@
                                           'name' => 'gift_given_when',
                                           'placeholder' => __('views.select_date'),
                                           'endDate' => '+1y',
-                                          'value' => $donationOffer->gift_given_when,
+                                          'value' => $giftGivenWhenDate,
                                           'tooltipFontAwesomeClass' => 'fa fa-info-circle',
                                           'tooltipText' => __('views.max_until'),
                                           'required' => true,

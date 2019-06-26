@@ -133,9 +133,12 @@ class DonationOfferController extends Controller
     public function edit(DonationOffer $donationOffer)
     {
         $countries = Country::getCountries();
+        
+        $giftGivenWhenDate = date('d/m/Y', strtotime($donationOffer->gift_given_when));
 
         return view('donationOffers.edit', compact('donationOffer'))
-            ->with('countries', $countries);
+            ->with('countries', $countries)
+            ->with('giftGivenWhenDate', $giftGivenWhenDate);
     }
 
     /***************************************************************************/
