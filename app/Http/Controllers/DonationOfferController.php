@@ -24,7 +24,7 @@ class DonationOfferController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {    
+    {
         //dd($request);
         //dd($request->ww);
         $countries = Country::getCountries();
@@ -49,7 +49,7 @@ class DonationOfferController extends Controller
                 orderBy('name')
                 ->paginate(20);
         }
-        
+
         return view('donationOffers.index', compact('donationOffers'))
             ->with('i', (request()->input('page', 1) - 1) * 20)
             ->with('page_kind', $request->page_kind)
@@ -134,7 +134,7 @@ class DonationOfferController extends Controller
     public function edit(DonationOffer $donationOffer)
     {
         $countries = Country::getCountries();
-        
+
         $giftGivenWhenDate = date('d/m/Y', strtotime($donationOffer->gift_given_when));
 
         return view('donationOffers.edit', compact('donationOffer'))
@@ -162,7 +162,7 @@ class DonationOfferController extends Controller
 
         $this->saveOnDb($request, $donationOffer);
 
-        return redirect()->route('donationOffers.index',['page_kind' => $donationOffer->offer_kind])
+        return redirect()->route('donationOffers.index', ['page_kind' => $donationOffer->offer_kind])
                         ->with('success', __('messages.donation_offer_updated_successfully'));
     }
 
@@ -178,7 +178,7 @@ class DonationOfferController extends Controller
     {
         $donationOffer->delete();
 
-        return redirect()->route('donationOffers.index',['page_kind' => $donationOffer->offer_kind])
+        return redirect()->route('donationOffers.index', ['page_kind' => $donationOffer->offer_kind])
                         ->with('success', __('messages.donation_offer_deleted_successfully'));
     }
 
@@ -277,7 +277,6 @@ class DonationOfferController extends Controller
                     ->with('searchCountry', $searchCountry)
                     ->with('searchDonationKind', $searchDonationKind);
     }
-    
-    /***************************************************************************/
 
+    /***************************************************************************/
 }
