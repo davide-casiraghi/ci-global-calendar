@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f9f5299536b98def27e0745e681b9a66",
+    "content-hash": "271cf01ac03638291a2cb45f539accbc",
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
@@ -340,6 +340,66 @@
                 "laravel-events-calendar"
             ],
             "time": "2019-06-26T16:00:46+00:00"
+        },
+        {
+            "name": "davide-casiraghi/laravel-quick-menus",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/davide-casiraghi/laravel-quick-menus.git",
+                "reference": "158cee85e3ace92c92b22e768110e3822906ff39"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/davide-casiraghi/laravel-quick-menus/zipball/158cee85e3ace92c92b22e768110e3822906ff39",
+                "reference": "158cee85e3ace92c92b22e768110e3822906ff39",
+                "shasum": ""
+            },
+            "require": {
+                "dimsav/laravel-translatable": "^9.4",
+                "illuminate/support": "5.8.*",
+                "mcamara/laravel-localization": "^1.3",
+                "nesbot/carbon": "^2.17",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "3.8.*",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "DavideCasiraghi\\LaravelQuickMenus\\LaravelQuickMenusServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelQuickMenus": "DavideCasiraghi\\LaravelQuickMenus\\LaravelQuickMenus"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DavideCasiraghi\\LaravelQuickMenus\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Davide Casiraghi",
+                    "email": "davide.casiraghi@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel package to generate Bootstrap 4 multi language menus.",
+            "homepage": "https://github.com/davide-casiraghi/laravel-quick-menus",
+            "keywords": [
+                "davide-casiraghi",
+                "laravel-quick-menus"
+            ],
+            "time": "2019-05-24T16:35:32+00:00"
         },
         {
             "name": "dimsav/laravel-translatable",
