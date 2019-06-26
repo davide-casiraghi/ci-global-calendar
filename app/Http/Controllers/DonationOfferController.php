@@ -201,9 +201,9 @@ class DonationOfferController extends Controller
         $donationOffer->language_spoken = strip_tags($request->get('language_spoken'));
         $donationOffer->offer_kind = $request->get('offer_kind');
         $donationOffer->gift_kind = $request->get('gift_kind');
-        $donationOffer->gift_description = $request->get('gift_description');
+        $donationOffer->gift_description = clean($request->get('gift_description'));
         $donationOffer->volunteer_kind = $request->get('volunteer_kind');
-        $donationOffer->volunteer_description = $request->get('volunteer_description');
+        $donationOffer->volunteer_description = clean($request->get('volunteer_description'));
         $donationOffer->other_description = $request->get('other_description');
         $donationOffer->suggestions = $request->get('suggestions');
         $donationOffer->status = $request->get('status');
