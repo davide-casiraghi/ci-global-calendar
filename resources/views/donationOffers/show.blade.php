@@ -38,15 +38,15 @@
                     @endif
                     
                     @if(!empty($donationOffer->volunteer_kind))
-                        <div class="col-12">
-                            <h5 class="mb-1">I want to collaborate as</h5>
+                        <div class="col-12 mt-3">
+                            <b class="mb-1">I want to collaborate as: </b>
                             {{App\DonationOffer::getVolunteeringKindArray()[$donationOffer->volunteer_kind]}}
                         </div>
                     @endif
                     
                     @if(!empty($donationOffer->volunteer_description))
                         <div class="col-12 mt-3">
-                            {{ $donationOffer->volunteer_description }}
+                            {!! $donationOffer->volunteer_description !!}
                         </div>
                     @endif
                     

@@ -92,6 +92,7 @@ class DonationOfferController extends Controller
                 'name' => 'required',
                 'surname' => 'required',
                 'email' => 'required',
+                'country_id' => 'required',
             ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
@@ -156,6 +157,7 @@ class DonationOfferController extends Controller
             'name' => 'required',
             'surname' => 'required',
             'email' => 'required',
+            'country_id' => 'required',
         ]);
 
         $this->saveOnDb($request, $donationOffer);
@@ -176,7 +178,7 @@ class DonationOfferController extends Controller
     {
         $donationOffer->delete();
 
-        return redirect()->route('donationOffers.index')
+        return redirect()->route('donationOffers.index',['page_kind' => $donationOffer->offer_kind])
                         ->with('success', __('messages.donation_offer_deleted_successfully'));
     }
 
