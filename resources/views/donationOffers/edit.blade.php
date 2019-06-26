@@ -310,6 +310,16 @@
                                           'required' => true,
                                     ])
                                 </div>
+                                
+                                <div class="col-12">
+                                    @include('partials.forms.textarea-plain', [
+                                        'title' =>  __('donations.admin_notes'),
+                                        'name' => 'admin_notes',
+                                        'value' => $donationOffer->admin_notes,
+                                        'required' => false,
+                                    ])
+                                </div>
+                                
                             @endif
                             
                         </div>

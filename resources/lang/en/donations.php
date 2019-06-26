@@ -69,4 +69,5 @@ return [
     'voip' => 'VoIP',
     'filter_by_donation_kind' => 'Filter by donation kind',
     'available_gifts_list' => 'Available gifts list',
+    'admin_notes' => 'Admin notes',
 ];
