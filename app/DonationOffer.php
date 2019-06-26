@@ -18,11 +18,11 @@ class DonationOffer extends Model
 
     protected $fillable = [
         'name', 'surname', 'email', 'country_id', 'contact_trough_voip',
-        'language_spoken', 'offer_kind', 'gift_kind', 'gift_description', 
-        'volunteer_kind', 'volunteer_description', 'other_description', 
-        'suggestions', 'status','gift_donater','gift_economic_value',
-        'gift_volunteer_time_value','gift_given_to','gift_given_when',
-        'gift_country_of','admin_notes','gift_title',
+        'language_spoken', 'offer_kind', 'gift_kind', 'gift_description',
+        'volunteer_kind', 'volunteer_description', 'other_description',
+        'suggestions', 'status', 'gift_donater', 'gift_economic_value',
+        'gift_volunteer_time_value', 'gift_given_to', 'gift_given_when',
+        'gift_country_of', 'admin_notes', 'gift_title',
     ];
 
     /***************************************************************************/
