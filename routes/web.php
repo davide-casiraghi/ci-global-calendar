@@ -114,7 +114,7 @@ function () {
     Route::resource('backgroundImages', 'BackgroundImageController');
 
     /* Donation Offers */
-    Route::get('/donationOffersPublic', 'DonationOfferController@index')->defaults('page_kind', 'public')->defaults('pippo', '2');
+    Route::get('/donationOffersPublic', 'DonationOfferController@index')->defaults('page_kind', 'public');
     Route::resource('donationOffers', 'DonationOfferController');
     //Route::get('/donationOffersPublic/', 'DonationOfferController@indexPublic')->name('donationOffers.public');
     

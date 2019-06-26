@@ -68,4 +68,5 @@ return [
     'status_refused' => 'Refused',
     'voip' => 'VoIP',
     'filter_by_donation_kind' => 'Filter by donation kind',
+    'available_gifts_list' => 'Available gifts list',
 ];
