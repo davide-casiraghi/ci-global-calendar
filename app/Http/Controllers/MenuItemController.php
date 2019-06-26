@@ -213,7 +213,6 @@ class MenuItemController extends Controller
         $menuItem->type = $request->get('type');
         $menuItem->menu_id = $request->get('menu_id');
         $menuItem->access = $request->get('access');
-        
 
         if ($request->get('order')) {
             if ($request->get('order') != $menuItem->id) {
