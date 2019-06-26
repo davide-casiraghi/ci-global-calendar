@@ -2,7 +2,7 @@
 
 return [
     'search' => 'Suche',
-    'reset' => 'Zurücksetzten',
+    'reset' => 'Zurücksetzen',
     'back' => 'Zurück',
     'submit' => 'Einreichen',
     'close' => 'Schließen',

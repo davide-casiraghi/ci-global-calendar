@@ -35,7 +35,7 @@
 <body class=""> {{-- Laravel use VUE as default - https://stackoverflow.com/questions/41411344/vue-warn-cannot-find-element-app#41411385 --}}
     
     @if(!env('SITE_OFFLINE'))
-        @include('menus.nav.nav', [
+        @include('laravel-quick-menus::menus.nav.nav', [
             'items' => $MyNavBar->roots(),
             'container' => true,
             'paddingX' => '',
@@ -54,7 +54,7 @@
             'backgroundColor' => $barsBackground,
             'transparentBarInHp' => true,
             'stickyFooter' => false,
-            'items' => App\MenuItem::getItemsTree(3),
+            'items' => DavideCasiraghi\LaravelQuickMenus\Models\MenuItem::getItemsTree(3),
         ])
         
         @include('partials.cookie-consent')

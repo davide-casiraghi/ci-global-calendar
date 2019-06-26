@@ -34,7 +34,7 @@
             <div class="col-6 col-sm-5 col-sm-push-5 text-center text-md-right pr-0">
                 
                 <ul class="footerMenu m-0 p-0">
-                    @include('menus.nav.nav-items', ['items' => $items])
+                    @include('laravel-quick-menus::menus.nav.nav-items', ['items' => $items])
                 </ul>
             </div>
             
