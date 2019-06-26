@@ -344,10 +344,6 @@
                         ]
                     
                     ])
-                    {{--@include('partials.forms.buttons-back-submit', [
-                        'url' => 'donationOffers',
-                        'urlParameterString' => 'pageKind=4',
-                    ])--}}
                 </div>
             </div>
 
