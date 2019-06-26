@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
-use App\MenuItem;
+use DavideCasiraghi\LaravelQuickMenus\Models\MenuItem;
 use Illuminate\Support\Facades\DB;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Teacher;
