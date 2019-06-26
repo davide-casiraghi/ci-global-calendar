@@ -117,7 +117,7 @@ function () {
     Route::get('/donationOffersPublic', 'DonationOfferController@index')->defaults('page_kind', 'public');
     Route::resource('donationOffers', 'DonationOfferController');
     //Route::get('/donationOffersPublic/', 'DonationOfferController@indexPublic')->name('donationOffers.public');
-    
+
     /* Authentication */
     //Auth::routes();
     // Authentication Routes... https://stackoverflow.com/questions/42336115/how-can-i-pass-variable-to-register-view
