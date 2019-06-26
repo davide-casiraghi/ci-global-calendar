@@ -13,25 +13,26 @@
     @parent
         
     {{-- Show the area corresponding to the card on opening --}}
-        var selectedOfferKind = $('input[name=offer_kind]:checked').val();
+        var selectedOfferKind = $('input[name=offer_kind]:checked');
         showCardDetails(selectedOfferKind);
         //$(".donation-choice-" + selectedOfferKind).removeClass('d-none');
     
     {{-- Update radio Card background on click (Active state), and show the corresponding area. --}}
         $("input[type=radio][name='offer_kind']").change(function(){
-            showCardDetails(this.value);
+            showCardDetails(this);
         });
         
-        function showCardDetails(offerKind) {
+        function showCardDetails(selectedOfferKind) {
+            
             $( ".donation-choice" ).addClass('d-none');
             $( ".entrance-bar-visibility" ).addClass('d-none');
             $( ".other-gift-bar-visibility" ).addClass('d-none');
             $( ".entrance-kind-visibility" ).addClass('d-none');
             
             $('.radioCards label').removeClass('active');
-            $(this).parent('label').addClass('active');
+            $(selectedOfferKind).parent('label').addClass('active');
             
-            switch(offerKind) {    
+            switch(selectedOfferKind.val()) {    
                 case '1': // Financial
                     $(".donation-choice-1").removeClass('d-none');
                 break;
