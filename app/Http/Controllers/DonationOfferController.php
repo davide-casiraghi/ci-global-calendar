@@ -132,7 +132,6 @@ class DonationOfferController extends Controller
      */
     public function edit(DonationOffer $donationOffer)
     {
-        
         $countries = Country::getCountries();
 
         return view('donationOffers.edit', compact('donationOffer'))
@@ -158,7 +157,7 @@ class DonationOfferController extends Controller
 
         $this->saveOnDb($request, $donationOffer);
 
-        return redirect()->route('donationOffers.index')
+        return redirect()->route('donationOffers.index',['page_kind' => $donationOffer->offer_kind])
                         ->with('success', __('messages.donation_offer_updated_successfully'));
     }
 
