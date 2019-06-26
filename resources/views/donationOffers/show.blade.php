@@ -68,9 +68,14 @@
         
         {{-- Donor details --}}
         <div class="row m-0 p-4 white-bg rounded mt-3">
+            
+            <div class="col-12">
+                <h5>Contact details</h5>
+            </div>
+            
             {{-- Name and Country --}}
             <div class="col-6">
-                <h5>{{ $donationOffer->name }} {{ $donationOffer->surname }}</h5>
+                <b>{{ $donationOffer->name }} {{ $donationOffer->surname }}</b>
             </div>
             <div class="col-6">
                 <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
@@ -85,10 +90,8 @@
                 <div class="col-6">
                     @if(!empty($donationOffer->contact_trough_voip))
                         <div class="row">
-                            <div class="col-2">
+                            <div class="col-12">
                                 <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-microphone mr-1 dark-gray" data-original-title="@lang('donations.voip')"></i>
-                            </div>
-                            <div class="col-10">
                                 {!! $donationOffer->contact_trough_voip !!}
                             </div>
                         </div>
@@ -97,7 +100,7 @@
                     @endif
                 </div>
             
-            <div class="col-12">
+            <div class="col-12 mt-3">
                 <i data-toggle="tooltip" data-placement="top" title="" class="far fa-language mr-1 dark-gray" data-original-title="@lang('donations.language_spoken_show')"></i>
                 {!! $donationOffer->language_spoken !!}
             </div>

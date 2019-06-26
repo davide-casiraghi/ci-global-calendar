@@ -19,7 +19,8 @@
     
     {{-- Update radio Card background on click (Active state), and show the corresponding area. --}}
         $("input[type=radio][name='offer_kind']").change(function(){
-            showCardDetails(this);
+            selectedOfferKind = $('input[name=offer_kind]:checked');
+            showCardDetails(selectedOfferKind);
         });
         
         function showCardDetails(selectedOfferKind) {
