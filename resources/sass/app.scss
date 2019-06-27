@@ -51,5 +51,6 @@
 // Pages
     @import 'pages/eventSearch';
     @import 'pages/post';
-    @import 'pages/event';
-    @import 'pages/emptyPages';
+
+// Vendor
+    @import 'vendor/laravel-events-calendar/emptyPages';
