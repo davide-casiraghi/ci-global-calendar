@@ -260,6 +260,8 @@
                                       'mobileNativeMenu' => false,
                                       'seleted' => old('gift_country_of'),
                                       'required' => false,
+                                      'emptyState' => true,
+                                      'emptyStateText' => 'Worldwide',
                                 ])
                             </div>
                             
