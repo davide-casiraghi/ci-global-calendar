@@ -223,7 +223,7 @@ class DonationOfferController extends Controller
 
     /***************************************************************************/
 
-    /**
+    /*
      * Display a listing of the resource - the public list.
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
