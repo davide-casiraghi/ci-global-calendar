@@ -26,6 +26,15 @@
                         <h5>{{App\DonationOffer::getDonationKindArray()[$donationOffer->offer_kind]['label']}}</h5>
                     </div>
                     
+                    <div class="col-12 mb-2">
+                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
+                        @if(!empty($donationOffer->gift_country_of))
+                            {{ $countries[$donationOffer->gift_country_of] }}
+                        @else 
+                            Worldwide 
+                        @endif
+                    </div>
+                    
                     @if(!empty($donationOffer->gift_kind))
                         <div class="col-12 mb-3">
                             {{App\DonationOffer::getGiftKindArray()[$donationOffer->gift_kind]}}

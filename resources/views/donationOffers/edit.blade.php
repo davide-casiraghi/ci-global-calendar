@@ -276,6 +276,8 @@
                                       'mobileNativeMenu' => false,
                                       'seleted' => $donationOffer->gift_country_of,
                                       'required' => false,
+                                      'emptyState' => true,
+                                      'emptyStateText' => 'Worldwide',
                                 ])
                             </div>
                             
