@@ -13,7 +13,7 @@ class DonationOfferController extends Controller
     /* Restrict the access to this resource just to logged in users except show and index view */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['create', 'store', 'indexPublic']]);
+        $this->middleware('auth', ['except' => ['create', 'store', 'index']]);
     }
 
     /***************************************************************************/
@@ -228,7 +228,7 @@ class DonationOfferController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function indexPublic(Request $request)
+    /*public function indexPublic(Request $request)
     {
         $countries = Country::getCountries();
 
@@ -277,6 +277,6 @@ class DonationOfferController extends Controller
                     ->with('searchCountry', $searchCountry)
                     ->with('searchDonationKind', $searchDonationKind);
     }
-
+*/
     /***************************************************************************/
 }
