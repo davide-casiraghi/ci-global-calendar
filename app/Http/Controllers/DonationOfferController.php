@@ -117,7 +117,7 @@ class DonationOfferController extends Controller
     {
         $country = Country::
                         select('id', 'name', 'continent_id')
-                        ->where('id', $donationOffer->country_id)
+                        ->where('id', $donationOffer->gift_country_of)
                         ->first();
 
         return view('donationOffers.show', compact('donationOffer'))->with('country', $country);

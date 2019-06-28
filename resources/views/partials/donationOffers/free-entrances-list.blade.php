@@ -27,7 +27,7 @@
                         <div class="col-10">
                             <h5 class="d-inline darkest-gray mr-2">{{$donationOffer->gift_title}}</h5>
                             - <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas ml-2 dark-gray" data-original-title="@lang('general.country')"></i>
-                            @if($donationOffer->country_id){{ $countries[$donationOffer->country_id] }}@endif
+                            @if($donationOffer->gift_country_of){{ $countries[$donationOffer->gift_country_of] }}@else Worldwide @endif
                         </div>
                         <div class="col-2 pt-1">
                             {!!App\DonationOffer::getDonationStatusBadge($donationOffer->status)!!}
