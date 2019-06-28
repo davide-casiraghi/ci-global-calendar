@@ -90,7 +90,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         return CountryResource::collection(Country::getActiveCountries()->unique('name')->sortBy('name'));
     });
 
-
 /*
 Route::get('posts/{post}/comments/{comment}', function ($postId, $commentId) {
     //
