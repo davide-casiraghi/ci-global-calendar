@@ -5,10 +5,10 @@
 namespace App\Notifications;
 
 use App\User;
-use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
 
 class UserRegisteredSuccessfully extends Notification
 {
