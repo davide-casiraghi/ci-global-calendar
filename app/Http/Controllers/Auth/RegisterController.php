@@ -172,7 +172,7 @@ class RegisterController extends Controller
     // **********************************************************************
 
     /**
-     * Activate the user from the backend clicking on the Enable button
+     * Activate the user from the backend clicking on the Enable button in the user index view
      * @param string $userId
      * @return string
      */
