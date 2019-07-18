@@ -20,7 +20,7 @@ return [
     'create_new_donation_offer' => 'Create new donation offer',
     'donation_form_title' => 'Donate for the CI Global Calendar',
     'edit_donation_offer' => 'Edit donation offer',
-    'contact_through_skype_or_another_voip' => 'Contact through Skype or another VoIP',
+    'contact_through_skype_or_another_voip' => 'Contact through Skype or another chat system',
     'language_spoken' => 'Language(s) you speak fluently',
     'language_spoken_show' => 'Language(s) spoken',
     'your_contact_details' => 'Your contact details',
