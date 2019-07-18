@@ -66,7 +66,7 @@
                             </div>
                             <div class="col-7 pt-1">
                                 @if(empty($user->status)){!! '<span class="badge badge-secondary float-right">'.__('views.disabled').'</span>' !!}@else{!!'<span class="badge badge-success float-right">'.__('views.enabled').'</span>'!!}@endif
-                                @if(empty($user->status)){!! '<a class="btn btn-success button-rounded float-right mr-2" style="padding: 0px 10px" href="#">Enable</a> '!!}@endif
+                                @if(empty($user->status)){!! '<a class="btn btn-success button-rounded float-right mr-2" style="padding: 0px 10px" href="/activate-user-from-backend/'!!}{{$user->id}}{!!'">Enable</a> '!!}@endif
                             </div>
                         </div>
                     </div>

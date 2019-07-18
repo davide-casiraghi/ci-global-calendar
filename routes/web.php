@@ -76,6 +76,7 @@ function () {
     // Activate User
     Route::post('/user-activation/send', 'Auth\RegisterController@userActivationMailSend')->name('user-activation-send');
     Route::get('/verify-user/{code}', 'Auth\RegisterController@activateUser')->name('activate.user');
+    Route::get('/activate-user-from-backend/{userId}', 'Auth\RegisterController@activateUserFromBackend')->name('activate.user.from.backend');
 
     /* Contact form to write to administrator, project-manager, webmaster */
     Route::get('/contactForm/compose/{recipient}', 'ContactFormController@contactForm')->name('forms.contactform');
