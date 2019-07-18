@@ -61,23 +61,24 @@
                 <div class="row bg-white shadow-1 rounded mb-3 pb-2 pt-3 mx-1">
                     <div class="col-12 py-1 order-1">
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-5">
                                 <h5 class="darkest-gray">{{ $user->name }}</h5>
                             </div>
-                            <div class="col-4 pt-1">
-                                @if(!empty($user->status)){!! '<span class="badge badge-success float-right">'.__('views.enabled').'</span>' !!}@else{!!'<span class="badge badge-secondary float-right">'.__('views.disabled').'</span>'!!}@endif
+                            <div class="col-7 pt-1">
+                                @if(empty($user->status)){!! '<span class="badge badge-secondary float-right">'.__('views.disabled').'</span>' !!}@else{!!'<span class="badge badge-success float-right">'.__('views.enabled').'</span>'!!}@endif
+                                @if(empty($user->status)){!! '<a class="btn btn-success button-rounded float-right mr-2" style="padding: 0px 10px" href="#">Enable</a> '!!}@endif
                             </div>
                         </div>
                     </div>
                     <div class="col-12 mb-4 order-2">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-sm-6">
                                 <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
                                 @if(!empty($user->country_id)){{ $countries[$user->country_id] }}@endif    
                                 <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-key mr-1 ml-4 dark-gray" data-original-title="@lang('general.country')"></i>
                                 {{ App\User::getUserGroupString($user->group)}}    
                             </div>
-                            <div class="col-6 dark-gray text-right">
+                            <div class="col-12 col-sm-6 mt-3 mt-sm-0 dark-gray text-right">
                                 <i class="far fa-envelope mr-1 dark-gray"></i>{{$user->email}}
                             </div>
                         </div>
