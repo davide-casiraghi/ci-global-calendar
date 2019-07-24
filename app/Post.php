@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Astrotomic\Translatable\Translatable;
 
 class Post extends Model
 {
