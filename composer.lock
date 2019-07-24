@@ -343,16 +343,16 @@
         },
         {
             "name": "davide-casiraghi/laravel-events-calendar",
-            "version": "1.1.40",
+            "version": "1.1.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davide-casiraghi/laravel-events-calendar.git",
-                "reference": "d53d72a5d37af695a9c7cca902ea96ac25838769"
+                "reference": "0b864d98641c2395b27610fcd7af804999f127b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/d53d72a5d37af695a9c7cca902ea96ac25838769",
-                "reference": "d53d72a5d37af695a9c7cca902ea96ac25838769",
+                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/0b864d98641c2395b27610fcd7af804999f127b5",
+                "reference": "0b864d98641c2395b27610fcd7af804999f127b5",
                 "shasum": ""
             },
             "require": {
@@ -403,7 +403,7 @@
                 "davide-casiraghi",
                 "laravel-events-calendar"
             ],
-            "time": "2019-07-24T07:46:14+00:00"
+            "time": "2019-07-24T16:39:21+00:00"
         },
         {
             "name": "davide-casiraghi/laravel-form-partials",
@@ -1813,16 +1813,16 @@
         },
         {
             "name": "lavary/laravel-menu",
-            "version": "v1.7.5",
+            "version": "v1.7.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lavary/laravel-menu.git",
-                "reference": "d7406165939362da831ad2b47ddac9cebdfc3af4"
+                "reference": "45165b56381e98af327dc9e05cd3be8c00b22761"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lavary/laravel-menu/zipball/d7406165939362da831ad2b47ddac9cebdfc3af4",
-                "reference": "d7406165939362da831ad2b47ddac9cebdfc3af4",
+                "url": "https://api.github.com/repos/lavary/laravel-menu/zipball/45165b56381e98af327dc9e05cd3be8c00b22761",
+                "reference": "45165b56381e98af327dc9e05cd3be8c00b22761",
                 "shasum": ""
             },
             "require": {
@@ -1861,7 +1861,7 @@
             "keywords": [
                 "laravel"
             ],
-            "time": "2019-04-11T23:15:53+00:00"
+            "time": "2019-07-24T17:49:37+00:00"
         },
         {
             "name": "league/flysystem",
