@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Astrotomic\Translatable\Translatable;
 
 class Category extends Model
 {

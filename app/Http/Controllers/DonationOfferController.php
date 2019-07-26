@@ -13,7 +13,7 @@ class DonationOfferController extends Controller
     /* Restrict the access to this resource just to logged in users except show and index view */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['create', 'store', 'indexPublic']]);
+        $this->middleware('auth', ['except' => ['create', 'store', 'index', 'show']]);
     }
 
     /***************************************************************************/
@@ -120,7 +120,14 @@ class DonationOfferController extends Controller
                         ->where('id', $donationOffer->country_id)
                         ->first();
 
-        return view('donationOffers.show', compact('donationOffer'))->with('country', $country);
+        $countryOfTheGift = Country::
+                        select('id', 'name', 'continent_id')
+                        ->where('id', $donationOffer->gift_country_of)
+                        ->first();
+
+        return view('donationOffers.show', compact('donationOffer'))
+                ->with('country', $country)
+                ->with('countryOfTheGift', $countryOfTheGift);
     }
 
     /***************************************************************************/
@@ -223,12 +230,12 @@ class DonationOfferController extends Controller
 
     /***************************************************************************/
 
-    /**
+    /*
      * Display a listing of the resource - the public list.
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function indexPublic(Request $request)
+    /*public function indexPublic(Request $request)
     {
         $countries = Country::getCountries();
 
@@ -277,6 +284,6 @@ class DonationOfferController extends Controller
                     ->with('searchCountry', $searchCountry)
                     ->with('searchDonationKind', $searchDonationKind);
     }
-
+*/
     /***************************************************************************/
 }

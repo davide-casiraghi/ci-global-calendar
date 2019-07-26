@@ -224,6 +224,12 @@ class CreateAllDatabaseTables extends Migration
             $table->string('compact_name');
             $table->integer('order')->nullable();
             $table->integer('access')->nullable();
+            $table->string('route_param_name_1')->nullable();
+            $table->string('route_param_name_2')->nullable();
+            $table->string('route_param_name_3')->nullable();
+            $table->string('route_param_value_1')->nullable();
+            $table->string('route_param_value_2')->nullable();
+            $table->string('route_param_value_3')->nullable();
             $table->timestamps();
         });
 
@@ -284,6 +290,14 @@ class CreateAllDatabaseTables extends Migration
             $table->text('other_description')->nullable();
             $table->text('suggestions')->nullable();
             $table->integer('status')->default(1);
+            $table->string('gift_title')->nullable();
+            $table->string('gift_donater')->nullable();
+            $table->string('gift_economic_value')->nullable();
+            $table->string('gift_volunteer_time_value')->nullable();
+            $table->string('gift_given_to')->nullable();
+            $table->dateTime('gift_given_when')->nullable();
+            $table->integer('gift_country_of')->nullable();
+            $table->text('admin_notes')->nullable();
             $table->timestamps();
         });
 

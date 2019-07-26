@@ -45,7 +45,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest')->except('activateUserFromBackend');
     }
 
     // **********************************************************************
@@ -150,6 +150,41 @@ class RegisterController extends Controller
             $user->activation_code = null;
             $user->save();
             //auth()->login($user);
+
+            // Send to the user the confirmation about the activation of the account
+            $mailDatas = [];
+            $mailDatas['senderEmail'] = 'noreply@globalcicalendar.com';
+            $mailDatas['senderName'] = 'Global CI - Administrator';
+            $mailDatas['subject'] = 'Activation of your Global CI account';
+            $mailDatas['emailTo'] = $user->email;
+            $mailDatas['name'] = $user->name;
+
+            Mail::to($user->email)->send(new UserActivationConfirmation($mailDatas));
+        } catch (\Exception $exception) {
+            logger()->error($exception);
+
+            return 'Whoops! something went wrong.';
+        }
+
+        return redirect()->to('/')->with('message', 'User succesfuly activated');
+    }
+
+    // **********************************************************************
+
+    /**
+     * Activate the user from the backend clicking on the Enable button in the user index view.
+     * @param string $userId
+     * @return string
+     */
+    public function activateUserFromBackend(string $userId)
+    {
+        try {
+            $user = app(User::class)->where('id', $userId)->first();
+            if (! $user) {
+                return 'The code user id not exist for any user in our system.';
+            }
+            $user->status = 1;
+            $user->save();
 
             // Send to the user the confirmation about the activation of the account
             $mailDatas = [];

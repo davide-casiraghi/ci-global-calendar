@@ -29,6 +29,7 @@
         @if(!empty($tooltip))<i class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="{{ $tooltip }}"></i>@endif
     @endif
     <select name="{{ $name }}" id="{{ $name }}" class="selectpicker" data-live-search="{{ $liveSearch }}" title="{{$placeholder}}">
+        @if(!empty($emptyState)) <option value="">@if(!empty($emptyStateText)){{$emptyStateText}}@endif</option> @endif  
         @foreach ($records as $value => $record)
             <option value="{{$value}}" @if(!empty($seleted)) {{  $seleted == $value ? 'selected' : '' }}@endif>{{ $record }}</option>
         @endforeach
