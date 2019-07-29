@@ -9,7 +9,7 @@
             </div>
         </div>
 
-        @include('laravel-events-calendar::partials.error-management', [
+        @include('laravel-form-partials::error-management', [
               'style' => 'alert-danger',
         ])
 
@@ -18,7 +18,7 @@
 
              <div class="row">
                 <div class="col-12">
-                    @include('laravel-events-calendar::partials.input', [
+                    @include('laravel-form-partials::input', [
                         'title' => __('laravel-events-calendar::general.name'),
                         'name' => 'name',
                         'placeholder' => '', 
@@ -30,21 +30,22 @@
                 {{-- Show the created by field just to the admin and super admin --}}
                 @if(empty($authorUserId))
                     <div class="col-12">
-                        @include('laravel-events-calendar::partials.select', [
+                        @include('laravel-form-partials::select', [
                               'title' => __('laravel-events-calendar::general.created_by'),
                               'name' => 'created_by',
                               'placeholder' => __('laravel-events-calendar.select_owner'),
                               'records' => $users,
                               'liveSearch' => 'true',
                               'mobileNativeMenu' => false,
-                              'seleted' => old('created_by'),
+                              'selected
+' => old('created_by'),
                               'required' => false,
                         ])
                     </div>
                 @endif
 
                 <div class="col-12">
-                    @include('laravel-events-calendar::partials.input', [
+                    @include('laravel-form-partials::input', [
                         'title' => __('laravel-events-calendar::general.email_address'),
                         'name' => 'email',
                         'value' => old('email'),
@@ -52,7 +53,7 @@
                     ])
                 </div>
                 <div class="col-12">
-                    @include('laravel-events-calendar::partials.input', [
+                    @include('laravel-form-partials::input', [
                         'title' => __('laravel-events-calendar::general.phone'),
                         'name' => 'phone',
                         'value' => old('phone'),
@@ -60,7 +61,7 @@
                     ])
                 </div>
                 <div class="col-12">
-                    @include('laravel-events-calendar::partials.input', [
+                    @include('laravel-form-partials::input', [
                         'title' => __('laravel-events-calendar::general.website'),
                         'name' => 'website',
                         'placeholder' => 'https://...',
@@ -69,7 +70,7 @@
                     ])
                 </div>
                 <div class="col-12">
-                    @include('laravel-events-calendar::partials.textarea', [
+                    @include('laravel-form-partials::textarea', [
                           'title' => __('laravel-events-calendar::general.description'),
                           'name' => 'description',
                           'placeholder' => '',
@@ -79,7 +80,7 @@
                 </div>
             </div>
 
-            @include('laravel-events-calendar::partials.buttons-back-submit', [
+            @include('laravel-form-partials::buttons-back-submit', [
                 'route' => 'organizers.index'  
             ])
 

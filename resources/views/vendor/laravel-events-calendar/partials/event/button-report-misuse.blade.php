@@ -26,24 +26,29 @@
                                  </select>
                              </div>
 
-                             @include('laravel-events-calendar::partials.textarea-plain', [
+                             @include('laravel-form-partials::textarea-plain', [
                                    'title' => __('misuse.message'),
                                    'name' => 'message',
                                    'placeholder' => __('misuse.include_all_details'),
                                    'required' => true,
                              ])
 
-                             @include('laravel-events-calendar::partials.input-hidden', [
+                             @include('laravel-form-partials::input-hidden', [
                                    'name' => 'event_title',
                                    'value' => $event->title
                              ])
 
-                             @include('laravel-events-calendar::partials.input-hidden', [
+                             @include('laravel-form-partials::input-hidden', [
                                    'name' => 'event_id',
                                    'value' => $event->id
                              ])
                              
-                             @include('laravel-events-calendar::partials.input-hidden', [
+                             @include('laravel-form-partials::input-hidden', [
+                                   'name' => 'event_slug',
+                                   'value' => $event->slug
+                             ])
+                             
+                             @include('laravel-form-partials::input-hidden', [
                                    'name' => 'created_by',
                                    'value' => $event->created_by
                              ])

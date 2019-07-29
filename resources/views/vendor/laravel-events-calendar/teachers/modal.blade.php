@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    @include('laravel-events-calendar::partials.error-management', [
+    @include('laravel-form-partials::error-management', [
           'style' => 'alert-danger',
     ])
 
@@ -30,7 +30,7 @@
 
          <div class="row">
             <div class="col-12">
-                @include('laravel-events-calendar::partials.input', [
+                @include('laravel-form-partials::input', [
                       'title' => __('laravel-events-calendar::general.name'),
                       'name' => 'name',
                       'placeholder' => 'Teacher name',
@@ -39,7 +39,7 @@
             </div>
 
             <div class="col-12">
-                @include('laravel-events-calendar::partials.select', [
+                @include('laravel-form-partials::select', [
                       'title' => __('laravel-events-calendar::general.country'),
                       'name' => 'country_id',
                       'placeholder' => 'Select country',
@@ -51,14 +51,14 @@
             </div>
 
             <div class="col-12">
-                @include('laravel-events-calendar::partials.textarea-plain', [
+                @include('laravel-form-partials::textarea-plain', [
                       'title' =>  __('laravel-events-calendar::teacher.bio'),
                       'name' => 'bio',
                       'required' => true,
                 ])
             </div>
             <div class="col-12">
-                @include('laravel-events-calendar::partials.input', [
+                @include('laravel-form-partials::input', [
                       'title' => __('laravel-events-calendar::teacher.year_of_starting_to_practice'),
                       'name' => 'year_starting_practice',
                       'placeholder' => 'AAAA',
@@ -67,7 +67,7 @@
                 ])
             </div>
             <div class="col-12">
-                @include('laravel-events-calendar::partials.input', [
+                @include('laravel-form-partials::input', [
                       'title' => __('laravel-events-calendar::teacher.year_of_starting_to_teach'),
                       'name' => 'year_starting_teach',
                       'placeholder' => 'AAAA',
@@ -76,14 +76,14 @@
                 ])
             </div>
             <div class="col-12">
-                @include('laravel-events-calendar::partials.textarea-plain', [
+                @include('laravel-form-partials::textarea-plain', [
                       'title' =>  __('laravel-events-calendar::teacher.significant_teachers'),
                       'name' => 'significant_teachers',
                       'required' => true,
                 ])
             </div>
             <div class="col-12">
-                @include('laravel-events-calendar::partials.input', [
+                @include('laravel-form-partials::input', [
                       'title' => __('laravel-events-calendar::teacher.facebook_profile'),
                       'name' => 'facebook',
                       'placeholder' => 'https://...',
@@ -92,7 +92,7 @@
                 ])
             </div>
             <div class="col-12">
-                @include('laravel-events-calendar::partials.input', [
+                @include('laravel-form-partials::input', [
                       'title' => __('laravel-events-calendar::teacher.website'),
                       'name' => 'website',
                       'placeholder' => 'https://...',
@@ -101,7 +101,7 @@
                 ])
             </div>
             
-            @include('laravel-events-calendar::partials.upload-image', [
+            @include('laravel-form-partials::upload-image', [
                   'title' => __('laravel-events-calendar::teacher.upload_profile_picture'), 
                   'name' => 'profile_picture',
                   'value' => ''

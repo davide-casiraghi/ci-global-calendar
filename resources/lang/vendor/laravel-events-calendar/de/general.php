@@ -2,7 +2,7 @@
 
 return [
     'search' => 'Suche',
-    'reset' => 'Zurücksetzten',
+    'reset' => 'Zurücksetzen',
     'view' => 'Ansicht',
     'edit' => 'Editieren',
     'delete' => 'Löschen',
