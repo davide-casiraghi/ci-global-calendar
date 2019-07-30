@@ -120,7 +120,7 @@
                                   'records' => $eventCategories,
                                   'seleted' => $searchCategory,
                                   'liveSearch' => 'false',
-                                  'mobileNativeMenu' => true,
+                                  'mobileNativeMenu' => false,  //disabled for the bug on iPad and iPhone - Retry when will be available v.2 of bootstrap-select - https://github.com/snapappointments/bootstrap-select/issues/2228
                             ])
                         
                         {{-- WHO --}}
@@ -146,7 +146,7 @@
                               'records' => $continents,
                               'seleted' => $searchContinent,
                               'liveSearch' => 'false',
-                              'mobileNativeMenu' => true,
+                              'mobileNativeMenu' => false, // disabled for the bug on iPad and iPhone - Retry when will be available v.2 of bootstrap-select - https://github.com/snapappointments/bootstrap-select/issues/2228
                         ])
                         
                         @include('partials.forms.select', [

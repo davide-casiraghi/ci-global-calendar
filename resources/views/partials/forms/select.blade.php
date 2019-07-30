@@ -18,11 +18,6 @@
     @parent
     @if($mobileNativeMenu)
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-            
-            // To fix the bug that doesn't show the selectpicker on iPhone and iPad - https://github.com/snapappointments/bootstrap-select/issues/1828
-                $.fn.selectpicker.Constructor.BootstrapVersion = '4';
-                $.fn.selectpicker.Constructor.DEFAULTS.mobile = true;
-            
             $("select[name='{{$name}}']").selectpicker('mobile');
         }
     @endif
