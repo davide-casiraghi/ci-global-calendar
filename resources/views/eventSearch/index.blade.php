@@ -120,7 +120,7 @@
                                   'records' => $eventCategories,
                                   'seleted' => $searchCategory,
                                   'liveSearch' => 'false',
-                                  'mobileNativeMenu' => true,
+                                  'mobileNativeMenu' => false,
                             ])
                         
                         {{-- WHO --}}
@@ -146,7 +146,7 @@
                               'records' => $continents,
                               'seleted' => $searchContinent,
                               'liveSearch' => 'false',
-                              'mobileNativeMenu' => true,
+                              'mobileNativeMenu' => false,
                         ])
                         
                         @include('partials.forms.select', [
