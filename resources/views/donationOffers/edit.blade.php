@@ -9,7 +9,7 @@
             </div>
         </div>
         
-        @include('partials.forms.error-management', [
+        @include('laravel-form-partials::error-management', [
               'style' => 'alert-danger',
         ])
         
@@ -31,12 +31,12 @@
                             
                             @if( App\User::loggedAsSuperAdmin() || App\User::loggedAsAdmin() )
                                 <div class="col-12">
-                                    @include('partials.forms.select', [
+                                    @include('laravel-form-partials::select', [
                                           'title' => __('views.status'),
                                           'name' => 'status',
                                           'placeholder' => __('views.choose'), 
                                           'records' => App\DonationOffer::getStatusArray(),
-                                          'seleted' => $donationOffer->status,
+                                          'selected' => $donationOffer->status,
                                           'liveSearch' => 'false',
                                           'mobileNativeMenu' => true,
                                           'required' => false,
@@ -45,7 +45,7 @@
                             @endif
                             
                             <div class="col-12">
-                                @include('partials.forms.input', [
+                                @include('laravel-form-partials::input', [
                                       'title' => __('general.name'),
                                       'name' => 'name',
                                       'placeholder' => '',
@@ -54,7 +54,7 @@
                                 ])
                             </div>
                             <div class="col-12">
-                                @include('partials.forms.input', [
+                                @include('laravel-form-partials::input', [
                                       'title' => __('general.surname'),
                                       'name' => 'surname',
                                       'placeholder' => '',
@@ -63,7 +63,7 @@
                                 ])
                             </div>
                             <div class="col-12">
-                                @include('partials.forms.input', [
+                                @include('laravel-form-partials::input', [
                                       'title' => __('general.email_address'),
                                       'name' => 'email',
                                       'value' => $donationOffer->email,
@@ -71,7 +71,7 @@
                                 ])
                             </div>
                             <div class="col-12">
-                                @include('partials.forms.textarea-plain', [
+                                @include('laravel-form-partials::textarea-plain', [
                                     'title' =>  __('donations.contact_through_skype_or_another_voip'),
                                     'name' => 'contact_trough_voip',
                                     'value' => $donationOffer->contact_trough_voip,
@@ -79,19 +79,19 @@
                                 ])
                             </div>
                             <div class="col-12">
-                                @include('partials.forms.select', [
+                                @include('laravel-form-partials::select', [
                                       'title' => __('general.country'),
                                       'name' => 'country_id',
                                       'placeholder' => __('views.select_country'), 
                                       'records' => $countries,
-                                      'seleted' => $donationOffer->country_id,
+                                      'selected' => $donationOffer->country_id,
                                       'liveSearch' => 'true',
                                       'mobileNativeMenu' => false,
                                       'required' => false,
                                 ])
                             </div>
                             <div class="col-12">
-                                @include('partials.forms.textarea-plain', [
+                                @include('laravel-form-partials::textarea-plain', [
                                     'title' =>  __('donations.language_spoken'),
                                     'name' => 'language_spoken',
                                     'value' => $donationOffer->language_spoken,
@@ -106,7 +106,7 @@
                 <hr class="mt-3 mb-4">
                 
                 {{-- How you want to help - OFFER KIND --}}
-                    @include('partials.forms.input-hidden', [
+                    @include('laravel-form-partials::input-hidden', [
                           'name' => 'offer_kind',
                           'value' => $donationOffer->offer_kind,
                     ])
@@ -119,7 +119,7 @@
                         <div class="col main">
                             <div class="row">
                                 <div class="col-12">
-                                    @include('partials.forms.input-radio-cards', [
+                                    @include('laravel-form-partials::input-radio-cards', [
                                         'title' =>  __('donations.i_can_offer'),
                                         'name' => 'offer_kind',
                                         'records' =>  App\DonationOffer::getDonationKindArray(),
@@ -171,12 +171,12 @@
                             </div>
                             
                             <div class="col-12">
-                                @include('partials.forms.select', [
+                                @include('laravel-form-partials::select', [
                                       'title' => __('donations.volunteering_apply_for'),
                                       'name' => 'volunteer_kind',
                                       'placeholder' => __('views.choose'), 
                                       'records' => App\DonationOffer::getVolunteeringKindArray(),
-                                      'seleted' => $donationOffer->volunteer_kind,
+                                      'selected' => $donationOffer->volunteer_kind,
                                       'liveSearch' => 'false',
                                       'mobileNativeMenu' => true,
                                       'required' => true,
@@ -184,7 +184,7 @@
                             </div>
                             
                             <div class="col-12">
-                                @include('partials.forms.textarea', [
+                                @include('laravel-form-partials::textarea', [
                                       'title' =>  __('donations.volunteering_details_request'),
                                       'name' => 'volunteer_description',
                                       'placeholder' => '',
@@ -214,7 +214,7 @@
                         <div class="row">
                             
                             <div class="col-12">
-                                @include('partials.forms.input', [
+                                @include('laravel-form-partials::input', [
                                       'title' => __('donations.gift_title'),
                                       'name' => 'gift_title',
                                       'placeholder' => '',
@@ -224,12 +224,12 @@
                             </div>
                             
                             <div class="col-12 entrance-kind-visibility">
-                            @include('partials.forms.select', [
+                            @include('laravel-form-partials::select', [
                                       'title' => __('donations.entrance_kind'),
                                       'name' => 'gift_kind',
                                       'placeholder' => __('views.choose'), 
                                       'records' => App\DonationOffer::getGiftKindArray(),
-                                      'seleted' => $donationOffer->gift_kind,
+                                      'selected' => $donationOffer->gift_kind,
                                       'liveSearch' => 'false',
                                       'mobileNativeMenu' => true,
                                       'required' => true,
@@ -237,7 +237,7 @@
                             </div>
                             
                             <div class="col-12">
-                                @include('partials.forms.input', [
+                                @include('laravel-form-partials::input', [
                                       'title' => __('donations.gift_donater'),
                                       'name' => 'gift_donater',
                                       'placeholder' => '',
@@ -247,7 +247,7 @@
                             </div>
                             
                             <div class="col-12">
-                               @include('partials.forms.textarea', [
+                               @include('laravel-form-partials::textarea', [
                                      'title' =>  __('donations.gift_details'),
                                      'name' => 'gift_description',
                                      'placeholder' => '',
@@ -257,7 +257,7 @@
                            </div>
                             
                             <div class="col-12">
-                                @include('partials.forms.input', [
+                                @include('laravel-form-partials::input', [
                                       'title' => __('donations.gift_economic_value'),
                                       'name' => 'gift_economic_value',
                                       'placeholder' => '',
@@ -267,14 +267,14 @@
                             </div>
                             
                             <div class="col-12">
-                                @include('partials.forms.select', [
+                                @include('laravel-form-partials::select', [
                                       'title' => __('donations.gift_country_of'),
                                       'name' => 'gift_country_of',
                                       'placeholder' => __('views.select_country'), 
                                       'records' => $countries,
                                       'liveSearch' => 'true',
                                       'mobileNativeMenu' => false,
-                                      'seleted' => $donationOffer->gift_country_of,
+                                      'selected' => $donationOffer->gift_country_of,
                                       'required' => false,
                                       'emptyState' => true,
                                       'emptyStateText' => 'Worldwide',
@@ -283,7 +283,7 @@
                             
                             @if( App\User::loggedAsSuperAdmin() || App\User::loggedAsAdmin() )
                                 <div class="col-12">
-                                    @include('partials.forms.input', [
+                                    @include('laravel-form-partials::input', [
                                           'title' => __('donations.gift_volunteer_time_value'),
                                           'name' => 'gift_volunteer_time_value',
                                           'placeholder' => '',
@@ -292,7 +292,7 @@
                                     ])
                                 </div>
                                 <div class="col-12">
-                                    @include('partials.forms.input', [
+                                    @include('laravel-form-partials::input', [
                                           'title' => __('donations.gift_given_to'),
                                           'name' => 'gift_given_to',
                                           'placeholder' => '',
@@ -301,7 +301,7 @@
                                     ])
                                 </div>
                                 <div class="col-12">    
-                                    @include('partials.forms.input-date', [
+                                    @include('laravel-form-partials::input-date', [
                                           'title' =>  __('donations.gift_given_when'),
                                           'name' => 'gift_given_when',
                                           'placeholder' => __('views.select_date'),
@@ -314,7 +314,7 @@
                                 </div>
                                 
                                 <div class="col-12">
-                                    @include('partials.forms.textarea-plain', [
+                                    @include('laravel-form-partials::textarea-plain', [
                                         'title' =>  __('donations.admin_notes'),
                                         'name' => 'admin_notes',
                                         'value' => $donationOffer->admin_notes,
@@ -349,7 +349,7 @@
 
             <div class="row mt-2">  
                 <div class="col-12 action">
-                    @include('partials.forms.buttons-back-submit', [
+                    @include('laravel-form-partials::buttons-back-submit', [
                         'route' => 'donationOffers.index',
                         'routeParameter' => [
                             'page_kind' => $donationOffer->offer_kind,

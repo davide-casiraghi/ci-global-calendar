@@ -10,7 +10,7 @@
             </div>
         </div>
 
-        @include('partials.forms.error-management', [
+        @include('laravel-form-partials::error-management', [
               'style' => 'alert-danger',
         ])
 
@@ -19,7 +19,7 @@
 
              <div class="row">
                 <div class="col-12">
-                    @include('partials.forms.input', [
+                    @include('laravel-form-partials::input', [
                           'title' => __('general.name'),
                           'name' => 'name',
                           'placeholder' => '',
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="col-12">
-                    @include('partials.forms.input', [
+                    @include('laravel-form-partials::input', [
                           'title' => __('general.email_address'),
                           'name' => 'email',
                           'value' => old('email'),
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="col-12">
-                    @include('partials.forms.password', [
+                    @include('laravel-form-partials::password', [
                           'title' => __('general.password'),
                           'name' => 'password',
                           'required' => true,
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="col-12">
-                    @include('partials.forms.password', [
+                    @include('laravel-form-partials::password', [
                           'title' => __('general.confirm_password'),
                           'name' => 'password_confirmation',
                           'required' => true,
@@ -75,7 +75,7 @@
                 </div>
 
                 <div class="col-12">
-                    @include('partials.forms.select', [
+                    @include('laravel-form-partials::select', [
                           'title' => __('general.country'),
                           'name' => 'country_id',
                           'placeholder' => __('views.select_country'), 
@@ -87,7 +87,7 @@
                 </div>
 
                 <div class="col-12">
-                    @include('partials.forms.textarea', [
+                    @include('laravel-form-partials::textarea', [
                           'title' => __('general.description'),
                           'name' => 'description',
                           'placeholder' => __('general.to_be_approved'), 
@@ -97,7 +97,7 @@
                 </div>
             </div>
 
-            @include('partials.forms.buttons-back-submit', [
+            @include('laravel-form-partials::buttons-back-submit', [
                   'route' => 'users.index'  
             ])
 

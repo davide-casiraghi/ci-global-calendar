@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="col-12">
-                   @include('partials.forms.input', [
+                   @include('laravel-form-partials::input', [
                          'title' => __('general.name'),
                          'name' => 'name',
                          'placeholder' => '',
@@ -46,7 +46,7 @@
                 </div>
 
                <div class="col-12">
-                   @include('partials.forms.input', [
+                   @include('laravel-form-partials::input', [
                          'title' => __('general.email_address'),
                          'name' => 'email',
                          'placeholder' => '',
@@ -55,7 +55,7 @@
                </div>
 
                <div class="col-12">
-                   @include('partials.forms.textarea-plain', [
+                   @include('laravel-form-partials::textarea-plain', [
                          'title' => __('general.message'),
                          'name' => 'message',
                          'placeholder' => '',
@@ -65,10 +65,10 @@
                
                <div class="col-12">
                    {{-- Recaptcha google v2 --}}
-                   @include('partials.forms.recaptcha')
+                   @include('laravel-form-partials::recaptcha')
                </div>
                
-               @include('partials.forms.input-hidden', [
+               @include('laravel-form-partials::input-hidden', [
                      'name' => 'recipient',
                      'value' => $recipient
                ])

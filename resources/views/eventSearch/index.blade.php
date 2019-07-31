@@ -113,12 +113,12 @@
                         {{-- WHAT --}}
                             <p><strong class="text-white">@lang('homepage-serach.what')</strong></p>
                             
-                            @include('partials.forms.select', [
+                            @include('laravel-form-partials::select', [
                                   'title' =>  '',
                                   'name' => 'category_id',
                                   'placeholder' => __('homepage-serach.all_kind_of_events'),
                                   'records' => $eventCategories,
-                                  'seleted' => $searchCategory,
+                                  'selected' => $searchCategory,
                                   'liveSearch' => 'false',
                                   'mobileNativeMenu' => false,  //disabled for the bug on iPad and iPhone - Retry when will be available v.2 of bootstrap-select - https://github.com/snapappointments/bootstrap-select/issues/2228
                             ])
@@ -139,27 +139,27 @@
                         {{--
                         <continents-countries-selects select_a_continent_placeholder="@lang('homepage-serach.select_a_continent')" select_a_country_placeholder="@lang('homepage-serach.select_a_country')" continent-selected="{{$searchContinent}}" country-selected="{{$searchCountry}}"></continents-countries-selects>
                         --}}
-                        @include('partials.forms.select', [
+                        @include('laravel-form-partials::select', [
                               'title' =>  '',
                               'name' => 'continent_id',
                               'placeholder' => __('homepage-serach.select_a_continent'),
                               'records' => $continents,
-                              'seleted' => $searchContinent,
+                              'selected' => $searchContinent,
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => false, // disabled for the bug on iPad and iPhone - Retry when will be available v.2 of bootstrap-select - https://github.com/snapappointments/bootstrap-select/issues/2228
                         ])
                         
-                        @include('partials.forms.select', [
+                        @include('laravel-form-partials::select', [
                               'title' =>  '',
                               'name' => 'country_id',
                               'placeholder' => __('homepage-serach.select_a_country'),
                               'records' => $countries,
-                              'seleted' => $searchCountry,
+                              'selected' => $searchCountry,
                               'liveSearch' => 'true',
                               'mobileNativeMenu' => false,
                         ])
                         
-                        @include('partials.forms.input', [
+                        @include('laravel-form-partials::input', [
                               'title' => '',
                               'name' => 'city_name',
                               'placeholder' => __('homepage-serach.search_by_city'),
@@ -167,7 +167,7 @@
                         ])
                         
                         {{--<p class="mt-3"><strong class="text-white">@lang('homepage-serach.search_by_venue')</strong></p>--}}
-                        @include('partials.forms.input', [
+                        @include('laravel-form-partials::input', [
                               'title' => '',
                               'name' => 'venue_name',
                               'placeholder' => __('homepage-serach.venue_name'),

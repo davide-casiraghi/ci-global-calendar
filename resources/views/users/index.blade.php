@@ -32,18 +32,18 @@
             @csrf
             <div class="row">
                 <div class="col-12 col-sm-6 pr-sm-2">
-                    @include('partials.forms.input', [
+                    @include('laravel-form-partials::input', [
                         'name' => 'keywords',
                         'placeholder' => __('views.search_by_user_name'),
                         'value' => $searchKeywords
                     ])
                 </div>
                 <div class="col-12 col-sm-6">
-                    @include('partials.forms.select', [
+                    @include('laravel-form-partials::select', [
                         'name' => 'country_id',
                         'placeholder' => __('views.filter_by_country'),
                         'records' => $countries,
-                        'seleted' => $searchCountry,
+                        'selected' => $searchCountry,
                         'liveSearch' => 'true',
                         'mobileNativeMenu' => false,
                     ])

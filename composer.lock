@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "873beaa74fcc552ba96b0a9372ec9a5f",
+    "content-hash": "bac56ad93084843077c5de6fe885459e",
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
@@ -343,16 +343,16 @@
         },
         {
             "name": "davide-casiraghi/laravel-events-calendar",
-            "version": "1.2.4",
+            "version": "1.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davide-casiraghi/laravel-events-calendar.git",
-                "reference": "5b65cdb930a8133a30bb37b42b05ad77d85ea743"
+                "reference": "d0091e9a7b710a9343e7ce8b3bb5803fa5500f20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/5b65cdb930a8133a30bb37b42b05ad77d85ea743",
-                "reference": "5b65cdb930a8133a30bb37b42b05ad77d85ea743",
+                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/d0091e9a7b710a9343e7ce8b3bb5803fa5500f20",
+                "reference": "d0091e9a7b710a9343e7ce8b3bb5803fa5500f20",
                 "shasum": ""
             },
             "require": {
@@ -403,7 +403,7 @@
                 "davide-casiraghi",
                 "laravel-events-calendar"
             ],
-            "time": "2019-07-31T06:57:22+00:00"
+            "time": "2019-07-31T11:04:47+00:00"
         },
         {
             "name": "davide-casiraghi/laravel-form-partials",
@@ -2166,16 +2166,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.21.3",
+            "version": "2.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "58bdbbfab17ccd2ec7347b99e997f18232def4dc"
+                "reference": "1a0e48b5f656065ba3c265b058b25d36c2162a5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/58bdbbfab17ccd2ec7347b99e997f18232def4dc",
-                "reference": "58bdbbfab17ccd2ec7347b99e997f18232def4dc",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/1a0e48b5f656065ba3c265b058b25d36c2162a5e",
+                "reference": "1a0e48b5f656065ba3c265b058b25d36c2162a5e",
                 "shasum": ""
             },
             "require": {
@@ -2186,7 +2186,7 @@
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.14 || ^3.0",
                 "kylekatarnls/multi-tester": "^1.1",
-                "phpmd/phpmd": "^2.6",
+                "phpmd/phpmd": "dev-php-7.1-compatibility",
                 "phpstan/phpstan": "^0.11",
                 "phpunit/phpunit": "^7.5 || ^8.0",
                 "squizlabs/php_codesniffer": "^3.4"
@@ -2229,7 +2229,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-07-18T18:47:28+00:00"
+            "time": "2019-07-28T09:02:12+00:00"
         },
         {
             "name": "nikic/php-parser",

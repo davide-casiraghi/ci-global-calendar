@@ -55,7 +55,7 @@
     </div>
     
     {{-- show the image name to use in the edit view to not delete the image on update --}}
-    @include('partials.forms.input-hidden', [
+    @include('laravel-form-partials::input-hidden', [
           'name' => $name,
           'value' => $value
     ])

@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    @include('partials.forms.error-management', [
+    @include('laravel-form-partials::error-management', [
           'style' => 'alert-danger',
     ])
 
@@ -20,7 +20,7 @@
 
          <div class="row">
             <div class="col-12">
-                @include('partials.forms.input', [
+                @include('laravel-form-partials::input', [
                       'title' => 'Title',
                       'name' => 'title',
                       'placeholder' => 'Event title',
@@ -38,7 +38,7 @@
 
         <div class="row mt-2">
             <div class="col-12">
-                @include('partials.forms.input', [
+                @include('laravel-form-partials::input', [
                       'title' => __('homepage-serach.photo_credits'), 
                       'name' => 'credits',
                       'placeholder' => 'Who took the photo?',
@@ -60,7 +60,7 @@
             </div>
         </div>
         
-        @include('partials.forms.buttons-back-submit', [
+        @include('laravel-form-partials::buttons-back-submit', [
               'route' => 'backgroundImages.index'  
         ])
 

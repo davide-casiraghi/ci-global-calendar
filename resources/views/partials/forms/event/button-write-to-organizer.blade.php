@@ -18,36 +18,36 @@
                     <div class="modal-body">
                              @csrf
                              <p>@lang('views.write_for_more_info_details')</p>
-                             @include('partials.forms.input', [
+                             @include('laravel-form-partials::input', [
                                    'title' => 'Your name',
                                    'name' => 'user_name',
                                    'required' => true,
                              ])
 
-                             @include('partials.forms.input', [
+                             @include('laravel-form-partials::input', [
                                    'title' => 'Your email',
                                    'name' => 'user_email',
                                    'required' => true,
                              ])
 
-                             @include('partials.forms.textarea-plain', [
+                             @include('laravel-form-partials::textarea-plain', [
                                    'title' => 'Message',
                                    'name' => 'message',
                                    'placeholder' => 'the text of your message',
                                    'required' => true,
                              ])
 
-                             @include('partials.forms.input-hidden', [
+                             @include('laravel-form-partials::input-hidden', [
                                    'name' => 'event_title',
                                    'value' => $event->title
                              ])
 
-                             @include('partials.forms.input-hidden', [
+                             @include('laravel-form-partials::input-hidden', [
                                    'name' => 'event_id',
                                    'value' => $event->id
                              ])
                              
-                             @include('partials.forms.input-hidden', [
+                             @include('laravel-form-partials::input-hidden', [
                                    'name' => 'contact_email',
                                    'value' => $event->contact_email
                              ])
