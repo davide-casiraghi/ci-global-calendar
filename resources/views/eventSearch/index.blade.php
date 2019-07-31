@@ -119,7 +119,7 @@
                                   'placeholder' => __('homepage-serach.all_kind_of_events'),
                                   'records' => $eventCategories,
                                   'selected' => $searchCategory,
-                                  'liveSearch' => 'false',
+                                  'liveSearch' => 'true',
                                   'mobileNativeMenu' => false,  //disabled for the bug on iPad and iPhone - Retry when will be available v.2 of bootstrap-select - https://github.com/snapappointments/bootstrap-select/issues/2228
                             ])
                         
