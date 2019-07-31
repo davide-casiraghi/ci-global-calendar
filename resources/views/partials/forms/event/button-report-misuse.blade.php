@@ -26,7 +26,7 @@
                                  </select>
                              </div>
 
-                             @include('partials.forms.textarea-plain', [
+                             @include('laravel-form-partials::textarea-plain', [
                                    'title' => __('misuse.message'),
                                    'name' => 'message',
                                    'placeholder' => __('misuse.include_all_details'),

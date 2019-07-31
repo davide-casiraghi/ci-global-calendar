@@ -7,7 +7,7 @@
         </div>
     </div>
 
-    @include('partials.forms.error-management', [
+    @include('laravel-form-partials::error-management', [
           'style' => 'alert-danger',
     ])
 
@@ -57,7 +57,7 @@
             </div>
         </div>
         
-        @include('partials.forms.buttons-back-submit', [
+        @include('laravel-form-partials::buttons-back-submit', [
               'route' => 'backgroundImages.index'  
         ])
 

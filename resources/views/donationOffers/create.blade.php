@@ -9,7 +9,7 @@
             </div>
         </div>
         
-        @include('partials.forms.error-management', [
+        @include('laravel-form-partials::error-management', [
               'style' => 'alert-danger',
         ])
         
@@ -60,7 +60,7 @@
                                 ])
                             </div>
                             <div class="col-12">
-                                @include('partials.forms.textarea-plain', [
+                                @include('laravel-form-partials::textarea-plain', [
                                     'title' =>  __('donations.contact_through_skype_or_another_voip'),
                                     'name' => 'contact_trough_voip',
                                     'value' => old('contact_trough_voip'),
@@ -80,7 +80,7 @@
                                 ])
                             </div>
                             <div class="col-12">
-                                @include('partials.forms.textarea-plain', [
+                                @include('laravel-form-partials::textarea-plain', [
                                     'title' =>  __('donations.language_spoken'),
                                     'name' => 'language_spoken',
                                     'value' => old('language_spoken'),
@@ -168,7 +168,7 @@
                             </div>
                             
                             <div class="col-12">
-                                @include('partials.forms.textarea', [
+                                @include('laravel-form-partials::textarea', [
                                       'title' =>  __('donations.volunteering_details_request'),
                                       'name' => 'volunteer_description',
                                       'placeholder' => '',
@@ -231,7 +231,7 @@
                             </div>
                             
                             <div class="col-12">
-                               @include('partials.forms.textarea', [
+                               @include('laravel-form-partials::textarea', [
                                      'title' =>  __('donations.gift_details'),
                                      'name' => 'gift_description',
                                      'placeholder' => '',
@@ -323,7 +323,7 @@
 
             <div class="row mt-2">  
                 <div class="col-12 action">
-                    @include('partials.forms.buttons-back-submit', [
+                    @include('laravel-form-partials::buttons-back-submit', [
                         'route' => 'donationOffers.index'  
                     ])
                 </div>

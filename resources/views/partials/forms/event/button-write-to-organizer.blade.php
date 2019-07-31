@@ -30,7 +30,7 @@
                                    'required' => true,
                              ])
 
-                             @include('partials.forms.textarea-plain', [
+                             @include('laravel-form-partials::textarea-plain', [
                                    'title' => 'Message',
                                    'name' => 'message',
                                    'placeholder' => 'the text of your message',

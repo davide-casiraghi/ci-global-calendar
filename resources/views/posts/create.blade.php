@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        @include('partials.forms.error-management', [
+        @include('laravel-form-partials::error-management', [
               'style' => 'alert-danger',
         ])
 
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    @include('partials.forms.textarea-plain', [
+                    @include('laravel-form-partials::textarea-plain', [
                         'title' =>  __('views.before_post_contents'),
                         'name' => 'before_content',
                         'value' => old('before_content'),
@@ -61,7 +61,7 @@
                     ])
                 </div>
                 <div class="col-12">
-                    @include('partials.forms.textarea-post', [
+                    @include('laravel-form-partials::textarea-post', [
                         'title' => 'Text',
                         'name' => 'body',
                         'placeholder' => 'Post text',
@@ -70,7 +70,7 @@
                     ])
                 </div>
                 <div class="col-12">
-                    @include('partials.forms.textarea-plain', [
+                    @include('laravel-form-partials::textarea-plain', [
                         'title' =>  __('views.after_post_contents'),
                         'name' => 'after_content',
                         'value' => old('after_content'),
@@ -86,7 +86,7 @@
                 ])
             </div>
 
-            @include('partials.forms.buttons-back-submit', [
+            @include('laravel-form-partials::buttons-back-submit', [
                 'route' => 'posts.index'  
             ])
 

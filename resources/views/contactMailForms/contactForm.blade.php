@@ -55,7 +55,7 @@
                </div>
 
                <div class="col-12">
-                   @include('partials.forms.textarea-plain', [
+                   @include('laravel-form-partials::textarea-plain', [
                          'title' => __('general.message'),
                          'name' => 'message',
                          'placeholder' => '',
@@ -65,7 +65,7 @@
                
                <div class="col-12">
                    {{-- Recaptcha google v2 --}}
-                   @include('partials.forms.recaptcha')
+                   @include('laravel-form-partials::recaptcha')
                </div>
                
                @include('laravel-form-partials::input-hidden', [

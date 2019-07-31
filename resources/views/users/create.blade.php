@@ -10,7 +10,7 @@
             </div>
         </div>
 
-        @include('partials.forms.error-management', [
+        @include('laravel-form-partials::error-management', [
               'style' => 'alert-danger',
         ])
 
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="col-12">
-                    @include('partials.forms.password', [
+                    @include('laravel-form-partials::password', [
                           'title' => __('general.password'),
                           'name' => 'password',
                           'required' => true,
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="col-12">
-                    @include('partials.forms.password', [
+                    @include('laravel-form-partials::password', [
                           'title' => __('general.confirm_password'),
                           'name' => 'password_confirmation',
                           'required' => true,
@@ -87,7 +87,7 @@
                 </div>
 
                 <div class="col-12">
-                    @include('partials.forms.textarea', [
+                    @include('laravel-form-partials::textarea', [
                           'title' => __('general.description'),
                           'name' => 'description',
                           'placeholder' => __('general.to_be_approved'), 
@@ -97,7 +97,7 @@
                 </div>
             </div>
 
-            @include('partials.forms.buttons-back-submit', [
+            @include('laravel-form-partials::buttons-back-submit', [
                   'route' => 'users.index'  
             ])
 

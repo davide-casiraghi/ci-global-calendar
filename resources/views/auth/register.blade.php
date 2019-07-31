@@ -54,7 +54,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">@lang('general.password') *</label>
 
                             <div class="col-md-6">
-                                @include('partials.forms.password', [
+                                @include('laravel-form-partials::password', [
                                       'title' => '',
                                       'name' => 'password',
                                       'required' => false,
@@ -67,7 +67,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">@lang('general.confirm_password') *</label>
                             
                             <div class="col-md-6">
-                                @include('partials.forms.password', [
+                                @include('laravel-form-partials::password', [
                                       'title' => '',
                                       'name' => 'password_confirmation',
                                       'required' => false,
@@ -98,7 +98,7 @@
                             <label for="description" class="col-md-4 col-form-label text-md-right">@lang('general.description') *</label>
 
                             <div class="col-md-6">
-                                @include('partials.forms.textarea-plain', [
+                                @include('laravel-form-partials::textarea-plain', [
                                       'title' => '',
                                       'name' => 'description',
                                       'placeholder' => __('general.to_be_approved'),
@@ -114,7 +114,7 @@
 
                             </div>
                             <div class="col-md-6">
-                                @include('partials.forms.checkbox', [
+                                @include('laravel-form-partials::checkbox', [
                                       'name' => 'accept_terms',
                                       'description' => __('general.accept_terms_of_use'),
                                       'value' => old('accept_terms'),
@@ -130,7 +130,7 @@
 
                             </div>
                             <div class="col-md-6">
-                                @include('partials.forms.recaptcha')
+                                @include('laravel-form-partials::recaptcha')
                             </div>
                         </div>
                         
