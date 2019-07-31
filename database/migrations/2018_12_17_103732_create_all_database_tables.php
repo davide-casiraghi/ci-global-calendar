@@ -109,6 +109,7 @@ class CreateAllDatabaseTables extends Migration
             $table->string('sc_teachers_id')->nullable();
             $table->string('sc_teachers_names')->nullable();
             $table->integer('sc_continent_id')->nullable();
+            $table->string('multiple_dates')->nullable();
 
             $table->string('slug');
 

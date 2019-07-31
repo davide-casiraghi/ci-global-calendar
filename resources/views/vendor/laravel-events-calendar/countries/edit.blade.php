@@ -11,7 +11,7 @@
     </div>
 
 
-    @include('laravel-events-calendar::partials.error-management', [
+    @include('laravel-form-partials::error-management', [
       'style' => 'alert-danger',
     ])
 
@@ -22,7 +22,7 @@
 
          <div class="row">
             <div class="col-12">
-                @include('laravel-events-calendar::partials.input', [
+                @include('laravel-form-partials::input', [
                       'title' => __('laravel-events-calendar::general.name'),
                       'name' => 'name',
                       'placeholder' => '',
@@ -31,7 +31,7 @@
                 ])
             </div>
             <div class="col-12">
-                @include('laravel-events-calendar::partials.input', [
+                @include('laravel-form-partials::input', [
                       'title' => __('laravel-events-calendar::general.code'),
                       'name' => 'code',
                       'value' => $country->code,
@@ -39,12 +39,13 @@
                 ])
             </div>
             <div class="col-12">
-                @include('laravel-events-calendar::partials.select', [
+                @include('laravel-form-partials::select', [
                       'title' => __('laravel-events-calendar::general.continent'),
                       'name' => 'continent_id',
                       'placeholder' => __('laravel-events-calendar::general.select_continent'),
                       'records' => $continents,
-                      'seleted' => $country->continent_id,
+                      'selected
+' => $country->continent_id,
                       'liveSearch' => 'false',
                       'mobileNativeMenu' => true,
                       'required' => true,
@@ -52,7 +53,7 @@
             </div>
         </div>
 
-        @include('laravel-events-calendar::partials.buttons-back-submit', [
+        @include('laravel-form-partials::buttons-back-submit', [
             'route' => 'countries.index'  
         ])
         

@@ -17,6 +17,9 @@ return [
     'no_repeat' => 'No Repeat',
     'weekly' => 'Weekly',
     'monthly' => 'Monthly',
+    'multiple' => 'Multiple',
+    'multiple_dates'  => 'Multiple dates',
+    'select_multiple_dates'  => 'Select multiple days',
     'repeat_until' => 'Repeat until',
     'please_use_repeat_until' => 'If you are creating a repetitive event, the start date and the end date should be the one of the first repetition and be the same.',
     'contacts_and_links' => 'Contacts and Links',
@@ -33,4 +36,5 @@ return [
     'search_by_event_name' => 'Search by event name',
     'filter_by_category' => 'Filter by category',
     'delete_event' => 'Delete event',
+    'start_end_duration' => 'Start, End, Duration',
 ];

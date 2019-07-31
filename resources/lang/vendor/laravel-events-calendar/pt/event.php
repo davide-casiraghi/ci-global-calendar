@@ -33,4 +33,5 @@ return [
     'search_by_event_name' => 'Procurar pelo nome do evento',
     'filter_by_category' => 'Filtrar por categoria',
     'delete_event' => 'Deletar evento',
+    'start_end_duration' => 'Começo, Fim, Duração',
 ];

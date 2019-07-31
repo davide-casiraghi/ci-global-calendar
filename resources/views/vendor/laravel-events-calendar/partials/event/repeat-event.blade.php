@@ -38,21 +38,30 @@
                 switch(radioVal) {
                     case '1':  // No Repeat
                         $('.repeatDetails').hide();
+                        $('.repeatUntilSelector').hide();
                     break;
                     case '2':  // Repeat Weekly
                         $('.repeatDetails').show();
                         $('.onFrequency').hide();
                         $('#onWeekly').show();
+                        $('.repeatUntilSelector').show();
                     break;
                     case '3':  // Repeat Monthly
                         $('.repeatDetails').show();
                         $('.onFrequency').hide();
                         $('#onMonthly').show();
+                        $('.repeatUntilSelector').show();
+                    break;
+                    case '4':  // Repeat Multiple
+                        $('.repeatDetails').show();
+                        $('.onFrequency').hide();
+                        $('#onMultiple').show();
+                        $('.repeatUntilSelector').hide();
                     break;
                 }
 
             {{-- Set date end to the same day of start if is a repeat event (this is to avoid mistakes of the users that set date end to the end of repetition) --}}
-                if (radioVal =="2" || radioVal =="3"){
+                if (radioVal =="2" || radioVal =="3" || radioVal =="4"){
                     var dateStart = $("input[name='startDate']").val();
                     $("input[name='endDate']").val(dateStart);
                     $("input[name='endDate']").datepicker('destroy');
@@ -113,6 +122,9 @@
             <label class="btn btn-primary @if(!empty($event->repeat_type)) {{ $event->repeat_type == 3 ? 'active' : '' }} @endif ">
                 <input type="radio" name="repeat_type" value="3" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 3 ? 'checked' : '' }}@endif> @lang('laravel-events-calendar::event.monthly')
             </label>
+            <label class="btn btn-primary @if(!empty($event->repeat_type)) {{ $event->repeat_type == 4 ? 'active' : '' }} @endif ">
+                <input type="radio" name="repeat_type" value="4" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 4 ? 'checked' : '' }}@endif> @lang('laravel-events-calendar::event.multiple')
+            </label>
         </div>
     </div>
 </div>
@@ -155,10 +167,23 @@
             </select>
             <input type="hidden" name="on_monthly_kind_value" @if(!empty($event->on_monthly_kind))  value="{{$event->on_monthly_kind}}" @endif/>
         </div>
+        
+        <div id="onMultiple" class="onFrequency col-12 col-xl-7" style="display:none">
+            @include('laravel-form-partials::input-date-multiple', [
+                  'title' => __('laravel-events-calendar::event.multiple_dates'),
+                  'name' => 'multiple_dates',
+                  'placeholder' => __('laravel-events-calendar::event.select_multiple_dates'),
+                  'endDate' => '+1y',
+                  'value' => $dateTime['multipleDates'],
+                  'tooltipFontAwesomeClass' => 'fa fa-info-circle',
+                  'tooltipText' => __('laravel-events-calendar::event.select_multiple_dates'),
+                  'required' => false,
+            ])
+        </div>
 
-        <div class="col-12 col-xl-5 mt-3 mt-xl-0">
+        <div class="col-12 col-xl-5 mt-3 mt-xl-0 repeatUntilSelector" style="display:none">
 
-            @include('laravel-events-calendar::partials.input-date', [
+            @include('laravel-form-partials::input-date', [
                   'title' => __('laravel-events-calendar::event.repeat_until'),
                   'name' => 'repeat_until',
                   'placeholder' => __('laravel-events-calendar::general.select_date'),

@@ -20,6 +20,7 @@ return [
     'venue_added_successfully' => 'Venue added successfully',
     'venue_updated_successfully' => 'Venue updated successfully',
     'venue_deleted_successfully' => 'Venue deleted successfully',
+    'venue_not_deleted' => 'The venue contains one or more events and cannot be deleted',
     'user_added_successfully' => 'User added successfully',
     'user_updated_successfully' => 'User updated successfully',
     'user_deleted_successfully' => 'User deleted successfully',

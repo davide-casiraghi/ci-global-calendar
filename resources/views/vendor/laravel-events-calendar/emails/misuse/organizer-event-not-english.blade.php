@@ -13,7 +13,7 @@ Event name: **{{$event_title}}**.
 {{$msg}}
 @endif
 
-@component('mail::button', ['url' => config('app.url').'events/'.$event_id])
+@component('mail::button', ['url' => config('app.url').'event/'.$event_slug])
 Show me the event
 @endcomponent
 @component('mail::button', ['url' => config('app.url').'events/'.$event_id.'/edit'])

@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    @include('laravel-events-calendar::partials.error-management', [
+    @include('laravel-form-partials::error-management', [
           'style' => 'alert-danger',
     ])
 
@@ -28,7 +28,7 @@
 
         <div class="row">
            <div class="col-12">
-               @include('laravel-events-calendar::partials.input', [
+               @include('laravel-form-partials::input', [
                    'title' => __('laravel-events-calendar::general.name'),
                    'name' => 'name',
                    'placeholder' => 'Name',
@@ -37,14 +37,14 @@
            </div>
            
            <div class="col-12">
-               @include('laravel-events-calendar::partials.input', [
+               @include('laravel-form-partials::input', [
                    'title' => __('laravel-events-calendar::general.email_address'),
                    'name' => 'email',
                    'required' => true,
                ])
            </div>
            <div class="col-12">
-               @include('laravel-events-calendar::partials.input', [
+               @include('laravel-form-partials::input', [
                    'title' => __('laravel-events-calendar::general.phone'),
                    'name' => 'phone',
                    'placeholder' => '',
@@ -52,7 +52,7 @@
                ])
            </div>
            <div class="col-12">
-               @include('laravel-events-calendar::partials.input', [
+               @include('laravel-form-partials::input', [
                    'title' => __('laravel-events-calendar::general.website'),
                    'name' => 'website',
                    'placeholder' => 'https://...',
@@ -60,7 +60,7 @@
                ])
            </div>
            <div class="col-12">
-               @include('laravel-events-calendar::partials.textarea', [
+               @include('laravel-form-partials::textarea', [
                      'title' => __('laravel-events-calendar::general.description'),
                      'name' => 'description',
                      'placeholder' => 'Organizer description',

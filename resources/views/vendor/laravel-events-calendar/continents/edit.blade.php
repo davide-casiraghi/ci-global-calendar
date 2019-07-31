@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    @include('laravel-events-calendar::partials.error-management', [
+    @include('laravel-form-partials::error-management', [
       'style' => 'alert-danger',
     ])
 
@@ -20,7 +20,7 @@
 
          <div class="row">
             <div class="col-12">
-                @include('laravel-events-calendar::partials.input', [
+                @include('laravel-form-partials::input', [
                       'title' => __('laravel-events-calendar::general.name'),
                       'name' => 'name',
                       'placeholder' => 'Continent Name',
@@ -29,7 +29,7 @@
                 ])
             </div>
             <div class="col-12">
-                @include('laravel-events-calendar::partials.input', [
+                @include('laravel-form-partials::input', [
                       'title' => __('laravel-events-calendar::general.code'), 
                       'name' => 'code',
                       'value' => $continent->code,
@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        @include('laravel-events-calendar::partials.buttons-back-submit', [
+        @include('laravel-form-partials::buttons-back-submit', [
             'route' => 'continents.index'  
         ])
 
