@@ -75,7 +75,7 @@
                 </div>
 
                 <div class="col-12">
-                    @include('partials.forms.select', [
+                    @include('laravel-form-partials::select', [
                           'title' => __('general.country'),
                           'name' => 'country_id',
                           'placeholder' => __('views.select_country'), 

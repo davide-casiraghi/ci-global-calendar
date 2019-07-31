@@ -32,7 +32,7 @@
                 </div>
                 
                 <div class="col-12">
-                    @include('partials.forms.select', [
+                    @include('laravel-form-partials::select', [
                         'title' => __('views.category'),
                         'name' => 'category_id',
                         'placeholder' => __('views.select_category'),

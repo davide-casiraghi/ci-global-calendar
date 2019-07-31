@@ -80,13 +80,13 @@
                             <label for="country_id" class="col-md-4 col-form-label text-md-right">@lang('general.country')</label>
 
                             <div class="col-md-6">
-                                @include('partials.forms.select', [
+                                @include('laravel-form-partials::select', [
                                       'title' => '',
                                       'name' => 'country_id',
                                       'placeholder' => __('general.select_country'),
                                       'records' => $countries,
                                       'liveSearch' => 'true',
-                                      'seleted' => old('country_id'),
+                                      'selected' => old('country_id'),
                                       'mobileNativeMenu' => false,
                                 ])
                             </div>

@@ -30,7 +30,7 @@
         @endif
         <select name="{{ $name }}" id="{{ $name }}" class="selectpicker" data-live-search="{{ $liveSearch }}" title="{{$placeholder}}">
             @foreach ($records as $value => $record)
-                <option value="{{ $record }}" @if(!empty($seleted)) {{  $seleted == $record ? 'selected' : '' }}@endif>{{ $record }}</option>
+                <option value="{{ $record }}" @if(!empty($selected)) {{  $selected == $record ? 'selected' : '' }}@endif>{{ $record }}</option>
             @endforeach
         </select>
     </div>

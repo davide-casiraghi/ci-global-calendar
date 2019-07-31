@@ -84,12 +84,12 @@
                 @endif
 
                 <div class="col-12">
-                    @include('partials.forms.select', [
+                    @include('laravel-form-partials::select', [
                           'title' => __('general.country'),
                           'name' => 'country_id',
                           'placeholder' => __('views.select_country'), 
                           'records' => $countries,
-                          'seleted' => $user->country_id,
+                          'selected' => $user->country_id,
                           'liveSearch' => 'true',
                           'mobileNativeMenu' => false,
                           'required' => true,

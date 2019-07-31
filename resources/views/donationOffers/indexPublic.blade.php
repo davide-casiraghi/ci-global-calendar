@@ -41,21 +41,21 @@
                     ])
                 </div>
                 <div class="col-12 col-sm-6  pr-sm-2">
-                    @include('partials.forms.select', [
+                    @include('laravel-form-partials::select', [
                         'name' => 'country_id',
                         'placeholder' => __('views.filter_by_country'),
                         'records' => $countries,
-                        'seleted' => $searchCountry,
+                        'selected' => $searchCountry,
                         'liveSearch' => 'true',
                         'mobileNativeMenu' => false,
                     ])
                 </div>
                 <div class="col-12 col-sm-6">
-                    @include('partials.forms.select', [
+                    @include('laravel-form-partials::select', [
                         'name' => 'donation_kind_filter',
                         'placeholder' => __('donations.filter_by_donation_kind'),
                         'records' => $donationKindArray,
-                        'seleted' => $searchDonationKind,
+                        'selected' => $searchDonationKind,
                         'liveSearch' => 'false',
                         'mobileNativeMenu' => true,
                     ])

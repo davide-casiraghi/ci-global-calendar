@@ -66,7 +66,7 @@
                     'name' => 'menu_id',
                     'placeholder' => __('laravel-quick-menus::menuItem.menu_id'),
                     'records' => $menu,
-                    'seleted' => $selectedMenuId,
+                    'selected' => $selectedMenuId,
                     'liveSearch' => 'false',
                     'mobileNativeMenu' => true,
                     'required' => true,

@@ -41,11 +41,11 @@
                     ])
                 </div>
                 <div class="col-12 col-sm-6">
-                    @include('partials.forms.select', [
+                    @include('laravel-form-partials::select', [
                         'name' => 'category_id',
                         'placeholder' => __('views.filter_by_category'),
                         'records' => $categories,
-                        'seleted' => $searchCategory,
+                        'selected' => $searchCategory,
                         'liveSearch' => 'false',
                         'mobileNativeMenu' => true,
                     ])

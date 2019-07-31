@@ -68,12 +68,12 @@
                                 ])
                             </div>
                             <div class="col-12">
-                                @include('partials.forms.select', [
+                                @include('laravel-form-partials::select', [
                                       'title' => __('general.country'),
                                       'name' => 'country_id',
                                       'placeholder' => __('views.select_country'), 
                                       'records' => $countries,
-                                      'seleted' =>  old('country_id'),
+                                      'selected' =>  old('country_id'),
                                       'liveSearch' => 'true',
                                       'mobileNativeMenu' => false,
                                       'required' => false,
@@ -155,12 +155,12 @@
                             </div>
                             
                             <div class="col-12">
-                                @include('partials.forms.select', [
+                                @include('laravel-form-partials::select', [
                                       'title' => __('donations.volunteering_apply_for'),
                                       'name' => 'volunteer_kind',
                                       'placeholder' => __('views.choose'), 
                                       'records' => App\DonationOffer::getVolunteeringKindArray(),
-                                      'seleted' => old('volunteer_kind'),
+                                      'selected' => old('volunteer_kind'),
                                       'liveSearch' => 'false',
                                       'mobileNativeMenu' => true,
                                       'required' => true,
@@ -208,12 +208,12 @@
                             </div>
                             
                             <div class="col-12 entrance-kind-visibility">
-                            @include('partials.forms.select', [
+                            @include('laravel-form-partials::select', [
                                       'title' => __('donations.entrance_kind'),
                                       'name' => 'gift_kind',
                                       'placeholder' => __('views.choose'), 
                                       'records' => App\DonationOffer::getGiftKindArray(),
-                                      'seleted' =>  old('gift_kind'),
+                                      'selected' =>  old('gift_kind'),
                                       'liveSearch' => 'false',
                                       'mobileNativeMenu' => true,
                                       'required' => true,
@@ -251,14 +251,14 @@
                             </div>
                             
                             <div class="col-12">
-                                @include('partials.forms.select', [
+                                @include('laravel-form-partials::select', [
                                       'title' => __('donations.gift_country_of'),
                                       'name' => 'gift_country_of',
                                       'placeholder' => __('views.select_country'), 
                                       'records' => $countries,
                                       'liveSearch' => 'true',
                                       'mobileNativeMenu' => false,
-                                      'seleted' => old('gift_country_of'),
+                                      'selected' => old('gift_country_of'),
                                       'required' => false,
                                       'emptyState' => true,
                                       'emptyStateText' => 'Worldwide',

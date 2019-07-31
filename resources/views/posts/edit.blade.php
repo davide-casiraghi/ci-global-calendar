@@ -52,12 +52,12 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    @include('partials.forms.select', [
+                    @include('laravel-form-partials::select', [
                         'title' => __('views.category'),
                         'name' => 'category_id',
                         'placeholder' => __('views.select_category'),
                         'records' => $categories,
-                        'seleted' => $post->category_id,
+                        'selected' => $post->category_id,
                         'liveSearch' => 'false',
                         'mobileNativeMenu' => true,
                         'required' => true,

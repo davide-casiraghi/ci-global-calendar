@@ -55,7 +55,7 @@
                                           'records' => $users,
                                           'liveSearch' => 'true',
                                           'mobileNativeMenu' => false,
-                                          'seleted' => old('created_by'),
+                                          'selected' => old('created_by'),
                                           'required' => false,
                                     ])
                                 </div>
@@ -69,7 +69,7 @@
                                       'records' => $eventCategories,
                                       'liveSearch' => 'true',
                                       'mobileNativeMenu' => false,
-                                      'seleted' => old('category_id'),
+                                      'selected' => old('category_id'),
                                       'required' => true,
                                 ])
                             </div>

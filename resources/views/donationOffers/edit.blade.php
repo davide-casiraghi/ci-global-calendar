@@ -31,12 +31,12 @@
                             
                             @if( App\User::loggedAsSuperAdmin() || App\User::loggedAsAdmin() )
                                 <div class="col-12">
-                                    @include('partials.forms.select', [
+                                    @include('laravel-form-partials::select', [
                                           'title' => __('views.status'),
                                           'name' => 'status',
                                           'placeholder' => __('views.choose'), 
                                           'records' => App\DonationOffer::getStatusArray(),
-                                          'seleted' => $donationOffer->status,
+                                          'selected' => $donationOffer->status,
                                           'liveSearch' => 'false',
                                           'mobileNativeMenu' => true,
                                           'required' => false,
@@ -79,12 +79,12 @@
                                 ])
                             </div>
                             <div class="col-12">
-                                @include('partials.forms.select', [
+                                @include('laravel-form-partials::select', [
                                       'title' => __('general.country'),
                                       'name' => 'country_id',
                                       'placeholder' => __('views.select_country'), 
                                       'records' => $countries,
-                                      'seleted' => $donationOffer->country_id,
+                                      'selected' => $donationOffer->country_id,
                                       'liveSearch' => 'true',
                                       'mobileNativeMenu' => false,
                                       'required' => false,
@@ -171,12 +171,12 @@
                             </div>
                             
                             <div class="col-12">
-                                @include('partials.forms.select', [
+                                @include('laravel-form-partials::select', [
                                       'title' => __('donations.volunteering_apply_for'),
                                       'name' => 'volunteer_kind',
                                       'placeholder' => __('views.choose'), 
                                       'records' => App\DonationOffer::getVolunteeringKindArray(),
-                                      'seleted' => $donationOffer->volunteer_kind,
+                                      'selected' => $donationOffer->volunteer_kind,
                                       'liveSearch' => 'false',
                                       'mobileNativeMenu' => true,
                                       'required' => true,
@@ -224,12 +224,12 @@
                             </div>
                             
                             <div class="col-12 entrance-kind-visibility">
-                            @include('partials.forms.select', [
+                            @include('laravel-form-partials::select', [
                                       'title' => __('donations.entrance_kind'),
                                       'name' => 'gift_kind',
                                       'placeholder' => __('views.choose'), 
                                       'records' => App\DonationOffer::getGiftKindArray(),
-                                      'seleted' => $donationOffer->gift_kind,
+                                      'selected' => $donationOffer->gift_kind,
                                       'liveSearch' => 'false',
                                       'mobileNativeMenu' => true,
                                       'required' => true,
@@ -267,14 +267,14 @@
                             </div>
                             
                             <div class="col-12">
-                                @include('partials.forms.select', [
+                                @include('laravel-form-partials::select', [
                                       'title' => __('donations.gift_country_of'),
                                       'name' => 'gift_country_of',
                                       'placeholder' => __('views.select_country'), 
                                       'records' => $countries,
                                       'liveSearch' => 'true',
                                       'mobileNativeMenu' => false,
-                                      'seleted' => $donationOffer->gift_country_of,
+                                      'selected' => $donationOffer->gift_country_of,
                                       'required' => false,
                                       'emptyState' => true,
                                       'emptyStateText' => 'Worldwide',
