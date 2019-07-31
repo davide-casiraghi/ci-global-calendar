@@ -17,7 +17,7 @@ return [
     'no_repeat' => 'No Repeat',
     'weekly' => 'Weekly',
     'monthly' => 'Monthly',
-    'multiple' => 'Multiple',
+    'multiple' => 'Multiple days',
     'multiple_dates'  => 'Select additional days',
     'select_multiple_dates'  => 'Select multiple days',
     'repeat_until' => 'Repeat until',
