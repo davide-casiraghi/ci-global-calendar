@@ -18,7 +18,7 @@ return [
     'weekly' => 'Weekly',
     'monthly' => 'Monthly',
     'multiple' => 'Multiple days',
-    'multiple_dates'  => 'Select additional days',
+    'multiple_dates'  => 'Additional days',
     'select_multiple_dates'  => 'Select multiple days',
     'repeat_until' => 'Repeat until',
     'please_use_repeat_until' => 'If you are creating a repetitive event, the start date and the end date should be the one of the first repetition and be the same.',
