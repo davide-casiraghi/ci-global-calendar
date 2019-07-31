@@ -116,7 +116,7 @@ class EventTest extends TestCase
             ];
         $response = $this
                             ->followingRedirects()
-                            ->post('/events', $data)->dump();
+                            ->post('/events', $data);
 
         // Assert in database
         $this->assertDatabaseHas('events', ['title' => $title]);
