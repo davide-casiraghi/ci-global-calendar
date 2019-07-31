@@ -17,7 +17,7 @@
          <div class="row">
              <div class="col-12">
 
-                 @include('partials.forms.input', [
+                 @include('laravel-form-partials::input', [
                        'title' => __('views.title'),
                        'name' => 'title',
                        'placeholder' => __('views.background_image_title'),
@@ -35,7 +35,7 @@
 
         <div class="row mt-2">
             <div class="col-12">
-                @include('partials.forms.input', [
+                @include('laravel-form-partials::input', [
                       'title' => __('homepage-serach.photo_credits'), 
                       'name' => 'credits',
                       'placeholder' => __('views.who_took_the_photo'), 

@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="col-12">
-                   @include('partials.forms.input', [
+                   @include('laravel-form-partials::input', [
                          'title' => __('general.name'),
                          'name' => 'name',
                          'placeholder' => '',
@@ -46,7 +46,7 @@
                 </div>
 
                <div class="col-12">
-                   @include('partials.forms.input', [
+                   @include('laravel-form-partials::input', [
                          'title' => __('general.email_address'),
                          'name' => 'email',
                          'placeholder' => '',
@@ -68,7 +68,7 @@
                    @include('partials.forms.recaptcha')
                </div>
                
-               @include('partials.forms.input-hidden', [
+               @include('laravel-form-partials::input-hidden', [
                      'name' => 'recipient',
                      'value' => $recipient
                ])

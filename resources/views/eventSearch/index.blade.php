@@ -159,7 +159,7 @@
                               'mobileNativeMenu' => false,
                         ])
                         
-                        @include('partials.forms.input', [
+                        @include('laravel-form-partials::input', [
                               'title' => '',
                               'name' => 'city_name',
                               'placeholder' => __('homepage-serach.search_by_city'),
@@ -167,7 +167,7 @@
                         ])
                         
                         {{--<p class="mt-3"><strong class="text-white">@lang('homepage-serach.search_by_venue')</strong></p>--}}
-                        @include('partials.forms.input', [
+                        @include('laravel-form-partials::input', [
                               'title' => '',
                               'name' => 'venue_name',
                               'placeholder' => __('homepage-serach.venue_name'),

@@ -25,7 +25,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">@lang('general.name') *</label>
 
                             <div class="col-md-6">
-                                @include('partials.forms.input', [
+                                @include('laravel-form-partials::input', [
                                       'title' => '',
                                       'name' => 'name',
                                       'placeholder' => '',
@@ -40,7 +40,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">@lang('general.email_address') *</label>
 
                             <div class="col-md-6">
-                                @include('partials.forms.input', [
+                                @include('laravel-form-partials::input', [
                                       'title' => '',
                                       'name' => 'email',
                                       'value' => old('email'),

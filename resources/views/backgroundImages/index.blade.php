@@ -36,7 +36,7 @@
             <div class="row">    
                 @csrf
                 <div class="col-12 col-sm-6 pr-sm-2"> 
-                    @include('partials.forms.input', [
+                    @include('laravel-form-partials::input', [
                         'name' => 'keywords',
                         'placeholder' => __('views.search_by_photographer_name'),
                         'value' => $searchKeywords

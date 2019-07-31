@@ -36,14 +36,14 @@
     </div>
     <div class="row">
         <div class="col-4">
-            @include('partials.forms.input', [
+            @include('laravel-form-partials::input', [
                   'title' => __('views.param_1_Name'),
                   'name' => 'route_param_name_1',
                   'placeholder' => '',
                   'value' =>  $route_param_name_1,
                   'required' => false,
             ])
-            @include('partials.forms.input', [
+            @include('laravel-form-partials::input', [
                   'title' => __('views.param_1_Value'),
                   'name' => 'route_param_value_1',
                   'placeholder' => '',
@@ -52,14 +52,14 @@
             ])
         </div>
         <div class="col-4">
-            @include('partials.forms.input', [
+            @include('laravel-form-partials::input', [
                   'title' => __('views.param_2_Name'),
                   'name' => 'route_param_name_2',
                   'placeholder' => '',
                   'value' => $route_param_name_2,
                   'required' => false,
             ])
-            @include('partials.forms.input', [
+            @include('laravel-form-partials::input', [
                   'title' => __('views.param_2_Value'),
                   'name' => 'route_param_value_2',
                   'placeholder' => '',
@@ -68,14 +68,14 @@
             ])
         </div>
         <div class="col-4">
-            @include('partials.forms.input', [
+            @include('laravel-form-partials::input', [
                   'title' => __('views.param_3_Name'),
                   'name' => 'route_param_name_3',
                   'placeholder' => '',
                   'value' => $route_param_name_3,
                   'required' => false,
             ])
-            @include('partials.forms.input', [
+            @include('laravel-form-partials::input', [
                   'title' => __('views.param_3_Value'),
                   'name' => 'route_param_value_3',
                   'placeholder' => '',

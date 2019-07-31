@@ -45,7 +45,7 @@
                             @endif
                             
                             <div class="col-12">
-                                @include('partials.forms.input', [
+                                @include('laravel-form-partials::input', [
                                       'title' => __('general.name'),
                                       'name' => 'name',
                                       'placeholder' => '',
@@ -54,7 +54,7 @@
                                 ])
                             </div>
                             <div class="col-12">
-                                @include('partials.forms.input', [
+                                @include('laravel-form-partials::input', [
                                       'title' => __('general.surname'),
                                       'name' => 'surname',
                                       'placeholder' => '',
@@ -63,7 +63,7 @@
                                 ])
                             </div>
                             <div class="col-12">
-                                @include('partials.forms.input', [
+                                @include('laravel-form-partials::input', [
                                       'title' => __('general.email_address'),
                                       'name' => 'email',
                                       'value' => $donationOffer->email,
@@ -106,7 +106,7 @@
                 <hr class="mt-3 mb-4">
                 
                 {{-- How you want to help - OFFER KIND --}}
-                    @include('partials.forms.input-hidden', [
+                    @include('laravel-form-partials::input-hidden', [
                           'name' => 'offer_kind',
                           'value' => $donationOffer->offer_kind,
                     ])
@@ -119,7 +119,7 @@
                         <div class="col main">
                             <div class="row">
                                 <div class="col-12">
-                                    @include('partials.forms.input-radio-cards', [
+                                    @include('laravel-form-partials::input-radio-cards', [
                                         'title' =>  __('donations.i_can_offer'),
                                         'name' => 'offer_kind',
                                         'records' =>  App\DonationOffer::getDonationKindArray(),
@@ -214,7 +214,7 @@
                         <div class="row">
                             
                             <div class="col-12">
-                                @include('partials.forms.input', [
+                                @include('laravel-form-partials::input', [
                                       'title' => __('donations.gift_title'),
                                       'name' => 'gift_title',
                                       'placeholder' => '',
@@ -237,7 +237,7 @@
                             </div>
                             
                             <div class="col-12">
-                                @include('partials.forms.input', [
+                                @include('laravel-form-partials::input', [
                                       'title' => __('donations.gift_donater'),
                                       'name' => 'gift_donater',
                                       'placeholder' => '',
@@ -257,7 +257,7 @@
                            </div>
                             
                             <div class="col-12">
-                                @include('partials.forms.input', [
+                                @include('laravel-form-partials::input', [
                                       'title' => __('donations.gift_economic_value'),
                                       'name' => 'gift_economic_value',
                                       'placeholder' => '',
@@ -283,7 +283,7 @@
                             
                             @if( App\User::loggedAsSuperAdmin() || App\User::loggedAsAdmin() )
                                 <div class="col-12">
-                                    @include('partials.forms.input', [
+                                    @include('laravel-form-partials::input', [
                                           'title' => __('donations.gift_volunteer_time_value'),
                                           'name' => 'gift_volunteer_time_value',
                                           'placeholder' => '',
@@ -292,7 +292,7 @@
                                     ])
                                 </div>
                                 <div class="col-12">
-                                    @include('partials.forms.input', [
+                                    @include('laravel-form-partials::input', [
                                           'title' => __('donations.gift_given_to'),
                                           'name' => 'gift_given_to',
                                           'placeholder' => '',
@@ -301,7 +301,7 @@
                                     ])
                                 </div>
                                 <div class="col-12">    
-                                    @include('partials.forms.input-date', [
+                                    @include('laravel-form-partials::input-date', [
                                           'title' =>  __('donations.gift_given_when'),
                                           'name' => 'gift_given_when',
                                           'placeholder' => __('views.select_date'),

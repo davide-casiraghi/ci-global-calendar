@@ -20,7 +20,7 @@
 
              <div class="row">
                 <div class="col-12">
-                    @include('partials.forms.input', [
+                    @include('laravel-form-partials::input', [
                           'title' => __('general.name'),
                           'name' => 'name',
                           'placeholder' => __('views.user_name'),
@@ -29,7 +29,7 @@
                     ])
                 </div>
                 <div class="col-12">
-                    @include('partials.forms.input', [
+                    @include('laravel-form-partials::input', [
                           'title' => __('general.email_address'),
                           'name' => 'email',
                           'value' => $user->email,
@@ -77,7 +77,7 @@
                         </div>
                     </div>
                 @else
-                    @include('partials.forms.input-hidden', [
+                    @include('laravel-form-partials::input-hidden', [
                           'name' => 'status',
                           'value' => $user->status,
                     ])

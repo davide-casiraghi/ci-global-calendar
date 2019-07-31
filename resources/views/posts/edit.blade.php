@@ -22,7 +22,7 @@
 
              <div class="row">
                 <div class="col-12">
-                    @include('partials.forms.input', [
+                    @include('laravel-form-partials::input', [
                         'title' => __('views.title'),
                         'name' => 'title',
                         'placeholder' => 'Event title',
@@ -33,7 +33,7 @@
             </div>
             <div class="row">
                 <div class="col-10">
-                    @include('partials.forms.input-readonly', [
+                    @include('laravel-form-partials::input-readonly', [
                         'title' => 'Link to this post',
                         'name' => 'post_link',
                         'tooltip' => '',
@@ -41,7 +41,7 @@
                     ])
                 </div>
                 <div class="col-2">
-                    @include('partials.forms.input-readonly', [
+                    @include('laravel-form-partials::input-readonly', [
                         'title' => 'Post ID',
                         'name' => 'post_id',
                         'tooltip' => '',

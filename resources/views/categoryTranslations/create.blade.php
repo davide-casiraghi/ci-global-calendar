@@ -18,18 +18,18 @@
         <form action="{{ route('categoryTranslations.store') }}" method="POST">
             @csrf
 
-                @include('partials.forms.input-hidden', [
+                @include('laravel-form-partials::input-hidden', [
                       'name' => 'category_id',
                       'value' => $categoryId,
                 ])
-                @include('partials.forms.input-hidden', [
+                @include('laravel-form-partials::input-hidden', [
                       'name' => 'language_code',
                       'value' => $languageCode
                 ])
 
              <div class="row">
                 <div class="col-12">
-                    @include('partials.forms.input', [
+                    @include('laravel-form-partials::input', [
                         'title' => 'Name',
                         'name' => 'name',
                         'placeholder' => 'Category name',

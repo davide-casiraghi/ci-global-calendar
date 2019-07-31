@@ -158,7 +158,7 @@
 
         <div class="col-12 col-xl-5 mt-3 mt-xl-0">
 
-            @include('partials.forms.input-date', [
+            @include('laravel-form-partials::input-date', [
                   'title' => __('views.repeat_until'),
                   'name' => 'repeat_until',
                   'placeholder' => __('views.select_date'),

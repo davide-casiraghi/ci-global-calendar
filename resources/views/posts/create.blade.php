@@ -22,7 +22,7 @@
 
              <div class="row">
                 <div class="col-12">
-                    @include('partials.forms.input', [
+                    @include('laravel-form-partials::input', [
                         'title' => __('views.title'),
                         'name' => 'title',
                         'placeholder' => 'Post title',
