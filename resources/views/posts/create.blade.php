@@ -78,7 +78,7 @@
                     ])
                 </div>
                 
-                @include('partials.forms.upload-image', [
+                @include('laravel-form-partials::upload-image', [
                       'title' => __('views.upload_profile_picture'), 
                       'name' => 'introimage',
                       'folder' => 'posts_intro_images',

@@ -141,7 +141,7 @@
 
                             </div>
                             <div class="col-md-6">
-                                @include('partials.forms.alert', [
+                                @include('laravel-form-partials::alert', [
                                 	'text' => __('general.admin_account_approval'),
                                 	'style' => 'alert-warning',
                                 ])
