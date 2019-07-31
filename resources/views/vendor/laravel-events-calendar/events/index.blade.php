@@ -20,7 +20,7 @@
             </div>
         @endif
         
-        @if($events->count() > 0)
+        @if($events->count() > 0 || ($events->count() == 0 && $searchKeywords != ''))
             <div class="row">
                 <div class="col-12 col-sm-7">
                     <h3>@lang('laravel-events-calendar::event.events_management')</h3>
