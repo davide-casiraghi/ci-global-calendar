@@ -12,7 +12,7 @@
             </div>
         </div>
 
-        @include('partials.forms.error-management', [
+        @include('laravel-form-partials::error-management', [
               'style' => 'alert-danger',
         ])
 
@@ -22,7 +22,7 @@
 
              <div class="row">
                 <div class="col-12">
-                    @include('partials.forms.input', [
+                    @include('laravel-form-partials::input', [
                         'title' => __('views.title'),
                         'name' => 'title',
                         'placeholder' => 'Event title',
@@ -33,7 +33,7 @@
             </div>
             <div class="row">
                 <div class="col-10">
-                    @include('partials.forms.input-readonly', [
+                    @include('laravel-form-partials::input-readonly', [
                         'title' => 'Link to this post',
                         'name' => 'post_link',
                         'tooltip' => '',
@@ -41,7 +41,7 @@
                     ])
                 </div>
                 <div class="col-2">
-                    @include('partials.forms.input-readonly', [
+                    @include('laravel-form-partials::input-readonly', [
                         'title' => 'Post ID',
                         'name' => 'post_id',
                         'tooltip' => '',
@@ -52,19 +52,19 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    @include('partials.forms.select', [
+                    @include('laravel-form-partials::select', [
                         'title' => __('views.category'),
                         'name' => 'category_id',
                         'placeholder' => __('views.select_category'),
                         'records' => $categories,
-                        'seleted' => $post->category_id,
+                        'selected' => $post->category_id,
                         'liveSearch' => 'false',
                         'mobileNativeMenu' => true,
                         'required' => true,
                     ])
                 </div>
                 <div class="col-12">
-                    @include('partials.forms.textarea-plain', [
+                    @include('laravel-form-partials::textarea-plain', [
                         'title' =>  __('views.before_post_contents'),
                         'name' => 'before_content',
                         'value' => $post->translate('en')->before_content,
@@ -72,7 +72,7 @@
                     ])
                 </div>
                 <div class="col-12">
-                    @include('partials.forms.textarea-post', [
+                    @include('laravel-form-partials::textarea-post', [
                         'title' => 'Text',
                         'name' => 'body',
                         'placeholder' => 'Post text',
@@ -81,7 +81,7 @@
                     ])
                 </div>
                 <div class="col-12">
-                    @include('partials.forms.textarea-plain', [
+                    @include('laravel-form-partials::textarea-plain', [
                         'title' =>  __('views.after_post_contents'),
                         'name' => 'after_content',
                         'value' => $post->translate('en')->after_content,
@@ -89,7 +89,7 @@
                     ])
                 </div>
                 
-                @include('partials.forms.upload-image', [
+                @include('laravel-form-partials::upload-image', [
                     'title' => __('views.upload_profile_picture'), 
                     'name' => 'introimage',
                     'folder' => 'posts_intro_images',
@@ -97,7 +97,7 @@
                 ])            
             </div>
 
-            @include('partials.forms.buttons-back-submit', [
+            @include('laravel-form-partials::buttons-back-submit', [
                 'route' => 'posts.index'  
             ])
 

@@ -25,7 +25,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">@lang('general.name') *</label>
 
                             <div class="col-md-6">
-                                @include('partials.forms.input', [
+                                @include('laravel-form-partials::input', [
                                       'title' => '',
                                       'name' => 'name',
                                       'placeholder' => '',
@@ -40,7 +40,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">@lang('general.email_address') *</label>
 
                             <div class="col-md-6">
-                                @include('partials.forms.input', [
+                                @include('laravel-form-partials::input', [
                                       'title' => '',
                                       'name' => 'email',
                                       'value' => old('email'),
@@ -54,7 +54,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">@lang('general.password') *</label>
 
                             <div class="col-md-6">
-                                @include('partials.forms.password', [
+                                @include('laravel-form-partials::password', [
                                       'title' => '',
                                       'name' => 'password',
                                       'required' => false,
@@ -67,7 +67,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">@lang('general.confirm_password') *</label>
                             
                             <div class="col-md-6">
-                                @include('partials.forms.password', [
+                                @include('laravel-form-partials::password', [
                                       'title' => '',
                                       'name' => 'password_confirmation',
                                       'required' => false,
@@ -80,13 +80,13 @@
                             <label for="country_id" class="col-md-4 col-form-label text-md-right">@lang('general.country')</label>
 
                             <div class="col-md-6">
-                                @include('partials.forms.select', [
+                                @include('laravel-form-partials::select', [
                                       'title' => '',
                                       'name' => 'country_id',
                                       'placeholder' => __('general.select_country'),
                                       'records' => $countries,
                                       'liveSearch' => 'true',
-                                      'seleted' => old('country_id'),
+                                      'selected' => old('country_id'),
                                       'mobileNativeMenu' => false,
                                 ])
                             </div>
@@ -98,7 +98,7 @@
                             <label for="description" class="col-md-4 col-form-label text-md-right">@lang('general.description') *</label>
 
                             <div class="col-md-6">
-                                @include('partials.forms.textarea-plain', [
+                                @include('laravel-form-partials::textarea-plain', [
                                       'title' => '',
                                       'name' => 'description',
                                       'placeholder' => __('general.to_be_approved'),
@@ -114,7 +114,7 @@
 
                             </div>
                             <div class="col-md-6">
-                                @include('partials.forms.checkbox', [
+                                @include('laravel-form-partials::checkbox', [
                                       'name' => 'accept_terms',
                                       'description' => __('general.accept_terms_of_use'),
                                       'value' => old('accept_terms'),
@@ -130,7 +130,7 @@
 
                             </div>
                             <div class="col-md-6">
-                                @include('partials.forms.recaptcha')
+                                @include('laravel-form-partials::recaptcha')
                             </div>
                         </div>
                         
@@ -141,7 +141,7 @@
 
                             </div>
                             <div class="col-md-6">
-                                @include('partials.forms.alert', [
+                                @include('laravel-form-partials::alert', [
                                 	'text' => __('general.admin_account_approval'),
                                 	'style' => 'alert-warning',
                                 ])

@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        @include('partials.forms.error-management', [
+        @include('laravel-form-partials::error-management', [
               'style' => 'alert-danger',
         ])
 
@@ -22,7 +22,7 @@
 
              <div class="row">
                 <div class="col-12">
-                    @include('partials.forms.input', [
+                    @include('laravel-form-partials::input', [
                           'title' => __('general.name'),
                           'name' => 'name',
                           'placeholder' => 'Category name',
@@ -30,7 +30,7 @@
                     ])
                 </div>
                 <div class="col-12">
-                    @include('partials.forms.textarea', [
+                    @include('laravel-form-partials::textarea', [
                           'title' => __('general.description'),
                           'name' => 'description',
                           'placeholder' => 'Description',
@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            @include('partials.forms.buttons-back-submit', [
+            @include('laravel-form-partials::buttons-back-submit', [
                 'route' => 'categories.index'  
             ])
 

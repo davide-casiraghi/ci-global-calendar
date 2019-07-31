@@ -37,8 +37,7 @@
                               'records' => $users,
                               'liveSearch' => 'true',
                               'mobileNativeMenu' => false,
-                              'selected
-' => old('created_by'),
+                              'selected' => old('created_by'),
                               'required' => false,
                         ])
                     </div>

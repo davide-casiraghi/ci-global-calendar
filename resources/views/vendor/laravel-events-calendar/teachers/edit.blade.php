@@ -37,8 +37,7 @@
                               'name' => 'created_by',
                               'placeholder' => __('laravel-events-calendar.select_owner'),
                               'records' => $users,
-                              'selected
-' => $teacher->created_by,
+                              'selected' => $teacher->created_by,
                               'liveSearch' => 'true',
                               'mobileNativeMenu' => false,
                               'required' => false,
@@ -52,8 +51,7 @@
                           'name' => 'country_id',
                           'placeholder' => __('laravel-events-calendar::general.select_country'),
                           'records' => $countries,
-                          'selected
-' => $teacher->country_id,
+                          'selected' => $teacher->country_id,
                           'liveSearch' => 'true',
                           'mobileNativeMenu' => false,
                           'required' => false,
