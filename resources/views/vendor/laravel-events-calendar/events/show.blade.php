@@ -128,7 +128,7 @@
                     {{ $venue->zip_code }}<br />
                     <b>{{ $country->name }}</b><br />
                     {{ $venue->website }}<br /><br />
-                    {{ $venue->description }}<br />
+                    {!! $venue->description !!}<br />
                 </div>
                 
                 <div class="col-12 mt-4 p-0" id="map">

@@ -51,8 +51,7 @@
                                          'name' => 'created_by',
                                          'placeholder' => 'Select owner',
                                          'records' => $users,
-                                         'selected
-' => $event->created_by,
+                                         'selected' => $event->created_by,
                                          'liveSearch' => 'true',
                                          'mobileNativeMenu' => false,
                                          'required' => false,
@@ -66,8 +65,7 @@
                                      'name' => 'category_id',
                                      'placeholder' => 'Select category',
                                      'records' => $eventCategories,
-                                     'selected
-' => $event->category_id,
+                                     'selected' => $event->category_id,
                                      'liveSearch' => 'true',
                                      'mobileNativeMenu' => false,
                                      'required' => true,

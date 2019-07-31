@@ -61,7 +61,7 @@
                 }
 
             {{-- Set date end to the same day of start if is a repeat event (this is to avoid mistakes of the users that set date end to the end of repetition) --}}
-                if (radioVal =="2" || radioVal =="3"){
+                if (radioVal =="2" || radioVal =="3" || radioVal =="4"){
                     var dateStart = $("input[name='startDate']").val();
                     $("input[name='endDate']").val(dateStart);
                     $("input[name='endDate']").datepicker('destroy');
