@@ -44,7 +44,8 @@
                       'name' => 'continent_id',
                       'placeholder' => __('laravel-events-calendar::general.select_continent'),
                       'records' => $continents,
-                      'selected' => $country->continent_id,
+                      'selected
+' => $country->continent_id,
                       'liveSearch' => 'false',
                       'mobileNativeMenu' => true,
                       'required' => true,

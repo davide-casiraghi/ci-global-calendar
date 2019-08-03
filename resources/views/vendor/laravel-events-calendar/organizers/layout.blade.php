@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('title',  "Organizers" )
 
 @section('content')

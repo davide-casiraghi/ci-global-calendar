@@ -38,7 +38,8 @@
                               'records' => $users,
                               'liveSearch' => 'true',
                               'mobileNativeMenu' => false,
-                              'selected' => old('created_by'),
+                              'selected
+' => old('created_by'),
                         ])
                     </div>
                 @endif--}}
@@ -51,7 +52,8 @@
                           'records' => $countries,
                           'liveSearch' => 'true',
                           'mobileNativeMenu' => false,
-                          'selected' => old('country_id'),
+                          'selected
+' => old('country_id'),
                           'required' => false,
                     ])
                 </div>

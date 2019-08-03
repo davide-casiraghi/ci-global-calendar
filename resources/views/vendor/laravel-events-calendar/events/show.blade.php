@@ -17,11 +17,11 @@
     <div class="container max-w-md px-0">
         
         {{-- Event Intro --}}
-            <div class="row">
+            <div class="row event-wrapper">
                 <div class="col-12 white-bg rounded">
                     <div class="row p-2">
                         <div class="col-12 col-md-8 mb-3 mt-3">
-                            <h4>{{ $event->title }}</h4>
+                            <h4 class="event-title">{{ $event->title }}</h4>
                         </div>
                         <div class="col-12 col-md-4 text-right my-0 my-md-3">
                             {{-- Write to the organizer --}}
@@ -38,7 +38,7 @@
 
                                 <div class="col-12 mt-2 d-table">
                                     <i class="far fa-clock dark-gray d-table-cell align-middle text-center pr-2" data-toggle="tooltip" data-placement="top" title="Date & Time" style="width: 20px;"></i>
-                                    <div class="date ml-1">
+                                    <div class="date event-date ml-1">
                                         <div class="bigdate">@date_monthname($datesTimes->start_repeat) @if(!$sameDateStartEnd)-&nbsp; @date_monthname($datesTimes->end_repeat)@endif</div>
                                         <small class="smalldate text-black-50">{{-- FROM --}} @date_monthname($datesTimes->start_repeat) @ @time_am_pm($datesTimes->start_repeat) {{-- toSuffix --}} @if(!$sameDateStartEnd)@date_monthname($datesTimes->end_repeat) @ @endif @time_am_pm($datesTimes->end_repeat)</small>
                                     </div>
@@ -120,14 +120,22 @@
             </div>
 
         {{-- Location --}}
-            <div class="row">
-                <div class="col-12 mt-4 p-4 white-bg rounded">
+            <div class="row event-venue">
+                <div class="col-12 mt-4 p-4 white-bg rounded event-venue">
                     <h4>{{ $venue->name }}</h4>
-                    {{ $venue->address }}<br />
-                    {{ $venue->city }}<br />
-                    {{ $venue->zip_code }}<br />
-                    <b>{{ $country->name }}</b><br />
-                    {{ $venue->website }}<br /><br />
+                    <div class="address">
+                        {{ $venue->address }}<br />
+                        {{ $venue->city }}<br />
+                        {{ $venue->zip_code }}<br />
+                        <b>{{ $country->name }}</b><br />
+                    </div>
+                    
+                    @if(!empty($venue->website))
+                        <i class="fa fa-external-link dark-gray" style="margin-right: 10px;"></i>
+                        <a href="{{ $venue->website }}" target="_blank">{{ $venue->website }}</a>    
+                        <br /><br />
+                    @endif
+                    
                     {!! $venue->description !!}<br />
                 </div>
                 
@@ -143,4 +151,38 @@
             </div>
 
     </div>
+    
+    {{-- Google Structured datas --}}
+    <script type="application/ld+json">
+	{
+		"startDate":"{{Carbon\Carbon::parse($datesTimes->start_repeat)->toIso8601String()}}",
+		"endDate":"{{Carbon\Carbon::parse($datesTimes->end_repeat)->toIso8601String()}}",
+		"name":"{{ $event->title }}",
+		"url":"{{Request::url()}}",
+		@if(!empty($event->image)) "image":"/storage/images/events_teaser/{{ $event->image }}", @endif
+		"eventStatus":"EventScheduled",
+		"location":{
+			"address":
+				{
+					"addressCountry":"{{$country->name}}",
+					"addressLocality":"{{$country->name}}",
+					"addressRegion":"{{$country->name}}",
+					"streetAddress":"{{$venue->address}}",
+					"postalCode":"{{$venue->zip_code}}",
+                    "@type":"PostalAddress"
+				},
+			"@type":"Place",
+			"name":"{{$venue->name}}"
+		},
+		"@context":"http://schema.org",
+		{{-- "organizer":{
+				"url":"https://www.eventbrite.ca/o/idriz-dragonjic-zig-25383244579",
+				"@type":"Organization",
+				"name":"Idriz Dragonjic-\u201cZig\u201d"
+			},--}}
+		"@type":"DanceEvent",
+		"description":"{{ strip_tags($event->description) }} "
+	}
+    </script>
+    
 @endsection
