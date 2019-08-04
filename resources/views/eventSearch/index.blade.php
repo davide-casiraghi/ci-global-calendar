@@ -136,9 +136,10 @@
                         </p>
                         
                         
-                        <!--
+                        
                         <continents-countries-selects select_a_continent_placeholder="@lang('homepage-serach.select_a_continent')" select_a_country_placeholder="@lang('homepage-serach.select_a_country')" continent-selected="{{$searchContinent}}" country-selected="{{$searchCountry}}"></continents-countries-selects>
-                    -->
+                        
+                        {{--
                         @include('laravel-form-partials::select', [
                               'title' =>  '',
                               'name' => 'continent_id',
@@ -157,7 +158,7 @@
                               'selected' => $searchCountry,
                               'liveSearch' => 'true',
                               'mobileNativeMenu' => false,
-                        ])
+                        ])--}}
                         
                         @include('laravel-form-partials::input', [
                               'title' => '',
