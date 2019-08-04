@@ -126,6 +126,10 @@
                         }
                         this.optionCountries = this.countries;
                     }
+                    
+                    setTimeout(() => {
+                        jQuery('.selectpicker').selectpicker('refresh');
+                    }, 500);
                 }
             },
             
