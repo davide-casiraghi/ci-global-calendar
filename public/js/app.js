@@ -7487,7 +7487,6 @@ __webpack_require__.r(__webpack_exports__);
         return this.countries;
       },
       set: function set(newValue) {
-        //console.log("SET");
         //console.log(newValue);
         this.countries = newValue;
         setTimeout(function () {
@@ -7558,6 +7557,7 @@ __webpack_require__.r(__webpack_exports__);
         }
 
         setTimeout(function () {
+          jQuery("select[name='country_id']").selectpicker('val', '');
           jQuery('.selectpicker').selectpicker('refresh');
         }, 500);
       }
