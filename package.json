@@ -19,7 +19,7 @@
         "popper.js": "^1.14.7",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.16.1",
-        "vue": "^2.5.22",
+        "vue": "^2.6.10",
         "vue-template-compiler": "^2.5.22"
     },
     "dependencies": {
@@ -28,6 +28,7 @@
         "bootstrap-datepicker": "^1.8.0",
         "bootstrap-select": "^1.13.10",
         "bootstrap-timepicker": "^0.5.2",
+        "bootstrap-vue": "^2.0.0-rc.27",
         "chart.js": "^2.8.0",
         "ckeditor": ">=4.11.0",
         "cookieconsent": "^3.1.0",
