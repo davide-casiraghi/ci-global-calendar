@@ -7,6 +7,9 @@
 
 require('./bootstrap');
 window.Vue = require('vue');
+//window.BootstrapVue = require('bootstrap-vue'); 
+require('bootstrap-vue'); 
+
 //var draggable = require('vuedraggable');
 //Vue.use(draggable);
 
