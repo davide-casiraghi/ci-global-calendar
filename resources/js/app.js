@@ -49,6 +49,7 @@ $(function () {
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('continents-countries-selects', require('./components/ContinentsCountriesSelects.vue').default);
+Vue.component('select-teacher', require('./vendor/laravel-events-calendar/components/SelectTeacher.vue').default);
 
 window.myApp = new Vue({  // In this way the object myApp is accessible in the browser console for debugging purposes
     el: '#app'

@@ -158,8 +158,13 @@
 		"startDate":"{{Carbon\Carbon::parse($datesTimes->start_repeat)->toIso8601String()}}",
 		"endDate":"{{Carbon\Carbon::parse($datesTimes->end_repeat)->toIso8601String()}}",
 		"name":"{{ $event->title }}",
+        "about":"Contact Improvisation",
 		"url":"{{Request::url()}}",
-		@if(!empty($event->image)) "image":"/storage/images/events_teaser/{{ $event->image }}", @endif
+		@if(!empty($event->image)) 
+            "image":"/storage/images/events_teaser/{{ $event->image }}", 
+        @else
+            "image":"/storage/logo/fb_logo_cigc_red.jpg", 
+        @endif
 		"eventStatus":"EventScheduled",
 		"location":{
 			"address":

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('laravel-events-calendar::layout')
 
 @section('title',  "Continents" )
 
