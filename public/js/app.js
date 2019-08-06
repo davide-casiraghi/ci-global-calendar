@@ -123641,45 +123641,46 @@ module.exports = function(module) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
-/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var bootstrap_datepicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap-datepicker */ "./node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js");
-/* harmony import */ var bootstrap_datepicker__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_datepicker__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var jquery_ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery-ui */ "./node_modules/jquery-ui/ui/widget.js");
-/* harmony import */ var jquery_ui__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery_ui__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var jquery_ui_ui_widgets_accordion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery-ui/ui/widgets/accordion */ "./node_modules/jquery-ui/ui/widgets/accordion.js");
-/* harmony import */ var jquery_ui_ui_widgets_accordion__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery_ui_ui_widgets_accordion__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var smartmenus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! smartmenus */ "./node_modules/smartmenus/dist/jquery.smartmenus.js");
-/* harmony import */ var smartmenus__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(smartmenus__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var smartmenus_dist_addons_bootstrap_4_jquery_smartmenus_bootstrap_4_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! smartmenus/dist/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.js */ "./node_modules/smartmenus/dist/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.js");
-/* harmony import */ var smartmenus_dist_addons_bootstrap_4_jquery_smartmenus_bootstrap_4_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(smartmenus_dist_addons_bootstrap_4_jquery_smartmenus_bootstrap_4_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var tooltip_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tooltip.js */ "./node_modules/tooltip.js/dist/esm/tooltip.js");
-/* harmony import */ var slick_carousel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js");
-/* harmony import */ var slick_carousel__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(slick_carousel__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var gridalicious__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! gridalicious */ "./node_modules/gridalicious/jquery.grid-a-licious.min.js");
-/* harmony import */ var gridalicious__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(gridalicious__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _fancyapps_fancybox__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @fancyapps/fancybox */ "./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js");
-/* harmony import */ var _fancyapps_fancybox__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_fancyapps_fancybox__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var bootstrap_select__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! bootstrap-select */ "./node_modules/bootstrap-select/dist/js/bootstrap-select.js");
-/* harmony import */ var bootstrap_select__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(bootstrap_select__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var bootstrap_timepicker__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! bootstrap-timepicker */ "./node_modules/bootstrap-timepicker/js/bootstrap-timepicker.js");
-/* harmony import */ var bootstrap_timepicker__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(bootstrap_timepicker__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var fontawesome_pro_js_fontawesome_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! fontawesome-pro/js/fontawesome.js */ "./node_modules/fontawesome-pro/js/fontawesome.js");
-/* harmony import */ var fontawesome_pro_js_fontawesome_js__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(fontawesome_pro_js_fontawesome_js__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var cookieconsent__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! cookieconsent */ "./node_modules/cookieconsent/build/cookieconsent.min.js");
-/* harmony import */ var cookieconsent__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(cookieconsent__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var waypoints_lib_jquery_waypoints_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! waypoints/lib/jquery.waypoints.js */ "./node_modules/waypoints/lib/jquery.waypoints.js");
-/* harmony import */ var waypoints_lib_jquery_waypoints_js__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(waypoints_lib_jquery_waypoints_js__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var jquery_counterup__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! jquery.counterup */ "./node_modules/jquery.counterup/jquery.counterup.js");
-/* harmony import */ var jquery_counterup__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(jquery_counterup__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var sortablejs__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! sortablejs */ "./node_modules/sortablejs/Sortable.js");
-/* harmony import */ var sortablejs__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(sortablejs__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var jquery_cookie__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! jquery.cookie */ "./node_modules/jquery.cookie/jquery.cookie.js");
-/* harmony import */ var jquery_cookie__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(jquery_cookie__WEBPACK_IMPORTED_MODULE_17__);
-/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! prismjs */ "./node_modules/prismjs/prism.js");
-/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(prismjs__WEBPACK_IMPORTED_MODULE_18__);
-/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Chart.js");
-/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_19__);
+/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/index.js");
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var bootstrap_datepicker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap-datepicker */ "./node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js");
+/* harmony import */ var bootstrap_datepicker__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bootstrap_datepicker__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var jquery_ui__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery-ui */ "./node_modules/jquery-ui/ui/widget.js");
+/* harmony import */ var jquery_ui__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery_ui__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var jquery_ui_ui_widgets_accordion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jquery-ui/ui/widgets/accordion */ "./node_modules/jquery-ui/ui/widgets/accordion.js");
+/* harmony import */ var jquery_ui_ui_widgets_accordion__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jquery_ui_ui_widgets_accordion__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var smartmenus__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! smartmenus */ "./node_modules/smartmenus/dist/jquery.smartmenus.js");
+/* harmony import */ var smartmenus__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(smartmenus__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var smartmenus_dist_addons_bootstrap_4_jquery_smartmenus_bootstrap_4_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! smartmenus/dist/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.js */ "./node_modules/smartmenus/dist/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.js");
+/* harmony import */ var smartmenus_dist_addons_bootstrap_4_jquery_smartmenus_bootstrap_4_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(smartmenus_dist_addons_bootstrap_4_jquery_smartmenus_bootstrap_4_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var tooltip_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tooltip.js */ "./node_modules/tooltip.js/dist/esm/tooltip.js");
+/* harmony import */ var slick_carousel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js");
+/* harmony import */ var slick_carousel__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(slick_carousel__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var gridalicious__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! gridalicious */ "./node_modules/gridalicious/jquery.grid-a-licious.min.js");
+/* harmony import */ var gridalicious__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(gridalicious__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _fancyapps_fancybox__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @fancyapps/fancybox */ "./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js");
+/* harmony import */ var _fancyapps_fancybox__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_fancyapps_fancybox__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var bootstrap_select__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! bootstrap-select */ "./node_modules/bootstrap-select/dist/js/bootstrap-select.js");
+/* harmony import */ var bootstrap_select__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(bootstrap_select__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var bootstrap_timepicker__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! bootstrap-timepicker */ "./node_modules/bootstrap-timepicker/js/bootstrap-timepicker.js");
+/* harmony import */ var bootstrap_timepicker__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(bootstrap_timepicker__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var fontawesome_pro_js_fontawesome_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! fontawesome-pro/js/fontawesome.js */ "./node_modules/fontawesome-pro/js/fontawesome.js");
+/* harmony import */ var fontawesome_pro_js_fontawesome_js__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(fontawesome_pro_js_fontawesome_js__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var cookieconsent__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! cookieconsent */ "./node_modules/cookieconsent/build/cookieconsent.min.js");
+/* harmony import */ var cookieconsent__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(cookieconsent__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var waypoints_lib_jquery_waypoints_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! waypoints/lib/jquery.waypoints.js */ "./node_modules/waypoints/lib/jquery.waypoints.js");
+/* harmony import */ var waypoints_lib_jquery_waypoints_js__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(waypoints_lib_jquery_waypoints_js__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var jquery_counterup__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! jquery.counterup */ "./node_modules/jquery.counterup/jquery.counterup.js");
+/* harmony import */ var jquery_counterup__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(jquery_counterup__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var sortablejs__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! sortablejs */ "./node_modules/sortablejs/Sortable.js");
+/* harmony import */ var sortablejs__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(sortablejs__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var jquery_cookie__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! jquery.cookie */ "./node_modules/jquery.cookie/jquery.cookie.js");
+/* harmony import */ var jquery_cookie__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(jquery_cookie__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! prismjs */ "./node_modules/prismjs/prism.js");
+/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(prismjs__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Chart.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_20__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -123687,15 +123688,20 @@ __webpack_require__.r(__webpack_exports__);
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); //window.BootstrapVue = require('bootstrap-vue'); 
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); // Bootstrap vue 
+//window.BootstrapVue = require('bootstrap-vue'); 
+//require('bootstrap-vue'); 
+//var BootstrapVue = require('bootstrap-vue');
+//Vue.use(BootstrapVue);
+//This imports <b-modal> as well as the v-b-modal directive as a plugin:
 
-__webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/index.js"); //var draggable = require('vuedraggable');
+
+Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_0__["ModalPlugin"]); //var draggable = require('vuedraggable');
 //Vue.use(draggable);
 
 /**
 * In between we import the custom javascript plugins.
 **/
-
 
 __webpack_require__(/*! ./plugins/accordion */ "./resources/js/plugins/accordion.js"); // accordion.js
 

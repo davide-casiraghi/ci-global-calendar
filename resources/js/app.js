@@ -7,8 +7,15 @@
 
 require('./bootstrap');
 window.Vue = require('vue');
-//window.BootstrapVue = require('bootstrap-vue'); 
-require('bootstrap-vue'); 
+
+// Bootstrap vue 
+    //window.BootstrapVue = require('bootstrap-vue'); 
+    //require('bootstrap-vue'); 
+    //var BootstrapVue = require('bootstrap-vue');
+    //Vue.use(BootstrapVue);
+    //This imports <b-modal> as well as the v-b-modal directive as a plugin:
+    import { ModalPlugin } from 'bootstrap-vue'
+    Vue.use(ModalPlugin)
 
 //var draggable = require('vuedraggable');
 //Vue.use(draggable);
