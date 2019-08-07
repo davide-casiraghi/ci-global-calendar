@@ -75,6 +75,7 @@ window.myApp = new Vue({  // In this way the object myApp is accessible in the b
 	import 'jquery.counterup';
     import 'sortablejs';
     import 'jquery.cookie';
+    import 'jquery-validation';
     import 'prismjs';
     import 'chart.js';
     
