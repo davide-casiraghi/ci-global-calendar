@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'submit' => 'Salva',
+    'close' => 'Chiudi',
     'search' => 'Cerca',
     'reset' => 'Resetta',
     'view' => 'Mostra',

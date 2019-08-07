@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'submit' => 'Submit',
+    'close' => 'Close',
     'search' => 'Search',
     'reset' => 'Reset',
     'view' => 'View',
@@ -31,4 +33,5 @@ return [
     'status' => 'Status',
     'published' => 'Published',
     'unpublished' => 'Unpublished',
+
 ];

@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'submit' => 'Enviar',
+    'close' => 'Cerrar',
     'search' => 'Buscar',
     'reset' => 'Deshacer',
     'view' => 'Ver',

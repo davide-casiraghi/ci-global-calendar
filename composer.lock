@@ -67,16 +67,16 @@
         },
         {
             "name": "astrotomic/laravel-translatable",
-            "version": "v11.1.3",
+            "version": "v11.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Astrotomic/laravel-translatable.git",
-                "reference": "720eaeb2aeae937c6cfb400d5055f73c6f5588c6"
+                "reference": "9bf19f56d4e924f1381176a1dfc47d423948001d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Astrotomic/laravel-translatable/zipball/720eaeb2aeae937c6cfb400d5055f73c6f5588c6",
-                "reference": "720eaeb2aeae937c6cfb400d5055f73c6f5588c6",
+                "url": "https://api.github.com/repos/Astrotomic/laravel-translatable/zipball/9bf19f56d4e924f1381176a1dfc47d423948001d",
+                "reference": "9bf19f56d4e924f1381176a1dfc47d423948001d",
                 "shasum": ""
             },
             "require": {
@@ -126,7 +126,7 @@
                 "laravel",
                 "translation"
             ],
-            "time": "2019-08-01T13:53:56+00:00"
+            "time": "2019-08-07T10:12:15+00:00"
         },
         {
             "name": "balping/json-raw-encoder",
@@ -343,16 +343,16 @@
         },
         {
             "name": "davide-casiraghi/laravel-events-calendar",
-            "version": "1.2.8",
+            "version": "1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davide-casiraghi/laravel-events-calendar.git",
-                "reference": "b8484b26b86273df68b6a3cc30b551b67c7acc38"
+                "reference": "53a671654e958811965e7cd40114ae707ca3fc90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/b8484b26b86273df68b6a3cc30b551b67c7acc38",
-                "reference": "b8484b26b86273df68b6a3cc30b551b67c7acc38",
+                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/53a671654e958811965e7cd40114ae707ca3fc90",
+                "reference": "53a671654e958811965e7cd40114ae707ca3fc90",
                 "shasum": ""
             },
             "require": {
@@ -403,7 +403,7 @@
                 "davide-casiraghi",
                 "laravel-events-calendar"
             ],
-            "time": "2019-08-05T07:18:02+00:00"
+            "time": "2019-08-07T13:22:21+00:00"
         },
         {
             "name": "davide-casiraghi/laravel-form-partials",
@@ -1605,16 +1605,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.8.30",
+            "version": "v5.8.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "7ccf0cf63931a8d8391aed90e6fc011381ea6838"
+                "reference": "24cc1786bd55876fa52380306354772355345efd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/7ccf0cf63931a8d8391aed90e6fc011381ea6838",
-                "reference": "7ccf0cf63931a8d8391aed90e6fc011381ea6838",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/24cc1786bd55876fa52380306354772355345efd",
+                "reference": "24cc1786bd55876fa52380306354772355345efd",
                 "shasum": ""
             },
             "require": {
@@ -1748,7 +1748,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-07-30T14:08:47+00:00"
+            "time": "2019-08-06T15:09:02+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -2166,16 +2166,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.22.0",
+            "version": "2.22.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "1a0e48b5f656065ba3c265b058b25d36c2162a5e"
+                "reference": "738fbd8d80b2c5e158fda76c29c2de432fcc6f7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/1a0e48b5f656065ba3c265b058b25d36c2162a5e",
-                "reference": "1a0e48b5f656065ba3c265b058b25d36c2162a5e",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/738fbd8d80b2c5e158fda76c29c2de432fcc6f7e",
+                "reference": "738fbd8d80b2c5e158fda76c29c2de432fcc6f7e",
                 "shasum": ""
             },
             "require": {
@@ -2229,7 +2229,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-07-28T09:02:12+00:00"
+            "time": "2019-08-07T12:36:44+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -4493,16 +4493,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.4.1",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "6fb502c23885701a991b0bba974b1a8eb6673577"
+                "reference": "cde50e6720a39fdacb240159d3eea6865d51fd96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/6fb502c23885701a991b0bba974b1a8eb6673577",
-                "reference": "6fb502c23885701a991b0bba974b1a8eb6673577",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/cde50e6720a39fdacb240159d3eea6865d51fd96",
+                "reference": "cde50e6720a39fdacb240159d3eea6865d51fd96",
                 "shasum": ""
             },
             "require": {
@@ -4536,8 +4536,8 @@
             "authors": [
                 {
                     "name": "Filipe Dobreira",
-                    "homepage": "https://github.com/filp",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "homepage": "https://github.com/filp"
                 }
             ],
             "description": "php error handling for cool kids",
@@ -4550,7 +4550,7 @@
                 "throwable",
                 "whoops"
             ],
-            "time": "2019-07-04T09:00:00+00:00"
+            "time": "2019-08-07T09:00:00+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -4602,16 +4602,16 @@
         },
         {
             "name": "laravel/dusk",
-            "version": "v5.4.0",
+            "version": "v5.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/dusk.git",
-                "reference": "9af5a654ff2c552852e4d37a8283735bf6ce2b79"
+                "reference": "525076aa34f6935b1f54d4c5a155f84182194bbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/dusk/zipball/9af5a654ff2c552852e4d37a8283735bf6ce2b79",
-                "reference": "9af5a654ff2c552852e4d37a8283735bf6ce2b79",
+                "url": "https://api.github.com/repos/laravel/dusk/zipball/525076aa34f6935b1f54d4c5a155f84182194bbb",
+                "reference": "525076aa34f6935b1f54d4c5a155f84182194bbb",
                 "shasum": ""
             },
             "require": {
@@ -4663,20 +4663,20 @@
                 "testing",
                 "webdriver"
             ],
-            "time": "2019-07-30T15:07:18+00:00"
+            "time": "2019-08-06T17:53:56+00:00"
         },
         {
             "name": "mockery/mockery",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "0eb0b48c3f07b3b89f5169ce005b7d05b18cf1d2"
+                "reference": "4eff936d83eb809bde2c57a3cea0ee9643769031"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/0eb0b48c3f07b3b89f5169ce005b7d05b18cf1d2",
-                "reference": "0eb0b48c3f07b3b89f5169ce005b7d05b18cf1d2",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/4eff936d83eb809bde2c57a3cea0ee9643769031",
+                "reference": "4eff936d83eb809bde2c57a3cea0ee9643769031",
                 "shasum": ""
             },
             "require": {
@@ -4728,7 +4728,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2019-02-13T09:37:52+00:00"
+            "time": "2019-08-07T15:01:07+00:00"
         },
         {
             "name": "myclabs/deep-copy",

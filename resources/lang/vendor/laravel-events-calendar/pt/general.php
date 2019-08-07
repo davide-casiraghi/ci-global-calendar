@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'submit' => 'Submeter',
+    'close' => 'Fechar',
     'search' => 'Buscar',
     'reset' => 'Desfazer',
     'view' => 'Exibir',

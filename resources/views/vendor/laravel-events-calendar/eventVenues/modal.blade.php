@@ -6,6 +6,51 @@
 
 @extends('laravel-events-calendar::layouts.modal')
 
+@section('javascript-document-ready')
+    @parent
+    
+    $('#eventVenueModalForm').validate({
+        rules: {
+            name: "required",
+            city: "required",
+            country_id: "required",
+            website: {
+                required: false,
+                url: true
+            }
+        },
+        submitHandler: function(form) {
+            //alert("Do some stuff... 2");
+            $.ajax({
+                url: '/create-venue/modal/',
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    name: $("input[name='name']").val(),
+                    city: $("input[name='city']").val(),
+                    country_id: $("select[name='country_id']").val(),
+                    website: $("input[name='website']").val()
+                },
+                type: 'POST',
+                success: function(res) {
+                    console.log("event venue created succesfully");
+                    console.log(res.eventVenueId);
+                    $('.modalFrame').modal('hide');
+                    
+                    $("select#eventVenue").append('<option value="'+res.eventVenueId+'" selected="">'+res.eventVenueName+'</option>');
+                    $("select#eventVenue").selectpicker("refresh");
+                    
+                    //$("input[name='multiple_organizers']").val($("input[name='multiple_organizers']").val() + ", " + res.eventVenueId);
+                },
+                error: function(error) {
+                    //$('.modalFrame').modal('hide');
+                    console.log(error);
+                }          
+            });
+        }
+    });
+    
+@stop
+
 @section('content')
     <div class="row">
         <div class="col-12">
@@ -23,7 +68,7 @@
           'style' => 'alert-danger',
     ])
 
-    <form action="{{ route('eventVenues.storeFromModal') }}" method="POST">
+    <form id="eventVenueModalForm" action="{{ route('eventVenues.storeFromModal') }}" method="POST">
         @csrf
 
         <div class="row">
@@ -90,10 +135,10 @@
                 ])
             </div>
             <div class="col-12">
-                @include('laravel-form-partials::textarea', [
+                @include('laravel-form-partials::textarea-plain', [
                     'title' => __('laravel-events-calendar::general.description'),
                     'name' => 'description',
-                    'placeholder' => 'Event description',
+                    'placeholder' => '',
                     'required' => false,
                 ])
             </div>
@@ -101,10 +146,10 @@
 
        <div class="row mt-5">
            <div class="col-6 pull-left">
-               <button type="button" class="btn btn-primary" data-dismiss="modal">@lang('general.close')</button>
+               <button type="button" class="btn btn-primary" data-dismiss="modal">@lang('laravel-events-calendar::general.close')</button>
            </div>
            <div class="col-6 pull-right">
-               <button type="submit" class="btn btn-primary float-right">@lang('general.submit')</button>
+               <button type="submit" class="btn btn-primary float-right">@lang('laravel-events-calendar::general.submit')</button>
            </div>
        </div>
 

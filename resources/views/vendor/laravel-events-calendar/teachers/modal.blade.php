@@ -7,6 +7,68 @@
 
 @extends('laravel-events-calendar::layouts.modal')
 
+@section('javascript-document-ready')
+    @parent
+    
+    $('#teacherModalForm').validate({
+        rules: {
+            name: "required",
+            bio: "required",
+            year_starting_practice: {
+                required: true,
+                range: [1972, {{Carbon\Carbon::now()->year}}],
+            },
+            year_starting_teach: {
+                required: true,
+                range: [1972, {{Carbon\Carbon::now()->year}}]
+            },
+            significant_teachers: "required",
+            facebook: {
+                required: false,
+                url: true
+            },
+            website: {
+                required: false,
+                url: true
+            }
+        },
+        submitHandler: function(form) {
+            //alert("Do some stuff... 2");
+            $.ajax({
+                url: '/create-teacher/modal/',
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    name: $("input[name='name']").val(),
+                    country_id: $("select[name='country_id']").val(),
+                    bio: $("textarea[name='bio']").val(),
+                    year_starting_practice: $("input[name='year_starting_practice']").val(),
+                    year_starting_teach: $("input[name='year_starting_teach']").val(),
+                    significant_teachers: $("textarea[name='significant_teachers']").val(),                
+                    facebook: $("input[name='facebook']").val(),
+                    website: $("input[name='website']").val(),
+                    profile_picture: $("input[name='profile_picture']").val()
+                },
+                type: 'POST',
+                success: function(res) {
+                    console.log("teacher created succesfully");
+                    console.log(res.teacherId);
+                    $('.modalFrame').modal('hide');
+                    
+                    $("select#teacher").append('<option value="'+res.teacherId+'" selected="">'+res.teacherName+'</option>');
+                    $("select#teacher").selectpicker("refresh");
+                    
+                    $("input[name='multiple_teachers']").val($("input[name='multiple_teachers']").val() + "," + res.teacherId);
+                },
+                error: function(error) {
+                    //$('.modalFrame').modal('hide');
+                    console.log(error);
+                }          
+            });
+        }
+    });
+    
+@stop
+
 @section('content')
     
     <div class="row">
@@ -25,7 +87,7 @@
           'style' => 'alert-danger',
     ])
 
-    <form action="{{ route('teachers.storeFromModal') }}" method="POST" enctype="multipart/form-data">
+    <form id="teacherModalForm" action="{{ route('teachers.storeFromModal') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
          <div class="row">
@@ -93,7 +155,7 @@
             </div>
             <div class="col-12">
                 @include('laravel-form-partials::input', [
-                      'title' => __('laravel-events-calendar::teacher.website'),
+                      'title' => __('laravel-events-calendar::general.website'),
                       'name' => 'website',
                       'placeholder' => 'https://...',
                       'value' => '',
@@ -113,7 +175,7 @@
                 <button type="button" class="btn btn-primary" data-dismiss="modal">@lang('laravel-events-calendar::general.close')</button>
             </div>
             <div class="col-6 pull-right">
-              <button type="submit" class="btn btn-primary float-right">@lang('laravel-events-calendar::general.submit')</button>
+              <button id="save" type="submit" class="btn btn-primary float-right">@lang('laravel-events-calendar::general.submit')</button>
             </div>
         </div>
 
