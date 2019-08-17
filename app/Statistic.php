@@ -31,9 +31,9 @@ class Statistic extends Model
         if ($lastUpdateDate != $todayDate) {
             $statistics = new self();
             $statistics->registered_users_number = User::count();
-            $statistics->organizers_number = Organizer::count();
-            $statistics->teachers_number = Teacher::count();
-            $statistics->active_events_number = Event::getActiveEvents()->count();
+            $statistics->organizers_number = \DavideCasiraghi\LaravelEventsCalendar\Models\Organizer::count();
+            $statistics->teachers_number = \DavideCasiraghi\LaravelEventsCalendar\Models\Teacher::count();
+            $statistics->active_events_number = \DavideCasiraghi\LaravelEventsCalendar\Models\Event::getActiveEvents()->count();
 
             $statistics->save();
 
