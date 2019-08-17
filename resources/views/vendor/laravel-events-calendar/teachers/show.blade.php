@@ -55,7 +55,7 @@
                             @if(!empty($teacher->website))
                                 <div class="col-6">
                                     <i class="fas fa-globe mr-1 dark-gray"></i>
-                                    <a href="{{ $teacher->website }}" target="_blank">@lang('laravel-events-calendar::teacher.website')</a>
+                                    <a href="{{ $teacher->website }}" target="_blank">@lang('laravel-events-calendar::general.website')</a>
                                 </div> 
                             @endif 
                         </div>
