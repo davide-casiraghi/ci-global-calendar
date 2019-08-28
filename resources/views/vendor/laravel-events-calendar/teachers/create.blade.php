@@ -34,12 +34,11 @@
                         @include('laravel-form-partials::select', [
                               'title' => __('laravel-events-calendar::general.created_by'),
                               'name' => 'created_by',
-                              'placeholder' => __('laravel-events-calendar.select_owner'),
+                              'placeholder' => __('laravel-events-calendar::general.select_owner'),
                               'records' => $users,
                               'liveSearch' => 'true',
                               'mobileNativeMenu' => false,
-                              'selected
-' => old('created_by'),
+                              'selected' => old('created_by'),
                         ])
                     </div>
                 @endif--}}
@@ -52,8 +51,7 @@
                           'records' => $countries,
                           'liveSearch' => 'true',
                           'mobileNativeMenu' => false,
-                          'selected
-' => old('country_id'),
+                          'selected' => old('country_id'),
                           'required' => false,
                     ])
                 </div>
