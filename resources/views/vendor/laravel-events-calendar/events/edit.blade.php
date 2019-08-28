@@ -35,7 +35,7 @@
                         <div class="row">
                            <div class="col-12">
                                @include('laravel-form-partials::input', [
-                                     'title' => 'Title',
+                                     'title' => __('laravel-events-calendar::general.title'),
                                      'name' => 'title',
                                      'placeholder' => 'Event title',
                                      'value' => $event->title,
@@ -44,24 +44,23 @@
                            </div>
 
                            {{-- Show the created by field just to the admin and super admin --}}
-                           @if(empty($authorUserId))
-                               <div class="col-12">
-                                   @include('laravel-form-partials::select', [
-                                         'title' => 'Created by',
-                                         'name' => 'created_by',
-                                         'placeholder' => 'Select owner',
-                                         'records' => $users,
-                                         'selected' => $event->created_by,
-                                         'liveSearch' => 'true',
-                                         'mobileNativeMenu' => false,
-                                         'required' => false,
-                                   ])
-                               </div>
-                           @endif
+                           <div class="col-12 @if(!empty($authorUserId)) d-none @endif">
+                               @include('laravel-form-partials::select', [
+                                     'title' =>  __('laravel-events-calendar::general.created_by'), 
+                                     'name' => 'created_by',
+                                     'placeholder' => 'Select owner',
+                                     'records' => $users,
+                                     'selected' => $event->created_by,
+                                     'liveSearch' => 'true',
+                                     'mobileNativeMenu' => false,
+                                     'required' => false,
+                               ])
+                           </div>
+                           
 
                            <div class="col-12">
                                @include('laravel-form-partials::select', [
-                                     'title' => 'Category',
+                                     'title' => __('laravel-events-calendar::event.category'),
                                      'name' => 'category_id',
                                      'placeholder' => 'Select category',
                                      'records' => $eventCategories,
@@ -126,7 +125,7 @@
                         <div class="row">
                             <div class="col-12">
                                 @include('laravel-form-partials::textarea', [
-                                      'title' => 'Description',
+                                      'title' =>  __('laravel-events-calendar::general.description'),
                                       'name' => 'description',
                                       'placeholder' => 'Event description',
                                       'value' => $event->description,

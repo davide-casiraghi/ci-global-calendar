@@ -6,7 +6,7 @@
         
         <div class="row mb-4">
             <div class="col-12">
-                <h4>@lang('laravel-events-calendar::teacher.add_new_teacher')</h4> 
+                <h4>@lang('laravel-events-calendar::teacher.add_new_teacher')</h4>
             </div>
         </div>
 
@@ -29,7 +29,7 @@
                 </div>
 
                 {{-- Show the created by field just to the admin and super admin --}}
-                 <div class="col-12 @if(!empty($authorUserId)) d-none @endif">
+                <div class="col-12 @if(!empty($authorUserId)) d-none @endif">
                     @include('laravel-form-partials::select', [
                           'title' => __('laravel-events-calendar::general.created_by'),
                           'name' => 'created_by',
@@ -41,7 +41,7 @@
                           'required' => false,
                     ])
                 </div>
-          
+                
 
                 <div class="col-12">
                     @include('laravel-form-partials::select', [

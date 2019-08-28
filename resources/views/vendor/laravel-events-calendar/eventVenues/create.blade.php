@@ -28,19 +28,19 @@
                 </div>
 
                 {{-- Show the created by field just to the admin and super admin --}}
-                @if(empty($authorUserId))
-                    <div class="col-12">
-                        @include('laravel-form-partials::select', [
-                            'title' => __('laravel-events-calendar::general.created_by'),
-                            'name' => 'created_by',
-                            'placeholder' => __('laravel-events-calendar::general.select_owner'),
-                            'records' => $users,
-                            'liveSearch' => 'true',
-                            'mobileNativeMenu' => false,
-                            'required' => false,
-                        ])
-                    </div>
-                @endif
+                <div class="col-12 @if(!empty($authorUserId)) d-none @endif">
+                    @include('laravel-form-partials::select', [
+                        'title' => __('laravel-events-calendar::general.created_by'),
+                        'name' => 'created_by',
+                        'placeholder' => __('laravel-events-calendar::general.select_owner'),
+                        'records' => $users,
+                        'liveSearch' => 'true',
+                        'mobileNativeMenu' => false,
+                        'selected' => Auth::id(),
+                        'required' => false,
+                    ])
+                </div>
+                
 
                 <div class="col-12">
                     @include('laravel-form-partials::input', [
