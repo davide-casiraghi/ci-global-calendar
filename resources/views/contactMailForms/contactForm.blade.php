@@ -32,8 +32,10 @@
             @csrf
 
             <div class="row">
-                <div class="col-12 mt-3 mb-5">
-                    @lang('views.please_write_in_english')
+                <div class="col-12 mt-3 mb-2">
+                    <div class='alert alert-warning' role='alert'>
+                        @lang('views.please_write_in_english')
+                    </div>
                 </div>
 
                 <div class="col-12">
