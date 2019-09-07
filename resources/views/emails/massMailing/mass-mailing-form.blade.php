@@ -1,9 +1,7 @@
 
 @component('mail::message')
 
-# Message from the Global CI Calendar
-
-You have received a message from **{{$sender_name}}**.
+# Message from the CI Global Calendar
 
 {{$msg}}
 
