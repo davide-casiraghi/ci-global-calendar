@@ -55,7 +55,7 @@ class MassMailingController extends Controller
         
         foreach ($users as $key => $user) {
             $report['emailTo'] = $user->email;
-            Mail::to('davide.casiraghi@gmail.com')->send(new MassMailing($report));
+            Mail::send(new MassMailing($report));
         }
 
         return redirect()->route('forms.massmailing-thankyou');
