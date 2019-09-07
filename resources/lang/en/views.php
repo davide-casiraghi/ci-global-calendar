@@ -140,7 +140,7 @@ return [
     'contact_the_project_manager'  => 'Contact the project manager',
     'contact_the_webmaster'  => 'Contact the webmaster',
     'please_write_in_english' => 'Please write your text in english',
-    'mass_mailing_warning' => 'You are going to send an email to all the users of the CI Global Calendar',
+    'mass_mailing_warning' => 'You are going to send an email to all the users of the CI Global Calendar. The replies will be received by the administrator.',
     'select_one' => 'Select one',
     'select_one_or_more' => 'Select one or more',
     'select_one_or_more_people' => 'Select one or more people, if you are adding a new one the page will be reloaded.',

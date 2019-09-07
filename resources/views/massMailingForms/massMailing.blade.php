@@ -19,24 +19,6 @@
                     </div>
                 </div>
 
-                <div class="col-12">
-                   @include('laravel-form-partials::input', [
-                         'title' => __('general.name'),
-                         'name' => 'name',
-                         'placeholder' => '',
-                         'required' => true,
-                   ])
-                </div>
-
-               <div class="col-12">
-                   @include('laravel-form-partials::input', [
-                         'title' => __('general.email_address'),
-                         'name' => 'email',
-                         'placeholder' => '',
-                         'required' => true,
-                   ])
-               </div>
-
                <div class="col-12">
                    @include('laravel-form-partials::textarea-plain', [
                          'title' => __('general.message'),

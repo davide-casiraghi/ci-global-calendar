@@ -32,8 +32,6 @@ class MassMailingController extends Controller
 
         // Validate form datas
         $validator = Validator::make($request->all(), [
-                'name' => 'required',
-                'email' => 'required',
                 'message' => 'required',
                 'g-recaptcha-response' => 'required|captcha',
             ]);
@@ -43,27 +41,10 @@ class MassMailingController extends Controller
 
         $report = [];
 
-        switch ($request->recipient) {
-            case 'administrator':
-                $report['emailTo'] = env('ADMIN_MAIL');
-                break;
-            case 'project-manager':
-                $report['emailTo'] = env('PROJECTMANAGER_MAIL');
-                break;
-            case 'webmaster':
-                $report['emailTo'] = env('WEBMASTER_MAIL');
-                break;
-            case 'test':
-                $report['emailTo'] = env('TEST_MAIL');
-                break;
-        }
-
-        $report['senderEmail'] = 'noreply@globalcicalendar.com';
-        $report['senderName'] = 'Anonymus User';
+        $report['senderEmail'] = 'admin@globalcicalendar.com';
+        $report['senderName'] = 'CI Global Calendar - Administrator';
         $report['subject'] = 'Message from the contact form';
 
-        $report['name'] = $request->name;
-        $report['email'] = $request->email;
         $report['message'] = $request->message;
 
         //Mail::to($request->user())->send(new ReportMisuse($report));
