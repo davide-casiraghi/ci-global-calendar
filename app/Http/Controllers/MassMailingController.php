@@ -6,6 +6,7 @@ use App\Mail\MassMailing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use App\User;
 
 class MassMailingController extends Controller
 {
@@ -45,10 +46,17 @@ class MassMailingController extends Controller
         $report['senderName'] = 'CI Global Calendar - Administrator';
         $report['subject'] = 'Message from the contact form';
 
+        $report['name'] = 'CI Global Calendar - Administrator';
+        $report['email'] = env('ADMIN_MAIL');
         $report['message'] = $request->message;
-
-        //Mail::to($request->user())->send(new ReportMisuse($report));
-        Mail::to('davide.casiraghi@gmail.com')->send(new MassMailing($report));
+        
+        $users = User::select('id', 'name', 'email')
+                        ->get();
+        
+        foreach ($users as $key => $user) {
+            $report['emailTo'] = $user->email;
+            Mail::to('davide.casiraghi@gmail.com')->send(new MassMailing($report));
+        }
 
         return redirect()->route('forms.massmailing-thankyou');
     }
@@ -62,6 +70,6 @@ class MassMailingController extends Controller
      */
     public function massMailingThankyou()
     {
-        return view('emails.contact.massmailing-sent');
+        return view('emails.massMailing.mass-mailing-sent');
     }
 }
