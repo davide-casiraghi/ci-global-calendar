@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Mail\MassMailing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-use App\User;
 
 class MassMailingController extends Controller
 {
@@ -49,10 +49,10 @@ class MassMailingController extends Controller
         $report['name'] = 'CI Global Calendar - Administrator';
         $report['email'] = env('ADMIN_MAIL');
         $report['message'] = $request->message;
-        
+
         $users = User::select('id', 'name', 'email')
                         ->get();
-        
+
         // Send the email to all the users in the user table
         foreach ($users as $key => $user) {
             $report['emailTo'] = $user->email;
