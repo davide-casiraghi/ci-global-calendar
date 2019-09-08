@@ -214,8 +214,8 @@ class CreateAllDatabaseTables extends Migration
         });
         Schema::create('menu_items', function (Blueprint $table) {
             $table->increments('id');
-            //$table->string('name');
-            //$table->string('compact_name');
+            $table->string('name');
+            $table->string('slug');
             $table->integer('menu_id')->nullable();
             $table->string('parent_item_id')->nullable();
             $table->integer('type')->nullable();
