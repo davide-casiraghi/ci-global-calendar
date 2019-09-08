@@ -35,7 +35,7 @@
         {{-- Render items level 0 --}}
             @foreach ($records as $value => $record)    
                 @if (empty($item_id) || $record->id != $item_id) {{-- Show all if in create view or hide the same item in the edit view --}}
-                    <option value="{{$record->id}}" @if(!empty($selected)) {{  $selected == $record->id ? 'selected' : '' }}@endif>-- {{ $record->name }}</option>
+                    <option value="{{$record->id}}" @if(!empty($seleted)) {{  $seleted == $record->id ? 'selected' : '' }}@endif>-- {{ $record->name }}</option>
                 @endif
                     
                 {{-- Render items level 1 --}}
@@ -43,7 +43,7 @@
                         @foreach ($record->children as $key => $subItem)
                             
                             @if (empty($item_id) || $subItem->id != $item_id) {{-- Show all if in create view or hide the same item in the edit view --}}
-                                <option value="{{$subItem->id}}" @if(!empty($selected)) {{  $selected == $subItem->id ? 'selected' : '' }}@endif>---- {{ $subItem->name }}</option>
+                                <option value="{{$subItem->id}}" @if(!empty($seleted)) {{  $seleted == $subItem->id ? 'selected' : '' }}@endif>---- {{ $subItem->name }}</option>
                             @endif
                         @endforeach
                     @endif
