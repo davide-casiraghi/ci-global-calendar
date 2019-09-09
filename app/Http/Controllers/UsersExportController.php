@@ -8,6 +8,16 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class UsersExportController extends Controller
 {
+    // **********************************************************************
+    
+    /* Restrict the access to this resource just to logged in users */
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+    
+    // **********************************************************************
+    
     /**
      * Display the export interface.
      *
