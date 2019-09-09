@@ -225,4 +225,5 @@ class UserController extends Controller
 
         return $validator;
     }
+    
 }
