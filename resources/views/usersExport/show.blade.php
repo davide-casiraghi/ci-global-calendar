@@ -11,7 +11,7 @@
         </div>
         
         <div class="col-12 mt-5">
-            Clicking on the button export you can download an excel with al the users and their emails.
+            Click on the export button to download an excel with all the users and their emails.
         </div>
     </div>
     
