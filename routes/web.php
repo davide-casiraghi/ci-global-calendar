@@ -26,7 +26,7 @@ function () {
 
     /* Users */
     Route::resource('users', 'UserController');
-    
+
     /* Post Categories */
     Route::resource('categories', 'CategoryController');
 
@@ -91,7 +91,7 @@ function () {
     /* Users export */
     Route::get('/usersExport/', 'UsersExportController@show')->name('users-export-show');
     Route::post('/usersExport/export', 'UsersExportController@export')->name('users-export-export');
-    
+
     /* Statistics */
     Route::get('/statistics', 'StatisticsController@index')->name('statistics');
     Route::get('/statistics/update', 'StatisticsController@store');

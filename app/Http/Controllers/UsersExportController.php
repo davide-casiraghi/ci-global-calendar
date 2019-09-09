@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\User;
-
 use App\Exports\UsersExport;
+use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
 class UsersExportController extends Controller
 {
     /**
-     * Display the export interface
+     * Display the export interface.
      *
      * @return \Illuminate\Http\Response
      */
@@ -19,18 +17,17 @@ class UsersExportController extends Controller
     {
         return view('usersExport.show');
     }
-    
+
     // **********************************************************************
 
     /**
-     * Export all the users in an excel that get downloaded
+     * Export all the users in an excel that get downloaded.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function export(Request $request)
-    {                        
+    {
         return Excel::download(new UsersExport, 'users.xlsx');
     }
-    
 }
