@@ -11,15 +11,15 @@ use Illuminate\Support\Facades\Validator;
 class MassMailingController extends Controller
 {
     // **********************************************************************
-    
+
     /* Restrict the access to this resource just to logged in users */
     public function __construct()
     {
         $this->middleware('admin');
     }
-    
+
     // **********************************************************************
-    
+
     /**
      * Display the contact form. - Eg. /MassMailing.
      *
