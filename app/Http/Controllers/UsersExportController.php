@@ -29,6 +29,8 @@ class UsersExportController extends Controller
     {
         $users = User::select('id', 'name', 'email')
                         ->get();
+                        
+                        
 
         return redirect()->route('users-export-exported');
     }
