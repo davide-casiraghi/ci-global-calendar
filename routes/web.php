@@ -90,6 +90,7 @@ function () {
 
     /* Users export */
     Route::get('/usersExport/', 'UsersExportController@UsersExport')->name('users-export');
+    Route::get('/usersExport/exported', 'UsersExportController@UsersExportExported')->name('users-export-exported');
     
     /* Statistics */
     Route::get('/statistics', 'StatisticsController@index')->name('statistics');
