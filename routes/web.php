@@ -89,8 +89,9 @@ function () {
     Route::get('/massMailing/thankyou', 'MassMailingController@massMailingThankyou')->name('forms.massmailing-thankyou');
 
     /* Users export */
-    Route::get('/usersExport/', 'UsersExportController@UsersExport')->name('users-export');
-    Route::get('/usersExport/exported', 'UsersExportController@UsersExportExported')->name('users-export-exported');
+    Route::get('/usersExport/', 'UsersExportController@show')->name('users-export-show');
+    Route::post('/usersExport/export', 'UsersExportController@export')->name('users-export-export');
+    Route::get('/usersExport/exported', 'UsersExportController@exported')->name('users-export-exported');
     
     /* Statistics */
     Route::get('/statistics', 'StatisticsController@index')->name('statistics');
