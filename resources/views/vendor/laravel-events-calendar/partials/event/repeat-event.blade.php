@@ -16,7 +16,6 @@
     {{-- SET the repeat values, show and hide the repeat options - when the edit view is open --}}
         setRepeatValues();
             
-
     {{-- ON CHANGE --}}
 
     {{-- SET the repeat values, show and hide the repeat options - when repeat type is changed --}}
@@ -34,52 +33,55 @@
 
     {{-- Show and hide the repeat options --}}
         function setRepeatValues(radioVal) {
-                var radioVal = $("input[name='repeat_type']:checked").val();
-                switch(radioVal) {
-                    case '1':  // No Repeat
-                        $('.repeatDetails').hide();
-                        $('.repeatUntilSelector').hide();
-                    break;
-                    case '2':  // Repeat Weekly
-                        $('.repeatDetails').show();
-                        $('.onFrequency').hide();
-                        $('#onWeekly').show();
-                        $('.repeatUntilSelector').show();
-                    break;
-                    case '3':  // Repeat Monthly
-                        $('.repeatDetails').show();
-                        $('.onFrequency').hide();
-                        $('#onMonthly').show();
-                        $('.repeatUntilSelector').show();
-                    break;
-                    case '4':  // Repeat Multiple
-                        $('.repeatDetails').show();
-                        $('.onFrequency').hide();
-                        $('#onMultiple').show();
-                        $('.repeatUntilSelector').hide();
-                    break;
-                }
+            var radioVal = $("input[name='repeat_type']:checked").val();
+            switch(radioVal) {
+                case '1':  // No Repeat
+                    $('.repeatDetails').hide();
+                    $('.repeatUntilSelector').hide();
+                    recreateDateEnd();
+                break;
+                case '2':  // Repeat Weekly
+                    $('.repeatDetails').show();
+                    $('.onFrequency').hide();
+                    $('#onWeekly').show();
+                    $('.repeatUntilSelector').show();
+                    forceSameDateStartEnd();
+                break;
+                case '3':  // Repeat Monthly
+                    $('.repeatDetails').show();
+                    $('.onFrequency').hide();
+                    $('#onMonthly').show();
+                    $('.repeatUntilSelector').show();
+                    forceSameDateStartEnd();
+                break;
+                case '4':  // Repeat Multiple
+                    $('.repeatDetails').show();
+                    $('.onFrequency').hide();
+                    $('#onMultiple').show();
+                    $('.repeatUntilSelector').hide();
+                    forceSameDateStartEnd();
+                break;
+            }
 
-            {{-- Set date end to the same day of start if is a repeat event (this is to avoid mistakes of the users that set date end to the end of repetition) --}}
-                if (radioVal =="2" || radioVal =="3" || radioVal =="4"){
-                    var dateStart = $("input[name='startDate']").val();
-                    $("input[name='endDate']").val(dateStart);
-                    $("input[name='endDate']").datepicker('destroy');
-                }
+            if (radioVal =="3"){
+                updateMonthlySelectOptions();
+            }
+        }
 
-            {{-- Re-create the datepicker_end_date that has been destroyed in case of repetition --}}
-                if (radioVal =="1"){
-                    var today = new Date();
+    {{-- Force the same date start and end (this is to avoid mistakes of the users that set date end to the end of repetition) --}}
+        function forceSameDateStartEnd(){
+            var dateStart = $("input[name='startDate']").val();
+            $("input[name='endDate']").val(dateStart);
+            $("input[name='endDate']").datepicker('destroy');
+        }
 
-                    $('#datepicker_end_date input').datepicker({
-                        format: 'dd/mm/yyyy',
-                        startDate: today
-                    });
-                }
-
-                if (radioVal =="3"){
-                    updateMonthlySelectOptions();
-                }
+    {{-- Re-create the datepicker_end_date that has been destroyed in case of repetition --}}
+        function recreateDateEnd(){
+            var today = new Date();
+            $('#endDate input').datepicker({
+                format: 'dd/mm/yyyy',
+                startDate: today
+            });
         }
 
     {{-- POPULATE the select "Monthly on" options - when the edit view is open --}}

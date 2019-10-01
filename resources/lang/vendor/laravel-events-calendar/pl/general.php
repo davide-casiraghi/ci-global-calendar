@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'submit' => 'Zatwierdź',
+    'close' => 'Zamknij',
     'search' => 'Szukaj',
     'reset' => 'Resetuj',
     'view' => 'Widok',
