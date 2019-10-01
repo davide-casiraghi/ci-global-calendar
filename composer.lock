@@ -345,16 +345,16 @@
         },
         {
             "name": "davide-casiraghi/laravel-events-calendar",
-            "version": "1.3.12",
+            "version": "1.3.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davide-casiraghi/laravel-events-calendar.git",
-                "reference": "dd565d20726698822f40fcc15bb14d53f63a2417"
+                "reference": "8372f49f056c882d6fd796f8099a7674467f6f3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/dd565d20726698822f40fcc15bb14d53f63a2417",
-                "reference": "dd565d20726698822f40fcc15bb14d53f63a2417",
+                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/8372f49f056c882d6fd796f8099a7674467f6f3b",
+                "reference": "8372f49f056c882d6fd796f8099a7674467f6f3b",
                 "shasum": ""
             },
             "require": {
@@ -405,7 +405,7 @@
                 "davide-casiraghi",
                 "laravel-events-calendar"
             ],
-            "time": "2019-09-10T16:04:56+00:00"
+            "time": "2019-10-01T06:48:13+00:00"
         },
         {
             "name": "davide-casiraghi/laravel-form-partials",
@@ -2187,16 +2187,16 @@
         },
         {
             "name": "mcamara/laravel-localization",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mcamara/laravel-localization.git",
-                "reference": "82d06c66cdf1e3ed17783842886d87cbd5aadd43"
+                "reference": "d228a61afd8cfe9eb7f8f7450acfa0371382407d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mcamara/laravel-localization/zipball/82d06c66cdf1e3ed17783842886d87cbd5aadd43",
-                "reference": "82d06c66cdf1e3ed17783842886d87cbd5aadd43",
+                "url": "https://api.github.com/repos/mcamara/laravel-localization/zipball/d228a61afd8cfe9eb7f8f7450acfa0371382407d",
+                "reference": "d228a61afd8cfe9eb7f8f7450acfa0371382407d",
                 "shasum": ""
             },
             "require": {
@@ -2245,7 +2245,7 @@
                 "localization",
                 "php"
             ],
-            "time": "2019-09-08T13:56:19+00:00"
+            "time": "2019-09-20T15:24:04+00:00"
         },
         {
             "name": "mews/purifier",
@@ -4652,16 +4652,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v3.5.0",
+            "version": "v3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "95cb0fa6c025f7f0db7fc60f81e9fb231eb2d222"
+                "reference": "1bdf24f065975594f6a117f0f1f6cabf1333b156"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/95cb0fa6c025f7f0db7fc60f81e9fb231eb2d222",
-                "reference": "95cb0fa6c025f7f0db7fc60f81e9fb231eb2d222",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/1bdf24f065975594f6a117f0f1f6cabf1333b156",
+                "reference": "1bdf24f065975594f6a117f0f1f6cabf1333b156",
                 "shasum": ""
             },
             "require": {
@@ -4670,12 +4670,12 @@
                 "symfony/polyfill-ctype": "^1.9"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.0 || ^6.0"
+                "phpunit/phpunit": "^4.8.35 || ^5.0 || ^6.0 || ^7.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.5-dev"
+                    "dev-master": "3.6-dev"
                 }
             },
             "autoload": {
@@ -4705,7 +4705,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2019-08-27T17:00:38+00:00"
+            "time": "2019-09-10T21:37:39+00:00"
         }
     ],
     "packages-dev": [
@@ -4936,24 +4936,24 @@
         },
         {
             "name": "laravel/dusk",
-            "version": "v5.5.0",
+            "version": "v5.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/dusk.git",
-                "reference": "525076aa34f6935b1f54d4c5a155f84182194bbb"
+                "reference": "aed755282a13a9b36d26854a0105d519aa22fec9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/dusk/zipball/525076aa34f6935b1f54d4c5a155f84182194bbb",
-                "reference": "525076aa34f6935b1f54d4c5a155f84182194bbb",
+                "url": "https://api.github.com/repos/laravel/dusk/zipball/aed755282a13a9b36d26854a0105d519aa22fec9",
+                "reference": "aed755282a13a9b36d26854a0105d519aa22fec9",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-zip": "*",
                 "facebook/webdriver": "^1.7",
-                "illuminate/console": "~5.7.0|~5.8.0|^6.0",
-                "illuminate/support": "~5.7.0|~5.8.0|^6.0",
+                "illuminate/console": "~5.7.0|~5.8.0|^6.0|^7.0",
+                "illuminate/support": "~5.7.0|~5.8.0|^6.0|^7.0",
                 "nesbot/carbon": "^1.20|^2.0",
                 "php": ">=7.1.0",
                 "symfony/console": "^4.0",
@@ -4997,20 +4997,20 @@
                 "testing",
                 "webdriver"
             ],
-            "time": "2019-08-06T17:53:56+00:00"
+            "time": "2019-09-24T20:30:07+00:00"
         },
         {
             "name": "mockery/mockery",
-            "version": "1.2.3",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "4eff936d83eb809bde2c57a3cea0ee9643769031"
+                "reference": "b3453f75fd23d9fd41685f2148f4abeacabc6405"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/4eff936d83eb809bde2c57a3cea0ee9643769031",
-                "reference": "4eff936d83eb809bde2c57a3cea0ee9643769031",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/b3453f75fd23d9fd41685f2148f4abeacabc6405",
+                "reference": "b3453f75fd23d9fd41685f2148f4abeacabc6405",
                 "shasum": ""
             },
             "require": {
@@ -5024,7 +5024,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -5062,7 +5062,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2019-08-07T15:01:07+00:00"
+            "time": "2019-09-30T08:30:27+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -5178,22 +5178,22 @@
         },
         {
             "name": "orchestra/testbench",
-            "version": "v3.8.4",
+            "version": "v3.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench.git",
-                "reference": "d1248e014d4d782dd5ad92cf772aeddf3abe84a2"
+                "reference": "c53429b04669b76bf764f4f8f9ba53bbe2d2a292"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench/zipball/d1248e014d4d782dd5ad92cf772aeddf3abe84a2",
-                "reference": "d1248e014d4d782dd5ad92cf772aeddf3abe84a2",
+                "url": "https://api.github.com/repos/orchestral/testbench/zipball/c53429b04669b76bf764f4f8f9ba53bbe2d2a292",
+                "reference": "c53429b04669b76bf764f4f8f9ba53bbe2d2a292",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "~5.8.19",
+                "laravel/framework": "~5.8.35",
                 "mockery/mockery": "^1.0",
-                "orchestra/testbench-core": "~3.8.6",
+                "orchestra/testbench-core": "~3.8.7",
                 "php": ">=7.1",
                 "phpunit/phpunit": "^7.5 || ^8.0"
             },
@@ -5224,20 +5224,20 @@
                 "orchestral",
                 "testing"
             ],
-            "time": "2019-08-04T04:14:12+00:00"
+            "time": "2019-09-11T07:44:11+00:00"
         },
         {
             "name": "orchestra/testbench-core",
-            "version": "v3.8.6",
+            "version": "v3.8.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench-core.git",
-                "reference": "fbdca0c5106ebf6d060c7f1fbdbbeeb3f4a5a725"
+                "reference": "2122fc0c3c4e592ab142786b27d5bd6c60ca7a3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/fbdca0c5106ebf6d060c7f1fbdbbeeb3f4a5a725",
-                "reference": "fbdca0c5106ebf6d060c7f1fbdbbeeb3f4a5a725",
+                "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/2122fc0c3c4e592ab142786b27d5bd6c60ca7a3c",
+                "reference": "2122fc0c3c4e592ab142786b27d5bd6c60ca7a3c",
                 "shasum": ""
             },
             "require": {
@@ -5245,13 +5245,13 @@
                 "php": ">=7.1"
             },
             "require-dev": {
-                "laravel/framework": "~5.8.3",
-                "laravel/laravel": "dev-master",
+                "laravel/framework": "~5.8.35",
+                "laravel/laravel": "5.8.x-dev",
                 "mockery/mockery": "^1.0",
                 "phpunit/phpunit": "^7.5 || ^8.0"
             },
             "suggest": {
-                "laravel/framework": "Required for testing (~5.8.19).",
+                "laravel/framework": "Required for testing (~5.8.35).",
                 "mockery/mockery": "Allow to use Mockery for testing (^1.0).",
                 "orchestra/testbench-browser-kit": "Allow to use legacy Laravel BrowserKit for testing (^3.8).",
                 "orchestra/testbench-dusk": "Allow to use Laravel Dusk for testing (^3.8).",
@@ -5289,7 +5289,7 @@
                 "orchestral",
                 "testing"
             ],
-            "time": "2019-08-04T02:31:04+00:00"
+            "time": "2019-09-11T07:07:58+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -5395,35 +5395,33 @@
         },
         {
             "name": "phpdocumentor/reflection-common",
-            "version": "1.0.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionCommon.git",
-                "reference": "21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6"
+                "reference": "63a995caa1ca9e5590304cd845c15ad6d482a62a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6",
-                "reference": "21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/63a995caa1ca9e5590304cd845c15ad6d482a62a",
+                "reference": "63a995caa1ca9e5590304cd845c15ad6d482a62a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5"
+                "php": ">=7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.6"
+                "phpunit/phpunit": "~6"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "phpDocumentor\\Reflection\\": [
-                        "src"
-                    ]
+                    "phpDocumentor\\Reflection\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -5445,30 +5443,30 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2017-09-11T18:02:19+00:00"
+            "time": "2018-08-07T13:53:10+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "4.3.1",
+            "version": "4.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "bdd9f737ebc2a01c06ea7ff4308ec6697db9b53c"
+                "reference": "b83ff7cfcfee7827e1e78b637a5904fe6a96698e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/bdd9f737ebc2a01c06ea7ff4308ec6697db9b53c",
-                "reference": "bdd9f737ebc2a01c06ea7ff4308ec6697db9b53c",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/b83ff7cfcfee7827e1e78b637a5904fe6a96698e",
+                "reference": "b83ff7cfcfee7827e1e78b637a5904fe6a96698e",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0",
-                "phpdocumentor/reflection-common": "^1.0.0",
-                "phpdocumentor/type-resolver": "^0.4.0",
+                "phpdocumentor/reflection-common": "^1.0.0 || ^2.0.0",
+                "phpdocumentor/type-resolver": "~0.4 || ^1.0.0",
                 "webmozart/assert": "^1.0"
             },
             "require-dev": {
-                "doctrine/instantiator": "~1.0.5",
+                "doctrine/instantiator": "^1.0.5",
                 "mockery/mockery": "^1.0",
                 "phpunit/phpunit": "^6.4"
             },
@@ -5496,41 +5494,40 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2019-04-30T17:48:53+00:00"
+            "time": "2019-09-12T14:27:41+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "0.4.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7"
+                "reference": "2e32a6d48972b2c1976ed5d8967145b6cec4a4a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/9c977708995954784726e25d0cd1dddf4e65b0f7",
-                "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/2e32a6d48972b2c1976ed5d8967145b6cec4a4a9",
+                "reference": "2e32a6d48972b2c1976ed5d8967145b6cec4a4a9",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5 || ^7.0",
-                "phpdocumentor/reflection-common": "^1.0"
+                "php": "^7.1",
+                "phpdocumentor/reflection-common": "^2.0"
             },
             "require-dev": {
-                "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "^5.2||^4.8.24"
+                "ext-tokenizer": "^7.1",
+                "mockery/mockery": "~1",
+                "phpunit/phpunit": "^7.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "phpDocumentor\\Reflection\\": [
-                        "src/"
-                    ]
+                    "phpDocumentor\\Reflection\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -5543,7 +5540,8 @@
                     "email": "me@mikevanriel.com"
                 }
             ],
-            "time": "2017-07-14T14:27:02+00:00"
+            "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
+            "time": "2019-08-22T18:11:29+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -5813,16 +5811,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "e899757bb3df5ff6e95089132f32cd59aac2220a"
+                "reference": "995192df77f63a59e47f025390d2d1fdf8f425ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/e899757bb3df5ff6e95089132f32cd59aac2220a",
-                "reference": "e899757bb3df5ff6e95089132f32cd59aac2220a",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/995192df77f63a59e47f025390d2d1fdf8f425ff",
+                "reference": "995192df77f63a59e47f025390d2d1fdf8f425ff",
                 "shasum": ""
             },
             "require": {
@@ -5858,20 +5856,20 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2019-07-25T05:29:42+00:00"
+            "time": "2019-09-17T06:23:10+00:00"
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.5.15",
+            "version": "7.5.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "d79c053d972856b8b941bb233e39dc521a5093f0"
+                "reference": "316afa6888d2562e04aeb67ea7f2017a0eb41661"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/d79c053d972856b8b941bb233e39dc521a5093f0",
-                "reference": "d79c053d972856b8b941bb233e39dc521a5093f0",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/316afa6888d2562e04aeb67ea7f2017a0eb41661",
+                "reference": "316afa6888d2562e04aeb67ea7f2017a0eb41661",
                 "shasum": ""
             },
             "require": {
@@ -5931,8 +5929,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "The PHP Unit Testing framework.",
@@ -5942,7 +5940,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-08-21T07:05:16+00:00"
+            "time": "2019-09-14T09:08:39+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -6164,16 +6162,16 @@
         },
         {
             "name": "sebastian/exporter",
-            "version": "3.1.1",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "06a9a5947f47b3029d76118eb5c22802e5869687"
+                "reference": "68609e1261d215ea5b21b7987539cbfbe156ec3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/06a9a5947f47b3029d76118eb5c22802e5869687",
-                "reference": "06a9a5947f47b3029d76118eb5c22802e5869687",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/68609e1261d215ea5b21b7987539cbfbe156ec3e",
+                "reference": "68609e1261d215ea5b21b7987539cbfbe156ec3e",
                 "shasum": ""
             },
             "require": {
@@ -6227,7 +6225,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2019-08-11T12:43:14+00:00"
+            "time": "2019-09-14T09:02:43+00:00"
         },
         {
             "name": "sebastian/global-state",
