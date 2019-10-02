@@ -31,7 +31,7 @@ class HomepageTest extends TestCase
         // Access to the page
         $response = $this->get('/it')
                              ->assertStatus(200);
-    }   
+    }
 
     /***************************************************************************/
 
