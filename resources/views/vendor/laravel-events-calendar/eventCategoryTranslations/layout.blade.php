@@ -1,4 +1,5 @@
-@extends('laravel-events-calendar::layout')
+@extends('layouts.app')
+
 
 @section('title',  "Event Category translation" )
 
