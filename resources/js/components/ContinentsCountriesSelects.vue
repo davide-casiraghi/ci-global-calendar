@@ -61,11 +61,10 @@
                 return this.countries;
                 },
                 set: function (newValue) {
-                    //console.log("SET");
                     //console.log(newValue);
                     this.countries = newValue;
                     setTimeout(() => {
-                      jQuery('.selectpicker').selectpicker('refresh');
+                        jQuery('.selectpicker').selectpicker('refresh');
                     }, 500);
                 }
             } 
@@ -126,6 +125,11 @@
                         }
                         this.optionCountries = this.countries;
                     }
+                    
+                    setTimeout(() => {
+                        jQuery("select[name='country_id']").selectpicker('val', '');
+                        jQuery('.selectpicker').selectpicker('refresh');
+                    }, 500);
                 }
             },
             

@@ -215,14 +215,20 @@ class CreateAllDatabaseTables extends Migration
         Schema::create('menu_items', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('slug');
             $table->integer('menu_id')->nullable();
             $table->string('parent_item_id')->nullable();
             $table->integer('type')->nullable();
             $table->string('url')->nullable();
             $table->string('route')->nullable();
+            $table->string('route_param_name_1')->nullable();
+            $table->string('route_param_name_2')->nullable();
+            $table->string('route_param_name_3')->nullable();
+            $table->string('route_param_value_1')->nullable();
+            $table->string('route_param_value_2')->nullable();
+            $table->string('route_param_value_3')->nullable();
             $table->string('font_awesome_class')->nullable();
             $table->boolean('hide_name')->default('0');
-            $table->string('compact_name');
             $table->integer('order')->nullable();
             $table->integer('access')->nullable();
             $table->string('route_param_name_1')->nullable();
@@ -239,7 +245,7 @@ class CreateAllDatabaseTables extends Migration
             $table->integer('menu_item_id')->unsigned();
 
             $table->string('name');
-            $table->text('compact_name')->nullable();
+            $table->text('slug')->nullable();
 
             $table->string('locale')->index();
 

@@ -119,7 +119,7 @@
                                   'placeholder' => __('homepage-serach.all_kind_of_events'),
                                   'records' => $eventCategories,
                                   'selected' => $searchCategory,
-                                  'liveSearch' => 'false',
+                                  'liveSearch' => 'true',
                                   'mobileNativeMenu' => false,  //disabled for the bug on iPad and iPhone - Retry when will be available v.2 of bootstrap-select - https://github.com/snapappointments/bootstrap-select/issues/2228
                             ])
                         
@@ -136,9 +136,10 @@
                         </p>
                         
                         
-                        {{--
+                        
                         <continents-countries-selects select_a_continent_placeholder="@lang('homepage-serach.select_a_continent')" select_a_country_placeholder="@lang('homepage-serach.select_a_country')" continent-selected="{{$searchContinent}}" country-selected="{{$searchCountry}}"></continents-countries-selects>
-                        --}}
+                        
+                        {{--
                         @include('laravel-form-partials::select', [
                               'title' =>  '',
                               'name' => 'continent_id',
@@ -157,7 +158,7 @@
                               'selected' => $searchCountry,
                               'liveSearch' => 'true',
                               'mobileNativeMenu' => false,
-                        ])
+                        ])--}}
                         
                         @include('laravel-form-partials::input', [
                               'title' => '',

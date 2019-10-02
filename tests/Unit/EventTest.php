@@ -69,7 +69,7 @@ class EventTest extends TestCase
                  ->assertStatus(200);
 
         // Assert the value is the one aspected
-        $codeToCompare = "<select name='on_monthly_kind' id='on_monthly_kind' class='selectpicker' title='Select repeat monthly kind'><option value='0|10'>the 10th day of the month</option><option value='1|2|4'>the 2nd Thursday of the month</option><option value='2|20'>the 21th to last day of the month</option><option value='3|3|4'>the 4th to last Thursday of the month</option></select>";
+        $codeToCompare = "<select name='on_monthly_kind' id='on_monthly_kind' class='selectpicker' title='Select repeat monthly kind'><option value='0|10'>the 10th day of the month</option><option value='1|2|4'>the 2nd Thursday of the month</option><option value='2|21'>the 22nd to last day of the month</option><option value='3|3|4'>the 4th to last Thursday of the month</option></select>";
         $this->assertSame($response->original, $codeToCompare);
     }
 

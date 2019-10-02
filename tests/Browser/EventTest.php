@@ -27,9 +27,9 @@ class EventTest extends DuskTestCase
 
         // Factories - /database/factories
         $this->user = factory(\App\User::class)->create();
-        $this->venue = factory(\App\EventVenue::class)->create();
-        $this->teachers = factory(\App\Teacher::class, 3)->create();
-        $this->organizers = factory(\App\Organizer::class, 3)->create();
+        $this->venue = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\EventVenue::class)->create();
+        $this->teachers = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\Teacher::class, 3)->create();
+        $this->organizers = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\Organizer::class, 3)->create();
     }
 
     /***************************************************************************/

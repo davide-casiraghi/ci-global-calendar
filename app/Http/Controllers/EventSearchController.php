@@ -51,7 +51,7 @@ class EventSearchController extends Controller
         });
 
         $venues = Cache::remember('venues', $cacheExpireTime, function () {
-            return EventVenue::pluck('name', 'id');
+            return EventVenue::orderBy('name')->pluck('name', 'id');
         });
 
         $teachers = Cache::remember('teachers', $cacheExpireTime, function () {

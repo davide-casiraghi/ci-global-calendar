@@ -103,7 +103,7 @@
                         <div class="col main">
                             <div class="row">
                                 <div class="col-12">
-                                    @include('laravel-form-partials::input-radio-cards', [
+                                    @include('partials.forms.input-radio-cards', [
                                         'title' =>  __('donations.i_can_offer'),
                                         'name' => 'offer_kind',
                                         'records' =>  App\DonationOffer::getDonationKindArray(),

@@ -7,6 +7,16 @@
 
 require('./bootstrap');
 window.Vue = require('vue');
+
+// Bootstrap vue 
+    //window.BootstrapVue = require('bootstrap-vue'); 
+    //require('bootstrap-vue'); 
+    //var BootstrapVue = require('bootstrap-vue');
+    //Vue.use(BootstrapVue);
+    //This imports <b-modal> as well as the v-b-modal directive as a plugin:
+    import { ModalPlugin } from 'bootstrap-vue'
+    Vue.use(ModalPlugin)
+
 //var draggable = require('vuedraggable');
 //Vue.use(draggable);
 
@@ -39,6 +49,7 @@ $(function () {
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('continents-countries-selects', require('./components/ContinentsCountriesSelects.vue').default);
+Vue.component('select-teacher', require('./vendor/laravel-events-calendar/components/SelectTeacher.vue').default);
 
 window.myApp = new Vue({  // In this way the object myApp is accessible in the browser console for debugging purposes
     el: '#app'
@@ -64,6 +75,7 @@ window.myApp = new Vue({  // In this way the object myApp is accessible in the b
 	import 'jquery.counterup';
     import 'sortablejs';
     import 'jquery.cookie';
+    import 'jquery-validation';
     import 'prismjs';
     import 'chart.js';
     

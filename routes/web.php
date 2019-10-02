@@ -83,6 +83,15 @@ function () {
     Route::post('/contactForm/send', 'ContactFormController@contactFormSend')->name('forms.contactform-send');
     Route::get('/contactForm/thankyou', 'ContactFormController@contactFormThankyou')->name('forms.contactform-thankyou');
 
+    /* Mass mailing */
+    Route::get('/massMailing/compose/', 'MassMailingController@massMailing')->name('forms.massmailing');
+    Route::post('/massMailing/send', 'MassMailingController@massMailingSend')->name('forms.massmailing-send');
+    Route::get('/massMailing/thankyou', 'MassMailingController@massMailingThankyou')->name('forms.massmailing-thankyou');
+
+    /* Users export */
+    Route::get('/usersExport/', 'UsersExportController@show')->name('users-export-show');
+    Route::post('/usersExport/export', 'UsersExportController@export')->name('users-export-export');
+
     /* Statistics */
     Route::get('/statistics', 'StatisticsController@index')->name('statistics');
     Route::get('/statistics/update', 'StatisticsController@store');

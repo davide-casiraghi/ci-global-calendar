@@ -30,6 +30,8 @@
         {{-- Google Analitics (before closing the head )--}}
         @include('partials.google-analytics')
         
+    <!-- debug for Vue.js - any environment, I need for Safari, remove it before go to production - https://github.com/vuejs/vue-devtools/blob/master/shells/electron/README.md -->
+        <!--<script src="http://localhost:8098"></script>-->
 </head>
 
 <body class=""> {{-- Laravel use VUE as default - https://stackoverflow.com/questions/41411344/vue-warn-cannot-find-element-app#41411385 --}}

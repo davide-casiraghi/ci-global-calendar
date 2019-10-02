@@ -1,5 +1,5 @@
 {{--
-    Date selector that use datepicker plugin - [plugin link here]
+    Date selector that use datepicker plugin (select multiple dates) - [plugin link here]
     
     PARAMETERS:
         - $title: string - the title to show

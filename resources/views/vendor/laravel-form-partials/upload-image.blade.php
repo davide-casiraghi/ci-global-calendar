@@ -37,9 +37,9 @@
             <input type="file" name="{{ $name }}" @if(!empty($value)) value="{{ $value }}" @endif class="custom-file-input">
             <label class="custom-file-label" for="{{ $name }}">
                 @if(!empty($value))
-                    Click here to upload a new image file
+                    @lang('laravel-form-partials::general.click_to_upload_new_image')
                 @else
-                    Choose file
+                    @lang('laravel-form-partials::general.chose_file')
                 @endif
             </label>
         </div>
