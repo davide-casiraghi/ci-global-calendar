@@ -41,7 +41,6 @@
                     ])
                 </div>
                 
-
                 <div class="col-12">
                     @include('laravel-form-partials::input', [
                         'title' => __('laravel-events-calendar::eventVenue.street'),

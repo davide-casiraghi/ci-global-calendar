@@ -29,7 +29,7 @@
                     <div class="col-12 mb-2">
                         <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
                         @if(!empty($donationOffer->gift_country_of))
-                            {{ $countries[$donationOffer->gift_country_of] }}
+                            {{ $countryOfTheGift->name }}
                         @else 
                             Worldwide 
                         @endif

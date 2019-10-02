@@ -16,7 +16,6 @@
     {{-- SET the repeat values, show and hide the repeat options - when the edit view is open --}}
         setRepeatValues();
             
-
     {{-- ON CHANGE --}}
 
     {{-- SET the repeat values, show and hide the repeat options - when repeat type is changed --}}
@@ -84,7 +83,6 @@
                 startDate: today
             });
         }
-
 
     {{-- POPULATE the select "Monthly on" options - when the edit view is open --}}
         function updateMonthlySelectOptions(){
