@@ -98,7 +98,8 @@ function () {
 });
 
 /* OTHER PAGES THAT SHOULD NOT BE LOCALIZED **/
-
+        
+        Route::get('/en', 'EventSearchController@index')->name('home');
     /*  Editor Filemanager */
         Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
             '\vendor\uniSharp\LaravelFilemanager\Lfm::routes()';

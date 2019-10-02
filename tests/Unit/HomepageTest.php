@@ -24,6 +24,18 @@ class HomepageTest extends TestCase
     /***************************************************************************/
 
     /**
+     * Test that logged user can see the homepage.
+     */
+    public function test_guest_user_can_see_italian_homepage()
+    {
+        // Access to the page
+        $response = $this->get('/it')
+                             ->assertStatus(200);
+    }   
+
+    /***************************************************************************/
+
+    /**
      * Test that logged user can search events in the homepage
      * If this test fail try to run -> php artisan cache:clear.
      */
