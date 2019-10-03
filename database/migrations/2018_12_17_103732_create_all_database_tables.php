@@ -347,9 +347,11 @@ class CreateAllDatabaseTables extends Migration
         Schema::dropIfExists('event_venues');
         Schema::dropIfExists('continents');
         Schema::dropIfExists('countries');
-        
-        
-
+        Schema::table('region_translations', function (Blueprint $table) {
+            $table->dropForeign('region_translations_region_id_foreign');
+        });
+        Schema::dropIfExists('region_translations');
+        Schema::dropIfExists('regions');
         Schema::dropIfExists('event_has_teachers');
         Schema::dropIfExists('organizers');
         Schema::dropIfExists('event_has_organizers');
