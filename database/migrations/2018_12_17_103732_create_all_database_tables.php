@@ -157,6 +157,26 @@ class CreateAllDatabaseTables extends Migration
             $table->integer('continent_id');
             $table->timestamps();
         });
+        Schema::create('regions', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            
+            $table->integer('country_id');
+            $table->string('timezone');
+            
+            $table->timestamps();
+        });
+        Schema::create('region_translations', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            
+            $table->bigInteger('region_id')->unsigned();
+            $table->string('name');
+            $table->string('slug');
+            $table->string('locale')->index();
+
+            $table->unique(['region_id', 'locale']);
+            $table->foreign('region_id')->references('id')->on('regions')->onDelete('cascade');
+            $table->timestamps();
+        });
         Schema::create('event_has_teachers', function (Blueprint $table) {
             $table->integer('event_id');
             $table->integer('teacher_id');
@@ -327,6 +347,9 @@ class CreateAllDatabaseTables extends Migration
         Schema::dropIfExists('event_venues');
         Schema::dropIfExists('continents');
         Schema::dropIfExists('countries');
+        
+        
+
         Schema::dropIfExists('event_has_teachers');
         Schema::dropIfExists('organizers');
         Schema::dropIfExists('event_has_organizers');
