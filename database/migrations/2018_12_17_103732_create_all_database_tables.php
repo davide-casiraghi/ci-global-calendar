@@ -159,15 +159,15 @@ class CreateAllDatabaseTables extends Migration
         });
         Schema::create('regions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            
+
             $table->integer('country_id');
             $table->string('timezone');
-            
+
             $table->timestamps();
         });
         Schema::create('region_translations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            
+
             $table->bigInteger('region_id')->unsigned();
             $table->string('name');
             $table->string('slug');
