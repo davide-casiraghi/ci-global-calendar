@@ -54,7 +54,7 @@ function () {
     /* Donation Offers */
     Route::get('/donationOffersPublic', 'DonationOfferController@index')->defaults('page_kind', 'public');
     Route::resource('donationOffers', 'DonationOfferController');
-    //Route::get('/donationOffersPublic/', 'DonationOfferController@indexPublic')->name('donationOffers.public');
+    Route::get('/en/donationOffers/create', 'DonationOfferController@create');
 
     /* Authentication */
     //Auth::routes();
