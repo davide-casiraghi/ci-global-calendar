@@ -25,9 +25,9 @@ function () {
     Route::get('/eventSearch#dataarea', 'EventSearchController@index');
     
     /* Homepage - Ajax to update contients, countries, regions */
-    Route::get('/update_continents/', 'EventSearchController@updateContinents')->name('eventSearch.updateContinents');
-    Route::get('/update_countries/', 'EventSearchController@updateCountries')->name('eventSearch.updateCountries');
-    Route::get('/update_regions/', 'EventSearchController@updateRegions')->name('eventSearch.updateRegions');
+    Route::get('/update_continents_dropdown/', 'EventSearchController@updateContinentsDropdown')->name('eventSearch.updateContinents');
+    Route::get('/update_countries_dropdown/', 'EventSearchController@updateCountriesDropdown')->name('eventSearch.updateCountries');
+    Route::get('/update_regions_dropdown/', 'EventSearchController@updateRegionsDropdown')->name('eventSearch.updateRegions');
     
     /* Users */
     Route::resource('users', 'UserController');

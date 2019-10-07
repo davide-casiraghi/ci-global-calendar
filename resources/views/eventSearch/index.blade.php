@@ -21,7 +21,7 @@
             //alert( this.value );
             
             var request = $.ajax({
-                url: "/event/monthSelectOptions",
+                url: "/update_continents_dropdown",
                 data: {
                     country_id: $("select[name='country_id']").val(),
                 },
