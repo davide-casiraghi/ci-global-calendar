@@ -18,7 +18,19 @@
     
     {{-- Update Continent SELECT on change Country SELECT --}}
         $("select[name='country_id']").on('change', function() {
-        //alert( this.value );
+            //alert( this.value );
+            
+            var request = $.ajax({
+                url: "/event/monthSelectOptions",
+                data: {
+                    country_id: $("select[name='country_id']").val(),
+                },
+                success: function( data ) {
+                    $("#on_monthly_kind").html(data);
+                    $("#on_monthly_kind").selectpicker('refresh');
+                    $("#on_monthly_kind").selectpicker('val', montlyOnSelected);
+                }
+            });
         });
 
     {{-- Update Country SELECT on change Continent SELECT --}}
@@ -136,10 +148,11 @@
                         </p>
                         
                         
-                        
-                        <continents-countries-selects select_a_continent_placeholder="@lang('homepage-serach.select_a_continent')" select_a_country_placeholder="@lang('homepage-serach.select_a_country')" continent-selected="{{$searchContinent}}" country-selected="{{$searchCountry}}"></continents-countries-selects>
-                        
                         {{--
+                        <continents-countries-selects select_a_continent_placeholder="@lang('homepage-serach.select_a_continent')" select_a_country_placeholder="@lang('homepage-serach.select_a_country')" continent-selected="{{$searchContinent}}" country-selected="{{$searchCountry}}"></continents-countries-selects>
+                        --}}
+                        
+                        
                         @include('laravel-form-partials::select', [
                               'title' =>  '',
                               'name' => 'continent_id',
@@ -158,7 +171,7 @@
                               'selected' => $searchCountry,
                               'liveSearch' => 'true',
                               'mobileNativeMenu' => false,
-                        ])--}}
+                        ])
                         
                         @include('laravel-form-partials::input', [
                               'title' => '',
