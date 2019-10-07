@@ -20,15 +20,17 @@
         $("select[name='country_id']").on('change', function() {
             //alert( this.value );
             
+            //var montlyOnSelected = $("input[name='on_monthly_kind_value']").val();
+            
             var request = $.ajax({
                 url: "/update_continents_dropdown",
                 data: {
                     country_id: $("select[name='country_id']").val(),
                 },
                 success: function( data ) {
-                    $("#on_monthly_kind").html(data);
-                    $("#on_monthly_kind").selectpicker('refresh');
-                    $("#on_monthly_kind").selectpicker('val', montlyOnSelected);
+                    $("#continent_id").html(data);
+                    $("#continent_id").selectpicker('refresh');
+                    //$("#continent_id").selectpicker('val', montlyOnSelected);
                 }
             });
         });
