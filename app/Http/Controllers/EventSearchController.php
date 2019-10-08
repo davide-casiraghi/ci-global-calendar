@@ -136,24 +136,15 @@ class EventSearchController extends Controller
     /***************************************************************************/
 
     /**
-     * Return and HTML with the updated continent dropdown for the homepage
+     * Return the contient id of the select country
      * after a country get selected
      *
-     * @param  string $country_code
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function updateContinentsDropdown(Request $request){
-        $continents = Continent::getContinents();
         $selectedCountry = Country::find($request->get('country_id'));
-        
-        // GENERATE the HTML to return
-            $ret = "<select name='continent_id' id='continent_id' class='selectpicker' title='".__('homepage-serach.select_a_continent')."'>";
-            foreach ($continents as $key => $continent) {
-                $selected = ($selectedCountry->continent_id == $key) ? "selected" : ""; 
-                $ret .= "<option value='".$key."' ".$selected.">".$continent.'</option>';
-            }
-            $ret .= '</select>';
-
+        $ret = $selectedCountry->continent_id;
         return $ret;
     }
     

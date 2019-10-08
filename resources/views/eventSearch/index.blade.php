@@ -28,9 +28,10 @@
                     country_id: $("select[name='country_id']").val(),
                 },
                 success: function( data ) {
-                    $("#continent_id").html(data);
-                    $("#continent_id").selectpicker('refresh');
-                    //$("#continent_id").selectpicker('val', montlyOnSelected);
+                    //$("#continent_id").html(data);
+                    //$("#continent_id").selectpicker('refresh');
+                    //alert(data);
+                    $("#continent_id").selectpicker('val', data);
                 }
             });
         });
