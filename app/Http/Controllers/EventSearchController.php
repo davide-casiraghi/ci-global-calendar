@@ -149,7 +149,6 @@ class EventSearchController extends Controller
         // GENERATE the HTML to return
             $ret = "<select name='continent_id' id='continent_id' class='selectpicker' title='".__('homepage-serach.select_a_continent')."'>";
             foreach ($continents as $key => $continent) {
-                
                 $selected = ($selectedCountry->continent_id == $key) ? "selected" : ""; 
                 $ret .= "<option value='".$key."' ".$selected.">".$continent.'</option>';
             }
