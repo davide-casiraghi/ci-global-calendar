@@ -142,13 +142,15 @@ class EventSearchController extends Controller
      * @param  string $country_code
      * @return \Illuminate\Http\Response
      */
-    public function updateContinentsDropdown($country_code){
-        $continents = Continent::getContinents($country_code);
-    
+    public function updateContinentsDropdown(Request $request){
+        $continents = Continent::getContinents();
+        $selectedCountry = Country::find($request->get('country_id'));
+        
         // GENERATE the HTML to return
             $ret = "<select name='continent_id' id='continent_id' class='selectpicker' title='".__('homepage-serach.select_a_continent')."'>";
             foreach ($continents as $key => $continent) {
-                $ret .= "<option value='".$continent->id."'>".$continent->name.'</option>';
+                $selected = ($selectedCountry->continent_id == $continent->id) ? "selected" : ""; 
+                $ret .= "<option value='".$continent->id."' ".$selected.">".$continent->name.'</option>';
             }
             $ret .= '</select>';
 
