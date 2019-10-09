@@ -49,7 +49,7 @@
                     if (country_id != null){
                         setTimeout(() => {
                             $("#country_id").selectpicker('val', country_id);
-                        }, 200);
+                        }, 300);
                      }
                  }
 		});
