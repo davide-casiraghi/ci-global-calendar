@@ -44,7 +44,9 @@
                 var continent_id =  $("select[name='continent_id']").val();
                 var country_id =  $("select[name='country_id']").val();
                  
-                if (continent_id != null){
+                if (continent_id != ''){
+                    
+                    alert(continent_id);
                     updateCountriesDropdown(continent_id);
                     if (country_id != null){
                         setTimeout(() => {
