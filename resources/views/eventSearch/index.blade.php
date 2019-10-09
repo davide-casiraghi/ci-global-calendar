@@ -46,7 +46,7 @@
                  
                 if (continent_id != ''){
                     
-                    alert(continent_id);
+                    //alert(continent_id);
                     updateCountriesDropdown(continent_id);
                     if (country_id != null){
                         setTimeout(() => {
