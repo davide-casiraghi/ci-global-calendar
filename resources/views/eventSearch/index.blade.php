@@ -60,15 +60,11 @@
             var request = $.ajax({
                 url: "/update_countries_dropdown",
                 data: {
-                    //continent_id: $("select[name='continent_id']").val(),
                     continent_id: selectedContinent,
                 },
                 success: function( data ) {
                     $("#country_id").html(data);
                     $("#country_id").selectpicker('refresh');
-                    
-                    //alert(data);
-                    //$("#continent_id").selectpicker('val', data);
                 }
             });
         }
