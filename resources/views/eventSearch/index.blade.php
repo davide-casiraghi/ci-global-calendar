@@ -33,35 +33,29 @@
 
     {{-- Update Country SELECT on change Continent SELECT --}}
         $("select[name='continent_id']").on('change', function() {
-            //alert( this.value );
             updateCountriesDropdown(this.value);
         });
         
         
         
         $(document).ready(function(){
-		     
-             var continent_id =  $("select[name='continent_id']").val();
-             var country_id =  $("select[name='country_id']").val();
-             
-             if (continent_id != null){
-                 updateCountriesDropdown(continent_id);
+            
+            {{-- On page load update the Country SELECT if a Continent is selected --}}
+                var continent_id =  $("select[name='continent_id']").val();
+                var country_id =  $("select[name='country_id']").val();
                  
-                 if (country_id != null){
-                    setTimeout(() => {
-                        $("#country_id").selectpicker('val', country_id);
-                    }, 200);
+                if (continent_id != null){
+                    updateCountriesDropdown(continent_id);
+                    if (country_id != null){
+                        setTimeout(() => {
+                            $("#country_id").selectpicker('val', country_id);
+                        }, 200);
+                     }
                  }
-                 
-                 
-             }
-             
 		});
         
-        
-        
-        
-        {{-- Force the same date start and end (this is to avoid mistakes of the users that set date end to the end of repetition) --}}
+        {{-- Update the Countries SELECT with just the ones 
+             relative to the selected continent --}}
         function updateCountriesDropdown(selectedContinent){
             var request = $.ajax({
                 url: "/update_countries_dropdown",
