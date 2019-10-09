@@ -19,13 +19,11 @@
     {{-- Update Continent SELECT on change Country SELECT --}}
         $("select[name='country_id']").on('change', function() {
             //alert( this.value );
-            
-            //var montlyOnSelected = $("input[name='on_monthly_kind_value']").val();
-            
+
             var request = $.ajax({
                 url: "/update_continents_dropdown",
                 data: {
-                    country_id: $("select[name='country_id']").val(),
+                    country_id: this.value,
                 },
                 success: function( data ) {
                     $("#continent_id").selectpicker('val', data);
