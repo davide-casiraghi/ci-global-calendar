@@ -38,7 +38,21 @@
 
     {{-- Update Country SELECT on change Continent SELECT --}}
         $("select[name='continent_id']").on('change', function() {
-        //alert( this.value );
+            //alert( this.value );
+            var request = $.ajax({
+                url: "/update_countries_dropdown",
+                data: {
+                    //continent_id: $("select[name='continent_id']").val(),
+                    continent_id: this.value,
+                },
+                success: function( data ) {
+                    $("#country_id").html(data);
+                    $("#country_id").selectpicker('refresh');
+                    
+                    //alert(data);
+                    //$("#continent_id").selectpicker('val', data);
+                }
+            });
         });
 
 @stop
