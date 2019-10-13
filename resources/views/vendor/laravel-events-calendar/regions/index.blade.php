@@ -30,11 +30,21 @@
         <form class="searchForm mt-3" action="{{ route('regions.index') }}" method="GET">
             @csrf
             <div class="row">
-                <div class="col-12 col-sm-7 pr-sm-2">
+                <div class="col-12 col-sm-6 pr-sm-2">
                     @include('laravel-form-partials::input', [
                         'name' => 'keywords',
                         'placeholder' => __('laravel-events-calendar::region.search_by_region_name'),
                         'value' => $searchKeywords
+                    ])
+                </div>
+                <div class="col-12 col-sm-6">
+                    @include('laravel-form-partials::select', [
+                        'name' => 'country_id',
+                        'placeholder' => __('laravel-events-calendar::general.filter_by_country'),
+                        'records' => $countries,
+                        'selected' => $searchCountry,
+                        'liveSearch' => 'true',
+                        'mobileNativeMenu' => false,
                     ])
                 </div>
                 <div class="col-12 col-sm-5 mt-2 mt-sm-0">
