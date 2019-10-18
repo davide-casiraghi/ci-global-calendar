@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('title',  "Regions / States" )
 
 @section('content')

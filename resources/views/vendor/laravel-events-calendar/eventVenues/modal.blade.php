@@ -81,8 +81,8 @@
                     'required' => true,
                 ])
             </div>
-
-            {{-- Show the created by field just to the admin and super admin --}}
+            
+            {{-- Created by - hidden --}}
             <div class="col-12 d-none">
                 @include('laravel-form-partials::select', [
                     'title' => __('laravel-events-calendar::general.created_by'),

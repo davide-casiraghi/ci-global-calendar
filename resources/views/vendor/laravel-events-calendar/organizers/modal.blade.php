@@ -84,20 +84,20 @@
                    'required' => true,
                ])
            </div>
-
+           
            {{-- Created by - hidden --}}
-            <div class="col-12 d-none">
-                @include('laravel-form-partials::select', [
-                    'title' => __('laravel-events-calendar::general.created_by'),
-                    'name' => 'created_by',
-                    'placeholder' => __('laravel-events-calendar::general.select_owner'),
-                    'records' => $users,
-                    'liveSearch' => 'true',
-                    'mobileNativeMenu' => false,
-                    'selected' => Auth::id(),
-                    'required' => false,
-                ])
-            </div>
+           <div class="col-12 d-none">
+               @include('laravel-form-partials::select', [
+                   'title' => __('laravel-events-calendar::general.created_by'),
+                   'name' => 'created_by',
+                   'placeholder' => __('laravel-events-calendar::general.select_owner'),
+                   'records' => $users,
+                   'liveSearch' => 'true',
+                   'mobileNativeMenu' => false,
+                   'selected' => Auth::id(),
+                   'required' => false,
+               ])
+           </div>
            
            <div class="col-12">
                @include('laravel-form-partials::input', [
