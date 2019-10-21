@@ -35,31 +35,22 @@
         submitHandler: function(form) {
             //alert("Do some stuff... 2");
 
-            //var file = $("input[type='file']")[0].files[0];
+             $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
 
             $.ajax({
                 url: '/create-teacher/modal/',
-                data: {
-                    "_token": "{{ csrf_token() }}",
-                    name: $("input[name='name']").val(),
-                    created_by: $("select[name='created_by']").val(),
-                    country_id: $("select[name='country_id']").val(),
-                    bio: $("textarea[name='bio']").val(),
-                    year_starting_practice: $("input[name='year_starting_practice']").val(),
-                    year_starting_teach: $("input[name='year_starting_teach']").val(),
-                    significant_teachers: $("textarea[name='significant_teachers']").val(),                
-                    facebook: $("input[name='facebook']").val(),
-                    website: $("input[name='website']").val(),
-                    /*profile_picture: $("input[name='profile_picture']").val().replace(/C:\\fakepath\\/i, '')*/
-                    //profile_picture: $("input[type='file']")[0].files[0],
-                },
+                data: new FormData($("#teacherModalForm")[0]),
                 type: 'POST',
-                /*mimeType: "multipart/form-data",
                 contentType: false,
-                processData: false,*/
+                processData: false,
                 success: function(res) {
                     console.log("teacher created succesfully");
                     console.log(res.teacherId);
+
                     $('.modalFrame').modal('hide');
                     
                     $("select#teacher").append('<option value="'+res.teacherId+'" selected="">'+res.teacherName+'</option>');
