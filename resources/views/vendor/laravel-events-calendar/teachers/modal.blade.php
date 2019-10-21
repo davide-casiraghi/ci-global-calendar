@@ -34,6 +34,9 @@
         },
         submitHandler: function(form) {
             //alert("Do some stuff... 2");
+
+            //var file = $("input[type='file']")[0].files[0];
+
             $.ajax({
                 url: '/create-teacher/modal/',
                 data: {
@@ -47,9 +50,13 @@
                     significant_teachers: $("textarea[name='significant_teachers']").val(),                
                     facebook: $("input[name='facebook']").val(),
                     website: $("input[name='website']").val(),
-                    profile_picture: $("input[name='profile_picture']").val()
+                    /*profile_picture: $("input[name='profile_picture']").val().replace(/C:\\fakepath\\/i, '')*/
+                    //profile_picture: $("input[type='file']")[0].files[0],
                 },
                 type: 'POST',
+                /*mimeType: "multipart/form-data",
+                contentType: false,
+                processData: false,*/
                 success: function(res) {
                     console.log("teacher created succesfully");
                     console.log(res.teacherId);
@@ -181,6 +188,7 @@
             @include('laravel-form-partials::upload-image', [
                   'title' => __('laravel-events-calendar::teacher.upload_profile_picture'), 
                   'name' => 'profile_picture',
+                  'folder' => 'teachers_profile',
                   'value' => ''
             ])
         </div>
