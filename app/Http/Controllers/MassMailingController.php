@@ -66,8 +66,8 @@ class MassMailingController extends Controller
         // Send the email to all the users in the user table
         foreach ($users as $key => $user) {
             //if ($user->id == 1){
-                $report['emailTo'] = $user->email;
-                Mail::send(new MassMailing($report));
+            $report['emailTo'] = $user->email;
+            Mail::send(new MassMailing($report));
             //}
         }
 
