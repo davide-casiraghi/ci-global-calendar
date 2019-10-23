@@ -54,7 +54,7 @@ class MassMailingController extends Controller
 
         $report['senderEmail'] = 'admin@globalcicalendar.com';
         $report['senderName'] = 'CI Global Calendar - Administrator';
-        $report['subject'] = 'Message from the contact form';
+        $report['subject'] = 'Message from the CI Global Calendar';
 
         $report['name'] = 'CI Global Calendar - Administrator';
         $report['email'] = env('ADMIN_MAIL');
