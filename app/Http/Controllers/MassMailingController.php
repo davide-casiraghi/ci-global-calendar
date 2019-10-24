@@ -67,8 +67,8 @@ class MassMailingController extends Controller
         foreach ($users as $key => $user) {
             $when = now()->addMinutes($key);
             //if ($user->id == 1){
-                $report['emailTo'] = $user->email;
-                //Mail::send(new MassMailing($report));
+            $report['emailTo'] = $user->email;
+            //Mail::send(new MassMailing($report));
                 Mail::later($when, new MassMailing($report)); //send an email each minute to avoid Mailgun limitation (https://github.com/davide-casiraghi/ci-global-calendar/issues/167)
             //}
         }
