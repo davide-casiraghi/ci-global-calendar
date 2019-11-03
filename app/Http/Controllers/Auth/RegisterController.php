@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
-use App\Mail\UserActivation;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\UserActivation;
+use App\Mail\UserActivationConfirmation;
+use App\User;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\UserActivationConfirmation;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {

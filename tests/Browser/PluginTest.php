@@ -3,9 +3,9 @@
 namespace Tests\Browser;
 
 use App\Post;
-use Tests\DuskTestCase;
-use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Laravel\Dusk\Browser;
+use Tests\DuskTestCase;
 
 class PluginTest extends DuskTestCase
 {

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Validator;
 use App\Category;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Validator;
 
 class CategoryController extends Controller
 {

@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
-use Validator;
 use App\Category;
-use App\Classes\CardClass;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
-use App\Classes\ColumnsClass;
-use App\Classes\GalleryClass;
 use App\Classes\AccordionClass;
-use App\Classes\StatsDonateClass;
-use App\Classes\PaypalButtonClass;
-use Illuminate\Support\Facades\DB;
+use App\Classes\CardClass;
 use App\Classes\CardsCarouselClass;
-use Illuminate\Support\Facades\App;
+use App\Classes\ColumnsClass;
 use App\Classes\CommunityGoalsClass;
+use App\Classes\GalleryClass;
+use App\Classes\PaypalButtonClass;
+use App\Classes\StatsDonateClass;
+use App\Post;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Validator;
 
 class PostController extends Controller
 {
