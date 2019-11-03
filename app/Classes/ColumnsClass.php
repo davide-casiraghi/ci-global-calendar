@@ -8,8 +8,8 @@
 
 namespace App\Classes;
 
-use App\Post;
 use App\Category;
+use App\Post;
 use Illuminate\Support\Str;
 
 class ColumnsClass

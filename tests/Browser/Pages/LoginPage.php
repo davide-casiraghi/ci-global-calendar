@@ -3,8 +3,8 @@
 namespace Tests\Browser\Pages;
 
 use App\User;
-use Laravel\Dusk\Browser;
 use Illuminate\Support\Facades\Hash;
+use Laravel\Dusk\Browser;
 
 class LoginPage extends Page
 {
