@@ -41,19 +41,21 @@
         $(document).ready(function(){
             
             {{-- On page load update the Country SELECT if a Continent is selected --}}
-                var continent_id =  $("select[name='continent_id']").val();
-                var country_id =  $("select[name='country_id']").val();
-                 
-                if (continent_id != ''){
-                    
-                    //alert(continent_id);
-                    updateCountriesDropdown(continent_id);
-                    if (country_id != null){
-                        setTimeout(() => {
-                            $("#country_id").selectpicker('val', country_id);
-                        }, 300);
+                setTimeout(function(){
+                    var continent_id =  $("select[name='continent_id']").val();
+                    var country_id =  $("select[name='country_id']").val();
+                     
+                    if (continent_id != ''){
+                        updateCountriesDropdown(continent_id);
+                        if (country_id != null){
+                            setTimeout(() => {
+                                $("#country_id").selectpicker('val', country_id);
+                            }, 300);
+                         }
                      }
-                 }
+                }, 3000);
+                
+                
 		});
         
         {{-- Update the Countries SELECT with just the ones 
