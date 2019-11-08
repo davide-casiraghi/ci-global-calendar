@@ -10,8 +10,8 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
 use App\Menu;
+use Closure;
 use Illuminate\Support\Facades\Auth;
 
 class GenerateMenus

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Validator;
 use App\BackgroundImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Validator;
 
 class BackgroundImageController extends Controller
 {
