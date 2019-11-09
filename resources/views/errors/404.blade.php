@@ -1,92 +1,138 @@
-@php ($barsBackground = '#B5A575')
+@extends('layouts.app') 
+{{--@extends('layouts.hpEventSearch')--}}
 
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <title>Page not found - 404</title>
-	
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="{{$barsBackground}}"/> {{-- Theming the browser's address bar to match your brand's colors provides a more immersive user experience.--}}
-    <meta name="description" content="@hasSection('description')@yield('description')@else @lang('homepage-serach.find_information')@endif">
-    
-    {{-- Facebook tags  --}}
-        @yield('fb-tags')
-        
-    {{-- CSRF Token --}}
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<?php use App\BackgroundImage;?>
 
-    {{-- CSS --}}
-        <link href="{{ asset('css/vendor.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+@section('javascript-document-ready')
+    @parent
 
-        @yield('css')
-        
-    {{-- JS that need to stay in the head--}}
-        @yield('javascript-head')
+    {{--  Smooth Scroll on search - when we have anchor on the url --}}
+        if ( window.location.hash ) scroll(0,0); {{-- to top right away --}}
+        setTimeout( function() { scroll(0,0); }, 1); {{-- void some browsers issue --}}
+
+        if(window.location.hash) {
+            {{-- smooth scroll to the anchor id --}}
+            $('html, body').animate({
+                scrollTop: $(window.location.hash).offset().top + 'px'
+            }, 1300, 'swing');
             
-        {{-- Google Analitics (before closing the head )--}}
-        @include('partials.google-analytics')
-</head>
-<body class="light-gray-bg">
-  @if(!env('SITE_OFFLINE'))
-        @include('laravel-quick-menus::menus.nav.nav', [
-            'container' => true,
-            'paddingX' => '',
-            'backgroundColor' => $barsBackground,
-            'stickyNavbar' => true,
-            'transparentBarInHp' => true,
-        ])
+        }
+    
+    {{-- Update Continent SELECT on change Country SELECT --}}
+        $("select[name='country_id']").on('change', function() {
+            //alert( this.value );
 
-        <div class="beforeContent pt-5">
-            @yield('beforeContent')
+            var request = $.ajax({
+                url: "/update_continents_dropdown",
+                data: {
+                    country_id: this.value,
+                },
+                success: function( data ) {
+                    $("#continent_id").selectpicker('val', data);
+                }
+            });
+        });
+
+    {{-- Update Country SELECT on change Continent SELECT --}}
+        $("select[name='continent_id']").on('change', function() {
+            updateCountriesDropdown(this.value);
+        });
+        
+        
+        
+        $(document).ready(function(){
+            
+            {{-- On page load update the Country SELECT if a Continent is selected --}}
+                var continent_id =  $("select[name='continent_id']").val();
+                var country_id =  $("select[name='country_id']").val();
+                 
+                if (continent_id != ''){
+                    
+                    //alert(continent_id);
+                    updateCountriesDropdown(continent_id);
+                    if (country_id != null){
+                        setTimeout(() => {
+                            $("#country_id").selectpicker('val', country_id);
+                        }, 300);
+                     }
+                 }
+		});
+        
+        {{-- Update the Countries SELECT with just the ones 
+             relative to the selected continent --}}
+        function updateCountriesDropdown(selectedContinent){
+            var request = $.ajax({
+                url: "/update_countries_dropdown",
+                data: {
+                    continent_id: selectedContinent,
+                },
+                success: function( data ) {
+                    $("#country_id").html(data);
+                    $("#country_id").selectpicker('refresh');
+                }
+            });
+        }
+
+@stop
+
+@section('beforeContent')
+
+    {{-- This is to show the user activation message in homepage to the Admin, when click on the user activation link --}}
+        @if(session()->has('message'))
+            <div class="alert alert-success" style="z-index:3;">
+                {{ session()->get('message') }}
+            </div>
+        @endif
+        
+        
+
+    {{-- HI-Light for the donations --}}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                @include('partials.hilight', [
+                    'title' =>  'Dear users: ',
+                    'text' =>  'The CI Global Calendar is a non-profit project to support the CI Global Community. 
+                                To protect our independence we don’t want to run ads. We have no governmental funds. 
+                                If the calendar is useful to you take one minute to help us keep it online another year. If everyone reading this message would give the same amount that you offer for a jam, our fundraiser would be done within a week. Thank you!',
+                      'linkText' => 'Donate',
+                      'linkUrl'  => '/post/donate',
+                ])
+            </div>
         </div>
+    </div>
+    
+    
 
-        <div id="app" class="container">
-            <!--@yield('content')-->
-			<div class="container">
-				<div class="row-intro">
-					<div class="col-12 text-center">
+
+    {{-- The event search interface in Homepage --}}
+    <div class="eventSearch jumbotron">
+        <?php $backgroundImages = BackgroundImage::all();?>
+        @include('partials.jumboBackgroundChange',['backgroundImages' => $backgroundImages] )
+		
+		
+        
+        
+        <div class="container">
+			<div class="row-intro">
+				<div class="col-12 text-center">
 					<br>
 					<p class="subtitle text-black">
-						The page you request has not been found, please report this issue to the <a href="/en/contactForm/compose/project-manager">administrator</a>.
+					<h1 class="text-white mb-3">The page you request has not been found, please report this issue to the <a href="/en/contactForm/compose/project-manager">administrator</a>.</h1>
 					</p>
-					</div>
 				</div>
 			</div>
-        </div>
-
-        <div class="afterContent">
-            @yield('afterContent')
-        </div>
+		</div>   
         
-        @include('footer.footer', [
-            'container' => true,
-            'paddingX' => '',
-            'backgroundColor' => $barsBackground,
-            'stickyFooter' => true,
-            'items' => DavideCasiraghi\LaravelQuickMenus\Models\MenuItem::getItemsTree(3),
-        ])
-        
-        @include('partials.cookie-consent')
-    
-    @else
-        @include('partials.offline-for-maintenance')
-    @endif
-	{{-- JS --}}
-        <script src="{{ asset('js/manifest.js') }}" ></script>
-        <script src="{{ asset('js/vendor.js') }}" ></script>
-        <script src="{{ asset('js/app.js') }}" ></script>
+        <div class="bg-overlay"></div>
 
-        @yield('javascript')
 
-        <script>
-            $(document).ready(function(){
-                @yield('javascript-document-ready')
-            });
-        </script>
+    </div>
 
- 
-</body>
-</html>
+@endsection
+
+{{--
+@section('content')
+
+@endsection
+--}}
