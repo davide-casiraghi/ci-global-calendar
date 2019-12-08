@@ -36,11 +36,17 @@
             updateCountriesDropdown(this.value);
         });
         
-        
+    {{-- Update Region SELECT on change Country SELECT --}}
+        $("select[name='country_id']").on('change', function() {
+            updateRegionsDropdown(this.value);
+        });    
         
         $(document).ready(function(){
             
-            {{-- On page load update the Country SELECT if a Continent is selected --}}
+            {{-- On page load update 
+                    - the Country SELECT if a Continent is selected
+                    - the Region SELECT if a Country is selected
+             --}}
                 setTimeout(function(){
                     var continent_id =  $("select[name='continent_id']").val();
                     var country_id =  $("select[name='country_id']").val();
@@ -53,6 +59,16 @@
                             }, 300);
                          }
                      }
+                     
+                     if (country_id != ''){
+                         updateRegionsDropdown(country_id);
+                         if (region_id != null){
+                             setTimeout(() => {
+                                 $("#region_id").selectpicker('val', region_id);
+                             }, 300);
+                          }
+                      }
+                     
                 }, 3000);
                 
                 
@@ -69,6 +85,21 @@
                 success: function( data ) {
                     $("#country_id").html(data);
                     $("#country_id").selectpicker('refresh');
+                }
+            });
+        }
+        
+        {{-- Update the Regions SELECT with just the ones 
+             relative to the selected country --}}
+        function updateRegionsDropdown(selectedCountry){
+            var request = $.ajax({
+                url: "/update_regions_dropdown",
+                data: {
+                    country_id: selectedCountry,
+                },
+                success: function( data ) {
+                    $("#region_id").html(data);
+                    $("#region_id").selectpicker('refresh');
                 }
             });
         }
