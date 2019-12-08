@@ -13,7 +13,7 @@
     <div class="container max-w-md px-0">
         <div class="row">
             <div class="col-12 col-sm-6">
-                <h3>@lang('laravel-events-calendar::region.regions_management')</h3>
+                <h4>@lang('laravel-events-calendar::region.regions_management')</h4>
             </div>
             <div class="col-12 col-sm-6 mt-4 mt-sm-0 text-right">
                 <a class="btn btn-success create-new" href="{{ route('regions.create') }}"><i class="fa fas fa-plus-circle"></i> @lang('laravel-events-calendar::region.create_new_region')</a>
@@ -47,7 +47,7 @@
                         'mobileNativeMenu' => false,
                     ])
                 </div>
-                <div class="col-12 col-sm-5 mt-2 mt-sm-0">
+                <div class="col-12 mt-2">
                     <input type="submit" value="@lang('laravel-events-calendar::general.search')" class="btn btn-primary float-right ml-2" style="white-space: normal;">
                     <a id="resetButton" class="btn btn-outline-primary float-right" href="#">@lang('laravel-events-calendar::general.reset')</a>
                 </div>
