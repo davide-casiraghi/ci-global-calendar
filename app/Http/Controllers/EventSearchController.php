@@ -192,5 +192,30 @@ class EventSearchController extends Controller
         return $ret;
     }
 
-    //    updateRegionsDropdown
+    /***************************************************************************/
+
+    /**
+     * Return and HTML with the updated regions dropdown for the homepage
+     * after a country get selected.
+     *
+     * @param \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */ //aaaaa
+    public function updateRegionsDropdown(Request $request)
+    {
+        $regions = Region::join('region_translations', 'regions.id', '=', 'region_translations.region_id')
+                ->where('locale', 'en')
+                ->where('country_id', $request->input('country_id'))
+                ->orderBy('name')
+                ->pluck('name','region_translations.region_id AS id');  
+
+        // GENERATE the HTML to return
+        $ret = "<select name='region_id' id='region_id' class='selectpicker' title='".__('homepage-serach.select_a_region')."'>";
+        foreach ($regions as $key => $region) {
+            $ret .= "<option value='".$region->id."'>".$region->name.'</option>';
+        }
+        $ret .= '</select>';
+
+        return $ret;
+    }
 }
