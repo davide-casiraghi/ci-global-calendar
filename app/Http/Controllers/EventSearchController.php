@@ -50,6 +50,13 @@ class EventSearchController extends Controller
             return Continent::orderBy('name')->pluck('name', 'id');
         });
 
+        if ($request->input('country_id')){
+            $regions = [];
+        }
+        else{
+            $regions = [];
+        }
+
         $venues = Cache::remember('venues', $cacheExpireTime, function () {
             return EventVenue::orderBy('name')->pluck('name', 'id');
         });
@@ -62,6 +69,7 @@ class EventSearchController extends Controller
         $filters['keywords'] = $request->input('keywords');
         $filters['category'] = $request->input('category_id');
         $filters['country'] = $request->input('country_id');
+        $filters['region'] = $request->input('region_id');
         $filters['city'] = $request->input('city_name');
         $filters['continent'] = $request->input('continent_id');
         $filters['teacher'] = $request->input('teacher_id');
@@ -70,17 +78,22 @@ class EventSearchController extends Controller
         $filters['endDate'] = LaravelEventsCalendar::formatDatePickerDateForMysql($request->input('endDate'));
 
         $events = Event::getEvents($filters, 20);
+        
+        
+        
 
         return view('eventSearch.index', compact('events'))
             ->with('i', (request()->input('page', 1) - 1) * 20)
             ->with('eventCategories', $eventCategories)
             ->with('continents', $continents)
             ->with('countries', $countries)
+            ->with('regions', $regions)
             ->with('venues', $venues)
             ->with('teachers', $teachers)
             ->with('searchKeywords', $filters['keywords'])
             ->with('searchCategory', $filters['category'])
             ->with('searchCountry', $filters['country'])
+            ->with('searchRegion', $filters['region'])
             ->with('searchContinent', $filters['continent'])
             ->with('searchCity', $filters['city'])
             ->with('searchTeacher', $filters['teacher'])

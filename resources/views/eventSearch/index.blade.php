@@ -208,6 +208,16 @@
                               'mobileNativeMenu' => false,
                         ])
                         
+                        @include('laravel-form-partials::select', [
+                              'title' =>  '',
+                              'name' => 'region_id',
+                              'placeholder' => __('homepage-serach.select_a_region'),
+                              'records' => $regions,
+                              'selected' => $searchRegion,
+                              'liveSearch' => 'true',
+                              'mobileNativeMenu' => false,
+                        ])
+                        
                         @include('laravel-form-partials::input', [
                               'title' => '',
                               'name' => 'city_name',
