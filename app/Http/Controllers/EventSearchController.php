@@ -14,6 +14,7 @@ use App\Http\Resources\Continent as ContinentResource;
 use DavideCasiraghi\LaravelEventsCalendar\Facades\LaravelEventsCalendar;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Continent;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Region;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
 use DavideCasiraghi\LaravelEventsCalendar\Models\EventCategory;
 use DavideCasiraghi\LaravelEventsCalendar\Models\EventVenue;
@@ -51,7 +52,12 @@ class EventSearchController extends Controller
         });
 
         if ($request->input('country_id')){
-            $regions = [];
+            $regions = Region::join('region_translations', 'regions.id', '=', 'region_translations.region_id')
+                    ->where('locale', 'en')
+                    ->where('country_id', $request->input('country_id'))
+                    ->orderBy('name')
+                    ->pluck('name','region_translations.region_id AS id');                
+            //$regions = Region::where('country_id', $request->input('country_id'))->pluck('id', 'name');
         }
         else{
             $regions = [];
