@@ -51,20 +51,8 @@ class EventSearchController extends Controller
             return Continent::orderBy('name')->pluck('name', 'id');
         });
 
-        if ($request->input('country_id')){
-            
-            $regions = Region::getRegionsByCountry($request->input('country_id'));
-            /*$regions = Region::join('region_translations', 'regions.id', '=', 'region_translations.region_id')
-                    ->where('locale', 'en')
-                    ->where('country_id', $request->input('country_id'))
-                    ->orderBy('name')
-                    ->pluck('name','region_translations.region_id AS id');*/                
-            
-        }
-        else{
-            $regions = [];
-        }
-
+        $regions = Region::getRegionsByCountry($request->input('country_id'));
+        
         $venues = Cache::remember('venues', $cacheExpireTime, function () {
             return EventVenue::orderBy('name')->pluck('name', 'id');
         });
