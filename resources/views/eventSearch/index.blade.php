@@ -52,6 +52,7 @@
                 setTimeout(function(){
                     var continent_id =  $("select[name='continent_id']").val();
                     var country_id =  $("select[name='country_id']").val();
+                    var region_id =  $("select[name='region_id']").val();
                      
                     if (continent_id != ''){
                         updateCountriesDropdown(continent_id);
