@@ -52,12 +52,14 @@ class EventSearchController extends Controller
         });
 
         if ($request->input('country_id')){
-            $regions = Region::join('region_translations', 'regions.id', '=', 'region_translations.region_id')
+            
+            $regions = Region::getRegionsByCountry($request->input('country_id'));
+            /*$regions = Region::join('region_translations', 'regions.id', '=', 'region_translations.region_id')
                     ->where('locale', 'en')
                     ->where('country_id', $request->input('country_id'))
                     ->orderBy('name')
-                    ->pluck('name','region_translations.region_id AS id');                
-            //$regions = Region::where('country_id', $request->input('country_id'))->pluck('id', 'name');
+                    ->pluck('name','region_translations.region_id AS id');*/                
+            
         }
         else{
             $regions = [];
