@@ -1,5 +1,31 @@
 @extends('laravel-events-calendar::eventVenues.layout')
 
+@section('javascript-document-ready')
+    @parent
+    
+    {{-- Update Region SELECT on change Country SELECT --}}
+    $("select[name='country_id']").on('change', function() {
+        if (this.value != ''){
+            updateRegionsDropdown(this.value);
+        }
+    });
+    
+    {{-- Update the Regions SELECT with just the ones 
+             relative to the selected country --}}
+        function updateRegionsDropdown(selectedCountry){
+            var request = $.ajax({
+                url: "/update_regions_dropdown",
+                data: {
+                    country_id: selectedCountry,
+                },
+                success: function( data ) {
+                    $("#region_id").html(data);
+                    $("#region_id").selectpicker('refresh');
+                }
+            });
+        }
+
+@stop
 
 @section('content')
     <div class="container max-w-md px-0">
