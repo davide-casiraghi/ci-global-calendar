@@ -246,11 +246,11 @@ class StatisticsController extends Controller
         //$eventsByCountries = Event::getActiveEvents();
 
         $filters = [];
-        $filters['keywords'] = $filters['category'] = $filters['country'] = $filters['city'] = $filters['continent'] = $filters['teacher'] = $filters['venue'] = $filters['startDate'] = $filters['endDate'] = null;
+        $filters['keywords'] = $filters['category'] = $filters['country'] = $filters['region'] = $filters['city'] = $filters['continent'] = $filters['teacher'] = $filters['venue'] = $filters['startDate'] = $filters['endDate'] = null;
         $activeEvents = Event::getEvents($filters, 10000);
-
+        
         $grouped = $activeEvents->groupBy(function ($item, $key) {
-            return $item['sc_country_name'];
+            return $item['country_name'];
         });
         $eventsByCountries = $grouped->map(function ($item, $key) {
             return collect($item)->count();
