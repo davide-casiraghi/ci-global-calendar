@@ -106,6 +106,18 @@
                     ])
                 </div>
                 <div class="col-12">
+                    @include('laravel-form-partials::select', [
+                          'title' => __('laravel-events-calendar::eventVenue.region'),
+                          'name' => 'region_id',
+                          'placeholder' => __('laravel-events-calendar::general.select_region'), 
+                          'records' => $regions,
+                          'selected' => $eventVenue->region_id,
+                          'liveSearch' => 'true',
+                          'mobileNativeMenu' => false,
+                          'required' => true,
+                    ])
+                </div>
+                <div class="col-12">
                     @include('laravel-form-partials::input', [
                         'title' => __('laravel-events-calendar::eventVenue.zip_code'),
                         'name' => 'zip_code',
