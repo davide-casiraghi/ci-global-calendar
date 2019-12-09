@@ -18,7 +18,6 @@
     
     {{-- Update Continent SELECT on change Country SELECT --}}
         $("select[name='country_id']").on('change', function() {
-            //alert( this.value );
 
             var request = $.ajax({
                 url: "/update_continents_dropdown",
@@ -34,12 +33,15 @@
     {{-- Update Country SELECT on change Continent SELECT --}}
         $("select[name='continent_id']").on('change', function() {
             updateCountriesDropdown(this.value);
+            updateRegionsDropdown('');  // clear the region dropdown
         });
         
     {{-- Update Region SELECT on change Country SELECT --}}
         $("select[name='country_id']").on('change', function() {
-            updateRegionsDropdown(this.value);
-        });    
+            if (this.value != ''){
+                updateRegionsDropdown(this.value);
+            }
+        });
         
         $(document).ready(function(){
             

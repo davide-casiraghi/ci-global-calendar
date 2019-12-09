@@ -200,15 +200,23 @@ class EventSearchController extends Controller
      *
      * @param \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
-     */ //aaaaa
+     */  
     public function updateRegionsDropdown(Request $request)
     {
-        $regions = Region::join('region_translations', 'regions.id', '=', 'region_translations.region_id')
+        /*$regions = Region::join('region_translations', 'regions.id', '=', 'region_translations.region_id')
                 ->where('locale', 'en')
                 ->where('country_id', $request->input('country_id'))
                 ->orderBy('name')
-                ->pluck('name','region_translations.region_id AS id');  
-
+                ->pluck('name','region_translations.region_id AS id'); */
+        
+        $regions = Region::
+                select('name','region_translations.region_id AS id')
+                ->join('region_translations', 'regions.id', '=', 'region_translations.region_id')
+                ->where('locale', 'en')
+                ->where('country_id', $request->input('country_id'))
+                ->orderBy('name')
+                ->get();
+                
         // GENERATE the HTML to return
         $ret = "<select name='region_id' id='region_id' class='selectpicker' title='".__('homepage-serach.select_a_region')."'>";
         foreach ($regions as $key => $region) {
