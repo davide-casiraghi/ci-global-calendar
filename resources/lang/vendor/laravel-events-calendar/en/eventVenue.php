@@ -6,7 +6,7 @@ return [
     'edit_venue' => 'Edit venue',
     'events_venue_management' => 'Venues management',
     'country' => 'Country',
-    'state_province' => 'State province',
+    //'state_province' => 'State province',
     'city' => 'City',
     'street' => 'Street',
     'zip_code' => 'Zip code',

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('title',  "Regions / States translation" )
 
 @section('content')

@@ -85,14 +85,14 @@
                         'required' => true,
                     ])
                 </div>
-                <div class="col-12">
+                {{--<div class="col-12">
                     @include('laravel-form-partials::input', [
                         'title' => __('laravel-events-calendar::eventVenue.state_province'),
                         'name' => 'state_province',
                         'value' => $eventVenue->state_province,
                         'required' => false,
                     ])
-                </div>
+                </div>--}}
                 <div class="col-12">
                     @include('laravel-form-partials::select', [
                           'title' => __('laravel-events-calendar::general.country'),

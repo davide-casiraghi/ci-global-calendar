@@ -6,7 +6,7 @@ return [
     'edit_venue' => 'Edytuj miejsce wydarzenia',
     'events_venue_management' => 'Zarządzanie miejscami wydarzeń',
     'country' => 'Kraj',
-    'state_province' => 'Stan/Prowincja',
+    //'state_province' => 'Stan/Prowincja',
     'city' => 'Miasto',
     'street' => 'Ulica',
     'zip_code' => 'Kod pocztowy',

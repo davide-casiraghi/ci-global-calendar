@@ -12,21 +12,20 @@
     
     {{-- Update the Regions SELECT with just the ones 
              relative to the selected country --}}
-        function updateRegionsDropdown(selectedCountry){
-            var request = $.ajax({
-                url: "/update_regions_dropdown",
-                data: {
-                    country_id: selectedCountry,
-                },
-                success: function( data ) {
-                    $("#region_id").html(data);
-                    $("#region_id").selectpicker('refresh');
-                }
-            });
-        }
+    function updateRegionsDropdown(selectedCountry){
+        var request = $.ajax({
+            url: "/update_regions_dropdown",
+            data: {
+                country_id: selectedCountry,
+            },
+            success: function( data ) {
+                $("#region_id").html(data);
+                $("#region_id").selectpicker('refresh');
+            }
+        });
+    }
 
 @stop
-
 @section('content')
     <div class="container max-w-md px-0">
         <div class="row mb-4">
@@ -85,7 +84,7 @@
                         'required' => true,
                     ])
                 </div>
-                <div class="col-12">
+                {{--<div class="col-12">
                     @include('laravel-form-partials::input', [
                         'title' => __('laravel-events-calendar::eventVenue.state_province'),
                         'name' => 'state_province',
@@ -93,7 +92,7 @@
                         'value' => old('state_province'),
                         'required' => false,
                     ])
-                </div>
+                </div>--}}
                 <div class="col-12">
                     @include('laravel-form-partials::select', [
                           'title' => __('laravel-events-calendar::eventVenue.country'),

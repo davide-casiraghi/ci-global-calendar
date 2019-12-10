@@ -6,7 +6,7 @@ return [
     'edit_venue' => 'Редактировать место проведения',
     'events_venue_management' => 'Управление объектами',
     'country' => 'Выбрать страну',
-    'state_province' => 'Государство/Регион',
+    //'state_province' => 'Государство/Регион',
     'city' => 'Город',
     'street' => 'улица',
     'zip_code' => 'Почтовый индекс',

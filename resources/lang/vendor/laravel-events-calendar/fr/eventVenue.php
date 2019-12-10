@@ -6,7 +6,7 @@ return [
     'edit_venue' => 'Modifier le lieu',
     'events_venue_management' => 'Gestion des lieux',
     'country' => 'Pays',
-    'state_province' => 'Etat/Province',
+    //'state_province' => 'Etat/Province',
     'city' => 'Ville',
     'street' => 'Rue',
     'zip_code' => 'Code postal',
