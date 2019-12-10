@@ -26,6 +26,7 @@
                 data: {
                     "_token": "{{ csrf_token() }}",
                     name: $("input[name='name']").val(),
+                    created_by: $("select[name='created_by']").val(),
                     city: $("input[name='city']").val(),
                     country_id: $("select[name='country_id']").val(),
                     website: $("input[name='website']").val()
@@ -78,6 +79,20 @@
                     'name' => 'name',
                     'placeholder' => 'Name',
                     'required' => true,
+                ])
+            </div>
+            
+            {{-- Created by - hidden --}}
+            <div class="col-12 d-none">
+                @include('laravel-form-partials::select', [
+                    'title' => __('laravel-events-calendar::general.created_by'),
+                    'name' => 'created_by',
+                    'placeholder' => __('laravel-events-calendar::general.select_owner'),
+                    'records' => $users,
+                    'liveSearch' => 'true',
+                    'mobileNativeMenu' => false,
+                    'selected' => Auth::id(),
+                    'required' => false,
                 ])
             </div>
             

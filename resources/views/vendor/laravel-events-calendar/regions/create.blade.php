@@ -27,14 +27,6 @@
                       'required' => true,
                 ])
             </div>
-            <div class="col-12">
-                @include('laravel-form-partials::input', [
-                      'title' => __('laravel-events-calendar::general.code'),
-                      'name' => 'code',
-                      'value' => old('code'),
-                      'required' => true,
-                ])
-            </div>
 
             <div class="col-12">
                 @include('laravel-form-partials::select', [

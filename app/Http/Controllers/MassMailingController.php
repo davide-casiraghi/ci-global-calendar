@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use App\Mail\MassMailing;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -54,7 +54,7 @@ class MassMailingController extends Controller
 
         $report['senderEmail'] = 'admin@globalcicalendar.com';
         $report['senderName'] = 'CI Global Calendar - Administrator';
-        $report['subject'] = 'Message from the contact form';
+        $report['subject'] = 'Message from the CI Global Calendar';
 
         $report['name'] = 'CI Global Calendar - Administrator';
         $report['email'] = env('ADMIN_MAIL');
@@ -65,8 +65,12 @@ class MassMailingController extends Controller
 
         // Send the email to all the users in the user table
         foreach ($users as $key => $user) {
+            $when = now()->addMinutes($key);
+            //if ($user->id == 1){
             $report['emailTo'] = $user->email;
-            Mail::send(new MassMailing($report));
+            //Mail::send(new MassMailing($report));
+                Mail::later($when, new MassMailing($report)); //send an email each minute to avoid Mailgun limitation (https://github.com/davide-casiraghi/ci-global-calendar/issues/167)
+            //}
         }
 
         return redirect()->route('forms.massmailing-thankyou');

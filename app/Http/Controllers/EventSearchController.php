@@ -10,16 +10,16 @@ use App\EventVenue;
 use App\EventCategory;*/
 
 use App\BackgroundImage;
+use App\Http\Resources\Continent as ContinentResource;
+use DavideCasiraghi\LaravelEventsCalendar\Facades\LaravelEventsCalendar;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Continent;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
+use DavideCasiraghi\LaravelEventsCalendar\Models\EventCategory;
+use DavideCasiraghi\LaravelEventsCalendar\Models\EventVenue;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
-use App\Http\Resources\Continent as ContinentResource;
-use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
-use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
-use DavideCasiraghi\LaravelEventsCalendar\Models\Teacher;
-use DavideCasiraghi\LaravelEventsCalendar\Models\Continent;
-use DavideCasiraghi\LaravelEventsCalendar\Models\EventVenue;
-use DavideCasiraghi\LaravelEventsCalendar\Models\EventCategory;
-use DavideCasiraghi\LaravelEventsCalendar\Facades\LaravelEventsCalendar;
 
 class EventSearchController extends Controller
 {
@@ -134,4 +134,44 @@ class EventSearchController extends Controller
     }
 
     /***************************************************************************/
+
+    /**
+     * Return the contient id of the select country
+     * after a country get selected.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function updateContinentsDropdown(Request $request)
+    {
+        $selectedCountry = Country::find($request->get('country_id'));
+        $ret = $selectedCountry->continent_id;
+
+        return $ret;
+    }
+
+    /***************************************************************************/
+
+    /**
+     * Return and HTML with the updated countries dropdown for the homepage
+     * after a continent get selected.
+     *
+     * @param \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function updateCountriesDropdown(Request $request)
+    {
+        $countries = Country::getActiveCountriesByContinent($request->get('continent_id'));
+
+        // GENERATE the HTML to return
+        $ret = "<select name='country_id' id='country_id' class='selectpicker' title='".__('homepage-serach.select_a_country')."'>";
+        foreach ($countries as $key => $country) {
+            $ret .= "<option value='".$country->id."'>".$country->name.'</option>';
+        }
+        $ret .= '</select>';
+
+        return $ret;
+    }
+
+    //    updateRegionsDropdown
 }

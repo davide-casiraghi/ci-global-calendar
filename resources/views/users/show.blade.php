@@ -1,4 +1,4 @@
-@extends('teachers.layout')
+@extends('users.layout')
 
 @section('content')
     <div class="container max-w-md px-0">

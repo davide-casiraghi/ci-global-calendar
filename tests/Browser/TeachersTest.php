@@ -3,11 +3,11 @@
 namespace Tests\Browser;
 
 use App\User;
-use Tests\DuskTestCase;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Teacher;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\Browser\Pages\LoginPage;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use DavideCasiraghi\LaravelEventsCalendar\Models\Teacher;
+use Tests\DuskTestCase;
 
 class TeachersTest extends DuskTestCase
 {

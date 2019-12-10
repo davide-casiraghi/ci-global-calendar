@@ -3,7 +3,7 @@
 
 # Message from the CI Global Calendar
 
-{{$msg}}
+{!! $msg !!}
 
 {{--
 @component('mail::button', ['url' => 'mailto:'.$sender_email])

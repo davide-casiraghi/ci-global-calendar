@@ -10,8 +10,8 @@
 A new user has registered on the CI Global calendar website.  
 
  **Name:** {{$name}}  
- **Email:**: {{$email}}  
- **Country:**: {{$country}}  
+ **Email:** {{$email}}  
+ **Country:** {{$country}}  
  **Description:**
  {{$description}}
 

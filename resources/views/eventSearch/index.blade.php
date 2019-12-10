@@ -18,13 +18,60 @@
     
     {{-- Update Continent SELECT on change Country SELECT --}}
         $("select[name='country_id']").on('change', function() {
-        //alert( this.value );
+            //alert( this.value );
+
+            var request = $.ajax({
+                url: "/update_continents_dropdown",
+                data: {
+                    country_id: this.value,
+                },
+                success: function( data ) {
+                    $("#continent_id").selectpicker('val', data);
+                }
+            });
         });
 
     {{-- Update Country SELECT on change Continent SELECT --}}
         $("select[name='continent_id']").on('change', function() {
-        //alert( this.value );
+            updateCountriesDropdown(this.value);
         });
+        
+        
+        
+        $(document).ready(function(){
+            
+            {{-- On page load update the Country SELECT if a Continent is selected --}}
+                setTimeout(function(){
+                    var continent_id =  $("select[name='continent_id']").val();
+                    var country_id =  $("select[name='country_id']").val();
+                     
+                    if (continent_id != ''){
+                        updateCountriesDropdown(continent_id);
+                        if (country_id != null){
+                            setTimeout(() => {
+                                $("#country_id").selectpicker('val', country_id);
+                            }, 300);
+                         }
+                     }
+                }, 3000);
+                
+                
+		});
+        
+        {{-- Update the Countries SELECT with just the ones 
+             relative to the selected continent --}}
+        function updateCountriesDropdown(selectedContinent){
+            var request = $.ajax({
+                url: "/update_countries_dropdown",
+                data: {
+                    continent_id: selectedContinent,
+                },
+                success: function( data ) {
+                    $("#country_id").html(data);
+                    $("#country_id").selectpicker('refresh');
+                }
+            });
+        }
 
 @stop
 
@@ -136,10 +183,11 @@
                         </p>
                         
                         
-                        
-                        <continents-countries-selects select_a_continent_placeholder="@lang('homepage-serach.select_a_continent')" select_a_country_placeholder="@lang('homepage-serach.select_a_country')" continent-selected="{{$searchContinent}}" country-selected="{{$searchCountry}}"></continents-countries-selects>
-                        
                         {{--
+                        <continents-countries-selects select_a_continent_placeholder="@lang('homepage-serach.select_a_continent')" select_a_country_placeholder="@lang('homepage-serach.select_a_country')" continent-selected="{{$searchContinent}}" country-selected="{{$searchCountry}}"></continents-countries-selects>
+                        --}}
+                        
+                        
                         @include('laravel-form-partials::select', [
                               'title' =>  '',
                               'name' => 'continent_id',
@@ -158,7 +206,7 @@
                               'selected' => $searchCountry,
                               'liveSearch' => 'true',
                               'mobileNativeMenu' => false,
-                        ])--}}
+                        ])
                         
                         @include('laravel-form-partials::input', [
                               'title' => '',

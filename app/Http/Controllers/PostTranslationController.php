@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Validator;
 use App\PostTranslation;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Validator;
 
 class PostTranslationController extends Controller
 {

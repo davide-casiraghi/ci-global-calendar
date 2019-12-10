@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateAllDatabaseTables extends Migration
 {
@@ -155,6 +155,26 @@ class CreateAllDatabaseTables extends Migration
             $table->string('name');
             $table->string('code')->unique();
             $table->integer('continent_id');
+            $table->timestamps();
+        });
+        Schema::create('regions', function (Blueprint $table) {
+            $table->bigIncrements('id');
+
+            $table->integer('country_id');
+            $table->string('timezone');
+
+            $table->timestamps();
+        });
+        Schema::create('region_translations', function (Blueprint $table) {
+            $table->bigIncrements('id');
+
+            $table->bigInteger('region_id')->unsigned();
+            $table->string('name');
+            $table->string('slug');
+            $table->string('locale')->index();
+
+            $table->unique(['region_id', 'locale']);
+            $table->foreign('region_id')->references('id')->on('regions')->onDelete('cascade');
             $table->timestamps();
         });
         Schema::create('event_has_teachers', function (Blueprint $table) {
@@ -333,6 +353,11 @@ class CreateAllDatabaseTables extends Migration
         Schema::dropIfExists('event_venues');
         Schema::dropIfExists('continents');
         Schema::dropIfExists('countries');
+        Schema::table('region_translations', function (Blueprint $table) {
+            $table->dropForeign('region_translations_region_id_foreign');
+        });
+        Schema::dropIfExists('region_translations');
+        Schema::dropIfExists('regions');
         Schema::dropIfExists('event_has_teachers');
         Schema::dropIfExists('organizers');
         Schema::dropIfExists('event_has_organizers');

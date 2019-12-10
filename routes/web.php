@@ -24,6 +24,11 @@ function () {
     Route::resource('eventSearch', 'EventSearchController');
     Route::get('/eventSearch#dataarea', 'EventSearchController@index');
 
+    /* Homepage - Ajax to update contients, countries, regions */
+    Route::get('/update_continents_dropdown/', 'EventSearchController@updateContinentsDropdown')->name('eventSearch.updateContinents');
+    Route::get('/update_countries_dropdown/', 'EventSearchController@updateCountriesDropdown')->name('eventSearch.updateCountries');
+    Route::get('/update_regions_dropdown/', 'EventSearchController@updateRegionsDropdown')->name('eventSearch.updateRegions');
+
     /* Users */
     Route::resource('users', 'UserController');
 
@@ -54,7 +59,7 @@ function () {
     /* Donation Offers */
     Route::get('/donationOffersPublic', 'DonationOfferController@index')->defaults('page_kind', 'public');
     Route::resource('donationOffers', 'DonationOfferController');
-    //Route::get('/donationOffersPublic/', 'DonationOfferController@indexPublic')->name('donationOffers.public');
+    Route::get('/en/donationOffers/create', 'DonationOfferController@create');
 
     /* Authentication */
     //Auth::routes();
@@ -98,6 +103,9 @@ function () {
 });
 
 /* OTHER PAGES THAT SHOULD NOT BE LOCALIZED **/
+
+    /* Fix for the HP english route */
+        Route::get('/en', 'EventSearchController@index')->name('home');
 
     /*  Editor Filemanager */
         Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {

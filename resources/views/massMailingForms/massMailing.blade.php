@@ -1,7 +1,7 @@
 @extends('massMailingForms.layout')
 
 @section('content')
-    <div class="container max-w-sm px-0">
+    <div class="container max-w-md px-0">
 
         <div class="row">
             <div class="col-12 ">
@@ -20,7 +20,7 @@
                 </div>
 
                <div class="col-12">
-                   @include('laravel-form-partials::textarea-plain', [
+                   @include('laravel-form-partials::textarea', [
                          'title' => __('general.message'),
                          'name' => 'message',
                          'placeholder' => '',

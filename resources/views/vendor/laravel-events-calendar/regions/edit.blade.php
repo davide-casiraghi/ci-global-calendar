@@ -16,7 +16,7 @@
     ])
 
 
-    <form action="{{ route('countries.update',$region->id) }}" method="POST">
+    <form action="{{ route('regions.update',$region->id) }}" method="POST">
         @csrf
         @method('PUT')
 
@@ -27,14 +27,6 @@
                       'name' => 'name',
                       'placeholder' => '',
                       'value' => $region->name,
-                      'required' => true,
-                ])
-            </div>
-            <div class="col-12">
-                @include('laravel-form-partials::input', [
-                      'title' => __('laravel-events-calendar::general.code'),
-                      'name' => 'code',
-                      'value' => $region->code,
                       'required' => true,
                 ])
             </div>
@@ -62,7 +54,7 @@
         </div>
 
         @include('laravel-form-partials::buttons-back-submit', [
-            'route' => 'countries.index'  
+            'route' => 'regions.index'  
         ])
         
     </form>

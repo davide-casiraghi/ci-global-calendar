@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use Validator;
 use App\DonationOffer;
-use Illuminate\Http\Request;
+use App\User;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
+use Illuminate\Http\Request;
+use Validator;
 
 class DonationOfferController extends Controller
 {

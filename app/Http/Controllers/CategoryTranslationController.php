@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Validator;
-use Illuminate\Support\Str;
 use App\CategoryTranslation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Validator;
 
 class CategoryTranslationController extends Controller
 {

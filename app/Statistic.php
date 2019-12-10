@@ -3,11 +3,11 @@
 namespace App;
 
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Database\Eloquent\Model;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
-use DavideCasiraghi\LaravelEventsCalendar\Models\Teacher;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Organizer;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Teacher;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 
 class Statistic extends Model
 {
