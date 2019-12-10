@@ -114,7 +114,7 @@
                           'selected' => $eventVenue->region_id,
                           'liveSearch' => 'true',
                           'mobileNativeMenu' => false,
-                          'required' => true,
+                          'required' => false,
                     ])
                 </div>
                 <div class="col-12">
