@@ -7,6 +7,7 @@ return [
     'events_venue_management' => 'Venues management',
     'country' => 'Country',
     //'state_province' => 'State province',
+    'region' => 'State/Region'
     'city' => 'City',
     'street' => 'Street',
     'zip_code' => 'Zip code',
