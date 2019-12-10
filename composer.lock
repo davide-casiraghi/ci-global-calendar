@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e3991e4e70edd740c351d448270781e4",
+    "content-hash": "8c243d8fcb47d97d190d35703d563042",
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
@@ -345,16 +345,16 @@
         },
         {
             "name": "davide-casiraghi/laravel-events-calendar",
-            "version": "1.3.29",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davide-casiraghi/laravel-events-calendar.git",
-                "reference": "ebbb9669f013ef0b95954565160e8b2e87326a86"
+                "reference": "402c2bc1459f3a63894d66671f7840bc08bc8baa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/ebbb9669f013ef0b95954565160e8b2e87326a86",
-                "reference": "ebbb9669f013ef0b95954565160e8b2e87326a86",
+                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/402c2bc1459f3a63894d66671f7840bc08bc8baa",
+                "reference": "402c2bc1459f3a63894d66671f7840bc08bc8baa",
                 "shasum": ""
             },
             "require": {
@@ -405,7 +405,7 @@
                 "davide-casiraghi",
                 "laravel-events-calendar"
             ],
-            "time": "2019-12-08T12:27:31+00:00"
+            "time": "2019-12-10T08:31:46+00:00"
         },
         {
             "name": "davide-casiraghi/laravel-form-partials",
@@ -1889,16 +1889,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.59",
+            "version": "1.0.61",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "1426da21dae81e1f3fe1074a166eb6dd3045f810"
+                "reference": "4fb13c01784a6c9f165a351e996871488ca2d8c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/1426da21dae81e1f3fe1074a166eb6dd3045f810",
-                "reference": "1426da21dae81e1f3fe1074a166eb6dd3045f810",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/4fb13c01784a6c9f165a351e996871488ca2d8c9",
+                "reference": "4fb13c01784a6c9f165a351e996871488ca2d8c9",
                 "shasum": ""
             },
             "require": {
@@ -1969,7 +1969,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2019-12-08T12:25:29+00:00"
+            "time": "2019-12-08T21:46:50+00:00"
         },
         {
             "name": "maatwebsite/excel",
@@ -5323,16 +5323,16 @@
         },
         {
             "name": "orchestra/testbench-core",
-            "version": "v3.8.7",
+            "version": "v3.8.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench-core.git",
-                "reference": "2122fc0c3c4e592ab142786b27d5bd6c60ca7a3c"
+                "reference": "fd3436e12ad61547f83a77384679efeaae1aaede"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/2122fc0c3c4e592ab142786b27d5bd6c60ca7a3c",
-                "reference": "2122fc0c3c4e592ab142786b27d5bd6c60ca7a3c",
+                "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/fd3436e12ad61547f83a77384679efeaae1aaede",
+                "reference": "fd3436e12ad61547f83a77384679efeaae1aaede",
                 "shasum": ""
             },
             "require": {
@@ -5384,7 +5384,7 @@
                 "orchestral",
                 "testing"
             ],
-            "time": "2019-09-11T07:07:58+00:00"
+            "time": "2019-12-10T02:49:57+00:00"
         },
         {
             "name": "phar-io/manifest",

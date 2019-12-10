@@ -10,7 +10,7 @@
         "astrotomic/laravel-translatable": "^11.1",
         "beyondcode/laravel-self-diagnosis": "^1.2",
         "consoletvs/charts": "6.*",
-        "davide-casiraghi/laravel-events-calendar": "^1.0",
+        "davide-casiraghi/laravel-events-calendar": "^2.0",
         "davide-casiraghi/laravel-form-partials": "^1.0",
         "davide-casiraghi/laravel-quick-menus": "^1.0",
         "doctrine/dbal": "^2.8",
