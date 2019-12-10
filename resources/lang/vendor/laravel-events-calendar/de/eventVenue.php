@@ -6,7 +6,7 @@ return [
     'edit_venue' => 'Veranstaltungsort ändern',
     'events_venue_management' => 'Verwaltung des Veranstaltungsortes',
     'country' => 'Land',
-    'state_province' => 'Bundesland',
+    //'state_province' => 'Bundesland',
     'city' => 'Stadt',
     'street' => 'Straße',
     'zip_code' => 'Postleitzahl',

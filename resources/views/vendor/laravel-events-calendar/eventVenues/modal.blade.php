@@ -50,6 +50,28 @@
         }
     });
     
+    {{-- Update Region SELECT on change Country SELECT --}}
+    $("select[name='country_id']").on('change', function() {
+        if (this.value != ''){
+            updateRegionsDropdown(this.value);
+        }
+    });
+    
+    {{-- Update the Regions SELECT with just the ones 
+             relative to the selected country --}}
+    function updateRegionsDropdown(selectedCountry){
+        var request = $.ajax({
+            url: "/update_regions_dropdown",
+            data: {
+                country_id: selectedCountry,
+            },
+            success: function( data ) {
+                $("#region_id").html(data);
+                $("#region_id").selectpicker('refresh');
+            }
+        });
+    }
+    
 @stop
 
 @section('content')
@@ -112,20 +134,31 @@
                     'required' => true,
                 ])
             </div>
-            <div class="col-12">
+            {{--<div class="col-12">
                 @include('laravel-form-partials::input', [
                     'title' => __('laravel-events-calendar::eventVenue.state_province'),
                     'name' => 'state_province',
                     'placeholder' => '',
                     'required' => false,
                 ])
-            </div>
+            </div>--}}
             <div class="col-12">
                 @include('laravel-form-partials::select', [
                       'title' => __('laravel-events-calendar::eventVenue.country'),
                       'name' => 'country_id',
                       'placeholder' => 'Select country',
                       'records' => $countries,
+                      'liveSearch' => 'true',
+                      'mobileNativeMenu' => false,
+                      'required' => true,
+                ])
+            </div>
+            <div class="col-12">
+                @include('laravel-form-partials::select', [
+                      'title' => __('laravel-events-calendar::eventVenue.region'),
+                      'name' => 'region_id',
+                      'placeholder' => __('laravel-events-calendar::general.select_region'), 
+                      'records' => $regions,
                       'liveSearch' => 'true',
                       'mobileNativeMenu' => false,
                       'required' => true,

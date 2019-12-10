@@ -6,7 +6,7 @@ return [
     'edit_venue' => 'Modifica lo spazio',
     'events_venue_management' => 'Gestione spazi',
     'country' => 'Nazione',
-    'state_province' => 'Regione/Provincia',
+    //'state_province' => 'Regione/Provincia',
     'city' => 'Città',
     'street' => 'Via',
     'zip_code' => 'CAP',
