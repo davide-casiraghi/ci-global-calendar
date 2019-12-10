@@ -14,10 +14,10 @@ use App\Http\Resources\Continent as ContinentResource;
 use DavideCasiraghi\LaravelEventsCalendar\Facades\LaravelEventsCalendar;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Continent;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
-use DavideCasiraghi\LaravelEventsCalendar\Models\Region;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
 use DavideCasiraghi\LaravelEventsCalendar\Models\EventCategory;
 use DavideCasiraghi\LaravelEventsCalendar\Models\EventVenue;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Region;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -52,7 +52,7 @@ class EventSearchController extends Controller
         });
 
         $regions = Region::getRegionsByCountry($request->input('country_id'));
-        
+
         $venues = Cache::remember('venues', $cacheExpireTime, function () {
             return EventVenue::orderBy('name')->pluck('name', 'id');
         });
@@ -74,9 +74,6 @@ class EventSearchController extends Controller
         $filters['endDate'] = LaravelEventsCalendar::formatDatePickerDateForMysql($request->input('endDate'));
 
         $events = Event::getEvents($filters, 20);
-        
-        
-        
 
         return view('eventSearch.index', compact('events'))
             ->with('i', (request()->input('page', 1) - 1) * 20)
@@ -190,7 +187,7 @@ class EventSearchController extends Controller
      *
      * @param \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
-     */  
+     */
     public function updateRegionsDropdown(Request $request)
     {
         /*$regions = Region::join('region_translations', 'regions.id', '=', 'region_translations.region_id')
@@ -198,15 +195,15 @@ class EventSearchController extends Controller
                 ->where('country_id', $request->input('country_id'))
                 ->orderBy('name')
                 ->pluck('name','region_translations.region_id AS id'); */
-        
+
         $regions = Region::
-                select('name','region_translations.region_id AS id')
+                select('name', 'region_translations.region_id AS id')
                 ->join('region_translations', 'regions.id', '=', 'region_translations.region_id')
                 ->where('locale', 'en')
                 ->where('country_id', $request->input('country_id'))
                 ->orderBy('name')
                 ->get();
-                
+
         // GENERATE the HTML to return
         $ret = "<select name='region_id' id='region_id' class='selectpicker' title='".__('homepage-serach.select_a_region')."'>";
         foreach ($regions as $key => $region) {
