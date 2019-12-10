@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateEventsTable extends Migration
 {
@@ -29,7 +29,7 @@ class CreateEventsTable extends Migration
             $table->string('repeat_monthly_on')->nullable();
             $table->string('on_monthly_kind')->nullable();
             $table->string('multiple_dates')->nullable();
-            
+
             $table->integer('sc_country_id')->nullable();
             $table->string('sc_country_name')->nullable();
             $table->string('sc_city_name')->nullable();
