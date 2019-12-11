@@ -91,11 +91,22 @@
                         <h5 class="darkest-gray">{{ $eventVenue->name }}</h5>
                     </div>
                     <div class="col-12 mb-4">
-                        <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
-                        @if($eventVenue->country_id){{ $countries[$eventVenue->country_id] }}@endif
-                            
-                        <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-city mr-1 ml-4 dark-gray" data-original-title="@lang('general.city')"></i>
-                        {{$eventVenue->city}}
+                        
+                        @if($eventVenue->country_id)
+                            <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 dark-gray" data-original-title="@lang('general.country')"></i>
+                            {{ $countries[$eventVenue->country_id] }}
+                        @endif
+                        
+                        @if($eventVenue->city)
+                            <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-city mr-1 ml-4 dark-gray" data-original-title="@lang('general.city')"></i>
+                            {{$eventVenue->city}}
+                        @endif
+                        
+                        @if($eventVenue->region_id)
+                            <i data-toggle="tooltip" data-placement="top" title="" class="far fa-atlas mr-1 ml-4 dark-gray" data-original-title="@lang('general.region')"></i> 
+                            {{ $regions[$eventVenue->region_id] }}
+                        @endif
+                        
                     </div>
                     <div class="col-12 pb-2 action">
                         <form action="{{ route('eventVenues.destroy',$eventVenue->id) }}" method="POST">

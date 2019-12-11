@@ -25,6 +25,7 @@ return [
     'description' => 'Description',
     'continent' => 'Continent',
     'country' => 'Country',
+    'region' => 'State/Region',
     'city' => 'City',
     'privacy_policy' => 'For more information, please consult the Privacy Policy',
     'accept_terms_of_use' => 'I declare that I have read and accept the Terms and Conditions of Use *',
