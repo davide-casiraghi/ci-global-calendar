@@ -126,6 +126,7 @@
                     <div class="address">
                         {{ $venue->address }}<br />
                         {{ $venue->city }}<br />
+                        @if(!empty($region->name)){{ $region->name }}<br /> @endif
                         {{ $venue->zip_code }}<br />
                         <b>{{ $country->name }}</b><br />
                     </div>
