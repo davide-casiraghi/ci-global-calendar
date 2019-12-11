@@ -97,14 +97,14 @@
                             {{ $countries[$eventVenue->country_id] }}
                         @endif
                         
-                        @if($eventVenue->city)
-                            <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-city mr-1 ml-4 dark-gray" data-original-title="@lang('general.city')"></i>
-                            {{$eventVenue->city}}
-                        @endif
-                        
                         @if($eventVenue->region_id)
                             <i data-toggle="tooltip" data-placement="top" title="" class="far fa-atlas mr-1 ml-4 dark-gray" data-original-title="@lang('general.region')"></i> 
                             {{ $regions[$eventVenue->region_id] }}
+                        @endif
+                        
+                        @if($eventVenue->city)
+                            <i data-toggle="tooltip" data-placement="top" title="" class="fas fa-city mr-1 ml-4 dark-gray" data-original-title="@lang('general.city')"></i>
+                            {{$eventVenue->city}}
                         @endif
                         
                     </div>
