@@ -345,16 +345,16 @@
         },
         {
             "name": "davide-casiraghi/laravel-events-calendar",
-            "version": "2.0.3",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davide-casiraghi/laravel-events-calendar.git",
-                "reference": "3f1b9f245bb0aa8d586900a88f6fabbcc4321d06"
+                "reference": "0f8b7c74b84c7d31acdf3fdaaa80e2cceeab1595"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/3f1b9f245bb0aa8d586900a88f6fabbcc4321d06",
-                "reference": "3f1b9f245bb0aa8d586900a88f6fabbcc4321d06",
+                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/0f8b7c74b84c7d31acdf3fdaaa80e2cceeab1595",
+                "reference": "0f8b7c74b84c7d31acdf3fdaaa80e2cceeab1595",
                 "shasum": ""
             },
             "require": {
@@ -405,7 +405,7 @@
                 "davide-casiraghi",
                 "laravel-events-calendar"
             ],
-            "time": "2019-12-10T09:37:52+00:00"
+            "time": "2019-12-11T05:48:00+00:00"
         },
         {
             "name": "davide-casiraghi/laravel-form-partials",
