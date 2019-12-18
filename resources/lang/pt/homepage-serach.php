@@ -20,6 +20,7 @@ return [
     'search_by_city' => 'Nome da Cidade',
     'select_a_continent' => 'Escolha um continente',
     'select_a_country' => 'Escolha um país',
+    'select_a_region' => 'Selecionar estado/região',
     'select_a_city' => 'Escolha uma cidade',
     'all_kind_of_events' => 'Todos os tipos de eventos',
     'teacher_name' => 'Nome d@ professor@',

@@ -20,6 +20,7 @@ return [
     'search_by_city' => 'Nom de Ville',
     'select_a_continent' => 'Sélectionner un continent',
     'select_a_country' => 'Sélectionner un pays',
+    'select_a_region' => 'Sélectionner région/département',
     'select_a_city' => 'Sélectionner une ville',
     'all_kind_of_events' => 'Tous types d\'événements',
     'teacher_name' => 'Nom de l\'enseignant-e',
