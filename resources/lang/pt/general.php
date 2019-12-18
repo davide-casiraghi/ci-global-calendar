@@ -24,6 +24,7 @@ return [
     'description' => 'Descrição',
     'continent' => 'Continente',
     'country' => 'País',
+    'region' => 'Estado/região',
     'city' => 'Cidade',
     'privacy_policy' => 'Para maiores informações, favor consultar a Política de Privacidade',
     'accept_terms_of_use' => 'Declaro que li e aceito os Termos e Condições de uso *',
