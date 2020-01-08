@@ -1,3 +1,34 @@
+@section('javascript-document-ready')
+    @parent
+    
+    $('#writeToOrganizerForm').validate({
+        rules: {
+            user_name: "required",
+            user_email: {
+                required: false,
+                email: true
+            },
+            message: "required",
+        },
+        submitHandler: function(form) {
+          if (grecaptcha.getResponse() == ''){
+                    //$( '#reCaptchaError' ).html( '<p>Please verify youare human</p>' );
+                    alert('Please confirm captcha to proceed');
+                } else {
+
+             $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            form.submit();
+          }
+        }
+    });
+    
+@stop
+
 
 {{-- Button - Write for more info --}}
     @if(!empty($event->contact_email))
@@ -14,7 +45,7 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('events.organizer-message') }}" method="POST">
+                <form id="writeToOrganizerForm" action="{{ route('events.organizer-message') }}" method="POST">
                     <div class="modal-body">
                              @csrf
                              <p>@lang('laravel-events-calendar::event.write_for_more_info_details')</p>
@@ -36,6 +67,8 @@
                                    'placeholder' => 'the text of your message',
                                    'required' => true,
                              ])
+                            
+                            @include('laravel-form-partials::recaptcha')
 
                              @include('laravel-form-partials::input-hidden', [
                                    'name' => 'event_title',
