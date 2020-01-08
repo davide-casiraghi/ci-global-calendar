@@ -48,15 +48,15 @@ class UserTest extends TestCase
         // Post a data to register a user
         $password = $this->faker->password;
         $data = [
-                'name' => $this->faker->name,
-                'email' => $this->faker->email,
-                'password' => $password,
-                'password_confirmation' => $password,
-                'country_id' => $this->faker->numberBetween($min = 1, $max = 253),
-                'description' => $this->faker->paragraph,
-                'accept_terms' => 1,
-                'g-recaptcha-response' => '1', // Simulates Captcha clicked
-            ];
+            'name' => $this->faker->name,
+            'email' => $this->faker->email,
+            'password' => $password,
+            'password_confirmation' => $password,
+            'country_id' => $this->faker->numberBetween($min = 1, $max = 253),
+            'description' => $this->faker->paragraph,
+            'accept_terms' => 1,
+            'g-recaptcha-response' => '1', // Simulates Captcha clicked
+        ];
 
         $response = $this
                 ->followingRedirects()
@@ -64,8 +64,8 @@ class UserTest extends TestCase
 
         // Assert in database
         $this->assertDatabaseHas('users', [
-                'email' => $data['email'],
-            ]);
+            'email' => $data['email'],
+        ]);
 
         $response
                 ->assertStatus(200)
