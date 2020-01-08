@@ -21,8 +21,8 @@ abstract class TestCase extends BaseTestCase
     public function authenticateAsAdmin()
     {
         $user = factory(User::class)->make([
-                'group' => 2,
-            ]);
+            'group' => 2,
+        ]);
 
         $this->actingAs($user);
     }
@@ -31,8 +31,8 @@ abstract class TestCase extends BaseTestCase
     public function authenticateAsSuperAdmin()
     {
         $user = factory(User::class)->make([
-                'group' => 1,
-            ]);
+            'group' => 1,
+        ]);
 
         $this->actingAs($user);
     }

@@ -65,10 +65,10 @@ class BackgroundImageController extends Controller
 
         // Validate form datas
         $validator = Validator::make($request->all(), [
-                'title' => 'required',
-                'image_src' => 'required',
-                'orientation' => 'required',
-            ]);
+            'title' => 'required',
+            'image_src' => 'required',
+            'orientation' => 'required',
+        ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }

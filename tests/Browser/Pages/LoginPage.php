@@ -40,9 +40,9 @@ class LoginPage extends Page
         // Create the test user if it doesn't exist
         if (! User::where('email', '=', 'testuser@dusk.com')->exists()) {
             $user = factory(User::class)->create([
-                    'email' => 'testuser@dusk.com',
-                    'password' => Hash::make('sdfas3rt'),  // Save the encrypted - bcrypt($password)
-                ]);
+                'email' => 'testuser@dusk.com',
+                'password' => Hash::make('sdfas3rt'),  // Save the encrypted - bcrypt($password)
+            ]);
         }
 
         // Login trough the login page with the test user
@@ -72,10 +72,10 @@ class LoginPage extends Page
         // Create the test user if it doesn't exist
         if (! User::where('email', '=', 'super_adminuser@dusk.com')->exists()) {
             $user = factory(User::class)->create([
-                    'email' => 'super_adminuser@dusk.com',
-                    'password' => Hash::make('gr4TWgr4W'),  // Save the encrypted - bcrypt($password)
-                    'group' => 1,
-                ]);
+                'email' => 'super_adminuser@dusk.com',
+                'password' => Hash::make('gr4TWgr4W'),  // Save the encrypted - bcrypt($password)
+                'group' => 1,
+            ]);
         }
 
         // Login trough the login page with the test user
@@ -96,10 +96,10 @@ class LoginPage extends Page
         // Create the test user if it doesn't exist
         if (! User::where('email', '=', 'adminuser@dusk.com')->exists()) {
             $user = factory(User::class)->create([
-                    'email' => 'adminuser@dusk.com',
-                    'password' => Hash::make('rw52Tdfd63g'),  // Save the encrypted - bcrypt($password)
-                    'group' => 2,
-                ]);
+                'email' => 'adminuser@dusk.com',
+                'password' => Hash::make('rw52Tdfd63g'),  // Save the encrypted - bcrypt($password)
+                'group' => 2,
+            ]);
         }
 
         // Login trough the login page with the test user

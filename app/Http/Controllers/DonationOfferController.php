@@ -89,11 +89,11 @@ class DonationOfferController extends Controller
     {
         // Validate form datas
         $validator = Validator::make($request->all(), [
-                'name' => 'required',
-                'surname' => 'required',
-                'email' => 'required',
-                'country_id' => 'required',
-            ]);
+            'name' => 'required',
+            'surname' => 'required',
+            'email' => 'required',
+            'country_id' => 'required',
+        ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
