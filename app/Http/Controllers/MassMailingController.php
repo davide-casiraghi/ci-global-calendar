@@ -43,9 +43,9 @@ class MassMailingController extends Controller
 
         // Validate form datas
         $validator = Validator::make($request->all(), [
-                'message' => 'required',
-                'g-recaptcha-response' => 'required|captcha',
-            ]);
+            'message' => 'required',
+            'g-recaptcha-response' => 'required|captcha',
+        ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }

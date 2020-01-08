@@ -118,10 +118,10 @@ class PostController extends Controller
 
         // Validate form datas
         $validator = Validator::make($request->all(), [
-                'title' => 'required',
-                'body' => 'required',
-                'category_id' => 'required',
-            ]);
+            'title' => 'required',
+            'body' => 'required',
+            'category_id' => 'required',
+        ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }

@@ -13,14 +13,14 @@ class UsersTableSeeder extends Seeder
     {
         $users = [
             [
-                    'id' => '1',
-                    'name' => 'Davide Casiraghi',
-                    'email' => 'davide.casiraghi@gmail.com',
-                    'password' => '$2y$10$PRsgbgfF0bV3FsFjbjOIDOW3JMSQYUYNsRhoEhVMPC6vc0yfoVsfm',
-                    'group' => '1',
-                    'country_id' => '1',
-                    'status' => '1',
-                ],
+                'id' => '1',
+                'name' => 'Davide Casiraghi',
+                'email' => 'davide.casiraghi@gmail.com',
+                'password' => '$2y$10$PRsgbgfF0bV3FsFjbjOIDOW3JMSQYUYNsRhoEhVMPC6vc0yfoVsfm',
+                'group' => '1',
+                'country_id' => '1',
+                'status' => '1',
+            ],
         ];
 
         foreach ($users as $key => $user) {

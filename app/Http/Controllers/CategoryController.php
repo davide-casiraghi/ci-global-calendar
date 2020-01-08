@@ -56,8 +56,8 @@ class CategoryController extends Controller
 
         // Validate form datas
         $validator = Validator::make($request->all(), [
-                'name' => 'required',
-            ]);
+            'name' => 'required',
+        ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
