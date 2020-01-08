@@ -5,7 +5,7 @@ return [
     'global_calendar' => 'Global Calendar',
     'find_information' => 'Find information about Contact Improvisation events worldwide (classes, jams, workshops, festivals and more)',
     'under_costruction' => 'WE ARE UNDER CONSTRUCTION. The calendar is still in beta testing phase, we plan to fully operate starting from 2nd April 2019',
-    'criteria' => 'Use one search criteria or more',
+    'criteria' => 'Use one or more search criteria',
     'what' => 'What',
     'when' => 'When',
     'when_tooltip' => 'You can specify no one, one or both search fields',
