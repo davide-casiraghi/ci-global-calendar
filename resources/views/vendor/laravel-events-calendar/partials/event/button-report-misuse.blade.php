@@ -26,6 +26,12 @@
                                  </select>
                              </div>
 
+                             @include('laravel-form-partials::input', [
+                                   'title' => 'Your email',
+                                   'name' => 'user_email',
+                                   'required' => true,
+                             ])
+                             
                              @include('laravel-form-partials::textarea-plain', [
                                    'title' => __('misuse.message'),
                                    'name' => 'message',
