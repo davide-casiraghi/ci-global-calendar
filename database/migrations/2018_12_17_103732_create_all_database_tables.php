@@ -82,7 +82,7 @@ class CreateAllDatabaseTables extends Migration
             $table->timestamps();
         });
         Schema::create('events', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->integer('category_id');
             $table->integer('created_by')->nullable();
 
