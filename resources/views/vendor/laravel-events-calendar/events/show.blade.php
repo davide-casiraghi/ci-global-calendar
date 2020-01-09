@@ -63,7 +63,7 @@
                                     <div class="col-12 mt-2">
                                         <i class="fa fa-users mr-1 dark-gray" data-toggle="tooltip" data-placement="top" title="Organizers"></i>
                                         @foreach ($organizers as $key => $organizer)
-                                            {{$organizer->name}}
+                                            {{$organizer->name}}@if(!$loop->last),@endif
                                         @endforeach
                                     </div>
                                 @endif
