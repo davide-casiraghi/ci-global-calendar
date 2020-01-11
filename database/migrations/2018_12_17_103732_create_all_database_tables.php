@@ -144,7 +144,7 @@ class CreateAllDatabaseTables extends Migration
             $table->string('address')->nullable();
             $table->string('zip_code')->nullable();
             $table->float('lng', 9, 6)->nullable();
-            $table->float('lat', 8, 6)->nullable();    
+            $table->float('lat', 8, 6)->nullable();
             $table->timestamps();
         });
         Schema::create('continents', function (Blueprint $table) {
