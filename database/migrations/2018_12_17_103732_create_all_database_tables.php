@@ -142,6 +142,7 @@ class CreateAllDatabaseTables extends Migration
             $table->string('state_province')->nullable();
             $table->string('city');
             $table->string('address')->nullable();
+            $table->text('extra_info')->nullable();
             $table->string('zip_code')->nullable();
             $table->float('lng', 9, 6)->nullable();
             $table->float('lat', 8, 6)->nullable();
