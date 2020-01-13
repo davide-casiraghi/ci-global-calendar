@@ -10,7 +10,7 @@ return [
     'when' => 'Kiedy',
     'when_tooltip' => 'Możesz podać tylko jedno lub oba pola dat',
     'where' => 'Gdzie',
-    'where_tooltip' => 'Tylko kraje z dostępnymi wydarzeniami są pokazane poniżej',
+    'where_tooltip' => 'Tylko kraje  z dostępnymi wydarzeniami są pokazane poniżej',
     'who' => 'Kto',
     'results_found' => 'znalezione rezultaty',
     'start_on' => 'Rozpoczyna się (lub po)',

@@ -10,7 +10,7 @@ return [
     'when' => 'Quand',
     'when_tooltip' => 'You can specify just one or both date fields',
     'where' => 'Où',
-    'where_tooltip' => 'Just the countries with available events are shown below',
+    'where_tooltip' => 'Sont uniquement listés ci-dessous les villes où ont lieu des évènements',
     'who' => 'Qui',
     'results_found' => 'résultats trouvés',
     'start_on' => 'Commence le (à partir de)',

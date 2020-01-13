@@ -31,7 +31,7 @@ return [
     'admin_account_approval' => 'Sua conta tem que ser aprovada pelo administrador e pode levar algum tempo (dias) para receber a confirmação. Na próxima vez você só precisará fazer o login e fazer sua próxima entrada.',
     'to_be_approved' => 'Para ser aprovado como um editor do Calendário Global de CI, por favor descreva seu papel na comunidade de Contato Improvisação (isso é necessário para prevenir spam no website)',
     'name' => 'Nome',
-    'email_address' => 'Endereço de e-mail',
+    'email_address' => 'Endereço de Email',
     'phone' => 'Telefone',
     'password' => 'Senha',
     'confirm_password' => 'Confirmar Senha',
@@ -43,4 +43,5 @@ return [
     'forgot_your_password' => 'Esqueceu a senha?',
     'message' => 'Mensagem',
     'user_name' => 'Nome de usuário',
+    'surname' => 'Sobrenome',
 ];

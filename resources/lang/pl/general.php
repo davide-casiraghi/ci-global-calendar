@@ -24,7 +24,7 @@ return [
     'description' => 'Opis',
     'continent' => 'Kontynent',
     'country' => 'Kraj',
-    'region' => 'Estado/Região',
+    'region' => 'Stan / Region',
     'city' => 'Miasto',
     'privacy_policy' => 'Aby uzyskać więcej informacji zapoznaj się z  Polityką Prywatności',
     'accept_terms_of_use' => 'Oświadczam, że przeczytałem i akceptuję Warunki Użytkowania *',

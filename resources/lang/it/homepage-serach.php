@@ -10,7 +10,7 @@ return [
     'when' => 'Quando',
     'when_tooltip' => 'È possibile specificare nessuno, uno o entrambi i campi di ricerca',
     'where' => 'Dove',
-    'where_tooltip' => 'Just the countries with available events are shown below',
+    'where_tooltip' => 'Solo i paesi con avvenimenti disponibili sono citati sotto',
     'who' => 'Chi',
     'results_found' => 'risultati trovati',
     'start_on' => 'Comincia il (o dopo del) ',

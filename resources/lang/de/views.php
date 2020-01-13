@@ -121,7 +121,7 @@ return [
     'orientation' => 'Orientierung',
     'select_orientation' => 'Orientierung auswählen',
     'who_took_the_photo'  => 'Wer hat das Photo gemacht?',
-    'contact_the_administrator'  => 'Kontaktiere den Administratorr*in',
+    'contact_the_administrator'  => 'Kontaktiere den/die Administrator*in',
     'contact_the_project_manager'  => 'Kontaktiere den Projekt Manager*in',
     'contact_the_webmaster'  => 'Kontaktiere den Webmaster*in',
     'please_write_in_english' => 'Bitte schreibe deinen Text auf Englisch',
