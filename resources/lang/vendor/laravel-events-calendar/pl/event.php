@@ -13,7 +13,7 @@ return [
     'email_for_more_info' => 'Email for more info',
     'facebook_event' => 'Wydarzenie na Facebooku',
     'event_url' => 'Wydarzenie URL',
-    'upload_event_teaser_image' => 'Upload event image',
+    'upload_event_teaser_image' => 'Prześlij obraz zdarzenia',
     'no_repeat' => 'Bez powtórzeń',
     'weekly' => 'Tygodniowy',
     'monthly' => 'Miesięczny',

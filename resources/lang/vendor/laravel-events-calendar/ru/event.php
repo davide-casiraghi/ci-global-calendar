@@ -13,7 +13,7 @@ return [
     'email_for_more_info' => 'написать для получения большей информации',
     'facebook_event' => 'Событие в Фейсбуке',
     'event_url' => 'Адрес события',
-    'upload_event_teaser_image' => 'загрузить фото с мероприятия',
+    'upload_event_teaser_image' => 'загрузить фото учителя',
     'no_repeat' => 'Не повторять',
     'weekly' => 'Еженедельно',
     'monthly' => 'Ежемесячно',

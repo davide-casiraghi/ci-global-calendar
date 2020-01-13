@@ -125,7 +125,6 @@
                     <h4>{{ $venue->name }}</h4>
                     <div class="address">
                         {{ $venue->address }}<br />
-                        @if(!empty($eventVenue->extra_info)){!! $eventVenue->extra_info !!}<br>@endif
                         {{ $venue->city }}<br />
                         @if(!empty($region->name)){{ $region->name }}<br /> @endif
                         {{ $venue->zip_code }}<br />
@@ -138,6 +137,8 @@
                         <a href="{{ $venue->website }}" target="_blank">{{ $venue->website }}</a>    
                         <br /><br />
                     @endif
+                    
+                    @if(!empty($venue->extra_info)){!! $venue->extra_info !!}<br><br />@endif
                     
                     {!! $venue->description !!}<br />
                 </div>
