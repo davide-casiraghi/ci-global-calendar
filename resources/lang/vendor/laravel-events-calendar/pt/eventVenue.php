@@ -10,5 +10,6 @@ return [
     'city' => 'Cidade',
     'street' => 'Rua',
     'zip_code' => 'Código postal',
+    'extra_info' => 'Mais informações para chegar ao local',
     'search_by_venue_name' => 'Procurar pelo nome do lugar',
 ];

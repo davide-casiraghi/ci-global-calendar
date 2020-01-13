@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('title',  "Continents" )
 
 @section('content')

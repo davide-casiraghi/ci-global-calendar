@@ -67,8 +67,8 @@
                                    'placeholder' => 'the text of your message',
                                    'required' => true,
                              ])
-                            
-                            @include('laravel-form-partials::recaptcha')
+                             
+                             @include('laravel-form-partials::recaptcha')
 
                              @include('laravel-form-partials::input-hidden', [
                                    'name' => 'event_title',
