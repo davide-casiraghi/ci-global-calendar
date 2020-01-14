@@ -123,7 +123,7 @@
             <div class="row event-venue">
                 <div class="col-12 mt-4 p-4 white-bg rounded event-venue">
                     <h4>{{ $venue->name }}</h4>
-                    <div class="address">
+                    <div class="address mb-3">
                         {{ $venue->address }}<br />
                         {{ $venue->city }}<br />
                         @if(!empty($region->name)){{ $region->name }}<br /> @endif
@@ -132,13 +132,17 @@
                     </div>
                     
                     @if(!empty($venue->website))
-                        <br>
-                        <i class="fa fa-external-link dark-gray" style="margin-right: 10px;"></i>
-                        <a href="{{ $venue->website }}" target="_blank">{{ $venue->website }}</a>    
-                        <br /><br />
+                        <div class="website mb-3">
+                            <i class="fa fa-external-link dark-gray" style="margin-right: 10px;"></i>
+                            <a href="{{ $venue->website }}" target="_blank">{{ $venue->website }}</a>    
+                        </div>
                     @endif
                     
-                    @if(!empty($venue->extra_info)){!! $venue->extra_info !!}<br><br />@endif
+                    @if(!empty($venue->extra_info))
+                        <div class="extra_info mb-3">
+                            {!! $venue->extra_info !!}
+                        </div>
+                    @endif
                     
                     {!! $venue->description !!}<br />
                 </div>

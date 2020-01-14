@@ -20,14 +20,14 @@
         
         @if(!empty($eventVenue->extra_info))
             <div class="col-12 mt-4">
-                <h3>@lang('laravel-events-calendar::eventVenue.extra_info')</h3>
+                <h4>@lang('laravel-events-calendar::eventVenue.extra_info')</h4>
                 {!! $eventVenue->extra_info !!}
             </div>
         @endif
 
         @if(!empty($eventVenue->description))
             <div class="col-12 mt-4">
-                <h3>@lang('laravel-events-calendar::general.description')</h3>
+                <h4>@lang('laravel-events-calendar::general.description')</h4>
                 {!! $eventVenue->description !!}
             </div>
         @endif
@@ -41,7 +41,6 @@
 
 
         <div class="col-12 mt-4">
-            <h3 class="mb-3">Map</h3>
             @include('laravel-events-calendar::partials.gmap', [
                   'venue_name' => $eventVenue->name,
                   'venue_address' => $eventVenue->address,

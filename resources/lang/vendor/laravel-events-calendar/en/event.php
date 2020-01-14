@@ -37,4 +37,7 @@ return [
     'filter_by_category' => 'Filter by category',
     'delete_event' => 'Delete event',
     'start_end_duration' => 'Start, End, Duration',
+    'the_event_happens_on_this_dates'  => 'The event happens on this dates: ',
+    'the_event_happens_x_until_x'  => 'The event happens %s until %s',
+    'the_event_happens_every_x_until'  => 'The event happens every %s until ',
 ];

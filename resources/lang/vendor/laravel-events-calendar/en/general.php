@@ -25,6 +25,7 @@ return [
     'select_country' => 'Select country',
     'select_region' => 'Select state/region',
     'select_date' => 'Select date',
+    'select_repeat_monthly_kind' => 'Select repeat monthly kind',
     'email_address' => 'Email address',
     'teachers' => 'Teachers',
     'organizers' => 'Organizers',
@@ -35,5 +36,12 @@ return [
     'status' => 'Status',
     'published' => 'Published',
     'unpublished' => 'Unpublished',
-
+    'monday' => 'Monday',
+    'tuesday' => 'Tuesday',
+    'wednesday' => 'Wednesday',
+    'thursday' => 'Thursday',
+    'friday' => 'Friday',
+    'saturday' => 'Saturday',
+    'sunday' => 'Sunday',
+    'day' => 'day',
 ];
