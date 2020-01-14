@@ -66,9 +66,9 @@
             <div class="col-md-4 col-lg-3 vcenter location mt-2 mt-md-0">
                 <i data-toggle="tooltip" data-placement="top" title="Venue" class="far fa-map-marker-alt mr-2" style="display: table-cell; vertical-align: middle; width: 20px; text-align: center;"></i>
                 <div class="details">
-                    {{ $event->sc_venue_name }}<br />
-                    {{ $event->sc_city_name }},
-                    {{ $event->sc_country_name }}
+                    {{ $event->venue_name }}<br />
+                    {{ $event->city }},
+                    {{ $event->country }}
                 </div>
             </div>
             {{--<div class="col-md-1 vcenter facebook mt-2 mt-md-0">
