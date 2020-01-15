@@ -18,12 +18,12 @@
     <div class="col-12">
         <div class="form-group" >
             <label>@lang('laravel-events-calendar::general.organizers')</label>
-            <select id="organizer" class="selectpicker multiselect" multiple data-live-search="true" title="@lang('laravel-events-calendar::general.choose')">
+            <select id="organizer" name="selected_organizers" class="selectpicker multiselect" multiple data-live-search="true" title="@lang('laravel-events-calendar::general.choose')">
                 @foreach ($organizers as $value => $organizer)
                     <option value="{{$value}}">{!! $organizer !!}</option>
                 @endforeach
             </select>
-            <input type="hidden" name="multiple_organizers" id="multiple_organizers" @if(!empty($multiple_organizers)) value="{{$multiple_organizers}}" @endif/>
+            <input type="hidden" name="multiple_organizers" id="multiple_organizers" value="{{$multiple_organizers}}" />
         </div>
     </div>
     <div class="col-12 mb-1">
