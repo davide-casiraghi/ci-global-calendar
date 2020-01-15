@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'notice' => 'Beachte',
     'add_new_event' => 'Neuen Event hinzufügen',
     'create_new_event' => 'Neuen Event erstellen',
     'edit_event' => 'Event bearbeiten',
@@ -39,14 +40,6 @@ return [
     'start_end_duration' => 'Start, Ende, Dauer',
     'the_event_happens_on_this_dates'  => 'Der Event findet zu diesem Termin statt: ',
     'the_event_happens_x_until_x'  => 'Der Event findet vom %s bis %s statt',
-    'the_event_happens_every_x_until'  => 'Der Event findet jeden %s bis %s statt ',
-    'the_x_day_of_the_month'  => 'der %s Tag des Monats',
-    'the_x_x_of_the_month'  => 'der %s %s des Monats',
-    'the_x_to_last_day_of_the_month'  => 'der %s bis letzte Tag des Monats',
-    'the_x_to_last_x_of_the_month'  => 'vom %s bis zum letzten %s des Monats',
-    'the_1_to_last_x_of_the_month'  => 'der letzte %s des Monats',
-    'the_2_to_last_x_of_the_month'  => 'der vorletzte %s des Monats',
-    'the_3_to_last_x_of_the_month'  => 'der drittletzte %s des Monats',
-    'the_4_to_last_x_of_the_month'  => 'der viertletzte %s des Monats',
-    'the_5_to_last_x_of_the_month'  => 'der fünfte bis letzte %s des Monats',
+    'the_event_happens_every_x_until_x'  => 'Der Event findet jeden %s bis %s statt',
+    'event_teaser_image' => 'Bild',
 ];

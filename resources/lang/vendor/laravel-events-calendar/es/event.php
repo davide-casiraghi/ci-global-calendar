@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'notice' => 'Notar',
     'add_new_event' => 'Agregar un nuevo evento',
     'create_new_event' => 'Crear un nuevo evento',
     'edit_event' =>'Editar el evento',
@@ -39,14 +40,6 @@ return [
     'start_end_duration' => 'Inicio, Fin, Duración',
     'the_event_happens_on_this_dates'  => 'El evento tiene lugar en estas fechas: ',
     'the_event_happens_x_until_x'  => 'El evento ocurre %s hasta %s',
-    'the_event_happens_every_x_until'  => 'El evento ocurre cada %s hasta que ',
-    'the_x_day_of_the_month'  => 'el %s día del mes',
-    'the_x_x_of_the_month'  => 'los %s %s del mes',
-    'the_x_to_last_day_of_the_month'  => 'los %s hasta el último día del mes',
-    'the_x_to_last_x_of_the_month'  => 'los %s hasta los últimos %s del mes',
-    'the_1_to_last_x_of_the_month'  => 'los últimos %s del mes',
-    'the_2_to_last_x_of_the_month'  => 'el penúltimo %s del mes',
-    'the_3_to_last_x_of_the_month'  => 'el tercero al último %s del mes',
-    'the_4_to_last_x_of_the_month'  => 'el cuarto al último %s del mes',
-    'the_5_to_last_x_of_the_month'  => 'el quinto al último %s del mes',
+    'the_event_happens_every_x_until_x'  => 'El evento ocurre cada %s hasta que %s',
+    'event_teaser_image' => 'Imagen',
 ];

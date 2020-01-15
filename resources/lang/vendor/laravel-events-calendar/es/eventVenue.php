@@ -7,6 +7,7 @@ return [
     'events_venue_management' =>'Administración de lugares',
     'country' => 'País',
     //'state_province' => 'Estado/Provincia',
+    'region' => 'Estado/Región',
     'city' => 'Ciudad',
     'street' => 'Calle',
     'zip_code' => 'Código postal',

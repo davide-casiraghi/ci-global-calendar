@@ -7,6 +7,7 @@ return [
     'events_venue_management' => 'Gestion des lieux',
     'country' => 'Pays',
     //'state_province' => 'Etat/Province',
+    'region' => 'Région/Département',
     'city' => 'Ville',
     'street' => 'Rue',
     'zip_code' => 'Code postal',

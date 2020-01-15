@@ -7,6 +7,7 @@ return [
     'events_venue_management' => 'Verwaltung des Veranstaltungsortes',
     'country' => 'Land',
     //'state_province' => 'Bundesland',
+    'region' => 'Bundesland/Region',
     'city' => 'Stadt',
     'street' => 'Straße',
     'zip_code' => 'Postleitzahl',

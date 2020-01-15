@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'notice' => 'Zauważyć',
     'add_new_event' => 'Dodaj nowe wydarzenie',
     'create_new_event' => 'Utwórz nowe wydarzenie',
     'edit_event' => 'Edytuj wydarzenie',
@@ -39,15 +40,6 @@ return [
     'start_end_duration' => 'Początek, koniec, czas trwania',
     'the_event_happens_on_this_dates'  => 'Wydarzenie odbywa się w następujących terminach: ',
     'the_event_happens_x_until_x'  => 'Zdarzenie dzieje się %s do %s',
-    'the_event_happens_every_x_until'  => 'Zdarzenie zdarza się co %s do ',
-    'the_x_day_of_the_month'  => '%s dzień miesiąca',
-    'the_x_x_of_the_month'  => '%s %s miesiąca',
-    'the_x_to_last_day_of_the_month'  => '%s do ostatniego dnia miesiąca',
-    'the_last_x_of_the_month'  => 'ostatnie %s miesiąca',
-    'the_x_to_last_x_of_the_month'  => '%s do ostatnich %s miesiąca',
-    'the_1_to_last_x_of_the_month'  => 'ostatnie %s miesiąca',
-    'the_2_to_last_x_of_the_month'  => 'od drugiego do ostatniego %s miesiąca',
-    'the_3_to_last_x_of_the_month'  => 'od trzeciego do ostatnich %s miesiąca',
-    'the_4_to_last_x_of_the_month'  => 'od czwartego do ostatniego %s miesiąca',
-    'the_5_to_last_x_of_the_month'  => 'od piątego do ostatniego %s miesiąca',
+    'the_event_happens_every_x_until_x'  => 'Zdarzenie zdarza się co %s do %s',
+    'event_teaser_image' => 'Wizerunek',
 ];

@@ -7,6 +7,7 @@ return [
     'events_venue_management' => 'Gestione spazi',
     'country' => 'Nazione',
     //'state_province' => 'Regione/Provincia',
+    'region' => 'Stato/Regione',
     'city' => 'Città',
     'street' => 'Via',
     'zip_code' => 'CAP',

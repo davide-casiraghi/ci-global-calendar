@@ -30,6 +30,7 @@ return [
     'teachers' => 'Teachers',
     'organizers' => 'Organizers',
     'venues' => 'Venues',
+    'venue' => 'Venue',
     'choose' => 'Choose...',
     'select_one' => 'Select one',
     'filter_by_country' => 'Filter by country',

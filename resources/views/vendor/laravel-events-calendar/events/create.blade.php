@@ -30,7 +30,7 @@
             {{-- Basics --}}
                 <div class="row">
                     <div class="col-12 col-md form-sidebar">
-                        <h5 class="text-xl">Notice</h5>
+                        <h5 class="text-xl">@lang('laravel-events-calendar::event.notice')</h5>
                         <span class="dark-gray">@lang('laravel-events-calendar::event.first_country_event_notice')</span>
                     </div>
                     <div class="col-12 col-md main">
@@ -95,7 +95,7 @@
                                 @include('laravel-events-calendar::partials.event.select-event-teacher', [
                                       'selected_teachers' => old('selected_teachers'),
                                       'multiple_teachers' => old('multiple_teachers'),
-                                ]) 
+                                ])    
                                 @include('laravel-events-calendar::partials.event.select-event-organizer', [
                                       'selected_organizers' => old('selected_organizers'),
                                       'multiple_organizers' => old('multiple_organizers'),
@@ -110,14 +110,14 @@
             {{-- Venue --}}
                 <div class="row">
                     <div class="col form-sidebar">
-                        <h5 class="text-xl">Venue</h5>
+                        <h5 class="text-xl">@lang('laravel-events-calendar::general.venue')</h5>
                         <span class="dark-gray">@lang('laravel-events-calendar::event.select_venue')</span>
                     </div>
                     <div class="col main">
                         <div class="row">
                             <div class="col-12">
                                 @include('laravel-events-calendar::partials.event.select-event-venue', [
-                                      'selected' => old('venue_id'),
+                                      'venue_id' => old('venue_id'),
                                 ]) 
                             </div>
                         </div>
@@ -255,7 +255,7 @@
             {{-- Event teaser image --}}
                 <div class="row">
                     <div class="col form-sidebar">
-                        <h5 class="text-xl">Event teaser image</h5>
+                        <h5 class="text-xl">@lang('laravel-events-calendar::event.event_teaser_image')</h5>
                         
                     </div>
                     <div class="col main">
