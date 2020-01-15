@@ -164,7 +164,7 @@
 
         <div id="onMonthly" class="onFrequency col-12 col-xl-7" style="display:none">
             <label>@lang('laravel-events-calendar::event.monthly') *</label>
-            <select name="on_monthly_kind" id="on_monthly_kind" class="selectpicker" title="Select repeat monthly kind">
+            <select name="on_monthly_kind" id="on_monthly_kind" class="selectpicker" title="@lang('laravel-events-calendar::general.select_repeat_monthly_kind')">
                 <option value="1">1</option>
             </select>
             <input type="hidden" name="on_monthly_kind_value" @if(!empty($event->on_monthly_kind))  value="{{$event->on_monthly_kind}}" @endif/>
