@@ -20,6 +20,7 @@ return [
     'search_by_city' => 'Название города',
     'select_a_continent' => 'Выбрать континент',
     'select_a_country' => 'Выбрать страну',
+    'select_a_region' => 'выберите штат / регион',
     'select_a_city' => 'Выбрать город',
     'all_kind_of_events' => 'Все события',
     'teacher_name' => 'Имя учителя',

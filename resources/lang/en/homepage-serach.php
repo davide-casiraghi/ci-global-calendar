@@ -20,7 +20,7 @@ return [
     'search_by_city' => 'City name',
     'select_a_continent' => 'Select a continent',
     'select_a_country' => 'Select a country',
-    'select_a_region' => 'Select a state/region',
+    'select_a_region' => 'Select a state / region',
     'select_a_city' => 'Select a city',
     'all_kind_of_events' => 'All kind of events',
     'teacher_name' => 'Teacher name',
