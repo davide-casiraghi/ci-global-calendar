@@ -42,4 +42,5 @@ return [
     'the_event_happens_x_until_x'  => 'Событие происходит %s до %s',
     'the_event_happens_every_x_until_x'  => 'Событие происходит каждые %s до %s',
     'event_teaser_image' => 'Образ',
+    'max_until' => 'Возможно повторять максимальное количество раз в течение года, начиная с сегодняшнего дня',
 ];

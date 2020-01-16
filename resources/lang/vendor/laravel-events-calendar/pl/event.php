@@ -42,4 +42,5 @@ return [
     'the_event_happens_x_until_x'  => 'Zdarzenie dzieje się %s do %s',
     'the_event_happens_every_x_until_x'  => 'Zdarzenie zdarza się co %s do %s',
     'event_teaser_image' => 'Wizerunek',
+    'max_until' => 'Od dzisiaj można ustawić maksymalnie jeden rok powtórzeń',
 ];

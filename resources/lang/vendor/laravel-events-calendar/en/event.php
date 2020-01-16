@@ -42,4 +42,5 @@ return [
     'the_event_happens_x_until_x'  => 'The event happens %s until %s',
     'the_event_happens_every_x_until_x'  => 'The event happens every %s until %s',
     'event_teaser_image' => 'Event teaser image',
+    'max_until' => 'It\'s possible to set maximum one year of repetition from today',
 ];

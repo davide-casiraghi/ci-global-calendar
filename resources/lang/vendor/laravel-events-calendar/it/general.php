@@ -24,7 +24,7 @@ return [
     'select_country' => 'Seleziona una nazione',
     'select_region' => 'Seleziona stato / regione',
     'select_date' =>  'Scegliere una data',
-    'select_repeat_monthly_kind' => 'Seleziona tipo ripetizione mensile',
+    'select_repeat_monthly_kind' => 'Seleziona prima la data di inizio',
     'email_address' => 'Email',
     'teachers' => 'Insegnanti',
     'organizers' => 'Organizzatori',

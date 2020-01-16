@@ -106,7 +106,7 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 mt-3 p-4 white-bg rounded text-base-longtext">
                     @if(!empty($event->image))
-                        <img class="ml-sm-3 float-sm-right img-fluid" alt="{{ $event->title }} - {{ $venue->name }} - {{ $venue->city }}, {{ $country->name }}" src="/storage/images/events_teaser/thumb_{{ $event->image }}">
+                        <img class="ml-sm-3 mb-3 float-sm-right img-fluid" alt="{{ $event->title }} - {{ $venue->name }} - {{ $venue->city }}, {{ $country->name }}" src="/storage/images/events_teaser/thumb_{{ $event->image }}">
                     @endif
                     {!! $event->description !!}    
                 </div>

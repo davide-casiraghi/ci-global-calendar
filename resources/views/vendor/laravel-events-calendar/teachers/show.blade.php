@@ -67,7 +67,7 @@
                     <div class="row m-0 p-4 white-bg rounded mt-2">
                         <div class="col-12 mt-3">
                             @if(!empty($teacher->profile_picture))
-                                <img class="ml-3 float-right img-fluid mb-2" alt="{{ $teacher->name }}" src="/storage/images/teachers_profile/thumb_{{ $teacher->profile_picture }}" >
+                                <img class="ml-3 float-right img-fluid mb-3" alt="{{ $teacher->name }}" src="/storage/images/teachers_profile/thumb_{{ $teacher->profile_picture }}" >
                             @endif
                             {!! $teacher->bio !!}
                         </div>

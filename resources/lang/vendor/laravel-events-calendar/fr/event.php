@@ -42,4 +42,5 @@ return [
     'the_event_happens_x_until_x'  => 'L\'évènement a lieu %s jusqu\'au %s',
     'the_event_happens_every_x_until_x'  => 'L\'évènement a lieu chaque %s jusqu\'au  %s',
     'event_teaser_image' => 'Image',
+    'max_until' => 'Il est possible de fixer un maximum d\'un an de répétition à partir d\'aujourd\'hui.',
 ];

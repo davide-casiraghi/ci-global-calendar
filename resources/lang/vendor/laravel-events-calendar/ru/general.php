@@ -24,7 +24,7 @@ return [
     'select_country' => 'Выбрать страну',
     'select_region' => 'выберите штат / регион',
     'select_date' => 'Выбрать дату',
-    'select_repeat_monthly_kind' => 'Выберите один',
+    'select_repeat_monthly_kind' => 'Select start date first',
     'email_address' => 'Адрес электронной почты',
     'teachers' => 'Учителя',
     'organizers' => 'Организаторы',

@@ -24,7 +24,7 @@ return [
     'select_country' => 'Sélectionner le pays',
     'select_region' => 'Sélectionner Région/ Département',
     'select_date' => 'Choisir une date',
-    'select_repeat_monthly_kind' => 'Sélectionnez une',
+    'select_repeat_monthly_kind' => 'Select start date first',
     'email_address' => 'Courriel',
     'teachers' => 'Enseignant-es',
     'organizers' => 'Organisateur-trice',

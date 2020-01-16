@@ -42,4 +42,5 @@ return [
     'the_event_happens_x_until_x'  => 'L\'evento si verifica %s fino al %s',
     'the_event_happens_every_x_until_x'  => 'L\'evento si verifica ogni %s fino al  %s',
     'event_teaser_image' => 'Immagine',
+    'max_until' => 'E\' possibile impostare al massimo un anno di ripetizione da oggi',
 ];

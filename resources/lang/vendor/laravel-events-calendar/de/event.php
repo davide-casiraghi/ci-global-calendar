@@ -42,4 +42,5 @@ return [
     'the_event_happens_x_until_x'  => 'Der Event findet vom %s bis %s statt',
     'the_event_happens_every_x_until_x'  => 'Der Event findet jeden %s bis %s statt',
     'event_teaser_image' => 'Bild',
+    'max_until' => 'Es ist möglich, ab heute Wiederholungen für maximal ein Jahr einzustellen.',
 ];

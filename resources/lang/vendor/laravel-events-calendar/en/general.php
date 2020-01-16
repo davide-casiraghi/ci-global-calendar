@@ -25,7 +25,7 @@ return [
     'select_country' => 'Select country',
     'select_region' => 'Select state/region',
     'select_date' => 'Select date',
-    'select_repeat_monthly_kind' => 'Select repeat monthly kind',
+    'select_repeat_monthly_kind' => 'Select start date first',
     'email_address' => 'Email address',
     'teachers' => 'Teachers',
     'organizers' => 'Organizers',
