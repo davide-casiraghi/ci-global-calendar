@@ -74,7 +74,7 @@ class EventSearchController extends Controller
         $filters['endDate'] = LaravelEventsCalendar::formatDatePickerDateForMysql($request->input('endDate'));
 
         $events = Event::getEvents($filters, 20);
-
+        //dd($events);
         return view('eventSearch.index', compact('events'))
             ->with('i', (request()->input('page', 1) - 1) * 20)
             ->with('eventCategories', $eventCategories)
