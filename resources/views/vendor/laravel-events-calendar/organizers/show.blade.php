@@ -19,7 +19,7 @@
     <div class="row">
         <div class="container max-w-md px-0">
             <div class="row m-0 p-4 white-bg rounded">
-                <div class="teacherName col-12 mt-3">
+                <div class="orgaizerName col-12 mt-3">
                     <h4>{{ $organizer->name }}</h4>
                 </div>
 
@@ -31,7 +31,7 @@
                 @endif
                 
                 @if(!empty($organizer->profile_picture))
-                    <img class="ml-3 float-right img-fluid mb-3" alt="{{ $organizer->name }}" src="/storage/images/teachers_profile/thumb_{{ $teacher->profile_picture }}" >
+                    <img class="ml-3 float-right img-fluid mb-3" alt="{{ $organizer->name }}" src="/storage/images/organizers_profile/thumb_{{ $organizer->profile_picture }}" >
                 @endif
 
                 @if(!empty($organizer->description))
