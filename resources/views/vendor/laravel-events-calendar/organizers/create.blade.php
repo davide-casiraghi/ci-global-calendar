@@ -76,6 +76,13 @@
                           'required' => false,
                     ])
                 </div>
+                
+                @include('laravel-form-partials::upload-image', [
+                      'title' => __('laravel-events-calendar::teacher.upload_profile_picture'), 
+                      'name' => 'profile_picture',
+                      'folder' => 'organizers_profile',
+                      'value' => ''
+                ])
             </div>
 
             @include('laravel-form-partials::buttons-back-submit', [
