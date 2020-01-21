@@ -29,7 +29,7 @@
                         <a href="{{ $organizer->website }}" target="_blank">@lang('laravel-events-calendar::general.website')</a>
                     </div>
                 @endif
-                
+
                 @if(!empty($organizer->description))
                     <div class="col-12 mt-4">
                         @if(!empty($organizer->profile_picture))

@@ -18,8 +18,9 @@
         @break
         
         @case(3) {{-- System - User Profile --}}            
-            @if(Auth::user())
-                @php ($url = route('users.edit', ['id' => Auth::user()->id]))
+            @if(Auth::user())                
+                @php ($url = '/users/'.Auth::user()->id.'/edit/')
+                {{--@php ($url = route('users.edit', ['id' => Auth::user()->id]))--}}
             @else
                 @php ($url = "")
             @endif    
