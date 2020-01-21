@@ -30,13 +30,11 @@
                     </div>
                 @endif
                 
-                @if(!empty($organizer->profile_picture))
-                    <img class="ml-3 float-right img-fluid mb-3" alt="{{ $organizer->name }}" src="/storage/images/organizers_profile/thumb_{{ $organizer->profile_picture }}" >
-                @endif
-
                 @if(!empty($organizer->description))
                     <div class="col-12 mt-4">
-                        <h4 class="mb-4">Description</h4>
+                        @if(!empty($organizer->profile_picture))
+                            <img class="ml-3 float-right img-fluid mb-3" alt="{{ $organizer->name }}" src="/storage/images/organizers_profile/thumb_{{ $organizer->profile_picture }}" >
+                        @endif
                         {!! $organizer->description !!}
                     </div>
                 @endif
