@@ -9,7 +9,7 @@ return [
          * the backups.
          */
         //'name' => env('APP_NAME', 'laravel-backup'),
-        'name' => "backup_".env('APP_NAME'),
+        'name' => 'backup_'.env('APP_NAME'),
 
         'source' => [
 
