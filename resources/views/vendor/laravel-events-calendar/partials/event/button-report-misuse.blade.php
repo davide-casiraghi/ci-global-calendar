@@ -1,3 +1,33 @@
+@section('javascript-document-ready')
+    @parent
+    
+    $('#reportMisuseForm').validate({
+        rules: {
+            reason: "required",
+            user_email: {
+                required: true,
+                email: true
+            },
+            message: "false",
+        },
+        submitHandler: function(form) {
+          if (grecaptcha.getResponse() == ''){
+                    //$( '#reCaptchaError' ).html( '<p>Please verify youare human</p>' );
+                    alert('Please confirm captcha to proceed');
+                } else {
+
+             $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            form.submit();
+          }
+        }
+    });
+
+@stop
 
 {{-- Button --}}
     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#reportMisuseModal" data-whatever="@getbootstrap">@lang('misuse.report_misuse')</button>
@@ -12,7 +42,7 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('events.misuse') }}" method="POST">
+                <form id="reportMisuseForm" action="{{ route('events.misuse') }}" method="POST">
                     <div class="modal-body">
                              @csrf 
                              <p>@lang('misuse.report_violation') <a href="/posts/19" target="_blank"><i class="far fa-link"></i></a><br></p>
@@ -36,8 +66,10 @@
                                    'title' => __('misuse.message'),
                                    'name' => 'message',
                                    'placeholder' => __('misuse.include_all_details'),
-                                   'required' => true,
+                                   'required' => false,
                              ])
+                             
+                             @include('laravel-form-partials::recaptcha')
 
                              @include('laravel-form-partials::input-hidden', [
                                    'name' => 'event_title',
