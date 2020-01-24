@@ -35,7 +35,7 @@ return [
     'donation_kind_other_gift' => 'Otra donación',
     'financial_contribution_description' => 'Por favor visita nuestra pagina dedicada donde puedes donar a traves de PayPal.',
     'gifting' => 'Regalar',
-    'entrance_kind' => 'Entrance kind',
+    'entrance_kind' => 'Tipo de entrada',
     'gift_kind_free_festival' => 'Entrada reducida o gratis para tu festival de CI',
     'gift_kind_free_other' => 'Entrada gratis a un workshop, laboratorio, un evento corto o largo',
     'gift_specification' => 'Por favor especifica todo lo que puedas: ubicación, momento del año y duración, condiciones para reservar, website de tu práctica/evento (si es relevante), cuántas plazas puedes ofrecer...',
@@ -68,6 +68,6 @@ return [
     'status_refused' => 'Rechazado',
     'voip' => 'VoIP',
     'filter_by_donation_kind' => 'Filtrar por tipo de donación',
-    'available_gifts_list' => 'Available gifts list',
-    'admin_notes' => 'Admin notes',
+    'available_gifts_list' => 'Lista de donaciones disponibles',
+    'admin_notes' => 'Notas de administrador/a',
 ];
