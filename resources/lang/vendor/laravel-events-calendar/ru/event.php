@@ -43,4 +43,9 @@ return [
     'the_event_happens_every_x_until_x'  => 'Событие происходит каждые %s до %s',
     'event_teaser_image' => 'Образ',
     'max_until' => 'Возможно повторять максимальное количество раз в течение года, начиная с сегодняшнего дня',
+    'report_sent' => 'отчет отправлен',
+    'thank_you_for_your_support' => 'Спасибо за Вашу поддержку.',
+    'administrator_will_check' => 'Администратор скоро проверит событие.',
+    'message_sent_to_organizers' => 'Сообщение отправлено организаторам',
+    'message_sent_to_organizers_description' => 'Ваше сообщение было доставлено на электронные письма организаторов этого мероприятия.',
 ];

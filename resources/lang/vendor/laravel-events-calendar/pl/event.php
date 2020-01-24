@@ -43,4 +43,9 @@ return [
     'the_event_happens_every_x_until_x'  => 'Zdarzenie zdarza się co %s do %s',
     'event_teaser_image' => 'Wizerunek',
     'max_until' => 'Od dzisiaj można ustawić maksymalnie jeden rok powtórzeń',
+    'report_sent' => 'Raport wysłany',
+    'thank_you_for_your_support' => 'Dziękuję za Twoje wsparcie.',
+    'administrator_will_check' => 'Administrator sprawdzi wkrótce wydarzenie.',
+    'message_sent_to_organizers' => 'Wiadomość wysłana do organizatorów',
+    'message_sent_to_organizers_description' => 'Twoja wiadomość została dostarczona na e-maile organizatorów tego wydarzenia.',
 ];

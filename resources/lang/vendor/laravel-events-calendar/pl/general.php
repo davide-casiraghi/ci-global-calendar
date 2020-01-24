@@ -44,4 +44,8 @@ return [
     'saturday' => 'Sobota',
     'sunday' => 'Niedziela',
     'day' => 'dnia',
+    'your_name' => 'Twoje imie',
+    'your_email' => 'Twój email',
+    'message' => 'Wiadomość',
+    'optional' => '(opcjonalnie)',
 ];

@@ -56,21 +56,21 @@
                              @csrf
                              <p>@lang('laravel-events-calendar::event.write_for_more_info_details')</p>
                              @include('laravel-form-partials::input', [
-                                   'title' => 'Your name',
+                                   'title' => __('laravel-events-calendar::general.your_name'),
                                    'name' => 'user_name',
                                    'required' => true,
                              ])
 
                              @include('laravel-form-partials::input', [
-                                   'title' => 'Your email',
+                                   'title' => __('laravel-events-calendar::general.your_email'),
                                    'name' => 'user_email',
                                    'required' => true,
                              ])
 
                              @include('laravel-form-partials::textarea-plain', [
-                                   'title' => 'Message',
+                                   'title' => __('laravel-events-calendar::general.message'),
                                    'name' => 'message',
-                                   'placeholder' => 'the text of your message',
+                                   'placeholder' => '',
                                    'required' => true,
                              ])
                              

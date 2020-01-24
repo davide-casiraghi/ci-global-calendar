@@ -43,4 +43,9 @@ return [
     'the_event_happens_every_x_until_x'  => 'El evento ocurre cada %s hasta que %s',
     'event_teaser_image' => 'Imagen',
     'max_until' => 'Es posible fijar como máximo un año de repetición a partir de hoy',
+    'report_sent' => 'Reporte enviado',
+    'thank_you_for_your_support' => 'Gracias por tu apoyo.',
+    'administrator_will_check' => 'El administrador verificará pronto el evento.',
+    'message_sent_to_organizers' => 'Mensaje enviado a los organizadores.',
+    'message_sent_to_organizers_description' => 'Su mensaje ha sido enviado a los correos electrónicos de los organizadores de este evento.',
 ];
