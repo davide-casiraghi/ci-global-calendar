@@ -1,32 +1,38 @@
 @section('javascript-document-ready')
     @parent
     
-    $('#reportMisuseForm').validate({
+    $("#reportMisuseForm").submit(function(e) {
+        e.preventDefault();
+    }).validate({
         rules: {
             reason: "required",
             user_email: {
                 required: true,
                 email: true
             },
-            message: "false",
         },
         submitHandler: function(form) {
-          if (grecaptcha.getResponse() == ''){
-                    //$( '#reCaptchaError' ).html( '<p>Please verify youare human</p>' );
-                    alert('Please confirm captcha to proceed');
-                } else {
+            
+            var firstNumber = parseInt($("#reportMisuseForm input[name=first_number]").val(), 10);
+            var secondNumber = parseInt($("#reportMisuseForm input[name=second_number]").val(), 10);
+            var captchaResult = parseInt($("#reportMisuseForm input[name=captcha_result]").val(), 10);
+            var checkTotal = firstNumber + secondNumber;
+            
+            if (captchaResult !== checkTotal){
+                alert('Please resolve the simple sum to proceed');
+            } 
+            else {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
 
-             $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            form.submit();
+                form.submit();
           }
         }
     });
-
+    
 @stop
 
 {{-- Button --}}
@@ -64,12 +70,21 @@
                              
                              @include('laravel-form-partials::textarea-plain', [
                                    'title' => __('misuse.message'),
-                                   'name' => 'message',
+                                   'name' => 'message_misuse',
                                    'placeholder' => __('misuse.include_all_details'),
                                    'required' => false,
                              ])
                              
-                             @include('laravel-form-partials::recaptcha')
+                             {{--@include('laravel-form-partials::recaptcha')--}}
+                             
+                             @php 
+                                 $random_number1 = rand(1, 8);
+                                 $random_number2 = rand(1, 8);
+                             @endphp
+                             @include('laravel-form-partials::recaptcha-sum', [
+                                'randomNumber1' => $random_number1,
+                                'randomNumber2' => $random_number2,
+                             ])
 
                              @include('laravel-form-partials::input-hidden', [
                                    'name' => 'event_title',

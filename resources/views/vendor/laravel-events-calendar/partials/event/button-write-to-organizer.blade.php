@@ -1,28 +1,35 @@
 @section('javascript-document-ready')
     @parent
     
-    $('#writeToOrganizerForm').validate({
+    $("#writeToOrganizerForm").submit(function(e) {
+        e.preventDefault();
+    }).validate({
         rules: {
             user_name: "required",
+            reason: "required",
             user_email: {
-                required: false,
+                required: true,
                 email: true
             },
             message: "required",
         },
         submitHandler: function(form) {
-          if (grecaptcha.getResponse() == ''){
-                    //$( '#reCaptchaError' ).html( '<p>Please verify youare human</p>' );
-                    alert('Please confirm captcha to proceed');
-                } else {
+            var firstNumber = parseInt($("#writeToOrganizerForm input[name=first_number]").val(), 10);
+            var secondNumber = parseInt($("#writeToOrganizerForm input[name=second_number]").val(), 10);
+            var captchaResult = parseInt($("#writeToOrganizerForm input[name=captcha_result]").val(), 10);
+            var checkTotal = firstNumber + secondNumber;
+            
+            if (captchaResult !== checkTotal){
+                alert('Please resolve the simple sum to proceed');
+            } 
+            else {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
 
-             $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            form.submit();
+                form.submit();
           }
         }
     });
@@ -68,7 +75,18 @@
                                    'required' => true,
                              ])
                              
+                             {{--
                              @include('laravel-form-partials::recaptcha')
+                             --}}
+                             
+                             @php 
+                                 $random_number1 = rand(1, 8);
+                                 $random_number2 = rand(1, 8);
+                             @endphp
+                             @include('laravel-form-partials::recaptcha-sum', [
+                                'randomNumber1' => $random_number1,
+                                'randomNumber2' => $random_number2,
+                             ])
 
                              @include('laravel-form-partials::input-hidden', [
                                    'name' => 'event_title',

@@ -1,3 +1,24 @@
+@section('javascript-document-ready')
+    @parent
+    
+    /*
+    alert("aa");
+    
+    
+    
+    
+    $.validator.setDefaults({
+        submitHandler: function(form) { 
+            alert('valid form submission');
+            return false; 
+        }
+    });
+    
+    */
+    
+@stop
+
+
 @extends('laravel-events-calendar::events.layout')
 
 @section('title'){{ $event->title }}@endsection
