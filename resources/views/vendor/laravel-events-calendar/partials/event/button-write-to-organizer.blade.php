@@ -6,7 +6,6 @@
     }).validate({
         rules: {
             user_name: "required",
-            reason: "required",
             user_email: {
                 required: true,
                 email: true
@@ -75,9 +74,7 @@
                                    'required' => true,
                              ])
                              
-                             {{--
-                             @include('laravel-form-partials::recaptcha')
-                             --}}
+                             {{--@include('laravel-form-partials::recaptcha')--}}
                              
                              @php 
                                  $random_number1 = rand(1, 8);
