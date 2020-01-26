@@ -28,8 +28,13 @@
                 <div class="text text-white pt-2 pb-0 pb-md-2">© 2019, made with <i class="fas fa-heart"></i> by Round Robin Team</div>
             </div>--}}
             
+            
+            
             <div class="col-6 mb-2 mb-sm-0">
-                <div class="text text-white pt-2 pb-0 pb-md-2">© 2019, made with <i class="fas fa-heart"></i> by Round Robin Team</div>
+                @php
+                    $made_with_love_string = sprintf(__('views.made_with_love'), "<i class='fas fa-heart'></i>");
+                @endphp
+                <div class="text text-white pt-2 pb-0 pb-md-2">{!! $made_with_love_string !!}</div>
             </div>
             <div class="col-6 col-sm-5 col-sm-push-5 text-center text-md-right pr-0">
                 

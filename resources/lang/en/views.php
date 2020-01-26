@@ -166,4 +166,5 @@ return [
     'people' => 'People',
     'choose' => 'Choose...',
     'required' => 'Required',
+    'made_with_love' => '© 2019, made with %s by Round Robin Team',
 ];
