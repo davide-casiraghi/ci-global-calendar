@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'notice' => 'Zauważyć',
     'add_new_event' => 'Dodaj nowe wydarzenie',
     'create_new_event' => 'Utwórz nowe wydarzenie',
     'edit_event' => 'Edytuj wydarzenie',
@@ -13,7 +14,7 @@ return [
     'email_for_more_info' => 'Email for more info',
     'facebook_event' => 'Wydarzenie na Facebooku',
     'event_url' => 'Wydarzenie URL',
-    'upload_event_teaser_image' => 'Upload event image',
+    'upload_event_teaser_image' => 'Prześlij obraz zdarzenia',
     'no_repeat' => 'Bez powtórzeń',
     'weekly' => 'Tygodniowy',
     'monthly' => 'Miesięczny',
@@ -37,4 +38,14 @@ return [
     'filter_by_category' => 'Filtruj według kategorii',
     'delete_event' => 'Usuń wydarzenie',
     'start_end_duration' => 'Początek, koniec, czas trwania',
+    'the_event_happens_on_this_dates'  => 'Wydarzenie odbywa się w następujących terminach: ',
+    'the_event_happens_x_until_x'  => 'Zdarzenie dzieje się %s do %s',
+    'the_event_happens_every_x_until_x'  => 'Zdarzenie zdarza się co %s do %s',
+    'event_teaser_image' => 'Wizerunek',
+    'max_until' => 'Od dzisiaj można ustawić maksymalnie jeden rok powtórzeń',
+    'report_sent' => 'Raport wysłany',
+    'thank_you_for_your_support' => 'Dziękuję za Twoje wsparcie.',
+    'administrator_will_check' => 'Administrator sprawdzi wkrótce wydarzenie.',
+    'message_sent_to_organizers' => 'Wiadomość wysłana do organizatorów',
+    'message_sent_to_organizers_description' => 'Twoja wiadomość została dostarczona na e-maile organizatorów tego wydarzenia.',
 ];

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'notice' => 'Nota',
     'add_new_event' => 'Aggiungi un nuovo evento',
     'create_new_event' => 'Crea un nuovo evento',
     'edit_event' =>  'Modifica l\'evento',
@@ -37,4 +38,14 @@ return [
     'filter_by_category' => 'Filtra per categoria',
     'delete_event' => 'Cancella l\'evento',
     'start_end_duration' => 'Inizio, Fine, Durata',
+    'the_event_happens_on_this_dates'  => 'L\'evento si svolge in queste date: ',
+    'the_event_happens_x_until_x'  => 'L\'evento si verifica %s fino al %s',
+    'the_event_happens_every_x_until_x'  => 'L\'evento si verifica ogni %s fino al  %s',
+    'event_teaser_image' => 'Immagine',
+    'max_until' => 'E\' possibile impostare al massimo un anno di ripetizione da oggi',
+    'report_sent' => 'Rapporto inviato',
+    'thank_you_for_your_support' => 'Grazie per il tuo supporto.',
+    'administrator_will_check' => 'L\'amministratore verificherà presto l\'evento.',
+    'message_sent_to_organizers' => 'Messaggio inviato agli organizzatori',
+    'message_sent_to_organizers_description' => 'Il tuo messaggio è stato recapitato alle e-mail degli organizzatori di questo evento.',
 ];

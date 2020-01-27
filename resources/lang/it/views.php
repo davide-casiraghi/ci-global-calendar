@@ -154,4 +154,5 @@ return [
     'first_country_event_notice' => 'Tieni presente che se questo è il primo evento inserito per il tuo Paese, possono essere necessari fino a 15 minuti prima che il tuo Paese venga visualizzato nei filtri di ricerca della home page. Seleziona prima l\'insegnante e il luogo, se non li trovi nell\'elenco, creali prima in questa pagina.',
     'people' => 'Persone',
     'choose' => 'Scegliere...',
+    'made_with_love' => 'Realizzato con %s dal Round Robin team',
 ];

@@ -147,4 +147,5 @@ return [
     'first_country_event_notice' => 'Pamiętaj, że jeśli jest to pierwsze wydarzenie w Twoim kraju, może minąć do 15 minut, zanim Twój kraj pojawi się na filtrach wyszukiwania na stronie głównej. Najpierw wybierz nauczyciela i miejsce, jeśli ich nie znajdziesz na liście, utwórz je najpierw na tej stronie.',
     'people' => 'Ludzie',
     'choose' => 'Wybierać...',
+    'made_with_love' => 'Wykonane z %s przez zespół Round Robin',
 ];

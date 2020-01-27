@@ -23,7 +23,8 @@ return [
     'links' => 'Links',
     'description' => 'Descrizione',
     'continent' => 'Continente',
-    'country' => 'Stato',
+    'country' => 'Nazione',
+    'region' => 'Stato/Regione',
     'city' => 'Città',
     'privacy_policy' => 'Per maggiori informazioni per favore consulta l\'informativa sulla privacy',
     'accept_terms_of_use' => 'Dichiaro di aver letto e di accettare i Termini e Condizioni d’Uso *',
@@ -42,4 +43,5 @@ return [
     'forgot_your_password' => 'Dimenticato la password?',
     'message' => 'Messaggio',
     'user_name' => 'Nome utente',
+    'surname' => 'Cognome',
 ];

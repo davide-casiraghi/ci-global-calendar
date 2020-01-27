@@ -11,5 +11,6 @@ return [
     'city' => 'City',
     'street' => 'Street',
     'zip_code' => 'Zip code',
+    'extra_info' => 'Further informations to get to the venue',
     'search_by_venue_name' => 'Search by venue name',
 ];

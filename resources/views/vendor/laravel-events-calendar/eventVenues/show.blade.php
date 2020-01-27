@@ -17,24 +17,30 @@
             @if(!empty($country->name)) {{ $country->name }}<br /> @endif
             @if(!empty($eventVenue->zip_code)) {{ $eventVenue->zip_code }} @endif
         </div>
+        
+        @if(!empty($eventVenue->extra_info))
+            <div class="col-12 mt-4">
+                <h4>@lang('laravel-events-calendar::eventVenue.extra_info')</h4>
+                {!! $eventVenue->extra_info !!}
+            </div>
+        @endif
 
         @if(!empty($eventVenue->description))
             <div class="col-12 mt-4">
-                <h3>Description</h3>
+                <h4>@lang('laravel-events-calendar::general.description')</h4>
                 {!! $eventVenue->description !!}
             </div>
         @endif
 
         @if(!empty($eventVenue->website))
             <div class="col-12 mt-4">
-                <strong>Website</strong><br />
+                <strong>@lang('laravel-events-calendar::general.website')</strong><br />
                 <a href="{{ $eventVenue->website }}" target="_blank">{{ $eventVenue->website }}</a>
             </div>
         @endif
 
 
         <div class="col-12 mt-4">
-            <h3 class="mb-3">Map</h3>
             @include('laravel-events-calendar::partials.gmap', [
                   'venue_name' => $eventVenue->name,
                   'venue_address' => $eventVenue->address,

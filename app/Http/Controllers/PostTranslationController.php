@@ -70,9 +70,9 @@ class PostTranslationController extends Controller
 
         // Validate form datas
         $validator = Validator::make($request->all(), [
-                'title' => 'required',
-                'body' => 'required',
-            ]);
+            'title' => 'required',
+            'body' => 'required',
+        ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }

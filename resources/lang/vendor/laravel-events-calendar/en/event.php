@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'notice' => 'Notice',
     'add_new_event' => 'Add New event',
     'create_new_event' => 'Create new event',
     'edit_event' => 'Edit event',
@@ -37,4 +38,14 @@ return [
     'filter_by_category' => 'Filter by category',
     'delete_event' => 'Delete event',
     'start_end_duration' => 'Start, End, Duration',
+    'the_event_happens_on_this_dates'  => 'The event happens on this dates: ',
+    'the_event_happens_x_until_x'  => 'The event happens %s until %s',
+    'the_event_happens_every_x_until_x'  => 'The event happens every %s until %s',
+    'event_teaser_image' => 'Event teaser image',
+    'max_until' => 'It\'s possible to set maximum one year of repetition from today',
+    'report_sent' => 'Report sent',
+    'thank_you_for_your_support' => 'Thank you for your support.',
+    'administrator_will_check' => 'The administrator will check soon the event.',
+    'message_sent_to_organizers' => 'Message sent to the organizers',
+    'message_sent_to_organizers_description' => 'Your message has been delivered to the emails of the organizers of this event.',
 ];

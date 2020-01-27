@@ -29,8 +29,8 @@ class SitemapController extends Controller
         $menuItems = MenuItem::where('access', 1)->get();
 
         return response()->view('sitemap.index', [
-          'menuItems' => $menuItems,
-      ])->header('Content-Type', 'text/xml');
+            'menuItems' => $menuItems,
+        ])->header('Content-Type', 'text/xml');
     }
 
     /***************************************************************************/

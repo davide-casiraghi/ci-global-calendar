@@ -82,7 +82,7 @@ class CreateAllDatabaseTables extends Migration
             $table->timestamps();
         });
         Schema::create('events', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->integer('category_id');
             $table->integer('created_by')->nullable();
 
@@ -109,7 +109,7 @@ class CreateAllDatabaseTables extends Migration
             $table->string('sc_teachers_id')->nullable();
             $table->string('sc_teachers_names')->nullable();
             $table->integer('sc_continent_id')->nullable();
-            $table->string('multiple_dates')->nullable();
+            $table->text('multiple_dates')->nullable();
 
             $table->string('slug');
 
@@ -122,7 +122,7 @@ class CreateAllDatabaseTables extends Migration
             $table->timestamps();
         });
         Schema::create('event_repetitions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->integer('event_id');
             $table->dateTime('start_repeat');
             $table->dateTime('end_repeat');
@@ -142,7 +142,10 @@ class CreateAllDatabaseTables extends Migration
             $table->string('state_province')->nullable();
             $table->string('city');
             $table->string('address')->nullable();
+            $table->text('extra_info')->nullable();
             $table->string('zip_code')->nullable();
+            $table->float('lng', 9, 6)->nullable();
+            $table->float('lat', 8, 6)->nullable();
             $table->timestamps();
         });
         Schema::create('continents', function (Blueprint $table) {
@@ -198,6 +201,7 @@ class CreateAllDatabaseTables extends Migration
             $table->string('website')->nullable();
             $table->string('facebook')->nullable();
             $table->string('phone')->nullable();
+            $table->string('profile_picture')->nullable();
 
             $table->string('slug');
             $table->timestamps();

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'donation_offers_management' => 'Управление благотворительными взносами',
+    'donation_offers_management' => 'Управление пожертвованиями',
     'gift_list' => 'Gifts list',
     'free_entrances_list' => 'Free entrances list',
     'gift_title' => 'Gift title',

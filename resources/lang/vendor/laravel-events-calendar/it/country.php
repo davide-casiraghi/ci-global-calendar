@@ -2,8 +2,8 @@
 
 return [
     'add_new_country' => 'Aggiungi una nuova nazione',
-    'create_new_country' => 'Crea un nuovo stato',
-    'edit_country' => 'Modifica stato',
+    'create_new_country' => 'Crea un nuova nazione',
+    'edit_country' => 'Modifica nazione',
     'countries_management' => 'Gestione nazioni',
     'country' => 'Nazione',
     'country_code' => 'Codice della nazione',

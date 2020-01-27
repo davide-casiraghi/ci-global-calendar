@@ -24074,6 +24074,10 @@ footer .footerMenu li a:focus:after {
   }
 }
 
+form label.error {
+  color: red;
+}
+
 form .bootstrap-select {
   display: block !important;
   width: 100% !important;

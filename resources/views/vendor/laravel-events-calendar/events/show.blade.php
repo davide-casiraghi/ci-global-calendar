@@ -63,7 +63,7 @@
                                     <div class="col-12 mt-2">
                                         <i class="fa fa-users mr-1 dark-gray" data-toggle="tooltip" data-placement="top" title="Organizers"></i>
                                         @foreach ($organizers as $key => $organizer)
-                                            {{$organizer->name}}
+                                            <a href="/organizer/{{$organizer->slug}}">{{$organizer->name}}</a>@if(!$loop->last),@endif
                                         @endforeach
                                     </div>
                                 @endif
@@ -106,7 +106,7 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 mt-3 p-4 white-bg rounded text-base-longtext">
                     @if(!empty($event->image))
-                        <img class="ml-sm-3 float-sm-right img-fluid" alt="{{ $event->title }} - {{ $venue->name }} - {{ $venue->city }}, {{ $country->name }}" src="/storage/images/events_teaser/thumb_{{ $event->image }}">
+                        <img class="ml-sm-3 mb-3 float-sm-right img-fluid" alt="{{ $event->title }} - {{ $venue->name }} - {{ $venue->city }}, {{ $country->name }}" src="/storage/images/events_teaser/thumb_{{ $event->image }}">
                     @endif
                     {!! $event->description !!}    
                 </div>
@@ -123,7 +123,7 @@
             <div class="row event-venue">
                 <div class="col-12 mt-4 p-4 white-bg rounded event-venue">
                     <h4>{{ $venue->name }}</h4>
-                    <div class="address">
+                    <div class="address mb-3">
                         {{ $venue->address }}<br />
                         {{ $venue->city }}<br />
                         @if(!empty($region->name)){{ $region->name }}<br /> @endif
@@ -132,9 +132,16 @@
                     </div>
                     
                     @if(!empty($venue->website))
-                        <i class="fa fa-external-link dark-gray" style="margin-right: 10px;"></i>
-                        <a href="{{ $venue->website }}" target="_blank">{{ $venue->website }}</a>    
-                        <br /><br />
+                        <div class="website mb-3">
+                            <i class="fa fa-external-link dark-gray" style="margin-right: 10px;"></i>
+                            <a href="{{ $venue->website }}" target="_blank">{{ $venue->website }}</a>    
+                        </div>
+                    @endif
+                    
+                    @if(!empty($venue->extra_info))
+                        <div class="extra_info mb-3">
+                            {!! $venue->extra_info !!}
+                        </div>
                     @endif
                     
                     {!! $venue->description !!}<br />

@@ -34,11 +34,11 @@ class ContactFormController extends Controller
 
         // Validate form datas
         $validator = Validator::make($request->all(), [
-                'name' => 'required',
-                'email' => 'required',
-                'message' => 'required',
-                'g-recaptcha-response' => 'required|captcha',
-            ]);
+            'name' => 'required',
+            'email' => 'required',
+            'message' => 'required',
+            'g-recaptcha-response' => 'required|captcha',
+        ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }

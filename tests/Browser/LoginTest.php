@@ -37,10 +37,10 @@ class LoginTest extends DuskTestCase
     {
         if (! User::where('email', '=', 'super_adminuser@dusk.com')->exists()) {
             $user = factory(User::class)->create([
-                    'email' => 'super_adminuser@dusk.com',
-                    'password' => \Hash::make('gr4TWgr4W'),  // Save the encrypted - bcrypt($password)
-                    'group' => 1,
-                ]);
+                'email' => 'super_adminuser@dusk.com',
+                'password' => \Hash::make('gr4TWgr4W'),  // Save the encrypted - bcrypt($password)
+                'group' => 1,
+            ]);
         }
 
         $this->browse(function ($browser) {

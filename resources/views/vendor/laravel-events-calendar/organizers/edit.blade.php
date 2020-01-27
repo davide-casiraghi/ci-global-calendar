@@ -13,7 +13,7 @@
               'style' => 'alert-danger',
         ])
 
-        <form action="{{ route('organizers.update',$organizer->id) }}" method="POST">
+        <form action="{{ route('organizers.update',$organizer->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -77,6 +77,13 @@
                           'required' => false,
                     ])
                 </div>
+                
+                @include('laravel-form-partials::upload-image', [
+                      'title' => __('laravel-events-calendar::teacher.upload_profile_picture'), 
+                      'name' => 'profile_picture',
+                      'folder' => 'organizers_profile',
+                      'value' => $organizer->profile_picture,
+                ])
             </div>
 
             {{-- used to not update the slug --}}

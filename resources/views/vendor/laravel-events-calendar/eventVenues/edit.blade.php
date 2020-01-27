@@ -127,6 +127,15 @@
                     ])
                 </div>
                 <div class="col-12">
+                    @include('laravel-form-partials::textarea-plain', [
+                        'title' => __('laravel-events-calendar::eventVenue.extra_info'),
+                        'name' => 'extra_info',
+                        'placeholder' => '',
+                        'value' => $eventVenue->extra_info,
+                        'required' => false,
+                    ])
+                </div>
+                <div class="col-12">
                     @include('laravel-form-partials::input', [
                         'title' => __('laravel-events-calendar::general.website'),
                         'name' => 'website',

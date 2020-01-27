@@ -36,27 +36,27 @@ class DonationOffer extends Model
     public static function getDonationKindArray()
     {
         $ret = [
-              1 =>[
-                  'label'=> __('donations.donation_kind_financial'),
-                  'icon'=> 'far fa-hand-holding-usd',
-                  'id' => 'offerFinancial',
-              ],
-              2 =>[
-                  'label'=> __('donations.donation_kind_free_entrance'),
-                  'icon'=> 'far fa-ticket-alt',
-                  'id' => 'offerFreeEntrance',
-              ],
-              3 =>[
-                  'label'=> __('donations.donation_kind_volunteer'),
-                  'icon'=> 'far fa-hands-helping',
-                  'id' => 'offerVolunteer',
-              ],
-              4 =>[
-                  'label'=> __('donations.donation_kind_other_gift'),
-                  'icon'=> 'far fa-gift',
-                  'id' => 'offerOtherGift',
-              ],
-          ];
+            1 =>[
+                'label'=> __('donations.donation_kind_financial'),
+                'icon'=> 'far fa-hand-holding-usd',
+                'id' => 'offerFinancial',
+            ],
+            2 =>[
+                'label'=> __('donations.donation_kind_free_entrance'),
+                'icon'=> 'far fa-ticket-alt',
+                'id' => 'offerFreeEntrance',
+            ],
+            3 =>[
+                'label'=> __('donations.donation_kind_volunteer'),
+                'icon'=> 'far fa-hands-helping',
+                'id' => 'offerVolunteer',
+            ],
+            4 =>[
+                'label'=> __('donations.donation_kind_other_gift'),
+                'icon'=> 'far fa-gift',
+                'id' => 'offerOtherGift',
+            ],
+        ];
 
         return $ret;
     }
@@ -102,11 +102,11 @@ class DonationOffer extends Model
     public static function getStatusArray()
     {
         $ret = [
-                1 => __('donations.status_available'),
-                2 => __('donations.status_expired'),
-                3 => __('donations.status_used'),
-                4 => __('donations.status_refused'),
-            ];
+            1 => __('donations.status_available'),
+            2 => __('donations.status_expired'),
+            3 => __('donations.status_used'),
+            4 => __('donations.status_refused'),
+        ];
 
         return $ret;
     }
@@ -121,9 +121,9 @@ class DonationOffer extends Model
     public static function getGiftKindArray()
     {
         $ret = [
-                 1 => __('donations.gift_kind_free_festival'),
-                 2 => __('donations.gift_kind_free_other'),
-             ];
+            1 => __('donations.gift_kind_free_festival'),
+            2 => __('donations.gift_kind_free_other'),
+        ];
 
         return $ret;
     }
@@ -138,12 +138,12 @@ class DonationOffer extends Model
     public static function getVolunteeringKindArray()
     {
         $ret = [
-                  1 => __('donations.volunteering_kind_developer'),
-                  2 => __('donations.volunteering_kind_fundriser'),
-                  3 => __('donations.volunteering_kind_translator'),
-                  4 => __('donations.volunteering_kind_communicator'),
-                  5 => __('donations.volunteering_kind_other'),
-              ];
+            1 => __('donations.volunteering_kind_developer'),
+            2 => __('donations.volunteering_kind_fundriser'),
+            3 => __('donations.volunteering_kind_translator'),
+            4 => __('donations.volunteering_kind_communicator'),
+            5 => __('donations.volunteering_kind_other'),
+        ];
 
         return $ret;
     }
@@ -158,12 +158,12 @@ class DonationOffer extends Model
     public static function getVolunteeringKindDescriptionsArray()
     {
         $ret = [
-                   1 => __('donations.volunteering_kind_developers'),
-                   2 => __('donations.volunteering_kind_fundrisers'),
-                   3 => __('donations.volunteering_kind_translators'),
-                   4 => __('donations.volunteering_kind_communicators'),
-                   5 => __('donations.volunteering_kind_others'),
-               ];
+            1 => __('donations.volunteering_kind_developers'),
+            2 => __('donations.volunteering_kind_fundrisers'),
+            3 => __('donations.volunteering_kind_translators'),
+            4 => __('donations.volunteering_kind_communicators'),
+            5 => __('donations.volunteering_kind_others'),
+        ];
 
         return $ret;
     }

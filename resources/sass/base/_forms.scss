@@ -1,4 +1,10 @@
 form{
+    label{
+        &.error{
+            color: red;
+        }
+    }
+    
     .bootstrap-select{
         display: block!important;
         width: 100%!important;

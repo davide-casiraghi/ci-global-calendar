@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'notice' => 'yведомление',
     'add_new_event' => 'Добавить новое событие',
     'create_new_event' => 'Создать новое событие',
     'edit_event' => 'Редактировать событие',
@@ -13,7 +14,7 @@ return [
     'email_for_more_info' => 'написать для получения большей информации',
     'facebook_event' => 'Событие в Фейсбуке',
     'event_url' => 'Адрес события',
-    'upload_event_teaser_image' => 'загрузить фото с мероприятия',
+    'upload_event_teaser_image' => 'загрузить фото учителя',
     'no_repeat' => 'Не повторять',
     'weekly' => 'Еженедельно',
     'monthly' => 'Ежемесячно',
@@ -37,4 +38,14 @@ return [
     'filter_by_category' => 'Сортировать по категориям',
     'delete_event' => 'Удалить событие',
     'start_end_duration' => 'Начало, завершение, Продолжительность',
+    'the_event_happens_on_this_dates'  => 'Событие происходит в эти даты: ',
+    'the_event_happens_x_until_x'  => 'Событие происходит %s до %s',
+    'the_event_happens_every_x_until_x'  => 'Событие происходит каждые %s до %s',
+    'event_teaser_image' => 'Образ',
+    'max_until' => 'Возможно повторять максимальное количество раз в течение года, начиная с сегодняшнего дня',
+    'report_sent' => 'отчет отправлен',
+    'thank_you_for_your_support' => 'Спасибо за Вашу поддержку.',
+    'administrator_will_check' => 'Администратор скоро проверит событие.',
+    'message_sent_to_organizers' => 'Сообщение отправлено организаторам',
+    'message_sent_to_organizers_description' => 'Ваше сообщение было доставлено на электронные письма организаторов этого мероприятия.',
 ];

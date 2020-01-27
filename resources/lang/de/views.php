@@ -121,7 +121,7 @@ return [
     'orientation' => 'Orientierung',
     'select_orientation' => 'Orientierung auswählen',
     'who_took_the_photo'  => 'Wer hat das Photo gemacht?',
-    'contact_the_administrator'  => 'Kontaktiere den Administratorr*in',
+    'contact_the_administrator'  => 'Kontaktiere den/die Administrator*in',
     'contact_the_project_manager'  => 'Kontaktiere den Projekt Manager*in',
     'contact_the_webmaster'  => 'Kontaktiere den Webmaster*in',
     'please_write_in_english' => 'Bitte schreibe deinen Text auf Englisch',
@@ -147,4 +147,5 @@ return [
     'first_country_event_notice' => 'Wenn dies das erste Event ist, das für Dein Land eingefügt wurde, kann es bis zu 15 Minuten dauern, bis das Land in den Suchfilter der Startseite angezeigt wird. Bitte wähle zuerst den/die Lehrer*in und den Ort aus. Wenn Du sie nicht in der Liste findest, füge sie zuerst auf dieser Seite hinzu.',
     'people' => 'Personen',
     'choose' => 'Wähle...',
+    'made_with_love' => 'Mit %s erstellt vom Round-Robin-Team',
 ];

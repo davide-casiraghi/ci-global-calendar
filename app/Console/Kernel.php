@@ -29,11 +29,16 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
 
+        // Update Calendar statistics
         $schedule->call(function () {
             Statistic::updateStatistics();
         })->daily()
-        ->appendOutputTo($filePath)
-        ->emailOutputTo(env('WEBMASTER_MAIL'));
+            ->appendOutputTo($filePath)
+            ->emailOutputTo(env('WEBMASTER_MAIL'));
+
+        // Take a daily backup
+        $schedule->command('backup:clean')->daily()->at('01:00');
+        $schedule->command('backup:run')->daily()->at('02:00');
     }
 
     /**

@@ -1,3 +1,40 @@
+@section('javascript-document-ready')
+    @parent
+    
+    $("#writeToOrganizerForm").submit(function(e) {
+        e.preventDefault();
+    }).validate({
+        rules: {
+            user_name: "required",
+            user_email: {
+                required: true,
+                email: true
+            },
+            message: "required",
+        },
+        submitHandler: function(form) {
+            var firstNumber = parseInt($("#writeToOrganizerForm input[name=first_number]").val(), 10);
+            var secondNumber = parseInt($("#writeToOrganizerForm input[name=second_number]").val(), 10);
+            var captchaResult = parseInt($("#writeToOrganizerForm input[name=captcha_result]").val(), 10);
+            var checkTotal = firstNumber + secondNumber;
+            
+            if (captchaResult !== checkTotal){
+                alert('Please resolve the simple sum to proceed');
+            } 
+            else {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                form.submit();
+          }
+        }
+    });
+    
+@stop
+
 
 {{-- Button - Write for more info --}}
     @if(!empty($event->contact_email))
@@ -14,27 +51,38 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('events.organizer-message') }}" method="POST">
+                <form id="writeToOrganizerForm" action="{{ route('events.organizer-message') }}" method="POST">
                     <div class="modal-body">
                              @csrf
                              <p>@lang('laravel-events-calendar::event.write_for_more_info_details')</p>
                              @include('laravel-form-partials::input', [
-                                   'title' => 'Your name',
+                                   'title' => __('laravel-events-calendar::general.your_name'),
                                    'name' => 'user_name',
                                    'required' => true,
                              ])
 
                              @include('laravel-form-partials::input', [
-                                   'title' => 'Your email',
+                                   'title' => __('laravel-events-calendar::general.your_email'),
                                    'name' => 'user_email',
                                    'required' => true,
                              ])
 
                              @include('laravel-form-partials::textarea-plain', [
-                                   'title' => 'Message',
+                                   'title' => __('laravel-events-calendar::general.message'),
                                    'name' => 'message',
-                                   'placeholder' => 'the text of your message',
+                                   'placeholder' => '',
                                    'required' => true,
+                             ])
+                             
+                             {{--@include('laravel-form-partials::recaptcha')--}}
+                             
+                             @php 
+                                 $random_number1 = rand(1, 8);
+                                 $random_number2 = rand(1, 8);
+                             @endphp
+                             @include('laravel-form-partials::recaptcha-sum', [
+                                'randomNumber1' => $random_number1,
+                                'randomNumber2' => $random_number2,
                              ])
 
                              @include('laravel-form-partials::input-hidden', [
