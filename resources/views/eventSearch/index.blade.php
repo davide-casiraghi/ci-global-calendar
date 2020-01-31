@@ -319,6 +319,7 @@
                     'category_id' => $searchCategory,
                     'continent_id' => $searchContinent,
                     'country_id' => $searchCountry,
+                    'region_id' => $searchRegion,
                     'city_name' => $searchCity,
                     'venue_name' => $searchVenue,
                     'startDate' => $searchStartDate,
