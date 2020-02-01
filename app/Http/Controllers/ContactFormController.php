@@ -37,7 +37,7 @@ class ContactFormController extends Controller
             'name' => 'required',
             'email' => 'required',
             'message' => 'required',
-            'g-recaptcha-response' => 'required|captcha',
+            //'g-recaptcha-response' => 'required|captcha',
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
