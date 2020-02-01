@@ -122,7 +122,7 @@
 
            </div>
 
-           <div class="row mt-5">
+           <div class="row mt-2">
                <div class="col-6 pull-left">
                    <a class="btn btn-primary" href="{{ route('home') }}">@lang('general.back')</a>
                </div>
