@@ -1,6 +1,5 @@
 @extends('contactMailForms.layout')
 
-
 @section('javascript-document-ready')
     @parent
     

@@ -124,13 +124,24 @@
                             </div>
                         </div>
                         
-                        {{-- Recaptcha google v2 --}}
-                        <div class="form-group row">
+                        {{-- Captcha --}}
+                        <div class="form-group row mt-4">
                             <div class="col-md-4">
 
                             </div>
                             <div class="col-md-6">
-                                @include('laravel-form-partials::recaptcha')
+                                {{--@include('laravel-form-partials::recaptcha')--}}
+                                @php 
+                                    $random_number1 = rand(1, 8);
+                                    $random_number2 = rand(1, 8);
+                                @endphp
+                                @include('laravel-form-partials::recaptcha-sum', [
+                                    'name' => 'recaptcha_sum_1',
+                                    'randomNumber1Name' => 'random_number_1',
+                                    'randomNumber2Name' => 'random_number_2',
+                                    'randomNumber1Value' => $random_number1,
+                                    'randomNumber2Value' => $random_number2,
+                                ])
                             </div>
                         </div>
                         

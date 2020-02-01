@@ -101,6 +101,16 @@ class RegisterController extends Controller
             'description' => 'required',
             'g-recaptcha-response' => 'required|captcha',
             'accept_terms' =>'required',
+            'recaptcha_sum_1' => 'required',
+            /*'captcha_result' => [  //https://laravel.com/docs/5.6/validation#custom-validation-rules
+                'required',
+                'integer',
+                function($attribute, $value, $fail) {
+                    if ($value === 'foo') {
+                        return $fail($attribute.' is invalid.');
+                    }
+                },
+            ],*/
         ]);
         try {
             $validatedData['password'] = bcrypt(Arr::get($validatedData, 'password'));
