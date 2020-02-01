@@ -1,5 +1,42 @@
 @extends('contactMailForms.layout')
 
+
+@section('javascript-document-ready')
+    @parent
+    
+    $("#contactForm").submit(function(e) {
+        e.preventDefault();
+    }).validate({
+        rules: {
+            name: "required",
+            email: {
+                required: true,
+                email: true
+            },
+            message: "required",
+        },
+        submitHandler: function(form) {
+            
+            var firstNumber = parseInt($("#contactForm input[name=first_number]").val(), 10);
+            var secondNumber = parseInt($("#contactForm input[name=second_number]").val(), 10);
+            var captchaResult = parseInt($("#contactForm input[name=captcha_result]").val(), 10);
+            var checkTotal = firstNumber + secondNumber;
+            
+            if (captchaResult !== checkTotal){
+                alert('Please resolve the simple sum to proceed');
+            } 
+            else {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                form.submit();
+          }
+        }
+    });
+@stop
+
 @section('content')
     <div class="container max-w-sm px-0">
 
@@ -28,7 +65,7 @@
             </div>
         </div>
 
-        <form action="{{ route('forms.contactform-send') }}" method="POST">
+        <form id="contactForm" action="{{ route('forms.contactform-send') }}" method="POST">
             @csrf
 
             <div class="row">
@@ -67,7 +104,15 @@
                
                <div class="col-12">
                    {{-- Recaptcha google v2 --}}
-                   @include('laravel-form-partials::recaptcha')
+                   {{-- @include('laravel-form-partials::recaptcha')--}}
+                    @php 
+                        $random_number1 = rand(1, 8);
+                        $random_number2 = rand(1, 8);
+                    @endphp
+                    @include('laravel-form-partials::recaptcha-sum', [
+                        'randomNumber1' => $random_number1,
+                        'randomNumber2' => $random_number2,
+                    ])
                </div>
                
                @include('laravel-form-partials::input-hidden', [
