@@ -122,7 +122,8 @@ class RegisterController extends Controller
         }
         
         try {
-            $validatedData['password'] = bcrypt(Arr::get($validatedData, 'password'));
+            $validatedData = $request->all();  
+            $validatedData['password'] = bcrypt($validatedData['password']);
             $validatedData['activation_code'] = Str::random(30).time();
             $validatedData['country_id'] = $request->country_id;
             $validatedData['description'] = $request->description;
