@@ -409,16 +409,16 @@
         },
         {
             "name": "davide-casiraghi/laravel-form-partials",
-            "version": "1.1.5",
+            "version": "1.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davide-casiraghi/laravel-form-partials.git",
-                "reference": "3c1a05f60acd363f842229ff4db6d1a234a30b2a"
+                "reference": "c6a16c412b6483a03a5c60c78a2c600dd44eb5dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davide-casiraghi/laravel-form-partials/zipball/3c1a05f60acd363f842229ff4db6d1a234a30b2a",
-                "reference": "3c1a05f60acd363f842229ff4db6d1a234a30b2a",
+                "url": "https://api.github.com/repos/davide-casiraghi/laravel-form-partials/zipball/c6a16c412b6483a03a5c60c78a2c600dd44eb5dd",
+                "reference": "c6a16c412b6483a03a5c60c78a2c600dd44eb5dd",
                 "shasum": ""
             },
             "require": {
@@ -463,7 +463,7 @@
                 "davide-casiraghi",
                 "laravel-form-partials"
             ],
-            "time": "2020-01-24T10:45:57+00:00"
+            "time": "2020-02-02T07:55:24+00:00"
         },
         {
             "name": "davide-casiraghi/laravel-quick-menus",

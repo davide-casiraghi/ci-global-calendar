@@ -13,6 +13,8 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
+use Validator;
 
 class RegisterController extends Controller
 {
@@ -91,19 +93,37 @@ class RegisterController extends Controller
      * @return User
      */
     protected function register(Request $request)
-    {
+    {        
         /** @var User $user */
-        $validatedData = $request->validate([
+            
+        // Validate form datas
+        $rules = [
             'name'     => 'required|string|max:255',
             'email'    => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'country_id' => 'required|integer',
             'description' => 'required',
-            'g-recaptcha-response' => 'required|captcha',
             'accept_terms' =>'required',
-        ]);
+            //'g-recaptcha-response' => 'required|captcha',
+            'recaptcha_sum_1' => [
+                'required',
+                Rule::in([$request->random_number_1 + $request->random_number_2]),
+            ],
+        ];
+        
+        $messages = [
+            'recaptcha_sum_1.required' => 'Please solve the sum',
+            'recaptcha_sum_1.in' => 'Your answer is not correct',
+        ];
+        
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+        
         try {
-            $validatedData['password'] = bcrypt(Arr::get($validatedData, 'password'));
+            $validatedData = $request->all();  
+            $validatedData['password'] = bcrypt($validatedData['password']);
             $validatedData['activation_code'] = Str::random(30).time();
             $validatedData['country_id'] = $request->country_id;
             $validatedData['description'] = $request->description;
