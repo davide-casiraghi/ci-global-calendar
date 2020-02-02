@@ -41,9 +41,9 @@ class UserTest extends TestCase
     public function test_user_registration()
     {
         // Prevent validation error on captcha
-        \NoCaptcha::shouldReceive('verifyResponse')
+        /*\NoCaptcha::shouldReceive('verifyResponse')
                 ->once()
-                ->andReturn(true);
+                ->andReturn(true);*/
 
         // Post a data to register a user
         $password = $this->faker->password;
@@ -55,7 +55,10 @@ class UserTest extends TestCase
             'country_id' => $this->faker->numberBetween($min = 1, $max = 253),
             'description' => $this->faker->paragraph,
             'accept_terms' => 1,
-            'g-recaptcha-response' => '1', // Simulates Captcha clicked
+            //'g-recaptcha-response' => '1', // Simulates Captcha clicked
+            'recaptcha_sum_1' => 5,
+            'random_number_1' => 1,
+            'random_number_2' => 4,
         ];
 
         $response = $this
