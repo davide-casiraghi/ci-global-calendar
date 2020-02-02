@@ -30,8 +30,8 @@
 		
 		
 
-		<input name="{{ $randomNumber1Value }}" type="hidden" value="{{ $randomNumber1Value }}" />
-		<input name="{{ $randomNumber2Value }}" type="hidden" value="{{ $randomNumber2Value }}" />
+		<input name="{{ $randomNumber1Name }}" type="hidden" value="{{ $randomNumber1Value }}" />
+		<input name="{{ $randomNumber2Name }}" type="hidden" value="{{ $randomNumber2Value }}" />
         
 	
 
