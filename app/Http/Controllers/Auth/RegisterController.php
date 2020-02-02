@@ -112,6 +112,8 @@ class RegisterController extends Controller
         ];
         
         $messages = [
+            'recaptcha_sum_1.required' => 'Please solve the sum',
+            'recaptcha_sum_1.in' => 'Your answer is not correct',
         ];
         
         $validator = Validator::make($request->all(), $rules, $messages);
