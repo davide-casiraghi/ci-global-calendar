@@ -9,7 +9,6 @@ use App\User;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -93,9 +92,9 @@ class RegisterController extends Controller
      * @return User
      */
     protected function register(Request $request)
-    {        
+    {
         /** @var User $user */
-            
+
         // Validate form datas
         $rules = [
             'name'     => 'required|string|max:255',
@@ -110,19 +109,19 @@ class RegisterController extends Controller
                 Rule::in([$request->random_number_1 + $request->random_number_2]),
             ],
         ];
-        
+
         $messages = [
             'recaptcha_sum_1.required' => 'Please solve the sum',
             'recaptcha_sum_1.in' => 'Your answer is not correct',
         ];
-        
+
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        
+
         try {
-            $validatedData = $request->all();  
+            $validatedData = $request->all();
             $validatedData['password'] = bcrypt($validatedData['password']);
             $validatedData['activation_code'] = Str::random(30).time();
             $validatedData['country_id'] = $request->country_id;
