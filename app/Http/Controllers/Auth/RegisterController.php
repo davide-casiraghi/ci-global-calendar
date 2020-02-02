@@ -107,7 +107,7 @@ class RegisterController extends Controller
             //'g-recaptcha-response' => 'required|captcha',
             'recaptcha_sum_1' => [
                 'required',
-                Rule::in([$request->random_number_1+$request->random_number_2]),
+                Rule::in([$request->random_number_1 + $request->random_number_2]),
             ],
         ];
         

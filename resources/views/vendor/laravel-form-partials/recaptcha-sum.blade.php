@@ -8,31 +8,16 @@
         http://html-tuts.com/simple-php-captcha/
 --}}
 
-<div class="form-group recaptcha-sum">
+<div class="recaptcha-sum">
     
-    <div class="">
-            <b>@lang('laravel-form-partials::general.resolve_this_simple_sum'):</b> <br>
-    </div>
-     
-    <div class="mt-1">
-        {{ $randomNumber1Value }} + {{$randomNumber2Value }} = 
-    </div>
-    
-    <div class="mt-1">
-        <input name="{{ $name }}" type="text" size="2" class="form-control{{ $errors->has($name) ? ' is-invalid' : '' }}"/>
-        
-        @if ($errors->has($name))
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first($name) }}</strong>
-            </span>
-        @endif
-    </div>
+    <p><b>@lang('laravel-form-partials::general.resolve_this_simple_sum'):</b> <br>
+	    {{ $randomNumber1 }} + {{$randomNumber2 }} = 
 		
-		
+		<input name="captcha_result" type="text" size="2" />
 
-		<input name="{{ $randomNumber1Name }}" type="hidden" value="{{ $randomNumber1Value }}" />
-		<input name="{{ $randomNumber2Name }}" type="hidden" value="{{ $randomNumber2Value }}" />
+		<input name="first_number" type="hidden" value="{{ $randomNumber1 }}" />
+		<input name="second_number" type="hidden" value="{{ $randomNumber2 }}" />
         
-	
+	</p>
 
 </div>

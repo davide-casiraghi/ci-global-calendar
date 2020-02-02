@@ -135,7 +135,7 @@
                                     $random_number1 = rand(1, 8);
                                     $random_number2 = rand(1, 8);
                                 @endphp
-                                @include('laravel-form-partials::recaptcha-sum', [
+                                @include('laravel-form-partials::recaptcha-sum-v2', [
                                     'name' => 'recaptcha_sum_1',
                                     'randomNumber1Name' => 'random_number_1',
                                     'randomNumber2Name' => 'random_number_2',
