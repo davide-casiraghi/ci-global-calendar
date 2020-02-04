@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Mail\ContactForm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+use Validator;
 
 class ContactFormController extends Controller
 {
@@ -33,12 +34,37 @@ class ContactFormController extends Controller
     {
 
         // Validate form datas
-        $validator = Validator::make($request->all(), [
+        /*$validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required',
             'message' => 'required',
             //'g-recaptcha-response' => 'required|captcha',
+            'recaptcha_sum_1' => [
+                'required',
+                Rule::in([$request->random_number_1 + $request->random_number_2]),
+            ],
         ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }*/
+        
+        $rules = [
+            'name' => 'required',
+            'email' => 'required',
+            'message' => 'required',
+            //'g-recaptcha-response' => 'required|captcha',
+            'recaptcha_sum_1' => [
+                'required',
+                Rule::in([$request->random_number_1 + $request->random_number_2]),
+            ],
+        ];
+
+        $messages = [
+            'recaptcha_sum_1.required' => 'Please solve the sum',
+            'recaptcha_sum_1.in' => 'Your answer is not correct',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
@@ -69,7 +95,7 @@ class ContactFormController extends Controller
         $report['message'] = $request->message;
 
         //Mail::to($request->user())->send(new ReportMisuse($report));
-        Mail::to('davide.casiraghi@gmail.com')->send(new ContactForm($report));
+        Mail::send(new ContactForm($report));
 
         return redirect()->route('forms.contactform-thankyou');
     }
