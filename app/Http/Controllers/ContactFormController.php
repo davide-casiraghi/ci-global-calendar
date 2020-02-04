@@ -47,7 +47,7 @@ class ContactFormController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }*/
-        
+
         $rules = [
             'name' => 'required',
             'email' => 'required',
