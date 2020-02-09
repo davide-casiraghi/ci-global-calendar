@@ -25,7 +25,7 @@ class StatisticsController extends Controller
     /**
      * Display a listing of the resource.
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index(Request $request)
     {
@@ -66,7 +66,7 @@ class StatisticsController extends Controller
     /**
      * Create a LINE chart showing the number of users in the last x days.
      * @param int $daysRange
-     * @return App\Charts
+     * @return \App\Charts\LatestUsers
      */
     public function createLinesChart($daysRange)
     {
@@ -133,7 +133,7 @@ class StatisticsController extends Controller
     /**
      * Create a BAR chart showing the number of Users by country.
      *
-     * @return App\Charts
+     * @return \App\Charts\LatestUsers
      */
     public function createUsersByCountryChart()
     {
@@ -204,7 +204,7 @@ class StatisticsController extends Controller
     /**
      * Create a BAR chart showing the number of Organizers by country.
      *
-     * @return App\Charts
+     * @return \App\Charts\LatestUsers
      */
     public function createOrganizersByCountriesChart()
     {

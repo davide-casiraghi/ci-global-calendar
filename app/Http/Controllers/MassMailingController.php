@@ -23,7 +23,7 @@ class MassMailingController extends Controller
     /**
      * Display the contact form. - Eg. /MassMailing.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function massMailing()
     {
@@ -36,7 +36,7 @@ class MassMailingController extends Controller
      * Send the Contact Admin mail.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function massMailingSend(Request $request)
     {
@@ -81,7 +81,7 @@ class MassMailingController extends Controller
     /**
      * Display the thank you view after the misuse report mail is sent (called by /misuse/thankyou route).
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function massMailingThankyou()
     {

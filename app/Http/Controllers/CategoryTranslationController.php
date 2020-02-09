@@ -34,7 +34,7 @@ class CategoryTranslationController extends Controller
      * Show the form for creating a new resource.
      * @param int $categoryId
      * @param string $languageCode
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create($categoryId, $languageCode)
     {
@@ -53,7 +53,7 @@ class CategoryTranslationController extends Controller
      *
      * @param int $categoryId
      * @param string $languageCode
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function edit($categoryId, $languageCode)
     {
@@ -75,7 +75,7 @@ class CategoryTranslationController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -120,7 +120,7 @@ class CategoryTranslationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request)
     {
@@ -147,7 +147,7 @@ class CategoryTranslationController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $categoryTranslationId
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($categoryTranslationId)
     {

@@ -21,7 +21,7 @@ class DonationOfferController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index(Request $request)
     {
@@ -63,7 +63,7 @@ class DonationOfferController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -111,7 +111,7 @@ class DonationOfferController extends Controller
      * Display the specified resource.
      *
      * @param  \App\DonationOffer  $donationOffer
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function show(DonationOffer $donationOffer)
     {
@@ -136,7 +136,7 @@ class DonationOfferController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\DonationOffer  $donationOffer
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function edit(DonationOffer $donationOffer)
     {
@@ -156,7 +156,7 @@ class DonationOfferController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\DonationOffer  $donationOffer
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, DonationOffer $donationOffer)
     {
@@ -179,7 +179,7 @@ class DonationOfferController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\DonationOffer  $donationOffer
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(DonationOffer $donationOffer)
     {

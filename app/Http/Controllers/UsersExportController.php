@@ -21,7 +21,7 @@ class UsersExportController extends Controller
     /**
      * Display the export interface.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function show()
     {
@@ -34,7 +34,7 @@ class UsersExportController extends Controller
      * Export all the users in an excel that get downloaded.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
      */
     public function export(Request $request)
     {
