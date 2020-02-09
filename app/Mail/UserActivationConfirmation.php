@@ -13,7 +13,7 @@ class UserActivationConfirmation extends Mailable
     /**
      * The report instance.
      *
-     * @var Report
+     * @var array
      */
     protected $mailDatas;
 

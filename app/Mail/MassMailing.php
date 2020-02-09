@@ -13,7 +13,7 @@ class MassMailing extends Mailable
     /**
      * The report instance.
      *
-     * @var Report
+     * @var array
      */
     protected $report;
 
