@@ -14,7 +14,7 @@ class ContactFormController extends Controller
      * Display the contact form. - Eg. /contactForm/administrator.
      * $recipient can be: "administrator" | "project-manager" | "webmaster" | "test".
      * @param  string  $recipient
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function contactForm($recipient)
     {
@@ -28,7 +28,7 @@ class ContactFormController extends Controller
      * Send the Contact Admin mail.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function contactFormSend(Request $request)
     {
@@ -105,7 +105,7 @@ class ContactFormController extends Controller
     /**
      * Display the thank you view after the misuse report mail is sent (called by /misuse/thankyou route).
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function contactFormThankyou()
     {

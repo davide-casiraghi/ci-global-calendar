@@ -141,6 +141,7 @@ class CategoryController extends Controller
      * Save/Update the record on DB.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Category  $category
      * @return void.
      */
     public function saveOnDb($request, $category)

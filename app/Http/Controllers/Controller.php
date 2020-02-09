@@ -20,7 +20,7 @@ class Controller extends BaseController
      * Get the current logged user ID.
      * If user is admin or super admin return 0.
      *
-     * @return int $ret
+     * @return \App\User $ret
      */
     public function getLoggedUser()
     {

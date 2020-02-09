@@ -20,7 +20,7 @@ class StatsDonateClass
 
     /**
      *  Substitute in the post HTML, the activation string with the stats HTML.
-     *  @param array $postBody
+     *  @param string $postBody
      *  @return string
      **/
     public function getStatsDonate($postBody)

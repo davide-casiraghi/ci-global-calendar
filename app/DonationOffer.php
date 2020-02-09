@@ -30,7 +30,7 @@ class DonationOffer extends Model
     /**
      * Return the donation kind array.
      *
-     * @return $ret array
+     * @return array $ret
      */
     public static function getDonationKindArray()
     {

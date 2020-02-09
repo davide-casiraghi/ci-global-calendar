@@ -29,7 +29,7 @@ class EventSearchController extends Controller
     /**
      * Display the event search results in Global Calendar Homepage.
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index(Request $request)
     {
@@ -100,11 +100,11 @@ class EventSearchController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Event  $event
+     * @param  \DavideCasiraghi\LaravelEventsCalendar\Models\Event  $event
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
-    public function show(Event $event, $id)
+    public function show(Event $event, int $id)
     {
         $event = Event::where('id', $id)->first();
 
@@ -118,9 +118,9 @@ class EventSearchController extends Controller
      * this should be included in the IFRAME for the regional websites.
      *
      * @param  string $code
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
-    public function EventsListByCountry($code)
+    public function EventsListByCountry(string $code)
     {
         $country = Country::where('code', $code)->first();
 
@@ -146,7 +146,7 @@ class EventSearchController extends Controller
      * after a country get selected.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return int $ret
      */
     public function updateContinentsDropdown(Request $request)
     {
@@ -163,7 +163,7 @@ class EventSearchController extends Controller
      * after a continent get selected.
      *
      * @param \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return string $ret
      */
     public function updateCountriesDropdown(Request $request)
     {
@@ -186,7 +186,7 @@ class EventSearchController extends Controller
      * after a country get selected.
      *
      * @param \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return string $ret
      */
     public function updateRegionsDropdown(Request $request)
     {

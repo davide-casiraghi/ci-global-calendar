@@ -169,7 +169,7 @@ class StatisticsController extends Controller
     /**
      * Create a BAR chart showing the number of Teachers by country.
      *
-     * @return App\Charts
+     * @return \App\Charts\LatestUsers
      */
     public function createTeachersByCountriesChart()
     {
@@ -239,7 +239,7 @@ class StatisticsController extends Controller
     /**
      * Create a BAR chart showing the number of Events by country.
      *
-     * @return App\Charts
+     * @return \App\Charts\LatestUsers
      */
     public function createEventsByCountriesChart()
     {

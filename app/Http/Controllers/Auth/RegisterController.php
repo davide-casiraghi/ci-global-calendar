@@ -89,7 +89,7 @@ class RegisterController extends Controller
      * Register new account. - OVERRIDE to default function.
      *
      * @param Request $request
-     * @return User
+     * @return \Illuminate\Http\RedirectResponse
      */
     protected function register(Request $request)
     {
@@ -156,7 +156,7 @@ class RegisterController extends Controller
     /**
      * Activate the user with given activation code.
      * @param string $activationCode
-     * @return string
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function activateUser(string $activationCode)
     {
@@ -193,7 +193,7 @@ class RegisterController extends Controller
     /**
      * Activate the user from the backend clicking on the Enable button in the user index view.
      * @param string $userId
-     * @return string
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function activateUserFromBackend(string $userId)
     {
@@ -229,7 +229,7 @@ class RegisterController extends Controller
      * Send the User activation mail to the Admin.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function userActivationMailSend(Request $request)
     {
