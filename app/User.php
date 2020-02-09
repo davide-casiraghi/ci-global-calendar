@@ -86,6 +86,7 @@ class User extends Authenticatable
      */
     public static function getUserGroupString($group_id)
     {
+        $ret = "";
         switch ($group_id) {
              case null:
                  $ret = 'Manager';
