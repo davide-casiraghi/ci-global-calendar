@@ -74,7 +74,7 @@ class RegisterController extends Controller
     /**
      * Show the application registration form. - OVERRIDE to default function.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function showRegistrationForm()
     {
@@ -156,7 +156,7 @@ class RegisterController extends Controller
     /**
      * Activate the user with given activation code.
      * @param string $activationCode
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\RedirectResponse|string
      */
     public function activateUser(string $activationCode)
     {
@@ -193,7 +193,7 @@ class RegisterController extends Controller
     /**
      * Activate the user from the backend clicking on the Enable button in the user index view.
      * @param string $userId
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\RedirectResponse|string
      */
     public function activateUserFromBackend(string $userId)
     {

@@ -45,6 +45,13 @@ class User extends Authenticatable
         'group' => 'int',
     ];
 
+    /***************************************************************************/
+
+    /**
+     * Return true if the user is a super admin
+     *
+     * @return bool $ret
+     */
     public function isSuperAdmin()
     {
         if ($this->group == 1) {
@@ -53,7 +60,13 @@ class User extends Authenticatable
             return false;
         }
     }
-
+    /***************************************************************************/
+    
+    /**
+     * Return true if the user is an admin
+     *
+     * @return bool $ret
+     */
     public function isAdmin()
     {
         if ($this->group == 2) {
@@ -66,10 +79,10 @@ class User extends Authenticatable
     /***************************************************************************/
 
     /**
-     * Return the user group string.
+     * Return the user group description string.
      *
-     * @param  \App\User  $post
-     * @return string $ret - the user role description string
+     * @param  int|null  $group_id
+     * @return string $ret
      */
     public static function getUserGroupString($group_id)
     {
@@ -95,8 +108,7 @@ class User extends Authenticatable
     /**
      * Return true if the user is logged as super admin.
      *
-     * @param  none
-     * @return string $ret - true if the user is super admin
+     * @return bool $ret 
      */
     public static function loggedAsSuperAdmin()
     {
@@ -115,8 +127,7 @@ class User extends Authenticatable
     /**
      * Return true if the user is logged as admin.
      *
-     * @param  none
-     * @return string $ret - true if the user is admin
+     * @return bool $ret
      */
     public static function loggedAsAdmin()
     {

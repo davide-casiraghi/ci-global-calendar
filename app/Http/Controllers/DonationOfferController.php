@@ -196,7 +196,7 @@ class DonationOfferController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\DonationOffer  $donationOffer
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function saveOnDb($request, $donationOffer)
     {
