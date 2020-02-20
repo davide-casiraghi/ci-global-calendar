@@ -15,9 +15,9 @@ class CardClass
     /**
      *  Returns the plugin parameters.
      *  - Matches: result from the regular expression on the string from the article
-     *  - Ret: the array containing the parameters
-     *  @param array $matches       
-     *  @return array $ret          
+     *  - Ret: the array containing the parameters.
+     *  @param array $matches
+     *  @return array $ret
      **/
     public function getParameters($matches)
     {
@@ -63,7 +63,7 @@ class CardClass
 
     /**
      *  Turn array of the metches after preg_match_all function (taken from - https://secure.php.net/manual/en/function.preg-match-all.php).
-     *  @param array $m     
+     *  @param array $m
      *  @return array $ret
      **/
     public function turn_array($m)
@@ -87,8 +87,8 @@ class CardClass
     public function getPostData($parameters)
     {
         $postData = app('App\Http\Controllers\PostController')->postdata($parameters['post_id']);
-        
-        $ret = array();
+
+        $ret = [];
         $ret['post_title'] = (! empty($postData->title)) ? $postData->title : $postData->translate('en')->title;
         $ret['post_body'] = (! empty($postData->body)) ? $postData->body : $postData->translate('en')->body;
 
@@ -104,7 +104,7 @@ class CardClass
 
     /**
      *  Prepare the card HTML.
-     *  Paramteters: parameters array [post_id, img_alignment, img_col_size_class, text_col_size_class]
+     *  Paramteters: parameters array [post_id, img_alignment, img_col_size_class, text_col_size_class].
      *  @param array $parameters
      *  @param array $postData
      *
@@ -134,11 +134,12 @@ class CardClass
     }
 
     // **********************************************************************
+
     /**
      *  Prepare the card HTML.
-     *  Paramteters: parameters array [post_id, img_alignment, img_col_size_class, text_col_size_class]
+     *  Paramteters: parameters array [post_id, img_alignment, img_col_size_class, text_col_size_class].
      *  @param string $postBody
-     *  @return string $postBody            
+     *  @return string $postBody
      **/
     public function getCard($postBody)
     {
