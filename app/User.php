@@ -48,7 +48,7 @@ class User extends Authenticatable
     /***************************************************************************/
 
     /**
-     * Return true if the user is a super admin
+     * Return true if the user is a super admin.
      *
      * @return bool $ret
      */
@@ -60,10 +60,11 @@ class User extends Authenticatable
             return false;
         }
     }
+
     /***************************************************************************/
-    
+
     /**
-     * Return true if the user is an admin
+     * Return true if the user is an admin.
      *
      * @return bool $ret
      */
@@ -86,7 +87,7 @@ class User extends Authenticatable
      */
     public static function getUserGroupString($group_id)
     {
-        $ret = "";
+        $ret = '';
         switch ($group_id) {
              case null:
                  $ret = 'Manager';
@@ -109,7 +110,7 @@ class User extends Authenticatable
     /**
      * Return true if the user is logged as super admin.
      *
-     * @return bool $ret 
+     * @return bool $ret
      */
     public static function loggedAsSuperAdmin()
     {
