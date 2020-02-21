@@ -1,0 +1,10 @@
+[21-Feb-2020 18:44:56 UTC] PHP Fatal error:  Cannot redeclare Tests\Unit\SitemapControllerTest::test_the_events_sitemap_is_accessible() in /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/tests/Unit/SitemapControllerTest.php on line 54
+[21-Feb-2020 18:44:56 UTC] PHP Stack trace:
+[21-Feb-2020 18:44:56 UTC] PHP   1. {main}() /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/vendor/phpunit/phpunit/phpunit:0
+[21-Feb-2020 18:44:56 UTC] PHP   2. PHPUnit\TextUI\Command::main() /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/vendor/phpunit/phpunit/phpunit:61
+[21-Feb-2020 18:44:56 UTC] PHP   3. PHPUnit\TextUI\Command->run() /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/vendor/phpunit/phpunit/src/TextUI/Command.php:159
+[21-Feb-2020 18:44:56 UTC] PHP   4. PHPUnit\TextUI\TestRunner->getTest() /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/vendor/phpunit/phpunit/src/TextUI/Command.php:177
+[21-Feb-2020 18:44:56 UTC] PHP   5. PHPUnit\TextUI\TestRunner->loadSuiteClass() /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/vendor/phpunit/phpunit/src/Runner/BaseTestRunner.php:101
+[21-Feb-2020 18:44:56 UTC] PHP   6. PHPUnit\Runner\StandardTestSuiteLoader->load() /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/vendor/phpunit/phpunit/src/Runner/BaseTestRunner.php:141
+[21-Feb-2020 18:44:56 UTC] PHP   7. PHPUnit\Util\FileLoader::checkAndLoad() /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/vendor/phpunit/phpunit/src/Runner/StandardTestSuiteLoader.php:39
+[21-Feb-2020 18:44:56 UTC] PHP   8. PHPUnit\Util\FileLoader::load() /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/vendor/phpunit/phpunit/src/Util/FileLoader.php:47
