@@ -125,7 +125,7 @@ class EventSearchController extends Controller
         $country = Country::where('code', $code)->first();
 
         $filters = [];
-        $filters['keywords'] = $filters['category'] = $filters['city'] = $filters['continent'] = $filters['teacher'] = $filters['venue'] = $filters['startDate'] = $filters['endDate'] = '';
+        $filters['keywords'] = $filters['category'] = $filters['region'] = $filters['city'] = $filters['continent'] = $filters['teacher'] = $filters['venue'] = $filters['startDate'] = $filters['endDate'] = '';
         $filters['country'] = $country->id;
         $events = Event::getEvents($filters, null);
 
