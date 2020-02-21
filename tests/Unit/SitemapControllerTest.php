@@ -39,7 +39,7 @@ class SitemapControllerTest extends TestCase
     /***************************************************************************/
 
     /**
-     * Test that the general sitemap is reachable
+     * Test that the general sitemap is reachable.
      */
     public function test_the_general_sitemap_is_accessible()
     {
@@ -49,7 +49,7 @@ class SitemapControllerTest extends TestCase
     }
 
     /**
-     * Test that the sitemap of the events is reachable
+     * Test that the sitemap of the events is reachable.
      */
     public function test_the_events_sitemap_is_accessible()
     {
@@ -57,9 +57,9 @@ class SitemapControllerTest extends TestCase
         $response = $this->get('/sitemap/events')
                              ->assertStatus(200);
     }
-    
+
     /**
-     * Test that the sitemap of the posts is reachable
+     * Test that the sitemap of the posts is reachable.
      */
     public function test_the_posts_sitemap_is_accessible()
     {
@@ -67,9 +67,9 @@ class SitemapControllerTest extends TestCase
         $response = $this->get('/sitemap/posts')
                              ->assertStatus(200);
     }
-    
+
     /**
-     * Test that the sitemap of the teachers is reachable
+     * Test that the sitemap of the teachers is reachable.
      */
     public function test_the_teachers_sitemap_is_accessible()
     {
