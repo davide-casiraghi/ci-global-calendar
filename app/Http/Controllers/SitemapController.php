@@ -66,7 +66,7 @@ class SitemapController extends Controller
     {
         // Retrieve all the active events
         $filters = [];
-        $filters['keywords'] = $filters['category'] = $filters['country'] = $filters['city'] = $filters['continent'] = $filters['teacher'] = $filters['venue'] = $filters['startDate'] = $filters['endDate'] = null;
+        $filters['keywords'] = $filters['category'] = $filters['country'] = $filters['region'] = $filters['city'] = $filters['continent'] = $filters['teacher'] = $filters['venue'] = $filters['startDate'] = $filters['endDate'] = null;
         $activeEvents = Event::getEvents($filters, 10000);
 
         return response()->view('sitemap.events', [
