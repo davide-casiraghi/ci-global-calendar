@@ -39,7 +39,7 @@ class EventSearchControllerTest extends TestCase
     /***************************************************************************/
 
     /**
-     * Test that the general sitemap is reachable
+     * Test that the general sitemap is reachable.
      */
     public function test_the_italian_events_listed_by_country_are_accessible()
     {
@@ -47,6 +47,4 @@ class EventSearchControllerTest extends TestCase
         $response = $this->get('/eventSearch/country/IT')
                              ->assertStatus(200);
     }
-
-
 }
