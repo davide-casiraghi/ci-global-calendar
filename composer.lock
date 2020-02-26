@@ -344,16 +344,16 @@
         },
         {
             "name": "davide-casiraghi/laravel-events-calendar",
-            "version": "2.4.5",
+            "version": "2.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davide-casiraghi/laravel-events-calendar.git",
-                "reference": "7fc7049c5d856464e6f3408579c5fb6104033149"
+                "reference": "6dc4e1f88823ce56a21b3a73e6acad93dfe47431"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/7fc7049c5d856464e6f3408579c5fb6104033149",
-                "reference": "7fc7049c5d856464e6f3408579c5fb6104033149",
+                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/6dc4e1f88823ce56a21b3a73e6acad93dfe47431",
+                "reference": "6dc4e1f88823ce56a21b3a73e6acad93dfe47431",
                 "shasum": ""
             },
             "require": {
@@ -406,7 +406,7 @@
                 "davide-casiraghi",
                 "laravel-events-calendar"
             ],
-            "time": "2020-02-23T11:13:10+00:00"
+            "time": "2020-02-25T18:36:47+00:00"
         },
         {
             "name": "davide-casiraghi/laravel-form-partials",
@@ -1813,16 +1813,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v6.16.0",
+            "version": "v6.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b47217e41868d3049ec545cbb713aa94c6f39e55"
+                "reference": "40fd590b93f060f2ebe407b3e6d29e66b0e57fbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b47217e41868d3049ec545cbb713aa94c6f39e55",
-                "reference": "b47217e41868d3049ec545cbb713aa94c6f39e55",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/40fd590b93f060f2ebe407b3e6d29e66b0e57fbb",
+                "reference": "40fd590b93f060f2ebe407b3e6d29e66b0e57fbb",
                 "shasum": ""
             },
             "require": {
@@ -1955,7 +1955,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-02-18T15:17:52+00:00"
+            "time": "2020-02-25T15:07:46+00:00"
         },
         {
             "name": "laravel/tinker",
