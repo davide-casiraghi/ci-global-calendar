@@ -12,6 +12,10 @@ use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Continent;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Region;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Teacher;
+use DavideCasiraghi\LaravelEventsCalendar\Models\Organizer;
+use DavideCasiraghi\LaravelEventsCalendar\Models\EventCategory;
+
 use App\Http\Controllers\EventExpireAutoMailController;
 use Carbon\Carbon;
 
@@ -36,10 +40,10 @@ class EventExpireAutoMailControllerTest extends TestCase
         // Factories
         $this->withFactories(base_path('vendor/davide-casiraghi/laravel-events-calendar/database/factories'));
         $this->user = factory(\App\User::class)->create();
-        $this->venue = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\EventVenue::class)->create();
-        $this->teachers = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\Teacher::class, 3)->create();
-        $this->organizers = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\Organizer::class, 3)->create();
-        $this->eventCategory = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\EventCategory::class)->create(['id'=>'100']);
+        $this->venue = factory(EventVenue::class)->create();
+        $this->teachers = factory(Teacher::class, 3)->create();
+        $this->organizers = factory(Organizer::class, 3)->create();
+        $this->eventCategory = factory(EventCategory::class)->create(['id'=>'100']);
         
         // Event one week from now
         $this->event = factory(Event::class)->create([
