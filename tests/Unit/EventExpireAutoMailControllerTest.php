@@ -44,33 +44,9 @@ class EventExpireAutoMailControllerTest extends TestCase
         $this->teachers = factory(Teacher::class, 3)->create();
         $this->organizers = factory(Organizer::class, 3)->create();
         $this->eventCategory = factory(EventCategory::class)->create(['id'=>'100']);
-        
-        
-        
     }
 
     /***************************************************************************/
-
-    /**
-     * Test that logged user can see continents index view.
-     */
-    /*public function test_check_event_expire()
-    {
-        $continent = factory(Continent::class)->create(['name' => 'Europe']);
-        $country = factory(Country::class)->create(['name' => 'Italy', 'continent_id' => $continent->id]);
-        $region = factory(Region::class)->create(['name' => 'Lombardy', 'country_id' => $country->id]);
-
-        // we need a venue with an event, because the dropdown shows just the active countries
-        $eventVenue = factory(EventVenue::class)->create(['country_id' => $country->id, 'region_id' => $region->id]);
-        $this->authenticate();
-        $eventAttributes = factory(Event::class)->raw([
-            'title'=>'event test title',
-            'venue_id' => $eventVenue->id,
-        ]);
-        $response = $this->post('/events', $eventAttributes);
-        
-        
-    }*/
     
     /**
      * Test that it gets the expiring events list (expires at the 7th day from now)
