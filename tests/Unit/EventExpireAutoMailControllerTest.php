@@ -78,6 +78,8 @@ class EventExpireAutoMailControllerTest extends TestCase
             'end_repeat' => Carbon::now()->addDay()->addHour()->toDateString(),
         ]);
         
+        dd($this->event->user->name);
+        
         $activeEvents = Event::getActiveEvents();
         $expiringEventsList = EventExpireAutoMailController::getExpiringRepetitiveEventsList($activeEvents);
         
