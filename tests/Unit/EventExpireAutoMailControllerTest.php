@@ -50,6 +50,33 @@ class EventExpireAutoMailControllerTest extends TestCase
         $this->teachers = factory(Teacher::class, 3)->create();
         $this->organizers = factory(Organizer::class, 3)->create();
         $this->eventCategory = factory(EventCategory::class)->create(['id'=>'100']);
+        
+        // Event one week from now
+        $this->event1 = factory(Event::class)->create([
+            'created_by' => $this->user,
+            'title' => 'event expiring in one week',
+            'venue_id'=> $this->venue->id,
+            'category_id' => '1',
+            //'repeat_until'=> '2020-02-24 00:00:00',
+            'repeat_until'=> Carbon::now()->addDays(6)->toDateString(),
+        ]);
+        $this->eventRepetition1 = factory(EventRepetition::class)->create([
+            'event_id'=> $this->event1->id,
+        ]);
+        
+        // Event tomorrow
+        $this->event2 = factory(Event::class)->create([
+            'created_by' => $this->user,
+            'title' => 'event tomorrow',
+            'venue_id'=> $this->venue->id,
+            'category_id' => '1',
+            'repeat_until'=> Carbon::now()->addDay(2)->toDateString(),
+        ]);
+        $this->eventRepetition2 = factory(EventRepetition::class)->create([
+            'event_id'=> $this->event2->id,
+            'start_repeat' => Carbon::now()->addDay()->toDateString(),
+            'end_repeat' => Carbon::now()->addDay()->addHour()->toDateString(),
+        ]);
     }
 
     /***************************************************************************/
@@ -60,7 +87,7 @@ class EventExpireAutoMailControllerTest extends TestCase
     public function test_it_gets_expiring_events_list()
     {        
         // Event one week from now
-        $this->event = factory(Event::class)->create([
+        /*$this->event = factory(Event::class)->create([
             'title' => 'event expiring in one week',
             'venue_id'=> $this->venue->id,
             'category_id' => '1',
@@ -82,7 +109,7 @@ class EventExpireAutoMailControllerTest extends TestCase
             'event_id'=> $this->event->id,
             'start_repeat' => Carbon::now()->addDay()->toDateString(),
             'end_repeat' => Carbon::now()->addDay()->addHour()->toDateString(),
-        ]);
+        ]);*/
         
         $activeEvents = Event::getActiveEvents();
         $expiringEventsList = EventExpireAutoMailController::getExpiringRepetitiveEventsList($activeEvents);
@@ -148,32 +175,6 @@ class EventExpireAutoMailControllerTest extends TestCase
         // Assert that no mailables were sent...
         Mail::assertNothingSent();
         
-        // Event one week from now
-        $event1 = factory(Event::class)->create([
-            'created_by' => $this->user,
-            'title' => 'event expiring in one week',
-            'venue_id'=> $this->venue->id,
-            'category_id' => '1',
-            //'repeat_until'=> '2020-02-24 00:00:00',
-            'repeat_until'=> Carbon::now()->addDays(6)->toDateString(),
-        ]);
-        $eventRepetition1 = factory(EventRepetition::class)->create([
-            'event_id'=> $event1->id,
-        ]);
-        
-        // Event tomorrow
-        $event2 = factory(Event::class)->create([
-            'created_by' => $this->user,
-            'title' => 'event tomorrow',
-            'venue_id'=> $this->venue->id,
-            'category_id' => '1',
-            'repeat_until'=> Carbon::now()->addDay(2)->toDateString(),
-        ]);
-        $eventRepetition2 = factory(EventRepetition::class)->create([
-            'event_id'=> $event2->id,
-            'start_repeat' => Carbon::now()->addDay()->toDateString(),
-            'end_repeat' => Carbon::now()->addDay()->addHour()->toDateString(),
-        ]);
         
         $activeEvents = Event::getActiveEvents();
         $expiringEventsList = EventExpireAutoMailController::sendEmailToExpiringEventsOrganizers($activeEvents);
@@ -183,7 +184,7 @@ class EventExpireAutoMailControllerTest extends TestCase
 
         // Assert that the first message contain the right From and To
         $user = $this->user;
-        Mail::assertSent(ExpiringEvent::class, function ($mail) use ($user, $event1) {
+        Mail::assertSent(ExpiringEvent::class, function ($mail) use ($user) {
             $mail->build();
             //dd($mail);
             $this->assertEquals('CI Global Calendar Administrator', $mail->subject);
