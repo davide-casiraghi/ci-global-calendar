@@ -54,7 +54,7 @@ class EventExpireAutoMailController extends Controller
     
     /**
      * Send an email to the events which repetitive events are expiring
-     * @param  \DavideCasiraghi\LaravelEventsCalendar\Models\Event  $events
+     * @param  array  $expiringEvents
      * @return void
      */
     public static function sendEmailToExpiringEventsOrganizers($expiringEvents){        
