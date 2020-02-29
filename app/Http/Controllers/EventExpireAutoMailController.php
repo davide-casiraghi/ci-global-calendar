@@ -57,11 +57,7 @@ class EventExpireAutoMailController extends Controller
      * @param  \DavideCasiraghi\LaravelEventsCalendar\Models\Event  $events
      * @return void
      */
-    public static function sendEmailToExpiringEventsOrganizers($expiringEvents){
-        //$report['senderEmail'] = env('ADMIN_MAIL');
-        //
-        //$report['subject'] = 'Your event is expiring in one week';
-        
+    public static function sendEmailToExpiringEventsOrganizers($expiringEvents){        
         $report = [];
         
         $report['emailFrom'] = env('ADMIN_MAIL');
@@ -71,8 +67,6 @@ class EventExpireAutoMailController extends Controller
         $expiringEventsTitleAndUser = self::getExpiringEventsTitleAndUser($expiringEvents);
 
         foreach ($expiringEventsTitleAndUser as $key => $event) {
-            //dd($event);
-            
             $report['user_name'] = $event['user_name']; 
             $report['emailTo'] = $event['user_email']; 
             $report['event_title'] = $event['event_title']; 
