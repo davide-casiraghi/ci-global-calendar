@@ -20,3 +20,4 @@
 [25-Feb-2020 06:47:14 UTC] PHP   8. PHPUnit\Util\FileLoader::load() /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/vendor/phpunit/phpunit/src/Util/FileLoader.php:47
 [26-Feb-2020 06:34:35 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ']' in /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/tests/Unit/EventExpireAutoMailControllerTest.php on line 50
 [26-Feb-2020 16:15:46 UTC] PHP Parse error:  syntax error, unexpected '$expiringEvent' (T_VARIABLE) in /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/tests/Unit/EventExpireAutoMailControllerTest.php on line 107
+[29-Feb-2020 09:09:12 UTC] PHP Parse error:  syntax error, unexpected '"country_name"' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/tests/Unit/EventExpireAutoMailControllerTest.php on line 105

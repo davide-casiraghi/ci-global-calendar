@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
+use App\User;
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ExpiringEvent;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -21,14 +25,30 @@ class EventExpireAutoMailController extends Controller
 
     /**
      * Return the list of the expiring repetitive events (the 7th day from now)
-     * @param  \DavideCasiraghi\LaravelEventsCalendar\Models\Event  $events
-     * @return \DavideCasiraghi\LaravelEventsCalendar\Models\Event  $ret
+     * @param  array  $activeEvents
+     * @return array  $ret
      */
-    public static function getExpiringRepetitiveEventsList($events){
-        $ret = $events
+    public static function getExpiringRepetitiveEventsList($activeEvents){
+        $ret = $activeEvents
                 ->where('repeat_until', '<=', Carbon::now()->addWeek()->toDateString())
                 ->where('repeat_until', '>', Carbon::now()->addWeek()->subDay()->toDateString())
                 ->where('category_id', '=', '1');
+        return $ret;
+    }
+    
+    /**
+     * Return the list of the expiring events titles and users
+     * @param  array  $expiringEvents
+     * @return array  $ret
+     */
+    public static function getExpiringEventsTitleAndUser($expiringEvents){
+        $ret = [];
+        foreach ($expiringEvents as $key => $expiringEvent) {
+            $user = User::find($expiringEvents[$key]['created_by']);
+            $ret[$key]['user_name'] = $user->name;
+            $ret[$key]['user_email'] = $user->email;
+            $ret[$key]['event_title'] = $expiringEvent['title'];
+        }
         return $ret;
     }
     
@@ -37,15 +57,18 @@ class EventExpireAutoMailController extends Controller
      * @param  \DavideCasiraghi\LaravelEventsCalendar\Models\Event  $events
      * @return void
      */
-    public function sendEmailToExpiringEventsOrganizers($events){
+    public static function sendEmailToExpiringEventsOrganizers($expiringEvents){
         $report['senderEmail'] = env('ADMIN_MAIL');
         $report['senderName'] = 'CI Global Calendar Administrator';
         $report['subject'] = 'Your event is expiring in one week';
 
-        foreach ($events as $key => $event) {
-            $report['user_name'] = $event->user->name; 
-            $report['user_email'] = $event->user->email; 
-            $report['event_title'] = $event->title;
+        $expiringEventsTitleAndUser = self::getExpiringEventsTitleAndUser($expiringEvents);
+
+        foreach ($expiringEventsTitleAndUser as $key => $event) {
+            //dd($event);
+            $report['user_name'] = $event['user_name']; 
+            $report['user_email'] = $event['user_email']; 
+            $report['event_title'] = $event['event_title']; 
 
             //Mail::to($request->user())->send(new ReportMisuse($report));
             Mail::send(new ExpiringEvent($report));
