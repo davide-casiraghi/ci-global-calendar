@@ -45,7 +45,7 @@ class Kernel extends ConsoleKernel
         /*  Send an email to the organizers of the repetitive 
         events that are expiring in one week */
         $schedule->call(function () {
-            EventExpireAutoMailController::sendEmailToExpiringEventsOrganizers();
+            EventExpireAutoMailController::check();
         })->daily()
             ->appendOutputTo($filePath)
             ->emailOutputTo(env('WEBMASTER_MAIL'));

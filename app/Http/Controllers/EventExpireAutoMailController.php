@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
 use App\User;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ExpiringEvent;
 
@@ -14,14 +15,20 @@ class EventExpireAutoMailController extends Controller
 {
     /**
      * Check if an event is expiring
-     * @param  \DavideCasiraghi\LaravelEventsCalendar\Models\Event  $event
-     * @return boolean
+     * @return void
      */
-    /*public static function checkEventExpire($event){
-        $ret = true;
-        
-        return $ret;
-    }*/
+    public static function check(){
+        $activeEvents = Event::getActiveEvents();
+        $expiringEventsList = EventExpireAutoMailController::getExpiringRepetitiveEventsList($activeEvents);
+
+        if(!empty($expiringEventsList)){
+            EventExpireAutoMailController::sendEmailToExpiringEventsOrganizers($expiringEvents);
+            Log::notice(count($expiringEventsList).' events were expiring, mails sent to the organizers.');
+        }
+        else{
+            Log::notice('No events were expiring');
+        }
+    }
 
     /**
      * Return the list of the expiring repetitive events (the 7th day from now)
@@ -75,5 +82,4 @@ class EventExpireAutoMailController extends Controller
             Mail::send(new ExpiringEvent($report));
         }
     }
-        
 }
