@@ -24,12 +24,14 @@ class EventExpireAutoMailController extends Controller
         $expiringEventsList = self::getExpiringRepetitiveEventsList($activeEvents);
 
         if(!empty($expiringEventsList)){
-            self::sendEmailToExpiringEventsOrganizers($expiringEvents);
-            Log::notice(count($expiringEventsList).' events were expiring, mails sent to the organizers.');
+            self::sendEmailToExpiringEventsOrganizers($expiringEventsList);
+            $message = count($expiringEventsList).' events were expiring, mails sent to the organizers.';
         }
         else{
-            Log::notice('No events were expiring');
+            $message = 'No events were expiring';
         }
+        Log::notice($message);
+        return $message;
     }
 
     /**
