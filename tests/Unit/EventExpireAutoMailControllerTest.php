@@ -45,7 +45,8 @@ class EventExpireAutoMailControllerTest extends TestCase
 
         // Factories
         $this->withFactories(base_path('vendor/davide-casiraghi/laravel-events-calendar/database/factories'));
-        $this->user = factory(\App\User::class)->create();
+        $this->user1 = factory(\App\User::class)->create();
+        $this->user2 = factory(\App\User::class)->create();
         $this->venue = factory(EventVenue::class)->create();
         $this->teachers = factory(Teacher::class, 3)->create();
         $this->organizers = factory(Organizer::class, 3)->create();
@@ -53,7 +54,7 @@ class EventExpireAutoMailControllerTest extends TestCase
         
         // Event one week from now
         $this->event1 = factory(Event::class)->create([
-            'created_by' => $this->user,
+            'created_by' => $this->user1->id,
             'title' => 'event expiring in one week',
             'venue_id'=> $this->venue->id,
             'category_id' => '1',
@@ -66,7 +67,7 @@ class EventExpireAutoMailControllerTest extends TestCase
         
         // Event tomorrow
         $this->event2 = factory(Event::class)->create([
-            'created_by' => $this->user,
+            'created_by' => $this->user2->id,
             'title' => 'event tomorrow',
             'venue_id'=> $this->venue->id,
             'category_id' => '1',
@@ -100,11 +101,8 @@ class EventExpireAutoMailControllerTest extends TestCase
      */
     public function test_it_gets_expiring_events_title_and_user()
     {   
-        $user1 = factory(\App\User::class)->create();
-        $user2 = factory(\App\User::class)->create();
-        
         $expiringEvents = [];
-        
+    
         $expiringEvents[] = [
             "title" => "event expiring in one week",
             "country_name" => "Italy",
@@ -113,7 +111,7 @@ class EventExpireAutoMailControllerTest extends TestCase
             "city" => "South Elenor",
             "repeat_until" => "2020-03-06 00:00:00",
             "category_id" => 1,
-            "created_by" => $user1->id,
+            "created_by" => $this->user1->id,
         ];
 
         $expiringEvents[] = [
@@ -124,17 +122,17 @@ class EventExpireAutoMailControllerTest extends TestCase
             "city" => "South Elenor",
             "repeat_until" => "2020-03-02 00:00:00",
             "category_id" => 1,
-            "created_by" => $user2->id,
+            "created_by" => $this->user2->id,
         ];
         
         $expiringEventsTitleAndUser = EventExpireAutoMailController::getExpiringEventsTitleAndUser($expiringEvents);
         
-        $this->assertSame($expiringEventsTitleAndUser[0]['user_name'],$user1['name']);
-        $this->assertSame($expiringEventsTitleAndUser[0]['user_email'],$user1['email']);
+        $this->assertSame($expiringEventsTitleAndUser[0]['user_name'],$this->user1['name']);
+        $this->assertSame($expiringEventsTitleAndUser[0]['user_email'],$this->user1['email']);
         $this->assertSame($expiringEventsTitleAndUser[0]['event_title'],$expiringEvents[0]['title']);
         
-        $this->assertSame($expiringEventsTitleAndUser[1]['user_name'],$user2['name']);
-        $this->assertSame($expiringEventsTitleAndUser[1]['user_email'],$user2['email']);
+        $this->assertSame($expiringEventsTitleAndUser[1]['user_name'],$this->user2['name']);
+        $this->assertSame($expiringEventsTitleAndUser[1]['user_email'],$this->user2['email']);
         $this->assertSame($expiringEventsTitleAndUser[1]['event_title'],$expiringEvents[1]['title']);
     }
         
@@ -150,7 +148,7 @@ class EventExpireAutoMailControllerTest extends TestCase
         // Assert that no mailables were sent...
         Mail::assertNothingSent();
         
-        
+        // Send emails to expiring events organizers
         $activeEvents = Event::getActiveEvents();
         $expiringEventsList = EventExpireAutoMailController::sendEmailToExpiringEventsOrganizers($activeEvents);
         
@@ -158,7 +156,7 @@ class EventExpireAutoMailControllerTest extends TestCase
         Mail::assertSent(ExpiringEvent::class, 2);
 
         // Assert that the first message contain the right From and To
-        $user = $this->user;
+        $user = $this->user1;
         Mail::assertSent(ExpiringEvent::class, function ($mail) use ($user) {
             $mail->build();
             //dd($mail);
