@@ -83,7 +83,6 @@ class EventExpireAutoMailController extends Controller
             $report['emailTo'] = $event['user_email']; 
             $report['event_title'] = $event['event_title']; 
             
-            //Mail::to($request->user())->send(new ReportMisuse($report));
             Mail::send(new ExpiringEvent($report));
         }
     }
