@@ -148,38 +148,9 @@ class EventExpireAutoMailControllerTest extends TestCase
 
         // Assert that no mailables were sent...
         Mail::assertNothingSent();
-
-        // Perform order shipping...
-        /*Mail::assertSent(ExpiringEvent::class, function ($mail) use ($order) {
-             return $mail->order->id === $order->id;
-        });*/
-
-        // Assert a message was sent to the given users...
-        // Mail::assertSent(OrderShipped::class, function ($mail) use ($user) {
-        //     return $mail->hasTo($user->email) &&
-        //            $mail->hasCc('...') &&
-        //            $mail->hasBcc('...');
-        // });
-
-        // Assert a mailable was sent twice...
-        //Mail::assertSent(ExpiringEvent::class, 2);
-
-        /*Mail::assertSent(ExpiringEvent::class, function ($mail)  {
-            $mail->build();
-            return $mail->hasTo('test@example.com');
-        });*/
-        
-        
-        
-    
-        /*Mail::assertSent(ContactForm::class, function ($mail)  {
-            $mail->build();
-            return $mail->hasTo('test@example.com');
-        });*/
-        
         
         // Event one week from now
-        $this->event = factory(Event::class)->create([
+        $event1 = factory(Event::class)->create([
             'created_by' => $this->user,
             'title' => 'event expiring in one week',
             'venue_id'=> $this->venue->id,
@@ -187,122 +158,40 @@ class EventExpireAutoMailControllerTest extends TestCase
             //'repeat_until'=> '2020-02-24 00:00:00',
             'repeat_until'=> Carbon::now()->addDays(6)->toDateString(),
         ]);
-        $this->eventRepetition = factory(EventRepetition::class)->create([
-            'event_id'=> $this->event->id,
+        $eventRepetition1 = factory(EventRepetition::class)->create([
+            'event_id'=> $event1->id,
         ]);
         
         // Event tomorrow
-        $this->event = factory(Event::class)->create([
+        $event2 = factory(Event::class)->create([
             'created_by' => $this->user,
             'title' => 'event tomorrow',
             'venue_id'=> $this->venue->id,
             'category_id' => '1',
             'repeat_until'=> Carbon::now()->addDay(2)->toDateString(),
         ]);
-        $this->eventRepetition = factory(EventRepetition::class)->create([
-            'event_id'=> $this->event->id,
+        $eventRepetition2 = factory(EventRepetition::class)->create([
+            'event_id'=> $event2->id,
             'start_repeat' => Carbon::now()->addDay()->toDateString(),
             'end_repeat' => Carbon::now()->addDay()->addHour()->toDateString(),
         ]);
-        //dd(User::find(2)->name);
         
         $activeEvents = Event::getActiveEvents();
-        
         $expiringEventsList = EventExpireAutoMailController::sendEmailToExpiringEventsOrganizers($activeEvents);
         
-        
-
         // Assert a mailable was sent twice
         Mail::assertSent(ExpiringEvent::class, 2);
 
-        
-
-        /*$user = [];
-        Mail::assertSent(ExpiringEvent::class, function ($mail) use ($user) {
-            $mail->build();
-            return $mail->subject = 'The SUBJECT that I very much need';
-        });*/
-        
-        
-        
-        
-
-/*
-        $subject = "The subject";
+        // Assert that the first message contain the right From and To
         $user = $this->user;
-
-        Mail::shouldReceive('send')->once()->with(
-        'emails.emailTemplate',
-        m::on( function( $data ){
-            $this -> assertArrayHasKey( 'user', $data );
-            return true; 
-        }),
-        m::on( function(\Closure $closure) use ($user, $subject){
-            $mock = m::mock('Illuminate\Mailer\Message');
-            $mock->shouldReceive('to')->once()->with($use->email)
-                 ->andReturn($mock); //simulate the chaining
-            $mock->shouldReceive('subject')->once()->with($subject);
-            $closure($mock);
-            return true;
-        })
-    );
-*/
-        
-        //Perform order shipping...
-        /*
-        $report = [];
-        $report = [
+        Mail::assertSent(ExpiringEvent::class, function ($mail) use ($user, $event1) {
+            $mail->build();
+            //dd($mail);
+            $this->assertEquals('CI Global Calendar Administrator', $mail->subject);
             
-        ];
-        
-        ->to($this->report['emailTo'])
-        ->from($this->report['email'], $this->report['name'])
-        ->replyTo($this->report['email'], $this->report['name'])
-        ->subject($this->report['subject'])
-        ->with([
-            'user_name' => $this->report['name'],
-            'event_title' => $this->report['email'],
-            'msg' => $this->report['message'],
-        */
-        
-        /*Mail::assertSent(ExpiringEvent::class, function ($mail) use ($report) {
-            return $mail->report->id === $report->id;
+            return $mail->hasFrom(env('ADMIN_MAIL')) &&
+                   $mail->hasReplyTo(env('ADMIN_MAIL')) &&
+                   $mail->hasTo($user->email);
         });
-        */
-
-
-        // Assert a mailable was not sent...
-        //Mail::assertNotSent(AnotherMailable::class);
-        
-        
-        
-        
     }
-    
-    /*
-    public function test_it_dispatches_an_email()
-    {
-        $route = Notification::route('mail', 'test@test.com');
-        Notification::fake();
-
-        config(['monica.email_new_user_notification' => 'test@test.com']);
-
-        $user = factory(User::class)->create();
-
-        //dispatch(new SendNewUserAlert($user));
-
-        Notification::assertSentTo($route, UserRegisteredSuccessfully::class);
-
-        $notifications = Notification::sent($route, UserRegisteredSuccessfully::class);
-        $message = $notifications[0]->toMail();
-
-        $this->assertStringContainsString('New registration', $message->subject);
-        $this->assertStringContainsString($user->first_name, implode('', $message->introLines));
-        $this->assertStringContainsString($user->last_name, implode('', $message->introLines));
-        $this->assertStringContainsString($user->email, implode('', $message->introLines));
-    }
-    */
-    
-    
-    
 }

@@ -58,16 +58,23 @@ class EventExpireAutoMailController extends Controller
      * @return void
      */
     public static function sendEmailToExpiringEventsOrganizers($expiringEvents){
-        $report['senderEmail'] = env('ADMIN_MAIL');
+        //$report['senderEmail'] = env('ADMIN_MAIL');
+        //
+        //$report['subject'] = 'Your event is expiring in one week';
+        
+        $report = [];
+        
+        $report['emailFrom'] = env('ADMIN_MAIL');
         $report['senderName'] = 'CI Global Calendar Administrator';
-        $report['subject'] = 'Your event is expiring in one week';
-
+        $report['subject'] = 'CI Global Calendar Administrator';
+        
         $expiringEventsTitleAndUser = self::getExpiringEventsTitleAndUser($expiringEvents);
 
         foreach ($expiringEventsTitleAndUser as $key => $event) {
             //dd($event);
+            
             $report['user_name'] = $event['user_name']; 
-            $report['user_email'] = $event['user_email']; 
+            $report['emailTo'] = $event['user_email']; 
             $report['event_title'] = $event['event_title']; 
 
             //Mail::to($request->user())->send(new ReportMisuse($report));

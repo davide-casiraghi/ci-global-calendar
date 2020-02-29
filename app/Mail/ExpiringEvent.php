@@ -38,13 +38,13 @@ class ExpiringEvent extends Mailable
 
         return $this->markdown('emails.expiringevent')
                 ->to($this->report['emailTo'])
-                ->from($this->report['email'], $this->report['name'])
-                ->replyTo($this->report['email'], $this->report['name'])
+                ->from($this->report['emailFrom'], $this->report['senderName'])
+                ->replyTo($this->report['emailFrom'], $this->report['senderName'])
                 ->subject($this->report['subject'])
                 ->with([
-                    'user_name' => $this->report['name'],
-                    'event_title' => $this->report['email'],
-                    'msg' => $this->report['message'],
+                    'user_name' => $this->report['user_name'],
+                    'event_title' => $this->report['event_title'],
+                    //'msg' => $this->report['message'],
                 ]);
     }
 }
