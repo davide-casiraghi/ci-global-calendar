@@ -22,9 +22,10 @@ class EventExpireAutoMailController extends Controller
     public static function check(){
         $activeEvents = Event::getActiveEvents();
         $expiringEventsList = self::getExpiringRepetitiveEventsList($activeEvents);
-
+        
         if(!empty($expiringEventsList)){
             self::sendEmailToExpiringEventsOrganizers($expiringEventsList);
+            
             $message = count($expiringEventsList).' events were expiring, mails sent to the organizers.';
         }
         else{
@@ -76,12 +77,12 @@ class EventExpireAutoMailController extends Controller
         $report['subject'] = 'CI Global Calendar Administrator';
         
         $expiringEventsTitleAndUser = self::getExpiringEventsTitleAndUser($expiringEvents);
-
+        
         foreach ($expiringEventsTitleAndUser as $key => $event) {
             $report['user_name'] = $event['user_name']; 
             $report['emailTo'] = $event['user_email']; 
             $report['event_title'] = $event['event_title']; 
-
+            
             //Mail::to($request->user())->send(new ReportMisuse($report));
             Mail::send(new ExpiringEvent($report));
         }

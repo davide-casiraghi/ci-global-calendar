@@ -44,6 +44,8 @@ class ExpiringEvent extends Mailable
                 ->with([
                     'user_name' => $this->report['user_name'],
                     'event_title' => $this->report['event_title'],
+                    'sender_email' => $this->report['emailFrom'],
+                    'sender_name' => $this->report['senderName'],
                     //'msg' => $this->report['message'],
                 ]);
     }

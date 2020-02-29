@@ -176,6 +176,6 @@ class EventExpireAutoMailControllerTest extends TestCase
     public function test_it_check_if_finds_expiring_events()
     {
         $message = EventExpireAutoMailController::check();
-        dd($message);
+        $this->assertSame($message, "1 events were expiring, mails sent to the organizers.");
     }
 }
