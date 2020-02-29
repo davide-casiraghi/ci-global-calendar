@@ -196,4 +196,12 @@ class EventExpireAutoMailControllerTest extends TestCase
     
     /***************************************************************************/
     
+    /**
+     * Test that it sends emails to expiring events organizers
+     */
+    /*public function test_it_check_if_finds_expiring_events()
+    {
+        
+        
+    }*/
 }
