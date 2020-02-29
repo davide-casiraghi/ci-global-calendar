@@ -14,15 +14,17 @@ use Carbon\Carbon;
 class EventExpireAutoMailController extends Controller
 {
     /**
-     * Check if an event is expiring
+     * Check if there are expiring repetat events 
+     * and in case send emails to the organizers.
+     *
      * @return void
      */
     public static function check(){
         $activeEvents = Event::getActiveEvents();
-        $expiringEventsList = EventExpireAutoMailController::getExpiringRepetitiveEventsList($activeEvents);
+        $expiringEventsList = self::getExpiringRepetitiveEventsList($activeEvents);
 
         if(!empty($expiringEventsList)){
-            EventExpireAutoMailController::sendEmailToExpiringEventsOrganizers($expiringEvents);
+            self::sendEmailToExpiringEventsOrganizers($expiringEvents);
             Log::notice(count($expiringEventsList).' events were expiring, mails sent to the organizers.');
         }
         else{

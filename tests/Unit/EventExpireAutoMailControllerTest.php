@@ -135,8 +135,7 @@ class EventExpireAutoMailControllerTest extends TestCase
         $this->assertSame($expiringEventsTitleAndUser[1]['user_email'],$user2['email']);
         $this->assertSame($expiringEventsTitleAndUser[1]['event_title'],$expiringEvents[1]['title']);
     }
-    
-    
+        
     /***************************************************************************/
     
     /**
@@ -194,4 +193,7 @@ class EventExpireAutoMailControllerTest extends TestCase
                    $mail->hasTo($user->email);
         });
     }
+    
+    /***************************************************************************/
+    
 }
