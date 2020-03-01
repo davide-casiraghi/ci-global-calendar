@@ -46,7 +46,7 @@ class EventExpireAutoMailController extends Controller
                 ->where('repeat_until', '<=', Carbon::now()->addWeek()->toDateString())
                 ->where('repeat_until', '>', Carbon::now()->addWeek()->subDay()->toDateString())
                 //->where('repeat_type', '=',2);
-                ->whereIn('repeat_type', [2, 3, 4]); // Weekly(2), Monthly(3), Multiple days(4)
+                ->whereIn('repeat_type', [2, 3]); // Weekly(2), Monthly(3), Multiple days(4)
         
         //dd($ret);
         return $ret;
