@@ -32,7 +32,7 @@ class ContactFormController extends Controller
      */
     public function contactFormSend(Request $request)
     {
-        
+
         // Validate form datas
         /*$validator = Validator::make($request->all(), [
             'name' => 'required',
@@ -95,7 +95,7 @@ class ContactFormController extends Controller
         $report['message'] = $request->message;
 
         //Mail::to($request->user())->send(new ReportMisuse($report));
-        
+
         Mail::send(new ContactForm($report));
 
         return redirect()->route('forms.contactform-thankyou');
