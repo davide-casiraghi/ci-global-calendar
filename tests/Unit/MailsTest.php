@@ -106,18 +106,13 @@ class MailsTest extends TestCase
         Mail::assertSent(ContactForm::class, 1);
 
         // Assert that the first message contain the right From and To
-        //$user = $this->user1;
         //dump($user_email);
         Mail::assertSent(ContactForm::class, function ($mail) use ($user_email) {
             $mail->build();
             //dump($mail);
-            //$this->assertEquals('Message from the contact form', $mail->subject);
+            $this->assertEquals('Message from the contact form', $mail->subject);
             return $mail->hasFrom($user_email) &&
                    $mail->hasTo(env('ADMIN_MAIL'));
-            //return $mail->hasTo('noreply@globalcicalendar.com');
-            /*return $mail->hasFrom("noreply@globalcicalendar.com") &&
-                   //$mail->hasReplyTo(env('ADMIN_MAIL')) &&
-                   $mail->hasTo($user_email);*/
         });
     }
     
