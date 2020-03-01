@@ -41,10 +41,14 @@ class EventExpireAutoMailController extends Controller
      * @return array  $ret
      */
     public static function getExpiringRepetitiveEventsList($activeEvents){
+        
         $ret = $activeEvents
                 ->where('repeat_until', '<=', Carbon::now()->addWeek()->toDateString())
                 ->where('repeat_until', '>', Carbon::now()->addWeek()->subDay()->toDateString())
-                ->where('category_id', '=', '1');
+                //->where('repeat_type', '=',2);
+                ->whereIn('repeat_type', [2, 3, 4]); // Weekly(2), Monthly(3), Multiple days(4)
+        
+        //dd($ret);
         return $ret;
     }
     
@@ -77,7 +81,7 @@ class EventExpireAutoMailController extends Controller
         $report['subject'] = 'CI Global Calendar Administrator';
         
         $expiringEventsTitleAndUser = self::getExpiringEventsTitleAndUser($expiringEvents);
-        
+        //dd($expiringEvents);
         foreach ($expiringEventsTitleAndUser as $key => $event) {
             $report['user_name'] = $event['user_name']; 
             $report['emailTo'] = $event['user_email']; 
