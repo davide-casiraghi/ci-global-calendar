@@ -112,8 +112,8 @@ class MailsTest extends TestCase
             $mail->build();
             //dump($mail);
             //$this->assertEquals('Message from the contact form', $mail->subject);
-            return $mail->hasFrom($user_email);
-            //$mail->hasTo("davide.casiraghi@gmail.com");
+            return $mail->hasFrom($user_email) &&
+                   $mail->hasTo(env('ADMIN_MAIL'));
             //return $mail->hasTo('noreply@globalcicalendar.com');
             /*return $mail->hasFrom("noreply@globalcicalendar.com") &&
                    //$mail->hasReplyTo(env('ADMIN_MAIL')) &&
