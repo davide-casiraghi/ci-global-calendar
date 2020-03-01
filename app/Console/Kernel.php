@@ -2,11 +2,10 @@
 
 namespace App\Console;
 
+use App\Http\Controllers\EventExpireAutoMailController;
 use App\Statistic;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-
-use App\Http\Controllers\EventExpireAutoMailController;
 
 class Kernel extends ConsoleKernel
 {
@@ -41,8 +40,8 @@ class Kernel extends ConsoleKernel
         // Take a daily backup
         $schedule->command('backup:clean')->daily()->at('01:00');
         $schedule->command('backup:run')->daily()->at('02:00');
-        
-        /*  Send an email to the organizers of the repetitive 
+
+        /*  Send an email to the organizers of the repetitive
         events that are expiring in one week */
         $schedule->call(function () {
             EventExpireAutoMailController::check();
