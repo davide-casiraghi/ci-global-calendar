@@ -8,21 +8,21 @@
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
-            "version": "3.1.1",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/anhskohbo/no-captcha.git",
-                "reference": "3b2f7d461e1fc7153e0c724c3ccac7a2db156733"
+                "reference": "c14dd67024f30fd28f38ac9faa44cc47e1d4bddf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/anhskohbo/no-captcha/zipball/3b2f7d461e1fc7153e0c724c3ccac7a2db156733",
-                "reference": "3b2f7d461e1fc7153e0c724c3ccac7a2db156733",
+                "url": "https://api.github.com/repos/anhskohbo/no-captcha/zipball/c14dd67024f30fd28f38ac9faa44cc47e1d4bddf",
+                "reference": "c14dd67024f30fd28f38ac9faa44cc47e1d4bddf",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.2",
-                "illuminate/support": "^5.0|^6.0",
+                "illuminate/support": "^5.0|^6.0|^7.0",
                 "php": ">=5.5.5"
             },
             "require-dev": {
@@ -64,31 +64,31 @@
                 "no-captcha",
                 "recaptcha"
             ],
-            "time": "2019-10-03T06:42:31+00:00"
+            "time": "2020-03-04T03:27:38+00:00"
         },
         {
             "name": "astrotomic/laravel-translatable",
-            "version": "11.7.1",
+            "version": "v11.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Astrotomic/laravel-translatable.git",
-                "reference": "d454ca5d73515a0878ed8b1f8df7e0510d351d2c"
+                "reference": "8bd84a30381dfd9e2e1f24252b54279899959a7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Astrotomic/laravel-translatable/zipball/d454ca5d73515a0878ed8b1f8df7e0510d351d2c",
-                "reference": "d454ca5d73515a0878ed8b1f8df7e0510d351d2c",
+                "url": "https://api.github.com/repos/Astrotomic/laravel-translatable/zipball/8bd84a30381dfd9e2e1f24252b54279899959a7b",
+                "reference": "8bd84a30381dfd9e2e1f24252b54279899959a7b",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "5.8.* || ^6.0",
-                "illuminate/database": "5.8.* || ^6.0",
-                "illuminate/support": "5.8.* || ^6.0",
+                "illuminate/contracts": "5.8.* || ^6.0 || ^7.0",
+                "illuminate/database": "5.8.* || ^6.0 || ^7.0",
+                "illuminate/support": "5.8.* || ^6.0 || ^7.0",
                 "php": ">=7.2"
             },
             "require-dev": {
-                "orchestra/testbench": "3.8.* || ^4.0",
-                "phpunit/phpunit": "^8.0"
+                "orchestra/testbench": "3.8.* || ^4.0 || ^5.0",
+                "phpunit/phpunit": "^8.0 || ^9.0"
             },
             "type": "library",
             "extra": {
@@ -110,7 +110,7 @@
             "authors": [
                 {
                     "name": "Tom Witkowski",
-                    "email": "dev.gummibeer@gmail.com",
+                    "email": "gummibeer@astrotomic.info",
                     "homepage": "https://gummibeer.de",
                     "role": "Developer"
                 },
@@ -122,13 +122,14 @@
                 }
             ],
             "description": "A Laravel package for multilingual models",
+            "homepage": "https://astrotomic.info",
             "keywords": [
                 "database",
                 "language",
                 "laravel",
                 "translation"
             ],
-            "time": "2020-02-27T11:09:11+00:00"
+            "time": "2020-03-03T10:43:26+00:00"
         },
         {
             "name": "balping/json-raw-encoder",
@@ -298,22 +299,22 @@
         },
         {
             "name": "consoletvs/charts",
-            "version": "6.5.3",
+            "version": "6.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ConsoleTVs/Charts.git",
-                "reference": "a4a8a71c438a00b95ea74a080ce5bf8916c60918"
+                "reference": "524257b5d525666385bd2e91b06e376994a7b683"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ConsoleTVs/Charts/zipball/a4a8a71c438a00b95ea74a080ce5bf8916c60918",
-                "reference": "a4a8a71c438a00b95ea74a080ce5bf8916c60918",
+                "url": "https://api.github.com/repos/ConsoleTVs/Charts/zipball/524257b5d525666385bd2e91b06e376994a7b683",
+                "reference": "524257b5d525666385bd2e91b06e376994a7b683",
                 "shasum": ""
             },
             "require": {
                 "balping/json-raw-encoder": "^1.0",
-                "illuminate/console": "^5.0|^6.0",
-                "illuminate/support": "^5.0|^6.0",
+                "illuminate/console": "^5.0|^6.0|^7.0",
+                "illuminate/support": "^5.0|^6.0|^7.0",
                 "php": ">=7.0"
             },
             "type": "library",
@@ -340,20 +341,20 @@
                 }
             ],
             "description": "The laravel charting package",
-            "time": "2019-09-03T16:50:50+00:00"
+            "time": "2020-03-03T23:16:14+00:00"
         },
         {
             "name": "davide-casiraghi/laravel-events-calendar",
-            "version": "2.4.10",
+            "version": "2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davide-casiraghi/laravel-events-calendar.git",
-                "reference": "19bab86c85a372d9bb9154d8f37ce6ea2e65ec3e"
+                "reference": "1affc26ef0c2561f51a5d3870a71b0c714636044"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/19bab86c85a372d9bb9154d8f37ce6ea2e65ec3e",
-                "reference": "19bab86c85a372d9bb9154d8f37ce6ea2e65ec3e",
+                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/1affc26ef0c2561f51a5d3870a71b0c714636044",
+                "reference": "1affc26ef0c2561f51a5d3870a71b0c714636044",
                 "shasum": ""
             },
             "require": {
@@ -406,7 +407,7 @@
                 "davide-casiraghi",
                 "laravel-events-calendar"
             ],
-            "time": "2020-03-01T12:49:16+00:00"
+            "time": "2020-03-04T17:54:31+00:00"
         },
         {
             "name": "davide-casiraghi/laravel-form-partials",
@@ -1099,23 +1100,23 @@
         },
         {
             "name": "facade/flare-client-php",
-            "version": "1.3.1",
+            "version": "1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/flare-client-php.git",
-                "reference": "24444ea0e1556f0a4b5fc8e61802caf72ae9a408"
+                "reference": "db1e03426e7f9472c9ecd1092aff00f56aa6c004"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/flare-client-php/zipball/24444ea0e1556f0a4b5fc8e61802caf72ae9a408",
-                "reference": "24444ea0e1556f0a4b5fc8e61802caf72ae9a408",
+                "url": "https://api.github.com/repos/facade/flare-client-php/zipball/db1e03426e7f9472c9ecd1092aff00f56aa6c004",
+                "reference": "db1e03426e7f9472c9ecd1092aff00f56aa6c004",
                 "shasum": ""
             },
             "require": {
                 "facade/ignition-contracts": "~1.0",
-                "illuminate/pipeline": "~5.5|~5.6|~5.7|~5.8|^6.0",
+                "illuminate/pipeline": "^5.5|^6.0|^7.0",
                 "php": "^7.1",
-                "symfony/http-foundation": "~3.3|~4.1",
+                "symfony/http-foundation": "^3.3|^4.1|^5.0",
                 "symfony/var-dumper": "^3.4|^4.0|^5.0"
             },
             "require-dev": {
@@ -1149,7 +1150,7 @@
                 "flare",
                 "reporting"
             ],
-            "time": "2019-12-15T18:28:38+00:00"
+            "time": "2020-03-02T15:52:04+00:00"
         },
         {
             "name": "facade/ignition",
@@ -1813,16 +1814,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v6.17.1",
+            "version": "v6.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "32d1ed55dd46dcd706ff2e45bb7965be7320b87d"
+                "reference": "077b895d935b7fbcfb1d1eb34217fa4f80a130d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/32d1ed55dd46dcd706ff2e45bb7965be7320b87d",
-                "reference": "32d1ed55dd46dcd706ff2e45bb7965be7320b87d",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/077b895d935b7fbcfb1d1eb34217fa4f80a130d8",
+                "reference": "077b895d935b7fbcfb1d1eb34217fa4f80a130d8",
                 "shasum": ""
             },
             "require": {
@@ -1955,7 +1956,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-02-26T14:23:01+00:00"
+            "time": "2020-03-03T13:14:27+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -2684,16 +2685,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.30.0",
+            "version": "2.31.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "912dff66d2690ca66abddb9b291a1df5f371d3b4"
+                "reference": "bbc0ab53f41a4c6f223c18efcdbd9bc725eb5d2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/912dff66d2690ca66abddb9b291a1df5f371d3b4",
-                "reference": "912dff66d2690ca66abddb9b291a1df5f371d3b4",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/bbc0ab53f41a4c6f223c18efcdbd9bc725eb5d2d",
+                "reference": "bbc0ab53f41a4c6f223c18efcdbd9bc725eb5d2d",
                 "shasum": ""
             },
             "require": {
@@ -2750,7 +2751,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2020-02-07T15:25:46+00:00"
+            "time": "2020-03-01T11:11:58+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -2912,16 +2913,16 @@
         },
         {
             "name": "phpoffice/phpspreadsheet",
-            "version": "1.10.1",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPOffice/PhpSpreadsheet.git",
-                "reference": "1648dc9ebef6ebe0c5a172e16cf66732918416e0"
+                "reference": "c2a205e82f9cf1cc9fab86b79e808d86dd680470"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/1648dc9ebef6ebe0c5a172e16cf66732918416e0",
-                "reference": "1648dc9ebef6ebe0c5a172e16cf66732918416e0",
+                "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/c2a205e82f9cf1cc9fab86b79e808d86dd680470",
+                "reference": "c2a205e82f9cf1cc9fab86b79e808d86dd680470",
                 "shasum": ""
             },
             "require": {
@@ -3001,7 +3002,7 @@
                 "xls",
                 "xlsx"
             ],
-            "time": "2019-12-01T23:13:51+00:00"
+            "time": "2020-03-02T13:09:03+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -3455,16 +3456,16 @@
         },
         {
             "name": "scrivo/highlight.php",
-            "version": "v9.18.1.0",
+            "version": "v9.18.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scrivo/highlight.php.git",
-                "reference": "a57c858cb753f543965a1e17af386a648012ed8f"
+                "reference": "52fc21c99fd888e33aed4879e55a3646f8d40558"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/scrivo/highlight.php/zipball/a57c858cb753f543965a1e17af386a648012ed8f",
-                "reference": "a57c858cb753f543965a1e17af386a648012ed8f",
+                "url": "https://api.github.com/repos/scrivo/highlight.php/zipball/52fc21c99fd888e33aed4879e55a3646f8d40558",
+                "reference": "52fc21c99fd888e33aed4879e55a3646f8d40558",
                 "shasum": ""
             },
             "require": {
@@ -3474,6 +3475,7 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.8|^5.7",
+                "sabberworm/php-css-parser": "^8.3",
                 "symfony/finder": "^2.8|^3.4",
                 "symfony/var-dumper": "^2.8|^3.4"
             },
@@ -3519,7 +3521,7 @@
                 "highlight.php",
                 "syntax"
             ],
-            "time": "2020-02-03T02:19:36+00:00"
+            "time": "2020-03-02T05:59:21+00:00"
         },
         {
             "name": "spatie/db-dumper",
@@ -3573,37 +3575,37 @@
         },
         {
             "name": "spatie/laravel-backup",
-            "version": "6.7.8",
+            "version": "6.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "48f9310a2396db79d396dd63e20f657e8b11ce4e"
+                "reference": "b2cf3f9f35613a20a39e1c35803b77858b455382"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/48f9310a2396db79d396dd63e20f657e8b11ce4e",
-                "reference": "48f9310a2396db79d396dd63e20f657e8b11ce4e",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/b2cf3f9f35613a20a39e1c35803b77858b455382",
+                "reference": "b2cf3f9f35613a20a39e1c35803b77858b455382",
                 "shasum": ""
             },
             "require": {
-                "illuminate/console": "^5.8.15|^6.0",
-                "illuminate/contracts": "^5.8.15|^6.0",
-                "illuminate/events": "^5.8.15|^6.0",
-                "illuminate/filesystem": "^5.8.15|^6.0",
-                "illuminate/notifications": "^5.8.15|^6.0",
-                "illuminate/support": "^5.8.15|^6.0",
+                "illuminate/console": "^5.8.15|^6.0|^7.0",
+                "illuminate/contracts": "^5.8.15|^6.0|^7.0",
+                "illuminate/events": "^5.8.15|^6.0|^7.0",
+                "illuminate/filesystem": "^5.8.15|^6.0|^7.0",
+                "illuminate/notifications": "^5.8.15|^6.0|^7.0",
+                "illuminate/support": "^5.8.15|^6.0|^7.0",
                 "league/flysystem": "^1.0.49",
                 "php": "^7.2",
                 "spatie/db-dumper": "^2.12",
                 "spatie/temporary-directory": "^1.1",
-                "symfony/finder": "^4.2"
+                "symfony/finder": "^4.2|^5.0"
             },
             "require-dev": {
                 "laravel/slack-notification-channel": "^1.0",
                 "league/flysystem-aws-s3-v3": "^1.0",
-                "mockery/mockery": "^1.0",
-                "orchestra/testbench": "3.8.*|4.*",
-                "phpunit/phpunit": "^8.4"
+                "mockery/mockery": "^1.3",
+                "orchestra/testbench": "3.8.*|4.*|5.*",
+                "phpunit/phpunit": "^8.4|^9.0"
             },
             "suggest": {
                 "laravel/slack-notification-channel": "Required for sending notifications via Slack"
@@ -3644,7 +3646,7 @@
                 "laravel-backup",
                 "spatie"
             ],
-            "time": "2020-02-19T16:54:03+00:00"
+            "time": "2020-03-02T21:43:50+00:00"
         },
         {
             "name": "spatie/temporary-directory",
@@ -6250,16 +6252,16 @@
         },
         {
             "name": "php-webdriver/webdriver",
-            "version": "1.8.1",
+            "version": "1.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-webdriver/php-webdriver.git",
-                "reference": "262ea0d209c292e0330be1041424887bbbffef04"
+                "reference": "3308a70be084d6d7fd1ee5787b4c2e6eb4b70aab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-webdriver/php-webdriver/zipball/262ea0d209c292e0330be1041424887bbbffef04",
-                "reference": "262ea0d209c292e0330be1041424887bbbffef04",
+                "url": "https://api.github.com/repos/php-webdriver/php-webdriver/zipball/3308a70be084d6d7fd1ee5787b4c2e6eb4b70aab",
+                "reference": "3308a70be084d6d7fd1ee5787b4c2e6eb4b70aab",
                 "shasum": ""
             },
             "require": {
@@ -6311,7 +6313,7 @@
                 "selenium",
                 "webdriver"
             ],
-            "time": "2020-02-17T08:14:38+00:00"
+            "time": "2020-03-04T14:40:12+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -6529,16 +6531,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.11",
+            "version": "0.12.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "ca5f2b7cf81c6d8fba74f9576970399c5817e03b"
+                "reference": "37bdd26a80235d0f9045b49f4151102b7831cbe2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/ca5f2b7cf81c6d8fba74f9576970399c5817e03b",
-                "reference": "ca5f2b7cf81c6d8fba74f9576970399c5817e03b",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/37bdd26a80235d0f9045b49f4151102b7831cbe2",
+                "reference": "37bdd26a80235d0f9045b49f4151102b7831cbe2",
                 "shasum": ""
             },
             "require": {
@@ -6564,7 +6566,7 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
-            "time": "2020-02-16T14:00:29+00:00"
+            "time": "2020-03-02T22:29:43+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
