@@ -100,6 +100,9 @@ function () {
     /* Statistics */
     Route::get('/statistics', 'StatisticsController@index')->name('statistics');
     Route::get('/statistics/update', 'StatisticsController@store');
+    
+    /* Geomap */
+    Route::get('/geomap', 'GeoMapController@index')->name('geomap');
 });
 
 /* OTHER PAGES THAT SHOULD NOT BE LOCALIZED **/
