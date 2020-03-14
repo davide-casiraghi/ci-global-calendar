@@ -21,6 +21,8 @@ class GeoMapController extends Controller
     {
         $activeEventMarkersGeoJSON = Event::getActiveEventsMapGeoJSON();
     
+        //dd($activeEventMarkersGeoJSON);
+    
         //$clientIP = $request->ip();
         //$userPosition = geoip($ip = null);
         //dd($userPosition);

@@ -45,12 +45,13 @@
         //L.geoJson({!!$activeEventMarkersJSON!!}).addTo(map);
         L.geoJson({!!$activeEventMarkersJSON!!},{
           pointToLayer: function(feature,latlng){
-              console.log(feature.properties.IconColor);
               var icon_color = feature.properties.IconColor;
               
               var marker = L.marker(latlng,{icon: window[icon_color]});
             //var marker = L.marker(latlng,{icon: greenIcon});
             //var marker = L.marker(latlng);
+            
+            console.log(feature.properties.NextDate);
             marker.bindPopup(
                 '<b><a href="'+feature.properties.Link+'">' +feature.properties.Title + '</a></b>' +
                 '<br/>' + 
@@ -58,9 +59,9 @@
                 '<br/>' + 
                 feature.properties.NextDate +
                 '<br/><br/>' + 
-                feature.properties.VenueName +
+                '<b>' + feature.properties.VenueName + '</b>' +
                 '<br/>' + 
-                feature.properties.City + ',' + feature.properties.Address +
+                feature.properties.City + feature.properties.Address +
                 '<br/>'
             );
             return marker;
