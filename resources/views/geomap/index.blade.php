@@ -51,7 +51,18 @@
               var marker = L.marker(latlng,{icon: window[icon_color]});
             //var marker = L.marker(latlng,{icon: greenIcon});
             //var marker = L.marker(latlng);
-            marker.bindPopup(feature.properties.Location + '<br/>' + feature.properties.Title+ '<br/>' + latlng);
+            marker.bindPopup(
+                '<b><a href="'+feature.properties.Link+'">' +feature.properties.Title + '</a></b>' +
+                '<br/>' + 
+                feature.properties.Category + 
+                '<br/>' + 
+                feature.properties.NextDate +
+                '<br/><br/>' + 
+                feature.properties.VenueName +
+                '<br/>' + 
+                feature.properties.City + ',' + feature.properties.Address +
+                '<br/>'
+            );
             return marker;
           }
         }).addTo(map);
