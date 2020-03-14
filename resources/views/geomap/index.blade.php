@@ -45,7 +45,11 @@
         //L.geoJson({!!$activeEventMarkersJSON!!}).addTo(map);
         L.geoJson({!!$activeEventMarkersJSON!!},{
           pointToLayer: function(feature,latlng){
-            var marker = L.marker(latlng,{icon: greenIcon});
+              console.log(feature.properties.IconColor);
+              var icon_color = feature.properties.IconColor;
+              
+              var marker = L.marker(latlng,{icon: window[icon_color]});
+            //var marker = L.marker(latlng,{icon: greenIcon});
             //var marker = L.marker(latlng);
             marker.bindPopup(feature.properties.Location + '<br/>' + feature.properties.Title+ '<br/>' + latlng);
             return marker;
