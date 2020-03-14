@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use Carbon\Carbon;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
-
 use Illuminate\Http\Request;
 
 class GeoMapController extends Controller
@@ -20,19 +17,14 @@ class GeoMapController extends Controller
     public function index(Request $request)
     {
         $activeEventMarkersGeoJSON = Event::getActiveEventsMapGeoJSON();
-    
+
         //dd($activeEventMarkersGeoJSON);
-    
+
         //$clientIP = $request->ip();
         //$userPosition = geoip($ip = null);
         //dd($userPosition);
-        
+
         return view('geomap.index')
             ->with('activeEventMarkersJSON', $activeEventMarkersGeoJSON);
-        
     }
-    
-    
-
-
 }
