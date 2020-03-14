@@ -33,3 +33,14 @@
 [02-Feb-2020 07:11:29 UTC] PHP  31. spl_autoload_call() /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/vendor/laravel/framework/src/Illuminate/Container/Container.php:803
 [02-Feb-2020 07:11:29 UTC] PHP  32. Composer\Autoload\ClassLoader->loadClass() /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/vendor/laravel/framework/src/Illuminate/Container/Container.php:803
 [02-Feb-2020 07:11:29 UTC] PHP  33. Composer\Autoload\includeFile() /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/vendor/composer/ClassLoader.php:322
+[14-Mar-2020 07:39:07 UTC] PHP Deprecated:  Non-static method Illuminate\Http\Request::ip() should not be called statically in /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/config/leaflet.php on line 5
+[14-Mar-2020 07:39:07 UTC] PHP Stack trace:
+[14-Mar-2020 07:39:07 UTC] PHP   1. {main}() /Users/davidecasiraghi/.composer/vendor/laravel/valet/server.php:0
+[14-Mar-2020 07:39:07 UTC] PHP   2. require() /Users/davidecasiraghi/.composer/vendor/laravel/valet/server.php:158
+[14-Mar-2020 07:39:07 UTC] PHP   3. App\Http\Kernel->handle() /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/public/index.php:53
+[14-Mar-2020 07:39:07 UTC] PHP   4. App\Http\Kernel->sendRequestThroughRouter() /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:110
+[14-Mar-2020 07:39:07 UTC] PHP   5. App\Http\Kernel->bootstrap() /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:140
+[14-Mar-2020 07:39:07 UTC] PHP   6. Illuminate\Foundation\Application->bootstrapWith() /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:156
+[14-Mar-2020 07:39:07 UTC] PHP   7. Illuminate\Foundation\Bootstrap\LoadConfiguration->bootstrap() /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:219
+[14-Mar-2020 07:39:07 UTC] PHP   8. Illuminate\Foundation\Bootstrap\LoadConfiguration->loadConfigurationFiles() /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php:39
+[14-Mar-2020 07:39:07 UTC] PHP   9. require() /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php:72
