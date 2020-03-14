@@ -19,6 +19,10 @@
     integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
     crossorigin=""></script>
     
+    
+    <script src="/storage/leaflet-color-markers/js/leaflet-color-markers.js" ></script>
+    
+    
     <script>
         var map = L.map('mapid').setView(
             [
@@ -38,16 +42,10 @@
         .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
         */
         
-        var ratIcon = L.icon({
-          iconUrl: 'http://andywoodruff.com/maptime-leaflet/rat.png',
-          iconSize: [60,50]
-        });
-        
-        
         //L.geoJson({!!$activeEventMarkersJSON!!}).addTo(map);
         L.geoJson({!!$activeEventMarkersJSON!!},{
           pointToLayer: function(feature,latlng){
-            var marker = L.marker(latlng,{icon: ratIcon});
+            var marker = L.marker(latlng,{icon: greenIcon});
             //var marker = L.marker(latlng);
             marker.bindPopup(feature.properties.Location + '<br/>' + feature.properties.Title+ '<br/>' + latlng);
             return marker;
