@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use App\Mail\ContactForm;
-use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Mail;
@@ -35,7 +34,7 @@ class MailsTest extends TestCase
                 $this->teachers = factory(Teacher::class, 3)->create();
                 $this->organizers = factory(Organizer::class, 3)->create();
                 $this->eventCategory = factory(EventCategory::class)->create(['id'=>'100']);
-        
+
                 // Event one week from now
                 $this->event1 = factory(Event::class)->create([
                     'created_by' => $this->user1->id,
@@ -48,7 +47,7 @@ class MailsTest extends TestCase
                 $this->eventRepetition1 = factory(EventRepetition::class)->create([
                     'event_id'=> $this->event1->id,
                 ]);
-        
+
                 // Event tomorrow
                 $this->event2 = factory(Event::class)->create([
                     'created_by' => $this->user2->id,
