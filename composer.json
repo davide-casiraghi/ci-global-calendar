@@ -24,6 +24,7 @@
         "mcamara/laravel-localization": "^1.3",
         "mews/purifier": "^3.0",
         "spatie/laravel-backup": "^6.7",
+        "torann/geoip": "^1.2",
         "unisharp/laravel-filemanager": "~1.8"
     },
     "require-dev": {

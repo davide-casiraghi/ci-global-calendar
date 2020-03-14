@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e1fee5ee0520343b83e514f888e873bf",
+    "content-hash": "72df1094d05903efb7cc2315244fd40a",
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
@@ -176,24 +176,24 @@
         },
         {
             "name": "beyondcode/laravel-self-diagnosis",
-            "version": "1.3.2",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/beyondcode/laravel-self-diagnosis.git",
-                "reference": "6792a2d8b29ab9080490dac145e310514dcf6224"
+                "reference": "1b330911e541af3c48f9337c68e9b40e3b644c59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/beyondcode/laravel-self-diagnosis/zipball/6792a2d8b29ab9080490dac145e310514dcf6224",
-                "reference": "6792a2d8b29ab9080490dac145e310514dcf6224",
+                "url": "https://api.github.com/repos/beyondcode/laravel-self-diagnosis/zipball/1b330911e541af3c48f9337c68e9b40e3b644c59",
+                "reference": "1b330911e541af3c48f9337c68e9b40e3b644c59",
                 "shasum": ""
             },
             "require": {
                 "composer/semver": "^1.4",
                 "geerlingguy/ping": "^1.1",
-                "illuminate/support": "5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|^6.0",
+                "illuminate/support": "5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|^6.0|^7.0",
                 "php": "^7.1",
-                "vlucas/phpdotenv": "~2.5|~3.3"
+                "vlucas/phpdotenv": "~2.5|~3.3|^4.0"
             },
             "require-dev": {
                 "larapack/dd": "^1.0",
@@ -234,7 +234,7 @@
                 "beyondcode",
                 "laravel-self-diagnosis"
             ],
-            "time": "2019-09-03T15:01:16+00:00"
+            "time": "2020-03-11T14:38:52+00:00"
         },
         {
             "name": "composer/semver",
@@ -345,16 +345,16 @@
         },
         {
             "name": "davide-casiraghi/laravel-events-calendar",
-            "version": "2.6.0",
+            "version": "2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davide-casiraghi/laravel-events-calendar.git",
-                "reference": "8b2289e48979aa5cbb383bf0340929afca028962"
+                "reference": "f16afe6e1e3919ceef3be7727dd21bdf1390876e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/8b2289e48979aa5cbb383bf0340929afca028962",
-                "reference": "8b2289e48979aa5cbb383bf0340929afca028962",
+                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/f16afe6e1e3919ceef3be7727dd21bdf1390876e",
+                "reference": "f16afe6e1e3919ceef3be7727dd21bdf1390876e",
                 "shasum": ""
             },
             "require": {
@@ -407,7 +407,7 @@
                 "davide-casiraghi",
                 "laravel-events-calendar"
             ],
-            "time": "2020-03-10T19:49:41+00:00"
+            "time": "2020-03-13T19:22:25+00:00"
         },
         {
             "name": "davide-casiraghi/laravel-form-partials",
@@ -2300,30 +2300,30 @@
         },
         {
             "name": "markbaker/complex",
-            "version": "1.4.7",
+            "version": "1.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/MarkBaker/PHPComplex.git",
-                "reference": "1ea674a8308baf547cbcbd30c5fcd6d301b7c000"
+                "reference": "8eaa40cceec7bf0518187530b2e63871be661b72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MarkBaker/PHPComplex/zipball/1ea674a8308baf547cbcbd30c5fcd6d301b7c000",
-                "reference": "1ea674a8308baf547cbcbd30c5fcd6d301b7c000",
+                "url": "https://api.github.com/repos/MarkBaker/PHPComplex/zipball/8eaa40cceec7bf0518187530b2e63871be661b72",
+                "reference": "8eaa40cceec7bf0518187530b2e63871be661b72",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.6.0|^7.0.0"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3",
-                "phpcompatibility/php-compatibility": "^8.0",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "phpcompatibility/php-compatibility": "^9.0",
                 "phpdocumentor/phpdocumentor": "2.*",
                 "phploc/phploc": "2.*",
                 "phpmd/phpmd": "2.*",
                 "phpunit/phpunit": "^4.8.35|^5.4.0",
                 "sebastian/phpcpd": "2.*",
-                "squizlabs/php_codesniffer": "^3.3.0"
+                "squizlabs/php_codesniffer": "^3.4.0"
             },
             "type": "library",
             "autoload": {
@@ -2391,7 +2391,7 @@
                 "complex",
                 "mathematics"
             ],
-            "time": "2018-10-13T23:28:42+00:00"
+            "time": "2020-03-11T20:15:49+00:00"
         },
         {
             "name": "markbaker/matrix",
@@ -3575,16 +3575,16 @@
         },
         {
             "name": "spatie/laravel-backup",
-            "version": "6.8.0",
+            "version": "6.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "b2cf3f9f35613a20a39e1c35803b77858b455382"
+                "reference": "c3d96a596c9fa803aa51d28721d6b1e77934ba95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/b2cf3f9f35613a20a39e1c35803b77858b455382",
-                "reference": "b2cf3f9f35613a20a39e1c35803b77858b455382",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/c3d96a596c9fa803aa51d28721d6b1e77934ba95",
+                "reference": "c3d96a596c9fa803aa51d28721d6b1e77934ba95",
                 "shasum": ""
             },
             "require": {
@@ -3646,7 +3646,7 @@
                 "laravel-backup",
                 "spatie"
             ],
-            "time": "2020-03-02T21:43:50+00:00"
+            "time": "2020-03-13T17:45:46+00:00"
         },
         {
             "name": "spatie/temporary-directory",
@@ -5174,6 +5174,79 @@
             "time": "2019-10-24T08:53:34+00:00"
         },
         {
+            "name": "torann/geoip",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Torann/laravel-geoip.git",
+                "reference": "15c7cb3d2edcfbfd7e8cd6f435defc2352df40d2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Torann/laravel-geoip/zipball/15c7cb3d2edcfbfd7e8cd6f435defc2352df40d2",
+                "reference": "15c7cb3d2edcfbfd7e8cd6f435defc2352df40d2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^6.0|^7.0",
+                "illuminate/support": "^6.0|^7.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "geoip2/geoip2": "~2.1",
+                "mockery/mockery": "^1.3",
+                "phpunit/phpunit": "^8.0",
+                "vlucas/phpdotenv": "^4.0"
+            },
+            "suggest": {
+                "geoip2/geoip2": "Required to use the MaxMind database or web service with GeoIP (~2.1).",
+                "monolog/monolog": "Allows for storing location not found errors to the log"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Torann\\GeoIP\\GeoIPServiceProvider"
+                    ],
+                    "aliases": {
+                        "GeoIP": "Torann\\GeoIP\\Facades\\GeoIP"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Torann\\GeoIP\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Stainback",
+                    "email": "torann@gmail.com"
+                }
+            ],
+            "description": "Support for multiple GeoIP services.",
+            "keywords": [
+                "IP API",
+                "geoip",
+                "geolocation",
+                "infoDB",
+                "laravel",
+                "location",
+                "maxmind"
+            ],
+            "time": "2020-03-10T18:35:08+00:00"
+        },
+        {
             "name": "unisharp/laravel-filemanager",
             "version": "v1.9.2",
             "source": {
@@ -5249,16 +5322,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v3.6.0",
+            "version": "v3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "1bdf24f065975594f6a117f0f1f6cabf1333b156"
+                "reference": "8f7961f7b9deb3b432452c18093cf16f88205902"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/1bdf24f065975594f6a117f0f1f6cabf1333b156",
-                "reference": "1bdf24f065975594f6a117f0f1f6cabf1333b156",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/8f7961f7b9deb3b432452c18093cf16f88205902",
+                "reference": "8f7961f7b9deb3b432452c18093cf16f88205902",
                 "shasum": ""
             },
             "require": {
@@ -5267,7 +5340,11 @@
                 "symfony/polyfill-ctype": "^1.9"
             },
             "require-dev": {
+                "ext-filter": "*",
                 "phpunit/phpunit": "^4.8.35 || ^5.0 || ^6.0 || ^7.0"
+            },
+            "suggest": {
+                "ext-filter": "Required to use the boolean validator."
             },
             "type": "library",
             "extra": {
@@ -5302,7 +5379,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2019-09-10T21:37:39+00:00"
+            "time": "2020-03-12T13:44:00+00:00"
         }
     ],
     "packages-dev": [

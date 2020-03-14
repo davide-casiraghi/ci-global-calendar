@@ -19,8 +19,8 @@ class GeoMapController extends Controller
      */
     public function index(Request $request)
     {
-        $activeEventMarkers = Event::getActiveEventsMapMarkers();
-        //dd($activeEventMarkers);
+        $activeEventMarkersGeoJSON = Event::getActiveEventsMapGeoJSON();
+        //dd($activeEventMarkersGeoJSON);
         
         
         $testJSON = '{
@@ -43,19 +43,28 @@ class GeoMapController extends Controller
         }';
         
         
-        $activeEventMarkersJSON = json_encode($activeEventMarkers);
         
-        //dd($activeEventMarkers[0]->lat);
+        
+        $test = array();
+        $test = [
+            "type" => "Feature",
+            "id" => 2,
+            "properties" => [
+                "Location" => "169 Endicott St  Boston  MA  02113", 
+                "OPEN_DT" => "05\/02\/2013 10:04:13 AM", 
+            ],
+            "geometry" => [
+                "type" => "Point", 
+                "coordinates" => [ -71.05729, 42.36571 ],
+            ],
+        ];
+        
+        $testJSON2 = json_encode($test);
+        
         return view('geomap.index')
-            ->with('testJSON', $testJSON)
-            ->with('activeEventMarkersJSON', $activeEventMarkersJSON);
-        /*return view('stats.index')
-            ->with('statsDatas', $lastUpdateStatistic)
-            ->with('registeredUsersChart', $registeredUsersChart)
-            ->with('usersByCountryChart', $usersByCountryChart)
-            ->with('teachersByCountriesChart', $teachersByCountriesChart)
-            ->with('eventsByCountriesChart', $eventsByCountriesChart);
-        //->with('organizersByCountriesChart', $organizersByCountriesChart);*/
+            ->with('testJSON', $testJSON2)
+            ->with('activeEventMarkersJSON', $activeEventMarkersGeoJSON);
+        
     }
 
 }

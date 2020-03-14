@@ -34,26 +34,42 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
         
-        L.marker([51.5, -0.09]).addTo(map)
-        .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
         
+        
+        /*L.marker([51.5, -0.09]).addTo(map)
+        .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+        */
         
         /*L.geoJson({!!$testJSON!!}).addTo(map);*/
         
+        var ratIcon = L.icon({
+          iconUrl: 'http://andywoodruff.com/maptime-leaflet/rat.png',
+          iconSize: [60,50]
+        });
         
-        L.geoJson({!!$testJSON!!},{
+        
+        /*L.geoJson({!!$testJSON!!},{
           pointToLayer: function(feature,latlng){
-            //var marker = L.marker(latlng,{icon: ratIcon});
-            var marker = L.marker(latlng);
+            
+            //var marker = L.marker(latlng);
             marker.bindPopup(feature.properties.Location + '<br/>' + feature.properties.OPEN_DT);
             return marker;
           }
+      }).addTo(map);*/
+        
+        
+        
+        
+        //L.geoJson({!!$activeEventMarkersJSON!!}).addTo(map);
+        
+        L.geoJson({!!$activeEventMarkersJSON!!},{
+          pointToLayer: function(feature,latlng){
+            var marker = L.marker(latlng,{icon: ratIcon});
+            //var marker = L.marker(latlng);
+            marker.bindPopup(feature.properties.Location + '<br/>' + feature.properties.Title+ '<br/>' + latlng);
+            return marker;
+          }
         }).addTo(map);
-        
-        
-        
-        
-        L.geoJson({!!$activeEventMarkersJSON!!}).addTo(map);
         
         
     </script>
