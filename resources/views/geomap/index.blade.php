@@ -22,12 +22,11 @@
     
     <script src="/storage/leaflet-color-markers/js/leaflet-color-markers.js" ></script>
     
-    
     <script>
         var map = L.map('mapid').setView(
             [
-                {{ config('leaflet.map_center_latitude') }}, 
-                {{ config('leaflet.map_center_longitude') }}
+                {{ $userLat }}, 
+                {{ $userLng }}
             ], 
             {{ config('leaflet.zoom_level') }}
         );

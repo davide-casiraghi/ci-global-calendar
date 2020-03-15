@@ -20,11 +20,15 @@ class GeoMapController extends Controller
 
         //dd($activeEventMarkersGeoJSON);
 
-        //$clientIP = $request->ip();
-        //$userPosition = geoip($ip = null);
-        //dd($userPosition);
+        $userIp = $request->ip();
+        $userPosition = geoip($userIp);
+        
+        $userLat = $userPosition['lat'];
+        $userLng = $userPosition['lon'];
 
         return view('geomap.index')
-            ->with('activeEventMarkersJSON', $activeEventMarkersGeoJSON);
+            ->with('activeEventMarkersJSON', $activeEventMarkersGeoJSON)
+            ->with('userLat', $userLat)
+            ->with('userLat', $userLng);
     }
 }
