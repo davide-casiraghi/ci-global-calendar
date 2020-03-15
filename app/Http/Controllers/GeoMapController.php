@@ -29,6 +29,6 @@ class GeoMapController extends Controller
         return view('geomap.index')
             ->with('activeEventMarkersJSON', $activeEventMarkersGeoJSON)
             ->with('userLat', $userLat)
-            ->with('userLat', $userLng);
+            ->with('userLng', $userLng);
     }
 }
