@@ -22,7 +22,7 @@ class GeoMapController extends Controller
 
         $userIp = $request->ip();
         $userPosition = geoip($userIp);
-        
+
         $userLat = $userPosition['lat'];
         $userLng = $userPosition['lon'];
 
