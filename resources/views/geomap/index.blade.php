@@ -87,7 +87,7 @@
             
             {{-- GEOMAP --}}
             <div class="card">
-                <div class="card-body" id="mapid"></div>
+                <div class="card-body" id="mapid" style="z-index:1;"></div>
             </div>
             
         </div>
