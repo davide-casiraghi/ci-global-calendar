@@ -45,8 +45,7 @@
         L.geoJson({!!$activeEventMarkersJSON!!},{
           pointToLayer: function(feature,latlng){
               var icon_color = feature.properties.IconColor;
-              
-              var marker = L.marker(latlng,{icon: window[icon_color]});
+              var marker = L.marker(latlng,{icon: window[icon_color]});  //Icon colors are defined in /storage/leaflet-color-markers/js/leaflet-color-markers.js
             //var marker = L.marker(latlng,{icon: greenIcon});
             //var marker = L.marker(latlng);
             
