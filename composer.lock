@@ -345,16 +345,16 @@
         },
         {
             "name": "davide-casiraghi/laravel-events-calendar",
-            "version": "2.7.5",
+            "version": "2.7.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davide-casiraghi/laravel-events-calendar.git",
-                "reference": "5a68fdcd6686017c9006e85186d7586de2014d8e"
+                "reference": "16d19df2a9d8ae3f9d7f588c01ba62d0f156d431"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/5a68fdcd6686017c9006e85186d7586de2014d8e",
-                "reference": "5a68fdcd6686017c9006e85186d7586de2014d8e",
+                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/16d19df2a9d8ae3f9d7f588c01ba62d0f156d431",
+                "reference": "16d19df2a9d8ae3f9d7f588c01ba62d0f156d431",
                 "shasum": ""
             },
             "require": {
@@ -407,7 +407,7 @@
                 "davide-casiraghi",
                 "laravel-events-calendar"
             ],
-            "time": "2020-03-15T13:04:54+00:00"
+            "time": "2020-03-16T18:18:18+00:00"
         },
         {
             "name": "davide-casiraghi/laravel-form-partials",
@@ -6608,16 +6608,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.14",
+            "version": "0.12.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "37bdd26a80235d0f9045b49f4151102b7831cbe2"
+                "reference": "3928a303954338eb8ed201cfe69134950318b470"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/37bdd26a80235d0f9045b49f4151102b7831cbe2",
-                "reference": "37bdd26a80235d0f9045b49f4151102b7831cbe2",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/3928a303954338eb8ed201cfe69134950318b470",
+                "reference": "3928a303954338eb8ed201cfe69134950318b470",
                 "shasum": ""
             },
             "require": {
@@ -6643,7 +6643,7 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
-            "time": "2020-03-02T22:29:43+00:00"
+            "time": "2020-03-16T15:27:38+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
