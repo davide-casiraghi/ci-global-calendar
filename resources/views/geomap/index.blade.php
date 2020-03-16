@@ -97,47 +97,47 @@
     {{-- Legend --}}
     <div class="row mt-1">
         <div class="col text-center mt-4">
-          <img src="storage/leaflet-color-markers/img/marker-icon-green.png" alt="green marker">
+          <img src="/storage/leaflet-color-markers/img/marker-icon-green.png" alt="green marker">
           <br>
           Regular Jam
         </div>
         <div class="col text-center mt-4">
-            <img src="storage/leaflet-color-markers/img/marker-icon-yellow.png" alt="green marker">
+            <img src="/storage/leaflet-color-markers/img/marker-icon-yellow.png" alt="green marker">
             <br>
             Special Jam
         </div>
         <div class="col text-center mt-4">
-            <img src="storage/leaflet-color-markers/img/marker-icon-gold.png" alt="green marker">
+            <img src="/storage/leaflet-color-markers/img/marker-icon-gold.png" alt="green marker">
             <br>
             Class
         </div>
         <div class="col text-center mt-4">
-            <img src="storage/leaflet-color-markers/img/marker-icon-orange.png" alt="green marker">
+            <img src="/storage/leaflet-color-markers/img/marker-icon-orange.png" alt="green marker">
             <br>
             Workshop
         </div>
         <div class="col text-center mt-4">
-            <img src="storage/leaflet-color-markers/img/marker-icon-red.png" alt="green marker">
+            <img src="/storage/leaflet-color-markers/img/marker-icon-red.png" alt="green marker">
             <br>
             Festival <br> Camp <br> Journey
         </div>
         <div class="col text-center mt-4">
-            <img src="storage/leaflet-color-markers/img/marker-icon-blue.png" alt="green marker">
+            <img src="/storage/leaflet-color-markers/img/marker-icon-blue.png" alt="green marker">
             <br>
             Underscore
         </div>
         <div class="col text-center mt-4">
-            <img src="storage/leaflet-color-markers/img/marker-icon-violet.png" alt="green marker">
+            <img src="/storage/leaflet-color-markers/img/marker-icon-violet.png" alt="green marker">
             <br>
             Performance <br> Lecture <br> Conference <br> Film <br> Other event
         </div>
         <div class="col text-center mt-4">
-            <img src="storage/leaflet-color-markers/img/marker-icon-grey.png" alt="green marker">
+            <img src="/storage/leaflet-color-markers/img/marker-icon-grey.png" alt="green marker">
             <br>
             Lab
         </div>
         <div class="col text-center mt-4">
-            <img src="storage/leaflet-color-markers/img/marker-icon-black.png" alt="green marker">
+            <img src="/storage/leaflet-color-markers/img/marker-icon-black.png" alt="green marker">
             <br>
             Teachers Meeting
         </div>
