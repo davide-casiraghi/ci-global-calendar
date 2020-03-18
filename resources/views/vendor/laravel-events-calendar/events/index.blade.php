@@ -96,7 +96,7 @@
         {{-- List of events --}}
         <div class="eventList my-4">
             @foreach ($events as $event)
-                <div class="row bg-white shadow-1 rounded mb-3 mx-1">
+                <div class="row bg-white shadow-1 rounded mb-3 mx-1 @if(!$event->isActive()) past @endif">
                     
                     <div class="d-none d-sm-block col-sm-4 p-0">
                         @if(!empty($event->image))
