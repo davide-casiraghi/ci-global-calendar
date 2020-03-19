@@ -104,8 +104,6 @@
                         @else
                             <span class="gray-bg rounded-left d-block" style="width:100%; height:100%;"></span>
                         @endif
-
-                        
                     </div>
                     <div class="col-12 col-sm-8 pb-2 pt-3 px-3">
                         <div class="row">
@@ -113,16 +111,20 @@
                                 <h5 class="darkest-gray">{{ $event->title }}</h5>
                             </div>
                             <div class="col-12 mb-4">
+                                
+                                {{-- Category icon --}}
                                 <i data-toggle="tooltip" data-placement="top" title="" class="fa fa-tag mr-1 dark-gray" data-original-title="@lang('laravel-events-calendar::general.category')"></i>
                                 {{ $eventCategories[$event->category_id] }}
                                 
+                                {{-- Country icon --}}
                                 <i data-toggle="tooltip" data-placement="top" title="" class="far fa-globe-americas mr-1 ml-4 dark-gray" data-original-title="@lang('laravel-events-calendar::general.country')"></i>
                                 @if(isset($countries[$venues[$event->venue_id]]))
                                     {{ $countries[$venues[$event->venue_id]] }}
                                 @endif
                                 
+                                {{-- Past event icon --}}
                                 @if(!$event->isActive())  
-                                    <i data-toggle="tooltip" data-placement="top" title="" class="far fa-history mr-1 dark-gray float-right" data-original-title="@lang('laravel-events-calendar::general.category')"></i>
+                                    <i data-toggle="tooltip" data-placement="top" title="" class="far fa-history mr-1 dark-gray float-right" data-original-title="@lang('laravel-events-calendar::event.past_event')"></i>
                                 @endif
                             </div>
                             <div class="col-12 pb-2 action">
