@@ -345,16 +345,16 @@
         },
         {
             "name": "davide-casiraghi/laravel-events-calendar",
-            "version": "2.8.4",
+            "version": "2.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davide-casiraghi/laravel-events-calendar.git",
-                "reference": "83e6c609a597c354b8ec590b4f40b1fd6a36d847"
+                "reference": "dba40a783c49c06c2a939434162ac46059311aab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/83e6c609a597c354b8ec590b4f40b1fd6a36d847",
-                "reference": "83e6c609a597c354b8ec590b4f40b1fd6a36d847",
+                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/dba40a783c49c06c2a939434162ac46059311aab",
+                "reference": "dba40a783c49c06c2a939434162ac46059311aab",
                 "shasum": ""
             },
             "require": {
@@ -407,7 +407,7 @@
                 "davide-casiraghi",
                 "laravel-events-calendar"
             ],
-            "time": "2020-03-21T08:37:47+00:00"
+            "time": "2020-03-21T11:12:56+00:00"
         },
         {
             "name": "davide-casiraghi/laravel-form-partials",
@@ -2526,16 +2526,16 @@
         },
         {
             "name": "mews/purifier",
-            "version": "3.2.0",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mewebstudio/Purifier.git",
-                "reference": "261ac8abb0298e853af22ca4ef57bc2a5a723d22"
+                "reference": "c70be34e78848ab1771223a771ce7397ddab8c6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mewebstudio/Purifier/zipball/261ac8abb0298e853af22ca4ef57bc2a5a723d22",
-                "reference": "261ac8abb0298e853af22ca4ef57bc2a5a723d22",
+                "url": "https://api.github.com/repos/mewebstudio/Purifier/zipball/c70be34e78848ab1771223a771ce7397ddab8c6e",
+                "reference": "c70be34e78848ab1771223a771ce7397ddab8c6e",
                 "shasum": ""
             },
             "require": {
@@ -2600,7 +2600,7 @@
                 "security",
                 "xss"
             ],
-            "time": "2020-03-06T00:05:13+00:00"
+            "time": "2020-03-21T08:50:37+00:00"
         },
         {
             "name": "monolog/monolog",
