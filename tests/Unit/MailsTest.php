@@ -159,7 +159,7 @@ class MailsTest extends TestCase
         $user_email = $this->user1->email;
         Mail::assertSent(UserActivationConfirmation::class, function ($mail) use ($user_email) {
             $mail->build();
-            //dd($mail->get('mailDatas')); //aaaaaaaaaaaa
+            //dd($mail->buildMarkdownView()); //aaaaaaaaaaaa
             $this->assertEquals('Activation of your Global CI account', $mail->subject);
             //$this->assertContains('If you are a teacher', $mail->body);
 
