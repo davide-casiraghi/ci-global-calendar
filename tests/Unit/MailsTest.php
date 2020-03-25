@@ -117,9 +117,9 @@ class MailsTest extends TestCase
     /***************************************************************************/
 
     /**
-     * Test that it sends emails to the user after the activation from backend
+     * test_it_sends_activation_confirmation_to_user_after_admin_activate_from_backend
      */
-    public function test_it_sends_mail_to_user_after_activation_from_backend()
+    public function test_it_sends_activation_confirmation_to_user_after_admin_activate_from_backend()
     {
         Mail::fake();
 
@@ -132,6 +132,41 @@ class MailsTest extends TestCase
         $response = $this
             ->followingRedirects()
             ->get('/activate-user-from-backend/'.$this->user1->id);
+
+        // Assert a mailable was sent
+        Mail::assertSent(UserActivationConfirmation::class, 1);
+
+        // Assert that the first message contain the right From and To
+        //dump($user_email);
+        $user_email = $this->user1->email;
+        Mail::assertSent(UserActivationConfirmation::class, function ($mail) use ($user_email) {
+            $mail->build();
+            //dump($mail);
+            $this->assertEquals('Activation of your Global CI account', $mail->subject);
+
+            return $mail->hasFrom("noreply@globalcalendar.com") &&
+                   $mail->hasTo($user_email);
+        });
+    }
+
+    /***************************************************************************/
+
+    /**
+     * test_it_sends_activation_confirmation_to_user_after_admin_click_mail_activation_link
+     */
+    public function test_it_sends_activation_confirmation_to_user_after_admin_click_mail_activation_link()
+    {
+        Mail::fake();
+
+        // Assert that no mailables were sent...
+        Mail::assertNothingSent();
+
+        //dd($this->user1->activation_code);
+
+        // Send emails when the admin click on activate user link in the backend
+        $response = $this
+            ->followingRedirects()
+            ->get('/verify-user/'.$this->user1->activation_code);
 
         // Assert a mailable was sent
         Mail::assertSent(UserActivationConfirmation::class, 1);
