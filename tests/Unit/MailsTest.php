@@ -3,6 +3,8 @@
 namespace Tests\Unit;
 
 use App\Mail\ContactForm;
+use App\Mail\UserActivationConfirmation;
+
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Mail;
@@ -25,16 +27,16 @@ class MailsTest extends TestCase
         // Seeders - /database/seeds
         $this->seed();
 
-        /*
+        
                 // Factories
                 $this->withFactories(base_path('vendor/davide-casiraghi/laravel-events-calendar/database/factories'));
                 $this->user1 = factory(\App\User::class)->create();
                 $this->user2 = factory(\App\User::class)->create();
-                $this->venue = factory(EventVenue::class)->create();
-                $this->teachers = factory(Teacher::class, 3)->create();
-                $this->organizers = factory(Organizer::class, 3)->create();
-                $this->eventCategory = factory(EventCategory::class)->create(['id'=>'100']);
-
+                //$this->venue = factory(EventVenue::class)->create();
+                //$this->teachers = factory(Teacher::class, 3)->create();
+                //$this->organizers = factory(Organizer::class, 3)->create();
+                //$this->eventCategory = factory(EventCategory::class)->create(['id'=>'100']);
+/*
                 // Event one week from now
                 $this->event1 = factory(Event::class)->create([
                     'created_by' => $this->user1->id,
@@ -101,6 +103,7 @@ class MailsTest extends TestCase
 
         // Assert that the first message contain the right From and To
         //dump($user_email);
+        
         Mail::assertSent(ContactForm::class, function ($mail) use ($user_email) {
             $mail->build();
             //dump($mail);
@@ -112,4 +115,41 @@ class MailsTest extends TestCase
     }
 
     /***************************************************************************/
+
+    /**
+     * Test that it sends emails to the user after the activation from backend
+     */
+    public function test_it_sends_mail_to_user_after_activation_from_backend()
+    {
+        Mail::fake();
+
+        // Assert that no mailables were sent...
+        Mail::assertNothingSent();
+
+        //dd($this->user1);
+
+        // Send emails when the admin click on activate user link in the backend
+        $response = $this
+            ->followingRedirects()
+            ->get('/activate-user-from-backend/'.$this->user1->id);
+
+        // Assert a mailable was sent
+        Mail::assertSent(UserActivationConfirmation::class, 1);
+
+        // Assert that the first message contain the right From and To
+        //dump($user_email);
+        $user_email = $this->user1->email;
+        Mail::assertSent(UserActivationConfirmation::class, function ($mail) use ($user_email) {
+            $mail->build();
+            //dump($mail);
+            $this->assertEquals('Activation of your Global CI account', $mail->subject);
+
+            return $mail->hasFrom("noreply@globalcalendar.com") &&
+                   $mail->hasTo($user_email);
+        });
+    }
+
+
+
+
 }
