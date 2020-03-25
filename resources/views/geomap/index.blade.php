@@ -145,7 +145,10 @@
         </div>
         
         <div class="row mt-4 mx-2 alert alert-warning">
-            If you are an event organizer and the venue of your event doesn't show up correctly, please check that all the data of the venue's address such as street or postcode are specified.
+            <b>For event organizers</b>
+            If the venue of your event doesn't show up correctly, please check that all the data of the venue's address such as street or postcode are specified.
+            <br>
+            We are still working to improve the geo-coding of Chinese and Japanese venues. 
         </div>
         
     </div>
