@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Mail\UserActivation;
 use App\Mail\UserActivationConfirmation;
 use App\User;
+use App\Post;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
@@ -177,6 +178,7 @@ class RegisterController extends Controller
             $mailDatas['subject'] = 'Activation of your Global CI account';
             $mailDatas['emailTo'] = $user->email;
             $mailDatas['name'] = $user->name;
+            $mailDatas['message'] = "aaa";
 
             Mail::to($user->email)->send(new UserActivationConfirmation($mailDatas));
         } catch (\Exception $exception) {
@@ -212,6 +214,12 @@ class RegisterController extends Controller
             $mailDatas['subject'] = 'Activation of your Global CI account';
             $mailDatas['emailTo'] = $user->email;
             $mailDatas['name'] = $user->name;
+            
+            //$aa = Post::find(53);
+            //dd(Post::find(53)->body);
+            
+            //$mailDatas['message'] = "aaa";
+            //$mailDatas['message'] = Post::find(53)->body;
 
             Mail::to($user->email)->send(new UserActivationConfirmation($mailDatas));
         } catch (\Exception $exception) {

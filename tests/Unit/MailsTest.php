@@ -32,6 +32,19 @@ class MailsTest extends TestCase
                 $this->withFactories(base_path('vendor/davide-casiraghi/laravel-events-calendar/database/factories'));
                 $this->user1 = factory(\App\User::class)->create();
                 $this->user2 = factory(\App\User::class)->create();
+                
+                $this->post = factory(\App\Post::class)->create([
+                    'id' => 53,
+                    'body' => 'If you are a teacher and/or an event organizer, after your registration is approved you need to log in and to create your teachers or organizer profile.
+                                Then you can post your events.
+                                You can check out the help section here for more details: https://ciglobalcalendar.net/fr/post/help-how-to-insert-contents
+
+                                If you need extra support please write to: admin@ciglobalcalendar.net
+
+                                Thank you for join the Global CI Calendar.
+                                CI Global Calendar',
+                ]);
+                
                 //$this->venue = factory(EventVenue::class)->create();
                 //$this->teachers = factory(Teacher::class, 3)->create();
                 //$this->organizers = factory(Organizer::class, 3)->create();
@@ -127,6 +140,11 @@ class MailsTest extends TestCase
         Mail::assertNothingSent();
 
         //dd($this->user1);
+        
+        
+        //dd($this->post->body);
+        
+        
 
         // Send emails when the admin click on activate user link in the backend
         $response = $this
@@ -141,8 +159,9 @@ class MailsTest extends TestCase
         $user_email = $this->user1->email;
         Mail::assertSent(UserActivationConfirmation::class, function ($mail) use ($user_email) {
             $mail->build();
-            //dump($mail);
+            //dd($mail->get('mailDatas')); //aaaaaaaaaaaa
             $this->assertEquals('Activation of your Global CI account', $mail->subject);
+            //$this->assertContains('If you are a teacher', $mail->body);
 
             return $mail->hasFrom("noreply@globalcalendar.com") &&
                    $mail->hasTo($user_email);
