@@ -4,7 +4,6 @@ namespace Tests\Unit;
 
 use App\Mail\ContactForm;
 use App\Mail\UserActivationConfirmation;
-
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Mail;
@@ -27,15 +26,14 @@ class MailsTest extends TestCase
         // Seeders - /database/seeds
         $this->seed();
 
-        
-                // Factories
-                $this->withFactories(base_path('vendor/davide-casiraghi/laravel-events-calendar/database/factories'));
-                $this->user1 = factory(\App\User::class)->create();
-                $this->user2 = factory(\App\User::class)->create();
-                
-                $this->post = factory(\App\Post::class)->create([
-                    'id' => 53,
-                    'body' => 'If you are a teacher and/or an event organizer, after your registration is approved you need to log in and to create your teachers or organizer profile.
+        // Factories
+        $this->withFactories(base_path('vendor/davide-casiraghi/laravel-events-calendar/database/factories'));
+        $this->user1 = factory(\App\User::class)->create();
+        $this->user2 = factory(\App\User::class)->create();
+
+        $this->post = factory(\App\Post::class)->create([
+            'id' => 53,
+            'body' => 'If you are a teacher and/or an event organizer, after your registration is approved you need to log in and to create your teachers or organizer profile.
                                 Then you can post your events.
                                 You can check out the help section here for more details: https://ciglobalcalendar.net/fr/post/help-how-to-insert-contents
 
@@ -43,9 +41,9 @@ class MailsTest extends TestCase
 
                                 Thank you for join the Global CI Calendar.
                                 CI Global Calendar',
-                ]);
-                
-                //$this->venue = factory(EventVenue::class)->create();
+        ]);
+
+        //$this->venue = factory(EventVenue::class)->create();
                 //$this->teachers = factory(Teacher::class, 3)->create();
                 //$this->organizers = factory(Organizer::class, 3)->create();
                 //$this->eventCategory = factory(EventCategory::class)->create(['id'=>'100']);
@@ -116,7 +114,7 @@ class MailsTest extends TestCase
 
         // Assert that the first message contain the right From and To
         //dump($user_email);
-        
+
         Mail::assertSent(ContactForm::class, function ($mail) use ($user_email) {
             $mail->build();
             //dump($mail);
@@ -130,7 +128,7 @@ class MailsTest extends TestCase
     /***************************************************************************/
 
     /**
-     * test_it_sends_activation_confirmation_to_user_after_admin_activate_from_backend
+     * test_it_sends_activation_confirmation_to_user_after_admin_activate_from_backend.
      */
     public function test_it_sends_activation_confirmation_to_user_after_admin_activate_from_backend()
     {
@@ -140,11 +138,8 @@ class MailsTest extends TestCase
         Mail::assertNothingSent();
 
         //dd($this->user1);
-        
-        
+
         //dd($this->post->body);
-        
-        
 
         // Send emails when the admin click on activate user link in the backend
         $response = $this
@@ -163,7 +158,7 @@ class MailsTest extends TestCase
             $this->assertEquals('Activation of your Global CI account', $mail->subject);
             //$this->assertContains('If you are a teacher', $mail->body);
 
-            return $mail->hasFrom("noreply@globalcalendar.com") &&
+            return $mail->hasFrom('noreply@globalcalendar.com') &&
                    $mail->hasTo($user_email);
         });
     }
@@ -171,7 +166,7 @@ class MailsTest extends TestCase
     /***************************************************************************/
 
     /**
-     * test_it_sends_activation_confirmation_to_user_after_admin_click_mail_activation_link
+     * test_it_sends_activation_confirmation_to_user_after_admin_click_mail_activation_link.
      */
     public function test_it_sends_activation_confirmation_to_user_after_admin_click_mail_activation_link()
     {
@@ -198,12 +193,8 @@ class MailsTest extends TestCase
             //dump($mail);
             $this->assertEquals('Activation of your Global CI account', $mail->subject);
 
-            return $mail->hasFrom("noreply@globalcalendar.com") &&
+            return $mail->hasFrom('noreply@globalcalendar.com') &&
                    $mail->hasTo($user_email);
         });
     }
-
-
-
-
 }
