@@ -7,6 +7,8 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Str;
 use Tests\TestCase;
 
+use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
+
 class EventTest extends TestCase
 {
     use WithFaker;
@@ -31,7 +33,7 @@ class EventTest extends TestCase
         $this->teachers = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\Teacher::class, 3)->create();
         $this->organizers = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\Organizer::class, 3)->create();
         $this->eventCategory = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\EventCategory::class)->create(['id'=>'100']);
-        $this->event = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\Event::class)->create([
+        $this->event = factory(Event::class)->create([
             'category_id'=>'100',
             'venue_id'=> $this->venue->id,
         ]);
@@ -114,16 +116,19 @@ class EventTest extends TestCase
             'facebook_event_link' => 'https://www.facebook.com/'.$this->faker->word,
             'website_event_link' => $this->faker->url,
         ];
-        $response = $this
-                            ->followingRedirects()
-                            ->post('/events', $data);
-
+        
+        //$response = $this->followingRedirects()->post('/events', $data)->dump();
+        $response = $this->followingRedirects()->post('/events', $data);
+        
         // Assert in database
         $this->assertDatabaseHas('events', ['title' => $title]);
-        //dd($response);
+        
+    
         $response
                 ->assertStatus(200)
-                ->assertSee(__('messages.event_added_successfully'));
+                ->assertSee(__('laravel-events-calendar::messages.event_added_successfully'));
+                
+            
     }
 
     /***************************************************************************/

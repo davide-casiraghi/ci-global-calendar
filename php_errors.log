@@ -30,3 +30,6 @@
 [01-Mar-2020 10:55:21 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) or const (T_CONST) in /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/tests/Unit/MailsTest.php on line 92
 [01-Mar-2020 11:00:01 UTC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/tests/Unit/MailsTest.php on line 75
 [25-Mar-2020 05:56:41 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ';' in /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/tests/Unit/MailsTest.php on line 147
+[26-Mar-2020 16:43:49 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/tests/Unit/MailsTest.php on line 38
+[29-Mar-2020 15:19:25 UTC] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/tests/Unit/EventTest.php on line 123
+[29-Mar-2020 15:45:34 UTC] PHP Parse error:  syntax error, unexpected '*' in /Users/davidecasiraghi/Documents/Sync/www/myJob/@github/ci-global-calendar/tests/Unit/EventTest.php on line 118

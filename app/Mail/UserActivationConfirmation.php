@@ -34,6 +34,7 @@ class UserActivationConfirmation extends Mailable
      */
     public function build()
     {
+        //dd($this->mailDatas['body']);
         return $this->markdown('emails.user-activation-confirmation')
                ->to($this->mailDatas['emailTo'])
                ->from('noreply@globalcalendar.com', 'noReply - Global CI Calendar')
@@ -41,6 +42,7 @@ class UserActivationConfirmation extends Mailable
                ->subject($this->mailDatas['subject'])
                ->with([
                    'name' => $this->mailDatas['name'],
+                   'body' => $this->mailDatas['body'],
                ]);
     }
 }
