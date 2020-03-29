@@ -4,12 +4,11 @@ namespace Tests\Unit;
 
 use App\Mail\ContactForm;
 use App\Mail\UserActivationConfirmation;
+use App\PostTranslation;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
-
-use App\PostTranslation;
 
 class MailsTest extends TestCase
 {
@@ -34,13 +33,13 @@ class MailsTest extends TestCase
         $this->user2 = factory(\App\User::class)->create();
 
         $this->post = factory(\App\Post::class)->create();
-        
+
         //$post = Post::find($this->post->id);
         $postTranslation = PostTranslation::
                     where('post_id', $this->post->id)
                     ->where('locale', 'en')
                     ->first();
-        
+
         $postTranslation->title = 'Welcome mail';
         $postTranslation->body = 'If you are a teacher and/or an event organizer, after your registration is approved you need to log in and to create your teachers or organizer profile.
                             Then you can post your events.
@@ -50,12 +49,10 @@ class MailsTest extends TestCase
 
                             Thank you for join the Global CI Calendar.
                             CI Global Calendar';
-        $postTranslation->before_content = '**_welcome_mail_template_do_not_delete_this_string_**';            
-                            
-                            
-                    
-        $postTranslation->save();       
-             
+        $postTranslation->before_content = '**_welcome_mail_template_do_not_delete_this_string_**';
+
+        $postTranslation->save();
+
         //$this->venue = factory(EventVenue::class)->create();
                 //$this->teachers = factory(Teacher::class, 3)->create();
                 //$this->organizers = factory(Organizer::class, 3)->create();

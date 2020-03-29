@@ -5,14 +5,13 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Mail\UserActivation;
 use App\Mail\UserActivationConfirmation;
-use App\Post;
 use App\PostTranslation;
 use App\User;
 use DavideCasiraghi\LaravelEventsCalendar\Models\Country;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
@@ -172,7 +171,7 @@ class RegisterController extends Controller
             $user->activation_code = null;
             $user->save();
             //auth()->login($user);
-            
+
             // Get welcome message text
             //$locale = App::getLocale();
             $locale = 'en';
@@ -224,16 +223,16 @@ class RegisterController extends Controller
                 where('title', 'Welcome email')
                 ->where('locale', $locale)
                 ->first();
-                
+
             // Send to the user the confirmation about the activation of the account
             $mailDatas = [];
             $mailDatas['senderEmail'] = 'noreply@globalcicalendar.com';
             $mailDatas['senderName'] = 'Global CI - Administrator';
             $mailDatas['subject'] = 'Activation of your Global CI account';
             $mailDatas['emailTo'] = $user->email;
-            $mailDatas['name'] = $user->name;            
+            $mailDatas['name'] = $user->name;
             $mailDatas['body'] = $message->body ?? null;
-                
+
             Mail::to($user->email)->send(new UserActivationConfirmation($mailDatas));
         } catch (\Exception $exception) {
             logger()->error($exception);

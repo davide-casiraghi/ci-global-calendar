@@ -2,12 +2,11 @@
 
 namespace Tests\Unit;
 
+use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Str;
 use Tests\TestCase;
-
-use DavideCasiraghi\LaravelEventsCalendar\Models\Event;
 
 class EventTest extends TestCase
 {
@@ -116,19 +115,16 @@ class EventTest extends TestCase
             'facebook_event_link' => 'https://www.facebook.com/'.$this->faker->word,
             'website_event_link' => $this->faker->url,
         ];
-        
+
         //$response = $this->followingRedirects()->post('/events', $data)->dump();
         $response = $this->followingRedirects()->post('/events', $data);
-        
+
         // Assert in database
         $this->assertDatabaseHas('events', ['title' => $title]);
-        
-    
+
         $response
                 ->assertStatus(200)
                 ->assertSee(__('laravel-events-calendar::messages.event_added_successfully'));
-                
-            
     }
 
     /***************************************************************************/
