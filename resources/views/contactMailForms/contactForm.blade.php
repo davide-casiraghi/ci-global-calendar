@@ -30,6 +30,7 @@
 
         <form id="contactForm" action="{{ route('forms.contactform-send') }}" method="POST">
             @csrf
+            @honeypot
 
             <div class="row">
                 <div class="col-12 mt-3 mb-2">

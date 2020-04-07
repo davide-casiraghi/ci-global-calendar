@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ContactFormController;
+use Spatie\Honeypot\ProtectAgainstSpam;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -85,8 +88,11 @@ function () {
 
     /* Contact form to write to administrator, project-manager, webmaster */
     Route::get('/contactForm/compose/{recipient}', 'ContactFormController@contactForm')->name('forms.contactform');
-    Route::post('/contactForm/send', 'ContactFormController@contactFormSend')->name('forms.contactform-send');
+    //Route::post('/contactForm/send', 'ContactFormController@contactFormSend')->name('forms.contactform-send');
     Route::get('/contactForm/thankyou', 'ContactFormController@contactFormThankyou')->name('forms.contactform-thankyou');
+    
+    Route::post('/contactForm/send', 'ContactFormController@contactFormSend')->middleware(ProtectAgainstSpam::class)->name('forms.contactform-send');
+
 
     /* Mass mailing */
     Route::get('/massMailing/compose/', 'MassMailingController@massMailing')->name('forms.massmailing');
