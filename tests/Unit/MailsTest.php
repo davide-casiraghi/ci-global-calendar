@@ -23,7 +23,7 @@ class MailsTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        
+
         // Disable Honeypot SPAM FILTER - https://github.com/spatie/laravel-honeypot
         config()->set('honeypot.enabled', false);
 
