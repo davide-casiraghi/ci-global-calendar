@@ -390,16 +390,16 @@
         },
         {
             "name": "davide-casiraghi/laravel-events-calendar",
-            "version": "2.9.2",
+            "version": "2.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davide-casiraghi/laravel-events-calendar.git",
-                "reference": "30e79bcd0a7d4c105a7915ad990b03730e1e299b"
+                "reference": "1bebef1dd24444c6f5572f9d1e95edf57c6312d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/30e79bcd0a7d4c105a7915ad990b03730e1e299b",
-                "reference": "30e79bcd0a7d4c105a7915ad990b03730e1e299b",
+                "url": "https://api.github.com/repos/davide-casiraghi/laravel-events-calendar/zipball/1bebef1dd24444c6f5572f9d1e95edf57c6312d0",
+                "reference": "1bebef1dd24444c6f5572f9d1e95edf57c6312d0",
                 "shasum": ""
             },
             "require": {
@@ -452,7 +452,7 @@
                 "davide-casiraghi",
                 "laravel-events-calendar"
             ],
-            "time": "2020-04-09T05:07:35+00:00"
+            "time": "2020-04-09T16:16:04+00:00"
         },
         {
             "name": "davide-casiraghi/laravel-form-partials",
@@ -7293,16 +7293,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.10.1",
+            "version": "1.10.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "b912a45da3e2b22f5cb5a23e441b697a295ba011"
+                "reference": "1efa6850b4a1740980346ac3582edf7dfb7899ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/b912a45da3e2b22f5cb5a23e441b697a295ba011",
-                "reference": "b912a45da3e2b22f5cb5a23e441b697a295ba011",
+                "url": "https://api.github.com/repos/composer/composer/zipball/1efa6850b4a1740980346ac3582edf7dfb7899ee",
+                "reference": "1efa6850b4a1740980346ac3582edf7dfb7899ee",
                 "shasum": ""
             },
             "require": {
@@ -7369,7 +7369,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2020-03-13T19:34:27+00:00"
+            "time": "2020-04-09T15:05:50+00:00"
         },
         {
             "name": "composer/spdx-licenses",
