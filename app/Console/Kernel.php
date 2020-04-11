@@ -35,7 +35,7 @@ class Kernel extends ConsoleKernel
             Statistic::updateStatistics();
         })->daily()
             ->appendOutputTo($filePath);
-            //->emailOutputTo(env('WEBMASTER_MAIL'));
+        //->emailOutputTo(env('WEBMASTER_MAIL'));
 
         // Take a daily backup
         $schedule->command('backup:clean')->daily()->at('01:00');
