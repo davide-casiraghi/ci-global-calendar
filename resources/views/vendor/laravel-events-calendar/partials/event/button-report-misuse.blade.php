@@ -50,7 +50,8 @@
                 </div>
                 <form id="reportMisuseForm" action="{{ route('events.misuse') }}" method="POST">
                     <div class="modal-body">
-                             @csrf 
+                             @csrf
+                             @honeypot
                              <p>@lang('laravel-events-calendar::misuse.report_violation') <a href="/posts/19" target="_blank"><i class="far fa-link"></i></a><br></p>
                              <div class="form-group">
                                  <strong>@lang('laravel-events-calendar::misuse.reason') <span class="dark-gray" data-toggle="tooltip" data-placement="top" title="@lang('laravel-events-calendar::general.required')">*</span></strong>

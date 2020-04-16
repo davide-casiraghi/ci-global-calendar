@@ -54,6 +54,7 @@
                 <form id="writeToOrganizerForm" action="{{ route('events.organizer-message') }}" method="POST">
                     <div class="modal-body">
                              @csrf
+                             @honeypot
                              <p>@lang('laravel-events-calendar::event.write_for_more_info_details')</p>
                              @include('laravel-form-partials::input', [
                                    'title' => __('laravel-events-calendar::general.your_name'),
