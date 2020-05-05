@@ -25,8 +25,8 @@
          });
     {{--@endif--}}
 @stop
-
-<div class="donation alert alert-secondary alert-dismissible fade show mx-4 mt-5" style="z-index:3; display:none;">
+{{-- alert-secondary was before the Nancy alert-light--}}
+<div class="donation alert alert-light alert-dismissible fade show mx-4 mt-5" style="z-index:3; display:none;">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
