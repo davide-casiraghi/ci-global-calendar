@@ -30,6 +30,6 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
-    <strong>{{$title}}</strong> {!!$text!!}<br />
+    <strong>{{$title}}</strong> {!!$text!!}
     <a href="{{$linkUrl}}">{{$linkText}}</a>
 </div>

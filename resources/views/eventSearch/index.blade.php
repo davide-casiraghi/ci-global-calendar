@@ -125,12 +125,33 @@
         <div class="row">
             <div class="col-12">
                 @include('partials.hilight', [
-                    'title' =>  'Dear users: ',
+                    /*'title' =>  'Dear users: ',
                     'text' =>  'The CI Global Calendar is a non-profit project to support the CI Global Community. 
                                 To protect our independence we don’t want to run ads. We have no governmental funds. 
-                                If the calendar is useful to you take one minute to help us keep it online another year. If everyone reading this message would give the same amount that you offer for a jam, our fundraiser would be done within a week. Thank you!',
-                      'linkText' => 'Donate',
-                      'linkUrl'  => '/post/donate',
+                                If the calendar is useful to you take one minute to help us keep it online another year. If everyone reading this message would give the same amount that you offer for a jam, our fundraiser would be done within a week. Thank you!',*/
+                      'title' =>  'Dear users of CI Global Calendar,',
+                      'text' =>  '
+                      <br>
+                      Nancy Stark Smith passed away last Friday 1 May, and it is with deep grief that we join ourselves to sending our love and thankfulness in remembrance of her life. <br>
+                        Nancy was a driving force in bringing movers together, in the development of Contact Improvisation and in the invention of ways for dancers to tell their stories and experiences. With Contact Quarterly, the Underscore and many more practices of improvising, teaching, dancing, collecting words and traces of collective experiences, Nancy was a node-maker, a community-herder and an innovator. <br>
+                        The Round Robin Project, the Contact Improvisation Global Calendar and the Contact Improvisation Global An/Archive are traces of her constant effort to make kins and alliances and friendships and resources. As in all her other endeavors, she put love, artistry and dedication in those projects, and we feel blessed to have worked along her sides and to have learnt so much from her.<br><br>
+                        Always remembering with love, <br>
+                         
+                        The former and current Round Robin Project Steering Commitee <br>
+
+                        The CI Global (An)Archive Team <br>
+
+                        The CI Global Calendar Team <br>
+
+
+                        PS: you can also visit the 
+
+
+                      ',
+                      //'linkText' => 'Donate',
+                      //'linkUrl'  => '/post/donate',
+                      'linkText' => 'Nancy Stark Smith Harvest facebook group',
+                      'linkUrl'  => 'https://www.facebook.com/groups/253550916049874/',
                 ])
             </div>
         </div>
