@@ -129,7 +129,7 @@
                     'text' =>  'The CI Global Calendar is a non-profit project to support the CI Global Community. 
                                 To protect our independence we don’t want to run ads. We have no governmental funds. 
                                 If the calendar is useful to you take one minute to help us keep it online another year. If everyone reading this message would give the same amount that you offer for a jam, our fundraiser would be done within a week. Thank you!',*/
-                      'title' =>  'Dear users of CI Global Calendar,',
+                     /* 'title' =>  'Dear users of CI Global Calendar,',
                       'text' =>  '
                       <br>
                       Nancy Stark Smith passed away last Friday 1 May, and it is with deep grief that we join ourselves to sending our love and thankfulness in remembrance of her life. <br>
@@ -144,14 +144,19 @@
                         The CI Global Calendar Team <br>
 
 
-                        PS: you can also visit the 
+                        PS: you can also visit the ',*/
+                    'title' =>  'Online Events in the CI Global Calendar',
+                    'text' =>  '<br>
+                    A new feature that allows you to post and to search for online events is now available.<br>
+                    To <b>search for an online event</b> in a given language, on the home page, from the list of CONTINENTS select “Online”; Then as COUNTRY, select the language that you wish to follow the class or event into, e.g. “Online English”; Then click SEARCH. All the results for English online events will be displayed.<br>
 
-
-                      ',
+                    To <b>post an online event, </b>use the page for event creation as usual. As VENUE select the option that reflects the language that will be used for your event. E.g. “Online English” to post an English online event.<br>
+                    In case the language you want to use for your online event is not available in the venue list, please ',
+                        
                       //'linkText' => 'Donate',
                       //'linkUrl'  => '/post/donate',
-                      'linkText' => 'Nancy Stark Smith Harvest facebook group',
-                      'linkUrl'  => 'https://www.facebook.com/groups/253550916049874/',
+                      'linkText' => 'ask to the webmaster to add it.',
+                      'linkUrl'  => 'http://ci-global-calendar.test/contactForm/compose/webmaster',
                 ])
             </div>
         </div>
