@@ -21,12 +21,12 @@
           
          {{-- On click of specified class (e.g. 'nothanks'), trigger cookie, which expires in 100 years --}}
          $(".donation.alert .close").click(function() {
-           $.cookie('donation_no_thanks', 'true', { expires: 1, path: '/' });  {{-- COOKIE EXPIRE IN 14 DAYS (now temporarly 1 for Nancy's death) - https://www.npmjs.com/package/jquery.cookie --}}
+           $.cookie('donation_no_thanks', 'true', { expires: 7, path: '/' });  {{-- COOKIE EXPIRE IN 14 DAYS (now temporarly 1 for Nancy's death) - https://www.npmjs.com/package/jquery.cookie --}}
          });
     {{--@endif--}}
 @stop
-{{-- alert-secondary was before the Nancy alert-light--}}
-<div class="donation alert alert-light alert-dismissible fade show mx-4 mt-5" style="z-index:3; display:none;">
+{{-- alert-light was for Nancy --}}
+<div class="donation alert alert-secondary alert-dismissible fade show mx-4 mt-5" style="z-index:3; display:none;">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
