@@ -16,6 +16,7 @@ class ColumnsClass
 {
     /**
      *  Returns the plugin parameters.
+     *
      *  @param array $matches       result from the regular expression on the string from the article
      *  @return array $ret          the array containing the parameters
      **/
@@ -42,6 +43,7 @@ class ColumnsClass
 
     /**
      *  Turn array of the metches after preg_match_all function (taken from - https://secure.php.net/manual/en/function.preg-match-all.php).
+     *
      *  @param array $file_name        the file name
      *  @return array $ret             the extension
      **/
@@ -60,9 +62,9 @@ class ColumnsClass
 
     /**
      *  Prepare the columns HTML.
+     *
      *  @param array $parameters        parameters array [post_id, img_alignment, img_col_size_class, text_col_size_class]
      *  @param array $columnsData       the posts array
-     *
      *  @return string $ret             the HTML to print on screen
      **/
     public function prepareColumns($parameters, $postsData, $categoryData)
@@ -96,8 +98,8 @@ class ColumnsClass
 
     /**
      *  Substitute the activation string with the HTML.
-     *  @param array $postBody        the post html
      *
+     *  @param array $postBody        the post html
      *  @return string $ret             the HTML to print on screen
      **/
     public function getColumns($postBody)
