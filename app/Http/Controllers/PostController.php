@@ -39,6 +39,7 @@ class PostController extends Controller
 
     /**
      * Display a listing of the resource.
+     *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\View\View
      */
@@ -264,7 +265,7 @@ class PostController extends Controller
     /**
      * Return the single post datas by post id [title, body, image].
      *
-     * @param  int $post_id
+     * @param  int  $post_id
      * @return \App\Post
      */
     public function postdata($post_id)
@@ -280,7 +281,7 @@ class PostController extends Controller
     /**
      * Return the post by SLUG. (eg. http://websitename.com/post/xxxxx).
      *
-     * @param  string $slug
+     * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
     public function postBySlug($slug)
@@ -298,6 +299,7 @@ class PostController extends Controller
 
     /**
      * Save the record on DB.
+     *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Post  $post
      * @return void

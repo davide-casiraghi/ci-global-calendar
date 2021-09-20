@@ -28,6 +28,7 @@ class EventSearchController extends Controller
 
     /**
      * Display the event search results in Global Calendar Homepage.
+     *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\View\View
      */
@@ -117,7 +118,7 @@ class EventSearchController extends Controller
      * Return and HTML with all the events of a specific country by country CODE. (eg. http://websitename.com/eventSearch/country/SI)
      * this should be included in the IFRAME for the regional websites.
      *
-     * @param  string $code
+     * @param  string  $code
      * @return \Illuminate\View\View
      */
     public function EventsListByCountry(string $code)
@@ -162,7 +163,7 @@ class EventSearchController extends Controller
      * Return and HTML with the updated countries dropdown for the homepage
      * after a continent get selected.
      *
-     * @param \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return string $ret
      */
     public function updateCountriesDropdown(Request $request)
@@ -185,7 +186,7 @@ class EventSearchController extends Controller
      * Return and HTML with the updated regions dropdown for the homepage
      * after a country get selected.
      *
-     * @param \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return string $ret
      */
     public function updateRegionsDropdown(Request $request)
