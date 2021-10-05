@@ -24,6 +24,7 @@ class StatisticsController extends Controller
 
     /**
      * Display a listing of the resource.
+     *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\View\View
      */
@@ -65,7 +66,8 @@ class StatisticsController extends Controller
 
     /**
      * Create a LINE chart showing the number of users in the last x days.
-     * @param int $daysRange
+     *
+     * @param  int  $daysRange
      * @return \App\Charts\LatestUsers
      */
     public function createLinesChart($daysRange)

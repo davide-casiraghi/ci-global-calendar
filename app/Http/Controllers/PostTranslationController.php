@@ -20,8 +20,9 @@ class PostTranslationController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     * @param int $postId
-     * @param string $languageCode
+     *
+     * @param  int  $postId
+     * @param  string  $languageCode
      * @return \Illuminate\View\View
      */
     public function create($postId, $languageCode)
@@ -39,8 +40,8 @@ class PostTranslationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $postId
-     * @param string $languageCode
+     * @param  int  $postId
+     * @param  string  $languageCode
      * @return \Illuminate\View\View
      */
     public function edit($postId, $languageCode)
@@ -131,7 +132,7 @@ class PostTranslationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $postTranslationId
+     * @param  int  $postTranslationId
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($postTranslationId)
