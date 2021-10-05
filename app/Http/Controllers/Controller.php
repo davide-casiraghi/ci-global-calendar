@@ -62,9 +62,9 @@ class Controller extends BaseController
     /**
      * Upload image on server.
      *
-     * @param  $imageFile - the file to upload
-     * @param  $imageName - the file name
-     * @param  $imageSubdir - the subdir in /storage/app/public/images/..
+     * @param  $imageFile  - the file to upload
+     * @param  $imageName  - the file name
+     * @param  $imageSubdir  - the subdir in /storage/app/public/images/..
      * @return void
      */
     public function uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth)
@@ -100,7 +100,7 @@ class Controller extends BaseController
     /**
      * Get the language name from language code.
      *
-     * @param  string $languageCode
+     * @param  string  $languageCode
      * @return string
      */
     public function getSelectedLocaleName($languageCode)

@@ -16,6 +16,7 @@ class CardClass
      *  Returns the plugin parameters.
      *  - Matches: result from the regular expression on the string from the article
      *  - Ret: the array containing the parameters.
+     *
      *  @param array $matches
      *  @return array $ret
      **/
@@ -63,6 +64,7 @@ class CardClass
 
     /**
      *  Turn array of the metches after preg_match_all function (taken from - https://secure.php.net/manual/en/function.preg-match-all.php).
+     *
      *  @param array $m
      *  @return array $ret
      **/
@@ -81,6 +83,7 @@ class CardClass
 
     /**
      *  Provide the post data array (post_title, post_body, post_image).
+     *
      *  @param array $parameters
      *  @return array $ret
      **/
@@ -105,9 +108,9 @@ class CardClass
     /**
      *  Prepare the card HTML.
      *  Paramteters: parameters array [post_id, img_alignment, img_col_size_class, text_col_size_class].
+     *
      *  @param array $parameters
      *  @param array $postData
-     *
      *  @return string $ret             the HTML to print on screen
      **/
     public function prepareCard($parameters, $postData)
@@ -138,6 +141,7 @@ class CardClass
     /**
      *  Prepare the card HTML.
      *  Paramteters: parameters array [post_id, img_alignment, img_col_size_class, text_col_size_class].
+     *
      *  @param string $postBody
      *  @return string $postBody
      **/
