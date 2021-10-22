@@ -90,7 +90,7 @@ class RegisterController extends Controller
     /**
      * Register new account. - OVERRIDE to default function.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     protected function register(Request $request)
@@ -157,7 +157,8 @@ class RegisterController extends Controller
 
     /**
      * Activate the user with given activation code.
-     * @param string $activationCode
+     *
+     * @param  string  $activationCode
      * @return \Illuminate\Http\RedirectResponse|string
      */
     public function activateUser(string $activationCode)
@@ -175,8 +176,7 @@ class RegisterController extends Controller
             // Get welcome message text
             //$locale = App::getLocale();
             $locale = 'en';
-            $message = PostTranslation::
-                where('title', 'Welcome email')
+            $message = PostTranslation::where('title', 'Welcome email')
                 ->where('locale', $locale)
                 ->first();
 
@@ -203,7 +203,8 @@ class RegisterController extends Controller
 
     /**
      * Activate the user from the backend clicking on the Enable button in the user index view.
-     * @param string $userId
+     *
+     * @param  string  $userId
      * @return \Illuminate\Http\RedirectResponse|string
      */
     public function activateUserFromBackend(string $userId)
@@ -219,8 +220,7 @@ class RegisterController extends Controller
             // Get welcome message text
             //$locale = App::getLocale();
             $locale = 'en';
-            $message = PostTranslation::
-                where('title', 'Welcome email')
+            $message = PostTranslation::where('title', 'Welcome email')
                 ->where('locale', $locale)
                 ->first();
 

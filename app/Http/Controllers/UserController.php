@@ -22,6 +22,7 @@ class UserController extends Controller
 
     /**
      * Display a listing of the resource.
+     *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\View\View
      */
@@ -200,8 +201,9 @@ class UserController extends Controller
 
     /**
      * Return the validator with all the defined constraint.
+     *
      * @param  \Illuminate\Http\Request  $request
-     * @param  string $callingMethod
+     * @param  string  $callingMethod
      * @return \Illuminate\Validation\Validator
      */
     public function usersValidator($request, $callingMethod)

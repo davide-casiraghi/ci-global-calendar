@@ -65,7 +65,7 @@ class DonationOffer extends Model
     /**
      * Return the donation kind badge HTML.
      *
-     * @param  int $status
+     * @param  int  $status
      * @return string
      */
     public static function getDonationStatusBadge($status)
