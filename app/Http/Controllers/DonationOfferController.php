@@ -32,8 +32,7 @@ class DonationOfferController extends Controller
         $searchCountry = $request->input('country_id');
 
         if ($searchKeywords || $searchCountry) {
-            $donationOffers = DonationOffer::
-                when($searchKeywords, function ($query, $searchKeywords) {
+            $donationOffers = DonationOffer::when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%'.$searchKeywords.'%');
                 })
                 ->when($searchKeywords, function ($query, $searchKeywords) {
@@ -45,8 +44,7 @@ class DonationOfferController extends Controller
                 ->orderBy('name')
                 ->paginate(20);
         } else {
-            $donationOffers = DonationOffer::
-                orderBy('name')
+            $donationOffers = DonationOffer::orderBy('name')
                 ->paginate(20);
         }
 
@@ -115,13 +113,11 @@ class DonationOfferController extends Controller
      */
     public function show(DonationOffer $donationOffer)
     {
-        $country = Country::
-                        select('id', 'name', 'continent_id')
+        $country = Country::select('id', 'name', 'continent_id')
                         ->where('id', $donationOffer->country_id)
                         ->first();
 
-        $countryOfTheGift = Country::
-                        select('id', 'name', 'continent_id')
+        $countryOfTheGift = Country::select('id', 'name', 'continent_id')
                         ->where('id', $donationOffer->gift_country_of)
                         ->first();
 

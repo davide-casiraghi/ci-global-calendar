@@ -24,6 +24,7 @@ class StatisticsController extends Controller
 
     /**
      * Display a listing of the resource.
+     *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\View\View
      */
@@ -65,7 +66,8 @@ class StatisticsController extends Controller
 
     /**
      * Create a LINE chart showing the number of users in the last x days.
-     * @param int $daysRange
+     *
+     * @param  int  $daysRange
      * @return \App\Charts\LatestUsers
      */
     public function createLinesChart($daysRange)
@@ -137,8 +139,7 @@ class StatisticsController extends Controller
      */
     public function createUsersByCountryChart()
     {
-        $usersByCountry = User::
-                        leftJoin('countries', 'users.country_id', '=', 'countries.id')
+        $usersByCountry = User::leftJoin('countries', 'users.country_id', '=', 'countries.id')
                         ->select(DB::raw('count(*) as user_count, countries.name as country_name'))
                         ->where('status', '<>', 0)
                         ->groupBy('country_id')
@@ -173,8 +174,7 @@ class StatisticsController extends Controller
      */
     public function createTeachersByCountriesChart()
     {
-        $teachersByCountries = Teacher::
-                        leftJoin('countries', 'teachers.country_id', '=', 'countries.id')
+        $teachersByCountries = Teacher::leftJoin('countries', 'teachers.country_id', '=', 'countries.id')
                         ->select(DB::raw('count(*) as teacher_count, countries.name as country_name'))
                         ->groupBy('country_id')
                         ->orderBy('country_name')
@@ -208,8 +208,7 @@ class StatisticsController extends Controller
      */
     public function createOrganizersByCountriesChart()
     {
-        $organizersByCountries = Organizer::
-                        leftJoin('countries', 'organizers.country_id', '=', 'countries.id')
+        $organizersByCountries = Organizer::leftJoin('countries', 'organizers.country_id', '=', 'countries.id')
                         ->select(DB::raw('count(*) as organizer_count, countries.name as country_name'))
                         ->groupBy('country_id')
                         ->orderBy('country_name')
