@@ -38,8 +38,7 @@ class MailsTest extends TestCase
         $this->post = factory(\App\Post::class)->create();
 
         //$post = Post::find($this->post->id);
-        $postTranslation = PostTranslation::
-                    where('post_id', $this->post->id)
+        $postTranslation = PostTranslation::where('post_id', $this->post->id)
                     ->where('locale', 'en')
                     ->first();
 
