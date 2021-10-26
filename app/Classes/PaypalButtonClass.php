@@ -15,6 +15,7 @@ class PaypalButtonClass
 
     /**
      *  Substitute in the post HTML, the activation string with the Paypal HTML.
+     *
      *  @param array $postBody
      *  @return string
      **/
@@ -51,6 +52,7 @@ class PaypalButtonClass
 
     /**
      *  Turn array of the metches after preg_match_all function (taken from - https://secure.php.net/manual/en/function.preg-match-all.php).
+     *
      *  @param array $file_name        the file name
      *  @return array $ret             the extension
      **/
@@ -70,6 +72,7 @@ class PaypalButtonClass
     /**
      *  Returns the parameters from the activation string
      *  The $matches come from the regular expression on the string from the article.
+     *
      *  @param array $matches
      *  @return array
      **/

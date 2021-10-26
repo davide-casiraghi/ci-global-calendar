@@ -17,8 +17,8 @@ class CommunityGoalsClass
 
     /**
      *  Substitute the activation string with the HTML.
-     *  @param array $postBody        the post html
      *
+     *  @param array $postBody        the post html
      *  @return string $ret             the HTML to print on screen
      **/
     public function getCommunityGoals($postBody)
@@ -54,6 +54,7 @@ class CommunityGoalsClass
 
     /**
      *  Turn array of the metches after preg_match_all function (taken from - https://secure.php.net/manual/en/function.preg-match-all.php).
+     *
      *  @param array $file_name        the file name
      *  @return array $ret             the extension
      **/
@@ -72,6 +73,7 @@ class CommunityGoalsClass
 
     /**
      *  Returns the plugin parameters.
+     *
      *  @param array $matches       result from the regular expression on the string from the article
      *  @return array $ret          the array containing the parameters
      **/
@@ -98,6 +100,7 @@ class CommunityGoalsClass
 
     /**
      *  Prepare the stats HTML.
+     *
      *  @param array $parameters        parameters array [coding_hours, pm_hours, steering_commitee_meetings, languages_number]
      *  @return string $ret             the HTML to print on screen
      **/
