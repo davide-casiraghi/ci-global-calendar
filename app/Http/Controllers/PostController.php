@@ -39,6 +39,7 @@ class PostController extends Controller
 
     /**
      * Display a listing of the resource.
+     *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\View\View
      */
@@ -57,8 +58,7 @@ class PostController extends Controller
         //DB::enableQueryLog();
 
         if ($searchKeywords || $searchCategory) {
-            $posts = Post::
-                select('post_translations.post_id AS id', 'post_translations.title AS title', 'category_id', 'locale')
+            $posts = Post::select('post_translations.post_id AS id', 'post_translations.title AS title', 'category_id', 'locale')
                 ->join('post_translations', 'posts.id', '=', 'post_translations.post_id')
 
                 ->when($searchKeywords, function ($query, $searchKeywords) {
@@ -264,7 +264,7 @@ class PostController extends Controller
     /**
      * Return the single post datas by post id [title, body, image].
      *
-     * @param  int $post_id
+     * @param  int  $post_id
      * @return \App\Post
      */
     public function postdata($post_id)
@@ -280,13 +280,12 @@ class PostController extends Controller
     /**
      * Return the post by SLUG. (eg. http://websitename.com/post/xxxxx).
      *
-     * @param  string $slug
+     * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
     public function postBySlug($slug)
     {
-        $post = Post::
-                where('post_translations.slug', $slug)
+        $post = Post::where('post_translations.slug', $slug)
                 ->join('post_translations', 'posts.id', '=', 'post_translations.post_id')
                 ->select('posts.*', 'post_translations.title', 'post_translations.body', 'post_translations.before_content', 'post_translations.after_content')
                 ->first();
@@ -298,6 +297,7 @@ class PostController extends Controller
 
     /**
      * Save the record on DB.
+     *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Post  $post
      * @return void

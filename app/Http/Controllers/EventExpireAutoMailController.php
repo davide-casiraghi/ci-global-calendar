@@ -36,8 +36,9 @@ class EventExpireAutoMailController extends Controller
 
     /**
      * Return the list of the expiring repetitive events (the 7th day from now).
+     *
      * @param  array  $activeEvents
-     * @return array  $ret
+     * @return array $ret
      */
     public static function getExpiringRepetitiveEventsList($activeEvents)
     {
@@ -53,8 +54,9 @@ class EventExpireAutoMailController extends Controller
 
     /**
      * Return the list of the expiring events titles and users.
+     *
      * @param  array  $expiringEvents
-     * @return array  $ret
+     * @return array $ret
      */
     public static function getExpiringEventsTitleAndUser($expiringEvents)
     {
@@ -71,6 +73,7 @@ class EventExpireAutoMailController extends Controller
 
     /**
      * Send an email to the events which repetitive events are expiring.
+     *
      * @param  array  $expiringEvents
      * @return void
      */
