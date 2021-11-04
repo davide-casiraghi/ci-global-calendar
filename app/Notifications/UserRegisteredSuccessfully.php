@@ -22,7 +22,7 @@ class UserRegisteredSuccessfully extends Notification
     /**
      * Create a new notification instance.
      *
-     * @param User $user
+     * @param  User  $user
      * @return void
      */
     public function __construct(User $user)

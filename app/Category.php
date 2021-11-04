@@ -31,7 +31,7 @@ class Category extends Model
     /**
      * Return the single category datas by cat id.
      *
-     * @param  int $cat_id
+     * @param  int  $cat_id
      * @return \App\Category
      */
     public static function categorydata($cat_id)
