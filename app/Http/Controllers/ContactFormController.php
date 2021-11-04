@@ -13,6 +13,7 @@ class ContactFormController extends Controller
     /**
      * Display the contact form. - Eg. /contactForm/administrator.
      * $recipient can be: "administrator" | "project-manager" | "webmaster" | "test".
+     *
      * @param  string  $recipient
      * @return \Illuminate\View\View
      */
