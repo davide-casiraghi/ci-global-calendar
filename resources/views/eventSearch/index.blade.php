@@ -145,7 +145,7 @@
 
 
                         PS: you can also visit the ',*/
-                    'title' =>  'Online Events in the CI Global Calendar',
+                   /* 'title' =>  'Online Events in the CI Global Calendar',
                     'text' =>  '<br>
                     A new feature that allows you to post and to search for online events is now available.<br>
                     To <b>search for an online event</b> in a given language, on the home page, from the list of CONTINENTS select “Online”; Then as COUNTRY, select the language that you wish to follow the class or event into, e.g. “Online English”; Then click SEARCH. All the results for English online events will be displayed.<br>
@@ -157,7 +157,28 @@
                       //'linkUrl'  => '/post/donate',
                       'linkText' => 'ask to the webmaster to add it.',
                       'linkUrl'  => 'http://ci-global-calendar.test/contactForm/compose/webmaster',
-                ])
+                */
+
+                'title' =>  'CI get´s 50!',
+                      'text' =>  '
+                      <br>
+                      In 2022 we assume many organizors, teachers and ci community facilitators will have the desire and find their way to celebrate this big birthday. We heard from Ann Cooper Allbright preparing a huge event at Oberlin College in the US. <br> <br>
+
+                    We wish to be the platform to collect all CI50 events that are happening around the globe during all the year of 2022. <br> <br>
+
+                    We propose you to post your event here in the Calendar as usual, just name it in the title "CI50 -" and continue with your title of your event, f.e. "CI50 - contactfestival freiburg" <br> <br>
+
+                    You post your event as usual, also naming the kind of event, and the location... PLUS describe shortly in the event description how you will comemorate this anniversary. You are completely free to do how you want. It could be just a little extra action to comemorate this birthday inside your regular event, or the entire event is designed for this anniversary. <br> <br>
+
+                    Maybe later we offer you some possible actions that you could do, have a look on this page more regularly. <br>
+                    For users who search for events, when searching any event in your region or time frame you wish, you could see right away which are events that have a little celebration inside then usual event. The event description will give you more info. <br> <br>
+
+                    Let´s celebrate! <br> <br>
+
+                    The calendar team <br>',
+                    'linkText' => '',
+                      'linkUrl'  => '',
+                   ])
             </div>
         </div>
     </div>
