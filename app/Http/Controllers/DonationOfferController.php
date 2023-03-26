@@ -33,8 +33,8 @@ class DonationOfferController extends Controller
 
         if ($searchKeywords || $searchCountry) {
             $donationOffers = DonationOffer::when($searchKeywords, function ($query, $searchKeywords) {
-                    return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%'.$searchKeywords.'%');
-                })
+                return $query->where('name', $searchKeywords)->orWhere('name', 'like', '%'.$searchKeywords.'%');
+            })
                 ->when($searchKeywords, function ($query, $searchKeywords) {
                     return $query->where('surname', $searchKeywords)->orWhere('surname', 'like', '%'.$searchKeywords.'%');
                 })
