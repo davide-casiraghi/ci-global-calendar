@@ -121,7 +121,7 @@
         
 
     {{-- HI-Light for the donations --}}
-    {{--
+
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -160,30 +160,23 @@
                       'linkUrl'  => 'http://ci-global-calendar.test/contactForm/compose/webmaster',
                 */
 
-                'title' =>  'CI get´s 50!',
+                'title' =>  'A new project by CIGlobal Calendar! ',
                       'text' =>  '
                       <br>
-                      In 2022 we assume many organizors, teachers and ci community facilitators will have the desire and find their way to celebrate this big birthday. We heard from Ann Cooper Allbright preparing a huge event at Oberlin College in the US. <br> <br>
+                      CI Bodies Dairy! a virtual space where to share, celebrate and document our relation and love for CI. <br><br>
+                      What CI is for you? <br>
+                      What CI brings/brought to your life?<br><br>
 
-                    We wish to be the platform to collect all CI50 events that are happening around the globe during all the year of 2022. <br> <br>
-
-                    We propose you to post your event here in the Calendar as usual, just name it in the title "CI50 -" and continue with your title of your event, f.e. "CI50 - contactfestival freiburg" <br> <br>
-
-                    You post your event as usual, also naming the kind of event, and the location... PLUS describe shortly in the event description how you will comemorate this anniversary. You are completely free to do how you want. It could be just a little extra action to comemorate this birthday inside your regular event, or the entire event is designed for this anniversary. <br> <br>
-
-                    Maybe later we offer you some possible actions that you could do, have a look on this page more regularly. <br>
-                    For users who search for events, when searching any event in your region or time frame you wish, you could see right away which are events that have a little celebration inside then usual event. The event description will give you more info. <br> <br>
-
-                    Let´s celebrate! <br> <br>
-
-                    The calendar team <br>',
-                    'linkText' => '',
-                      'linkUrl'  => '',
+                      Send us a little text or just a picture that is sharing your feeling/belonging/relation with/understanding of with CI.<br>
+                      We will collect all the thoughts and pics creating a Global CI BodiesDiary! <br><br>
+                    ',
+                    'linkText' => 'Send text',
+                      'linkUrl'  => 'https://ciglobalcalendar.net/contactForm/compose/communication',
                    ])
             </div>
         </div>
     </div>
-    --}}
+
     
 
 
