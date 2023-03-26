@@ -23,18 +23,15 @@ class CommunityGoalsClass
      **/
     public function getCommunityGoals($postBody)
     {
-
         // Find plugin occurrences
         $ptn = '/{# +community_goals +(backed_amount|goal_amount|backers_number|days_left)=\[(.*)\] +(backed_amount|goal_amount|backers_number|days_left)=\[(.*)\] +(backed_amount|goal_amount|backers_number|days_left)=\[(.*)\] +(backed_amount|goal_amount|backers_number|days_left)=\[(.*)\] +#}/';
 
         if (preg_match_all($ptn, $postBody, $matches)) {
-
-                // Trasform the matches array in a way that can be used
+            // Trasform the matches array in a way that can be used
             $matches = $this->turn_array($matches);
 
             foreach ($matches as $key => $single_category_column_matches) {
-
-                        // Get plugin parameters array
+                // Get plugin parameters array
                 $parameters = $this->getParameters($single_category_column_matches);
 
                 // Prepare Stats HTML

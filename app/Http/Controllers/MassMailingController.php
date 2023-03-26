@@ -40,7 +40,6 @@ class MassMailingController extends Controller
      */
     public function massMailingSend(Request $request)
     {
-
         // Validate form datas
         $validator = Validator::make($request->all(), [
             'message' => 'required',
@@ -69,7 +68,7 @@ class MassMailingController extends Controller
             //if ($user->id == 1){
             $report['emailTo'] = $user->email;
             //Mail::send(new MassMailing($report));
-                Mail::later($when, new MassMailing($report)); //send an email each minute to avoid Mailgun limitation (https://github.com/davide-casiraghi/ci-global-calendar/issues/167)
+            Mail::later($when, new MassMailing($report)); //send an email each minute to avoid Mailgun limitation (https://github.com/davide-casiraghi/ci-global-calendar/issues/167)
             //}
         }
 

@@ -13,7 +13,6 @@ class AccordionClass
 {
     public function getAccordion($postBody)
     {
-
         // Load the accordion template
         $sliderTemplate = "<div class='accordion'>";
         $sliderTemplate .= '<h3>{SLIDER_TITLE}</h3>';
@@ -25,14 +24,14 @@ class AccordionClass
             $regex = "#(?:<p>)?\{slide[r]?=([^}]+)\}(?:</p>)?(.*?)(?:<p>)?\{/slide[r]?\}(?:</p>)?#s";
 
             $postBody = preg_replace(
-                    $regex,
-                    str_replace(
-                        ['{SLIDER_TITLE}', '{SLIDER_CONTENT}'],
-                        ['$1', '$2'],
-                        $sliderTemplate
-                    ),
-                    $postBody
-                );
+                $regex,
+                str_replace(
+                    ['{SLIDER_TITLE}', '{SLIDER_CONTENT}'],
+                    ['$1', '$2'],
+                    $sliderTemplate
+                ),
+                $postBody
+            );
         }
 
         return $postBody;

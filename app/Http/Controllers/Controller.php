@@ -69,7 +69,6 @@ class Controller extends BaseController
      */
     public function uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth)
     {
-
         // Create dir if not exist (in /storage/app/public/images/..)
         if (! \Storage::disk('public')->has('images/'.$imageSubdir.'/')) {
             \Storage::disk('public')->makeDirectory('images/'.$imageSubdir.'/');
@@ -89,9 +88,9 @@ class Controller extends BaseController
 
         // Create the thumb
         $image->resize($thumbWidth, null,
-                    function ($constraint) {
-                        $constraint->aspectRatio();
-                    })
+            function ($constraint) {
+                $constraint->aspectRatio();
+            })
                 ->save(storage_path($destinationPath.'thumb_'.$imageName), 75);
     }
 

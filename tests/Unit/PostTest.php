@@ -56,7 +56,6 @@ class PostTest extends TestCase
      */
     public function test_guest_user_can_see_single_post()
     {
-
         // Access to the page (post.show)
         $response = $this->get('/posts/'.$this->post->id.'/')
                          ->assertStatus(200);
@@ -106,7 +105,6 @@ class PostTest extends TestCase
      */
     public function test_admin_user_can_update_post()
     {
-
         // Authenticate the admin
         $this->authenticateAsAdmin();
 
@@ -128,7 +126,6 @@ class PostTest extends TestCase
      */
     public function test_admin_user_can_delete_post()
     {
-
         // Authenticate the admin
         $this->authenticateAsAdmin();
 
