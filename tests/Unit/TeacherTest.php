@@ -50,7 +50,6 @@ class TeacherTest extends TestCase
      */
     public function test_guest_user_can_see_single_teacher()
     {
-
         // Access to the page (teacher.show)
         $response = $this->get('/teachers/'.$this->teacher->id.'/')
                          ->assertStatus(200);
@@ -99,7 +98,6 @@ class TeacherTest extends TestCase
      */
     public function test_guest_user_can_update_teacher()
     {
-
         // Authenticate the user
         $this->authenticate();
 
@@ -121,7 +119,6 @@ class TeacherTest extends TestCase
      */
     public function test_guest_user_can_delete_teacher()
     {
-
         // Authenticate the user
         $this->authenticate();
 

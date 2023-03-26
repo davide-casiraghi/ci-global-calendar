@@ -21,17 +21,14 @@ class PaypalButtonClass
      **/
     public function getPaypalButton($postBody)
     {
-
         // Find plugin occurrences
         $ptn = '/{# +paypal_button +(button_id)=\[(.*)\] #}/';
 
         if (preg_match_all($ptn, $postBody, $matches)) {
-
             // Trasform the matches array in a way that can be used
             $matches = $this->turn_array($matches);
 
             foreach ($matches as $key => $paypal_button_matches) {
-
                 // Get plugin parameters array
                 $parameters = $this->getParameters($paypal_button_matches);
 

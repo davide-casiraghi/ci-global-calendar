@@ -26,17 +26,14 @@ class StatsDonateClass
      **/
     public function getStatsDonate($postBody)
     {
-
         // Find plugin occurrences
         $ptn = '/{# +stats_donate +(coding_hours|pm_hours|steering_commitee_meetings|languages_number)=\[(.*)\] +(coding_hours|pm_hours|steering_commitee_meetings|languages_number)=\[(.*)\] +(coding_hours|pm_hours|steering_commitee_meetings|languages_number)=\[(.*)\] +(coding_hours|pm_hours|steering_commitee_meetings|languages_number)=\[(.*)\] +#}/';
 
         if (preg_match_all($ptn, $postBody, $matches)) {
-
             // Trasform the matches array in a way that can be used
             $matches = $this->turn_array($matches);
 
             foreach ($matches as $key => $single_category_column_matches) {
-
                 // Get plugin parameters array
                 $parameters = $this->getParameters($single_category_column_matches);
 

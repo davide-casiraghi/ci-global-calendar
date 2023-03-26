@@ -36,7 +36,6 @@ class LoginPage extends Page
      */
     public function loginUser(Browser $browser)
     {
-
         // Create the test user if it doesn't exist
         if (! User::where('email', '=', 'testuser@dusk.com')->exists()) {
             $user = factory(User::class)->create([
@@ -68,7 +67,6 @@ class LoginPage extends Page
      */
     public function loginSuperAdministrator(Browser $browser)
     {
-
         // Create the test user if it doesn't exist
         if (! User::where('email', '=', 'super_adminuser@dusk.com')->exists()) {
             $user = factory(User::class)->create([
@@ -92,7 +90,6 @@ class LoginPage extends Page
      */
     public function loginAdministrator(Browser $browser)
     {
-
         // Create the test user if it doesn't exist
         if (! User::where('email', '=', 'adminuser@dusk.com')->exists()) {
             $user = factory(User::class)->create([
@@ -116,7 +113,6 @@ class LoginPage extends Page
      */
     public function logoutUser(Browser $browser)
     {
-
         //$browser->logout(); // this does't work  - still to get why..
         $browser->visit('/_dusk/logout/'); // so we do that the method logout does
     }

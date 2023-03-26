@@ -18,7 +18,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
         // FIX THE LOCALE BUG WITH CARBON - https://vegibit.com/what-is-a-view-composer-in-laravel/
         View::composer('*', function ($view) {
             $locale = App::getLocale();

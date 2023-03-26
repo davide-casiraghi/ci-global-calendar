@@ -45,15 +45,15 @@ class CardClass
         $imageAlignment = $matches[4];
 
         switch ($imageAlignment) {
-                     case 'left':
-                         $ret['img_col_order_class'] = 'order-md-1';
-                         $ret['text_col_order_class'] = 'order-md-2';
-                         break;
-                     case 'right':
-                         $ret['img_col_order_class'] = 'order-md-2';
-                         $ret['text_col_order_class'] = 'order-md-1';
-                         break;
-                 }
+            case 'left':
+                $ret['img_col_order_class'] = 'order-md-1';
+                $ret['text_col_order_class'] = 'order-md-2';
+                break;
+            case 'right':
+                $ret['img_col_order_class'] = 'order-md-2';
+                $ret['text_col_order_class'] = 'order-md-1';
+                break;
+        }
 
         //dump($ret);
 
@@ -147,18 +147,15 @@ class CardClass
      **/
     public function getCard($postBody)
     {
-
         // Find plugin occurrences
         $ptn = '/{# +card +(post_id|img_alignment|img_col_size|bkg_color|text_color|container_wrap)=\[(.*)\] +(post_id|img_alignment|img_col_size|bkg_color|text_color|container_wrap)=\[(.*)\] +(post_id|img_alignment|img_col_size|bkg_color|text_color|container_wrap)=\[(.*)\] +(post_id|img_alignment|img_col_size|bkg_color|text_color|container_wrap)=\[(.*)\] +(post_id|img_alignment|img_col_size|bkg_color|text_color|container_wrap)=\[(.*)\] +(post_id|img_alignment|img_col_size|bkg_color|text_color|container_wrap)=\[(.*)\] +#}/';
 
         if (preg_match_all($ptn, $postBody, $matches)) {
-
-                // Trasform the matches array in a way that can be used
+            // Trasform the matches array in a way that can be used
             $matches = $this->turn_array($matches);
             //dd($matches);
             foreach ($matches as $key => $single_gallery_matches) {
-
-                        // Get plugin parameters array
+                // Get plugin parameters array
                 $parameters = $this->getParameters($single_gallery_matches);
 
                 // Get the post data

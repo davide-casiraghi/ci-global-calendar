@@ -89,18 +89,18 @@ class User extends Authenticatable
     {
         $ret = '';
         switch ($group_id) {
-             case null:
-                 $ret = 'Manager';
-                 break;
+            case null:
+                $ret = 'Manager';
+                break;
 
-             case 2:
-                 $ret = 'Administrator';
-                 break;
+            case 2:
+                $ret = 'Administrator';
+                break;
 
-             case 1:
-                 $ret = 'Super Administrator';
-                 break;
-         }
+            case 1:
+                $ret = 'Super Administrator';
+                break;
+        }
 
         return $ret;
     }

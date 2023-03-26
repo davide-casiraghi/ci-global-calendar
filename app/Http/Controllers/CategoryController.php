@@ -53,7 +53,6 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-
         // Validate form datas
         $validator = Validator::make($request->all(), [
             'name' => 'required',
@@ -92,7 +91,6 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-
         // Set the default language to edit the post for the admin to English (to avoid bug with null titles)
         //App::setLocale('en');
 

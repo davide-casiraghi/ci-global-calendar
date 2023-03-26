@@ -25,7 +25,6 @@ class GenerateMenus
      */
     public function handle($request, Closure $next)
     {
-
         /* LEFT Menu */
         \Menu::make('MyNavBar', function ($menu) {
             $profile = $menu->add('home')->link->href('/');
@@ -47,7 +46,6 @@ class GenerateMenus
             $user = Auth::user();
 
             if ($user) {
-
                 /* Manager */
                 $profile = $menu->add('manager')->link->href('#');
                 $profile->builder->items[0]->title = '<i class="fa fas fa-edit"></i> '.__('menu.manager');
@@ -63,7 +61,6 @@ class GenerateMenus
                 $profile->builder->items[5]->title = '<i class="fas fa-users"></i> '.__('menu.my_organizers');
 
                 if ($user->isSuperAdmin() || $user->isAdmin()) {
-
                     /* Admin tools */
                     $profile = $menu->add('admin_tools')->link->href('#');
                     $profile->builder->items[6]->title = '<i class="far fa-cog"></i> '.__('menu.admin_tools');

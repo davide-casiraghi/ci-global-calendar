@@ -49,7 +49,6 @@ class OrganizerTest extends TestCase
      */
     public function test_guest_user_can_see_single_organizer()
     {
-
         // Access to the page (teacher.show)
         $response = $this->get('/organizers/'.$this->organizer->id.'/')
                          ->assertStatus(200);
@@ -95,7 +94,6 @@ class OrganizerTest extends TestCase
      */
     public function test_guest_user_can_update_organizer()
     {
-
         // Authenticate the user
         $this->authenticate();
 
@@ -117,7 +115,6 @@ class OrganizerTest extends TestCase
      */
     public function test_guest_user_can_delete_organizer()
     {
-
         // Authenticate the user
         $this->authenticate();
 

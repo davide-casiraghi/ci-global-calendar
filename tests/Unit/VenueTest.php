@@ -49,7 +49,6 @@ class VenueTest extends TestCase
      */
     public function test_guest_user_can_see_single_venue()
     {
-
         // Access to the page (teacher.show)
         $response = $this->get('/eventVenues/'.$this->venue->id.'/')
                          ->assertStatus(200);
@@ -98,7 +97,6 @@ class VenueTest extends TestCase
      */
     public function test_guest_user_can_update_venue()
     {
-
         // Authenticate the user
         $this->authenticate();
 
@@ -120,7 +118,6 @@ class VenueTest extends TestCase
      */
     public function test_guest_user_can_delete_venue()
     {
-
         // Authenticate the user
         $this->authenticate();
 

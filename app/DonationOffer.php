@@ -71,22 +71,22 @@ class DonationOffer extends Model
     public static function getDonationStatusBadge($status)
     {
         switch ($status) {
-              case 1:
-                  $ret = "<span class='badge badge-success float-right'>".__('donations.status_available').'</span>';
-                  break;
-              case 2:
-                  $ret = "<span class='badge badge-warning float-right'>".__('donations.status_expired').'</span>';
-                  break;
-              case 3:
-                  $ret = "<span class='badge badge-secondary float-right'>".__('donations.status_used').'</span>';
-                  break;
-              case 4:
-                  $ret = "<span class='badge badge-danger float-right'>".__('donations.status_refused').'</span>';
-                  break;
-              default:
-                 $ret = '';
-                 break;
-          }
+            case 1:
+                $ret = "<span class='badge badge-success float-right'>".__('donations.status_available').'</span>';
+                break;
+            case 2:
+                $ret = "<span class='badge badge-warning float-right'>".__('donations.status_expired').'</span>';
+                break;
+            case 3:
+                $ret = "<span class='badge badge-secondary float-right'>".__('donations.status_used').'</span>';
+                break;
+            case 4:
+                $ret = "<span class='badge badge-danger float-right'>".__('donations.status_refused').'</span>';
+                break;
+            default:
+                $ret = '';
+                break;
+        }
 
         return $ret;
     }

@@ -30,7 +30,6 @@ class PostController extends Controller
      */
     public function __construct()
     {
-
         //Restrict the access to this resource just to logged in users except show view
         $this->middleware('admin', ['except' => ['show', 'postBySlug']]);
     }
@@ -115,7 +114,6 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-
         // Validate form datas
         $validator = Validator::make($request->all(), [
             'title' => 'required',
@@ -147,7 +145,6 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-
         // Accordion
         $accordionClass = new AccordionClass();
         $post->body = $accordionClass->getAccordion($post->body);

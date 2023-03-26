@@ -106,7 +106,6 @@ class GalleryClass
      **/
     public function generateThumbs($images_dir, $thumbs_dir, $thumbs_size, $image_files)
     {
-
         // Thumbnails size
         $thumbs_width = $thumbs_size['width'];
         $thumbs_height = $thumbs_size['height'];
@@ -145,7 +144,6 @@ class GalleryClass
      **/
     public function createImagesArray($image_files, $image_data, $gallery_url)
     {
-
         //dump($image_data, "image data");
 
         // Order by image name
@@ -193,7 +191,6 @@ class GalleryClass
      **/
     public function prepareGallery($images)
     {
-
         // Animate item on hover
         $itemClass = 'animated';
 
@@ -201,8 +198,7 @@ class GalleryClass
         $ret = "<div class='gallery'>";
 
         foreach ($images as $k => $image) {
-
-                    // Get item link
+            // Get item link
             $imageLink = ($image['video_link'] == null) ? $image['file_path'] : $image['video_link'];
             $videoPlayIcon = ($image['video_link'] == null) ? '' : "<i class='far fa-play-circle'></i>";
 
@@ -287,18 +283,15 @@ class GalleryClass
      **/
     public function getGallery($postBody, $storagePath, $publicPath)
     {
-
         // Find plugin occurrences
         $ptn = '/{# +gallery +(src|width|height)=\[(.*)\] +(src|width|height)=\[(.*)\] +(src|width|height)=\[(.*)\] +#}/';
 
         if (preg_match_all($ptn, $postBody, $matches)) {
-
-                // Trasform the matches array in a way that can be used
+            // Trasform the matches array in a way that can be used
             $matches = $this->turn_array($matches);
 
             foreach ($matches as $key => $single_gallery_matches) {
-
-                        // Get plugin parameters array
+                // Get plugin parameters array
                 $parameters = $this->getParameters($single_gallery_matches, $storagePath, $publicPath);
 
                 if (is_dir($parameters['images_dir'])) {
