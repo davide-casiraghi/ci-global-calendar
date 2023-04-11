@@ -172,8 +172,8 @@
 
                       bodydiary@ciglobalcalendar.net
                     ',
-                    //'linkText' => 'Send text',
-                    //  'linkUrl'  => 'https://ciglobalcalendar.net/contactForm/compose/communication',
+                    'linkText' => '',
+                      'linkUrl'  => '',
                    ])
             </div>
         </div>
