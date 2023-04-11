@@ -169,9 +169,11 @@
 
                       Send us a little text or just a picture that is sharing your feeling/belonging/relation with/understanding of with CI.<br>
                       We will collect all the thoughts and pics creating a Global CI BodiesDiary! <br><br>
+
+                      bodydiary@ciglobalcalendar.net
                     ',
-                    'linkText' => 'Send text',
-                      'linkUrl'  => 'https://ciglobalcalendar.net/contactForm/compose/communication',
+                    //'linkText' => 'Send text',
+                    //  'linkUrl'  => 'https://ciglobalcalendar.net/contactForm/compose/communication',
                    ])
             </div>
         </div>
