@@ -33,7 +33,6 @@ class ContactFormController extends Controller
      */
     public function contactFormSend(Request $request)
     {
-
         // Validate form datas
         /*$validator = Validator::make($request->all(), [
             'name' => 'required',

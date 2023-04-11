@@ -111,7 +111,6 @@ class UserController extends Controller
     public function edit(User $user)
     {
         if (Auth::user()->id == $user->id || Auth::user()->isSuperAdmin() || Auth::user()->isAdmin()) {  // Just Admins and the owner are allowed to edit the user profile
-
             $countries = Country::getCountries();
 
             // We check the user group to hide the group selection dropdown when the user is a guest

@@ -104,18 +104,15 @@ class ColumnsClass
      **/
     public function getColumns($postBody)
     {
-
         // Find plugin occurrences
         $ptn = '/{# +columns +(category_id|show_images|round_images|show_category_title)=\[(.*)\] +(category_id|show_images|round_images|show_category_title)=\[(.*)\] +(category_id|show_images|round_images|show_category_title)=\[(.*)\] +(category_id|show_images|round_images|show_category_title)=\[(.*)\] +#}/';
 
         if (preg_match_all($ptn, $postBody, $matches)) {
-
-                // Trasform the matches array in a way that can be used
+            // Trasform the matches array in a way that can be used
             $matches = $this->turn_array($matches);
 
             foreach ($matches as $key => $single_category_column_matches) {
-
-                        // Get plugin parameters array
+                // Get plugin parameters array
                 $parameters = $this->getParameters($single_category_column_matches);
 
                 // Get the post and category data
