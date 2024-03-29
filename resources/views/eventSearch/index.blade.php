@@ -163,7 +163,7 @@
                 'title' =>  'A new project by CIGlobal Calendar! ',
                       'text' =>  '
                       <br>
-                      CI Bodies Dairy! a virtual space where to share, celebrate and document our relation and love for CI. <br><br>
+                      CI Bodies Diary! a virtual space where to share, celebrate and document our relation and love for CI. <br><br>
                       What CI is for you? <br>
                       What CI brings/brought to your life?<br><br>
 
