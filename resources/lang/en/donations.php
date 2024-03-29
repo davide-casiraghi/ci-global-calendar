@@ -15,7 +15,7 @@ return [
     'assigned_to' => 'Assigned to',
     'assigned_when' => 'Assigned when',
     'free_entrances' => 'Free entrances',
-    'financial_contributions'  => 'Financial contributions',
+    'financial_contributions' => 'Financial contributions',
     'volunteers_list' => 'Volunteers list',
     'create_new_donation_offer' => 'Create new donation offer',
     'donation_form_title' => 'Donate for the CI Global Calendar',

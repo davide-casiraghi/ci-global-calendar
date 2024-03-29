@@ -41,33 +41,33 @@ class EventExpireAutoMailControllerTest extends TestCase
         $this->venue = factory(EventVenue::class)->create();
         $this->teachers = factory(Teacher::class, 3)->create();
         $this->organizers = factory(Organizer::class, 3)->create();
-        $this->eventCategory = factory(EventCategory::class)->create(['id'=>'100']);
+        $this->eventCategory = factory(EventCategory::class)->create(['id' => '100']);
 
         // Event one week from now (expiring)
         $this->event1 = factory(Event::class)->create([
             'created_by' => $this->user1->id,
             'title' => 'event expiring in one week',
-            'venue_id'=> $this->venue->id,
+            'venue_id' => $this->venue->id,
             'category_id' => '1',
             'repeat_type' => 2,   // weekly
             //'repeat_until'=> '2020-02-24 00:00:00',
-            'repeat_until'=> Carbon::now()->addDays(6)->toDateString(),
+            'repeat_until' => Carbon::now()->addDays(6)->toDateString(),
         ]);
         $this->eventRepetition1 = factory(EventRepetition::class)->create([
-            'event_id'=> $this->event1->id,
+            'event_id' => $this->event1->id,
         ]);
 
         // Event tomorrow (already sent notification)
         $this->event2 = factory(Event::class)->create([
             'created_by' => $this->user2->id,
             'title' => 'event tomorrow',
-            'venue_id'=> $this->venue->id,
+            'venue_id' => $this->venue->id,
             'category_id' => '1',
             'repeat_type' => 3,   // monthy
-            'repeat_until'=> Carbon::now()->addDay(2)->toDateString(),
+            'repeat_until' => Carbon::now()->addDay(2)->toDateString(),
         ]);
         $this->eventRepetition2 = factory(EventRepetition::class)->create([
-            'event_id'=> $this->event2->id,
+            'event_id' => $this->event2->id,
             'start_repeat' => Carbon::now()->addDay()->toDateString(),
             'end_repeat' => Carbon::now()->addDay()->addHour()->toDateString(),
         ]);
@@ -76,25 +76,25 @@ class EventExpireAutoMailControllerTest extends TestCase
         $this->event3 = factory(Event::class)->create([
             'created_by' => $this->user1->id,
             'title' => 'event expiring in one week - no repeat',
-            'venue_id'=> $this->venue->id,
+            'venue_id' => $this->venue->id,
             'category_id' => '1',
             'repeat_type' => 1,   // No repeat
             //'repeat_until'=> '2020-02-24 00:00:00',
-            'repeat_until'=> null,
+            'repeat_until' => null,
         ]);
 
         // Event one week from now (not yet expiring)
         $this->event4 = factory(Event::class)->create([
             'created_by' => $this->user1->id,
             'title' => 'event expiring in one week',
-            'venue_id'=> $this->venue->id,
+            'venue_id' => $this->venue->id,
             'category_id' => '1',
             'repeat_type' => 2,   // weekly
             //'repeat_until'=> '2020-02-24 00:00:00',
-            'repeat_until'=> Carbon::now()->addDays(14)->toDateString(),
+            'repeat_until' => Carbon::now()->addDays(14)->toDateString(),
         ]);
         $this->eventRepetition4 = factory(EventRepetition::class)->create([
-            'event_id'=> $this->event1->id,
+            'event_id' => $this->event1->id,
         ]);
     }
 

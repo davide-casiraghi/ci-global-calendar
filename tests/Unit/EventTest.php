@@ -31,10 +31,10 @@ class EventTest extends TestCase
         $this->venue = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\EventVenue::class)->create();
         $this->teachers = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\Teacher::class, 3)->create();
         $this->organizers = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\Organizer::class, 3)->create();
-        $this->eventCategory = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\EventCategory::class)->create(['id'=>'100']);
+        $this->eventCategory = factory(\DavideCasiraghi\LaravelEventsCalendar\Models\EventCategory::class)->create(['id' => '100']);
         $this->event = factory(Event::class)->create([
-            'category_id'=>'100',
-            'venue_id'=> $this->venue->id,
+            'category_id' => '100',
+            'venue_id' => $this->venue->id,
         ]);
     }
 
@@ -165,7 +165,7 @@ class EventTest extends TestCase
             'message' => $this->faker->paragraph,
             'event_title' => $this->faker->sentence($nbWords = 3),
             'event_id' => $this->event->id,
-            'contact_email' =>  $this->faker->email(),
+            'contact_email' => $this->faker->email(),
         ];
         $response = $this
                         ->followingRedirects()

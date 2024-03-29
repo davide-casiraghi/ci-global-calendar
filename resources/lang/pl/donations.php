@@ -15,7 +15,7 @@ return [
     'assigned_to' => 'Przypisana do',
     'assigned_when' => 'Przypisana kiedy',
     'free_entrances' => 'Darmowe wejściówki',
-    'financial_contributions'  => 'Wsparcie finansowe',
+    'financial_contributions' => 'Wsparcie finansowe',
     'volunteers_list' => 'Lista wolontariuszy',
     'create_new_donation_offer' => 'Utwórz nową ofertę darowizny',
     'donation_form_title' => 'Wpłać darowiznę na Kalendarz Globalny CI',

@@ -99,12 +99,12 @@ class RegisterController extends Controller
 
         // Validate form datas
         $rules = [
-            'name'     => 'required|string|max:255',
-            'email'    => 'required|string|email|max:255|unique:users',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'country_id' => 'required|integer',
             'description' => 'required',
-            'accept_terms' =>'required',
+            'accept_terms' => 'required',
             //'g-recaptcha-response' => 'required|captcha',
             'recaptcha_sum_1' => [
                 'required',

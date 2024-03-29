@@ -35,24 +35,24 @@ class DonationOffer extends Model
     public static function getDonationKindArray()
     {
         $ret = [
-            1 =>[
-                'label'=> __('donations.donation_kind_financial'),
-                'icon'=> 'far fa-hand-holding-usd',
+            1 => [
+                'label' => __('donations.donation_kind_financial'),
+                'icon' => 'far fa-hand-holding-usd',
                 'id' => 'offerFinancial',
             ],
-            2 =>[
-                'label'=> __('donations.donation_kind_free_entrance'),
-                'icon'=> 'far fa-ticket-alt',
+            2 => [
+                'label' => __('donations.donation_kind_free_entrance'),
+                'icon' => 'far fa-ticket-alt',
                 'id' => 'offerFreeEntrance',
             ],
-            3 =>[
-                'label'=> __('donations.donation_kind_volunteer'),
-                'icon'=> 'far fa-hands-helping',
+            3 => [
+                'label' => __('donations.donation_kind_volunteer'),
+                'icon' => 'far fa-hands-helping',
                 'id' => 'offerVolunteer',
             ],
-            4 =>[
-                'label'=> __('donations.donation_kind_other_gift'),
-                'icon'=> 'far fa-gift',
+            4 => [
+                'label' => __('donations.donation_kind_other_gift'),
+                'icon' => 'far fa-gift',
                 'id' => 'offerOtherGift',
             ],
         ];

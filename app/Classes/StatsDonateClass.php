@@ -21,8 +21,8 @@ class StatsDonateClass
     /**
      *  Substitute in the post HTML, the activation string with the stats HTML.
      *
-     *  @param string $postBody
-     *  @return string
+     * @param  string  $postBody
+     * @return string
      **/
     public function getStatsDonate($postBody)
     {
@@ -55,8 +55,8 @@ class StatsDonateClass
     /**
      *  Turn array of the metches after preg_match_all function (taken from - https://secure.php.net/manual/en/function.preg-match-all.php).
      *
-     *  @param array $file_name        the file name
-     *  @return array $ret             the extension
+     * @param  array  $file_name  the file name
+     * @return array $ret             the extension
      **/
     public function turn_array($m)
     {
@@ -75,8 +75,8 @@ class StatsDonateClass
      *  Returns the parameters from the activation string
      *  The $matches come from the regular expression on the string from the article.
      *
-     *  @param array $matches
-     *  @return array
+     * @param  array  $matches
+     * @return array
      **/
     public function getParameters($matches)
     {
@@ -101,8 +101,8 @@ class StatsDonateClass
      *  Return the stats HTML ready to be rendered.
      *  Parameters array: [coding_hours, pm_hours, steering_commitee_meetings, languages_number].
      *
-     *  @param array $parameters
-     *  @return string
+     * @param  array  $parameters
+     * @return string
      **/
     public function prepareStatsDonate($parameters)
     {
