@@ -109,7 +109,7 @@ class TeacherTest extends TestCase
                         ->assertSee('Teacher updated successfully');
 
         // Check the update on DB
-        $this->assertDatabaseHas('teachers', ['id'=> $this->teacher->id, 'name' => 'New Name']);
+        $this->assertDatabaseHas('teachers', ['id' => $this->teacher->id, 'name' => 'New Name']);
     }
 
     /***************************************************************************/
@@ -129,6 +129,6 @@ class TeacherTest extends TestCase
                         ->assertSee('Teacher deleted successfully');
 
         // Check the update on DB
-        $this->assertDatabaseMissing('teachers', ['id'=> $this->teacher->id]);
+        $this->assertDatabaseMissing('teachers', ['id' => $this->teacher->id]);
     }
 }

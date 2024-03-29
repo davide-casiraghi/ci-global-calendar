@@ -116,7 +116,7 @@ class PostTest extends TestCase
                         ->assertSee(__('messages.article_updated_successfully'));
 
         // Check the update on DB
-        $this->assertDatabaseHas('post_translations', ['post_id'=> $this->post->id, 'title' => 'Updated Title']);
+        $this->assertDatabaseHas('post_translations', ['post_id' => $this->post->id, 'title' => 'Updated Title']);
     }
 
     /***************************************************************************/
@@ -136,7 +136,7 @@ class PostTest extends TestCase
                         ->assertSee(__('messages.article_deleted_successfully'));
 
         // Check the update on DB
-        $this->assertDatabaseMissing('post_translations', ['id'=> $this->post->id]);
+        $this->assertDatabaseMissing('post_translations', ['id' => $this->post->id]);
     }
 
     /***************************************************************************/

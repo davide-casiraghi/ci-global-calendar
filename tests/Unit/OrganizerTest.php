@@ -105,7 +105,7 @@ class OrganizerTest extends TestCase
                         ->assertSee('Organizer updated successfully');
 
         // Check the update on DB
-        $this->assertDatabaseHas('organizers', ['id'=> $this->organizer->id, 'name' => 'New Name']);
+        $this->assertDatabaseHas('organizers', ['id' => $this->organizer->id, 'name' => 'New Name']);
     }
 
     /***************************************************************************/
@@ -126,6 +126,6 @@ class OrganizerTest extends TestCase
                         ->assertSee('Organizer deleted successfully');
 
         // Check the update on DB
-        $this->assertDatabaseMissing('organizers', ['id'=> $this->organizer->id]);
+        $this->assertDatabaseMissing('organizers', ['id' => $this->organizer->id]);
     }
 }

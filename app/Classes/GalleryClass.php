@@ -15,8 +15,8 @@ class GalleryClass
     /**
      *  Returns the plugin parameters.
      *
-     *  @param array $matches       result from the regular expression on the string from the article
-     *  @return array $ret          the array containing the parameters
+     * @param  array  $matches  result from the regular expression on the string from the article
+     * @return array $ret          the array containing the parameters
      **/
     public function getParameters($matches, $storagePath, $publicPath)
     {
@@ -52,10 +52,10 @@ class GalleryClass
     /**
      *  Generate a single thumbnail file from an image.
      *
-     *  @param array $src               path of the original image
-     *  @param array $dest              path of the generated thumbnail
-     *  @param array $desired_width     width of the thumbnail
-     *  @return create a file
+     * @param  array  $src  path of the original image
+     * @param  array  $dest  path of the generated thumbnail
+     * @param  array  $desired_width  width of the thumbnail
+     * @return create a file
      **/
     public function generate_single_thumb_file($src, $dest, $desired_width, $desired_height)
     {
@@ -99,10 +99,10 @@ class GalleryClass
     /**
      *  Generate all the thumbnails of the gallery.
      *
-     *  @param string $images_dir        images dir on the server
-     *  @param string $thumbs_dir        thumb dir on the server
-     *  @param array $image_files
-     *  @return generate thumbnail files
+     * @param  string  $images_dir  images dir on the server
+     * @param  string  $thumbs_dir  thumb dir on the server
+     * @param  array  $image_files
+     * @return generate thumbnail files
      **/
     public function generateThumbs($images_dir, $thumbs_dir, $thumbs_size, $image_files)
     {
@@ -118,7 +118,7 @@ class GalleryClass
         // Generate missing thumbs
         if (count($image_files)) {
             $index = 0;
-            foreach ($image_files as $index=>$file) {
+            foreach ($image_files as $index => $file) {
                 $index++;
                 $thumbnail_image = $thumbs_dir.$file;
                 if (! file_exists($thumbnail_image)) {
@@ -137,10 +137,10 @@ class GalleryClass
     /**
      *  Create images array.
      *
-     *  @param array $image_files           array with all the image names
-     *  @param ***array $dest              path of the generated thumbnail
-     *  @param ****array $desired_width     width of the thumbnail
-     *  @return $ret    array with the images datas
+     * @param  array  $image_files  array with all the image names
+     * @param ***array $dest              path of the generated thumbnail
+     * @param ****array $desired_width     width of the thumbnail
+     * @return $ret    array with the images datas
      **/
     public function createImagesArray($image_files, $image_data, $gallery_url)
     {
@@ -167,8 +167,8 @@ class GalleryClass
     /**
      *  Get images files name array.
      *
-     *  @param $images_dir           the images dir on the server
-     *  @return array $ret           array containing all the images file names
+     * @param  $images_dir  the images dir on the server
+     * @return array $ret           array containing all the images file names
      **/
     public function getImageFiles($images_dir)
     {
@@ -182,12 +182,12 @@ class GalleryClass
     /**
      *  Prepare the gallery HTML.
      *
-     *  @param array $images                        Images array [file_path, short_desc, long_desc]
-     *  @param array $bootstrapDeviceImageWidth     array that contain the sizes of the images
-     *                                              for the four kind of bootrap devices classes ()
-     *                                              xs (phones), sm (tablets), md (desktops), and lg (larger desktops)
-     *  @param ****array $desired_width     width of the thumbnail
-     *  @return string $ret             the HTML to print on screen
+     * @param  array  $images  Images array [file_path, short_desc, long_desc]
+     * @param  array  $bootstrapDeviceImageWidth  array that contain the sizes of the images
+     *                                            for the four kind of bootrap devices classes ()
+     *                                            xs (phones), sm (tablets), md (desktops), and lg (larger desktops)
+     * @param ****array $desired_width     width of the thumbnail
+     * @return string $ret             the HTML to print on screen
      **/
     public function prepareGallery($images)
     {
@@ -220,9 +220,9 @@ class GalleryClass
     /**
      *  Returns files from dir.
      *
-     *  @param string $images_dir                 The images directory
-     *  @param array $exts     the file types (actually doesn't work the thumb with png, it's to study why)
-     *  @return array $files             the files array
+     * @param  string  $images_dir  The images directory
+     * @param  array  $exts  the file types (actually doesn't work the thumb with png, it's to study why)
+     * @return array $files             the files array
      **/
     public function get_files($images_dir, $exts = ['jpg'])
     {
@@ -246,8 +246,8 @@ class GalleryClass
     /**
      *  Returns a file's extension.
      *
-     *  @param string $file_name        the file name
-     *  @return string                  the extension
+     * @param  string  $file_name  the file name
+     * @return string the extension
      **/
     public function get_file_extension($file_name)
     {
@@ -259,8 +259,8 @@ class GalleryClass
     /**
      *  Turn array of the metches after preg_match_all function (taken from - https://secure.php.net/manual/en/function.preg-match-all.php).
      *
-     *  @param array $file_name        the file name
-     *  @return array $ret             the extension
+     * @param  array  $file_name  the file name
+     * @return array $ret             the extension
      **/
     public function turn_array($m)
     {
@@ -278,8 +278,8 @@ class GalleryClass
     /**
      *  Return the post body with the gallery HTML instead of the found snippet.
      *
-     *  @param array $file_name        the file name
-     *  @return array $ret             the extension
+     * @param  array  $file_name  the file name
+     * @return array $ret             the extension
      **/
     public function getGallery($postBody, $storagePath, $publicPath)
     {

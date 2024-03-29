@@ -108,7 +108,7 @@ class VenueTest extends TestCase
                         ->assertSee(__('messages.venue_updated_successfully'));
 
         // Check the update on DB
-        $this->assertDatabaseHas('event_venues', ['id'=> $this->venue->id, 'name' => 'New Name']);
+        $this->assertDatabaseHas('event_venues', ['id' => $this->venue->id, 'name' => 'New Name']);
     }
 
     /***************************************************************************/
@@ -128,6 +128,6 @@ class VenueTest extends TestCase
                         ->assertSee(__('messages.venue_deleted_successfully'));
 
         // Check the update on DB
-        $this->assertDatabaseMissing('event_venues', ['id'=> $this->venue->id]);
+        $this->assertDatabaseMissing('event_venues', ['id' => $this->venue->id]);
     }
 }

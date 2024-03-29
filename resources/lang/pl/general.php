@@ -16,7 +16,7 @@ return [
     'events' => 'Wydarzenia',
     'event' => 'Wydarzenie',
     'venue' => 'Miejsce',
-    'post'=> 'Artykuły',
+    'post' => 'Artykuły',
     'from' => 'Od',
     'to' => 'Do',
     'by' => 'Przez',
